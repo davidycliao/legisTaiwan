@@ -1,4 +1,4 @@
-# legisTaiwan: An Interface to Access Taiwan Legislative Database <img width="right" height="150" src="https://github.com/yl17124/legisTaiwan/blob/master/images/hexsticker_tw.png">
+# legisTaiwan: An Interface to Access Taiwan Legislative Database <img src="https://github.com/yl17124/legisTaiwan/blob/master/images/hexsticker_tw.png"  width="160" align="right" /> <br /> 
 
 
 
