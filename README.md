@@ -2,6 +2,6 @@
 
 
 
-<p align="left">
-  <img width="left" height="200" src="https://github.com/yl17124/legisTaiwan/blob/master/images/hexsticker_tw.png">
+<p align="right">
+  <img width="left" height="150" src="https://github.com/yl17124/legisTaiwan/blob/master/images/hexsticker_tw.png">
 </p>
