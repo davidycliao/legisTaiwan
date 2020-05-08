@@ -1,13 +1,6 @@
 # legisTaiwan: An Interface to Access Taiwan Legislative Database <img src="https://github.com/yl17124/legisTaiwan/blob/master/images/hexsticker_tw.png"  width="160" align="right" /> <br /> 
 
 
-
-<p align="right">
-  <img width="right" height="150" src="https://github.com/yl17124/legisTaiwan/blob/master/images/hexsticker_tw.png">
-</p>
-
-
-
 # legislatoR: Interface to the Comparative <img src="images/sticker.jpg" width="160" align="right" /> <br /> Legislators Database
 
 [![Travis-CI Build Status](https://travis-ci.org/saschagobel/legislatoR.svg?branch=master)](https://travis-ci.org/saschagobel/legislatoR)
