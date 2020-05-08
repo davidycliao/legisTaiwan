@@ -1,0 +1,22 @@
+Package: legisTaiwan
+Type: Package
+Title: An Interface to Access Taiwan Legislative Database and Simplified Functions to Estimate Legislator's Ideological Positionings 
+Version: 0.1.0
+Authors@R: person("Yeb-Chieh", "Liao", email = "first.last@example.com",                     role = c("aut", "cre"))
+Author: Yen-Chieh Liao
+Description: PhD project
+Maintainer:  Yen-Chieh Liao <yl17124@essex.ac.uk>
+Description: The package Yen-Chieh Liao' PhD 
+Depends: R (>= 3.1.0)
+Imports:
+    dplyr,
+    ggvis,
+    basicspace,
+    pscl,
+    wnominate
+License: MIT
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+Suggests: 
+    testthat
