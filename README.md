@@ -3,4 +3,4 @@
 
 
 
-legislatoR is a package for R software environment that facilitates access to the Taiwan Legislators Database  with simplified functions to approach estimates from legislator's ideological positionings. The dataset includes legislator's votte decision on roll call, political and sociodemographic career.
+legislatoR is a package for R software environment that facilitates access to the Taiwan Legislators Database  with simplified functions to approach estimates from ideological positionings. The dataset includes legislator's votte decision on roll call, political and sociodemographic career.
