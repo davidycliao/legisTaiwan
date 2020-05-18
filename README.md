@@ -3,4 +3,4 @@
 
 
 
-legisTaiwan is a package for R software environment that facilitates access to the Taiwan Legislative Database  with simplified functions to approach estimates from ideological positionings. The dataset includes legislator's votte decision on roll call, political and sociodemographic career.
+legisTaiwan is a package for R software environment that facilitates access to the Taiwan Legislative Database  with simplified functions to approach estimates from ideological positionings. The dataset includes legislator's vote decision on roll call, political and sociodemographic career.
