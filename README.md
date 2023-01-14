@@ -2,7 +2,9 @@
 
 [![R](https://github.com/davidycliao/legisTaiwan/actions/workflows/r.yml/badge.svg)](https://github.com/davidycliao/legisTaiwan/actions/workflows/r.yml)
 
-`legisTaiwan` is an R package for downloading the legislative data of spoken meeting records and bill sponsor/co-sponsor via the [Taiwan Legislative Yuan](https://www.ly.gov.tw/Home/Index.aspx).
+`legisTaiwan` is an R package for downloading the legislative data of spoken meeting records and bill sponsor/co-sponsor via the [Taiwan Legislative Yuan](https://www.ly.gov.tw/Home/Index.aspx). Let's make Taiwan and our government more transparent and better. 
+
+
 
 
 ## Install from GitHub Using remotes.
