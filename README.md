@@ -1,6 +1,7 @@
 # legisTaiwan: An Interface to Access Taiwan Legislative API <img src="https://raw.githack.com/davidycliao/figures/master/hexsticker_tw.png" width="140" align="right" /> <br /> 
 
-`legisTaiwan` is an R package for downloading spoken record and bill data from the [Taiwan Legislative Yuan](https://www.ly.gov.tw/Home/Index.aspx).
+
+`legisTaiwan` is an R package for downloading spoken meeting records and bill data from the [Taiwan Legislative Yuan](https://www.ly.gov.tw/Home/Index.aspx).
 
 
 ## Install from GitHub Using remotes.
