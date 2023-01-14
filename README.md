@@ -24,7 +24,6 @@ get_meetings(start_date = 1060120, end_date = 1070310)
 ```
 get_meetings(start_date = 1060120, end_date = 1070310, meeting_unit = "內政委員會")
 get_meetings(start_date = 1060120, end_date = 1070310, meeting_unit = "內政委員會&院會")
-
 ```
 
 ### Search Records of Bill Sponsor and Co-sponsor
