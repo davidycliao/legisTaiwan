@@ -15,12 +15,12 @@ remotes::install_github("davidycliao/legisTaiwan")
 
 ### Search Spoken Meetings
 
-- Query by specifying meeting unit
+- Query by time range
 ```
 get_meetings(start_date = 1060120, end_date = 1070310)
 ```
 
-- Query without specifying meeting unitㄋ
+- Query without specifying a meeting unit or more
 
 ```
 get_meetings(start_date = 1060120, end_date = 1070310, meeting_unit = "內政委員會")
@@ -29,13 +29,13 @@ get_meetings(start_date = 1060120, end_date = 1070310, meeting_unit = "內政委
 
 ### Search Records of Bill Sponsor and Co-sponsor
 
-- Query bill records without specifying legislator
+- Query bill records by time range
 
 ```
 get_bills(start_date = 1060120, end_date = 1070310)
 ```
 
-- Query bill records by individual legislator or more
+- Query bill records by specifying individual legislator or more
 
 ```
 get_bills(start_date = 1060120, end_date = 1070310,  proposer = "孔文吉")
