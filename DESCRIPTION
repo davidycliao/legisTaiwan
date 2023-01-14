@@ -1,31 +1,19 @@
 Package: legisTaiwan
 Type: Package
-Title: An Interface to Access Taiwan Legislative Database and Simplified Functions to Estimate Legislator's Ideological Positionings 
+Title: An Interface to Fetch Taiwan Legislative Yuan API
 Version: 0.1.0
-Authors@R: person("Yeb-Chieh", "Liao", email = "yl17124@essex.ac.uk", role = c("aut", "cre"))
-Description: PhD project
-Maintainer:  Yen-Chieh Liao <yl17124@essex.ac.uk>
-Description: The package restores Taiwan legislative database and scripts to estimate ideoliogical positioninigs.
+Authors@R: person("Yeb-Chieh", "Liao", email = "davidyclaio@gmail.com", role = c("aut", "cre"))
+Description: This package provides functions for downloading data from the
+    Taiwan Legislative Yuan. 
+Maintainer: David Yen-Chieh Liao <davidyclaio@gmail.com>
 Depends: R (>= 3.5.0)
-Imports:
-    anominate,
-    basicspace,
-    ellipse,
-    extrafont,
-    emIRT,
-    ggridges,
-    ggjoy,
-    pscl,
-    plotly,
-    readxl,
-    reshape2,
-    wnominate,
-    MCMCpack,
-    latex2exp,
-    tidyverse
-License: MIT
+License: GPL (>=2)
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.1.1
-Suggests: 
-    testthat
+Imports:
+	jsonlite,
+	attempt,
+	stringr,
+  curl
+Suggests: testthat
+RoxygenNote: 7.2.3
