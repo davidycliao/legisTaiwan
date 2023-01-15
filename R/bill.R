@@ -18,7 +18,6 @@
 #'@seealso
 #' \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}
 
-
 get_bills <- function(start_date = NULL , end_date = NULL, proposer = NULL, verbose = TRUE){
   start_time <- Sys.time()
   check_internet()
@@ -29,19 +28,18 @@ get_bills <- function(start_date = NULL , end_date = NULL, proposer = NULL, verb
   set_api_url <- paste("https://www.ly.gov.tw/WebAPI/LegislativeBill.aspx?from=",
                        start_date, "&to=",end_date , "&proposer=", proposer,  "&mode=json",sep ="")
   json.df <- jsonlite::fromJSON(set_api_url)
-  df <- as.data.frame(json.df)
-  df["date"] <- do.call("c", lapply(df$smeeting_date, transformed_date))
+  df <- tibble::as_tibble(json.df)
+  df["date"] <- do.call("c", lapply(df$date, transformed_date_bill))
   end_time <- Sys.time()
   time <- end_time - start_time
   return(df)
   if (isTRUE(verbose)) {
     cat(" Retrieved URL: \n", set_api_url ,"\n")
-    cat(" Retrieved Bill Sponsor: \n", proposer ,"\n")
-    cat(" Retrieved Date:", nrow(df))
-    cat(" Retrieved Time Spent:", time[1])
+    cat(" Retrieved Bill Sponsor: ", proposer ,"\n")
+    cat(" Retrieved Date:", nrow(df) ,"\n")
+    cat(" Retrieved Time Spent:", time[1],"\n")
     cat(" Retrieved Num:", nrow(df))
   }
 }
-
 
 

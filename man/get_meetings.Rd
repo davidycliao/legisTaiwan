@@ -23,7 +23,7 @@ If a double is used, it should specify as Taiwan calendar format, e.g. 1090110.}
 \item{verbose}{The default value is TRUE, displaying the discription of data retrieved in number, url and computing time.}
 }
 \value{
-A data frame contains the date, status, name, content and speakers.
+A tibble dataframe contains the date, status, name, content and speakers.
 }
 \description{
 Retrieving the meeting records via Taiwan Legislative Yuan (The Legislature) API

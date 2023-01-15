@@ -13,6 +13,7 @@ Imports:
 	jsonlite,
 	attempt,
 	stringr,
-  curl
+  curl,
+  tibble
 Suggests: testthat
 RoxygenNote: 7.2.3

@@ -7,7 +7,7 @@
 #'If a double is used, it should specify as Taiwan calendar format, e.g. 1090110.
 #'@param meeting_unit The default is NULL, which include all meetings  between the starting date and the ending date.
 #'@param verbose The default value is TRUE, displaying the discription of data retrieved in number, url and computing time.
-#'@return A data frame contains the date, status, name, content and speakers.
+#'@return A tibble dataframe contains the date, status, name, content and speakers.
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
@@ -29,18 +29,19 @@ get_meetings <- function(start_date = NULL , end_date = NULL, meeting_unit = NUL
   set_api_url <- paste("https://www.ly.gov.tw/WebAPI/LegislativeSpeech.aspx?from=",
                        start_date, "&to=",end_date , "&meeting_unit=", meeting_unit,  "&mode=json",sep ="")
   json.df <- jsonlite::fromJSON(set_api_url)
-  df <- as.data.frame(json.df)
-  df["date"] <- do.call("c", lapply(df$smeeting_date, transformed_date))
+  df <- tibble::as_tibble(json.df)
+  df["date"] <- do.call("c", lapply(df$smeeting_date, transformed_date_meeting))
   end_time <- Sys.time()
   time <- end_time - start_time
-  return(df)
   if (isTRUE(verbose)) {
     cat(" Retrieved URL: \n", set_api_url ,"\n")
-    cat(" Retrieved Bill Sponsor: \n", meeting_unit ,"\n")
-    cat(" Retrieved Date:", nrow(df))
-    cat(" Retrieved Time Spent:", time[1])
+    cat(" Retrieved via :", meeting_unit ,"\n")
+    cat(" Retrieved Date:", nrow(df),"\n")
+    cat(" Retrieved Time Spent:", time[1],"\n")
     cat(" Retrieved Num:", nrow(df))
   }
+  return(df)
 }
+
 
 

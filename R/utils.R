@@ -21,7 +21,7 @@ check_internet <- function(x = curl::has_internet()){
 }
 
 
-#' A function for transforming date from Taiwan ROC calendar into A.D. format
+#' Transforming meeting date in Taiwan ROC calendar to A.D. format
 #'
 #'@param rocdate Date format in Taiwan ROC calendar (e.g., "105/05/31") as a string vector
 #'@return date
@@ -29,13 +29,34 @@ check_internet <- function(x = curl::has_internet()){
 #'@importFrom stringr str_split_1
 #'@export
 #'@examples
-#'transformed_date("105/05/31")
+#'transformed_date_meeting("105/05/31")
 
-transformed_date <- function(rocdate){
+transformed_date_meeting <- function(rocdate){
   rocdate <- stringr::str_split_1(rocdate, "/")
   date_ad <- as.Date(as.POSIXct(paste(as.numeric(rocdate[1])+1911,
                                       rocdate[2],
                                       rocdate[3], sep = "-"),
+                                origin = "1582-10-14", tz = "GMT"))
+  return(date_ad)
+}
+
+
+
+#' Transforming bill proposed date in Taiwan ROC calendar to A.D. format
+#'
+#'@param rocdate Date format in Taiwan ROC calendar (e.g., "1050531") as a string vector
+#'@return date
+#'
+#'@importFrom stringr str_sub
+#'@export
+#'@examples
+#'transformed_date_bill("1050531")
+
+transformed_date_bill <- function(rocdate){
+  rocyear <- stringr::str_sub(rocdate,-2,-1)
+  month <- stringr::str_sub(rocdate,-4,-3)
+  day <- stringr::str_sub(rocdate, 1, nchar(rocdate) - nchar(stringr::str_sub(rocdate,-4,-1)))
+  date_ad <- as.Date(as.POSIXct(paste(as.numeric(rocyear) + 1911, month, day, sep = "-"),
                                 origin = "1582-10-14", tz = "GMT"))
   return(date_ad)
 }
