@@ -16,7 +16,8 @@
 #'@examples
 #'get_bills(1070120, 1070210)
 #'@seealso
-#' \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}
+#'\url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}
+
 
 get_bills <- function(start_date = NULL , end_date = NULL, proposer = NULL, verbose = TRUE){
   start_time <- Sys.time()
@@ -27,19 +28,32 @@ get_bills <- function(start_date = NULL , end_date = NULL, proposer = NULL, verb
   attempt::stop_if_all(end_date, is.null, msg = "You need to specify end_date")
   set_api_url <- paste("https://www.ly.gov.tw/WebAPI/LegislativeBill.aspx?from=",
                        start_date, "&to=",end_date , "&proposer=", proposer,  "&mode=json",sep ="")
-  json.df <- jsonlite::fromJSON(set_api_url)
-  df <- tibble::as_tibble(json.df)
-  df["date"] <- do.call("c", lapply(df$date, transformed_date_bill))
-  end_time <- Sys.time()
-  time <- end_time - start_time
+
+  tryCatch(
+    # evaluate the valid date period and legislator
+    {
+      json.df <- jsonlite::fromJSON(set_api_url)
+      df <- tibble::as_tibble(json.df)
+      df["date_ad"] <- do.call("c", lapply(df$date, transformed_date_bill))
+      end_time <- Sys.time()
+      time <- end_time - start_time
+      if (isTRUE(verbose)) {
+        cat(" Retrieved URL: \n", set_api_url ,"\n")
+        cat(" Retrieved Bill Sponsor(s): ", proposer ,"\n")
+        cat(" Retrieved Date:", as.Date(Sys.time()) ,"\n")
+        cat(" Retrieved Time Spent:", time[1],"\n")
+        cat(" Retrieved Num:", nrow(df))
+      }
+      return(df)
+    },
+    error=function(error_message) {
+      message("Warning: Search dates or legislators are valid")
+      message("Info: The error message from Taiwan Legislative Yuan API via R:")
+      message(error_message)
+      return(NA)
+    }
+  )
   return(df)
-  if (isTRUE(verbose)) {
-    cat(" Retrieved URL: \n", set_api_url ,"\n")
-    cat(" Retrieved Bill Sponsor: ", proposer ,"\n")
-    cat(" Retrieved Date:", nrow(df) ,"\n")
-    cat(" Retrieved Time Spent:", time[1],"\n")
-    cat(" Retrieved Num:", nrow(df))
-  }
 }
 
 

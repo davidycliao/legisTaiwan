@@ -4,13 +4,13 @@
 \alias{transformed_date_bill}
 \title{Transforming bill proposed date in Taiwan ROC calendar to A.D. format}
 \usage{
-transformed_date_bill(rocdate)
+transformed_date_bill(ROCdate)
 }
 \arguments{
-\item{rocdate}{Date format in Taiwan ROC calendar (e.g., "1050531") as a string vector}
+\item{rocdate}{date format in Taiwan ROC calendar (e.g., "1050531") as a string vector}
 }
 \value{
-date
+date format in A.D. format
 }
 \description{
 Transforming bill proposed date in Taiwan ROC calendar to A.D. format
