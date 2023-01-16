@@ -46,7 +46,7 @@ get_bills <- function(start_date = NULL, end_date = NULL,
       df <- tibble::as_tibble(json_df)
       attempt::stop_if_all(length(df) == 0, isTRUE, msg = "The query unavailable
                            during the period of the dates")
-      df["date_ad"] <- do.call("c", lapply(df$date, transformed_date_bill))
+      df["date_ad"] <- do.call("c", lapply(df$date, legisTaiwan::transformed_date_bill))
       if (isTRUE(verbose)) {
         cat(" Retrieved URL: \n", set_api_url, "\n")
         cat(" Retrieved Bill Sponsor(s): ", proposer, "\n")

@@ -2,6 +2,7 @@
 
 export(.onAttach)
 export(check_date)
+export(check_internet)
 export(get_bills)
 export(get_meetings)
 export(transformed_date_bill)

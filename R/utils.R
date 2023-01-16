@@ -12,7 +12,7 @@
 #'
 #'@param x  The default value is curl::has_internet(), which activate the
 #'internet check.
-#'#'@export
+#'@export
 #'@importFrom attempt stop_if_not
 #'@importFrom curl has_internet
 check_internet <- function(x = curl::has_internet()) {

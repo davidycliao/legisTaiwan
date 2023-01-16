@@ -49,7 +49,7 @@ get_meetings <- function(start_date = NULL, end_date = NULL,
       df <- tibble::as_tibble(json_df)
       attempt::stop_if_all(length(df) == 0, isTRUE, msg =
                              "The query unavailable by the period of the dates")
-      df["date_ad"] <- do.call("c", lapply(df$smeeting_date, transformed_date_meeting))
+      df["date_ad"] <- do.call("c", lapply(df$smeeting_date, legisTaiwan::transformed_date_meeting))
       if (isTRUE(verbose)) {
         cat(" Retrieved URL: \n", set_api_url, "\n")
         cat(" Retrieved via :", meeting_unit, "\n")
