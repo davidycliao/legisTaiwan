@@ -47,13 +47,13 @@ get_meetings(start_date = 1060120, end_date = 1070310, meeting_unit = "內政委
 
 ### Search Records of Bill Sponsor and Co-sponsor
 
+- Query bill records by time range
+
 ```
-# query bill records by time range
 get_bills(start_date = 1060120, end_date = 1070310)
 ```
-
 <p align="center">
-  <img width="800" height="220" src="https://raw.githack.com/davidycliao/figures/master/4.png" >
+  <img width="550" height="320" src="https://raw.githack.com/davidycliao/figures/master/4.png" >
 </p>
 
 - Query the bill records by individual legislator 
