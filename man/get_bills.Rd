@@ -2,26 +2,33 @@
 % Please edit documentation in R/bill.R
 \name{get_bills}
 \alias{get_bills}
-\title{Retrieving the records of billsponsor and co-sponsor via Taiwan Legislative Yuan API}
+\title{Retrieving the records of billsponsor and co-sponsor
+via Taiwan Legislative Yuan API}
 \usage{
 get_bills(start_date = NULL, end_date = NULL, proposer = NULL, verbose = TRUE)
 }
 \arguments{
-\item{start_date}{Requesting meeting records starting from the date. A double represents a date in ROC Taiwan format.
-If a double is used, it should specify as Taiwan calendar format, e.g. 1090110.}
+\item{start_date}{Requesting meeting records starting from the date. A double
+represents a date in ROC Taiwan format. If a double is used, it should specify
+as Taiwan calendar format, e.g. 1090110.}
 
-\item{end_date}{Requesting meeting records ending from the date. A double represents a date in ROC Taiwan format.
-If a double is used, it should specify as Taiwan calendar format, e.g. 1090110.}
+\item{end_date}{Requesting meeting records ending from the date. A double
+represents a date in ROC Taiwan format.If a double is used, it should specify
+as Taiwan calendar format, e.g. 1090110.}
 
-\item{proposer}{The default value is NULL, which means all bill records are included between the starting date and the ending date.}
+\item{proposer}{The default value is NULL, which means all bill records are
+included between the starting date and the ending date.}
 
-\item{verbose}{The default value is TRUE, displaying the discription of data retrieved in number, url and computing time.}
+\item{verbose}{The default value is TRUE, displaying the discription of data
+retrieved in number, url and computing time.}
 }
 \value{
-A data frame contains the date, term, name, sessionPeriod, sessionPeriod,  billProposerand, billCosignatory, billStatus (mostly in null).
+A data frame contains the date, term, name, sessionPeriod,
+sessionPeriod,  billProposerand, billCosignatory, billStatus (mostly in null).
 }
 \description{
-Retrieving the records of billsponsor and co-sponsor via Taiwan Legislative Yuan API
+Retrieving the records of billsponsor and co-sponsor
+via Taiwan Legislative Yuan API
 }
 \examples{
 get_bills(1070120, 1070210)

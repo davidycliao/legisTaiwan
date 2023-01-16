@@ -2,7 +2,8 @@
 % Please edit documentation in R/meeting.R
 \name{get_meetings}
 \alias{get_meetings}
-\title{Retrieving the meeting records via Taiwan Legislative Yuan (The Legislature) API}
+\title{Retrieving the meeting records via
+Taiwan Legislative Yuan (The Legislature) API}
 \usage{
 get_meetings(
   start_date = NULL,
@@ -12,21 +13,29 @@ get_meetings(
 )
 }
 \arguments{
-\item{start_date}{Requesting meeting records starting from the date. A double represents a date in ROC Taiwan format.
-If a double is used, it should specify as Taiwan calendar format, e.g. 1090110.}
+\item{start_date}{Requesting meeting records starting from the date.
+A double represents a date in ROC Taiwan format.
+If a double is used, it should specify as Taiwan
+calendar format, e.g. 1090110.}
 
-\item{end_date}{Requesting meeting records ending from the date. A double represents a date in ROC Taiwan format.
-If a double is used, it should specify as Taiwan calendar format, e.g. 1090110.}
+\item{end_date}{Requesting meeting records ending from the date.
+A double represents a date in ROC Taiwan format.
+If a double is used, it should specify as Taiwan
+calendar format, e.g. 1090110.}
 
-\item{meeting_unit}{The default is NULL, which include all meetings  between the starting date and the ending date.}
+\item{meeting_unit}{The default is NULL, which include all meetings
+between the starting date and the ending date.}
 
-\item{verbose}{The default value is TRUE, displaying the discription of data retrieved in number, url and computing time.}
+\item{verbose}{The default value is TRUE, displaying the description
+of data retrieved in number, url and computing time.}
 }
 \value{
-A tibble dataframe contains the date, status, name, content and speakers.
+A tibble dataframe contains the date, status,
+name, content and speakers.
 }
 \description{
-Retrieving the meeting records via Taiwan Legislative Yuan (The Legislature) API
+Retrieving the meeting records via
+Taiwan Legislative Yuan (The Legislature) API
 }
 \examples{
 get_meetings(1070120, 1070210)

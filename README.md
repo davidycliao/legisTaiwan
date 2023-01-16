@@ -16,7 +16,8 @@ Let's make Taiwan and our country more transparent and better.
 
 ```
 install.packages("remotes")
-remotes::install_github("davidycliao/legisTaiwan")
+remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
+library(legisTaiwan)
 ```
 
 ## Quick Start
@@ -72,7 +73,6 @@ get_bills(start_date = 1060120, end_date = 1070310,  proposer = "孔文吉")
 <p align="center">
   <img width="950" height="280" src="https://raw.githack.com/davidycliao/figures/master/5.png" >
 </p>
-
 
 ```
 # query bill records by a period of the dates in Taiwan ROC calender format 

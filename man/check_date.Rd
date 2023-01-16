@@ -4,10 +4,11 @@
 \alias{check_date}
 \title{Checking the date}
 \usage{
-check_date(ROCdate)
+check_date(roc_date)
 }
 \arguments{
-\item{ROCdate}{date format in Taiwan ROC calendar (e.g., "1050531") as a string vector}
+\item{roc_date}{date format in Taiwan ROC calendar (e.g., "1050531") as
+a string vector}
 }
 \value{
 date format in A.D. format

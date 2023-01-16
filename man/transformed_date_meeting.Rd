@@ -4,10 +4,11 @@
 \alias{transformed_date_meeting}
 \title{Transforming meeting date in Taiwan ROC calendar to A.D. format}
 \usage{
-transformed_date_meeting(ROCdate)
+transformed_date_meeting(roc_date)
 }
 \arguments{
-\item{ROCdate}{Date format in Taiwan ROC calendar (e.g., "105/05/31") as a string vector}
+\item{roc_date}{Date format in Taiwan ROC calendar (e.g., "105/05/31")
+as a string vector}
 }
 \value{
 date format in A.D. format
