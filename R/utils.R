@@ -6,7 +6,7 @@
   # x <- regexpr("[0-9]{4}", crearted_date)
   # this.year <- substr(crearted_date, x[1], x[1] + attr(x, "match.length") - 1)
   packageStartupMessage("## legisTaiwan")
-  packageStartupMessage("## R package for downloading spoken meeting records, bill sponsors and more from the Taiwian Legislative Yuan API.")
+  packageStartupMessage("## R package for downloading spoken meeting records, bill sponsors and more from the Taiwan Legislative Yuan API.")
 }
 
 

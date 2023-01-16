@@ -34,21 +34,20 @@ get_bills <- function(start_date = NULL , end_date = NULL, proposer = NULL, verb
     {
       json.df <- jsonlite::fromJSON(set_api_url)
       df <- tibble::as_tibble(json.df)
+      attempt::stop_if_all(length(df) == 0, isTRUE, msg = "The query unavailable during the period of the dates")
       df["date_ad"] <- do.call("c", lapply(df$date, transformed_date_bill))
       end_time <- Sys.time()
       time <- end_time - start_time
       if (isTRUE(verbose)) {
         cat(" Retrieved URL: \n", set_api_url ,"\n")
         cat(" Retrieved Bill Sponsor(s): ", proposer ,"\n")
-        cat(" Retrieved Date:", as.Date(Sys.time()) ,"\n")
-        cat(" Retrieved Time Spent:", time[1],"\n")
-        cat(" Retrieved Num:", nrow(df))
+        cat(" Retrieved Num:", nrow(df),"\n")
       }
       return(df)
     },
     error=function(error_message) {
       message("Warning: The dates or the legislator(s) are not available in the database")
-      message("Info: The error message from Taiwan Legislative Yuan API:")
+      message("INFO: The error message from the Taiwan Legislative Yuan API or R:")
       message(error_message)
       return(NA)
     }
