@@ -6,7 +6,7 @@ Authors@R: person("Yeb-Chieh", "Liao", email = "davidyclaio@gmail.com", role = c
 Description: This package provides functions for downloading legislative data via the Taiwan Legislative Yuan API. 
 Maintainer: David Yen-Chieh Liao <davidyclaio@gmail.com>
 Depends: R (>= 3.6.3)
-License: GPL (>=2)
+License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:
@@ -17,3 +17,5 @@ Imports:
   tibble
 Suggests: testthat
 RoxygenNote: 7.2.3
+
+
