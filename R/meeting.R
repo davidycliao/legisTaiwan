@@ -22,7 +22,7 @@
 get_meetings <- function(start_date = NULL , end_date = NULL, meeting_unit = NULL, verbose = TRUE){
   start_time <- Sys.time()
   check_internet()
-  attempt::stop_if_all(check_date(end_date) > check_date(start_date), isFALSE, msg = paste("start date," ,start_date, ",", "should not be later than end date ,", end_date, "." ,sep = ""))
+  attempt::stop_if_all(check_date(end_date) > check_date(start_date), isFALSE, msg = paste("The start date," ,start_date, ",", "should not be later than the end date ,", end_date, "." ,sep = " "))
   attempt::stop_if_all(start_date, is.character, msg = "use numeric format")
   attempt::stop_if_all(end_date, is.character, msg = "use numeric format")
   attempt::stop_if_all(start_date, is.null, msg = "start_date is missing")
@@ -48,7 +48,7 @@ get_meetings <- function(start_date = NULL , end_date = NULL, meeting_unit = NUL
       return(df)
     },
     error = function(error_message) {
-      message("Warning: dates or legislators are not available")
+      message("Warning: The dates or the meeting unit(s) are not available in the database")
       message("INFO: The error message from Taiwan Legislative Yuan API:")
       message(error_message)
       return(NA)
