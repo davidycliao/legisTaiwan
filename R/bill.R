@@ -27,15 +27,15 @@
 get_bills <- function(start_date = NULL, end_date = NULL,
                       proposer = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
-  attempt::stop_if_all(legisTaiwan::check_date(end_date) > legisTaiwan::check_date(start_date), isFALSE,
-                       msg = paste("The start date,", start_date, ",",
-                                   "should not be later than the end date,",
-                                   end_date, ".", sep = " "))
   attempt::stop_if_all(start_date, is.character,
                        msg = "use numeric format only")
   attempt::stop_if_all(end_date, is.character, msg = "use numeric format only")
   attempt::stop_if_all(start_date, is.null, msg = "start_date is missing")
   attempt::stop_if_all(end_date, is.null, msg = "end_date is missing")
+  attempt::stop_if_all(legisTaiwan::check_date(end_date) > legisTaiwan::check_date(start_date), isFALSE,
+                       msg = paste("The start date,", start_date, ",",
+                                   "should not be later than the end date,",
+                                   end_date, ".", sep = " "))
   set_api_url <- paste("https://www.ly.gov.tw/WebAPI/LegislativeBill.aspx?from=",
                        start_date, "&to=", end_date, "&proposer=", proposer,
                        "&mode=json", sep = "")
