@@ -2,7 +2,7 @@
 % Please edit documentation in R/bill.R
 \name{get_bills}
 \alias{get_bills}
-\title{Retrieving the records of billsponsor and co-sponsor
+\title{Retrieving the records of bill sponsor and co-sponsor
 via Taiwan Legislative Yuan API}
 \usage{
 get_bills(start_date = NULL, end_date = NULL, proposer = NULL, verbose = TRUE)
@@ -27,7 +27,7 @@ A data frame contains the date, term, name, sessionPeriod,
 sessionPeriod,  billProposerand, billCosignatory, billStatus (mostly in null).
 }
 \description{
-Retrieving the records of billsponsor and co-sponsor
+Retrieving the records of bill sponsor and co-sponsor
 via Taiwan Legislative Yuan API
 }
 \examples{

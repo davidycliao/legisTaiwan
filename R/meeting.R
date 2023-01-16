@@ -30,6 +30,10 @@
 get_meetings <- function(start_date = NULL, end_date = NULL,
                          meeting_unit = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
+  attempt::stop_if_all(check_date(start_date) > as.Date(Sys.time()),
+                       isTRUE, msg = "The searching date should not be after system time")
+  attempt::stop_if_all(check_date(end_date) > as.Date(Sys.time()),
+                       isTRUE, msg = "The ending date should not be after system time")
   attempt::stop_if_all(start_date, is.character, msg = "use numeric format")
   attempt::stop_if_all(end_date, is.character, msg = "use numeric format")
   attempt::stop_if_all(start_date, is.null, msg = "start_date is missing")
@@ -53,13 +57,14 @@ get_meetings <- function(start_date = NULL, end_date = NULL,
       if (isTRUE(verbose)) {
         cat(" Retrieved URL: \n", set_api_url, "\n")
         cat(" Retrieved via :", meeting_unit, "\n")
-        cat(" Retrieved Num:", nrow(df), "\n")
+        cat(" Retrieved date between:", as.character(check_date(start_date)), "and", as.character(check_date(end_date)) , "\n")
+        cat(" Retrieved number:", nrow(df), "\n")
       }
       return(df)
     },
     error = function(error_message) {
       message("Warning: The dates or the meeting unit(s) are not available in the database")
-      message("INFO: The error message from the Taiwan Legislative Yuan API/R:")
+      message("INFO: The error message from the Taiwan Legislative Yuan API or R:")
       message(error_message)
       return(NA)
     }
