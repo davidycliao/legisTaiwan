@@ -44,7 +44,7 @@ transformed_date_meeting <- function(rocdate){
 
 #' Transforming bill proposed date in Taiwan ROC calendar to A.D. format
 #'
-#'@param rocdate date format in Taiwan ROC calendar (e.g., "1050531") as a string vector
+#'@param ROCdate date format in Taiwan ROC calendar (e.g., "1050531") as a string vector
 #'@return date format in A.D. format
 #'
 #'@importFrom stringr str_sub

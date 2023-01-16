@@ -7,7 +7,7 @@
 transformed_date_bill(ROCdate)
 }
 \arguments{
-\item{rocdate}{date format in Taiwan ROC calendar (e.g., "1050531") as a string vector}
+\item{ROCdate}{date format in Taiwan ROC calendar (e.g., "1050531") as a string vector}
 }
 \value{
 date format in A.D. format
