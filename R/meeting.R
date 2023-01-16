@@ -30,10 +30,10 @@
 get_meetings <- function(start_date = NULL, end_date = NULL,
                          meeting_unit = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
-  attempt::stop_if_all(check_date(start_date) > as.Date(Sys.time()),
-                       isTRUE, msg = "The searching date should not be after system time")
-  attempt::stop_if_all(check_date(end_date) > as.Date(Sys.time()),
-                       isTRUE, msg = "The ending date should not be after system time")
+  attempt::stop_if_all(legisTaiwan::check_date(start_date) > as.Date(Sys.time()),
+                       isTRUE, msg = "The start date should not be after system time")
+  attempt::stop_if_all(legisTaiwan::check_date(end_date) > as.Date(Sys.time()),
+                       isTRUE, msg = "The end date should not be after system time")
   attempt::stop_if_all(start_date, is.character, msg = "use numeric format")
   attempt::stop_if_all(end_date, is.character, msg = "use numeric format")
   attempt::stop_if_all(start_date, is.null, msg = "start_date is missing")

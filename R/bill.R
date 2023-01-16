@@ -27,10 +27,10 @@
 get_bills <- function(start_date = NULL, end_date = NULL,
                       proposer = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
-  attempt::stop_if_all(check_date(start_date) > as.Date(Sys.time()),
-                       isTRUE, msg = "The searching date should not be after system time")
-  attempt::stop_if_all(check_date(end_date) > as.Date(Sys.time()),
-                       isTRUE, msg = "The ending date should not be after system time")
+  attempt::stop_if_all(legisTaiwan::check_date(start_date) > as.Date(Sys.time()),
+                       isTRUE, msg = "The start date should not be after system time")
+  attempt::stop_if_all(legisTaiwan::check_date(end_date) > as.Date(Sys.time()),
+                       isTRUE, msg = "The end date should not be after system time")
   attempt::stop_if_all(start_date, is.character,
                        msg = "use numeric format only")
   attempt::stop_if_all(end_date, is.character, msg = "use numeric format only")
@@ -54,7 +54,7 @@ get_bills <- function(start_date = NULL, end_date = NULL,
       if (isTRUE(verbose)) {
         cat(" Retrieved URL: \n", set_api_url, "\n")
         cat(" Retrieved Bill Sponsor(s): ", proposer, "\n")
-        cat(" Retrieved date between:", as.character(check_date(start_date)), "and", as.character(check_date(end_date)) , "\n")
+        cat(" Retrieved date between:", as.character(legisTaiwan::check_date(start_date)), "and", as.character(legisTaiwan::check_date(end_date)) , "\n")
         cat(" Retrieved Num:", nrow(df), "\n")
       }
       return(df)
