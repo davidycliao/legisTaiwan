@@ -26,7 +26,7 @@
 
 get_bills <- function(start_date = NULL, end_date = NULL,
                       proposer = NULL, verbose = TRUE) {
-  check_internet()
+  legisTaiwan::check_internet()
   attempt::stop_if_all(legisTaiwan::check_date(end_date) > legisTaiwan::check_date(start_date), isFALSE,
                        msg = paste("The start date,", start_date, ",",
                                    "should not be later than the end date,",
