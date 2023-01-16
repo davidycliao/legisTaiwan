@@ -22,13 +22,13 @@
 get_bills <- function(start_date = NULL , end_date = NULL, proposer = NULL, verbose = TRUE){
   start_time <- Sys.time()
   check_internet()
-  attempt::stop_if_all(start_date, is.character, msg = "Please use numeric format")
-  attempt::stop_if_all(end_date, is.character, msg = "Please use numeric format")
-  attempt::stop_if_all(start_date, is.null, msg = "You need to specify start_date")
-  attempt::stop_if_all(end_date, is.null, msg = "You need to specify end_date")
+  attempt::stop_if_all(check_date(end_date) > check_date(start_date), isFALSE, msg = paste("start date," ,start_date, ",", "should not be later than end date ,", end_date, "." ,sep = ""))
+  attempt::stop_if_all(start_date, is.character, msg = "use numeric format only")
+  attempt::stop_if_all(end_date, is.character, msg = "use numeric format only")
+  attempt::stop_if_all(start_date, is.null, msg = "start_date is missing")
+  attempt::stop_if_all(end_date, is.null, msg = "end_date is missing")
   set_api_url <- paste("https://www.ly.gov.tw/WebAPI/LegislativeBill.aspx?from=",
                        start_date, "&to=",end_date , "&proposer=", proposer,  "&mode=json",sep ="")
-
   tryCatch(
     # evaluate the valid date period and legislator
     {
@@ -47,8 +47,8 @@ get_bills <- function(start_date = NULL , end_date = NULL, proposer = NULL, verb
       return(df)
     },
     error=function(error_message) {
-      message("Warning: Search dates or legislators are valid")
-      message("Info: The error message from Taiwan Legislative Yuan API via R:")
+      message("Warning: dates or legislators are not available")
+      message("Info: The error message from Taiwan Legislative Yuan API:")
       message(error_message)
       return(NA)
     }

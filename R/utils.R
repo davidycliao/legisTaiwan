@@ -23,19 +23,19 @@ check_internet <- function(x = curl::has_internet()){
 
 #' Transforming meeting date in Taiwan ROC calendar to A.D. format
 #'
-#'@param rocdate Date format in Taiwan ROC calendar (e.g., "105/05/31") as a string vector
-#'@return date
+#'@param ROCdate Date format in Taiwan ROC calendar (e.g., "105/05/31") as a string vector
+#'@return date format in A.D. format
 #'
 #'@importFrom stringr str_split_1
 #'@export
 #'@examples
 #'transformed_date_meeting("105/05/31")
 
-transformed_date_meeting <- function(rocdate){
-  rocdate <- stringr::str_split_1(rocdate, "/")
-  date_ad <- as.Date(as.POSIXct(paste(as.numeric(rocdate[1])+1911,
-                                      rocdate[2],
-                                      rocdate[3], sep = "-"),
+transformed_date_meeting <- function(ROCdate){
+  ROCdate <- stringr::str_split_1(ROCdate, "/")
+  date_ad <- as.Date(as.POSIXct(paste(as.numeric(ROCdate[1])+1911,
+                                      ROCdate[2],
+                                      ROCdate[3], sep = "-"),
                                 origin = "1582-10-14", tz = "GMT"))
   return(date_ad)
 }
@@ -62,6 +62,29 @@ transformed_date_bill <- function(ROCdate){
                                 origin = "1582-10-14", tz = "GMT"))
   return(date_ad)
 }
+
+
+#' Checking the date
+#'
+#'@param ROCdate date format in Taiwan ROC calendar (e.g., "1050531") as a string vector
+#'@return date format in A.D. format
+#'
+#'@importFrom stringr str_sub
+#'@export
+#'@examples
+#'check_date("1050531")
+
+check_date <- function(ROCdate){
+  day <- stringr::str_sub(ROCdate,-2,-1)
+  month <- stringr::str_sub(ROCdate,-4,-3)
+  ROCyear <- stringr::str_sub(ROCdate, 1, nchar(ROCdate) - nchar(stringr::str_sub(ROCdate,-4,-1)))
+  date_ad <- as.Date(as.POSIXct(paste(as.numeric(ROCyear) + 1911,
+                                      as.numeric(month),
+                                      as.numeric(day), sep = "-"),
+                                origin = "1582-10-14", tz = "GMT"))
+  return(date_ad)
+}
+
 
 
 
