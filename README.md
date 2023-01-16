@@ -18,13 +18,13 @@ remotes::install_github("davidycliao/legisTaiwan")
 
 ### Search Spoken Meetings
 
-- Query by time range
-
 ```
+# query by time range
+
 get_meetings(start_date = 1060120, end_date = 1070310)
 ```
 <p align="center">
-  <img width="550" height="320" src="https://raw.githack.com/davidycliao/figures/master/1.png" >
+  <img width="750" height="220" src="https://raw.githack.com/davidycliao/figures/master/1.png" >
 </p>
 
 - Query by specifying a meeting
