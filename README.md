@@ -15,6 +15,8 @@
 ```
 install.packages("remotes")
 remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
+```
+```
 library(legisTaiwan)
 ```
 
