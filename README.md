@@ -28,7 +28,8 @@ get_meetings(start_date = 1060120, end_date = 1070310)
 </p>
 
 ```
-# query meeting records by a period of the dates in Taiwan ROC calender format and a meeting
+# query meeting records by a period of the dates in Taiwan ROC calender format 
+# and a meeting
 # 輸入「中華民國民年」與「審查會議或委員會名稱」下載會議審查資訊
 get_meetings(start_date = 1060120, end_date = 1070310, meeting_unit = "內政委員會")
 ```
@@ -37,7 +38,8 @@ get_meetings(start_date = 1060120, end_date = 1070310, meeting_unit = "內政委
 </p>
 
 ```
-# query meeting records by a period of the dates in Taiwan ROC calender format and multiple meetings
+# query meeting records by a period of the dates in Taiwan ROC calender format 
+# and multiple meetings
 # 輸入「中華民國民年」與「多個審查會議或委員會名稱」下載會議審查資訊
 get_meetings(start_date = 1060120, end_date = 1070310, meeting_unit = "內政委員會&朝野協商")
 ```
@@ -50,7 +52,6 @@ get_meetings(start_date = 1060120, end_date = 1070310, meeting_unit = "內政委
 ```
 # query bill records by a period of the dates in Taiwan ROC calender format
 # 輸入「中華民國民年」下載立法委員提案資料
-records by time range
 get_bills(start_date = 1060120, end_date = 1070310)
 ```
 <p align="center">
@@ -58,7 +59,8 @@ get_bills(start_date = 1060120, end_date = 1070310)
 </p>
 
 ```
-# query bill records by a period of the dates in Taiwan ROC calender format and a specific legislator 
+# query bill records by a period of the dates in Taiwan ROC calender format 
+# and a specific legislator 
 # 輸入「中華民國民年」與「指定立法委員」下載立法委員提案資料
 get_bills(start_date = 1060120, end_date = 1070310,  proposer = "孔文吉")
 ```
@@ -68,7 +70,8 @@ get_bills(start_date = 1060120, end_date = 1070310,  proposer = "孔文吉")
 
 
 ```
-# query bill records by a period of the dates in Taiwan ROC calender format and multiple legislators 
+# query bill records by a period of the dates in Taiwan ROC calender format 
+# and multiple legislators 
 # 輸入「中華民國民年」與「指定多個立法委員」下載立法委員提案資料
 get_bills(start_date = 1060120, end_date = 1060510,  proposer = "孔文吉&鄭天財")
 ```
