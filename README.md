@@ -26,13 +26,13 @@ get_meetings(start_date = 1060120, end_date = 1070310)
   <img width="950" height="280" src="https://raw.githack.com/davidycliao/figures/master/1.png" >
 </p>
 
-- Query by specifying a meeting
-
 ```
+# query by specifying a meeting
+
 get_meetings(start_date = 1060120, end_date = 1070310, meeting_unit = "內政委員會")
 ```
 <p align="center">
-  <img width="550" height="320" src="https://raw.githack.com/davidycliao/figures/master/2.png" >
+  <img width="950" height="280" src="https://raw.githack.com/davidycliao/figures/master/2.png" >
 </p>
 
 - Query by specifying more meetings
