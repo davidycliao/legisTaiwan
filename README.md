@@ -66,7 +66,7 @@ get_bills(start_date = 1060120, end_date = 1070310,  proposer = "孔文吉")
 get_bills(start_date = 1060120, end_date = 1060510,  proposer = "孔文吉&鄭天財")
 ```
 <p align="center">
-  <img width="950" height="280" src="https://raw.githack.com/davidycliao/figures/master/6.png" >
+  <img width="950" height="260" src="https://raw.githack.com/davidycliao/figures/master/6.png" >
 </p>
 
 
