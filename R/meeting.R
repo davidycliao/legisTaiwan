@@ -79,6 +79,3 @@ get_meetings <- function(start_date = NULL, end_date = NULL,
     }
   )
 }
-
-
-
