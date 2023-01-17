@@ -2,7 +2,7 @@ Package: legisTaiwan
 Type: Package
 Title: An Interface to Fetch Taiwan Legislative Yuan API and Download the Records of Taiwan Legislative Data
 Version: 0.1.0
-Authors@R: person("Yen-Chieh", "Liao", email = "davidyclaio@gmail.com", role = c("aut", "cre"))
+Authors@R: person("David Yen-Chieh", "Liao", email = "davidyclaio@gmail.com", role = c("aut", "cre"))
 Description: This package provides functions for downloading legislative data via the Taiwan Legislative Yuan API. 
 Maintainer: David Yen-Chieh Liao <davidyclaio@gmail.com>
 Depends: R (>= 3.6.3)
