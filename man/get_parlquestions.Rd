@@ -5,16 +5,16 @@
 \title{Retrieving the records of parliamentary questions
 via Taiwan Legislative Yuan API 質詢事項 (本院委員質詢部分)}
 \usage{
-get_parlquestions(term = 8, sessionPeriod = NULL, verbose = TRUE)
+get_parlquestions(term = 8, session_period = NULL, verbose = TRUE)
 }
 \arguments{
 \item{term}{Requesting questions from the term. The parameter should be set in
 a numeric format. The default value is 8.}
 
-\item{sessionPeriod}{session in the term. The session is between 1 and 6.}
-
 \item{verbose}{The default value is TRUE, displaying the description of data
 retrieved in number, url and computing time.}
+
+\item{sessionPeriod}{session in the term. The session is between 1 and 6.}
 }
 \value{
 A list object contains a tibble carrying
@@ -24,7 +24,7 @@ Retrieving the records of parliamentary questions
 via Taiwan Legislative Yuan API 質詢事項 (本院委員質詢部分)
 }
 \examples{
-get_parlquestions(term = 8, sessionPeriod = 2)
+get_parlquestions(term = 8, session_period = 2)
 }
 \seealso{
 \url{https://data.ly.gov.tw/getds.action?id=6}
