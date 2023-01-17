@@ -10,21 +10,21 @@
 
 
 
-### 仍在測試中，使用上有任何問題歡迎email我 ~ Let's make Taiwan and our country more transparent and better. 
+##### 仍在測試中，使用上有任何問題歡迎emaild ~ Let's make Taiwan and our country more transparent and better. 
 
 
 ### The following scaling packages and relevant toolkits are used by this course:
 
-| TLY API (台灣國會API)  <img width=400/>                                                                         | `legisTaiwan` <img width=250/> |     Since     <img width=250/>  |
+| Taiwan Legislative Yuan API (台灣國會API)  <img width=400/>                                                     | `legisTaiwan` <img width=250/> |     Since     <img width=250/>  |
 | --------------------------------------------------------------------------------------------------------------- | ------------------------------ | ------------------------------- |
 |[**Spoken Meeting Records (委員發言)**](https://www.ly.gov.tw/Pages/List.aspx?nodeid=154)                        | [`get_meeting`]()              |  7th* (西2011民100)             |
 |[**Bill Sponsor and Co-sponsor (法律提案)**](https://www.ly.gov.tw/Pages/List.aspx?nodeid=154)                   | [`get_bill`]()                 |  7th* (西2011民100)             |
 |[**name list for Committee Meeting (委員會發言名單)**](https://data.ly.gov.tw/getds.action?id=223)               | Coming soon                    |  8th  (西2014民104)             |
-|[**Name List for the Floor Meeting (院會發言名單)**](https://data.ly.gov.tw/getds.action?id=221)                 |                                |  8th  (西2014民104)             |
-|[**Original Proceedings  (議事錄原始檔案)**](https://data.ly.gov.tw/getds.action?id=45)                          |                                |  8th  (西2014民104)             |
-|[**Legislator Information (歷屆委員資料)**](https://data.ly.gov.tw/getds.action?id=16)                           |                                |  2th  (西1992國81)              |
-|[**The Questions Answered by the Legislative Yuan(立委質詢部分)**](https://data.ly.gov.tw/getds.action?id=6)     |  Coming soon                   |  8th  (西2014民104)             |
-|[**The Questions Answered by the Executive Yuan(行政院答復質詢事項)**](https://data.ly.gov.tw/getds.action?id=1) |                                |  8th  (西2014民104)             |
+|[**Name List for the Floor Meeting (院會發言名單)**](https://data.ly.gov.tw/getds.action?id=221)                 | Coming soon                    |  8th  (西2014民104)             |
+|[**Original Proceedings  (議事錄原始檔案)**](https://data.ly.gov.tw/getds.action?id=45)                          | Coming soon                    |  8th  (西2014民104)             |
+|[**Legislator Information (歷屆委員資料)**](https://data.ly.gov.tw/getds.action?id=16)                           | Coming soon                    |  2th  (西1992國81)              |
+|[**The Questions Answered by the Legislative Yuan(立委質詢部分)**](https://data.ly.gov.tw/getds.action?id=6)     | Coming soon                    |  8th  (西2014民104)             |
+|[**The Questions Answered by the Executive Yuan(行政院答復質詢事項)**](https://data.ly.gov.tw/getds.action?id=1) | Coming soon                    |  8th  (西2014民104)             |
 
 
 ## Install from GitHub Using `remotes`
