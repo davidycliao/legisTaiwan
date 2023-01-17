@@ -38,7 +38,7 @@ Retrieving the spoken meeting records via
 Taiwan Legislative Yuan (The Legislature) API
 }
 \examples{
-get_meetings(1070120, 1070210)
+get_meetings(1050120, 1050210)
 }
 \seealso{
 \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}

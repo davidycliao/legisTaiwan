@@ -31,7 +31,7 @@ Retrieving the records of bill sponsor and co-sponsor
 via Taiwan Legislative Yuan API
 }
 \examples{
-get_bills(1070120, 1070210)
+get_bills(1060120, 1060220)
 }
 \seealso{
 \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}

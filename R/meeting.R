@@ -22,7 +22,7 @@
 #'
 #'@export
 #'@examples
-#'get_meetings(1070120, 1070210)
+#'get_meetings(1050120, 1050210)
 #'@seealso
 #' \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}
 
@@ -76,7 +76,6 @@ get_meetings <- function(start_date = NULL, end_date = NULL,
       message("Warning: The dates or the meeting unit(s) are not available in the database")
       message("INFO: The error message from the Taiwan Legislative Yuan API or R:")
       message(error_message)
-      return(NA)
     }
   )
 }

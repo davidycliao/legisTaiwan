@@ -18,7 +18,7 @@
 #'
 #'@export
 #'@examples
-#'get_bills(1070120, 1070210)
+#'get_bills(1060120, 1060220)
 #'@seealso
 #'\url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}
 
@@ -71,7 +71,6 @@ get_bills <- function(start_date = NULL, end_date = NULL,
       message("Warning: The dates or the legislator(s) are not available in the database")
       message("INFO: The error message from the Taiwan Legislative Yuan API or R:")
       message(error_message)
-      return(NA)
     }
   )
 }
