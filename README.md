@@ -18,14 +18,14 @@
 
 | Taiwan Legislative Yuan API (台灣國會API)  <img width=400/>                                                     | `legisTaiwan` <img width=250/> |     Since <img width=250/>  |
 | --------------------------------------------------------------------------------------------------------------- | ------------------------------ | --------------------------- |
-|[**Spoken Meeting Records (委員發言)**](https://www.ly.gov.tw/Pages/List.aspx?nodeid=154)                        | [`get_meeting`]()              |  7th* (西2011民100)         |
-|[**Bill Sponsor and Co-sponsor (法律提案)**](https://www.ly.gov.tw/Pages/List.aspx?nodeid=154)                   | [`get_bill`]()                 |  7th* (西2011民100)         |
-|[**Legislator List Order for Committee Meetings (委員會發言名單)**](https://data.ly.gov.tw/getds.action?id=223)   | Coming soon                    |  8th  (西2014民104)         |
-|[**Legislator List Order for the Floor Meetings (院會發言名單)**](https://data.ly.gov.tw/getds.action?id=221)     | Coming soon                    |  8th  (西2014民104)         |
-|[**Original Proceedings  (議事錄原始檔案)**](https://data.ly.gov.tw/getds.action?id=45)                           | Coming soon                    |  8th  (西2014民104)         |
-|[**Legislator Demographic Information (歷屆委員資料)**](https://data.ly.gov.tw/getds.action?id=16)                | Coming soon                    |  2th  (西1992民81)          |
-|[**The Questions Answered by the Legislative Yuan (立委質詢部分)**](https://data.ly.gov.tw/getds.action?id=6)     | Coming soon                    |  8th  (西2014民104)         |
-|[**The Questions Answered by the Executive Yuan (行政院答復質詢事項)**](https://data.ly.gov.tw/getds.action?id=1) | Coming soon                    |  8th  (西2014民104)         |
+|[**Spoken Meeting Records (委員發言)**](https://www.ly.gov.tw/Pages/List.aspx?nodeid=154)                        | [`get_meetings()`]()           |  7th* (西2011民100)         |
+|[**Bill Sponsor and Co-sponsor (法律提案)**](https://www.ly.gov.tw/Pages/List.aspx?nodeid=154)                   | [`get_bills()`]()              |  7th* (西2011民100)         |
+|[**Legislator List Order for Committee Meetings (委員會發言名單)**](https://data.ly.gov.tw/getds.action?id=223)   | Coming soon                   |  8th  (西2014民104)         |
+|[**Legislator List Order for the Floor Meetings (院會發言名單)**](https://data.ly.gov.tw/getds.action?id=221)     | Coming soon                   |  8th  (西2014民104)         |
+|[**Original Proceedings  (議事錄原始檔案)**](https://data.ly.gov.tw/getds.action?id=45)                           | Coming soon                   |  8th  (西2014民104)         |
+|[**Legislator Demographic Information (歷屆委員資料)**](https://data.ly.gov.tw/getds.action?id=16)                | Coming soon                   |  2th  (西1992民 81)         |
+|[**The Questions Answered by the Legislative Yuan (立委質詢部分)**](https://data.ly.gov.tw/getds.action?id=6)     | [`get_parlquestions()`]()     |  8th  (西2014民104)         |
+|[**The Questions Answered by the Executive Yuan (行政院答復質詢事項)**](https://data.ly.gov.tw/getds.action?id=1) | Coming soon                   |  8th  (西2014民104)         |
 
 * To be confirmed. 
 
