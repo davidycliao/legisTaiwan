@@ -26,8 +26,6 @@ get_parlquestions <- function(term = 8, sessionPeriod = NULL, verbose = TRUE) {
 
   set_api_url <- paste("https://data.ly.gov.tw/odw/ID6Action.action?term=",
                        sprintf("%02d", as.numeric(term)), "&sessionPeriod=", sprintf("%02d", as.numeric(sessionPeriod)), "&sessionTimes=&item=&fileType=json", sep = "")
-  ten <- jsonlite::fromJSON("https://data.ly.gov.tw/odw/ID6Action.action?term=10&sessionPeriod=&sessionTimes=&item=&fileType=json")
-
   paste("https://data.ly.gov.tw/odw/ID6Action.action?term=",
         10, "&sessionPeriod=", sessionPeriod, "&sessionTimes=&item=&fileType=json", sep = "")
   tryCatch(

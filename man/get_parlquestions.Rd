@@ -24,7 +24,7 @@ Retrieving the records of parliamentary questions
 via Taiwan Legislative Yuan API 質詢事項 (本院委員質詢部分)
 }
 \examples{
-get_parliarmentary_qeustions(term = 8, sessionPeriod = 2)
+get_parlquestions(term = 8, sessionPeriod = 2)
 }
 \seealso{
 \url{https://data.ly.gov.tw/getds.action?id=6}
