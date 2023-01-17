@@ -62,7 +62,7 @@ get_meetings <- function(start_date = NULL, end_date = NULL,
       }
       list_data <- list("title" = "the spoken meeting records",
                         "query_time" = Sys.time(),
-                        "retrieved_number"= nrow(df),
+                        "retrieved_number" = nrow(df),
                         "meeting_unit" = meeting_unit,
                         "start_date_ad" = legisTaiwan::check_date(start_date),
                         "end_date_ad" = legisTaiwan::check_date(end_date),
@@ -79,7 +79,6 @@ get_meetings <- function(start_date = NULL, end_date = NULL,
       return(NA)
     }
   )
-  return(list_data)
 }
 
 

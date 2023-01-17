@@ -57,7 +57,7 @@ get_bills <- function(start_date = NULL, end_date = NULL,
       }
       list_data <- list("title" = "the records of bill sponsor and co-sponsor",
                         "query_time" = Sys.time(),
-                        "retrieved_number"= nrow(df),
+                        "retrieved_number" = nrow(df),
                         "proposer" = proposer,
                         "start_date_ad" = legisTaiwan::check_date(start_date),
                         "end_date_ad" = legisTaiwan::check_date(end_date),
@@ -74,5 +74,4 @@ get_bills <- function(start_date = NULL, end_date = NULL,
       return(NA)
     }
   )
-  return(list_data)
 }
