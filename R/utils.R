@@ -2,8 +2,8 @@
 
 #' @export .onAttach
 .onAttach <- function(...) {
-  packageStartupMessage("## legisTaiwan")
-  packageStartupMessage("## An R package connecting to the Taiwan Legislative API.")
+  packageStartupMessage("## legisTaiwan                                            ###")
+  packageStartupMessage("## An R package connecting to the Taiwan Legislative API. ###")
 
 }
 
@@ -18,6 +18,29 @@
 check_internet <- function(x = curl::has_internet()) {
   attempt::stop_if_not(.x = x,
                        msg = "Please check the internet connetion")
+}
+
+#' A basic check for the API
+#'
+#'@param start_date  start_date is inherited from global env.
+#'@param end_date  end_date is inherited from global env.
+
+#'@export
+#'@importFrom attempt stop_if_not
+
+api_check <- function(start_date = start_date, end_date = end_date) {
+  attempt::stop_if_all(legisTaiwan::check_date(start_date) > as.Date(Sys.time()),
+                       isTRUE, msg = "The start date should not be after system time")
+  attempt::stop_if_all(legisTaiwan::check_date(end_date) > as.Date(Sys.time()),
+                       isTRUE, msg = "The end date should not be after system time")
+  attempt::stop_if_all(start_date, is.character, msg = "use numeric format")
+  attempt::stop_if_all(end_date, is.character, msg = "use numeric format")
+  attempt::stop_if_all(start_date, is.null, msg = "start_date is missing")
+  attempt::stop_if_all(end_date, is.null, msg = "end_date is missing")
+  attempt::stop_if_all(legisTaiwan::check_date(end_date) > legisTaiwan::check_date(start_date), isFALSE,
+                       msg = paste("The start date,", start_date, ",",
+                                   "should not be later than the end date,",
+                                   end_date, ".", sep = " "))
 }
 
 
@@ -42,8 +65,7 @@ transformed_date_meeting <- function(roc_date) {
 }
 
 
-
-#' Transforming bill proposed date in Taiwan ROC calendar to A.D. format
+#' Transforming the date in Taiwan ROC calendar to A.D. format for get_bill()
 #'
 #'@param roc_date date format in Taiwan ROC calendar (e.g., "1050531") as a
 #'string vector

@@ -9,11 +9,10 @@
 #'as Taiwan calendar format, e.g. 1090110.
 #'@param proposer The default value is NULL, which means all bill records are
 #'included between the starting date and the ending date.
-#'@param verbose The default value is TRUE, displaying the discription of data
+#'@param verbose The default value is TRUE, displaying the description of data
 #'retrieved in number, url and computing time.
-#'@return A data frame contains the date, term, name, sessionPeriod,
-#'sessionPeriod,  billProposerand, billCosignatory, billStatus (mostly in null).
-#'
+#'@return A tibble contains date, term, name, sessionPeriod, sessionTimes,
+#'billName, billProposer, billCosignatory, billStatus, date_ad
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
 #'
@@ -49,7 +48,7 @@ get_bills <- function(start_date = NULL, end_date = NULL,
       json_df <- jsonlite::fromJSON(set_api_url)
       df <- tibble::as_tibble(json_df)
       attempt::stop_if_all(length(df) == 0, isTRUE, msg = "The query unavailable
-                           during the period of the dates")
+                           during the period of the dates in the API")
       df["date_ad"] <- do.call("c", lapply(df$date, legisTaiwan::transformed_date_bill))
       if (isTRUE(verbose)) {
         cat(" Retrieved URL: \n", set_api_url, "\n")

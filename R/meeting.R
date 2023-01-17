@@ -47,12 +47,12 @@ get_meetings <- function(start_date = NULL, end_date = NULL,
                        meeting_unit,  "&mode=json", sep = "")
 
   tryCatch(
-    # evaluate the valid date period and meeting units are valid in the API
+    # evaluate the dates and meeting units are valid for the API
     {
       json_df <- jsonlite::fromJSON(set_api_url)
       df <- tibble::as_tibble(json_df)
-      attempt::stop_if_all(length(df) == 0, isTRUE, msg =
-                             "The query unavailable by the period of the dates")
+      attempt::stop_if_all(length(df) == 0, isTRUE, msg = "The query unavailable
+                           during the period of the dates in the API")
       df["date_ad"] <- do.call("c", lapply(df$smeeting_date, legisTaiwan::transformed_date_meeting))
       if (isTRUE(verbose)) {
         cat(" Retrieved URL: \n", set_api_url, "\n")

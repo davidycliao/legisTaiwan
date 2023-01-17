@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{transformed_date_bill}
 \alias{transformed_date_bill}
-\title{Transforming bill proposed date in Taiwan ROC calendar to A.D. format}
+\title{Transforming the date in Taiwan ROC calendar to A.D. format for get_bill()}
 \usage{
 transformed_date_bill(roc_date)
 }
@@ -14,7 +14,7 @@ string vector}
 date format in A.D. format
 }
 \description{
-Transforming bill proposed date in Taiwan ROC calendar to A.D. format
+Transforming the date in Taiwan ROC calendar to A.D. format for get_bill()
 }
 \examples{
 transformed_date_bill("1050531")
