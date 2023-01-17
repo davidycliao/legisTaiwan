@@ -2,7 +2,7 @@
 % Please edit documentation in R/meeting.R
 \name{get_meetings}
 \alias{get_meetings}
-\title{Retrieving the meeting records via
+\title{Retrieving the spoken meeting records via
 Taiwan Legislative Yuan (The Legislature) API}
 \usage{
 get_meetings(
@@ -30,11 +30,11 @@ between the starting date and the ending date.}
 of data retrieved in number, url and computing time.}
 }
 \value{
-A tibble dataframe contains the date, status,
+A list carries a main tibble dataframe that contains the date, status,
 name, content and speakers.
 }
 \description{
-Retrieving the meeting records via
+Retrieving the spoken meeting records via
 Taiwan Legislative Yuan (The Legislature) API
 }
 \examples{

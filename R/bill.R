@@ -47,8 +47,7 @@ get_bills <- function(start_date = NULL, end_date = NULL,
     {
       json_df <- jsonlite::fromJSON(set_api_url)
       df <- tibble::as_tibble(json_df)
-      attempt::stop_if_all(length(df) == 0, isTRUE, msg = "The query unavailable
-                           during the period of the dates in the API")
+      attempt::stop_if_all(length(df) == 0, isTRUE, msg = "The query unavailable during the period of the dates in the API")
       df["date_ad"] <- do.call("c", lapply(df$date, legisTaiwan::transformed_date_bill))
       if (isTRUE(verbose)) {
         cat(" Retrieved URL: \n", set_api_url, "\n")
@@ -56,7 +55,17 @@ get_bills <- function(start_date = NULL, end_date = NULL,
         cat(" Retrieved date between:", as.character(legisTaiwan::check_date(start_date)), "and", as.character(legisTaiwan::check_date(end_date)) , "\n")
         cat(" Retrieved Num:", nrow(df), "\n")
       }
-      return(df)
+      list_data <- list("title" = "the records of bill sponsor and co-sponsor",
+                        "query_time" = Sys.time(),
+                        "retrieved_number"= nrow(df),
+                        "proposer" = proposer,
+                        "start_date_ad" = legisTaiwan::check_date(start_date),
+                        "end_date_ad" = legisTaiwan::check_date(end_date),
+                        "start_date" = start_date,
+                        "end_date" = end_date,
+                        "url" = set_api_url,
+                        "data" = df)
+      return(list_data)
     },
     error = function(error_message) {
       message("Warning: The dates or the legislator(s) are not available in the database")
@@ -65,5 +74,5 @@ get_bills <- function(start_date = NULL, end_date = NULL,
       return(NA)
     }
   )
-  return(df)
+  return(list_data)
 }

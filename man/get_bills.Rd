@@ -19,12 +19,12 @@ as Taiwan calendar format, e.g. 1090110.}
 \item{proposer}{The default value is NULL, which means all bill records are
 included between the starting date and the ending date.}
 
-\item{verbose}{The default value is TRUE, displaying the discription of data
+\item{verbose}{The default value is TRUE, displaying the description of data
 retrieved in number, url and computing time.}
 }
 \value{
-A data frame contains the date, term, name, sessionPeriod,
-sessionPeriod,  billProposerand, billCosignatory, billStatus (mostly in null).
+A tibble contains date, term, name, sessionPeriod, sessionTimes,
+billName, billProposer, billCosignatory, billStatus, date_ad
 }
 \description{
 Retrieving the records of bill sponsor and co-sponsor

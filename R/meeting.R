@@ -1,4 +1,4 @@
-#' Retrieving the meeting records via
+#' Retrieving the spoken meeting records via
 #' Taiwan Legislative Yuan (The Legislature) API
 #'
 #'
@@ -14,7 +14,7 @@
 #' between the starting date and the ending date.
 #'@param verbose The default value is TRUE, displaying the description
 #'of data retrieved in number, url and computing time.
-#'@return A tibble dataframe contains the date, status,
+#'@return A list carries a main tibble dataframe that contains the date, status,
 #' name, content and speakers.
 #'
 #'@importFrom attempt stop_if_all
@@ -60,7 +60,17 @@ get_meetings <- function(start_date = NULL, end_date = NULL,
         cat(" Retrieved date between:", as.character(legisTaiwan::check_date(start_date)), "and", as.character(legisTaiwan::check_date(end_date)), "\n")
         cat(" Retrieved number:", nrow(df), "\n")
       }
-      return(df)
+      list_data <- list("title" = "the spoken meeting records",
+                        "query_time" = Sys.time(),
+                        "retrieved_number"= nrow(df),
+                        "meeting_unit" = meeting_unit,
+                        "start_date_ad" = legisTaiwan::check_date(start_date),
+                        "end_date_ad" = legisTaiwan::check_date(end_date),
+                        "start_date" = start_date,
+                        "end_date" = end_date,
+                        "url" = set_api_url,
+                        "data" = df)
+      return(list_data)
     },
     error = function(error_message) {
       message("Warning: The dates or the meeting unit(s) are not available in the database")
@@ -69,5 +79,8 @@ get_meetings <- function(start_date = NULL, end_date = NULL,
       return(NA)
     }
   )
-  return(df)
+  return(list_data)
 }
+
+
+
