@@ -14,14 +14,14 @@ navbar:
   left:
   - icon: fa-home
     href: index.html
+  - icon: fa-project-diagram
+    text: Manual
+    href: articles/examples.html
   - icon: fa-rocket
     text: Reference
     menu:
     - text: Taiwna Legislative Politics
       href: articles/legislative.html
-  - icon: fa-project-diagram
-    text: Examples
-    href: articles/examples.html
   right:
   - icon: fa-newspaper-o
     text: news
