@@ -1,5 +1,5 @@
 #' Retrieving legislator' demographics via Taiwan Legislative Yuan API
-#' 行政院答復質詢事項
+#' 歷屆委員資料
 #'
 #'@param term Requesting answered questions from the term. The parameter should be set in
 #'a numeric format. The default value is 2.
@@ -13,7 +13,10 @@
 #'
 #'@export
 #'@examples
+#' # to retrieve 8th therm
 #'get_legislators(term = 8)
+#' # to retrieve all of terms
+#'get_legislators()
 #'@seealso
 #'\url{https://data.ly.gov.tw/getds.action?id=16}
 

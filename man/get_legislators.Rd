@@ -3,7 +3,7 @@
 \name{get_legislators}
 \alias{get_legislators}
 \title{Retrieving legislator' demographics via Taiwan Legislative Yuan API
-行政院答復質詢事項}
+歷屆委員資料}
 \usage{
 get_legislators(term = NULL, verbose = TRUE)
 }
@@ -18,10 +18,13 @@ sex, party, etc.
 }
 \description{
 Retrieving legislator' demographics via Taiwan Legislative Yuan API
-行政院答復質詢事項
+歷屆委員資料
 }
 \examples{
+# to retrieve 8th therm
 get_legislators(term = 8)
+# to retrieve all of terms
+get_legislators()
 }
 \seealso{
 \url{https://data.ly.gov.tw/getds.action?id=16}
