@@ -20,10 +20,11 @@
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
 #'
+#'
 #'@export
 #'@examples
 #' ## query meeting records by a period of the dates in Taiwan ROC calender format
-#  ## 輸入「中華民國民年」下載會議審查資訊
+#' ## 輸入「中華民國民年」下載會議審查資訊
 #'get_meetings(1050120, 1050210)
 #'
 #'
