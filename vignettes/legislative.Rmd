@@ -1,11 +1,11 @@
 ---
-title: "Research on Taiwan Legislative Politics"
+title: "Taiwan Legislative Politics"
 author: "David Yen-Chieh Liao"
 #author: "Vignette Author"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Supports}
+  %\VignetteIndexEntry{Taiwan Legislative Politics}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
