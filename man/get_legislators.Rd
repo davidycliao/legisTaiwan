@@ -10,7 +10,7 @@ get_legislators(term = NULL, verbose = TRUE)
 \arguments{
 \item{term}{Requesting answered questions from the term. The parameter should be set in
 a numeric format. The default value is 2.
-retrieved in number, url and computing time.}
+retrieved in number, url, and computing time.}
 }
 \value{
 A list object contains a tibble carrying term, name, ename,

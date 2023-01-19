@@ -3,7 +3,7 @@
 #'
 #'@param term Requesting answered questions from the term. The parameter should be set in
 #'a numeric format. The default value is 2.
-#'retrieved in number, url and computing time.
+#'retrieved in number, url, and computing time.
 #'@return A list object contains a tibble carrying term, name, ename,
 #'sex, party, etc.
 #'
@@ -23,7 +23,7 @@ get_legislators <- function(term = NULL, verbose = TRUE) {
   if (is.null(term)) {
     set_api_url <- paste("https://data.ly.gov.tw/odw/ID16Action.action?name=&sex=&party=&partyGroup=&areaName=&term=",
                          term, "=&fileType=json", sep = "")
-  }else{
+  }else {
     attempt::stop_if_all(term, is.character, msg = "use numeric format only")
     set_api_url <- paste("https://data.ly.gov.tw/odw/ID16Action.action?name=&sex=&party=&partyGroup=&areaName=&term=",
                          sprintf("%02d", as.numeric(term)), "=&fileType=json", sep = "")
