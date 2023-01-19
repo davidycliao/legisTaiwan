@@ -16,7 +16,7 @@
 &nbsp; 
 
 
-| `legisTaiwan`                 |   Since (AD/ROC Taiwan)       |  Taiwan Legislative Yuan API |
+| `legisTaiwan`                 |   Since (AD/ROC)       |  Taiwan Legislative Yuan API |
 |-------------------------------|---------------------|------------------------------|
 |[`get_meetings()`](https://davidycliao.github.io/legisTaiwan/reference/get_bills.html)           |  7th* (2011/100) | [**Spoken Meeting Records (委員發言)**](https://www.ly.gov.tw/Pages/List.aspx?nodeid=154)                         |
 |[`get_bills()`](https://davidycliao.github.io/legisTaiwan/reference/get_bills.html)              |  7th* (2011/100) | [**Bill Sponsors and Co-sponsors (法律提案)**](https://www.ly.gov.tw/Pages/List.aspx?nodeid=154)                    |
