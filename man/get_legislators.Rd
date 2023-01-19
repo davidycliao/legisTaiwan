@@ -11,6 +11,9 @@ get_legislators(term = NULL, verbose = TRUE)
 \item{term}{Requesting answered questions from the term. The parameter should be set in
 a numeric format. The default value is 2.
 retrieved in number, url, and computing time.}
+
+\item{verbose}{The default is TRUE, which return the information of the return
+object.}
 }
 \value{
 A list object contains a tibble carrying term, name, ename,

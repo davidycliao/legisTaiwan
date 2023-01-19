@@ -4,8 +4,8 @@
 #'@param term Requesting questions from the term. The parameter should be set in
 #'a numeric format. The default value is 8. The data is only available from 8th
 #'term 參數必須為數值，資料從立法院第8屆開始計算。
-#'@param sessionPeriod session in the term. The session is between 1 and 8.
-#' sessionPeriod 參數必須為數值。
+#'@param session_period session in the term. The session is between 1 and 8.
+#' session_period 參數必須為數值。
 #'@param verbose The default value is TRUE, displaying the description of data
 #'retrieved in number, url and computing time.
 #'@return A list object contains a tibble carrying

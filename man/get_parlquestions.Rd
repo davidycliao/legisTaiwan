@@ -12,11 +12,11 @@ get_parlquestions(term = 8, session_period = NULL, verbose = TRUE)
 a numeric format. The default value is 8. The data is only available from 8th
 term 參數必須為數值，資料從立法院第8屆開始計算。}
 
+\item{session_period}{session in the term. The session is between 1 and 8.
+session_period 參數必須為數值。}
+
 \item{verbose}{The default value is TRUE, displaying the description of data
 retrieved in number, url and computing time.}
-
-\item{sessionPeriod}{session in the term. The session is between 1 and 8.
-sessionPeriod 參數必須為數值。}
 }
 \value{
 A list object contains a tibble carrying

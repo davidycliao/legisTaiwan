@@ -4,6 +4,8 @@
 #'@param term Requesting answered questions from the term. The parameter should be set in
 #'a numeric format. The default value is 2.
 #'retrieved in number, url, and computing time.
+#'@param verbose The default is TRUE, which return the information of the return
+#'object.
 #'@return A list object contains a tibble carrying term, name, ename,
 #'sex, party, etc.
 #'
