@@ -37,6 +37,13 @@ via Taiwan Legislative Yuan API 委員質詢事項"><!-- mathjax --><script src=
      
   </a>
 </li>
+<li>
+  <a href="../articles/examples.html">
+    <span class="fa fa-project-diagram"></span>
+     
+    Manual
+  </a>
+</li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fa fa-rocket"></span>
@@ -49,13 +56,6 @@ via Taiwan Legislative Yuan API 委員質詢事項"><!-- mathjax --><script src=
       <a href="../articles/legislative.html">Taiwna Legislative Politics</a>
     </li>
   </ul></li>
-<li>
-  <a href="../articles/examples.html">
-    <span class="fa fa-project-diagram"></span>
-     
-    Examples
-  </a>
-</li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
   <a href="../news/index.html">
     <span class="fa fa-newspaper-o"></span>
@@ -131,10 +131,41 @@ retrieved in number, url and computing time.</p></dd>
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">get_parlquestions</span><span class="op">(</span>term <span class="op">=</span> <span class="fl">8</span>, session_period <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>URL 'https://data.ly.gov.tw/odw/ID6Action.action?term=08&amp;sessionPeriod=02&amp;sessionTimes=&amp;item=&amp;fileType=json': status was 'Failure when receiving data from the peer'</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Warning: The data retrieved are not available in the database</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> INFO: The error message from the Taiwan Legislative Yuan API or R:</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in open.connection(con, "rb"):</span> cannot open the connection to 'https://data.ly.gov.tw/odw/ID6Action.action?term=08&amp;sessionPeriod=02&amp;sessionTimes=&amp;item=&amp;fileType=json'</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved URL: </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  https://data.ly.gov.tw/odw/ID6Action.action?term=08&amp;sessionPeriod=02&amp;sessionTimes=&amp;item=&amp;fileType=json </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved sessionPeriod:  2 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved sessionPeriod:  923 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $title</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the records of parliarmentary questions"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-01-19 03:05:58 UTC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 923</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_term</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $url</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://data.ly.gov.tw/odw/ID6Action.action?term=08&amp;sessionPeriod=02&amp;sessionTimes=&amp;item=&amp;fileType=json"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 923 × 5</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    term  sessionPeriod sessionTimes item                                 selec…¹</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 08    02            01           乙、本院委員質詢部分                 all    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 08    02            01           一、本院林委員滄敏，鑒於國立聯合大…  all    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 08    02            01           二、本院何委員欣純，為因應全球氣候…  all    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 08    02            01           三、本院何委員欣純，基於節能減碳已…  all    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 08    02            01           四、本院何委員欣純，為維護嬰幼兒健…  all    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 08    02            01           五、本院何委員欣純，針對台中市大里…  all    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 08    02            01           六、本院何委員欣純，針對中興大排係…  all    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 08    02            01           七、本院何委員欣純，針對台中市大里…  all    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 08    02            01           八、本院楊委員曜，針對101年度海軍評… all    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 08    02            01           九、本院魏委員明谷，針對經濟部邀請…  all    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 913 more rows, and abbreviated variable name ¹​selectTerm</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 </code></pre></div>
     </div>
   </div>
