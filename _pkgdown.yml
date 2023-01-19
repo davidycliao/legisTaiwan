@@ -17,8 +17,8 @@ navbar:
   - icon: fa-rocket
     text: Reference
     menu:
-    - text: Support
-      href: articles/support.html
+    - text: Taiwna Legislative Politics
+      href: articles/legislative.html
   - icon: fa-project-diagram
     text: Examples of Use
     href: articles/examples.html
