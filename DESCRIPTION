@@ -14,12 +14,9 @@ Imports:
 	attempt,
 	stringr,
   curl,
-  tibble,
-  knitr
+  tibble
 Suggests: 
     testthat (>= 3.0.0)
 RoxygenNote: 7.2.3
 URL: https://davidycliao.github.io/legisTaiwan/
-VignetteBuilder: 
-  knitr
 Config/testthat/edition: 3
