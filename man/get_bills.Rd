@@ -48,9 +48,6 @@ get_bills(start_date = 1060120, end_date = 1070310,  proposer = "孔文吉")
 ## and multiple legislators
 ## 輸入「中華民國民年」與「指定多個立法委員」下載立法委員提案資料
 get_bills(start_date = 1060120, end_date = 1060510,  proposer = "孔文吉&鄭天財")
-
-
-
 }
 \seealso{
 \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}

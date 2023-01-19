@@ -35,7 +35,6 @@ navbar:
     menu:
     - text: "Reference"
       href: reference/index.html
-
   right:
   - icon: fa-github fa-lg
     text: GitHub
