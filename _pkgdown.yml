@@ -1,4 +1,5 @@
 url: https://davidycliao.github.io/legisTaiwan/
+
 home:
   title: An R Package for Downloading Taiwan Legislative Data
 authors:
@@ -14,11 +15,13 @@ navbar:
   left:
   - icon: fa-home
     href: index.html
+
   - icon: fa-rocket
     text: Manual
     menu:
     - text:
       href:
+
   - icon: fa-project-diagram
     text: Projects
     menu:
@@ -28,14 +31,19 @@ navbar:
   - icon: fa-newspaper-o
     text: News
     menu:
-    - text: 立法委員在肉桶立法的連署分析
+    - text: "Version 0.1.0"
       href: news/index.html
 
-  right:
   - icon: fa-file-code-o
     text: Features
-    href: reference/index.html
+    menu:
+    - text: "Reference"
+      href: reference/index.html
+
+
+  right:
   - icon: fa-github fa-lg
     text: GitHub
     href: https://github.com/davidycliao/legisTaiwan
+
 
