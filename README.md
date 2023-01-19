@@ -42,7 +42,7 @@ library(legisTaiwan)
 ## Acknowledge
 
 
-The R pacakge is part of Yen-Chieh Liao's dissertation project and supported by the 2021 Taiwanese Overseas Pioneers Grants for PhD Candidates from the National Science and Technology Council in Taiwan, August 2021 - August 2022.
+The R pacakge is part of Yen-Chieh Liao's dissertation project at the Department of Government in University of Essex and supported by the 2021 Taiwanese Overseas Pioneers Grants for PhD Candidates from the National Science and Technology Council in Taiwan, August 2021 - August 2022.
 
 
 
