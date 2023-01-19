@@ -5,7 +5,6 @@
 `legisTaiwan` is an R package for downloading the legislative data of spoken meeting records, bill sponsor/co-sponsor, and more via the [Taiwan Legislative Yuan API](https://www.ly.gov.tw/Home/Index.aspx). 
 
 
-
 ## Install from GitHub Using `remotes`
 
 ```
