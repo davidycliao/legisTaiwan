@@ -19,15 +19,20 @@
 #'@export
 #'@examples
 #' ## query bill records by a period of the dates in Taiwan ROC calender format
-#  ## 輸入「中華民國民年」下載立法委員提案資料
-#'get_bills(1060120, 1060220)
+#' ## 輸入「中華民國民年」下載立法委員提案資料
+#'get_bills(start_date = 1060120, end_date = 1070310)
 #'
 #'
 #'
 #' ## query bill records by a period of the dates in Taiwan ROC calender format
 #' ## and a specific legislator
-#' 輸入「中華民國民年」與「指定立法委員」下載立法委員提案資料
+#' ## 輸入「中華民國民年」與「指定立法委員」下載立法委員提案資料
+#'get_bills(start_date = 1060120, end_date = 1070310,  proposer = "孔文吉")
 #'
+#'
+#' ## query bill records by a period of the dates in Taiwan ROC calender format
+#  ## and multiple legislators
+#  ## 輸入「中華民國民年」與「指定多個立法委員」下載立法委員提案資料
 #'
 #'@seealso
 #'\url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}
