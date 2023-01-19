@@ -8,9 +8,4 @@
 
 library(testthat)
 library(legisTaiwan)
-
 test_check("legisTaiwan")
-
-
-
-
