@@ -1,5 +1,5 @@
 #' Retrieving the records of parliamentary questions
-#' via Taiwan Legislative Yuan API 質詢事項 (本院委員質詢部分)
+#' via Taiwan Legislative Yuan API 委員質詢事項
 #'
 #'@param term Requesting questions from the term. The parameter should be set in
 #'a numeric format. The default value is 8.

@@ -3,7 +3,7 @@
 \name{get_parlquestions}
 \alias{get_parlquestions}
 \title{Retrieving the records of parliamentary questions
-via Taiwan Legislative Yuan API 質詢事項 (本院委員質詢部分)}
+via Taiwan Legislative Yuan API 委員質詢事項}
 \usage{
 get_parlquestions(term = 8, session_period = NULL, verbose = TRUE)
 }
@@ -21,7 +21,7 @@ A list object contains a tibble carrying
 }
 \description{
 Retrieving the records of parliamentary questions
-via Taiwan Legislative Yuan API 質詢事項 (本院委員質詢部分)
+via Taiwan Legislative Yuan API 委員質詢事項
 }
 \examples{
 get_parlquestions(term = 8, session_period = 2)
