@@ -1,4 +1,4 @@
-## legisTaiwan <img src="https://raw.githack.com/davidycliao/figures/master/hexsticker_tw.png" width="140" align="right" /> <br /> 
+# legisTaiwan <img src="https://raw.githack.com/davidycliao/figures/master/hexsticker_tw.png" width="140" align="right" /> <br /> 
 
 [![R](https://github.com/davidycliao/legisTaiwan/actions/workflows/r.yml/badge.svg)](https://github.com/davidycliao/legisTaiwan/actions/workflows/r.yml)
 
@@ -10,6 +10,5 @@
 ```
 install.packages("remotes")
 remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
-```
-```
 library(legisTaiwan)
+```
