@@ -11,7 +11,7 @@
 
 
 | Taiwan Legislative Yuan API    | `legisTaiwan`   |     Since   |
-| ---------------------------------------------------------------------------------------------------------------- | ------------------------------ | --------------------------- |
+|:------------------------------:|:------------------------------: |:------------------------------:|
 |[**Spoken Meeting Records (委員發言)**](https://www.ly.gov.tw/Pages/List.aspx?nodeid=154)                         | [`get_meetings()`]()           |  7th* (西2011民100)         |
 |[**Bill Sponsor and Co-sponsor (法律提案)**](https://www.ly.gov.tw/Pages/List.aspx?nodeid=154)                    | [`get_bills()`]()              |  7th* (西2011民100)         |
 |[**Original Proceedings  (議事錄原始檔案)**](https://data.ly.gov.tw/getds.action?id=45)                           | Coming soon                    |  8th  (西2014民104)         |
