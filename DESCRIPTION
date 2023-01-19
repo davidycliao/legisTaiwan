@@ -15,7 +15,8 @@ Imports:
 	stringr,
   curl,
   tibble,
-  knitr
+  knitr,
+  rmarkdown
 Suggests: 
     testthat (>= 3.0.0)
 RoxygenNote: 7.2.3
