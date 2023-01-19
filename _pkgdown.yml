@@ -1,0 +1,43 @@
+url: https://davidycliao.github.io/legisTaiwan/
+
+home:
+  title: : An R Package for Downloading Taiwan Legislative Data
+
+authors:
+  David Yen-Chieh Liao Armstrong:
+    href: https://github.com/davidycliao
+
+template:
+  params:
+    ganalytics: G-X85ED8P5EW
+
+development:
+  mode: auto
+
+
+navbar:
+  type: inverse
+  left:
+    - icon: fa-home
+      href: index.html
+    - icon: fa-rocket
+      text: "Reference"
+      menu:
+      -  text: "Support"
+         href: articles/support.html
+    - icon: fa-project-diagram
+      text: "Examples of Use"
+      href: articles/examples.html
+
+
+  right:
+    - icon: fa-newspaper-o
+      text: "news"
+      href: news/index.html
+    - icon: fa-file-code-o
+      text: "functions"
+      href: reference/index.html
+    - icon: fa-github fa-lg
+      text: "GitHub"
+      href: https://github.com/davidycliao/legistaiwan
+
