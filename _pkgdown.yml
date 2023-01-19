@@ -20,7 +20,7 @@ navbar:
     - text: Taiwna Legislative Politics
       href: articles/legislative.html
   - icon: fa-project-diagram
-    text: Examples of Use
+    text: Examples
     href: articles/examples.html
   right:
   - icon: fa-newspaper-o
