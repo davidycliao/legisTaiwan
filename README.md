@@ -40,8 +40,9 @@ library(legisTaiwan)
 
 
 ### Acknowledge
-```
+
+
 This is part of my dissertation project and supported by the 2021 Taiwanese Overseas Pioneers Grants for PhD Candidates from the National Science and Technology Council Ministry of Science in Taiwan, August 2021 - August 2022.
-```
+
 
 
