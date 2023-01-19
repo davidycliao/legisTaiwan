@@ -1,4 +1,4 @@
-#' ## Retrieving legislator' demographics via Taiwan Legislative Yuan API
+#' Retrieving legislator' demographics via Taiwan Legislative Yuan API
 #' 行政院答復質詢事項
 #'
 #'@param term Requesting answered questions from the term. The parameter should be set in
