@@ -17,11 +17,11 @@
 #'@importFrom jsonlite fromJSON
 #'
 #'@export
+#'
 #'@examples
 #' ## query bill records by a period of the dates in Taiwan ROC calender format
 #' ## 輸入「中華民國民年」下載立法委員提案資料
 #'get_bills(start_date = 1060120, end_date = 1070310)
-#'
 #'
 #'
 #' ## query bill records by a period of the dates in Taiwan ROC calender format
