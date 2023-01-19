@@ -31,7 +31,16 @@ Retrieving the records of bill sponsor and co-sponsor
 via Taiwan Legislative Yuan API
 }
 \examples{
+## query bill records by a period of the dates in Taiwan ROC calender format
 get_bills(1060120, 1060220)
+
+
+
+## query bill records by a period of the dates in Taiwan ROC calender format
+## and a specific legislator
+輸入「中華民國民年」與「指定立法委員」下載立法委員提案資料
+
+
 }
 \seealso{
 \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}

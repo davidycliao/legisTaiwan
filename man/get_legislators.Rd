@@ -21,9 +21,14 @@ Retrieving legislator' demographics via Taiwan Legislative Yuan API
 歷屆委員資料
 }
 \examples{
-# to retrieve 8th therm
+## To retrieve legislator' demographics from 8th
+## 輸入「屆次」下載當屆立委資料
 get_legislators(term = 8)
-# to retrieve all of terms
+
+
+
+## To retrieve legislator' demographic from all of terms
+## 輸入「空白」下載所有立委資料
 get_legislators()
 }
 \seealso{

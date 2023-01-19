@@ -38,7 +38,17 @@ Retrieving the spoken meeting records via
 Taiwan Legislative Yuan (The Legislature) API
 }
 \examples{
+## query meeting records by a period of the dates in Taiwan ROC calender format
 get_meetings(1050120, 1050210)
+
+
+
+## query meeting records by a period of the dates in Taiwan ROC calender format
+## and a meeting
+## 輸入「中華民國民年」與「審查會議或委員會名稱」下載會議審查資訊
+get_meetings(start_date = 1060120, end_date = 1070310, meeting_unit = "內政委員會")
+
+
 }
 \seealso{
 \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}
