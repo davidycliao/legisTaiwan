@@ -14,7 +14,7 @@
 #'@export
 #'
 #'@examples
-#' ## To retrieve legislator' demographics from 8th
+#' ## To retrieve legislator' demographic from 8th
 #' ## 輸入「屆次」下載當屆立委資料
 #'get_legislators(term = 8)
 #'

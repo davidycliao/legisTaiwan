@@ -15,31 +15,26 @@ navbar:
   left:
   - icon: fa-home
     href: index.html
-
   - icon: fa-rocket
     text: Manual
     menu:
     - text:
       href:
-
   - icon: fa-project-diagram
     text: Projects
     menu:
     - text: 立法委員在肉桶立法的連署分析
       href: articles/legislative.html
-
   - icon: fa-newspaper-o
     text: News
     menu:
     - text: "Version 0.1.0"
       href: news/index.html
-
   - icon: fa-file-code-o
     text: Features
     menu:
     - text: "Reference"
       href: reference/index.html
-
 
   right:
   - icon: fa-github fa-lg
