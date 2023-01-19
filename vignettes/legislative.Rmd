@@ -1,0 +1,14 @@
+---
+title: "Research on Taiwan Legislative Politics"
+author: "David Yen-Chieh Liao"
+#author: "Vignette Author"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Supports}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+#### [Coming Soon]()
