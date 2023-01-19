@@ -17,8 +17,14 @@ navbar:
   - icon: fa-rocket
     text: Manual
     menu:
-    - text: Taiwna Legislative Politics
+    - text:
+      href:
+  - icon: fa-project-diagram
+    text: Projects
+    menu:
+    - text: 立法委員在肉桶立法的連署分析
       href: articles/legislative.html
+
   right:
   - icon: fa-newspaper-o
     text: news
