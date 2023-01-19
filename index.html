@@ -51,18 +51,11 @@
      
   </a>
 </li>
-<li>
-  <a href="articles/examples.html">
-    <span class="fa fa-project-diagram"></span>
-     
-    Manual
-  </a>
-</li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fa fa-rocket"></span>
      
-    Reference
+    Manual
      
     <span class="caret"></span>
   </a>
@@ -115,120 +108,12 @@
 <p><code>legisTaiwan</code> is an R package for downloading the legislative data of spoken meeting records, bill sponsor/co-sponsor, and more via the <a href="https://www.ly.gov.tw/Home/Index.aspx" class="external-link">Taiwan Legislative Yuan API</a>.</p>
 </div>
 <div class="section level2">
-<h2 id="the-overveiw-of-legistaiwan">The Overveiw of <code>legisTaiwan</code>
-<a class="anchor" aria-label="anchor" href="#the-overveiw-of-legistaiwan"></a>
-</h2>
-<table class="table">
-<colgroup>
-<col width="66%">
-<col width="17%">
-<col width="15%">
-</colgroup>
-<thead><tr class="header">
-<th>Taiwan Legislative Yuan API (台灣國會API) <img width="400/" src="NA">
-</th>
-<th>
-<code>legisTaiwan</code> <img width="250/" src="NA">
-</th>
-<th>Since <img width="250/" src="NA">
-</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td><a href="https://www.ly.gov.tw/Pages/List.aspx?nodeid=154" class="external-link"><strong>Spoken Meeting Records (委員發言)</strong></a></td>
-<td><a href=""><code>get_meetings()</code></a></td>
-<td>7th* (西2011民100)</td>
-</tr>
-<tr class="even">
-<td><a href="https://www.ly.gov.tw/Pages/List.aspx?nodeid=154" class="external-link"><strong>Bill Sponsor and Co-sponsor (法律提案)</strong></a></td>
-<td><a href=""><code>get_bills()</code></a></td>
-<td>7th* (西2011民100)</td>
-</tr>
-<tr class="odd">
-<td><a href="https://data.ly.gov.tw/getds.action?id=45" class="external-link"><strong>Original Proceedings (議事錄原始檔案)</strong></a></td>
-<td>Coming soon</td>
-<td>8th (西2014民104)</td>
-</tr>
-<tr class="even">
-<td><a href="https://data.ly.gov.tw/getds.action?id=16" class="external-link"><strong>Legislator Demographic Information (歷屆委員資料)</strong></a></td>
-<td><a href=""><code>get_legislators()</code></a></td>
-<td>2th (西1992民 81)</td>
-</tr>
-<tr class="odd">
-<td><a href="https://data.ly.gov.tw/getds.action?id=6" class="external-link"><strong>The Questions Answered by the Legislative Yuan (立委質詢部分)</strong></a></td>
-<td><a href=""><code>get_parlquestions()</code></a></td>
-<td>8th (西2014民104)</td>
-</tr>
-<tr class="even">
-<td><a href="https://data.ly.gov.tw/getds.action?id=1" class="external-link"><strong>The Questions Answered by the Executive Yuan (行政院答復質詢事項)</strong></a></td>
-<td>Coming soon</td>
-<td>8th (西2014民104)</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>To be confirmed.</li>
-</ul>
-</div>
-<div class="section level2">
 <h2 id="install-from-github-using-remotes">Install from GitHub Using <code>remotes</code>
 <a class="anchor" aria-label="anchor" href="#install-from-github-using-remotes"></a>
 </h2>
 <pre><code><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span>
 <span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"davidycliao/legisTaiwan"</span>, force <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre>
-<pre><code><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://davidycliao.github.io/legisTaiwan/">legisTaiwan</a></span><span class="op">)</span></span></code></pre>
-</div>
-<div class="section level2">
-<h2 id="quick-start">Quick Start<a class="anchor" aria-label="anchor" href="#quick-start"></a>
-</h2>
-<div class="section level3">
-<h3 id="search-spoken-meetings">Search Spoken Meetings<a class="anchor" aria-label="anchor" href="#search-spoken-meetings"></a>
-</h3>
-<pre><code><span><span class="co"># query meeting records by a period of the dates in Taiwan ROC calender format</span></span>
-<span><span class="co"># 輸入「中華民國民年」下載會議審查資訊</span></span>
-<span><span class="va">mt</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_meetings.html">get_meetings</a></span><span class="op">(</span>start_date <span class="op">=</span> <span class="fl">1060120</span>, end_date <span class="op">=</span> <span class="fl">1070310</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">mt</span><span class="op">$</span><span class="va">data</span><span class="op">)</span></span></code></pre>
-<p align="center">
-<img width="950" height="280" src="https://raw.githack.com/davidycliao/figures/master/1.png"></p>
-<pre><code><span><span class="co"># query meeting records by a period of the dates in Taiwan ROC calender format </span></span>
-<span><span class="co"># and a meeting</span></span>
-<span><span class="co"># 輸入「中華民國民年」與「審查會議或委員會名稱」下載會議審查資訊</span></span>
-<span><span class="va">mt</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_meetings.html">get_meetings</a></span><span class="op">(</span>start_date <span class="op">=</span> <span class="fl">1060120</span>, end_date <span class="op">=</span> <span class="fl">1070310</span>, meeting_unit <span class="op">=</span> <span class="st">"內政委員會"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">mt</span><span class="op">$</span><span class="va">data</span><span class="op">)</span></span></code></pre>
-<p align="center">
-<img width="950" height="280" src="https://raw.githack.com/davidycliao/figures/master/2.png"></p>
-<pre><code><span><span class="co"># query meeting records by a period of the dates in Taiwan ROC calender format </span></span>
-<span><span class="co"># and multiple meetings</span></span>
-<span><span class="co"># 輸入「中華民國民年」與「多個審查會議或委員會名稱」下載會議審查資訊</span></span>
-<span><span class="va">mt</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_meetings.html">get_meetings</a></span><span class="op">(</span>start_date <span class="op">=</span> <span class="fl">1060120</span>, end_date <span class="op">=</span> <span class="fl">1070310</span>, meeting_unit <span class="op">=</span> <span class="st">"內政委員會&amp;朝野協商"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">mt</span><span class="op">$</span><span class="va">data</span><span class="op">)</span></span></code></pre>
-<p align="center">
-<img width="950" height="280" src="https://raw.githack.com/davidycliao/figures/master/3.png"></p>
-</div>
-<div class="section level3">
-<h3 id="search-records-of-bill-sponsor-and-co-sponsor">Search Records of Bill Sponsor and Co-sponsor<a class="anchor" aria-label="anchor" href="#search-records-of-bill-sponsor-and-co-sponsor"></a>
-</h3>
-<pre><code><span><span class="co"># query bill records by a period of the dates in Taiwan ROC calender format</span></span>
-<span><span class="co"># 輸入「中華民國民年」下載立法委員提案資料</span></span>
-<span><span class="va">bl</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_bills.html">get_bills</a></span><span class="op">(</span>start_date <span class="op">=</span> <span class="fl">1060120</span>, end_date <span class="op">=</span> <span class="fl">1070310</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">bl</span><span class="op">$</span><span class="va">data</span><span class="op">)</span></span></code></pre>
-<p align="center">
-<img width="950" height="280" src="https://raw.githack.com/davidycliao/figures/master/4.png"></p>
-<pre><code><span><span class="co"># query bill records by a period of the dates in Taiwan ROC calender format </span></span>
-<span><span class="co"># and a specific legislator </span></span>
-<span><span class="co"># 輸入「中華民國民年」與「指定立法委員」下載立法委員提案資料</span></span>
-<span><span class="va">bl</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_bills.html">get_bills</a></span><span class="op">(</span>start_date <span class="op">=</span> <span class="fl">1060120</span>, end_date <span class="op">=</span> <span class="fl">1070310</span>,  proposer <span class="op">=</span> <span class="st">"孔文吉"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">bl</span><span class="op">$</span><span class="va">data</span><span class="op">)</span></span></code></pre>
-<p align="center">
-<img width="950" height="280" src="https://raw.githack.com/davidycliao/figures/master/5.png"></p>
-<pre><code><span><span class="co"># query bill records by a period of the dates in Taiwan ROC calender format </span></span>
-<span><span class="co"># and multiple legislators </span></span>
-<span><span class="co"># 輸入「中華民國民年」與「指定多個立法委員」下載立法委員提案資料</span></span>
-<span><span class="va">bl</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_bills.html">get_bills</a></span><span class="op">(</span>start_date <span class="op">=</span> <span class="fl">1060120</span>, end_date <span class="op">=</span> <span class="fl">1060510</span>,  proposer <span class="op">=</span> <span class="st">"孔文吉&amp;鄭天財"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">bl</span><span class="op">$</span><span class="va">data</span><span class="op">)</span></span></code></pre>
-<p align="center">
-<img width="950" height="260" src="https://raw.githack.com/davidycliao/figures/master/6.png"></p>
-</div>
+<p>``` library(legisTaiwan)</p>
 </div>
 
   </div>
