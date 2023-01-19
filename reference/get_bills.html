@@ -144,57 +144,7 @@ billName, billProposer, billCosignatory, billStatus, date_ad</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">get_bills</span><span class="op">(</span><span class="fl">1060120</span>, <span class="fl">1060220</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved URL: </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  https://www.ly.gov.tw/WebAPI/LegislativeBill.aspx?from=1060120&amp;to=1060220&amp;proposer=&amp;mode=json </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved Bill Sponsor(s):  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved date between: 2017-01-20 and 2017-02-20 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved Num: 81 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $title</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the records of bill sponsor and co-sponsor"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-01-19 13:31:27 UTC"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 81</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $proposer</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $start_date_ad</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2017-01-20"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $end_date_ad</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2017-02-20"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $start_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1060120</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $end_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1060220</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $url</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://www.ly.gov.tw/WebAPI/LegislativeBill.aspx?from=1060120&amp;to=1060220&amp;proposer=&amp;mode=json"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $data</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 81 × 9</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    date    term  sessionPer…¹ sessi…² billN…³ billP…⁴ billC…⁵ billS…⁶ date_ad   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 1060217 09    03           01      公教人… 民進黨… <span style="color: #949494;">"</span>曾銘…  <span style="color: #949494;">""</span>      2017-02-17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 1060217 09    03           01      公務人… 民進黨… <span style="color: #949494;">"</span>曾銘…  <span style="color: #949494;">""</span>      2017-02-17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 1060217 09    03           01      公務人… 民進黨… <span style="color: #949494;">"</span>曾銘…  <span style="color: #949494;">""</span>      2017-02-17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 1060217 09    03           01      政務人… 民進黨… <span style="color: #949494;">"</span>曾銘…  <span style="color: #949494;">""</span>      2017-02-17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 1060217 09    03           01      學校教… 民進黨… <span style="color: #949494;">"</span>曾銘…  <span style="color: #949494;">""</span>      2017-02-17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 1060217 09    03           01      學校教… 民進黨… <span style="color: #949494;">"</span>曾銘…  <span style="color: #949494;">""</span>      2017-02-17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 1060217 09    03           01      陸海空… 民進黨… <span style="color: #949494;">"</span>曾銘…  <span style="color: #949494;">""</span>      2017-02-17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 1060217 09    03           01      軍人撫… 民進黨… <span style="color: #949494;">"</span>曾銘…  <span style="color: #949494;">""</span>      2017-02-17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 1060217 09    03           01      都市更… 江永昌… <span style="color: #949494;">"</span>莊瑞…  <span style="color: #949494;">""</span>      2017-02-17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1060217 09    03           01      公益勸… 劉櫂豪… <span style="color: #949494;">"</span>趙天…  <span style="color: #949494;">""</span>      2017-02-17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 71 more rows, and abbreviated variable names ¹​sessionPeriod,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ²​sessionTimes, ³​billName, ⁴​billProposer, ⁵​billCosignatory, ⁶​billStatus</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-</code></pre></div>
+    
     </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
