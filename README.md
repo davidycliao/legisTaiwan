@@ -22,8 +22,8 @@
 |[`get_bills()`](https://davidycliao.github.io/legisTaiwan/reference/get_bills.html)              |  7th* (西2011民100) | [**Bill Sponsors and Co-sponsors (法律提案)**](https://www.ly.gov.tw/Pages/List.aspx?nodeid=154)                    |
 |Coming soon                    |  8th  (西2014民104) | [**The Proceedings  (議事錄原始檔案)**](https://data.ly.gov.tw/getds.action?id=45)                           | 
 |[`get_legislators()`](https://davidycliao.github.io/legisTaiwan/reference/get_legislators.html)        |  2th  (西1992民 81) | [**Legislator Demographic Information (歷屆委員資料)**](https://data.ly.gov.tw/getds.action?id=16)                |
-|[`get_parlquestions()`](https://davidycliao.github.io/legisTaiwan/reference/get_parlquestions.html)      |  8th  (西2014民104) | [**Questions Asked by the Legislators (立委質詢部分)**](https://data.ly.gov.tw/getds.action?id=6)     |
-| Coming soon                   |  8th  (西2014民104) | [**Questions Answered by the Executive Officials (行政院答復質詢事項)**](https://data.ly.gov.tw/getds.action?id=1) |
+|[`get_parlquestions()`](https://davidycliao.github.io/legisTaiwan/reference/get_parlquestions.html)      |  8th  (西2014民104) | [**Questions Asked by Legislators (立委質詢部分)**](https://data.ly.gov.tw/getds.action?id=6)     |
+| Coming soon                   |  8th  (西2014民104) | [**Questions Answered by Executive Officials (行政院答復質詢事項)**](https://data.ly.gov.tw/getds.action?id=1) |
 
 &nbsp; 
 
