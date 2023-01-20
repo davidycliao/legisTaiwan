@@ -43,7 +43,6 @@ api_check <- function(start_date = start_date, end_date = end_date) {
                                    end_date, ".", sep = " "))
 }
 
-
 #' Transforming meeting date in Taiwan ROC calendar to A.D. format
 #'
 #'@param roc_date Date format in Taiwan ROC calendar (e.g., "105/05/31")
