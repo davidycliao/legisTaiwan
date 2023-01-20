@@ -36,7 +36,7 @@
 #'
 #'
 #'@seealso
-#' \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}
+#'\url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}
 
 
 get_meetings <- function(start_date = NULL, end_date = NULL,
