@@ -11,4 +11,6 @@ test_that("get_parlquestions", {
                get_parlquestions(term = 8, session_period = 4, verbose = FALSE)$retrieved_term)
   expect_equal(as.numeric(unique(get_parlquestions(term = 8, session_period = 4, verbose = FALSE)$data$term)),
                get_parlquestions(term = 8, session_period = 4, verbose = FALSE)$retrieved_term)
+  expect_equal(as.numeric(unique(get_parlquestions(term = 8, session_period = 4, verbose = TRUE)$data$term)),
+               get_parlquestions(term = 8, session_period = 4, verbose = FALSE)$retrieved_term)
   })

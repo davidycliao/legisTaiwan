@@ -72,6 +72,10 @@ get_meetings <- function(start_date = NULL, end_date = NULL,
         cat(" Retrieved date between:", as.character(legisTaiwan::check_date(start_date)), "and", as.character(legisTaiwan::check_date(end_date)), "\n")
         cat(" Retrieved number:", nrow(df), "\n")
       }
+      variable_names <- data.frame(variable_names = c("smeeting_date", "meeting_status", "meeting_name",  "meeting_content",
+                                                      "speechers" ,"meeting_unit", "date_ad" ),
+                                   ch_description = c("民國會議日期", "會議狀態", "會議名稱",
+                                                      "會議事由", "委員",  "主辦單位", "西元會議日期"))
       list_data <- list("title" = "the spoken meeting records",
                         "query_time" = Sys.time(),
                         "retrieved_number" = nrow(df),
@@ -81,6 +85,7 @@ get_meetings <- function(start_date = NULL, end_date = NULL,
                         "start_date" = start_date,
                         "end_date" = end_date,
                         "url" = set_api_url,
+                        "variable_names" = variable_names,
                         "data" = df)
       return(list_data)
     },
