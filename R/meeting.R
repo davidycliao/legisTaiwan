@@ -57,7 +57,8 @@ get_meetings <- function(start_date = NULL, end_date = NULL,
         cat(" Retrieved URL: \n", set_api_url, "\n")
         cat(" Retrieved via :", meeting_unit, "\n")
         cat(" Retrieved date between:", as.character(legisTaiwan::check_date(start_date)), "and", as.character(legisTaiwan::check_date(end_date)), "\n")
-        cat(" Retrieved number:", nrow(df), "\n")}
+        cat(" Retrieved number:", nrow(df), "\n")
+        }
       list_data <- list("title" = "the spoken meeting records",
                         "query_time" = Sys.time(),
                         "retrieved_number" = nrow(df),
