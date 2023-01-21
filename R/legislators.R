@@ -58,7 +58,7 @@ get_legislators <- function(term = NULL, verbose = TRUE) {
       }
       list_data <- list("title" = "the legislator's demographic information",
                         "query_time" = Sys.time(),
-                        "retrieved_term" = unique(df$term),
+                        "queried_term" = term,
                         "url" = set_api_url,
                         "variable_names" = colnames(df),
                         "manual_info" = "https://data.ly.gov.tw/getds.action?id=16",
