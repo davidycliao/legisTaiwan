@@ -42,40 +42,22 @@
 get_meetings <- function(start_date = NULL, end_date = NULL,
                          meeting_unit = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
-  attempt::stop_if_all(legisTaiwan::check_date(start_date) > as.Date(Sys.time()),
-                       isTRUE, msg = "The start date should not be after system time")
-  attempt::stop_if_all(legisTaiwan::check_date(end_date) > as.Date(Sys.time()),
-                       isTRUE, msg = "The end date should not be after system time")
-  attempt::stop_if_all(start_date, is.character, msg = "use numeric format")
-  attempt::stop_if_all(end_date, is.character, msg = "use numeric format")
-  attempt::stop_if_all(start_date, is.null, msg = "start_date is missing")
-  attempt::stop_if_all(end_date, is.null, msg = "end_date is missing")
-  attempt::stop_if_all(legisTaiwan::check_date(end_date) > legisTaiwan::check_date(start_date), isFALSE,
-                       msg = paste("The start date,", start_date, ",",
-                                   "should not be later than the end date ,",
-                                   end_date, ".", sep = " "))
+  legisTaiwan::api_check(start_date = start_date, end_date = end_date)
   set_api_url <- paste("https://www.ly.gov.tw/WebAPI/LegislativeSpeech.aspx?from=",
                        start_date, "&to=", end_date, "&meeting_unit=",
                        meeting_unit,  "&mode=json", sep = "")
-
   tryCatch(
     # evaluate the dates and meeting units are valid for the API
     {
       json_df <- jsonlite::fromJSON(set_api_url)
       df <- tibble::as_tibble(json_df)
-      attempt::stop_if_all(length(df) == 0, isTRUE, msg = "The query unavailable
-                           during the period of the dates in the API")
+      attempt::stop_if_all(length(df) == 0, isTRUE, msg = "The query unavailable during the period of the dates!")
       df["date_ad"] <- do.call("c", lapply(df$smeeting_date, legisTaiwan::transformed_date_meeting))
       if (isTRUE(verbose)) {
         cat(" Retrieved URL: \n", set_api_url, "\n")
         cat(" Retrieved via :", meeting_unit, "\n")
         cat(" Retrieved date between:", as.character(legisTaiwan::check_date(start_date)), "and", as.character(legisTaiwan::check_date(end_date)), "\n")
-        cat(" Retrieved number:", nrow(df), "\n")
-      }
-      variable_names <- data.frame(variable_names = c("smeeting_date", "meeting_status", "meeting_name",  "meeting_content",
-                                                      "speechers" ,"meeting_unit", "date_ad" ),
-                                   ch_description = c("民國會議日期", "會議狀態", "會議名稱",
-                                                      "會議事由", "委員",  "主辦單位", "西元會議日期"))
+        cat(" Retrieved number:", nrow(df), "\n")}
       list_data <- list("title" = "the spoken meeting records",
                         "query_time" = Sys.time(),
                         "retrieved_number" = nrow(df),
@@ -85,14 +67,16 @@ get_meetings <- function(start_date = NULL, end_date = NULL,
                         "start_date" = start_date,
                         "end_date" = end_date,
                         "url" = set_api_url,
-                        "variable_names" = variable_names,
+                        "variable_names" = colnames(df),
+                        "manual_info" = "https://www.ly.gov.tw/Pages/List.aspx?nodeid=154",
                         "data" = df)
       return(list_data)
     },
     error = function(error_message) {
-      message("Warning: The dates or the meeting unit(s) are not available in the database")
-      message("INFO: The error message from the Taiwan Legislative Yuan API or R:")
+      # message("Warning: The dates or the meeting unit(s) are not available in the database")
+      # message("INFO: The error message from the Taiwan Legislative Yuan API or R:")
       message(error_message)
     }
   )
 }
+
