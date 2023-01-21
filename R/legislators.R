@@ -51,7 +51,7 @@ get_legislators <- function(term = NULL, verbose = TRUE) {
       json_df <- jsonlite::fromJSON(set_api_url)
       df <- tibble::as_tibble(json_df$dataList)
       attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable")
-      term <- paste(sort(as.numeric(unique(df$term))), collapse=" ", sep = ",")
+      term <- paste(sort(as.numeric(unique(df$term))), collapse = " ", sep = ",")
       if (isTRUE(verbose)) {
         cat(" Retrieved URL: \n", set_api_url, "\n")
         cat(" Retrieved term: ", term, "\n")

@@ -59,12 +59,12 @@ get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
                         "retrieved_number" = nrow(df),
                         "retrieved_term" = term,
                         "url" = set_api_url,
+                        "variable_names" = colnames(df),
+                        "manual_info" = "https://data.ly.gov.tw/getds.action?id=6",
                         "data" = df)
       return(list_data)
     },
     error = function(error_message) {
-      message("Warning: The data retrieved are not available in the database")
-      message("INFO: The error message from the Taiwan Legislative Yuan API or R:")
       message(error_message)
     }
   )
