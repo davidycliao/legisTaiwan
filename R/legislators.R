@@ -40,7 +40,7 @@ get_legislators <- function(term = NULL, verbose = TRUE) {
       term <- sprintf("%02d", as.numeric(term))
     } else if (length(term) > 1) {
       term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
-      message("The API is not allowed to query the data by multiple terms.")
+      message("The API is unable to  query multiple terms.")
       message("The retrieved data might not be complete, \n")
     }
     set_api_url <- paste("https://data.ly.gov.tw/odw/ID16Action.action?name=&sex=&party=&partyGroup=&areaName=&term=",

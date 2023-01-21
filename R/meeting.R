@@ -51,7 +51,7 @@ get_meetings <- function(start_date = NULL, end_date = NULL,
     {
       json_df <- jsonlite::fromJSON(set_api_url)
       df <- tibble::as_tibble(json_df)
-      attempt::stop_if_all(length(df) == 0, isTRUE, msg = "The query unavailable during the period of the dates!")
+      attempt::stop_if_all(length(df) == 0, isTRUE, msg = "The query is unavailable")
       df["date_ad"] <- do.call("c", lapply(df$smeeting_date, legisTaiwan::transformed_date_meeting))
       if (isTRUE(verbose)) {
         cat(" Retrieved URL: \n", set_api_url, "\n")

@@ -48,7 +48,7 @@ get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
     {
       json_df <- jsonlite::fromJSON(set_api_url)
       df <- tibble::as_tibble(json_df$dataList)
-      attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query unavailable during the period of the dates in the API")
+      attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable")
       if (isTRUE(verbose)) {
         cat(" Retrieved URL: \n", set_api_url, "\n")
         cat(" Retrieved sessionPeriod: ", session_period, "\n")
