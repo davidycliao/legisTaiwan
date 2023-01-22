@@ -1,4 +1,4 @@
-# legisTaiwan: *Downloading the Realtime and Archives of Taiwan Legislative Data in R*   <img src="https://raw.githack.com/davidycliao/figures/master/hexsticker_tw.png" width="140" align="right" /> <br /> 
+# legisTaiwan: *Downloading the Real-time and Archives of Taiwan Legislative Data in R*   <img src="https://raw.githack.com/davidycliao/figures/master/hexsticker_tw.png" width="140" align="right" /> <br /> 
 
 [![R](https://github.com/davidycliao/legisTaiwan/actions/workflows/r.yml/badge.svg)](https://github.com/davidycliao/legisTaiwan/actions/workflows/r.yml) [![codecov](https://codecov.io/gh/davidycliao/legisTaiwan/branch/master/graph/badge.svg?token=HVVTCOE90D)](https://codecov.io/gh/davidycliao/legisTaiwan)
 [![R-CMD-check](https://github.com/davidycliao/legisTaiwan/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/davidycliao/legisTaiwan/actions/workflows/R-CMD-check.yaml)
@@ -6,7 +6,7 @@
 
 &nbsp; 
 
-`legisTaiwan` is an R package for downloading the legislative data of spoken meeting records, bill sponsor/co-sponsor, and **more** via the [Taiwan Legislative Yuan API](https://www.ly.gov.tw/Home/Index.aspx). 
+`legisTaiwan` is an R package for downloading real-time legislative data of spoken meeting records, bill sponsor/co-sponsor, and ***more*** via the [Taiwan Legislative Yuan API](https://www.ly.gov.tw/Home/Index.aspx). 
 
 
 
