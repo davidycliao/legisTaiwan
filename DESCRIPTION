@@ -14,7 +14,8 @@ Imports:
 	attempt,
 	stringr,
   curl,
-  tibble
+  tibble,
+  rvest
 Suggests: 
     testthat (>= 3.0.0)
 RoxygenNote: 7.2.3
