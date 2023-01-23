@@ -41,7 +41,7 @@ get_legislators <- function(term = NULL, verbose = TRUE) {
     } else if (length(term) > 1) {
       term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
       message("The API is unable to query multiple terms.")
-      message("The retrieved data might not be complete.x \n")
+      message("The retrieved data might not be complete. \n")
     }
     set_api_url <- paste("https://data.ly.gov.tw/odw/ID16Action.action?name=&sex=&party=&partyGroup=&areaName=&term=",
                          term, "=&fileType=json", sep = "")
