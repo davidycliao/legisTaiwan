@@ -10,7 +10,7 @@
 `legisTaiwan` is an R package for downloading real-time legislative data of spoken meeting records, bill sponsor/co-sponsor, and ***more*** via the [Taiwan Legislative Yuan API](https://www.ly.gov.tw/Home/Index.aspx). 
 
 
-###### [非常感謝您光顧本代碼庫，由於還在測試中，使用上如果也任何不便或建議，歡迎寫信給我 davidycliao[at]cas.au.dk。我會在我能力範圍內協助修改。同時，也非常歡迎**fork**、**star** 或**watch** 。]()
+###### [非常感謝您光顧本代碼庫，由於還在測試中，使用上如果有任何設計不流暢或建議，歡迎寫信給我 davidycliao[at]cas.au.dk。我會在我能力範圍內協助修改。同時，也非常歡迎**fork**、**star** 或**watch** 。]()
 
 
 
