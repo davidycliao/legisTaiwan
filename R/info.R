@@ -57,14 +57,14 @@ get_infos <- function(x){
     return(page_info)
   }
   else {
-    stop("Please check the spelling or typographical error.")
+    stop("Please use correct funtion names (get_bills, get_meetings, or get_executive_response, etc) or typographical error.")
     }
     html <-  rvest::html_nodes(rvest::read_html(url), "*[id='content']")
     title <- gsub("[[:space:]]", "", rvest::html_text2(rvest::html_nodes(html, "h2")))
 
     content <- gsub("[[:space:]]", "", rvest::html_text2(rvest::html_nodes(html, "span")))
     df <- data.frame(content[seq(1, length(content), 2 )],
-                     content[seq(1, length(content)+1, 2 )-1])
+                     content[seq(1, length(content) + 1, 2 ) -1])
     colnames(df) <- c(title[2], title[1])
     df <- tibble::as_tibble(df)
     page_info <- list(page_info = df, reference_url = url)
