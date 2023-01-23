@@ -43,18 +43,17 @@ get_infos <- function(x) {
     url <- "https://data.ly.gov.tw/getds.action?id=2"
   }
   else if (x %in% c("get_bills", "get_meetings")) {
-    # outliers
+    # outliers: get_bills & get_meetings
     if (x == "get_meetings") {
       # 委員發言(API) https://www.ly.gov.tw/Pages/List.aspx?nodeid=154
       url <- "https://www.ly.gov.tw/Pages/List.aspx?nodeid=154"
-    }
+      }
     else if (x == "get_bills") {
       # 法律提案(API) https://www.ly.gov.tw/Pages/List.aspx?nodeid=153
       url <- "https://www.ly.gov.tw/Pages/List.aspx?nodeid=153"
-    }
+      }
     html_info <- rvest::html_text2(rvest::html_nodes(rvest::html_nodes(rvest::read_html(url), "*[id='form_Query']"), "div") )
-    page_info <- list(page_info = strsplit(html_info[14], split = "\n")[[1]],
-                      reference_url = url)
+    page_info <- list(page_info = strsplit(html_info[14], split = "\n")[[1]], reference_url = url)
     return(page_info)
   }
   else {
