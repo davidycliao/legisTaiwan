@@ -51,7 +51,7 @@ get_infos <- function(x){
       # 法律提案(API) https://www.ly.gov.tw/Pages/List.aspx?nodeid=153
       url <- "https://www.ly.gov.tw/Pages/List.aspx?nodeid=153"
     }
-    html_info <- rvest::html_text2(rvest::html_nodes(rvest::html_nodes(rvest::read_html(url) , "*[id='form_Query']"), "div") )
+    html_info <- rvest::html_text2(rvest::html_nodes(rvest::html_nodes(rvest::read_html(url), "*[id='form_Query']"), "div") )
     page_info <- list(page_info = strsplit(html_info[14], split = "\n")[[1]],
                       reference_url = url)
     return(page_info)
