@@ -26,7 +26,7 @@
 #'\url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}
 #'\url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}
 
-get_infos <- function(x){
+get_infos <- function(x) {
   legisTaiwan::check_internet()
   attempt::stop_if_all(x, is.numeric, msg = "use string format only")
   attempt::stop_if(x , ~ length(.x) >1, msg = "only allowed to query one variable")
@@ -35,7 +35,7 @@ get_infos <- function(x){
     url <- "https://data.ly.gov.tw/getds.action?id=6"
   }
   else if (x == "get_legislators") {
-    # 質詢事項(本院委員質詢部分) https://data.ly.gov.tw/getds.action?id=6
+    # 歷屆委員資料 https://data.ly.gov.tw/getds.action?id=16
     url <- "https://data.ly.gov.tw/getds.action?id=16"
   }
   else if (x == "get_executive_response") {
@@ -43,6 +43,7 @@ get_infos <- function(x){
     url <- "https://data.ly.gov.tw/getds.action?id=2"
   }
   else if (x %in% c("get_bills", "get_meetings")) {
+    # outliers
     if (x == "get_meetings") {
       # 委員發言(API) https://www.ly.gov.tw/Pages/List.aspx?nodeid=154
       url <- "https://www.ly.gov.tw/Pages/List.aspx?nodeid=154"
