@@ -43,7 +43,7 @@ get_infos <- function(x){
     url <- "https://data.ly.gov.tw/getds.action?id=2"
   }
   else if (x %in% c("get_bills", "get_meetings")) {
-    if (x == "get_meetings"){
+    if (x == "get_meetings") {
       # 委員發言(API) https://www.ly.gov.tw/Pages/List.aspx?nodeid=154
       url <- "https://www.ly.gov.tw/Pages/List.aspx?nodeid=154"
     }
@@ -59,7 +59,7 @@ get_infos <- function(x){
   else {
     stop("Please use correct funtion names (get_bills, get_meetings, or get_executive_response, etc) or typographical error.")
     }
-    html <-  rvest::html_nodes(rvest::read_html(url), "*[id='content']")
+    html <- rvest::html_nodes(rvest::read_html(url), "*[id='content']")
     title <- gsub("[[:space:]]", "", rvest::html_text2(rvest::html_nodes(html, "h2")))
 
     content <- gsub("[[:space:]]", "", rvest::html_text2(rvest::html_nodes(html, "span")))
