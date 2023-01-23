@@ -27,7 +27,7 @@
 #'\url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}
 
 get_infos <- function(x){
-  check_internet()
+  legisTaiwan::check_internet()
   attempt::stop_if_all(x, is.numeric, msg = "use string format only")
   attempt::stop_if(x , ~ length(.x) >1, msg = "only allowed to query one variable")
   if (x == "get_parlquestions") {
