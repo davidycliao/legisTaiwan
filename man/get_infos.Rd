@@ -14,8 +14,6 @@ get_infos(x)
 Check function information on the website of Taiwan Legislative API
 }
 \examples{
-get_infos(x = "get_parlquestions")
-
 get_infos(x = "get_legislators")
 
 get_infos(x = "get_executive_response")
