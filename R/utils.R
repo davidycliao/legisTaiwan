@@ -24,7 +24,6 @@ check_internet <- function(x = curl::has_internet()) {
 #'
 #'@param start_date  start_date is inherited from global env.
 #'@param end_date  end_date is inherited from global env.
-
 #'@export
 #'@importFrom attempt stop_if_not
 
