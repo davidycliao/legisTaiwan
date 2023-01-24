@@ -13,15 +13,6 @@ get_infos(x)
 \description{
 Check function information on the website of Taiwan Legislative API
 }
-\examples{
-get_infos(x = "get_legislators")
-
-get_infos(x = "get_executive_response")
-
-get_infos(x = "get_bills")
-
-get_infos(x = "get_meetings")
-}
 \seealso{
 \url{https://data.ly.gov.tw/getds.action?id=6}
 \url{https://data.ly.gov.tw/getds.action?id=16}
