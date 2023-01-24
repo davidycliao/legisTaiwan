@@ -9,9 +9,6 @@
 #'@importFrom tibble as_tibble
 #'
 #'@export
-#'@examples
-#'legisTaiwan::get_infos(x = "get_legislators")
-
 #'@seealso
 #'\url{https://data.ly.gov.tw/getds.action?id=6}
 #'\url{https://data.ly.gov.tw/getds.action?id=16}
