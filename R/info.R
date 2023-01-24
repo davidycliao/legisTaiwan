@@ -5,10 +5,13 @@
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
-#'@importFrom rvest html_text2 read_html html_text2
+#'@importFrom rvest html_text2 read_html
 #'@importFrom tibble as_tibble
 #'
 #'@export
+#'@examples
+#'legisTaiwan::get_infos(x = "get_legislators")
+
 #'@seealso
 #'\url{https://data.ly.gov.tw/getds.action?id=6}
 #'\url{https://data.ly.gov.tw/getds.action?id=16}
