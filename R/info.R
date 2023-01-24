@@ -10,8 +10,6 @@
 #'
 #'@export
 #'@examples
-#'get_infos(x = "get_parlquestions")
-#'
 #'get_infos(x = "get_legislators")
 #'
 #'get_infos(x = "get_executive_response")
