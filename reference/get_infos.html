@@ -127,35 +127,6 @@
 <a href="https://www.ly.gov.tw/Pages/List.aspx?nodeid=153" class="external-link">https://www.ly.gov.tw/Pages/List.aspx?nodeid=153</a></p></div>
     </div>
 
-    <div id="ref-examples">
-    <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">get_infos</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"get_legislators"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in open.connection(x, "rb"):</span> OpenSSL SSL_read: error:0A000126:SSL routines::unexpected eof while reading, errno 0</span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">get_infos</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"get_executive_response"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in open.connection(x, "rb"):</span> OpenSSL SSL_read: error:0A000126:SSL routines::unexpected eof while reading, errno 0</span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">get_infos</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"get_bills"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $page_info</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "￭ 本項提供「法律提案」之API供民眾使用，可自行下載法律提案之相關資訊，欄位包含：提案日期、提案名稱、屆別、會期、會次、主提案及連署提案等。"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2] "￭ API提供參數計有3種，分別為提案日期、主提案人、檔案類型，其中提案日期與檔案類型為必填參數，檔案類型可為CSV、JSON、XML。"                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3] "￭ 範例說明(建議Chrome瀏覽器)：https://www.ly.gov.tw/WebAPI/LegislativeBill.aspx?from=1050201&amp;to=1050531&amp;proposer=委員姓名&amp;mode=xml"       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $reference_url</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://www.ly.gov.tw/Pages/List.aspx?nodeid=153"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">get_infos</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"get_meetings"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $page_info</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "￭ 本項提供「委員發言」之API供民眾使用，可自行下載委員發言之相關資訊，欄位包含：會議日期、會議狀態、會議名稱、會議事由、主辦單位及委員發言名單等。"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2] "￭ API提供參數計有3種，分別為會議日期、主辦單位、檔案類型，其中會議日期與檔案類型為必填參數，檔案類型可為CSV、JSON、XML。"                         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3] "￭ 範例說明(建議Chrome瀏覽器：https://www.ly.gov.tw/WebAPI/LegislativeSpeech.aspx?from=1061002&amp;to=1061006&amp;meeting_unit=內政委員會&amp;mode=XML"        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $reference_url</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://www.ly.gov.tw/Pages/List.aspx?nodeid=154"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-</code></pre></div>
-    </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top"><h2 data-toc-skip>Contents</h2>
