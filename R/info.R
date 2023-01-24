@@ -10,15 +10,15 @@
 #'
 #'@export
 #'@examples
-#'get_infos("get_parlquestions")
+#'get_infos(x = "get_parlquestions")
 #'
-#'get_infos("get_legislators")
+#'get_infos(x = "get_legislators")
 #'
-#'get_infos("get_executive_response")
+#'get_infos(x = "get_executive_response")
 #'
-#'get_infos("get_bills")
+#'get_infos(x = "get_bills")
 #'
-#'get_infos("get_meetings")
+#'get_infos(x = "get_meetings")
 #'@seealso
 #'\url{https://data.ly.gov.tw/getds.action?id=6}
 #'\url{https://data.ly.gov.tw/getds.action?id=16}
