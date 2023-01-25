@@ -48,7 +48,7 @@ The R pacakge is part of Yen-Chieh Liao's doctoral dissertation project [Elector
 
 &nbsp; 
 
-## Cite
+## Cite [![Tweet](https://img.shields.io/twitter/url/https/github.com/tterb/hyde.svg?style=social)](https://twitter.com/liaoyenchieh)  
 ```
 @phdthesis{davidycliao2022,
     title    = {Electoral Reform, Distributive Politics, and Parties in the Taiwanese Congress},
