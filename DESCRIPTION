@@ -1,6 +1,6 @@
 Package: legisTaiwan
 Type: Package
-Title: An Interface to Access Taiwan Legislative Yuan API to Download the Realtime and Archives of Taiwan Legislative Data 
+Title: Downloading the Real-time Archives of Taiwan Legislative Data Using R
 Version: 0.1.0
 Authors@R: person("David Yen-Chieh", "Liao", email = "davidyclaio@gmail.com", role = c("aut", "cre"))
 Description: This package provides functions for downloading historic and real-time legislative data via the Taiwan Legislative Yuan API. 
@@ -20,4 +20,3 @@ Suggests:
     testthat (>= 3.0.0)
 RoxygenNote: 7.2.3
 URL: https://davidycliao.github.io/legisTaiwan/
-Config/testthat/edition: 3
