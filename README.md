@@ -28,7 +28,7 @@
 |[`get_legislators()`](https://davidycliao.github.io/legisTaiwan/reference/get_legislators.html)     |  2th  (1992/81) | [**Legislator Demographics (歷屆委員資料)**](https://data.ly.gov.tw/getds.action?id=16)                |
 |[`get_parlquestions()`](https://davidycliao.github.io/legisTaiwan/reference/get_parlquestions.html) |  8th  (2014/104) | [**Questions Asked by Legislators (立委質詢)**](https://data.ly.gov.tw/getds.action?id=6)     |
 | [`get_executive_response()`](https://davidycliao.github.io/legisTaiwan/reference/get_executive_response.html)                |  8th  (2014/104) | [**Questions Answered by the Executives 質詢事項(行政院答復部分)**](https://data.ly.gov.tw/getds.action?id=1) |
-| [`get_debates()`]()                |  8th  (2014/104) | [**Public Debates 國是論壇**](https://data.ly.gov.tw/getds.action?id=7) |
+| [`get_debates()`](https://davidycliao.github.io/legisTaiwan/reference/get_public_debates.html)                |  8th  (2014/104) | [**Public Debates 國是論壇**](https://data.ly.gov.tw/getds.action?id=7) |
 
 
 &nbsp; 
