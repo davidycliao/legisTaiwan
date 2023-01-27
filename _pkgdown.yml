@@ -25,7 +25,7 @@ navbar:
     text: Quick Start
     menu:
     - text: "Quick Start Guide"
-      href:
+      href: articles/quickstart.html
   - icon: fa-project-diagram
     text: Examples
     menu:
