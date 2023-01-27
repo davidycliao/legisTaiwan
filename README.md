@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# legisTaiwan <img src="man/figures/logo.png" align="right" width="140"/>
+# legisTaiwan: Accessing the Real-time archives of Taiwan Legislative Data <img src="man/figures/logo.png" align="right" width="140"/>
 
 <!-- badges: start -->
 
@@ -14,10 +14,9 @@
 ## Overview
 
 `legisTaiwan` is an R package for downloading the real-time archives of
-Taiwan legislative data. The R package is part of Yen-Chieh Liao’s
-doctoral dissertation project [Electoral Reform, Distributive Politics,
-and Parties in the Taiwanese
-Congress](https://raw.githack.com/davidycliao/phd-thesis/main/Yen_Chieh_Liao_PhD_Dissertation_Jan_2023.pdf)
+Taiwan legislative data. The package is part of Yen-Chieh Liao’s
+doctoral dissertation project
+[`Electoral Reform, Distributive Politics, and Parties in the Taiwanese Congress`](https://raw.githack.com/davidycliao/phd-thesis/main/Yen_Chieh_Liao_PhD_Dissertation_Jan_2023.pdf)
 at the [Department of
 Government](https://www.essex.ac.uk/departments/government) in
 University of Essex and supported by the 2021 Taiwanese Overseas
