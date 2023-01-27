@@ -18,8 +18,8 @@ navbar:
   - icon: fa-rocket
     text: Quick Start
     menu:
-    - text:
-      href:
+    - text: "Quick Start Guide"
+      href: articles/quickstart.html
   - icon: fa-project-diagram
     text: Examples
     menu:

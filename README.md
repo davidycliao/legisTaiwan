@@ -1,19 +1,14 @@
-# legisTaiwan: *Downloading the Real-time Archives of Taiwan Legislative Data Using R*   <img src="https://raw.githack.com/davidycliao/figures/master/hexsticker_tw.png" width="140" align="right" /> <br /> 
+# legisTaiwan   <img src="https://raw.githack.com/davidycliao/figures/master/hexsticker_tw.png" width="140" align="right" /> <br /> 
 
 [![R](https://github.com/davidycliao/legisTaiwan/actions/workflows/r.yml/badge.svg)](https://github.com/davidycliao/legisTaiwan/actions/workflows/r.yml) [![codecov](https://codecov.io/gh/davidycliao/legisTaiwan/branch/master/graph/badge.svg?token=HVVTCOE90D)](https://codecov.io/gh/davidycliao/legisTaiwan)
 [![R-CMD-check](https://github.com/davidycliao/legisTaiwan/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/davidycliao/legisTaiwan/actions/workflows/R-CMD-check.yaml)
 
-
 &nbsp; 
 
+## About
 
-`legisTaiwan` is an R package for downloading real-time legislative data of spoken meeting records, bill sponsor/co-sponsor, and ***more*** via the [Taiwan Legislative Yuan API](https://www.ly.gov.tw/Home/Index.aspx).  [![Tweet](https://img.shields.io/twitter/url/https/github.com/tterb/hyde.svg?style=social)](https://twitter.com/liaoyenchieh)  
-
-
-###### [非常感謝您光顧本代碼庫，由於還在測試中，使用上如果有任何設計不流暢或建議，歡迎寫信給我 davidycliao[at]cas.au.dk。我會在我能力範圍內協助修改。同時，也非常歡迎**fork**、**star** 或**watch** 。]()
-
-
-
+An R package for downloading the real-time archives of Taiwan legislative data. The R package is part of Yen-Chieh Liao's doctoral dissertation project [Electoral Reform, Distributive Politics, and Parties in the Taiwanese Congress
+](https://raw.githack.com/davidycliao/phd-thesis/main/Yen_Chieh_Liao_PhD_Dissertation_Jan_2023.pdf) at the [Department of Government](https://www.essex.ac.uk/departments/government) in University of Essex and supported by the 2021 Taiwanese Overseas Pioneers Grants for PhD Candidates from the National Science and Technology Council in Taiwan.
 
 &nbsp; 
 
@@ -31,6 +26,14 @@
 | [`get_debates()`](https://davidycliao.github.io/legisTaiwan/reference/get_public_debates.html)                |  8th  (2014/104) | [**Public Debates 國是論壇**](https://data.ly.gov.tw/getds.action?id=7) |
 
 
+
+## Change Logs
+
+
+
+
+
+
 &nbsp; 
 
 ## Install from GitHub Using `remotes`
@@ -46,11 +49,6 @@ library(legisTaiwan)
 
 &nbsp; 
 
-## Acknowledge
-The R pacakge is part of Yen-Chieh Liao's doctoral dissertation project [Electoral Reform, Distributive Politics, and Parties in the Taiwanese Congress
-](https://raw.githack.com/davidycliao/phd-thesis/main/Yen_Chieh_Liao_PhD_Dissertation_Jan_2023.pdf) at the [Department of Government](https://www.essex.ac.uk/departments/government) in University of Essex and supported by the 2021 Taiwanese Overseas Pioneers Grants for PhD Candidates from the National Science and Technology Council in Taiwan, August 2021 - August 2022.
-
-&nbsp; 
 
 
 
