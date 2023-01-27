@@ -23,7 +23,7 @@ navbar:
     text: Quick Start
     menu:
     - text: "Quick Start Guide"
-      href: vignetts/quickstart.html
+      href:
   - icon: fa-project-diagram
     text: Examples
     menu:
