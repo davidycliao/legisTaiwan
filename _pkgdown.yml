@@ -6,10 +6,11 @@ authors:
   David Yen-Chieh Liao:
     href: https://github.com/davidycliao
 template:
+  package: tidytemplate
   bootstrap: 5
-  theme: arrow-dark
-  bslib:
-    code-bg: "#eae5e1"
+  includes:
+    in_header: |
+      <script defer data-domain="{YOUR DOMAIN},all.tidyverse.org" src="https://plausible.io/js/plausible.js"></script>
     ganalytics: G-X85ED8P5EW
 development:
   mode: auto

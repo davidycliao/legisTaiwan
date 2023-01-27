@@ -24,3 +24,7 @@ RoxygenNote: 7.2.3
 BugReports: https://github.com/davidycliao/legisTaiwan/issues
 URL: https://davidycliao.github.io/legisTaiwan/
 VignetteBuilder: knitr
+Config/Needs/website:
+    dplyr,
+    tidyverse/tidytemplate
+Roxygen: list(markdown = TRUE)
