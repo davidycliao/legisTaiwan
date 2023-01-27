@@ -20,6 +20,7 @@ Imports:
 Suggests: 
   knitr,
   rmarkdown,
+  markdown,
   testthat (>= 3.0.0)
 RoxygenNote: 7.2.3
 BugReports: https://github.com/davidycliao/legisTaiwan/issues
