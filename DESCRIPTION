@@ -2,8 +2,8 @@ Package: legisTaiwan
 Type: Package
 Title: Downloading the Real-time Archives of Taiwan Legislative Data Using R
 Version: 0.1.1
-Authors@R: person("David Yen-Chieh", "Liao", email = "davidycliao@gmail.com", role = c("aut", "cre"))
-           person("Li", "Tang", email = "l.tang@mdx.ac.uk", role = c("aut", "cre"))
+Authors@R: c(person("David Yen-Chieh", "Liao", email = "davidycliao@gmail.com", role = c("aut", "cre")),
+             person("Li", "Tang", email = "l.tang@mdx.ac.uk", role = c("aut", "cre")))
 Description: This package provides functions for downloading historical and real-time legislative data via the Taiwan Legislative Yuan API. 
 Maintainer: David Yen-Chieh Liao <davidyclaio@gmail.com>
 Depends: R (>= 3.6.3)

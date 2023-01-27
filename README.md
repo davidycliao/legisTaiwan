@@ -29,23 +29,13 @@ Taiwan legislative data.
 | [`get_executive_response()`](https://davidycliao.github.io/legisTaiwan/reference/get_executive_response.html) | 8th (2014/104)   | [**Questions Answered by the Executives 質詢事項(行政院答復部分)**](https://data.ly.gov.tw/getds.action?id=1)         |
 | [`get_debates()`](https://davidycliao.github.io/legisTaiwan/reference/get_public_debates.html)                | 8th (2014/104)   | [**Public Debates 國是論壇**](https://data.ly.gov.tw/getds.action?id=7)                                               |
 
-## Install from GitHub Using `remotes`
+## Quick Start
+
+### Install from GitHub Using `remotes`
 
 ``` r
-# install.packages("remotes")
+install.packages("remotes")
 remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
-#> Downloading GitHub repo davidycliao/legisTaiwan@HEAD
-#> 
-#> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>      checking for file ‘/private/var/folders/5n/clfp8vwj01bcy2hpncvffm0r0000gn/T/RtmpVACFLI/remotesc5253efbb02/davidycliao-legisTaiwan-38bff7d/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/5n/clfp8vwj01bcy2hpncvffm0r0000gn/T/RtmpVACFLI/remotesc5253efbb02/davidycliao-legisTaiwan-38bff7d/DESCRIPTION’
-#>   ─  preparing ‘legisTaiwan’:
-#>      checking DESCRIPTION meta-information ...  ✔  checking DESCRIPTION meta-information
-#>   ─  checking for LF line-endings in source and make files and shell scripts
-#>   ─  checking for empty or unneeded directories
-#>      Omitted ‘LazyData’ from DESCRIPTION
-#>   ─  building ‘legisTaiwan_0.1.1.tar.gz’
-#>      
-#> 
 ```
 
 ``` r
@@ -54,26 +44,34 @@ library(legisTaiwan)
 #> ## An R package connecting to the Taiwan Legislative API. ###
 ```
 
-#### View `get_caucus_meetings()`
+#### Request Question Record
 
 ``` r
-caucus_meetings <- get_infos("get_caucus_meetings")$page_info
-print(caucus_meetings)
-#> # A tibble: 12 × 2
-#>    `資料集名稱：黨團協商` 資料集描述                                            
-#>    <chr>                  <chr>                                                 
-#>  1 資料目錄               "議事類"                                              
-#>  2 資料集說明             "提供公報之黨團協商資訊。(自第8屆第1會期起)"          
-#>  3 資料提供者             "議事暨公報管理系統(資訊處)"                          
-#>  4 欄位說明               "comYear：卷,comVolume：期,comBookId：冊別,term：屆別…
-#>  5 資料集預覽             "HTML預覽<aclass=\"btn_yellow\"href='/openDatasetJson…
-#>  6 資料集使用             "使用方式及列表"                                      
-#>  7 API說明                "API提供參數分別為卷(comYear)、期(comVolume)、冊別(co…
-#>  8 連結說明               "https://data.ly.gov.tw/odw/ID8Action.action?comYear=…
-#>  9 更新頻率               "每日01時30分"                                        
-#> 10 資料筆數               "787"                                                 
-#> 11 建立時間               "2014-08-18MonAug1806:00:00CST2014"                   
-#> 12 更新時間               "2023-01-27FriJan2701:31:31CST2023"
+parlquestions <- get_parlquestions(term = 8, verbose = FALSE)
+parlquestions_df <- parlquestions$data
+```
+
+#### Using `str_detect` from `stringr` to Find Topics
+
+``` r
+# 找看看「原住民」主題
+library(stringr)
+df <- parlquestions_df[str_detect(parlquestions_df[["item"]], "原住民", negate = FALSE),]
+print(df[c("term", "item")])
+#> # A tibble: 48 × 2
+#>    term  item                                                                   
+#>    <chr> <chr>                                                                  
+#>  1 08    二十八、本院孔委員文吉，鑑於莫拉克颱風侵襲台灣中南部及東南部的山區，成…
+#>  2 08    二十九、本院孔委員文吉、鑑於國立故宮博物院除持續致力於國內、外文物展出…
+#>  3 08    三十、本院孔委員文吉，鑑於故宮博物院除應依據原住民族工作權保障法晉用原…
+#>  4 08    五十八、本院黃委員昭順，針對日來「申請外籍看護」困難、「巴式量表」衍生…
+#>  5 08    三、本院江委員惠貞，針對原住民同胞為我國重要族群，不僅傳承了悠久的文化…
+#>  6 08    三十、本院徐委員欣瑩，有鑑於馬告國家公園在劃定範圍後因無法取得當地原住…
+#>  7 08    五十七、本院黃委員昭順，對於莫拉克風災後，突顯我國山林保育沒有做好、樹…
+#>  8 08    五十三、本院徐委員欣瑩，有鑑於幼兒教育及照顧法第十條規定，「離島、偏鄉…
+#>  9 08    五十七、本院黃委員昭順，對於莫拉克風災後，突顯我國山林保育沒有做好、樹…
+#> 10 08    一一六、本院徐委員欣瑩，有鑑於幼兒教育及照顧法第十條規定，「離島、偏鄉…
+#> # … with 38 more rows
 ```
 
 ## Acknowledgement

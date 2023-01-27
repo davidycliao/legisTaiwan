@@ -26,6 +26,7 @@ knitr::opts_chunk$set(
 `legisTaiwan` is an R package for downloading the real-time archives of Taiwan legislative data. 
 
 
+
 ## Overview
 
 
@@ -42,8 +43,9 @@ knitr::opts_chunk$set(
 | [`get_debates()`](https://davidycliao.github.io/legisTaiwan/reference/get_public_debates.html)                |  8th  (2014/104) | [**Public Debates 國是論壇**](https://data.ly.gov.tw/getds.action?id=7) |
 
 
+## Quick Start
 
-## Install from GitHub Using `remotes`
+### Install from GitHub Using `remotes`
 
 ```{r}
 # install.packages("remotes")
@@ -55,11 +57,18 @@ library(legisTaiwan)
 ```
 
 
-#### View `get_caucus_meetings()`
-
+#### Request Question Record
 ```{r}
-caucus_meetings <- get_infos("get_caucus_meetings")$page_info
-print(caucus_meetings)
+parlquestions <- get_parlquestions(term = 8, verbose = FALSE)
+parlquestions_df <- parlquestions$data
+```
+
+#### Using `str_detect` from `stringr` to Find Topics 
+```{r}
+# 找看看「原住民」主題
+library(stringr)
+df <- parlquestions_df[str_detect(parlquestions_df[["item"]], "原住民", negate = FALSE),]
+print(df[c("term", "item")])
 ```
 
 
