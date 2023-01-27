@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# legisTaiwan <img src="man/figures/logo.png" align="right"width="140"/>
+# legisTaiwan <img src="man/figures/logo.png" align="right" width="140"/>
 
 <!-- badges: start -->
 
