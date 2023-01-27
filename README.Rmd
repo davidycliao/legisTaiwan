@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 ```
 
 
-# `legisTaiwan`: Accessing the Real-time Archives of Taiwan Legislative Data <img src="man/figures/logo.png" align="right" width="140"/>
+# The Real-time Archives of Taiwan Legislative Data <img src="man/figures/logo.png" align="right" width="140"/>
 
 <!-- badges: start -->
 [![R](https://github.com/davidycliao/legisTaiwan/actions/workflows/r.yml/badge.svg)](https://github.com/davidycliao/legisTaiwan/actions/workflows/r.yml) [![codecov](https://codecov.io/gh/davidycliao/legisTaiwan/branch/master/graph/badge.svg?token=HVVTCOE90D)](https://codecov.io/gh/davidycliao/legisTaiwan)
@@ -45,13 +45,21 @@ knitr::opts_chunk$set(
 
 ## Install from GitHub Using `remotes`
 
-```
-install.packages("remotes")
+```{r}
+# install.packages("remotes")
 remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
 ```
 
-```
+```{r}
 library(legisTaiwan)
+```
+
+
+#### View `get_caucus_meetings()`
+
+```{r}
+caucus_meetings <- get_infos("get_caucus_meetings")$page_info
+print(caucus_meetings)
 ```
 
 

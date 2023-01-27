@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# `legisTaiwan`: Accessing the Real-time Archives of Taiwan Legislative Data <img src="man/figures/logo.png" align="right" width="140"/>
+# The Real-time Archives of Taiwan Legislative Data <img src="man/figures/logo.png" align="right" width="140"/>
 
 <!-- badges: start -->
 
@@ -31,10 +31,50 @@ Taiwan legislative data.
 
 ## Install from GitHub Using `remotes`
 
-    install.packages("remotes")
-    remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
+``` r
+# install.packages("remotes")
+remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
+#> Downloading GitHub repo davidycliao/legisTaiwan@HEAD
+#> 
+#> ── R CMD build ─────────────────────────────────────────────────────────────────
+#>      checking for file ‘/private/var/folders/5n/clfp8vwj01bcy2hpncvffm0r0000gn/T/RtmpVACFLI/remotesc5253efbb02/davidycliao-legisTaiwan-38bff7d/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/5n/clfp8vwj01bcy2hpncvffm0r0000gn/T/RtmpVACFLI/remotesc5253efbb02/davidycliao-legisTaiwan-38bff7d/DESCRIPTION’
+#>   ─  preparing ‘legisTaiwan’:
+#>      checking DESCRIPTION meta-information ...  ✔  checking DESCRIPTION meta-information
+#>   ─  checking for LF line-endings in source and make files and shell scripts
+#>   ─  checking for empty or unneeded directories
+#>      Omitted ‘LazyData’ from DESCRIPTION
+#>   ─  building ‘legisTaiwan_0.1.1.tar.gz’
+#>      
+#> 
+```
 
-    library(legisTaiwan)
+``` r
+library(legisTaiwan)
+#> ## legisTaiwan                                            ###
+#> ## An R package connecting to the Taiwan Legislative API. ###
+```
+
+#### View `get_caucus_meetings()`
+
+``` r
+caucus_meetings <- get_infos("get_caucus_meetings")$page_info
+print(caucus_meetings)
+#> # A tibble: 12 × 2
+#>    `資料集名稱：黨團協商` 資料集描述                                            
+#>    <chr>                  <chr>                                                 
+#>  1 資料目錄               "議事類"                                              
+#>  2 資料集說明             "提供公報之黨團協商資訊。(自第8屆第1會期起)"          
+#>  3 資料提供者             "議事暨公報管理系統(資訊處)"                          
+#>  4 欄位說明               "comYear：卷,comVolume：期,comBookId：冊別,term：屆別…
+#>  5 資料集預覽             "HTML預覽<aclass=\"btn_yellow\"href='/openDatasetJson…
+#>  6 資料集使用             "使用方式及列表"                                      
+#>  7 API說明                "API提供參數分別為卷(comYear)、期(comVolume)、冊別(co…
+#>  8 連結說明               "https://data.ly.gov.tw/odw/ID8Action.action?comYear=…
+#>  9 更新頻率               "每日01時30分"                                        
+#> 10 資料筆數               "787"                                                 
+#> 11 建立時間               "2014-08-18MonAug1806:00:00CST2014"                   
+#> 12 更新時間               "2023-01-27FriJan2701:31:31CST2023"
+```
 
 ## Acknowledgement
 
