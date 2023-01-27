@@ -25,3 +25,4 @@ BugReports: https://github.com/davidycliao/legisTaiwan/issues
 URL: https://davidycliao.github.io/legisTaiwan/
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
+Config/testthat/edition: 3

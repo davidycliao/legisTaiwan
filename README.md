@@ -11,17 +11,10 @@
 
 <!-- badges: end -->
 
-## Overview
-
 `legisTaiwan` is an R package for downloading the real-time archives of
-Taiwan legislative data. The package is part of Yen-Chieh Liao’s
-doctoral dissertation project
-[`Electoral Reform, Distributive Politics, and Parties in the Taiwanese Congress`](https://raw.githack.com/davidycliao/phd-thesis/main/Yen_Chieh_Liao_PhD_Dissertation_Jan_2023.pdf)
-at the [Department of
-Government](https://www.essex.ac.uk/departments/government) in
-University of Essex and supported by the 2021 Taiwanese Overseas
-Pioneers Grants for PhD Candidates from the National Science and
-Technology Council in Taiwan.
+Taiwan legislative data.
+
+## Overview
 
 | `legisTaiwan`                                                                                                 | Since (AD/ROC)   | Taiwan Legislative Yuan API                                                                                           |
 |---------------------------------------------------------------------------------------------------------------|------------------|-----------------------------------------------------------------------------------------------------------------------|
@@ -40,3 +33,13 @@ Technology Council in Taiwan.
     remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
 
     library(legisTaiwan)
+
+## Acknowledgement
+
+The package is part of Yen-Chieh Liao’s doctoral dissertation project
+[`Electoral Reform, Distributive Politics, and Parties in the Taiwanese Congress`](https://raw.githack.com/davidycliao/phd-thesis/main/Yen_Chieh_Liao_PhD_Dissertation_Jan_2023.pdf)
+at the [Department of
+Government](https://www.essex.ac.uk/departments/government) in
+University of Essex and supported by the 2021 Taiwanese Overseas
+Pioneers Grants for PhD Candidates from the National Science and
+Technology Council in Taiwan.
