@@ -16,12 +16,12 @@ navbar:
   - icon: fa-home
     href: index.html
   - icon: fa-rocket
-    text: Manual
+    text: Quick Start
     menu:
     - text:
       href:
   - icon: fa-project-diagram
-    text: Projects
+    text: Examples
     menu:
     - text: 立法委員在肉桶立法的連署分析
       href: articles/legislative.html

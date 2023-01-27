@@ -17,6 +17,9 @@ Imports:
   tibble,
   rvest
 Suggests: 
+    knitr,
+    rmarkdown,
     testthat (>= 3.0.0)
 RoxygenNote: 7.2.3
 URL: https://davidycliao.github.io/legisTaiwan/
+VignetteBuilder: knitr

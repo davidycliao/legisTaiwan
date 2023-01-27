@@ -1,0 +1,23 @@
+---
+title: "Quick Start Guid"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{quickstart}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Installing the package
+
+```{r setup}
+library(legisTaiwan)
+```
+
+## Additional recommended packages:
