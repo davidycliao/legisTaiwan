@@ -27,11 +27,6 @@ An R package for downloading the real-time archives of Taiwan legislative data. 
 
 
 
-## Change Logs
-
-
-
-
 
 
 &nbsp; 
@@ -48,7 +43,5 @@ library(legisTaiwan)
 ```
 
 &nbsp; 
-
-
 
 
