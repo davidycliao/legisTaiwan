@@ -28,6 +28,12 @@
     <loc>https://davidycliao.github.io/legisTaiwan/reference/get_bills.html</loc>
   </url>
   <url>
+    <loc>https://davidycliao.github.io/legisTaiwan/reference/get_bills_2.html</loc>
+  </url>
+  <url>
+    <loc>https://davidycliao.github.io/legisTaiwan/reference/get_caucus_meetings.html</loc>
+  </url>
+  <url>
     <loc>https://davidycliao.github.io/legisTaiwan/reference/get_executive_response.html</loc>
   </url>
   <url>
@@ -41,6 +47,9 @@
   </url>
   <url>
     <loc>https://davidycliao.github.io/legisTaiwan/reference/get_parlquestions.html</loc>
+  </url>
+  <url>
+    <loc>https://davidycliao.github.io/legisTaiwan/reference/get_public_debates.html</loc>
   </url>
   <url>
     <loc>https://davidycliao.github.io/legisTaiwan/reference/index.html</loc>
