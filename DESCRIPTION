@@ -2,7 +2,7 @@ Package: legisTaiwan
 Type: Package
 Title: Downloading the Real-time Archives of Taiwan Legislative Data Using R
 Version: 0.1.1
-Authors@R: person("David Yen-Chieh", "Liao", email = "davidyclaio@gmail.com", role = c("aut", "cre"))
+Authors@R: person("David Yen-Chieh", "Liao", email = "davidycliao@gmail.com", role = c("aut", "cre"))
 Description: This package provides functions for downloading historic and real-time legislative data via the Taiwan Legislative Yuan API. 
 Maintainer: David Yen-Chieh Liao <davidyclaio@gmail.com>
 Depends: R (>= 3.6.3)
@@ -21,5 +21,6 @@ Suggests:
   rmarkdown,
   testthat (>= 3.0.0)
 RoxygenNote: 7.2.3
+BugReports: https://github.com/davidycliao/legisTaiwan/issues
 URL: https://davidycliao.github.io/legisTaiwan/
 VignetteBuilder: knitr
