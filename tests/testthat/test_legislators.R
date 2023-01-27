@@ -7,4 +7,6 @@ test_that("get_legislators", {
                "https://data.ly.gov.tw/odw/ID16Action.action?name=&sex=&party=&partyGroup=&areaName=&term==&fileType=json")
   expect_equal(get_legislators(term = c(8,9))$queried_term,
                "8")
-  })
+})
+
+

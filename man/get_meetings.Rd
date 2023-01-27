@@ -2,8 +2,8 @@
 % Please edit documentation in R/meeting.R
 \name{get_meetings}
 \alias{get_meetings}
-\title{Retrieving the spoken meeting records via
-Taiwan Legislative Yuan (The Legislature) API}
+\title{Retrieving the spoken meeting records
+下載「委員發言」}
 \usage{
 get_meetings(
   start_date = NULL,
@@ -34,15 +34,17 @@ A list carries a main tibble dataframe that contains the date, status,
 name, content and speakers.
 }
 \description{
-Retrieving the spoken meeting records via
-Taiwan Legislative Yuan (The Legislature) API
+Retrieving the spoken meeting records
+下載「委員發言」
 }
 \examples{
 ## query meeting records by a period of the dates in Taiwan ROC calender format
-## 輸入「中華民國民年」下載會議審查資訊
+## 輸入「中華民國民年」下載「委員發言」
 get_meetings(1050120, 1050210)
 
+get_meetings("1050120", "1050210")
 
+get_meetings(start_date = "1050120", end_date = "1050210")
 
 ## query meeting records by a period of the dates in Taiwan ROC calender format
 ## and a meeting

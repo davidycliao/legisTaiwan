@@ -19,6 +19,7 @@
 get_infos <- function(x) {
   legisTaiwan::check_internet()
   attempt::stop_if_all(x, is.numeric, msg = "use string format only")
+  attempt::stop_if_all(x, is.null, msg = "use correct funtion names")
   attempt::stop_if(x , ~ length(.x) >1, msg = "only allowed to query one variable")
   if (x == "get_parlquestions") {
     # 質詢事項(本院委員質詢部分) https://data.ly.gov.tw/getds.action?id=6
@@ -31,6 +32,18 @@ get_infos <- function(x) {
   else if (x == "get_executive_response") {
     # 行政院答復 https://data.ly.gov.tw/getds.action?id=2
     url <- "https://data.ly.gov.tw/getds.action?id=2"
+  }
+  else if (x == "get_caucus_meetings") {
+    # 黨團協商 https://data.ly.gov.tw/getds.action?id=8
+    url <- "https://data.ly.gov.tw/getds.action?id=8"
+  }
+  else if (x == "get_bills_2") {
+    # 質詢事項 (行政院答復部分) https://data.ly.gov.tw/getds.action?id=1
+    url <- "https://data.ly.gov.tw/getds.action?id=1"
+  }
+  else if (x == "get_public_debates") {
+    # 國是論壇 https://data.ly.gov.tw/getds.action?id=7
+    url <- "https://data.ly.gov.tw/getds.action?id=7"
   }
   else if (x %in% c("get_bills", "get_meetings")) {
     # outliers: get_bills & get_meetings
