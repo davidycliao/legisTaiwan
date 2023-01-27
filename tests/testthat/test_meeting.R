@@ -10,5 +10,3 @@ test_that("get_caucus_meetings", {
   expect_equal(get_caucus_meetings(start_date = "106/10/20", end_date = "107/03/10", verbose = FALSE)$retrieved_number ,30)
 
 })
-
-

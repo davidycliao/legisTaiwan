@@ -111,7 +111,7 @@ get_meetings <- function(start_date = NULL, end_date = NULL,
 #
 get_caucus_meetings <- function(start_date = NULL, end_date = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
-  legisTaiwan::api_check(start_date = transformed_date_meeting(start_date), end_date = transformed_date_meeting(end_date))
+  legisTaiwan::api_check(start_date = legisTaiwan::transformed_date_meeting(start_date), end_date = legisTaiwan::transformed_date_meeting(end_date))
   set_api_url <- paste("https://data.ly.gov.tw/odw/ID8Action.action?comYear=&comVolume=&comBookId=&term=&sessionPeriod=&sessionTimes=&meetingTimes=&meetingDateS=",
                        start_date, "&meetingDateE=", end_date, "&fileType=json", sep = "")
   tryCatch(

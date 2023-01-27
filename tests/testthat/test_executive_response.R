@@ -5,7 +5,3 @@ test_that("get_executive_response", {
   expect_equal(get_executive_response(term = 8, session_period = 1, verbose = TRUE)$retrieved_number,
                1065)
 })
-
-
-
-
