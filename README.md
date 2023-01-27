@@ -1,8 +1,11 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+\# legisTaiwan:
+<p style="font-size: 30px">
+Accessing the Real-time Archives of Taiwan Legislative Data.
+</p>
 
-# legisTaiwan: Accessing the Real-time Archives of Taiwan Legislative Data <img src="man/figures/logo.png" align="right" width="140"/>
-
+<img src="man/figures/logo.png" align="right" width="140"/>
 <!-- badges: start -->
 
 [![R](https://github.com/davidycliao/legisTaiwan/actions/workflows/r.yml/badge.svg)](https://github.com/davidycliao/legisTaiwan/actions/workflows/r.yml)

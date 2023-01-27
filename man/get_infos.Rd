@@ -7,8 +7,8 @@
 get_infos(x)
 }
 \arguments{
-\item{x}{The parameter should be `get_parlquestions`, `get_legislators`,
-`get_executive_response`, `get_bills`, or `get_meetings`}
+\item{x}{The parameter should be \code{get_parlquestions}, \code{get_legislators},
+\code{get_executive_response}, \code{get_bills}, or \code{get_meetings}}
 }
 \description{
 Check function information on the website of Taiwan Legislative API
