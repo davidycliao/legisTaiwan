@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# The Real-time Archives of Taiwan Legislative Data <img src="man/figures/logo.png" align="right" width="110"/>
+# The Real-time and Archives of Taiwan Legislative Data <img src="man/figures/logo.png" align="right" width="110"/>
 
 <!-- badges: start -->
 
@@ -13,9 +13,9 @@ coverage](https://github.com/davidycliao/legisTaiwan/actions/workflows/test-cove
 [![LifeCycle](https://img.shields.io/badge/lifecycle-experimental-orange)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-`legisTaiwan` is an R package for downloading the real-time archives of
-Taiwan legislative data in R via [Taiwan Legislative Yuan
-API](https://data.ly.gov.tw/index.action).
+`legisTaiwan` is designed to make it quick and easy to download the
+real-time and archives of Taiwan legislative data via [Taiwan
+Legislative Yuan API](https://data.ly.gov.tw/index.action).
 
 ## Overview
 

@@ -1,6 +1,6 @@
 Package: legisTaiwan
 Type: Package
-Title:the Real-time Archives of Taiwan Legislative Data in R
+Title:the Real-time and Archives of Taiwan Legislative Data in R
 Version: 0.1.1
 Authors@R: c(person("David Yen-Chieh", "Liao", email = "davidycliao@gmail.com", role = c("aut", "cre")),
              person("Li", "Tang", email = "l.tang@mdx.ac.uk", role = "ctb"))
@@ -20,12 +20,10 @@ Imports:
 Suggests: 
   knitr,
   rmarkdown,
-  markdown,
   testthat (>= 3.0.0)
 RoxygenNote: 7.2.3
 BugReports: https://github.com/davidycliao/legisTaiwan/issues
 URL: https://davidycliao.github.io/legisTaiwan/
-VignetteBuilder: knitr
+VignetteBuilder: knitr, rmarkdown
 Roxygen: list(markdown = TRUE)
 Config/testthat/edition: 3
-SystemRequirements: pandoc
