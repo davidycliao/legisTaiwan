@@ -6,7 +6,10 @@ authors:
   David Yen-Chieh Liao:
     href: https://github.com/davidycliao
 template:
-  params:
+  bootstrap: 5
+  theme: arrow-dark
+  bslib:
+    code-bg: "#eae5e1"
     ganalytics: G-X85ED8P5EW
 development:
   mode: auto
@@ -19,7 +22,7 @@ navbar:
     text: Quick Start
     menu:
     - text: "Quick Start Guide"
-      href: articles/quickstart.html
+      href: vignetts/quickstart.html
   - icon: fa-project-diagram
     text: Examples
     menu:
