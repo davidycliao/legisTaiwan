@@ -16,7 +16,8 @@ Imports:
 	stringr,
   curl,
   tibble,
-  rvest
+  rvest,
+  rmarkdown
 Suggests: 
   knitr,
   rmarkdown,

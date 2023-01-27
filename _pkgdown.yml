@@ -29,7 +29,7 @@ navbar:
   - icon: fa-project-diagram
     text: Examples
     menu:
-    - text: 立法委員在肉桶立法的連署分析
+    - text: 立法委員在兩岸議題連署分析
       href: articles/legislative.html
   - icon: fa-newspaper-o
     text: News
