@@ -117,7 +117,7 @@
 </div>
 <!-- badges: start -->
 
-<p><code>legisTaiwan</code> is designed to make it quick and easy to download the real-time archives of Taiwan legislative data via Taiwan Legislative Yuan API.</p>
+<p><code>legisTaiwan</code> is an R package for downloading the real-time archives of Taiwan legislative data in R via Taiwan Legislative Yuan API.</p>
 <div class="section level2">
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
@@ -175,52 +175,6 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section level2">
-<h2 id="quick-start">Quick Start<a class="anchor" aria-label="anchor" href="#quick-start"></a>
-</h2>
-<div class="section level3">
-<h3 id="install-from-github-using-remotes">Install from GitHub Using <code>remotes</code>
-<a class="anchor" aria-label="anchor" href="#install-from-github-using-remotes"></a>
-</h3>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"davidycliao/legisTaiwan"</span>, force <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://davidycliao.github.io/legisTaiwan/">legisTaiwan</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; ## legisTaiwan                                            ###</span></span>
-<span><span class="co">#&gt; ## An R package connecting to the Taiwan Legislative API. ###</span></span></code></pre></div>
-<div class="section level4">
-<h4 id="request-question-record">Request Question Record<a class="anchor" aria-label="anchor" href="#request-question-record"></a>
-</h4>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">parlquestions</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_parlquestions.html">get_parlquestions</a></span><span class="op">(</span>term <span class="op">=</span> <span class="fl">8</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span><span class="va">parlquestions_df</span> <span class="op">&lt;-</span> <span class="va">parlquestions</span><span class="op">$</span><span class="va">data</span></span></code></pre></div>
-</div>
-<div class="section level4">
-<h4 id="using-str_detect-from-stringr-to-find-topics">Using <code>str_detect</code> from <code>stringr</code> to Find Topics<a class="anchor" aria-label="anchor" href="#using-str_detect-from-stringr-to-find-topics"></a>
-</h4>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># 找看看「原住民」主題</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://stringr.tidyverse.org" class="external-link">stringr</a></span><span class="op">)</span></span>
-<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="va">parlquestions_df</span><span class="op">[</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html" class="external-link">str_detect</a></span><span class="op">(</span><span class="va">parlquestions_df</span><span class="op">[[</span><span class="st">"item"</span><span class="op">]</span><span class="op">]</span>, <span class="st">"原住民"</span>, negate <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>,<span class="op">]</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">df</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"term"</span>, <span class="st">"item"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 48 × 2</span></span>
-<span><span class="co">#&gt;    term  item                                                                   </span></span>
-<span><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;                                                                  </span></span>
-<span><span class="co">#&gt;  1 08    二十八、本院孔委員文吉，鑑於莫拉克颱風侵襲台灣中南部及東南部的山區，成…</span></span>
-<span><span class="co">#&gt;  2 08    二十九、本院孔委員文吉、鑑於國立故宮博物院除持續致力於國內、外文物展出…</span></span>
-<span><span class="co">#&gt;  3 08    三十、本院孔委員文吉，鑑於故宮博物院除應依據原住民族工作權保障法晉用原…</span></span>
-<span><span class="co">#&gt;  4 08    五十八、本院黃委員昭順，針對日來「申請外籍看護」困難、「巴式量表」衍生…</span></span>
-<span><span class="co">#&gt;  5 08    三、本院江委員惠貞，針對原住民同胞為我國重要族群，不僅傳承了悠久的文化…</span></span>
-<span><span class="co">#&gt;  6 08    三十、本院徐委員欣瑩，有鑑於馬告國家公園在劃定範圍後因無法取得當地原住…</span></span>
-<span><span class="co">#&gt;  7 08    五十七、本院黃委員昭順，對於莫拉克風災後，突顯我國山林保育沒有做好、樹…</span></span>
-<span><span class="co">#&gt;  8 08    五十三、本院徐委員欣瑩，有鑑於幼兒教育及照顧法第十條規定，「離島、偏鄉…</span></span>
-<span><span class="co">#&gt;  9 08    五十七、本院黃委員昭順，對於莫拉克風災後，突顯我國山林保育沒有做好、樹…</span></span>
-<span><span class="co">#&gt; 10 08    一一六、本院徐委員欣瑩，有鑑於幼兒教育及照顧法第十條規定，「離島、偏鄉…</span></span>
-<span><span class="co">#&gt; # … with 38 more rows</span></span></code></pre></div>
-</div>
-</div>
 </div>
 <div class="section level2">
 <h2 id="acknowledgement">Acknowledgement<a class="anchor" aria-label="anchor" href="#acknowledgement"></a>
