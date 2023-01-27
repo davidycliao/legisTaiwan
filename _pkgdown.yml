@@ -1,10 +1,12 @@
 url: https://davidycliao.github.io/legisTaiwan/
 
 home:
-  title: An R Package for Downloading Taiwan Legislative Data
+  title: The Real-time Archives of Taiwan Legislative Data
 authors:
   David Yen-Chieh Liao:
-    href: https://github.com/davidycliao
+    href: https://davidycliao.github.io
+  Li Tang:
+    href: https://sites.google.com/view/litang2020?pli=1
 template:
   package: tidytemplate
   bootstrap: 5

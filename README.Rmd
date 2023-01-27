@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 ```
 
 
-# The Real-time Archives of Taiwan Legislative Data <img src="man/figures/logo.png" align="right" width="140"/>
+# The Real-time Archives of Taiwan Legislative Data <img src="man/figures/logo.png" align="right" width="120"/>
 
 <!-- badges: start -->
 [![R](https://github.com/davidycliao/legisTaiwan/actions/workflows/r.yml/badge.svg)](https://github.com/davidycliao/legisTaiwan/actions/workflows/r.yml) [![codecov](https://codecov.io/gh/davidycliao/legisTaiwan/branch/master/graph/badge.svg?token=HVVTCOE90D)](https://codecov.io/gh/davidycliao/legisTaiwan)
@@ -29,8 +29,6 @@ knitr::opts_chunk$set(
 
 ## Overview
 
-
-
 | `legisTaiwan`                 |   Since (AD/ROC)       |  Taiwan Legislative Yuan API |
 |-------------------------------|---------------------|------------------------------|
 |[`get_meetings()`](https://davidycliao.github.io/legisTaiwan/reference/get_bills.html) |  7th* (2011/100) | [**Spoken Meeting Records (委員發言)**](https://www.ly.gov.tw/Pages/List.aspx?nodeid=154)                         |
@@ -43,21 +41,22 @@ knitr::opts_chunk$set(
 | [`get_debates()`](https://davidycliao.github.io/legisTaiwan/reference/get_public_debates.html)                |  8th  (2014/104) | [**Public Debates 國是論壇**](https://data.ly.gov.tw/getds.action?id=7) |
 
 
-## Quick Start
+## Usage
 
-### Install from GitHub Using `remotes`
-
-```{r}
+Get started with `remotes`:
+```{r include=FALSE}
 # install.packages("remotes")
 remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
 ```
 
+
+## Quick Start
 ```{r}
 library(legisTaiwan)
 ```
 
-
 #### Request Question Record
+
 ```{r}
 parlquestions <- get_parlquestions(term = 8, verbose = FALSE)
 parlquestions_df <- parlquestions$data

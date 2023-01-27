@@ -27,3 +27,4 @@ URL: https://davidycliao.github.io/legisTaiwan/
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
 Config/testthat/edition: 3
+SystemRequirements: pandoc
