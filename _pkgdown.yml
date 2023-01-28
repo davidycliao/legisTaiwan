@@ -29,8 +29,10 @@ navbar:
   - icon: fa-project-diagram
     text: Examples
     menu:
+    - text: "綜合案例Ⅰ-李宜展"
+      href: articles/yi_jhan.html
     - text: 立法委員在兩岸議題連署分析
-      href: articles/legislative.html
+      href:
   - icon: fa-newspaper-o
     text: News
     menu:
