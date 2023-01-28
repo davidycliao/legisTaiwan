@@ -1,23 +1,5 @@
 # Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
 # Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
-env:
-  RENV_PATHS_ROOT: ~/.local/share/renv
-
-steps:
-
-- name: Cache packages
-  uses: actions/cache@v1
-  with:
-    path: ${{ env.RENV_PATHS_ROOT }}
-    key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
-    restore-keys: |
-      ${{ runner.os }}-renv-
-
-- name: Restore packages
-  shell: Rscript {0}
-  run: |
-    if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
-    renv::restore()
 
 on:
   push:
@@ -64,3 +46,5 @@ jobs:
       - uses: r-lib/actions/check-r-package@v2
         with:
           upload-snapshots: true
+
+
