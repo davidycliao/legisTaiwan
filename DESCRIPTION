@@ -4,8 +4,10 @@ Title: the Real-time and Archives of Taiwan Legislative Data in R
 Version: 0.1.1
 Authors@R: c(person("David Yen-Chieh", "Liao", email = "davidycliao@gmail.com", role = c("aut", "cre")),
              person("Li", "Tang", email = "l.tang@mdx.ac.uk", role = "ctb"))
-Description: This package provides functions for downloading historical and real-time legislative data via the Taiwan Legislative Yuan API. 
-Maintainer: David Yen-Chieh Liao <davidyclaio@gmail.com>
+Description: This is designed to make it quick and easy to download the 
+            real-time and archives of Taiwan legislative data via 
+            Taiwan Legislative Yuan API
+Maintainer: David Yen-Chieh Liao <davidycliao@gmail.com>
 Depends: R (>= 3.6.3)
 License: GPL-3 + file LICENSE
 Encoding: UTF-8
