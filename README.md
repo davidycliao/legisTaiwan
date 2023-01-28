@@ -36,20 +36,12 @@ Legislative Yuan API](https://data.ly.gov.tw/index.action).
 ``` r
 # install.packages("remotes")
 remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
-#> Downloading GitHub repo davidycliao/legisTaiwan@HEAD
-#> 
-#> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>      checking for file ‘/private/var/folders/5n/clfp8vwj01bcy2hpncvffm0r0000gn/T/RtmpLplMf5/remotes59ca13eea741/davidycliao-legisTaiwan-1d96d20/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/5n/clfp8vwj01bcy2hpncvffm0r0000gn/T/RtmpLplMf5/remotes59ca13eea741/davidycliao-legisTaiwan-1d96d20/DESCRIPTION’ (340ms)
-#>   ─  preparing ‘legisTaiwan’:
-#>      checking DESCRIPTION meta-information ...  ✔  checking DESCRIPTION meta-information
-#>   ─  checking for LF line-endings in source and make files and shell scripts
-#>   ─  checking for empty or unneeded directories
-#>      Omitted ‘LazyData’ from DESCRIPTION
-#>   ─  building ‘legisTaiwan_0.1.1.tar.gz’
-#>      
-#> 
-#> Installing package into '/Users/yenchiehliao/Library/Caches/org.R-project.R/R/renv/library/legisTaiwan-d2aea907/R-4.2/x86_64-apple-darwin17.0'
-#> (as 'lib' is unspecified)
+```
+
+``` r
+library(legisTaiwan)
+#> ## legisTaiwan                                            ###
+#> ## An R package connecting to the Taiwan Legislative API. ###
 ```
 
 ## Acknowledgement
