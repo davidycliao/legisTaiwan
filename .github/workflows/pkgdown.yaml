@@ -33,9 +33,15 @@ jobs:
           extra-packages: any::pkgdown, local::.
           needs: website
 
+      - name: Install dependencies
+        run: |
+          pak::local_install_dev_deps(upgrade = TRUE, dependencies = c("all", "Config/Needs/website"))
+          pak::pkg_install("pkgdown")
+          pak::pkg_install("tidyverse/tidytemplate")
+        shell: Rscript {0}
+
       - name: Build site
-        run: remotes::install_github("tidyverse/tidytemplate", force = TRUE)
-             pkgdown::build_site_github_pages(new_process = FALSE, install = FALSE)
+        run: pkgdown::build_site_github_pages(new_process = FALSE, install = FALSE)
         shell: Rscript {0}
 
       - name: Deploy to GitHub pages 🚀
