@@ -26,6 +26,7 @@ knitr::opts_chunk$set(
 
 `legisTaiwan` is designed to make it quick and easy to download the real-time and archives of Taiwan legislative data via  [Taiwan Legislative Yuan API](https://data.ly.gov.tw/index.action). 
 
+
 ## Overview
 
 | `legisTaiwan`                 |   Since (AD/ROC)       |  Taiwan Legislative Yuan API |
@@ -39,6 +40,12 @@ knitr::opts_chunk$set(
 | [`get_executive_response()`](https://davidycliao.github.io/legisTaiwan/reference/get_executive_response.html)                |  8th  (2014/104) | [**Questions Answered by the Executives 質詢事項(行政院答復部分)**](https://data.ly.gov.tw/getds.action?id=1) |
 | [`get_debates()`](https://davidycliao.github.io/legisTaiwan/reference/get_public_debates.html)                |  8th  (2014/104) | [**Public Debates 國是論壇**](https://data.ly.gov.tw/getds.action?id=7) |
 
+## Get Started with `remotes`:
+
+```{r}
+# install.packages("remotes")
+remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
+```
 
 
 ## Acknowledgement 
