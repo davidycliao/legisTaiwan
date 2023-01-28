@@ -9,7 +9,7 @@ Description: This is designed to make it quick and easy to download the
             Taiwan Legislative Yuan API
 Maintainer: David Yen-Chieh Liao <davidycliao@gmail.com>
 Depends: R (>= 3.4.0)
-sLicense: GPL-3 + file LICENSE
+License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:
