@@ -128,32 +128,18 @@
 <div class="section level2">
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h2>
-<p>Get started with <code>remotes</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"davidycliao/legisTaiwan"</span>, force <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Downloading GitHub repo davidycliao/legisTaiwan@HEAD</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="color: #00BBBB;">R CMD build</span> <span style="color: #00BBBB;">───────────────────────────────────────────────────────────</span></span></span>
-<span><span class="co">#&gt; * checking for file ‘/private/var/folders/5n/clfp8vwj01bcy2hpncvffm0r0000gn/T/RtmpLIKp0g/remotesc359f77073/davidycliao-legisTaiwan-05a5cb4/DESCRIPTION’ ... OK</span></span>
-<span><span class="co">#&gt; * preparing ‘legisTaiwan’:</span></span>
-<span><span class="co">#&gt; * checking DESCRIPTION meta-information ... OK</span></span>
-<span><span class="co">#&gt; * checking for LF line-endings in source and make files and shell scripts</span></span>
-<span><span class="co">#&gt; * checking for empty or unneeded directories</span></span>
-<span><span class="co">#&gt; Omitted ‘LazyData’ from DESCRIPTION</span></span>
-<span><span class="co">#&gt; * building ‘legisTaiwan_0.1.1.tar.gz’</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="quick-start">Quick Start<a class="anchor" aria-label="anchor" href="#quick-start"></a>
 </h2>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://davidycliao.github.io/legisTaiwan/">legisTaiwan</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; ## legisTaiwan                                            ###</span></span>
 <span><span class="co">#&gt; ## An R package connecting to the Taiwan Legislative API. ###</span></span></code></pre></div>
 <div class="section level4">
 <h4 id="request-question-record">Request Question Record<a class="anchor" aria-label="anchor" href="#request-question-record"></a>
 </h4>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">parlquestions</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_parlquestions.html">get_parlquestions</a></span><span class="op">(</span>term <span class="op">=</span> <span class="fl">8</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="va">parlquestions_df</span> <span class="op">&lt;-</span> <span class="va">parlquestions</span><span class="op">$</span><span class="va">data</span></span></code></pre></div>
 </div>
@@ -161,7 +147,7 @@
 <h4 id="using-str_detect-from-stringr-to-find-topics">Using <code>str_detect</code> from <code>stringr</code> to Find
 Topics<a class="anchor" aria-label="anchor" href="#using-str_detect-from-stringr-to-find-topics"></a>
 </h4>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># 找看看「原住民」主題</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://stringr.tidyverse.org" class="external-link">stringr</a></span><span class="op">)</span></span>
 <span><span class="va">df</span> <span class="op">&lt;-</span> <span class="va">parlquestions_df</span><span class="op">[</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html" class="external-link">str_detect</a></span><span class="op">(</span><span class="va">parlquestions_df</span><span class="op">[[</span><span class="st">"item"</span><span class="op">]</span><span class="op">]</span>, <span class="st">"原住民"</span>, negate <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>,<span class="op">]</span></span>
