@@ -8,7 +8,7 @@ Description: This is designed to make it quick and easy to download the
             real-time and archives of Taiwan legislative data via 
             Taiwan Legislative Yuan API
 Maintainer: David Yen-Chieh Liao <davidycliao@gmail.com>
-Depends: R (>= 3.6.3)
+Depends: R (>= 3.4.0)
 License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true
