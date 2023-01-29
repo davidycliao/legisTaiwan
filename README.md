@@ -31,27 +31,6 @@ Legislative Yuan API](https://data.ly.gov.tw/index.action).
 | [`get_executive_response()`](https://davidycliao.github.io/legisTaiwan/reference/get_executive_response.html) | 8th (2014/104)   | [**Questions Answered by the Executives 質詢事項(行政院答復部分)**](https://data.ly.gov.tw/getds.action?id=1)         |
 | [`get_debates()`](https://davidycliao.github.io/legisTaiwan/reference/get_public_debates.html)                | 8th (2014/104)   | [**Public Debates 國是論壇**](https://data.ly.gov.tw/getds.action?id=7)                                               |
 
-## Get Started with `remotes`:
-
-``` r
-# install.packages("remotes")
-remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
-#> Downloading GitHub repo davidycliao/legisTaiwan@HEAD
-#> 
-#> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>      checking for file ‘/private/var/folders/5n/clfp8vwj01bcy2hpncvffm0r0000gn/T/RtmpLplMf5/remotes59ca13eea741/davidycliao-legisTaiwan-1d96d20/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/5n/clfp8vwj01bcy2hpncvffm0r0000gn/T/RtmpLplMf5/remotes59ca13eea741/davidycliao-legisTaiwan-1d96d20/DESCRIPTION’ (340ms)
-#>   ─  preparing ‘legisTaiwan’:
-#>      checking DESCRIPTION meta-information ...  ✔  checking DESCRIPTION meta-information
-#>   ─  checking for LF line-endings in source and make files and shell scripts
-#>   ─  checking for empty or unneeded directories
-#>      Omitted ‘LazyData’ from DESCRIPTION
-#>   ─  building ‘legisTaiwan_0.1.1.tar.gz’
-#>      
-#> 
-#> Installing package into '/Users/yenchiehliao/Library/Caches/org.R-project.R/R/renv/library/legisTaiwan-d2aea907/R-4.2/x86_64-apple-darwin17.0'
-#> (as 'lib' is unspecified)
-```
-
 ## Acknowledgement
 
 The package is part of Yen-Chieh Liao’s doctoral dissertation project
