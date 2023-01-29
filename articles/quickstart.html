@@ -129,18 +129,23 @@
 <h2 id="get-started-with-using-remotes">Get Started with Using <a href="https://github.com/r-lib/remotes" class="external-link"><code>remotes</code></a>:<a class="anchor" aria-label="anchor" href="#get-started-with-using-remotes"></a>
 </h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Installing package into '/home/runner/work/_temp/Library'</span></span>
+<span><span class="co">#&gt; (as 'lib' is unspecified)</span></span>
 <span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"davidycliao/legisTaiwan"</span>, force <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Using github PAT from envvar GITHUB_PAT</span></span>
 <span><span class="co">#&gt; Downloading GitHub repo davidycliao/legisTaiwan@HEAD</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="color: #00BBBB;">R CMD build</span> <span style="color: #00BBBB;">───────────────────────────────────────────────────────────</span></span></span>
-<span><span class="co">#&gt; * checking for file ‘/private/var/folders/5n/clfp8vwj01bcy2hpncvffm0r0000gn/T/RtmpXwTSon/remotesbc241ebccfc0/davidycliao-legisTaiwan-1af7d97/DESCRIPTION’ ... OK</span></span>
+<span><span class="co">#&gt; * checking for file ‘/tmp/RtmpXXRKpq/remotes1e027a6fd9a5/davidycliao-legisTaiwan-0283eba/DESCRIPTION’ ... OK</span></span>
 <span><span class="co">#&gt; * preparing ‘legisTaiwan’:</span></span>
 <span><span class="co">#&gt; * checking DESCRIPTION meta-information ... OK</span></span>
 <span><span class="co">#&gt; * checking for LF line-endings in source and make files and shell scripts</span></span>
 <span><span class="co">#&gt; * checking for empty or unneeded directories</span></span>
 <span><span class="co">#&gt; Omitted ‘LazyData’ from DESCRIPTION</span></span>
-<span><span class="co">#&gt; * building ‘legisTaiwan_0.1.1.tar.gz’</span></span></code></pre></div>
+<span><span class="co">#&gt; * building ‘legisTaiwan_0.1.1.tar.gz’</span></span>
+<span><span class="co">#&gt; Installing package into '/home/runner/work/_temp/Library'</span></span>
+<span><span class="co">#&gt; (as 'lib' is unspecified)</span></span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://davidycliao.github.io/legisTaiwan/">legisTaiwan</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; ## legisTaiwan                                            ###</span></span>
