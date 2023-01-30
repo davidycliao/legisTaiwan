@@ -10,8 +10,8 @@
 #'calendar format, e.g. 1090110.
 #'@param meeting_unit The default is NULL, which include all meetings
 #' between the starting date and the ending date.
-#'@param verbose The default value is TRUE, displaying the description
-#'of data retrieved in number, url and computing time.
+#'@param verbose logical, indicates whether get_meetings should print out
+#'detailed output when retrieving the data.
 #'@return A list carries a main tibble dataframe that contains the date, status,
 #' name, content and speakers.
 #'
@@ -142,7 +142,8 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL, verbose = TR
 }
 
 
-#' Retrieving full video information of meetings and committees 下載「委員發言片段相關影片資訊」
+#' Retrieving full video information of meetings and committees
+#' 下載「委員發言片段相關影片資訊」
 #'@param start_date Requesting meeting records starting from the date.
 #'A double represents a date in ROC Taiwan format.
 #'If a double is used, it should specify as Taiwan
@@ -165,8 +166,8 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL, verbose = TR
 #'@export
 #'
 #'@examples
-#' ## query full video information of meetings and committees of the Legislative Yuan using a period of the dates
-#' ## in Taiwan ROC calender format with forward slash (/).
+#' ## query full video information of meetings and committees using a period of
+#' ## the dates in Taiwan ROC calender format with forward slash (/).
 #' ## 輸入「中華民國民年」下載「委員發言片段相關影片資訊」，輸入時間請依照該
 #' ## 格式 "105/10/20"，需有「正斜線」做隔開。
 #'get_speech_video(start_date = "105/10/20", end_date = "109/03/10")
