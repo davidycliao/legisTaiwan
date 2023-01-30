@@ -1,24 +1,22 @@
 #' Retrieving the spoken meeting records 下載「委員發言」
 #'
-#'@param start_date Requesting meeting records starting from the date.
-#'A double represents a date in ROC Taiwan format.
-#'If a double is used, it should specify as Taiwan
+#'@param start_date numeric or double formatted by Taiwan calander. Requesting
+#'meeting records starting from the date. If a double is used, it should specify
+#'as Taiwan calendar format, e.g. 1090101.
+#'
+#'@param end_date numeric or double formatted by Taiwan calander. Requesting
+#'meeting records ending from the date. If a double is used, it should specify as Taiwan
 #'calendar format, e.g. 1090110.
 #'
-#'@param end_date Requesting meeting records ending from the date.
-#' A double represents a date in ROC Taiwan format.
-#'If a double is used, it should specify as Taiwan
-#'calendar format, e.g. 1090110.
-#'
-#'@param meeting_unit The default is NULL, which include all meetings
+#'@param meeting_unit The default is NULL, which includes all meetings
 #' between the starting date and the ending date.
 #'
 #'@param verbose logical, indicates whether get_meetings should print out
 #'detailed output when retrieving the data.
 #'
-#'@return A list contains query_time, retrieved_number, meeting_unit,
-#'start_date_ad, end_date_ad, start_date, end_date, url, variable_names,
-#'manual_info and data.
+#'@return An object of the list, which contains query_time, retrieved_number,
+#'meeting_unit, start_date_ad, end_date_ad, start_date, end_date, url,
+#'variable_names, manual_info and data.
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
@@ -92,8 +90,9 @@ get_meetings <- function(start_date = NULL, end_date = NULL,
 #'@param verbose logical, indicates whether get_meetings should print out
 #'detailed output when retrieving the data.
 #'
-#'@return A list contains query_time, retrieved_number, start_date_ad,
-#'end_date_ad, start_date, end_date, url, variable_names, manual_info and data
+#'@return An object of the list, which contains query_time, retrieved_number,
+#'start_date_ad, end_date_ad, start_date, end_date, url, variable_names,
+#' manual_info and data
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
@@ -158,8 +157,9 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL, verbose = TR
 #'@param verbose logical, indicates whether get_meetings should print out
 #'detailed output when retrieving the data.
 #'
-#'@return A list contains query_time, retrieved_number, start_date_ad,
+#'@return An object of the list, which contains query_time, retrieved_number, start_date_ad,
 #'end_date_ad, start_date, end_date, url, variable_names, manual_info and data
+#'
 #'
 #'@importFrom attempt stop_if_all
 #'
@@ -229,7 +229,7 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
 #'1 and 8. 參數必須為數值。The parameter should be set in a numeric vector.
 #'
 #'@param verbose logical, indicates whether get_meetings should print out
-#'detailed output when retrieving the data. The default value is TRUE
+#'detailed output when retrieving the data. The default is TRUE
 #'
 #'@return A list contains query_time, retrieved_number, start_date_ad,
 #'end_date_ad, start_date, end_date, url, variable_names, manual_info and data

@@ -2,28 +2,27 @@
 % Please edit documentation in R/parlquestions.R
 \name{get_parlquestions}
 \alias{get_parlquestions}
-\title{Retrieving the records of parliamentary questions
-via Taiwan Legislative Yuan API 委員質詢事項}
+\title{Retrieving the records of parliamentary questions 委員質詢事項}
 \usage{
 get_parlquestions(term = 8, session_period = NULL, verbose = TRUE)
 }
 \arguments{
-\item{term}{Requesting questions from the term. The parameter should be set in
-a numeric format. The default value is 8. The data is only available from 8th
+\item{term}{integer or numeric. The parameter should be set in a numeric
+format. The default is 8. The data is only available from 8th
 term 參數必須為數值，資料從立法院第8屆開始計算。}
 
-\item{session_period}{session in the term. The session is between 1 and 8.
+\item{session_period}{integer or numeric. The session is between 1 and 8.
 session_period 參數必須為數值。}
 
-\item{verbose}{The default value is TRUE, displaying the description of data
-retrieved in number, url and computing time.}
+\item{verbose}{logical, indicates whether get_meetings should print out
+detailed output when retrieving the data. The default is TRUE}
 }
 \value{
-A list object contains a tibble carrying
+An object of the list, which contains query_time,
+retrieved_number, retrieved_term, url, variable_names, manual_info and data.
 }
 \description{
-Retrieving the records of parliamentary questions
-via Taiwan Legislative Yuan API 委員質詢事項
+Retrieving the records of parliamentary questions 委員質詢事項
 }
 \examples{
 

@@ -15,7 +15,7 @@ the 8th term 參數必須為數值，資料從立法院「第8屆」開始計算
 1 and 8. 參數必須為數值。The parameter should be set in a numeric vector.}
 
 \item{verbose}{logical, indicates whether get_meetings should print out
-detailed output when retrieving the data. The default value is TRUE}
+detailed output when retrieving the data. The default is TRUE}
 }
 \value{
 A list contains query_time, retrieved_number, start_date_ad,

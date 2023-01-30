@@ -16,6 +16,7 @@ Imports:
 	jsonlite,
 	attempt,
 	stringr,
+	stringi,
   curl,
   tibble,
   rvest

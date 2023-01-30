@@ -20,8 +20,9 @@ it should specify as Taiwan calendar format, e.g. 109/01/20.}
 detailed output when retrieving the data.}
 }
 \value{
-A list contains query_time, retrieved_number, start_date_ad,
-end_date_ad, start_date, end_date, url, variable_names, manual_info and data
+An object of the list, which contains query_time, retrieved_number,
+start_date_ad, end_date_ad, start_date, end_date, url, variable_names,
+manual_info and data
 }
 \description{
 Retrieving the meeting records of cross-caucus session 下載「黨團協商」資料

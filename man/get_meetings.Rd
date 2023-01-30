@@ -12,26 +12,24 @@ get_meetings(
 )
 }
 \arguments{
-\item{start_date}{Requesting meeting records starting from the date.
-A double represents a date in ROC Taiwan format.
-If a double is used, it should specify as Taiwan
+\item{start_date}{numeric or double formatted by Taiwan calander. Requesting
+meeting records starting from the date. If a double is used, it should specify
+as Taiwan calendar format, e.g. 1090101.}
+
+\item{end_date}{numeric or double formatted by Taiwan calander. Requesting
+meeting records ending from the date. If a double is used, it should specify as Taiwan
 calendar format, e.g. 1090110.}
 
-\item{end_date}{Requesting meeting records ending from the date.
-A double represents a date in ROC Taiwan format.
-If a double is used, it should specify as Taiwan
-calendar format, e.g. 1090110.}
-
-\item{meeting_unit}{The default is NULL, which include all meetings
+\item{meeting_unit}{The default is NULL, which includes all meetings
 between the starting date and the ending date.}
 
 \item{verbose}{logical, indicates whether get_meetings should print out
 detailed output when retrieving the data.}
 }
 \value{
-A list contains query_time, retrieved_number, meeting_unit,
-start_date_ad, end_date_ad, start_date, end_date, url, variable_names,
-manual_info and data.
+An object of the list, which contains query_time, retrieved_number,
+meeting_unit, start_date_ad, end_date_ad, start_date, end_date, url,
+variable_names, manual_info and data.
 }
 \description{
 Retrieving the spoken meeting records 下載「委員發言」
