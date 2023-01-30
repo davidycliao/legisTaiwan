@@ -125,33 +125,15 @@
 
     
     
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; The downloaded binary packages are in</span></span>
-<span><span class="co">#&gt;  /var/folders/5n/clfp8vwj01bcy2hpncvffm0r0000gn/T//Rtmp2S12Ev/downloaded_packages</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://devtools.r-lib.org/" class="external-link">devtools</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; Loading required package: usethis</span></span>
-<span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">'davidycliao/legisTaiwan'</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Downloading GitHub repo davidycliao/legisTaiwan@HEAD</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="color: #00BBBB;">R CMD build</span> <span style="color: #00BBBB;">───────────────────────────────────────────────────────────</span></span></span>
-<span><span class="co">#&gt; * checking for file ‘/private/var/folders/5n/clfp8vwj01bcy2hpncvffm0r0000gn/T/Rtmp2S12Ev/remotesfb2b3159aed3/davidycliao-legisTaiwan-bd99e06/DESCRIPTION’ ... OK</span></span>
-<span><span class="co">#&gt; * preparing ‘legisTaiwan’:</span></span>
-<span><span class="co">#&gt; * checking DESCRIPTION meta-information ... OK</span></span>
-<span><span class="co">#&gt; * checking for LF line-endings in source and make files and shell scripts</span></span>
-<span><span class="co">#&gt; * checking for empty or unneeded directories</span></span>
-<span><span class="co">#&gt; Omitted ‘LazyData’ from DESCRIPTION</span></span>
-<span><span class="co">#&gt; * building ‘legisTaiwan_0.1.1.tar.gz’</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://davidycliao.github.io/legisTaiwan/">legisTaiwan</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; ## legisTaiwan                                            ###</span></span>
-<span><span class="co">#&gt; ## An R package connecting to the Taiwan Legislative API. ###</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="以立委質詢questions-answered-by-the-executives為例">以立委質詢（Questions Answered by the Executives）為例<a class="anchor" aria-label="anchor" href="#%E4%BB%A5%E7%AB%8B%E5%A7%94%E8%B3%AA%E8%A9%A2questions-answered-by-the-executives%E7%82%BA%E4%BE%8B"></a>
 </h2>
 <p>找出立委在第八屆會期質詢當中，包含「中國」字眼之質詢。</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://stringr.tidyverse.org" class="external-link">stringr</a></span><span class="op">)</span></span>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://davidycliao.github.io/legisTaiwan/">legisTaiwan</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; ## legisTaiwan                                            ###</span></span>
+<span><span class="co">#&gt; ## An R package connecting to the Taiwan Legislative API. ###</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://stringr.tidyverse.org" class="external-link">stringr</a></span><span class="op">)</span></span>
 <span><span class="va">question_8</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_parlquestions.html">get_parlquestions</a></span><span class="op">(</span>term <span class="op">=</span> <span class="fl">8</span><span class="op">)</span></span>
 <span><span class="co">#&gt;  Retrieved URL: </span></span>
 <span><span class="co">#&gt;  https://data.ly.gov.tw/odw/ID6Action.action?term=08&amp;sessionPeriod=&amp;sessionTimes=&amp;item=&amp;fileType=json </span></span>
@@ -160,7 +142,7 @@
 <span><span class="va">Q8_data</span> <span class="op">&lt;-</span> <span class="va">question_8</span><span class="op">$</span><span class="va">data</span></span>
 <span><span class="va">Q8_China</span> <span class="op">&lt;-</span> <span class="va">Q8_data</span><span class="op">[</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html" class="external-link">str_detect</a></span><span class="op">(</span><span class="va">Q8_data</span><span class="op">[[</span><span class="st">"item"</span><span class="op">]</span><span class="op">]</span>, <span class="st">"中國"</span>, negate <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>,<span class="op">]</span></span></code></pre></div>
 <p>計算某位立法委員一共提出幾次有關「中國」字眼之質詢</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="st">"李應元"</span>, <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_count.html" class="external-link">str_count</a></span><span class="op">(</span><span class="va">Q8_China</span><span class="op">$</span><span class="va">item</span>, pattern <span class="op">=</span> <span class="st">"本院李委員應元"</span><span class="op">)</span><span class="op">)</span>, <span class="st">"\n"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; 李應元 28</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="st">"丁守中"</span>, <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_count.html" class="external-link">str_count</a></span><span class="op">(</span><span class="va">Q8_China</span><span class="op">$</span><span class="va">item</span>, pattern <span class="op">=</span> <span class="st">"本院丁委員守中"</span><span class="op">)</span><span class="op">)</span>, <span class="st">"\n"</span><span class="op">)</span></span>
@@ -168,7 +150,7 @@
 <span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="st">"陳其邁"</span>, <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_count.html" class="external-link">str_count</a></span><span class="op">(</span><span class="va">Q8_China</span><span class="op">$</span><span class="va">item</span>, pattern <span class="op">=</span> <span class="st">"本院陳委員其邁"</span><span class="op">)</span><span class="op">)</span>, <span class="st">"\n"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; 陳其邁 8</span></span></code></pre></div>
 <p>李應元立員提出幾次有提到中國字眼之質詢</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Q8_China_li</span> <span class="op">&lt;-</span> <span class="va">Q8_China</span><span class="op">[</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html" class="external-link">str_detect</a></span><span class="op">(</span><span class="va">Q8_China</span><span class="op">[[</span><span class="st">"item"</span><span class="op">]</span><span class="op">]</span>, <span class="st">"本院李委員應元"</span>, negate <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>,<span class="op">]</span></span>
 <span><span class="va">Q8_China_li</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"item"</span><span class="op">)</span><span class="op">]</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 28 × 1</span></span></span>
@@ -186,7 +168,7 @@
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="color: #949494;">"</span>一一四、本院李委員應元，針對中國國民黨榮譽主席吳伯雄在中國與胡錦濤見…</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># … with 18 more rows</span></span></span></code></pre></div>
 <p>丁守中立員提出幾次有提到中國字眼之質詢</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Q8_China_Ding</span> <span class="op">&lt;-</span> <span class="va">Q8_China</span><span class="op">[</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html" class="external-link">str_detect</a></span><span class="op">(</span><span class="va">Q8_China</span><span class="op">[[</span><span class="st">"item"</span><span class="op">]</span><span class="op">]</span>, <span class="st">"本院丁委員守中"</span>, negate <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>,<span class="op">]</span></span>
 <span><span class="va">Q8_China_Ding</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"item"</span><span class="op">)</span><span class="op">]</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 18 × 1</span></span></span>
@@ -214,14 +196,14 @@
 <div class="section level2">
 <h2 id="以歷屆委員資料legislator-demographics為例">以歷屆委員資料（Legislator Demographics）為例<a class="anchor" aria-label="anchor" href="#%E4%BB%A5%E6%AD%B7%E5%B1%86%E5%A7%94%E5%93%A1%E8%B3%87%E6%96%99legislator-demographics%E7%82%BA%E4%BE%8B"></a>
 </h2>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">info</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_legislators.html">get_legislators</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt;  Retrieved URL: </span></span>
 <span><span class="co">#&gt;  https://data.ly.gov.tw/odw/ID16Action.action?name=&amp;sex=&amp;party=&amp;partyGroup=&amp;areaName=&amp;term==&amp;fileType=json </span></span>
 <span><span class="co">#&gt;  Retrieved term:  2 3 4 5 6 7 8 9 10</span></span>
 <span><span class="va">legislators</span> <span class="op">&lt;-</span> <span class="va">info</span><span class="op">$</span><span class="va">data</span></span></code></pre></div>
 <p>使用<code>tidyverse</code>協助做資料整理，計算「性別」之個數。</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; ── <span style="font-weight: bold;">Attaching packages</span> ───────────────────────────────── tidyverse 1.3.2 ──</span></span>
 <span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">ggplot2</span> 3.4.0      <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">purrr  </span> 1.0.1 </span></span>
@@ -239,7 +221,7 @@
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 女      368</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 男     <span style="text-decoration: underline;">1</span>163</span></span></code></pre></div>
 <p>計算「黨籍」之個數</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">legislators</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">party</span><span class="op">)</span> </span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 12 × 2</span></span></span>
@@ -258,7 +240,7 @@
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span> 無黨籍          49</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span> 親民黨          95</span></span></code></pre></div>
 <p>製作直方圖</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">party</span> <span class="op">&lt;-</span> <span class="va">legislators</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
@@ -270,7 +252,7 @@
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>family <span class="op">=</span> <span class="st">"Heiti TC Light"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="yi_jhan_files/figure-html/unnamed-chunk-9-1.png" width="700"></p>
 <p>製作圓餅圖</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">party_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">legislators</span><span class="op">$</span><span class="va">party</span><span class="op">)</span></span>
 <span><span class="va">party.freq</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="va">party_1</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">party.freq</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"party"</span></span>
@@ -282,7 +264,7 @@
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>family <span class="op">=</span> <span class="st">"Heiti TC Light"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="yi_jhan_files/figure-html/unnamed-chunk-10-1.png" width="700"></p>
 <p>查看不同性別於不同政黨中之比例</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">legislators</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">party</span>, fill <span class="op">=</span> <span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_bar</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">"stack"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>family <span class="op">=</span> <span class="st">"Heiti TC Light"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -290,13 +272,13 @@
 <p><img src="yi_jhan_files/figure-html/unnamed-chunk-11-1.png" width="700"></p>
 <p>法律提案（the Records of the
 Bills）為例，抓取<em>周春米</em>在「民國106年1月20」至「民111年3月10日」所提之法案。</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/get_bills.html">get_bills</a></span><span class="op">(</span>start_date <span class="op">=</span> <span class="fl">1060120</span>, end_date <span class="op">=</span> <span class="fl">1110310</span>, proposer <span class="op">=</span> <span class="st">"周春米"</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="co">#&gt; $title</span></span>
 <span><span class="co">#&gt; [1] "the records of bill sponsor and co-sponsor"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $query_time</span></span>
-<span><span class="co">#&gt; [1] "2023-01-30 01:57:21 GMT"</span></span>
+<span><span class="co">#&gt; [1] "2023-01-30 18:09:02 GMT"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $retrieved_number</span></span>
 <span><span class="co">#&gt; [1] 147</span></span>
@@ -345,13 +327,13 @@ Bills）為例，抓取<em>周春米</em>在「民國106年1月20」至「民111
 <span><span class="co">#&gt; <span style="color: #949494;">#   ²​sessionTimes, ³​billName, ⁴​billProposer, ⁵​billCosignatory,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   ⁶​billStatus</span></span></span></code></pre></div>
 <p>抓取<em>莊瑞雄</em>在「民國106年1月20」至「民111年3月10日」所提之法案。</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/get_bills.html">get_bills</a></span><span class="op">(</span>start_date <span class="op">=</span> <span class="fl">1060120</span>, end_date <span class="op">=</span> <span class="fl">1110310</span>, proposer <span class="op">=</span> <span class="st">"莊瑞雄"</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="co">#&gt; $title</span></span>
 <span><span class="co">#&gt; [1] "the records of bill sponsor and co-sponsor"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $query_time</span></span>
-<span><span class="co">#&gt; [1] "2023-01-30 01:57:23 GMT"</span></span>
+<span><span class="co">#&gt; [1] "2023-01-30 18:09:04 GMT"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $retrieved_number</span></span>
 <span><span class="co">#&gt; [1] 528</span></span>
@@ -386,21 +368,21 @@ Bills）為例，抓取<em>周春米</em>在「民國106年1月20」至「民111
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 528 × 9</span></span></span>
 <span><span class="co">#&gt;    date   term  sessi…¹ sessi…² billN…³ billP…⁴ billC…⁵ billS…⁶ date_ad   </span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 11012… 10    04      15      兒童及… 蘇巧慧… <span style="color: #949494;">"</span>陳秀…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 11012… 10    04      15      大學法… 賴品妤… <span style="color: #949494;">"</span>周春…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 11012… 10    04      15      地方民… 許智傑… <span style="color: #949494;">"</span>高嘉…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 11012… 10    04      15      中華民… 許智傑… <span style="color: #949494;">"</span>高嘉…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 11012… 10    04      15      產業創… 蔡易餘… <span style="color: #949494;">"</span>吳秉…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 11012… 10    04      15      兒童及… 蘇巧慧… <span style="color: #949494;">"</span>陳秀…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 11012… 10    04      15      大學法… 賴品妤… <span style="color: #949494;">"</span>周春…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 11012… 10    04      15      地方民… 許智傑… <span style="color: #949494;">"</span>高嘉…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 11012… 10    04      15      中華民… 許智傑… <span style="color: #949494;">"</span>高嘉…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 11012… 10    04      15      消費者… 許智傑… <span style="color: #949494;">"</span>蔡易…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 11012… 10    04      15      性別工… 莊瑞雄… <span style="color: #949494;">"</span>羅致…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 11012… 10    04      15      產業創… 賴瑞隆… <span style="color: #949494;">"</span>王美…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 11012… 10    04      15      民法親… 范雲 ;… <span style="color: #949494;">"</span>王美…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 11012… 10    04      15      產業創… 林宜瑾… <span style="color: #949494;">"</span>吳秉…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 11012… 10    04      15      中華民… 許智傑… <span style="color: #949494;">"</span>高嘉…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 11012… 10    04      15      消費者… 許智傑… <span style="color: #949494;">"</span>蔡易…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 11012… 10    04      15      性別工… 莊瑞雄… <span style="color: #949494;">"</span>羅致…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 11012… 10    04      15      產業創… 賴瑞隆… <span style="color: #949494;">"</span>王美…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 11012… 10    04      15      民法親… 范雲 ;… <span style="color: #949494;">"</span>王美…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># … with 518 more rows, and abbreviated variable names ¹​sessionPeriod,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   ²​sessionTimes, ³​billName, ⁴​billProposer, ⁵​billCosignatory,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   ⁶​billStatus</span></span></span></code></pre></div>
 <p>看看「民國106年1月20日」與「民國107年3月10日」之間，有提到「原住民」的法案</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bills_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_bills.html">get_bills</a></span><span class="op">(</span>start_date <span class="op">=</span> <span class="fl">1060120</span>, end_date <span class="op">=</span> <span class="fl">1070310</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="va">bills</span> <span class="op">&lt;-</span> <span class="va">bills_data</span><span class="op">$</span><span class="va">data</span></span>
 <span><span class="va">bills</span><span class="op">[</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html" class="external-link">str_detect</a></span><span class="op">(</span><span class="va">bills</span><span class="op">$</span><span class="va">billName</span>, <span class="st">"原住民"</span>, negate <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>, <span class="op">]</span></span>
