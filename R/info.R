@@ -12,15 +12,15 @@
 #'
 #'@export
 #'@seealso
-#'\url{https://data.ly.gov.tw/getds.action?id=6}
-#'\url{https://data.ly.gov.tw/getds.action?id=16}
-#'\url{https://data.ly.gov.tw/getds.action?id=2}
-#'\url{https://data.ly.gov.tw/getds.action?id=8}
-#'\url{https://data.ly.gov.tw/getds.action?id=148}
-#'\url{https://data.ly.gov.tw/getds.action?id=1}
-#'\url{https://data.ly.gov.tw/getds.action?id=7}
-#'\url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}
-#'\url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}
+#'stringi::stri_escape_unicode("質詢事項(本院委員質詢部分)")  \url{https://data.ly.gov.tw/getds.action?id=6}
+#'stringi::stri_escape_unicode("歷屆委員資料") \url{https://data.ly.gov.tw/getds.action?id=16}
+#'stringi::stri_escape_unicode("行政院答復") \url{https://data.ly.gov.tw/getds.action?id=2}
+#'stringi::stri_escape_unicode("黨團協商")  \url{https://data.ly.gov.tw/getds.action?id=8}
+#'stringi::stri_escape_unicode("委員發言片段相關影片資訊")  \url{https://data.ly.gov.tw/getds.action?id=148}
+#'stringi::stri_escape_unicode("質詢事項 (行政院答復部分) ") \url{https://data.ly.gov.tw/getds.action?id=1}
+#'stringi::stri_escape_unicode("國是論壇") 國是論壇 \url{https://data.ly.gov.tw/getds.action?id=7}
+#'stringi::stri_escape_unicode("委員發言(API)") \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}
+#'stringi::stri_escape_unicode("法律提案(API)") \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}
 
 get_variabel_infos <- function(param_) {
   legisTaiwan::check_internet()
@@ -71,14 +71,14 @@ get_variabel_infos <- function(param_) {
   }
   else {
     stop("Use correct funtion names below in character format:
-         get_bills: the records of the bills
-         get_bills_2: the records of legislators and the government proposals
-         get_meetings: the spoken meeting records
-         get_caucus_meetings: the meeting records of cross-caucus session
-         get_speech_video: the full video information of meetings and committees
-         get_public_debates: the records of national public debates
-         get_parlquestions:  the records of parliamentary questions
-         get_executive_response: the records of the questions answered by the executives")
+         get_bills: the records of the bills 法律提案 API
+         get_bills_2: the records of legislators and the government proposals 議案提案
+         get_meetings: the spoken meeting records 委員發言
+         get_caucus_meetings: the meeting records of cross-caucus session  黨團協商
+         get_speech_video: the full video information of meetings and committees 委員發言片段相關影片資訊
+         get_public_debates: the records of national public debates 國是論壇
+         get_parlquestions:  the records of parliamentary questions 委員質詢
+         get_executive_response: the records of the questions answered by the executives 行政院答復")
     }
     html <- rvest::html_nodes(rvest::read_html(url), "*[id='content']")
     title <- gsub("[[:space:]]", "", rvest::html_text2(rvest::html_nodes(html, "h2")))
