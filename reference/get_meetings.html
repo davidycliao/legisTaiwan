@@ -131,8 +131,9 @@ detailed output when retrieving the data.</p></dd>
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>A list carries a main tibble dataframe that contains the date, status,
-name, content and speakers.</p>
+<p>A list contains query_time, retrieved_number, meeting_unit,
+start_date_ad, end_date_ad, start_date, end_date, url, variable_names,
+manual_info and data.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -143,106 +144,6 @@ name, content and speakers.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## query meeting records by a period of the dates in Taiwan ROC calender format</span></span></span>
 <span class="r-in"><span><span class="co">## 輸入「中華民國民年」下載「委員發言」</span></span></span>
-<span class="r-in"><span><span class="fu">get_meetings</span><span class="op">(</span><span class="fl">1050120</span>, <span class="fl">1050210</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved URL: </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  https://www.ly.gov.tw/WebAPI/LegislativeSpeech.aspx?from=1050120&amp;to=1050210&amp;meeting_unit=&amp;mode=json </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved via : </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved date between: 2016-01-20 and 2016-02-10 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved number: 1 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $title</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the spoken meeting records"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-01-30 12:40:36 UTC"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $meeting_unit</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $start_date_ad</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2016-01-20"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $end_date_ad</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2016-02-10"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $start_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1050120</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $end_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1050210</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $url</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://www.ly.gov.tw/WebAPI/LegislativeSpeech.aspx?from=1050120&amp;to=1050210&amp;meeting_unit=&amp;mode=json"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $variable_names</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "smeeting_date"   "meeting_status"  "meeting_name"   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [4] "meeting_content" "speechers"       "meeting_unit"   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [7] "date_ad"        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $manual_info</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://www.ly.gov.tw/Pages/List.aspx?nodeid=154"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $data</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 7</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   smeeting_date meeting_status meetin…¹ meeti…² speec…³ meeti…⁴ date_ad   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 105/02/01     散會(15:55)    第9屆立… 第9屆…  <span style="color: #BB0000;">NA</span>      院會    2016-02-01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with abbreviated variable names ¹​meeting_name, ²​meeting_content,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ³​speechers, ⁴​meeting_unit</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">get_meetings</span><span class="op">(</span><span class="st">"1050120"</span>, <span class="st">"1050210"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved URL: </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  https://www.ly.gov.tw/WebAPI/LegislativeSpeech.aspx?from=1050120&amp;to=1050210&amp;meeting_unit=&amp;mode=json </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved via : </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved date between: 2016-01-20 and 2016-02-10 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved number: 1 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $title</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the spoken meeting records"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-01-30 12:40:36 UTC"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $meeting_unit</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $start_date_ad</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2016-01-20"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $end_date_ad</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2016-02-10"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $start_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1050120"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $end_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1050210"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $url</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://www.ly.gov.tw/WebAPI/LegislativeSpeech.aspx?from=1050120&amp;to=1050210&amp;meeting_unit=&amp;mode=json"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $variable_names</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "smeeting_date"   "meeting_status"  "meeting_name"   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [4] "meeting_content" "speechers"       "meeting_unit"   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [7] "date_ad"        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $manual_info</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://www.ly.gov.tw/Pages/List.aspx?nodeid=154"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $data</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 7</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   smeeting_date meeting_status meetin…¹ meeti…² speec…³ meeti…⁴ date_ad   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 105/02/01     散會(15:55)    第9屆立… 第9屆…  <span style="color: #BB0000;">NA</span>      院會    2016-02-01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with abbreviated variable names ¹​meeting_name, ²​meeting_content,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ³​speechers, ⁴​meeting_unit</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">get_meetings</span><span class="op">(</span>start_date <span class="op">=</span> <span class="st">"1050120"</span>, end_date <span class="op">=</span> <span class="st">"1050210"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved URL: </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  https://www.ly.gov.tw/WebAPI/LegislativeSpeech.aspx?from=1050120&amp;to=1050210&amp;meeting_unit=&amp;mode=json </span>
@@ -253,7 +154,7 @@ name, content and speakers.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the spoken meeting records"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-01-30 12:40:37 UTC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-01-30 12:54:12 UTC"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1</span>
@@ -306,7 +207,7 @@ name, content and speakers.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the spoken meeting records"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-01-30 12:40:37 UTC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-01-30 12:54:13 UTC"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 104</span>
@@ -354,7 +255,6 @@ name, content and speakers.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 94 more rows, and abbreviated variable names ¹​meeting_name,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ²​meeting_content, ³​speechers, ⁴​meeting_unit</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
