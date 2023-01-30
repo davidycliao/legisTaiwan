@@ -24,7 +24,7 @@
 #'@seealso
 #'\url{https://data.ly.gov.tw/getds.action?id=2}
 
-get_executive_response <- function(term = 8, session_period = NULL, verbose = TRUE) {
+get_executive_response <- function(term = NULL, session_period = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
   attempt::stop_if_all(term, is.character, msg = "use numeric format only")
   attempt::stop_if_all(term, is.character, msg = "use numeric format only")
