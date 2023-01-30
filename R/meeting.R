@@ -1,5 +1,4 @@
-#' Retrieving the spoken meeting records
-#' 下載「委員發言」
+#' Retrieving the spoken meeting records 下載「委員發言」
 #'
 #'@param start_date Requesting meeting records starting from the date.
 #'A double represents a date in ROC Taiwan format.
@@ -81,8 +80,7 @@ get_meetings <- function(start_date = NULL, end_date = NULL,
 }
 
 
-#' Retrieving the meeting records of cross-caucus session
-#' 下載「黨團協商」資料
+#' Retrieving the meeting records of cross-caucus session 下載「黨團協商」資料
 #'
 #'@param start_date Requesting meeting records starting from the date.
 #'A double represents a date in ROC Taiwan format.
@@ -142,6 +140,7 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL, verbose = TR
     }
   )
 }
+
 
 #' Retrieving full video information of meetings and committees of the Legislative Yuan
 #' 下載「委員發言片段相關影片資訊」
@@ -210,3 +209,65 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
     }
   )
 }
+
+#' Retrieving the records of national public debates 國是論壇
+#'
+#'@param term Requesting answered questions by term. The parameter should be set in
+#'a numeric format. The default value is 8. The data is only available from 8th
+#'term 參數必須為數值，資料從立法院第8屆開始計算。
+#'@param session_period session in the term. The session is between 1 and 8.
+#' session_period 參數必須為數值。
+#'@param verbose The default value is TRUE, displaying the description of data
+#'retrieved in number, url and computing time.
+#'@return A list object contains a tibble carrying the variables of term, sessionPeriod,
+#' sessionTimes, meetingTimes, eyNumber, lyNumber, subject, content, docUrl
+#' selectTerm.
+#'
+#'@importFrom attempt stop_if_all
+#'@importFrom jsonlite fromJSON
+#'
+#'@export
+#'@examples
+#' ## query the Executives' answered response by term and the session period.
+#' ## 輸入「立委屆期」與「會期」下載「質詢事項 (行政院答復部分)」
+#'get_public_debates(term = 10, session_period = 2)
+#'
+#'get_public_debates(term = 10, session_period = 1)
+#'
+#'@seealso
+#'\url{https://data.ly.gov.tw/getds.action?id=7}
+
+get_public_debates <- function(term = 8, session_period = NULL, verbose = TRUE) {
+  legisTaiwan::check_internet()
+  attempt::stop_if_all(term, is.character, msg = "use numeric format only")
+  attempt::stop_if_all(term, is.character, msg = "use numeric format only")
+  set_api_url <- paste("https://data.ly.gov.tw/odw/ID7Action.action?term=",
+                       sprintf("%02d", as.numeric(term)), "&sessionPeriod=", sprintf("%02d", as.numeric(session_period)),
+                       "&sessionTimes=&meetingTimes=&legislatorName=&speakType=&fileType=json", sep = "")
+
+  tryCatch(
+    {
+      json_df <- jsonlite::fromJSON(set_api_url)
+      df <- tibble::as_tibble(json_df$dataList)
+      attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = paste("The query is unavailable:", set_api_url, sep = "\n" ))
+      if (isTRUE(verbose)) {
+        cat(" Retrieved URL: \n", set_api_url, "\n")
+        cat(" Retrieved Term: ", term, "\n")
+        cat(" Retrieved Num: ", nrow(df), "\n")
+      }
+      list_data <- list("title" = "the records of the questions answered by the executives",
+                        "query_time" = Sys.time(),
+                        "retrieved_number" = nrow(df),
+                        "retrieved_term" = term,
+                        "url" = set_api_url,
+                        "variable_names" = colnames(df),
+                        "manual_info" = "https://data.ly.gov.tw/getds.action?id=7",
+                        "data" = df)
+      return(list_data)
+    },
+    error = function(error_message) {
+      message(error_message)
+    }
+  )
+}
+

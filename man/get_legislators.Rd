@@ -2,32 +2,28 @@
 % Please edit documentation in R/legislators.R
 \name{get_legislators}
 \alias{get_legislators}
-\title{Retrieving legislator' demographics via Taiwan Legislative Yuan API
-歷屆委員資料}
+\title{Retrieving legislator' demographic information and background}
 \usage{
 get_legislators(term = NULL, verbose = TRUE)
 }
 \arguments{
-\item{term}{Requesting answered questions from the term. The parameter should be set in
-a numeric format. The default value is 2.
+\item{term}{A number, which requests answered questions from the term. The parameter should be set in
+a numeric vector.
 retrieved in number, url, and computing time.}
 
-\item{verbose}{The default is TRUE, which return the information of the return
+\item{verbose}{The default is TRUE, which return the information of the return.
 object.}
 }
 \value{
-A list object contains a tibble carrying term, name, ename,
-sex, party, etc.
+A list contains query_time, queried_term, url ,variable_names, manual_info and data
 }
 \description{
-Retrieving legislator' demographics via Taiwan Legislative Yuan API
-歷屆委員資料
+Retrieving legislator' demographic information and background
 }
 \examples{
 ## To retrieve legislator' demographic from 8th
 ## 輸入「屆次」下載當屆立委資料
 get_legislators(term = 8)
-
 
 
 ## To retrieve legislator' demographic from all of terms

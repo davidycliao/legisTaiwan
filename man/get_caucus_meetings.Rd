@@ -2,8 +2,7 @@
 % Please edit documentation in R/meeting.R
 \name{get_caucus_meetings}
 \alias{get_caucus_meetings}
-\title{Retrieving the meeting records of cross-caucus session
-下載「黨團協商」資料}
+\title{Retrieving the meeting records of cross-caucus session 下載「黨團協商」資料}
 \usage{
 get_caucus_meetings(start_date = NULL, end_date = NULL, verbose = TRUE)
 }
@@ -25,8 +24,7 @@ A list carries a main tibble dataframe that contains comYear, comBookId ,
 sessionPeriod, sessionTimes, htmlUrl, etc.
 }
 \description{
-Retrieving the meeting records of cross-caucus session
-下載「黨團協商」資料
+Retrieving the meeting records of cross-caucus session 下載「黨團協商」資料
 }
 \examples{
 ## query the meeting records of cross-caucus session using a period of the dates
