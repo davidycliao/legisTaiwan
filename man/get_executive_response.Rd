@@ -5,7 +5,7 @@
 \title{Retrieving the records of the questions answered by the executives
 行政院答復}
 \usage{
-get_executive_response(term = 8, session_period = NULL, verbose = TRUE)
+get_executive_response(term = NULL, session_period = NULL, verbose = TRUE)
 }
 \arguments{
 \item{term}{Requesting answered questions by term. The parameter should be set in
