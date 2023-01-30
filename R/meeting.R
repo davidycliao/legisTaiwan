@@ -142,28 +142,33 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL, verbose = TR
 }
 
 
-#' Retrieving full video information of meetings and committees of the Legislative Yuan
-#' 下載「委員發言片段相關影片資訊」
+#' Retrieving full video information of meetings and committees 下載「委員發言片段相關影片資訊」
 #'@param start_date Requesting meeting records starting from the date.
 #'A double represents a date in ROC Taiwan format.
 #'If a double is used, it should specify as Taiwan
 #'calendar format, e.g. 109/01/10.
+#'
 #'@param end_date Requesting meeting records ending from the date.
 #' A double represents a date in ROC Taiwan format.
 #'If a double is used, it should specify as Taiwan calendar format, e.g. 109/01/20.
+#'
 #'@param verbose The default value is TRUE, displaying the description
 #'of data retrieved in number, url and computing time.
+#'
 #'@return A list carries a main tibble dataframe that contains comYear, comBookId ,
 #'sessionPeriod, sessionTimes, htmlUrl, etc.
 #'
 #'@importFrom attempt stop_if_all
+#'
 #'@importFrom jsonlite fromJSON
 #'
 #'@export
+#'
 #'@examples
 #' ## query full video information of meetings and committees of the Legislative Yuan using a period of the dates
 #' ## in Taiwan ROC calender format with forward slash (/).
-#' ## 輸入「中華民國民年」下載「委員發言片段相關影片資訊」，輸入時間請依照該格式 "105/10/20"，需有「正斜線」做隔開。
+#' ## 輸入「中華民國民年」下載「委員發言片段相關影片資訊」，輸入時間請依照該
+#' ## 格式 "105/10/20"，需有「正斜線」做隔開。
 #'get_speech_video(start_date = "105/10/20", end_date = "109/03/10")
 #'
 #'@seealso
@@ -210,7 +215,7 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
   )
 }
 
-#' Retrieving the records of national public debates 國是論壇
+#' Retrieving the records of national public debates 下載「國是論壇」資料
 #'
 #'@param term Requesting answered questions by term. The parameter should be set in
 #'a numeric format. The default value is 8. The data is only available from 8th

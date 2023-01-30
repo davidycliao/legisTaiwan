@@ -1,7 +1,8 @@
 #' Check function information on the website of Taiwan Legislative API
 #'
 #'@param x The parameter should be `get_parlquestions`, `get_legislators`,
-#'`get_executive_response`, `get_bills`, or `get_meetings`
+#'`get_executive_response`, `get_bills`, `get_meetings`, `get_caucus_meetings`
+#'`get_public_debates`,
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
@@ -10,13 +11,18 @@
 #'
 #'@export
 #'@seealso
-#'\url{https://data.ly.gov.tw/getds.action?id=6}
-#'\url{https://data.ly.gov.tw/getds.action?id=16}
-#'\url{https://data.ly.gov.tw/getds.action?id=2}
-#'\url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}
-#'\url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}
+#'質詢事項(本院委員質詢部分)  \url{https://data.ly.gov.tw/getds.action?id=6}
+#'歷屆委員資料 \url{https://data.ly.gov.tw/getds.action?id=16}
+#'行政院答復 \url{https://data.ly.gov.tw/getds.action?id=2}
+#'黨團協商 \url{https://data.ly.gov.tw/getds.action?id=8}
+#'委員發言片段相關影片資訊 \url{https://data.ly.gov.tw/getds.action?id=148}
+#'質詢事項 (行政院答復部分) \url{https://data.ly.gov.tw/getds.action?id=1}
+#'國是論壇 \url{https://data.ly.gov.tw/getds.action?id=7}
+#'委員發言(API) \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}
+#'法律提案(API) \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}
 
-get_infos <- function(x) {
+
+get_variabel_infos <- function(x) {
   legisTaiwan::check_internet()
   attempt::stop_if_all(x, is.numeric, msg = "use string format only")
   attempt::stop_if_all(x, is.null, msg = "use correct funtion names")
@@ -36,6 +42,10 @@ get_infos <- function(x) {
   else if (x == "get_caucus_meetings") {
     # 黨團協商 https://data.ly.gov.tw/getds.action?id=8
     url <- "https://data.ly.gov.tw/getds.action?id=8"
+  }
+  else if (x == "get_speech_video") {
+    # 委員發言片段相關影片資訊 https://data.ly.gov.tw/getds.action?id=148
+    url <- "https://data.ly.gov.tw/getds.action?id=148"
   }
   else if (x == "get_bills_2") {
     # 質詢事項 (行政院答復部分) https://data.ly.gov.tw/getds.action?id=1

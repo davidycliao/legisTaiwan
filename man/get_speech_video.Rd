@@ -2,8 +2,7 @@
 % Please edit documentation in R/meeting.R
 \name{get_speech_video}
 \alias{get_speech_video}
-\title{Retrieving full video information of meetings and committees of the Legislative Yuan
-下載「委員發言片段相關影片資訊」}
+\title{Retrieving full video information of meetings and committees 下載「委員發言片段相關影片資訊」}
 \usage{
 get_speech_video(start_date = NULL, end_date = NULL, verbose = TRUE)
 }
@@ -25,13 +24,13 @@ A list carries a main tibble dataframe that contains comYear, comBookId ,
 sessionPeriod, sessionTimes, htmlUrl, etc.
 }
 \description{
-Retrieving full video information of meetings and committees of the Legislative Yuan
-下載「委員發言片段相關影片資訊」
+Retrieving full video information of meetings and committees 下載「委員發言片段相關影片資訊」
 }
 \examples{
 ## query full video information of meetings and committees of the Legislative Yuan using a period of the dates
 ## in Taiwan ROC calender format with forward slash (/).
-## 輸入「中華民國民年」下載「委員發言片段相關影片資訊」，輸入時間請依照該格式 "105/10/20"，需有「正斜線」做隔開。
+## 輸入「中華民國民年」下載「委員發言片段相關影片資訊」，輸入時間請依照該
+## 格式 "105/10/20"，需有「正斜線」做隔開。
 get_speech_video(start_date = "105/10/20", end_date = "109/03/10")
 
 }

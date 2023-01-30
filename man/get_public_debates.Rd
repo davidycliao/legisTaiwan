@@ -2,7 +2,7 @@
 % Please edit documentation in R/meeting.R
 \name{get_public_debates}
 \alias{get_public_debates}
-\title{Retrieving the records of national public debates 國是論壇}
+\title{Retrieving the records of national public debates 下載「國是論壇」資料}
 \usage{
 get_public_debates(term = 8, session_period = NULL, verbose = TRUE)
 }
@@ -23,7 +23,7 @@ sessionTimes, meetingTimes, eyNumber, lyNumber, subject, content, docUrl
 selectTerm.
 }
 \description{
-Retrieving the records of national public debates 國是論壇
+Retrieving the records of national public debates 下載「國是論壇」資料
 }
 \examples{
 ## query the Executives' answered response by term and the session period.
