@@ -229,7 +229,7 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
 #'@param session_period legislative session in the term. The session is between
 #'1 and 8. 參數必須為數值。The parameter should be set in a numeric vector.
 #'
-#'#'@param verbose logical, indicates whether get_meetings should print out
+#'@param verbose logical, indicates whether get_meetings should print out
 #'detailed output when retrieving the data. The default value is TRUE
 #'
 #'@return A list contains query_time, retrieved_number, start_date_ad,
