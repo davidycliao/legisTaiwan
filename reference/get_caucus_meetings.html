@@ -107,21 +107,21 @@ calendar format, e.g. 109/01/10.</p></dd>
 
 <dt>end_date</dt>
 <dd><p>Requesting meeting records ending from the date.
-A double represents a date in ROC Taiwan format.
-If a double is used, it should specify as Taiwan calendar format, e.g. 109/01/20.</p></dd>
+A double represents a date in ROC Taiwan format. If a double is used,
+it should specify as Taiwan calendar format, e.g. 109/01/20.</p></dd>
 
 
 <dt>verbose</dt>
-<dd><p>The default value is TRUE, displaying the description
-of data retrieved in number, url and computing time.</p></dd>
+<dd><p>logical, indicates whether get_meetings should print out
+detailed output when retrieving the data.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>A list carries a main tibble dataframe that contains comYear, comBookId ,
-sessionPeriod, sessionTimes, htmlUrl, etc.</p>
+<p>A list contains query_time, retrieved_number, start_date_ad,
+end_date_ad, start_date, end_date, url, variable_names, manual_info and data</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -130,9 +130,10 @@ sessionPeriod, sessionTimes, htmlUrl, etc.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## query the meeting records of cross-caucus session using a period of the dates</span></span></span>
-<span class="r-in"><span><span class="co">## in Taiwan ROC calender format with forward slash (/).</span></span></span>
-<span class="r-in"><span><span class="co">## 輸入「中華民國民年」下載「黨團協商」，輸入時間請依照該格式 "106/10/20"，需有「正斜線」做隔開。</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## query the meeting records of cross-caucus session using a period of</span></span></span>
+<span class="r-in"><span><span class="co">## the dates in Taiwan ROC calender format with forward slash (/).</span></span></span>
+<span class="r-in"><span><span class="co">## 輸入「中華民國民年」下載「黨團協商」，輸入時間請依照該格式 "106/10/20"</span></span></span>
+<span class="r-in"><span><span class="co">## ，需有「正斜線」做隔開。</span></span></span>
 <span class="r-in"><span><span class="fu">get_caucus_meetings</span><span class="op">(</span>start_date <span class="op">=</span> <span class="st">"106/10/20"</span>, end_date <span class="op">=</span> <span class="st">"107/03/10"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved URL: </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  https://data.ly.gov.tw/odw/ID8Action.action?comYear=&amp;comVolume=&amp;comBookId=&amp;term=&amp;sessionPeriod=&amp;sessionTimes=&amp;meetingTimes=&amp;meetingDateS=106/10/20&amp;meetingDateE=107/03/10&amp;fileType=json </span>
@@ -142,7 +143,7 @@ sessionPeriod, sessionTimes, htmlUrl, etc.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the meeting records of cross-caucus session"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-01-30 11:57:55 UTC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-01-30 12:18:02 UTC"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 30</span>
