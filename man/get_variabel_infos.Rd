@@ -2,7 +2,7 @@
 % Please edit documentation in R/info.R
 \name{get_variabel_infos}
 \alias{get_variabel_infos}
-\title{Check function information on the website of Taiwan Legislative API}
+\title{Check all function information}
 \usage{
 get_variabel_infos(x)
 }
@@ -12,7 +12,7 @@ get_variabel_infos(x)
 \code{get_public_debates},}
 }
 \description{
-Check function information on the website of Taiwan Legislative API
+Check all function information
 }
 \seealso{
 質詢事項(本院委員質詢部分)  \url{https://data.ly.gov.tw/getds.action?id=6}

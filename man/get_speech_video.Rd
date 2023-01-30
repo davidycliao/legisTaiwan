@@ -14,8 +14,8 @@ If a double is used, it should specify as Taiwan
 calendar format, e.g. 109/01/10.}
 
 \item{end_date}{Requesting meeting records ending from the date.
-A double represents a date in ROC Taiwan format.
-If a double is used, it should specify as Taiwan calendar format, e.g. 109/01/20.}
+A double represents a date in ROC Taiwan format. If a double is used,
+it should specify as Taiwan calendar format, e.g. 109/01/20.}
 
 \item{verbose}{logical, indicates whether get_meetings should print out
 detailed output when retrieving the data.}

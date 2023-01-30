@@ -7,14 +7,14 @@
 get_public_debates(term = 8, session_period = NULL, verbose = TRUE)
 }
 \arguments{
-\item{term}{Requesting answered questions by term. The parameter should be set in
-a numeric format. The default value is 8. The data is only available from 8th
-term 參數必須為數值，資料從立法院第8屆開始計算。}
+\item{term}{Requesting answered questions by term. The parameter should be set
+in a numeric vector The default value is 8. The data is only available from
+the 8th term 參數必須為數值，資料從立法院「第8屆」開始計算。}
 
-\item{session_period}{session in the term. The session is between 1 and 8.
-session_period 參數必須為數值。
+\item{session_period}{legislative session in the term. The session is between
+1 and 8. 參數必須為數值。The parameter should be set in a numeric vector.}
 
-#'@param verbose logical, indicates whether get_meetings should print out
+\item{verbose}{logical, indicates whether get_meetings should print out
 detailed output when retrieving the data. The default value is TRUE}
 }
 \value{

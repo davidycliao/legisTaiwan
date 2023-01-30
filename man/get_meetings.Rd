@@ -29,8 +29,9 @@ between the starting date and the ending date.}
 detailed output when retrieving the data.}
 }
 \value{
-A list carries a main tibble dataframe that contains the date, status,
-name, content and speakers.
+A list contains query_time, retrieved_number, meeting_unit,
+start_date_ad, end_date_ad, start_date, end_date, url, variable_names,
+manual_info and data.
 }
 \description{
 Retrieving the spoken meeting records 下載「委員發言」
@@ -38,17 +39,12 @@ Retrieving the spoken meeting records 下載「委員發言」
 \examples{
 ## query meeting records by a period of the dates in Taiwan ROC calender format
 ## 輸入「中華民國民年」下載「委員發言」
-get_meetings(1050120, 1050210)
-
-get_meetings("1050120", "1050210")
-
 get_meetings(start_date = "1050120", end_date = "1050210")
 
 ## query meeting records by a period of the dates in Taiwan ROC calender format
 ## and a meeting
 ## 輸入「中華民國民年」與「審查會議或委員會名稱」下載會議審查資訊
 get_meetings(start_date = 1060120, end_date = 1070310, meeting_unit = "內政委員會")
-
 
 }
 \seealso{
