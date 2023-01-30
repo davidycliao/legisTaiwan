@@ -37,9 +37,9 @@ Legislative Yuan API](https://data.ly.gov.tw/index.action).
 ## Acknowledgement
 
 The package is part of Yen-Chieh Liao’s doctoral dissertation project
-[`*Electoral Reform, Distributive Politics, and Parties in the Taiwanese Congress*`](https://raw.githack.com/davidycliao/phd-thesis/main/Yen_Chieh_Liao_PhD_Dissertation_Jan_2023.pdf)
+*[`Electoral Reform, Distributive Politics, and Parties in the Taiwanese Congress`](https://raw.githack.com/davidycliao/phd-thesis/main/Yen_Chieh_Liao_PhD_Dissertation_Jan_2023.pdf)
 at the [Department of
-Government](https://www.essex.ac.uk/departments/government) in
+Government](https://www.essex.ac.uk/departments/government)* in
 University of Essex and supported by the 2021 Taiwanese Overseas
 Pioneers Grants for PhD Candidates from the National Science and
 Technology Council in Taiwan.
