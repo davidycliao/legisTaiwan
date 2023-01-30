@@ -129,12 +129,20 @@
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; The downloaded binary packages are in</span></span>
-<span><span class="co">#&gt;  /var/folders/5n/clfp8vwj01bcy2hpncvffm0r0000gn/T//RtmpbOOt8I/downloaded_packages</span></span>
+<span><span class="co">#&gt;  /var/folders/5n/clfp8vwj01bcy2hpncvffm0r0000gn/T//Rtmp2S12Ev/downloaded_packages</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://devtools.r-lib.org/" class="external-link">devtools</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; Loading required package: usethis</span></span>
 <span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">'davidycliao/legisTaiwan'</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Skipping install of 'legisTaiwan' from a github remote, the SHA1 (1af7d977) has not changed since last install.</span></span>
-<span><span class="co">#&gt;   Use `force = TRUE` to force installation</span></span>
+<span><span class="co">#&gt; Downloading GitHub repo davidycliao/legisTaiwan@HEAD</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="color: #00BBBB;">R CMD build</span> <span style="color: #00BBBB;">───────────────────────────────────────────────────────────</span></span></span>
+<span><span class="co">#&gt; * checking for file ‘/private/var/folders/5n/clfp8vwj01bcy2hpncvffm0r0000gn/T/Rtmp2S12Ev/remotesfb2b3159aed3/davidycliao-legisTaiwan-bd99e06/DESCRIPTION’ ... OK</span></span>
+<span><span class="co">#&gt; * preparing ‘legisTaiwan’:</span></span>
+<span><span class="co">#&gt; * checking DESCRIPTION meta-information ... OK</span></span>
+<span><span class="co">#&gt; * checking for LF line-endings in source and make files and shell scripts</span></span>
+<span><span class="co">#&gt; * checking for empty or unneeded directories</span></span>
+<span><span class="co">#&gt; Omitted ‘LazyData’ from DESCRIPTION</span></span>
+<span><span class="co">#&gt; * building ‘legisTaiwan_0.1.1.tar.gz’</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://davidycliao.github.io/legisTaiwan/">legisTaiwan</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; ## legisTaiwan                                            ###</span></span>
 <span><span class="co">#&gt; ## An R package connecting to the Taiwan Legislative API. ###</span></span></code></pre></div>
@@ -288,7 +296,7 @@ Bills）為例，抓取<em>周春米</em>在「民國106年1月20」至「民111
 <span><span class="co">#&gt; [1] "the records of bill sponsor and co-sponsor"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $query_time</span></span>
-<span><span class="co">#&gt; [1] "2023-01-29 02:57:11 GMT"</span></span>
+<span><span class="co">#&gt; [1] "2023-01-30 01:57:21 GMT"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $retrieved_number</span></span>
 <span><span class="co">#&gt; [1] 147</span></span>
@@ -343,7 +351,7 @@ Bills）為例，抓取<em>周春米</em>在「民國106年1月20」至「民111
 <span><span class="co">#&gt; [1] "the records of bill sponsor and co-sponsor"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $query_time</span></span>
-<span><span class="co">#&gt; [1] "2023-01-29 02:57:14 GMT"</span></span>
+<span><span class="co">#&gt; [1] "2023-01-30 01:57:23 GMT"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $retrieved_number</span></span>
 <span><span class="co">#&gt; [1] 528</span></span>
@@ -378,16 +386,16 @@ Bills）為例，抓取<em>周春米</em>在「民國106年1月20」至「民111
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 528 × 9</span></span></span>
 <span><span class="co">#&gt;    date   term  sessi…¹ sessi…² billN…³ billP…⁴ billC…⁵ billS…⁶ date_ad   </span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 11012… 10    04      15      產業創… 蔡易餘… <span style="color: #949494;">"</span>吳秉…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 11012… 10    04      15      兒童及… 蘇巧慧… <span style="color: #949494;">"</span>陳秀…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 11012… 10    04      15      大學法… 賴品妤… <span style="color: #949494;">"</span>周春…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 11012… 10    04      15      地方民… 許智傑… <span style="color: #949494;">"</span>高嘉…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 11012… 10    04      15      兒童及… 蘇巧慧… <span style="color: #949494;">"</span>陳秀…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 11012… 10    04      15      大學法… 賴品妤… <span style="color: #949494;">"</span>周春…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 11012… 10    04      15      地方民… 許智傑… <span style="color: #949494;">"</span>高嘉…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 11012… 10    04      15      中華民… 許智傑… <span style="color: #949494;">"</span>高嘉…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 11012… 10    04      15      中華民… 許智傑… <span style="color: #949494;">"</span>高嘉…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 11012… 10    04      15      中華民… 許智傑… <span style="color: #949494;">"</span>高嘉…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 11012… 10    04      15      消費者… 許智傑… <span style="color: #949494;">"</span>蔡易…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 11012… 10    04      15      性別工… 莊瑞雄… <span style="color: #949494;">"</span>羅致…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 11012… 10    04      15      產業創… 賴瑞隆… <span style="color: #949494;">"</span>王美…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 11012… 10    04      15      民法親… 范雲 ;… <span style="color: #949494;">"</span>王美…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 11012… 10    04      15      消費者… 許智傑… <span style="color: #949494;">"</span>蔡易…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 11012… 10    04      15      性別工… 莊瑞雄… <span style="color: #949494;">"</span>羅致…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 11012… 10    04      15      產業創… 賴瑞隆… <span style="color: #949494;">"</span>王美…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 11012… 10    04      15      民法親… 范雲 ;… <span style="color: #949494;">"</span>王美…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 11012… 10    04      15      產業創… 林宜瑾… <span style="color: #949494;">"</span>吳秉…  <span style="color: #949494;">""</span>      2021-12-24</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># … with 518 more rows, and abbreviated variable names ¹​sessionPeriod,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   ²​sessionTimes, ³​billName, ⁴​billProposer, ⁵​billCosignatory,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   ⁶​billStatus</span></span></span></code></pre></div>
