@@ -104,21 +104,19 @@
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>start_date</dt>
-<dd><p>Requesting meeting records starting from the date.
-A double represents a date in ROC Taiwan format.
-If a double is used, it should specify as Taiwan
-calendar format, e.g. 1090110.</p></dd>
+<dd><p>numeric or double formatted by Taiwan calander. Requesting
+meeting records starting from the date. If a double is used, it should specify
+as Taiwan calendar format, e.g. 1090101.</p></dd>
 
 
 <dt>end_date</dt>
-<dd><p>Requesting meeting records ending from the date.
-A double represents a date in ROC Taiwan format.
-If a double is used, it should specify as Taiwan
+<dd><p>numeric or double formatted by Taiwan calander. Requesting
+meeting records ending from the date. If a double is used, it should specify as Taiwan
 calendar format, e.g. 1090110.</p></dd>
 
 
 <dt>meeting_unit</dt>
-<dd><p>The default is NULL, which include all meetings
+<dd><p>The default is NULL, which includes all meetings
 between the starting date and the ending date.</p></dd>
 
 
@@ -131,9 +129,9 @@ detailed output when retrieving the data.</p></dd>
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>A list contains query_time, retrieved_number, meeting_unit,
-start_date_ad, end_date_ad, start_date, end_date, url, variable_names,
-manual_info and data.</p>
+<p>An object of the list, which contains query_time, retrieved_number,
+meeting_unit, start_date_ad, end_date_ad, start_date, end_date, url,
+variable_names, manual_info and data.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -154,7 +152,7 @@ manual_info and data.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the spoken meeting records"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-01-30 14:20:00 UTC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-01-30 14:44:56 UTC"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1</span>
@@ -207,7 +205,7 @@ manual_info and data.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the spoken meeting records"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-01-30 14:20:00 UTC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-01-30 14:44:57 UTC"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 104</span>
