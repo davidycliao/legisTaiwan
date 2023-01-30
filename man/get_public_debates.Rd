@@ -12,15 +12,14 @@ a numeric format. The default value is 8. The data is only available from 8th
 term 參數必須為數值，資料從立法院第8屆開始計算。}
 
 \item{session_period}{session in the term. The session is between 1 and 8.
-session_period 參數必須為數值。}
+session_period 參數必須為數值。
 
-\item{verbose}{The default value is TRUE, displaying the description of data
-retrieved in number, url and computing time.}
+#'@param verbose logical, indicates whether get_meetings should print out
+detailed output when retrieving the data. The default value is TRUE}
 }
 \value{
-A list object contains a tibble carrying the variables of term, sessionPeriod,
-sessionTimes, meetingTimes, eyNumber, lyNumber, subject, content, docUrl
-selectTerm.
+A list contains query_time, retrieved_number, start_date_ad,
+end_date_ad, start_date, end_date, url, variable_names, manual_info and data
 }
 \description{
 Retrieving the records of national public debates 下載「國是論壇」資料

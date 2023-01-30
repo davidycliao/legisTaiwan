@@ -2,7 +2,8 @@
 % Please edit documentation in R/meeting.R
 \name{get_speech_video}
 \alias{get_speech_video}
-\title{Retrieving full video information of meetings and committees 下載「委員發言片段相關影片資訊」}
+\title{Retrieving full video information of meetings and committees
+下載「委員發言片段相關影片資訊」}
 \usage{
 get_speech_video(start_date = NULL, end_date = NULL, verbose = TRUE)
 }
@@ -16,19 +17,20 @@ calendar format, e.g. 109/01/10.}
 A double represents a date in ROC Taiwan format.
 If a double is used, it should specify as Taiwan calendar format, e.g. 109/01/20.}
 
-\item{verbose}{The default value is TRUE, displaying the description
-of data retrieved in number, url and computing time.}
+\item{verbose}{logical, indicates whether get_meetings should print out
+detailed output when retrieving the data.}
 }
 \value{
-A list carries a main tibble dataframe that contains comYear, comBookId ,
-sessionPeriod, sessionTimes, htmlUrl, etc.
+A list contains query_time, retrieved_number, start_date_ad,
+end_date_ad, start_date, end_date, url, variable_names, manual_info and data
 }
 \description{
-Retrieving full video information of meetings and committees 下載「委員發言片段相關影片資訊」
+Retrieving full video information of meetings and committees
+下載「委員發言片段相關影片資訊」
 }
 \examples{
-## query full video information of meetings and committees of the Legislative Yuan using a period of the dates
-## in Taiwan ROC calender format with forward slash (/).
+## query full video information of meetings and committees using a period of
+## the dates in Taiwan ROC calender format with forward slash (/).
 ## 輸入「中華民國民年」下載「委員發言片段相關影片資訊」，輸入時間請依照該
 ## 格式 "105/10/20"，需有「正斜線」做隔開。
 get_speech_video(start_date = "105/10/20", end_date = "109/03/10")

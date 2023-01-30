@@ -25,8 +25,8 @@ calendar format, e.g. 1090110.}
 \item{meeting_unit}{The default is NULL, which include all meetings
 between the starting date and the ending date.}
 
-\item{verbose}{The default value is TRUE, displaying the description
-of data retrieved in number, url and computing time.}
+\item{verbose}{logical, indicates whether get_meetings should print out
+detailed output when retrieving the data.}
 }
 \value{
 A list carries a main tibble dataframe that contains the date, status,

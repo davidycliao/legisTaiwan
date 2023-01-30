@@ -4,14 +4,18 @@
 #'A double represents a date in ROC Taiwan format.
 #'If a double is used, it should specify as Taiwan
 #'calendar format, e.g. 1090110.
+#'
 #'@param end_date Requesting meeting records ending from the date.
 #' A double represents a date in ROC Taiwan format.
 #'If a double is used, it should specify as Taiwan
 #'calendar format, e.g. 1090110.
+#'
 #'@param meeting_unit The default is NULL, which include all meetings
 #' between the starting date and the ending date.
+#'
 #'@param verbose logical, indicates whether get_meetings should print out
 #'detailed output when retrieving the data.
+#'
 #'@return A list carries a main tibble dataframe that contains the date, status,
 #' name, content and speakers.
 #'
@@ -86,22 +90,26 @@ get_meetings <- function(start_date = NULL, end_date = NULL,
 #'A double represents a date in ROC Taiwan format.
 #'If a double is used, it should specify as Taiwan
 #'calendar format, e.g. 109/01/10.
+#'
 #'@param end_date Requesting meeting records ending from the date.
-#' A double represents a date in ROC Taiwan format.
-#'If a double is used, it should specify as Taiwan calendar format, e.g. 109/01/20.
-#'@param verbose The default value is TRUE, displaying the description
-#'of data retrieved in number, url and computing time.
-#'@return A list carries a main tibble dataframe that contains comYear, comBookId ,
-#'sessionPeriod, sessionTimes, htmlUrl, etc.
+#' A double represents a date in ROC Taiwan format. If a double is used,
+#' it should specify as Taiwan calendar format, e.g. 109/01/20.
+#'
+#'@param verbose logical, indicates whether get_meetings should print out
+#'detailed output when retrieving the data.
+#'
+#'@return A list contains query_time, retrieved_number, start_date_ad,
+#'end_date_ad, start_date, end_date, url, variable_names, manual_info and data
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
 #'
 #'@export
 #'@examples
-#' ## query the meeting records of cross-caucus session using a period of the dates
-#' ## in Taiwan ROC calender format with forward slash (/).
-#' ## 輸入「中華民國民年」下載「黨團協商」，輸入時間請依照該格式 "106/10/20"，需有「正斜線」做隔開。
+#' ## query the meeting records of cross-caucus session using a period of
+#' ## the dates in Taiwan ROC calender format with forward slash (/).
+#' ## 輸入「中華民國民年」下載「黨團協商」，輸入時間請依照該格式 "106/10/20"
+#' ## ，需有「正斜線」做隔開。
 #'get_caucus_meetings(start_date = "106/10/20", end_date = "107/03/10")
 #'
 #'@seealso
@@ -153,11 +161,11 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL, verbose = TR
 #' A double represents a date in ROC Taiwan format.
 #'If a double is used, it should specify as Taiwan calendar format, e.g. 109/01/20.
 #'
-#'@param verbose The default value is TRUE, displaying the description
-#'of data retrieved in number, url and computing time.
+#'@param verbose logical, indicates whether get_meetings should print out
+#'detailed output when retrieving the data.
 #'
-#'@return A list carries a main tibble dataframe that contains comYear, comBookId ,
-#'sessionPeriod, sessionTimes, htmlUrl, etc.
+#'@return A list contains query_time, retrieved_number, start_date_ad,
+#'end_date_ad, start_date, end_date, url, variable_names, manual_info and data
 #'
 #'@importFrom attempt stop_if_all
 #'
@@ -223,11 +231,12 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
 #'term 參數必須為數值，資料從立法院第8屆開始計算。
 #'@param session_period session in the term. The session is between 1 and 8.
 #' session_period 參數必須為數值。
-#'@param verbose The default value is TRUE, displaying the description of data
-#'retrieved in number, url and computing time.
-#'@return A list object contains a tibble carrying the variables of term, sessionPeriod,
-#' sessionTimes, meetingTimes, eyNumber, lyNumber, subject, content, docUrl
-#' selectTerm.
+#'
+#'#'@param verbose logical, indicates whether get_meetings should print out
+#'detailed output when retrieving the data. The default value is TRUE
+#'
+#'@return A list contains query_time, retrieved_number, start_date_ad,
+#'end_date_ad, start_date, end_date, url, variable_names, manual_info and data
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON

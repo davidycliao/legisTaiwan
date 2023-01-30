@@ -13,23 +13,24 @@ If a double is used, it should specify as Taiwan
 calendar format, e.g. 109/01/10.}
 
 \item{end_date}{Requesting meeting records ending from the date.
-A double represents a date in ROC Taiwan format.
-If a double is used, it should specify as Taiwan calendar format, e.g. 109/01/20.}
+A double represents a date in ROC Taiwan format. If a double is used,
+it should specify as Taiwan calendar format, e.g. 109/01/20.}
 
-\item{verbose}{The default value is TRUE, displaying the description
-of data retrieved in number, url and computing time.}
+\item{verbose}{logical, indicates whether get_meetings should print out
+detailed output when retrieving the data.}
 }
 \value{
-A list carries a main tibble dataframe that contains comYear, comBookId ,
-sessionPeriod, sessionTimes, htmlUrl, etc.
+A list contains query_time, retrieved_number, start_date_ad,
+end_date_ad, start_date, end_date, url, variable_names, manual_info and data
 }
 \description{
 Retrieving the meeting records of cross-caucus session 下載「黨團協商」資料
 }
 \examples{
-## query the meeting records of cross-caucus session using a period of the dates
-## in Taiwan ROC calender format with forward slash (/).
-## 輸入「中華民國民年」下載「黨團協商」，輸入時間請依照該格式 "106/10/20"，需有「正斜線」做隔開。
+## query the meeting records of cross-caucus session using a period of
+## the dates in Taiwan ROC calender format with forward slash (/).
+## 輸入「中華民國民年」下載「黨團協商」，輸入時間請依照該格式 "106/10/20"
+## ，需有「正斜線」做隔開。
 get_caucus_meetings(start_date = "106/10/20", end_date = "107/03/10")
 
 }
