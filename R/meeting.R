@@ -172,7 +172,7 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
   legisTaiwan::check_internet()
   legisTaiwan::api_check(start_date = legisTaiwan::transformed_date_meeting(start_date), end_date = legisTaiwan::transformed_date_meeting(end_date))
     # 自第9屆第1會期起 2016  民國 105
-  queried_year <- format(transformed_date_meeting(start_date), format = "%Y")
+  queried_year <- format(legisTaiwan::transformed_date_meeting(start_date), format = "%Y")
   attempt::warn_if(queried_year < 2016,
             isTRUE,
             msg =  paste("The query retrieved from", queried_year,  "may not be complete.", "The data is only available from the 6th session of the 8th legislative term in 2015/104 in ROC."))
@@ -270,4 +270,3 @@ get_public_debates <- function(term = 8, session_period = NULL, verbose = TRUE) 
     }
   )
 }
-

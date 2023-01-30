@@ -130,6 +130,3 @@ get_executive_response <- function(term = NULL, session_period = NULL, verbose =
     }
   )
 }
-
-
-
