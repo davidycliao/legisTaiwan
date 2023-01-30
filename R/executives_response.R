@@ -26,8 +26,10 @@
 
 get_executive_response <- function(term = NULL, session_period = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
+  attempt::stop_if_all(term, is.null, msg = "term is missing")
   attempt::stop_if_all(term, is.character, msg = "use numeric format only")
   attempt::stop_if_all(term, is.character, msg = "use numeric format only")
+
 
   set_api_url <- paste("https://data.ly.gov.tw/odw/ID2Action.action?term=",
                        sprintf("%02d", as.numeric(term)), "&sessionPeriod=", sprintf("%02d", as.numeric(session_period)), "&sessionTimes=&item=&fileType=json", sep = "")
