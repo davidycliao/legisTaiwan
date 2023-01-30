@@ -8,8 +8,8 @@
 get_executive_response(term = NULL, session_period = NULL, verbose = TRUE)
 }
 \arguments{
-\item{term}{Requesting answered questions by term. The parameter should be set in
-a numeric format. The default value is 8. The data is only available from 8th
+\item{term}{integer or numeric. The parameter should be set in a numeric
+format. The default is 8. The data is only available from 8th
 term 參數必須為數值，資料從立法院第8屆開始計算。}
 
 \item{session_period}{session in the term. The session is between 1 and 8.

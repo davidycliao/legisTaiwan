@@ -50,7 +50,7 @@ get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
     {
       json_df <- jsonlite::fromJSON(set_api_url)
       df <- tibble::as_tibble(json_df$dataList)
-      attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable")
+      attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
       if (isTRUE(verbose)) {
         cat(" Retrieved URL: \n", set_api_url, "\n")
         cat(" Retrieved Term: ", term, "\n")
@@ -75,13 +75,16 @@ get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
 #' Retrieving the records of the questions answered by the executives
 #' 行政院答復
 #'
-#'@param term Requesting answered questions by term. The parameter should be set in
-#'a numeric format. The default value is 8. The data is only available from 8th
+#'@param term integer or numeric. The parameter should be set in a numeric
+#'format. The default is 8. The data is only available from 8th
 #'term 參數必須為數值，資料從立法院第8屆開始計算。
+#'
 #'@param session_period session in the term. The session is between 1 and 8.
 #' session_period 參數必須為數值。
+#'
 #'@param verbose The default value is TRUE, displaying the description of data
 #'retrieved in number, url and computing time.
+#'
 #'@return A list object contains a tibble carrying the variables of term, sessionPeriod,
 #' sessionTimes, meetingTimes, eyNumber, lyNumber, subject, content, docUrl
 #' selectTerm.
