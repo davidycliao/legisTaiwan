@@ -1,4 +1,4 @@
-#' Check function information on the website of Taiwan Legislative API
+#' Check all function information
 #'
 #'@param x The parameter should be `get_parlquestions`, `get_legislators`,
 #'`get_executive_response`, `get_bills`, `get_meetings`, `get_caucus_meetings`
@@ -20,7 +20,6 @@
 #'國是論壇 \url{https://data.ly.gov.tw/getds.action?id=7}
 #'委員發言(API) \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}
 #'法律提案(API) \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}
-
 
 get_variabel_infos <- function(x) {
   legisTaiwan::check_internet()
