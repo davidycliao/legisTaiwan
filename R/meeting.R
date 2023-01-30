@@ -143,3 +143,70 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL, verbose = TR
   )
 }
 
+#' Retrieving full video information of meetings and committees of the Legislative Yuan
+#' 下載「委員發言片段相關影片資訊」
+#'@param start_date Requesting meeting records starting from the date.
+#'A double represents a date in ROC Taiwan format.
+#'If a double is used, it should specify as Taiwan
+#'calendar format, e.g. 109/01/10.
+#'@param end_date Requesting meeting records ending from the date.
+#' A double represents a date in ROC Taiwan format.
+#'If a double is used, it should specify as Taiwan calendar format, e.g. 109/01/20.
+#'@param verbose The default value is TRUE, displaying the description
+#'of data retrieved in number, url and computing time.
+#'@return A list carries a main tibble dataframe that contains comYear, comBookId ,
+#'sessionPeriod, sessionTimes, htmlUrl, etc.
+#'
+#'@importFrom attempt stop_if_all
+#'@importFrom jsonlite fromJSON
+#'
+#'@export
+#'@examples
+#' ## query full video information of meetings and committees of the Legislative Yuan using a period of the dates
+#' ## in Taiwan ROC calender format with forward slash (/).
+#' ## 輸入「中華民國民年」下載「委員發言片段相關影片資訊」，輸入時間請依照該格式 "105/10/20"，需有「正斜線」做隔開。
+#'get_speech_video(start_date = "105/10/20", end_date = "109/03/10")
+#'
+#'@seealso
+#'\url{https://data.ly.gov.tw/getds.action?id=148}
+get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE) {
+  legisTaiwan::check_internet()
+  legisTaiwan::api_check(start_date = legisTaiwan::transformed_date_meeting(start_date), end_date = legisTaiwan::transformed_date_meeting(end_date))
+    # 自第9屆第1會期起 2016  民國 105
+  queried_year <- format(transformed_date_meeting(start_date), format = "%Y")
+  attempt::warn_if(queried_year < 2016,
+            isTRUE,
+            msg =  paste("The query retrieved from", queried_year,  "may not be complete.", "The data is only available from the 6th session of the 8th legislative term in 2015/104 in ROC."))
+  set_api_url <- paste("https://data.ly.gov.tw/odw/ID148Action.action?term=",
+                       "&sessionPeriod=",
+                       "&meetingDateS=", start_date,
+                       "&meetingDateE=", end_date,
+                       "&meetingTime=&legislatorName=&fileType=json" , sep = "")
+  tryCatch(
+    {
+      json_df <- jsonlite::fromJSON(set_api_url)
+      df <- tibble::as_tibble(json_df$dataList)
+      attempt::stop_if_all(length(df) == 0, isTRUE, msg = paste("The query is unavailable:", set_api_url, sep = "\n" ))
+      if (isTRUE(verbose)) {
+        cat(" Retrieved URL: \n", set_api_url, "\n")
+        cat(" Retrieved date between:", as.character(legisTaiwan::transformed_date_meeting(start_date)), "and", as.character(legisTaiwan::transformed_date_meeting(end_date)), "\n")
+        cat(" Retrieved number:", nrow(df), "\n")
+      }
+      list_data <- list("title" = "the meeting records of cross-caucus session",
+                        "query_time" = Sys.time(),
+                        "retrieved_number" = nrow(df),
+                        "start_date_ad" = legisTaiwan::transformed_date_meeting(start_date),
+                        "end_date_ad" = legisTaiwan::transformed_date_meeting(end_date),
+                        "start_date" = start_date,
+                        "end_date" = end_date,
+                        "url" = set_api_url,
+                        "variable_names" = colnames(df),
+                        "manual_info" = "https://data.ly.gov.tw/getds.action?id=8",
+                        "data" = df)
+      return(list_data)
+    },
+    error = function(error_message) {
+      message(error_message)
+    }
+  )
+}
