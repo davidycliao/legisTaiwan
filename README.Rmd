@@ -40,19 +40,11 @@ knitr::opts_chunk$set(
 |[`get_parlquestions()`](https://davidycliao.github.io/legisTaiwan/reference/get_parlquestions.html) |  8th  (2014/104) | [**Questions Asked by Legislators (立委質詢)**](https://data.ly.gov.tw/getds.action?id=6)     |
 | [`get_executive_response()`](https://davidycliao.github.io/legisTaiwan/reference/get_executive_response.html)                |  8th  (2014/104) | [**Questions Answered by the Executives 質詢事項(行政院答復部分)**](https://data.ly.gov.tw/getds.action?id=1) |
 | [`get_debates()`](https://davidycliao.github.io/legisTaiwan/reference/get_public_debates.html)                |  8th  (2014/104) | [**Public Debates 國是論壇**](https://data.ly.gov.tw/getds.action?id=7) |
+| [`get_speech_video()`](https://davidycliao.github.io/legisTaiwan/reference/get_speech_video.html)                |  8th  (2014/104) | [**Full Video Information of Meetings and Committees 委員發言片段相關影片資訊+**](https://data.ly.gov.tw/getds.action?id=148) |
 
-## Get Started with `remotes`:
-
-```{r}
-# install.packages("remotes")
-remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
-```
-
-```{r}
-library(legisTaiwan)
-```
+###### + 測試中，可能不穩定。
 
 
 ## Acknowledgement 
 
-The package is part of Yen-Chieh Liao's doctoral dissertation project [`Electoral Reform, Distributive Politics, and Parties in the Taiwanese Congress`](https://raw.githack.com/davidycliao/phd-thesis/main/Yen_Chieh_Liao_PhD_Dissertation_Jan_2023.pdf) at the [Department of Government](https://www.essex.ac.uk/departments/government) in University of Essex and supported by the 2021 Taiwanese Overseas Pioneers Grants for PhD Candidates from the National Science and Technology Council in Taiwan.
+The package is part of Yen-Chieh Liao's doctoral dissertation project [`*Electoral Reform, Distributive Politics, and Parties in the Taiwanese Congress*`](https://raw.githack.com/davidycliao/phd-thesis/main/Yen_Chieh_Liao_PhD_Dissertation_Jan_2023.pdf) at the [Department of Government](https://www.essex.ac.uk/departments/government) in University of Essex and supported by the 2021 Taiwanese Overseas Pioneers Grants for PhD Candidates from the National Science and Technology Council in Taiwan.
