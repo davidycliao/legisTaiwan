@@ -15,13 +15,13 @@ get_variabel_infos(param_)
 Check all function information
 }
 \seealso{
-stringi::stri_escape_unicode("質詢事項(本院委員質詢部分)")  \url{https://data.ly.gov.tw/getds.action?id=6}
-stringi::stri_escape_unicode("歷屆委員資料") \url{https://data.ly.gov.tw/getds.action?id=16}
-stringi::stri_escape_unicode("行政院答復") \url{https://data.ly.gov.tw/getds.action?id=2}
-stringi::stri_escape_unicode("黨團協商")  \url{https://data.ly.gov.tw/getds.action?id=8}
-stringi::stri_escape_unicode("委員發言片段相關影片資訊")  \url{https://data.ly.gov.tw/getds.action?id=148}
-stringi::stri_escape_unicode("質詢事項 (行政院答復部分) ") \url{https://data.ly.gov.tw/getds.action?id=1}
-stringi::stri_escape_unicode("國是論壇") 國是論壇 \url{https://data.ly.gov.tw/getds.action?id=7}
-stringi::stri_escape_unicode("委員發言(API)") \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}
-stringi::stri_escape_unicode("法律提案(API)") \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}
+\url{https://data.ly.gov.tw/getds.action?id=6}
+\url{https://data.ly.gov.tw/getds.action?id=16}
+\url{https://data.ly.gov.tw/getds.action?id=2}
+\url{https://data.ly.gov.tw/getds.action?id=8}
+\url{https://data.ly.gov.tw/getds.action?id=148}
+\url{https://data.ly.gov.tw/getds.action?id=1}
+\url{https://data.ly.gov.tw/getds.action?id=7}
+\url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}
+\url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}
 }
