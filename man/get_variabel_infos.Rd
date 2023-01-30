@@ -4,12 +4,12 @@
 \alias{get_variabel_infos}
 \title{Check all function information}
 \usage{
-get_variabel_infos(x)
+get_variabel_infos(param_)
 }
 \arguments{
-\item{x}{The parameter should be \code{get_parlquestions}, \code{get_legislators},
-\code{get_executive_response}, \code{get_bills}, \code{get_meetings}, \code{get_caucus_meetings}
-\code{get_public_debates},}
+\item{param_}{characters. The parameter should be \code{get_parlquestions},
+\code{get_legislators}, \code{get_executive_response}, \code{get_bills}, \code{get_meetings},
+\code{get_caucus_meetings} or \code{get_public_debates},}
 }
 \description{
 Check all function information

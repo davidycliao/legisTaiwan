@@ -37,5 +37,5 @@ get_speech_video(start_date = "105/10/20", end_date = "109/03/10")
 
 }
 \seealso{
-\url{https://data.ly.gov.tw/getds.action?id=148}
+委員發言片段相關影片資訊 \url{https://data.ly.gov.tw/getds.action?id=148}
 }

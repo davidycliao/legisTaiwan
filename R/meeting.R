@@ -72,8 +72,6 @@ get_meetings <- function(start_date = NULL, end_date = NULL,
       return(list_data)
     },
     error = function(error_message) {
-      # message("Warning: The dates or the meeting unit(s) are not available in the database")
-      # message("INFO: The error message from the Taiwan Legislative Yuan API or R:")
       message(error_message)
     }
   )
@@ -177,7 +175,8 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL, verbose = TR
 #'get_speech_video(start_date = "105/10/20", end_date = "109/03/10")
 #'
 #'@seealso
-#'\url{https://data.ly.gov.tw/getds.action?id=148}
+#'委員發言片段相關影片資訊 \url{https://data.ly.gov.tw/getds.action?id=148}
+
 get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
   legisTaiwan::api_check(start_date = legisTaiwan::transformed_date_meeting(start_date), end_date = legisTaiwan::transformed_date_meeting(end_date))

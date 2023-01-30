@@ -1,8 +1,8 @@
 #' Check all function information
 #'
-#'@param x The parameter should be `get_parlquestions`, `get_legislators`,
-#'`get_executive_response`, `get_bills`, `get_meetings`, `get_caucus_meetings`
-#'`get_public_debates`,
+#'@param param_ characters. The parameter should be `get_parlquestions`,
+#'`get_legislators`, `get_executive_response`, `get_bills`, `get_meetings`,
+#'`get_caucus_meetings` or `get_public_debates`,
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
@@ -21,46 +21,46 @@
 #'委員發言(API) \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}
 #'法律提案(API) \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}
 
-get_variabel_infos <- function(x) {
+get_variabel_infos <- function(param_) {
   legisTaiwan::check_internet()
-  attempt::stop_if_all(x, is.numeric, msg = "use string format only")
-  attempt::stop_if_all(x, is.null, msg = "use correct funtion names")
-  attempt::stop_if(x , ~ length(.x) >1, msg = "only allowed to query one variable")
-  if (x == "get_parlquestions") {
+  attempt::stop_if_all(param_, is.numeric, msg = "use string format only")
+  attempt::stop_if_all(param_, is.null, msg = "use correct funtion names")
+  attempt::stop_if(param_ , ~ length(.x) >1, msg = "only allowed to query one variable")
+  if (param_ == "get_parlquestions") {
     # 質詢事項(本院委員質詢部分) https://data.ly.gov.tw/getds.action?id=6
     url <- "https://data.ly.gov.tw/getds.action?id=6"
   }
-  else if (x == "get_legislators") {
+  else if (param_ == "get_legislators") {
     # 歷屆委員資料 https://data.ly.gov.tw/getds.action?id=16
     url <- "https://data.ly.gov.tw/getds.action?id=16"
   }
-  else if (x == "get_executive_response") {
+  else if (param_ == "get_executive_response") {
     # 行政院答復 https://data.ly.gov.tw/getds.action?id=2
     url <- "https://data.ly.gov.tw/getds.action?id=2"
   }
-  else if (x == "get_caucus_meetings") {
+  else if (param_ == "get_caucus_meetings") {
     # 黨團協商 https://data.ly.gov.tw/getds.action?id=8
     url <- "https://data.ly.gov.tw/getds.action?id=8"
   }
-  else if (x == "get_speech_video") {
+  else if (param_ == "get_speech_video") {
     # 委員發言片段相關影片資訊 https://data.ly.gov.tw/getds.action?id=148
     url <- "https://data.ly.gov.tw/getds.action?id=148"
   }
-  else if (x == "get_bills_2") {
+  else if (param_ == "get_bills_2") {
     # 質詢事項 (行政院答復部分) https://data.ly.gov.tw/getds.action?id=1
     url <- "https://data.ly.gov.tw/getds.action?id=1"
   }
-  else if (x == "get_public_debates") {
+  else if (param_ == "get_public_debates") {
     # 國是論壇 https://data.ly.gov.tw/getds.action?id=7
     url <- "https://data.ly.gov.tw/getds.action?id=7"
   }
-  else if (x %in% c("get_bills", "get_meetings")) {
+  else if (param_ %in% c("get_bills", "get_meetings")) {
     # outliers: get_bills & get_meetings
-    if (x == "get_meetings") {
+    if (param_ == "get_meetings") {
       # 委員發言(API) https://www.ly.gov.tw/Pages/List.aspx?nodeid=154
       url <- "https://www.ly.gov.tw/Pages/List.aspx?nodeid=154"
       }
-    else if (x == "get_bills") {
+    else if (param_ == "get_bills") {
       # 法律提案(API) https://www.ly.gov.tw/Pages/List.aspx?nodeid=153
       url <- "https://www.ly.gov.tw/Pages/List.aspx?nodeid=153"
       }
@@ -69,7 +69,15 @@ get_variabel_infos <- function(x) {
     return(page_info)
   }
   else {
-    stop("Please use correct funtion names (get_bills, get_meetings, or get_executive_response, etc) or typographical error.")
+    stop("Please use correct funtion names below in character format:\n
+         get_bills: the records of the bills 法律提案 API
+         get_bills_2: the records of legislators and the government proposals 議案提案
+         get_meetings: the spoken meeting records 「委員發言」
+         get_caucus_meetings: the meeting records of cross-caucus session  黨團協商
+         get_speech_video: the full video information of meetings and committees 委員發言片段相關影片資訊
+         get_public_debates: the records of national public debates 下載「國是論壇」資料
+
+         ")
     }
     html <- rvest::html_nodes(rvest::read_html(url), "*[id='content']")
     title <- gsub("[[:space:]]", "", rvest::html_text2(rvest::html_nodes(html, "h2")))
