@@ -16,8 +16,9 @@
 #'@param verbose logical, indicates whether get_meetings should print out
 #'detailed output when retrieving the data.
 #'
-#'@return A list carries a main tibble dataframe that contains the date, status,
-#' name, content and speakers.
+#'@return A list contains query_time, retrieved_number, meeting_unit,
+#'start_date_ad, end_date_ad, start_date, end_date, url, variable_names,
+#'manual_info and data.
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
@@ -27,17 +28,12 @@
 #'@examples
 #' ## query meeting records by a period of the dates in Taiwan ROC calender format
 #' ## 輸入「中華民國民年」下載「委員發言」
-#'get_meetings(1050120, 1050210)
-#'
-#'get_meetings("1050120", "1050210")
-#'
 #'get_meetings(start_date = "1050120", end_date = "1050210")
 #'
 #' ## query meeting records by a period of the dates in Taiwan ROC calender format
 #' ## and a meeting
 #' ## 輸入「中華民國民年」與「審查會議或委員會名稱」下載會議審查資訊
 #'get_meetings(start_date = 1060120, end_date = 1070310, meeting_unit = "內政委員會")
-#'
 #'
 #'@seealso
 #'\url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}
@@ -158,8 +154,8 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL, verbose = TR
 #'calendar format, e.g. 109/01/10.
 #'
 #'@param end_date Requesting meeting records ending from the date.
-#' A double represents a date in ROC Taiwan format.
-#'If a double is used, it should specify as Taiwan calendar format, e.g. 109/01/20.
+#' A double represents a date in ROC Taiwan format. If a double is used,
+#' it should specify as Taiwan calendar format, e.g. 109/01/20.
 #'
 #'@param verbose logical, indicates whether get_meetings should print out
 #'detailed output when retrieving the data.
@@ -226,11 +222,12 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
 
 #' Retrieving the records of national public debates 下載「國是論壇」資料
 #'
-#'@param term Requesting answered questions by term. The parameter should be set in
-#'a numeric format. The default value is 8. The data is only available from 8th
-#'term 參數必須為數值，資料從立法院第8屆開始計算。
-#'@param session_period session in the term. The session is between 1 and 8.
-#' session_period 參數必須為數值。
+#'@param term Requesting answered questions by term. The parameter should be set
+#'in a numeric vector The default value is 8. The data is only available from
+#'the 8th term 參數必須為數值，資料從立法院「第8屆」開始計算。
+#'
+#'@param session_period legislative session in the term. The session is between
+#'1 and 8. 參數必須為數值。The parameter should be set in a numeric vector.
 #'
 #'#'@param verbose logical, indicates whether get_meetings should print out
 #'detailed output when retrieving the data. The default value is TRUE
