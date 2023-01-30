@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 
 ```{r }
 # install.packages("remotes")
-remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
+# remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
 ```
 
 ```{r}
