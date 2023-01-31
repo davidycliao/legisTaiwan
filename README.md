@@ -34,12 +34,27 @@ Legislative Yuan API](https://data.ly.gov.tw/index.action).
 
 ###### + 測試中，可能不穩定。
 
+## Get Started with Using [`remotes`](https://github.com/r-lib/remotes):
+
+``` r
+# install.packages("remotes")
+# remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
+```
+
+``` r
+library(legisTaiwan)
+#> ## legisTaiwan                                            ###
+#> ## An R package connecting to the Taiwan Legislative API. ###
+```
+
+#### 更多範例與文件正在努力更新中，也徵求對撰寫使用者範例有興趣且願意放在 [`legisTaiwan`](https://davidycliao.github.io/legisTaiwan/)。有關相關板模，可以參考[`李宜展`](https://davidycliao.github.io/legisTaiwan/articles/yi_jhan.html) 。也歡迎`fork`後在`legisTaiwan/vignettes`創建範例，`pull requests`給我。
+
 ## Acknowledgement
 
 The package is part of Yen-Chieh Liao’s doctoral dissertation project
-*[`Electoral Reform, Distributive Politics, and Parties in the Taiwanese Congress`](https://raw.githack.com/davidycliao/phd-thesis/main/Yen_Chieh_Liao_PhD_Dissertation_Jan_2023.pdf)
+***[`Electoral Reform, Distributive Politics, and Parties in the Taiwanese Congress`](https://raw.githack.com/davidycliao/phd-thesis/main/Yen_Chieh_Liao_PhD_Dissertation_Jan_2023.pdf)***
 at the [Department of
-Government](https://www.essex.ac.uk/departments/government)* in
+Government](https://www.essex.ac.uk/departments/government) in
 University of Essex and supported by the 2021 Taiwanese Overseas
 Pioneers Grants for PhD Candidates from the National Science and
 Technology Council in Taiwan.

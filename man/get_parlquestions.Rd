@@ -25,7 +25,9 @@ retrieved_number, retrieved_term, url, variable_names, manual_info and data.
 Retrieving the records of parliamentary questions 委員質詢事項
 }
 \examples{
-
+## search data description
+## 資料說明引所
+get_variabel_infos("get_parlquestions")
 
 ## query parliamentary questions by term.
 ## 輸入「立委會期」下載立委質詢資料

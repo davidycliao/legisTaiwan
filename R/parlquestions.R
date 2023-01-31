@@ -19,7 +19,9 @@
 #'
 #'@export
 #'@examples
-#'
+#' ## search data description
+#' ## 資料說明引所
+#'get_variabel_infos("get_parlquestions")
 #'
 #' ## query parliamentary questions by term.
 #' ## 輸入「立委會期」下載立委質詢資料

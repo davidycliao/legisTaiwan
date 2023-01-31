@@ -1,0 +1,50 @@
+---
+title: "以「立委質詢」為例"
+author: "李宜展 東海大學政治系"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{以「立委質詢」為例}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+##  以[`get_parlquestions()`](https://davidycliao.github.io/legisTaiwan/reference/get_parlquestions.html)「立委質詢」為例
+找出立委在第八屆會期質詢當中，包含「中國」字眼之質詢。
+
+```{r}
+library(legisTaiwan)
+library(stringr)
+question_8 <- get_parlquestions(term = 8)
+Q8_data <- question_8$data
+Q8_China <- Q8_data[str_detect(Q8_data[["item"]], "中國", negate = FALSE),]
+```
+
+計算某位立法委員一共提出幾次有關「中國」字眼之質詢
+```{r}
+cat("李應元", sum(stringr::str_count(Q8_China$item, pattern = "本院李委員應元")), "\n")
+cat("丁守中", sum(stringr::str_count(Q8_China$item, pattern = "本院丁委員守中")), "\n")
+cat("陳其邁", sum(stringr::str_count(Q8_China$item, pattern = "本院陳委員其邁")), "\n")
+```
+
+李應元立員提出幾次有提到中國字眼之質詢
+```{r}
+Q8_China_li <- Q8_China[str_detect(Q8_China[["item"]], "本院李委員應元", negate = FALSE),]
+Q8_China_li[c("item")]
+```
+
+丁守中立員提出幾次有提到中國字眼之質詢
+```{r}
+Q8_China_Ding <- Q8_China[str_detect(Q8_China[["item"]], "本院丁委員守中", negate = FALSE),]
+Q8_China_Ding[c("item")]
+```
+
+
+
+
