@@ -41,8 +41,7 @@
     Examples
   </a>
   <div class="dropdown-menu" aria-labelledby="dropdown--examples">
-    <a class="dropdown-item" href="../articles/yi_jhan.html">綜合案例Ⅰ-李宜展</a>
-    <h6 class="dropdown-header" data-toc-skip>立法委員在兩岸議題連署分析</h6>
+    <a class="dropdown-item" href="../articles/yi_jhan.html">綜合案例Ⅰ</a>
   </div>
 </li>
 <li class="nav-item dropdown">
@@ -140,7 +139,7 @@ selectTerm.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the records of the questions answered by the executives"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-01-31 09:30:53 GMT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-01-31 09:57:54 GMT"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1155</span>
@@ -182,54 +181,8 @@ selectTerm.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">get_bills_2</span><span class="op">(</span>term <span class="op">=</span> <span class="fl">8</span>, session_period <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved URL: </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  https://data.ly.gov.tw/odw/ID20Action.action?term=08&amp;sessionPeriod=04&amp;sessionTimes=&amp;meetingTimes=&amp;billName=&amp;billOrg=&amp;billProposer=&amp;billCosignatory=&amp;fileType=json </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved Term:  8 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved Num:  1468 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $title</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the records of the questions answered by the executives"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-01-31 09:30:56 GMT"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1468</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_term</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $url</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://data.ly.gov.tw/odw/ID20Action.action?term=08&amp;sessionPeriod=04&amp;sessionTimes=&amp;meetingTimes=&amp;billName=&amp;billOrg=&amp;billProposer=&amp;billCosignatory=&amp;fileType=json"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $variable_names</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "term"            "sessionPeriod"   "sessionTimes"   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "meetingTimes"    "billNo"          "billName"       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "billOrg"         "billProposer"    "billCosignatory"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "billStatus"      "pdfUrl"          "docUrl"         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "selectTerm"     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $manual_info</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://data.ly.gov.tw/getds.action?id=2"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $data</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1,468 × 13</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    term  sessionP…¹ sessi…² meeti…³ billNo billN…⁴ billOrg billP…⁵ billC…⁶</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 08    04         02      <span style="color: #949494;">""</span>      10205… 「加值… 本院委… 陳節如… 姚文智…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 08    04         02      <span style="color: #949494;">""</span>      10205… 「發展… 本院委… 姚文智… 蔡其昌…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 08    04         02      <span style="color: #949494;">""</span>      10205… 「行政… 本院委… 姚文智… 管碧玲…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 08    04         02      <span style="color: #949494;">""</span>      10205… 「建築… 本院委… 姚文智… 李應元…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 08    04         02      <span style="color: #949494;">""</span>      10205… 「都市… 本院委… 姚文智… 丁守中…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 08    04         02      <span style="color: #949494;">""</span>      10205… 「都市… 本院委… 姚文智… 李應元…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 08    04         02      <span style="color: #949494;">""</span>      10205… 「都市… 本院委… 林佳龍… 李應元…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 08    04         02      <span style="color: #949494;">""</span>      10205… 「大學… 本院委… 林佳龍… 李應元…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 08    04         02      <span style="color: #949494;">""</span>      10205… 「特殊… 本院委… 林佳龍… 林正二…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 08    04         02      <span style="color: #949494;">""</span>      10205… 「銀行… 本院委… 林佳龍… 邱志偉…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 1,458 more rows, 4 more variables: billStatus &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   pdfUrl &lt;chr&gt;, docUrl &lt;chr&gt;, selectTerm &lt;chr&gt;, and abbreviated</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   variable names ¹​sessionPeriod, ²​sessionTimes, ³​meetingTimes,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ⁴​billName, ⁵​billProposer, ⁶​billCosignatory</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>URL 'https://data.ly.gov.tw/odw/ID20Action.action?term=08&amp;sessionPeriod=04&amp;sessionTimes=&amp;meetingTimes=&amp;billName=&amp;billOrg=&amp;billProposer=&amp;billCosignatory=&amp;fileType=json': Timeout of 60 seconds was reached</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in readBin(structure(4L, class = c("url", "connection"), conn_id = &lt;pointer: 0x225b&gt;),     raw(0), 32768L):</span> cannot read from connection</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
