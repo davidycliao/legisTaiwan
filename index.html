@@ -71,7 +71,9 @@
     Examples
   </a>
   <div class="dropdown-menu" aria-labelledby="dropdown--examples">
-    <a class="dropdown-item" href="articles/yi_jhan.html">綜合案例Ⅰ</a>
+    <a class="dropdown-item" href="articles/get_legislators.html">以`get_legislators()`抓取「歷屆委員資料」(Legislator Demographics)</a>
+    <a class="dropdown-item" href="articles/get_bills.html">以`get_bills()` 抓取「法律提案」（the Records of the Bills）</a>
+    <a class="dropdown-item" href="articles/get_parlquestions.html">以`get_parlquestions()`抓取「立委質詢資料」(the Questions Asked by the Legislators)</a>
   </div>
 </li>
 <li class="nav-item dropdown">
@@ -190,9 +192,24 @@
 </div>
 </div>
 <div class="section level2">
+<h2 id="get-started-with-using-remotes">Get Started with Using <a href="https://github.com/r-lib/remotes" class="external-link"><code>remotes</code></a>:<a class="anchor" aria-label="anchor" href="#get-started-with-using-remotes"></a>
+</h2>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
+<span><span class="co"># remotes::install_github("davidycliao/legisTaiwan", force = TRUE)</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://davidycliao.github.io/legisTaiwan/">legisTaiwan</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; ## legisTaiwan                                            ###</span></span>
+<span><span class="co">#&gt; ## An R package connecting to the Taiwan Legislative API. ###</span></span></code></pre></div>
+<div class="section level4">
+<h4 id="更多範例與文件正在努力更新中也徵求對撰寫使用者範例有興趣且願意放在-legistaiwan有關相關板模可以參考李宜展-也歡迎fork後在legistaiwanvignettes創建範例pull-requests給我">更多範例與文件正在努力更新中，也徵求對撰寫使用者範例有興趣且願意放在 <a href="https://davidycliao.github.io/legisTaiwan/"><code>legisTaiwan</code></a>。有關相關板模，可以參考<a href="https://davidycliao.github.io/legisTaiwan/articles/yi_jhan.html"><code>李宜展</code></a> 。也歡迎<code>fork</code>後在<code>legisTaiwan/vignettes</code>創建範例，<code>pull requests</code>給我。<a class="anchor" aria-label="anchor" href="#%E6%9B%B4%E5%A4%9A%E7%AF%84%E4%BE%8B%E8%88%87%E6%96%87%E4%BB%B6%E6%AD%A3%E5%9C%A8%E5%8A%AA%E5%8A%9B%E6%9B%B4%E6%96%B0%E4%B8%AD%E4%B9%9F%E5%BE%B5%E6%B1%82%E5%B0%8D%E6%92%B0%E5%AF%AB%E4%BD%BF%E7%94%A8%E8%80%85%E7%AF%84%E4%BE%8B%E6%9C%89%E8%88%88%E8%B6%A3%E4%B8%94%E9%A1%98%E6%84%8F%E6%94%BE%E5%9C%A8-legistaiwan%E6%9C%89%E9%97%9C%E7%9B%B8%E9%97%9C%E6%9D%BF%E6%A8%A1%E5%8F%AF%E4%BB%A5%E5%8F%83%E8%80%83%E6%9D%8E%E5%AE%9C%E5%B1%95-%E4%B9%9F%E6%AD%A1%E8%BF%8Efork%E5%BE%8C%E5%9C%A8legistaiwanvignettes%E5%89%B5%E5%BB%BA%E7%AF%84%E4%BE%8Bpull-requests%E7%B5%A6%E6%88%91"></a>
+</h4>
+</div>
+</div>
+<div class="section level2">
 <h2 id="acknowledgement">Acknowledgement<a class="anchor" aria-label="anchor" href="#acknowledgement"></a>
 </h2>
-<p>The package is part of Yen-Chieh Liao’s doctoral dissertation project <em><a href="https://raw.githack.com/davidycliao/phd-thesis/main/Yen_Chieh_Liao_PhD_Dissertation_Jan_2023.pdf" class="external-link"><code>Electoral Reform, Distributive Politics, and Parties in the Taiwanese Congress</code></a> at the <a href="https://www.essex.ac.uk/departments/government" class="external-link">Department of Government</a></em> in University of Essex and supported by the 2021 Taiwanese Overseas Pioneers Grants for PhD Candidates from the National Science and Technology Council in Taiwan.</p>
+<p>The package is part of Yen-Chieh Liao’s doctoral dissertation project <strong><em><a href="https://raw.githack.com/davidycliao/phd-thesis/main/Yen_Chieh_Liao_PhD_Dissertation_Jan_2023.pdf" class="external-link"><code>Electoral Reform, Distributive Politics, and Parties in the Taiwanese Congress</code></a></em></strong> at the <a href="https://www.essex.ac.uk/departments/government" class="external-link">Department of Government</a> in University of Essex and supported by the 2021 Taiwanese Overseas Pioneers Grants for PhD Candidates from the National Science and Technology Council in Taiwan.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
