@@ -100,7 +100,7 @@
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>term</dt>
-<dd><p>numeric or null. 自第2屆起</p></dd>
+<dd><p>numeric or null. The data is available from the 2nd term. 自第2屆起</p></dd>
 
 
 <dt>verbose</dt>
@@ -154,7 +154,7 @@ detailed output when retrieving the data. The default is TRUE.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the legislator's demographic information"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-01 01:49:48 GMT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-01 13:28:00 GMT"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $queried_term</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "8"</span>
@@ -193,6 +193,7 @@ detailed output when retrieving the data. The default is TRUE.</p></dd>
 <span class="r-in"><span><span class="co">## To retrieve legislator' demographic from all of terms</span></span></span>
 <span class="r-in"><span><span class="co">## 輸入「空白」下載所有立委資料</span></span></span>
 <span class="r-in"><span><span class="fu">get_legislators</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> You are now requesting full data from the API. Please make sure your connectivity is stable until its completion.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved URL: </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  https://data.ly.gov.tw/odw/ID16Action.action?name=&amp;sex=&amp;party=&amp;partyGroup=&amp;areaName=&amp;term==&amp;fileType=json </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved term:  2 3 4 5 6 7 8 9 10 </span>
@@ -200,7 +201,7 @@ detailed output when retrieving the data. The default is TRUE.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the legislator's demographic information"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-01 01:49:56 GMT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-01 13:28:03 GMT"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $queried_term</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2 3 4 5 6 7 8 9 10"</span>
