@@ -3,7 +3,7 @@
 \name{get_public_debates}
 \alias{get_public_debates}
 \title{Retrieving the records of national public debates
-提供公報之國是論壇資訊，並包含書面意見。(自第8屆第1會期起)，但實際上測試資料只有第十屆。}
+提供公報之國是論壇資訊，並包含書面意見。自第8屆第1會期起，但實測資料從第十屆。}
 \usage{
 get_public_debates(term = 10, session_period = NULL, verbose = TRUE)
 }
@@ -45,7 +45,7 @@ list, which contains: \describe{
 }
 \description{
 Retrieving the records of national public debates
-提供公報之國是論壇資訊，並包含書面意見。(自第8屆第1會期起)，但實際上測試資料只有第十屆。
+提供公報之國是論壇資訊，並包含書面意見。自第8屆第1會期起，但實測資料從第十屆。
 }
 \examples{
 ## query the Executives' answered response by term and the session period.
