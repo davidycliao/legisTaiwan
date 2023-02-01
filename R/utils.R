@@ -1,16 +1,27 @@
 ### Package Utility Functions
 
-#' @export .onAttach
+#'@export .onAttach
 .onAttach <- function(...) {
   packageStartupMessage("## legisTaiwan                                            ###")
-  packageStartupMessage("## An R package connecting to the Taiwan Legislative API. ###")
-
+  packageStartupMessage("## An R package connecting to the Taiwan Legislative API. ### \n")
+  attempt::warn_if(.x = curl::has_internet(), .p = ~ curl::has_internet() == FALSE,
+                   msg = "Internet connectivity fails. Please check your internet connection")
+  attempt::message_if(.x = curl::has_internet(), .p = ~ curl::has_internet() == TRUE,
+                      msg = "Internet connectivity succeeds!")
 }
 
-#' A check for the website availability and connection.
+
+attempt::message_if(.x = curl::has_internet(),
+           .p = ~ curl::has_internet() == TRUE ,
+           msg = "Internet connectivity succeeds!")
+
+
+#'A check for the website availability and the connection.
 #'
 #'@param site https://data.ly.gov.tw/index.action
+#'
 #'@export
+#'
 #'@seealso
 #'\url{https://stackoverflow.com/questions/5076593/how-to-determine-if-you-have-an-internet-connection-in-r?noredirect=1&lq=1}
 
@@ -22,6 +33,7 @@ website_availability <- function(site = "https://data.ly.gov.tw/index.action") {
   warning = function(w) invokeRestart("muffleWarning"),
   error = function(e) FALSE)
 }
+
 
 #' A check for IP and connectivity.
 #'@seealso
@@ -37,6 +49,7 @@ ip_availability <- function() {
   any(grep(validIP, ipmessage))
 }
 
+
 #' A check for internet connectivity.
 #'
 #'@param x  The default value is `curl::has_internet()`, which activate the
@@ -49,6 +62,7 @@ check_internet <- function(x = curl::has_internet()) {
   attempt::stop_if_not(.x = x,
                        msg = "Please check the internet connetion")
 }
+
 
 #' A general check for the API and `legisTaiwan`.
 #'
@@ -74,6 +88,7 @@ api_check <- function(start_date = start_date, end_date = end_date) {
                                    end_date, ".", sep = " "))
 }
 
+
 #' Transforming the date in Taiwan ROC calendar to A.D. in POSIXct
 #'
 #'@details `check_date` transforms ROC date to a date in POSIXct, e.g. "105/05/31" to "2016-05-31".
@@ -96,6 +111,7 @@ transformed_date_meeting <- function(roc_date) {
                                 origin = "1582-10-14", tz = "GMT"))
   return(date_ad)
 }
+
 
 #' Transforming the date in Taiwan ROC calendar to A.D. in POSIXct  for `get_bill()`.
 #'
@@ -122,6 +138,7 @@ transformed_date_bill <- function(roc_date) {
   return(date_ad)
 }
 
+
 #' Checking the date
 #'
 #'@details `check_date` transforms ROC date to a date in POSIXct, e.g. "1050531" to "2016-05-31".
@@ -146,7 +163,3 @@ check_date <- function(roc_date) {
                                 origin = "1582-10-14", tz = "GMT"))
   return(date_ad)
 }
-
-
-
-

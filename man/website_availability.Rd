@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{website_availability}
 \alias{website_availability}
-\title{A check for the website availability and connection.}
+\title{A check for the website availability and the connection.}
 \usage{
 website_availability(site = "https://data.ly.gov.tw/index.action")
 }
@@ -10,7 +10,7 @@ website_availability(site = "https://data.ly.gov.tw/index.action")
 \item{site}{https://data.ly.gov.tw/index.action}
 }
 \description{
-A check for the website availability and connection.
+A check for the website availability and the connection.
 }
 \seealso{
 \url{https://stackoverflow.com/questions/5076593/how-to-determine-if-you-have-an-internet-connection-in-r?noredirect=1&lq=1}
