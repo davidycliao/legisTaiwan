@@ -100,13 +100,13 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_public_debates</span><span class="op">(</span>term <span class="op">=</span> <span class="cn">NULL</span>, session_period <span class="op">=</span> <span class="cn">NULL</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_public_debates</span><span class="op">(</span>term <span class="op">=</span> <span class="fl">10</span>, session_period <span class="op">=</span> <span class="cn">NULL</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>term</dt>
-<dd><p>numeric or NULL The default value is NULL.
+<dd><p>numeric or NULL The default value is 10
 參數必須為數值，資料從自第8屆第1會期起。</p></dd>
 
 
@@ -124,7 +124,7 @@ detailed output when retrieving the data. The default is TRUE</p></dd>
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>list, which contains: s</p><dl><dt><code>title</code></dt>
+<p>list, which contains:</p><dl><dt><code>title</code></dt>
 <dd><p>the meeting records of cross-caucus session</p></dd>
 
 <dt><code>query_time</code></dt>
@@ -188,7 +188,7 @@ detailed output when retrieving the data. The default is TRUE</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the records of the questions answered by the executives"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-01 21:01:56 GMT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-01 22:04:32 GMT"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 39</span>

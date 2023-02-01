@@ -180,17 +180,12 @@ detailed output when retrieving the data. The default value is TRUE.</p></dd>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## query bill records by a period of the dates in Taiwan ROC calender format</span></span></span>
 <span class="r-in"><span><span class="co">## 輸入「中華民國民年」下載立法委員提案資料</span></span></span>
-<span class="r-in"><span><span class="fu">get_bills</span><span class="op">(</span>start_date <span class="op">=</span> <span class="fl">1060120</span>, end_date <span class="op">=</span> <span class="fl">1070310</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved URL: </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  https://www.ly.gov.tw/WebAPI/LegislativeBill.aspx?from=1060120&amp;to=1070310&amp;proposer=&amp;mode=json </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved Bill Sponsor(s):  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved date between: 2017-01-20 and 2018-03-10 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved Num: 1589 </span>
+<span class="r-in"><span><span class="fu">get_bills</span><span class="op">(</span>start_date <span class="op">=</span> <span class="fl">1060120</span>, end_date <span class="op">=</span> <span class="fl">1070310</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $title</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the records of bill sponsor and co-sponsor"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-01 21:00:15 GMT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-01 22:02:36 GMT"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1589</span>
@@ -253,7 +248,7 @@ detailed output when retrieving the data. The default value is TRUE.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the records of bill sponsor and co-sponsor"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-01 21:00:16 GMT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-01 22:02:37 GMT"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 9</span>
@@ -314,7 +309,7 @@ detailed output when retrieving the data. The default value is TRUE.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the records of bill sponsor and co-sponsor"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-01 21:00:17 GMT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-01 22:02:38 GMT"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 5</span>
