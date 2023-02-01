@@ -117,15 +117,18 @@ options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL.
 
 
 <dt>verbose</dt>
-<dd><p>logical, indicates whether <code>get_executive_response</code> should print out
-detailed output when retrieving the data. The default is TRUE</p></dd>
+<dd><p>logical, indicates whether <code>get_executive_response</code> should
+print out detailed output when retrieving the data. The default is TRUE</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>list contains:</p><dl><dt><code>query_time</code></dt>
+<p>list contains:</p><dl><dt><code>title</code></dt>
+<dd><p>the records of the questions answered by the executives</p></dd>
+
+<dt><code>query_time</code></dt>
 <dd><p>the queried time</p></dd>
 
 <dt><code>retrieved_number</code></dt>
@@ -144,14 +147,25 @@ detailed output when retrieving the data. The default is TRUE</p></dd>
 <dd><p>the offical manual</p></dd>
 
 <dt><code>data</code></dt>
-<dd><p>a tibble dataframe</p></dd>
- 
+<dd><p>a tibble dataframe , whose variables include:
+<code>term</code>,
+<code>sessionPeriod</code>,
+<code>sessionTimes</code>,
+<code>meetingTimes</code>,
+<code>eyNumber</code>,
+<code>lyNumber</code>,
+<code>subject</code>,
+<code>content</code>,
+<code>docUrl</code>,  and
+<code>selectTerm</code></p></dd>
+
+
 </dl></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p><code>get_variable_info</code> produces a list, which contains <code>query_time</code>,
-<code>retrieved_number</code>, <code>retrieved_term</code>, <code>url</code>, <code>variable_names</code>, <code>manual_info</code>
-and <code>data</code>.</p>
+    <p><code>get_executive_response</code> produces a list, which contains <code>title</code>,
+<code>query_time</code>, <code>retrieved_number</code>, <code>retrieved_term</code>, <code>url</code>, <code>variable_names</code>,
+<code>manual_info</code> and <code>data</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -171,7 +185,7 @@ and <code>data</code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the records of the questions answered by the executives"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-01 20:11:46 GMT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-01 21:00:58 GMT"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1065</span>
