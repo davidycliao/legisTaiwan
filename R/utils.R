@@ -11,11 +11,6 @@
 }
 
 
-attempt::message_if(.x = curl::has_internet(),
-           .p = ~ curl::has_internet() == TRUE ,
-           msg = "Internet connectivity succeeds!")
-
-
 #'A check for the website availability and the connection.
 #'
 #'@param site https://data.ly.gov.tw/index.action
