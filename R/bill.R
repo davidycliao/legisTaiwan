@@ -11,7 +11,10 @@
 #'@param proposer The default value is NULL, which means all bill records are
 #'included between the starting date and the ending date.
 #'
-#'@param verbose The default value is TRUE, displaying the description of data
+#'@param verbose
+#'
+#'
+#'The default value is TRUE, displaying the description of data
 #'retrieved in number, url and computing time.
 #'
 #'@return A tibble contains date, term, name, sessionPeriod, sessionTimes,

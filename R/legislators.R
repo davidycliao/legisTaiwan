@@ -1,6 +1,6 @@
-#' Retrieving legislator' demographic information and background
+#' Retrieving legislator' demographic information and background 提供委員基本資料
 #'
-#'@param term numeric Must be a numeric vector.
+#'@param term numeric or null. 自第2屆起
 #'
 #'@param verbose logical, indicates whether get_meetings should print out
 #'detailed output when retrieving the data. The default is TRUE.
@@ -12,7 +12,7 @@
 #'\item{`variable_names`}{the variables of the tibble dataframe}
 #'\item{`manual_info`}{the offical manual}
 #'\item{`data`}{a tibble dataframe}
-#'} contains query_time, queried_term, url ,variable_names, manual_info and data
+#'}
 #'
 #'
 #'@importFrom attempt stop_if_all

@@ -2,12 +2,12 @@
 % Please edit documentation in R/legislators.R
 \name{get_legislators}
 \alias{get_legislators}
-\title{Retrieving legislator' demographic information and background}
+\title{Retrieving legislator' demographic information and background 提供委員基本資料}
 \usage{
 get_legislators(term = NULL, verbose = TRUE)
 }
 \arguments{
-\item{term}{numeric Must be a numeric vector.}
+\item{term}{numeric or null. 自第2屆起}
 
 \item{verbose}{logical, indicates whether get_meetings should print out
 detailed output when retrieving the data. The default is TRUE.}
@@ -20,10 +20,10 @@ list contains: \describe{
 \item{\code{variable_names}}{the variables of the tibble dataframe}
 \item{\code{manual_info}}{the offical manual}
 \item{\code{data}}{a tibble dataframe}
-} contains query_time, queried_term, url ,variable_names, manual_info and data
+}
 }
 \description{
-Retrieving legislator' demographic information and background
+Retrieving legislator' demographic information and background 提供委員基本資料
 }
 \details{
 \code{get_legislators} produces a list, which contains  \code{query_time},

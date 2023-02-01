@@ -3,29 +3,39 @@
 \name{get_executive_response}
 \alias{get_executive_response}
 \title{Retrieving the records of the questions answered by the executives
-行政院答復}
+提供公報質詢事項行政院答復資訊}
 \usage{
 get_executive_response(term = NULL, session_period = NULL, verbose = TRUE)
 }
 \arguments{
-\item{term}{integer or numeric. The parameter should be set in a numeric
-format. The default is 8. The data is only available from 8th
-term 參數必須為數值，資料從立法院第8屆開始計算。}
+\item{term}{integer, numeric or null. The default is 8. The data is only
+available from 8th term. 參數必須為數值，資料從自第8屆第1會期起。}
 
-\item{session_period}{session in the term. The session is between 1 and 8.
-session_period 參數必須為數值。}
+\item{session_period}{integer, numeric or NULL. Available
+options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL.
+參數必須為數值。}
 
-\item{verbose}{The default value is TRUE, displaying the description of data
-retrieved in number, url and computing time.}
+\item{verbose}{logical, indicates whether \code{get_executive_response} should print out
+detailed output when retrieving the data. The default is TRUE}
 }
 \value{
-A list object contains a tibble carrying the variables of term, sessionPeriod,
-sessionTimes, meetingTimes, eyNumber, lyNumber, subject, content, docUrl
-selectTerm.
+list contains: \describe{
+\item{\code{query_time}}{the queried time}
+\item{\code{retrieved_number}}{the total number of observations}
+\item{\code{retrieved_term}}{the queried term}
+\item{\code{url}}{the retrieved json url}
+\item{\code{variable_names}}{the variables of the tibble dataframe}
+\item{\code{manual_info}}{the offical manual}
+\item{\code{data}}{a tibble dataframe} }
 }
 \description{
 Retrieving the records of the questions answered by the executives
-行政院答復
+提供公報質詢事項行政院答復資訊
+}
+\details{
+\code{get_variable_info} produces a list, which contains \code{query_time},
+\code{retrieved_number}, \code{retrieved_term}, \code{url}, \code{variable_names}, \code{manual_info}
+and \code{data}.
 }
 \examples{
 ## query the Executives' answered response by term and the session period.
