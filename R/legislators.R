@@ -1,6 +1,6 @@
 #' Retrieving legislator' demographic information and background 提供委員基本資料
 #'
-#'@param term numeric or null. 自第2屆起
+#'@param term numeric or null. The data is avalaible from the 2nd term. 自第2屆起
 #'
 #'@param verbose logical, indicates whether get_meetings should print out
 #'detailed output when retrieving the data. The default is TRUE.
@@ -41,6 +41,7 @@ get_legislators <- function(term = NULL, verbose = TRUE) {
     # request full data
     set_api_url <- paste("https://data.ly.gov.tw/odw/ID16Action.action?name=&sex=&party=&partyGroup=&areaName=&term=",
                          term, "=&fileType=json", sep = "")
+    cat("You are now requesting full data from the API. Please make sure your connectivity is stable until its completion.\n")
   } else {
     attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
     if (length(term) == 1) {

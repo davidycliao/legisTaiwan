@@ -2,10 +2,44 @@
 
 #' @export .onAttach
 .onAttach <- function(...) {
+  check_internet()
   packageStartupMessage("## legisTaiwan                                            ###")
   packageStartupMessage("## An R package connecting to the Taiwan Legislative API. ###")
 
 }
+
+
+
+#' A simple way to check for the website connectivity
+#'
+#'@export
+#'@seealso
+#'\url{https://stackoverflow.com/questions/5076593/how-to-determine-if-you-have-an-internet-connection-in-r?noredirect=1&lq=1}
+
+is_online <- function(site="https://data.ly.gov.tw/index.action") {
+  tryCatch({
+    readLines(site, n = 1)
+    TRUE
+  },
+  warning = function(w) invokeRestart("muffleWarning"),
+  error = function(e) FALSE)
+}
+
+
+#' A simple way to check IP for connectivity
+#'@seealso
+#'\url{https://stackoverflow.com/questions/5076593/how-to-determine-if-you-have-an-internet-connection-in-r?noredirect=1&lq=1}
+#'
+havingIP <- function() {
+  if (.Platform$OS.type == "windows") {
+    ipmessage <- system("ipconfig", intern = TRUE)
+  } else {
+    ipmessage <- system("ifconfig", intern = TRUE)
+  }
+  validIP <- "((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)[.]){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)"
+  any(grep(validIP, ipmessage))
+}
+
 
 
 #' A basic check for internet connectivity
@@ -19,6 +53,23 @@ check_internet <- function(x = curl::has_internet()) {
   attempt::stop_if_not(.x = x,
                        msg = "Please check the internet connetion")
 }
+
+#' A basic check for internet connectivity
+#'
+#'@param x  The default value is curl::has_internet(), which activate the
+#'internet check.
+#'@export
+#'@importFrom attempt stop_if_not
+#'@importFrom curl has_internet
+check_internet <- function(x = curl::has_internet()) {
+  attempt::stop_if_not(.x = x,
+                       msg = "Please check the internet connetion")
+}
+
+
+# with_warning(as.numeric, msg = "We're performing a numeric conversion")
+
+
 
 #' A basic check for the API
 #'

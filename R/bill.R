@@ -1,4 +1,4 @@
-#' Retrieving the records of the bills 法律提案(API)
+#' Retrieving the records of the bills 法律提案 (API)
 #'
 #'@param start_date Requesting meeting records starting from the date. A double
 #'represents a date in ROC Taiwan format. If a double is used, it should specify

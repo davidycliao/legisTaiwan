@@ -7,7 +7,7 @@
 get_variable_info(param_)
 }
 \arguments{
-\item{`param_`}{characters. Must be one of options below: \describe{
+\item{param_}{characters. Must be one of options below: \describe{
 \item{get_bills}{get_bills: the records of the bills, see \url{https://data.ly.gov.tw/getds.action?id=6}}
 \item{get_bills_2}{the records of legislators and the government proposals, see \url{https://data.ly.gov.tw/getds.action?id=6}}
 \item{get_meetings}{the spoken meeting records, see \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}}

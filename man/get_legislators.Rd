@@ -7,7 +7,7 @@
 get_legislators(term = NULL, verbose = TRUE)
 }
 \arguments{
-\item{term}{numeric or null. 自第2屆起}
+\item{term}{numeric or null. The data is avalaible from the 2nd term. 自第2屆起}
 
 \item{verbose}{logical, indicates whether get_meetings should print out
 detailed output when retrieving the data. The default is TRUE.}

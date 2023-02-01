@@ -2,7 +2,7 @@
 % Please edit documentation in R/bill.R
 \name{get_bills}
 \alias{get_bills}
-\title{Retrieving the records of the bills 法律提案(API)}
+\title{Retrieving the records of the bills 法律提案 (API)}
 \usage{
 get_bills(start_date = NULL, end_date = NULL, proposer = NULL, verbose = TRUE)
 }
@@ -26,7 +26,7 @@ A tibble contains date, term, name, sessionPeriod, sessionTimes,
 billName, billProposer, billCosignatory, billStatus, date_ad
 }
 \description{
-Retrieving the records of the bills 法律提案(API)
+Retrieving the records of the bills 法律提案 (API)
 }
 \examples{
 ## query bill records by a period of the dates in Taiwan ROC calender format
