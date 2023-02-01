@@ -2,11 +2,13 @@ url: https://davidycliao.github.io/legisTaiwan/
 
 home:
   title: The Real-time and Archives of Taiwan Legislative Data
+
 authors:
   David Yen-Chieh Liao:
     href: https://davidycliao.github.io
   Li Tang:
     href: https://sites.google.com/view/litang2020?pli=1
+
 template:
   package: tidytemplate
   bootstrap: 5
@@ -45,6 +47,8 @@ navbar:
     menu:
     - text: "Reference"
       href: reference/index.html
+
+
   right:
   - icon: fa-github fa-lg
     text: GitHub

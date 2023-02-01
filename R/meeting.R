@@ -1,26 +1,41 @@
-#' Retrieving the spoken meeting records 委員發言
+#' Retrieving the spoken meeting records 委員發言（能取得最早取得日不詳，待檢查。）
 #'
-#'@param start_date numeric or double formatted by Taiwan calander. Requesting
-#'meeting records starting from the date. If a double is used, it should specify
-#'as Taiwan calendar format, e.g. 1090101.
+#'@details `get_meetings` produces a list, which contains `query_time`,
+#'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
+#'`end_date`, `url`, `variable_names`, `manual_info` and `data.`
 #'
-#'@param end_date numeric or double formatted by Taiwan calander. Requesting
-#'meeting records ending from the date. If a double is used, it should specify as Taiwan
-#'calendar format, e.g. 1090110.
+#'@param start_date numeric Must be formatted in ROC Taiwan calendar, e.g. 1090101.
 #'
-#'@param meeting_unit The default is NULL, which includes all meetings
+#'@param end_date numeric Must be formatted in ROC Taiwan calendar, e.g. 1090102.
+#'
+#'@param meeting_unit NULL The default is NULL, which includes all meeting types
 #' between the starting date and the ending date.
 #'
-#'@param verbose logical, indicates whether get_meetings should print out
+#'@param verbose logical, indicates whether `get_meetings` should print out
 #'detailed output when retrieving the data.
 #'
-#'@return An object of the list, which contains query_time, retrieved_number,
-#'meeting_unit, start_date_ad, end_date_ad, start_date, end_date, url,
-#'variable_names, manual_info and data.
+#'@return list, which contains:  \describe{
+#'      \item{`query_time`}{the query time}
+#'      \item{`retrieved_number`}{the number url of the page}
+#'      \item{`meeting_unit`}{the meeting unit}
+#'      \item{`start_date_ad`}{the start date  in POSIXct}
+#'      \item{`end_date_ad`}{the end date in POSIXct}
+#'      \item{`start_date`}{the start date in ROC Taiwan calendar}
+#'      \item{`url`}{the retrieved json url}
+#'      \item{`variable_names`}{the variables of the tibble dataframe}
+#'      \item{`manual_info`}{the offical manual}
+#'      \item{`data`}{a tibble dataframe, whose variables include:
+#'      `smeeting_date`,
+#'      `meeting_status`,
+#'      `meeting_name`,
+#'      `meeting_content`,
+#'      `speechers`,
+#'      `meeting_unit`,
+#'      `date_ad`}
+#'      }
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
-#'
 #'
 #'@export
 #'@examples
@@ -35,14 +50,12 @@
 #'
 #'@seealso
 #'\url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}
-
-
-get_meetings <- function(start_date = NULL, end_date = NULL,
-                         meeting_unit = NULL, verbose = TRUE) {
+get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL,
+                         verbose = TRUE) {
   legisTaiwan::check_internet()
   legisTaiwan::api_check(start_date = legisTaiwan::check_date(start_date), end_date = legisTaiwan::check_date(end_date))
   set_api_url <- paste("https://www.ly.gov.tw/WebAPI/LegislativeSpeech.aspx?from=",
-                       start_date, "&to=", end_date, "&meeting_unit=",meeting_unit,  "&mode=json", sep = "")
+                       start_date, "&to=", end_date, "&meeting_unit=", meeting_unit, "&mode=json", sep = "")
   tryCatch(
     {
       json_df <- jsonlite::fromJSON(set_api_url)
@@ -76,38 +89,66 @@ get_meetings <- function(start_date = NULL, end_date = NULL,
 }
 
 
-#' Retrieving the meeting records of cross-caucus session 下載「黨團協商」資料
+
+#' Retrieving the meeting records of cross-caucus session
+#' 提供公報之黨團協商資訊。(自第8屆第1會期起)
 #'
-#'@param start_date Requesting meeting records starting from the date.
-#'A double represents a date in ROC Taiwan format.
-#'If a double is used, it should specify as Taiwan
-#'calendar format, e.g. 109/01/10.
+#'@details `get_caucus_meetings` produces a list, which contains `title`, `query_time`,
+#'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
+#'`end_date`, `url`, `variable_names`, `manual_info` and `data.`
 #'
-#'@param end_date Requesting meeting records ending from the date.
-#' A double represents a date in ROC Taiwan format. If a double is used,
-#' it should specify as Taiwan calendar format, e.g. 109/01/20.
+#'@param start_date character Must be formatted in ROC Taiwan calendar with three
+#'forward slashes between year, month and day, e.g. "106/10/20".
 #'
-#'@param verbose logical, indicates whether get_meetings should print out
+#'@param end_date character Must be formatted in ROC Taiwan calendar with three
+#'forward slashes between year, month and day, e.g. "109/01/10".
+#'
+#'@param verbose logical, indicates whether `get_caucus_meetings` should print out
 #'detailed output when retrieving the data.
 #'
-#'@return An object of the list, which contains query_time, retrieved_number,
-#'start_date_ad, end_date_ad, start_date, end_date, url, variable_names,
-#' manual_info and data
+#'@return list, which contains: s\describe{
+#'      \item{`title`}{the meeting records of cross-caucus session}
+#'      \item{`query_time`}{the query time}
+#'      \item{`retrieved_number`}{the number of observation}
+#'      \item{`meeting_unit`}{the meeting unit}
+#'      \item{`start_date_ad`}{the start date  in POSIXct}
+#'      \item{`end_date_ad`}{the end date in POSIXct}
+#'      \item{`start_date`}{the start date in ROC Taiwan calendar}
+#'      \item{`url`}{the retrieved json url}
+#'      \item{`variable_names`}{the variables of the tibble dataframe}
+#'      \item{`manual_info`}{the offical manual}
+#'      \item{`data`}{a tibble dataframe, whose variables include:
+#'      `comYear`,
+#'      `comVolume`,
+#'      `comBookId`,
+#'      `term`,
+#'      `sessionPeriod`,
+#'      `sessionTimes`,
+#'      `meetingTimes`,
+#'      `meetingDate`,
+#'      `meetingName`,
+#'      `subject`,
+#'      `pageEnd`,
+#'      `docUrl`,
+#'      `htmlUrl`, and
+#'      `selectTerm`}
+#'      }
+#'
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
 #'
 #'@export
+#'
 #'@examples
 #' ## query the meeting records of cross-caucus session using a period of
 #' ## the dates in Taiwan ROC calender format with forward slash (/).
-#' ## 輸入「中華民國民年」下載「黨團協商」，輸入時間請依照該格式 "106/10/20"
-#' ## ，需有「正斜線」做隔開。
+#' ## 輸入「中華民國民年」下載「黨團協商」，輸入時間請依照該格式 "106/10/20"，
+#' ## 需有「正斜線」做隔開。
 #'get_caucus_meetings(start_date = "106/10/20", end_date = "107/03/10")
 #'
 #'@seealso
 #'\url{https://data.ly.gov.tw/getds.action?id=8}
-#
 get_caucus_meetings <- function(start_date = NULL, end_date = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
   legisTaiwan::api_check(start_date = legisTaiwan::transformed_date_meeting(start_date), end_date = legisTaiwan::transformed_date_meeting(end_date))
@@ -144,7 +185,12 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL, verbose = TR
 
 
 #' Retrieving full video information of meetings and committees
-#' 下載「委員發言片段相關影片資訊」
+#' 提供立法院院會及委員會之委員發言片段相關影片資訊。(自第9屆第1會期起)
+#'
+#'@details `get_speech_video` produces a list, which contains `title`, `query_time`,
+#'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
+#'`end_date`, `url`, `variable_names`, `manual_info` and `data.`
+#'
 #'@param start_date Requesting meeting records starting from the date.
 #'A double represents a date in ROC Taiwan format.
 #'If a double is used, it should specify as Taiwan
@@ -157,12 +203,36 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL, verbose = TR
 #'@param verbose logical, indicates whether get_meetings should print out
 #'detailed output when retrieving the data.
 #'
-#'@return An object of the list, which contains query_time, retrieved_number, start_date_ad,
-#'end_date_ad, start_date, end_date, url, variable_names, manual_info and data
-#'
+#'@return list, which contains: s\describe{
+#'      \item{`title`}{the meeting records of cross-caucus session}
+#'      \item{`query_time`}{the query time}
+#'      \item{`retrieved_number`}{the number of observation}
+#'      \item{`meeting_unit`}{the meeting unit}
+#'      \item{`start_date_ad`}{the start date  in POSIXct}
+#'      \item{`end_date_ad`}{the end date in POSIXct}
+#'      \item{`start_date`}{the start date in ROC Taiwan calendar}
+#'      \item{`url`}{the retrieved json url}
+#'      \item{`variable_names`}{the variables of the tibble dataframe}
+#'      \item{`manual_info`}{the offical manual}
+#'      \item{`data`}{a tibble dataframe, whose variables include:
+#'      `term`,
+#'      `sessionPeriod`,
+#'      `meetingDate`,
+#'      `meetingTime`,
+#'      `meetingTypeName`,
+#'      `meetingName`,
+#'      `meetingContent`,
+#'      `legislatorName`,
+#'      `areaName`,
+#'      `speechStartTime`,
+#'      `speechEndTime`,
+#'      `speechRecordUrl`,
+#'      `videoLength`,
+#'      `videoUrl`, and
+#'      `selectTerm`}
+#'      }
 #'
 #'@importFrom attempt stop_if_all
-#'
 #'@importFrom jsonlite fromJSON
 #'
 #'@export
@@ -176,7 +246,6 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL, verbose = TR
 #'
 #'@seealso
 #'委員發言片段相關影片資訊 \url{https://data.ly.gov.tw/getds.action?id=148}
-
 get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
   legisTaiwan::api_check(start_date = legisTaiwan::transformed_date_meeting(start_date), end_date = legisTaiwan::transformed_date_meeting(end_date))
@@ -219,43 +288,78 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
   )
 }
 
-#' Retrieving the records of national public debates 下載「國是論壇」資料
+
+#' Retrieving the records of national public debates
+#' 提供公報之國是論壇資訊，並包含書面意見。(自第8屆第1會期起)，但實際上測試資料只有第十屆。
 #'
-#'@param term Requesting answered questions by term. The parameter should be set
-#'in a numeric vector The default value is 8. The data is only available from
-#'the 8th term 參數必須為數值，資料從立法院「第8屆」開始計算。
+#'@param term numeric or NULL The data is NULL. 參數必須為數值，資料從自第8屆第1會期起。
 #'
-#'@param session_period legislative session in the term. The session is between
-#'1 and 8. 參數必須為數值。The parameter should be set in a numeric vector.
+#'@param session_period integer, numeric or NULL. Available
+#'options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL.
+#'參數必須為數值。
 #'
-#'@param verbose logical, indicates whether get_meetings should print out
+#'@param verbose logical, indicates whether `get_public_debates` should print out
 #'detailed output when retrieving the data. The default is TRUE
 #'
-#'@return A list contains query_time, retrieved_number, start_date_ad,
-#'end_date_ad, start_date, end_date, url, variable_names, manual_info and data
+#'@return list, which contains: s\describe{
+#'      \item{`title`}{the meeting records of cross-caucus session}
+#'      \item{`query_time`}{the query time}
+#'      \item{`retrieved_number`}{the number of observation}
+#'      \item{`meeting_unit`}{the meeting unit}
+#'      \item{`start_date_ad`}{the start date  in POSIXct}
+#'      \item{`end_date_ad`}{the end date in POSIXct}
+#'      \item{`start_date`}{the start date in ROC Taiwan calendar}
+#'      \item{`url`}{the retrieved json url}
+#'      \item{`variable_names`}{the variables of the tibble dataframe}
+#'      \item{`manual_info`}{the offical manual}
+#'      \item{`data`}{a tibble dataframe, whose variables include:
+#'      `term`,
+#'      `sessionPeriod`,
+#'      `sessionTimes`,
+#'      `meetingTimes`,
+#'      `dateTimeDesc`,
+#'      `meetingRoom`,
+#'      `chairman`,
+#'      `legislatorName`,
+#'      `speakType`,
+#'      `content`, and
+#'      `selectTerm`}
+#'      }
+#'
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
 #'
 #'@export
+#'
 #'@examples
 #' ## query the Executives' answered response by term and the session period.
-#' ## 輸入「立委屆期」與「會期」下載「質詢事項 (行政院答復部分)」
+#' ## 輸入「立委屆期」與「會期」下載國是論壇資訊。
 #'get_public_debates(term = 10, session_period = 2)
-#'
-#'get_public_debates(term = 10, session_period = 1)
 #'
 #'@seealso
 #'\url{https://data.ly.gov.tw/getds.action?id=7}
 
-get_public_debates <- function(term = 8, session_period = NULL, verbose = TRUE) {
+get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
-  attempt::stop_if_all(term, is.character, msg = "use numeric format only")
-  attempt::stop_if_all(term, is.character, msg = "use numeric format only")
+  if (is.null(term)) {
+    set_api_url <- paste("https://data.ly.gov.tw/odw/ID7Action.action?term=",
+                         term, "&sessionPeriod=", session_period,
+                         "&sessionTimes=&meetingTimes=&legislatorName=&speakType=&fileType=json",
+                         sep = "")
+    message(" term is not defined...\n You are now requesting full data from the API. Please make sure your connectivity is stable until its completion.\n")
+    } else if (length(term) == 1) {
+      attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
+      term <- sprintf("%02d", as.numeric(term))
+      } else if (length(term) > 1) {
+        attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
+        message("The API is unable to query multiple terms and the request mostly falls.")
+        term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
+        }
   set_api_url <- paste("https://data.ly.gov.tw/odw/ID7Action.action?term=",
-                       sprintf("%02d", as.numeric(term)), "&sessionPeriod=", sprintf("%02d", as.numeric(session_period)),
-                       "&sessionTimes=&meetingTimes=&legislatorName=&speakType=&fileType=json", sep = "")
-
+                       term, "&sessionPeriod=",
+                       "&sessionTimes=&meetingTimes=&legislatorName=&speakType=&fileType=json",
+                       sep = "")
   tryCatch(
     {
       json_df <- jsonlite::fromJSON(set_api_url)

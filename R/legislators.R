@@ -40,7 +40,7 @@ get_legislators <- function(term = NULL, verbose = TRUE) {
   if (is.null(term)) {
     set_api_url <- paste("https://data.ly.gov.tw/odw/ID16Action.action?name=&sex=&party=&partyGroup=&areaName=&term=",
                          term, "=&fileType=json", sep = "")
-    cat("You are now requesting full data from the API. Please make sure your connectivity is stable until its completion.\n")
+    message(" term is not defined...\n You are now requesting full data from the API. Please make sure your connectivity is stable until its completion.\n")
   } else {
     attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
     if (length(term) == 1) {
@@ -56,7 +56,7 @@ get_legislators <- function(term = NULL, verbose = TRUE) {
     {
       json_df <- jsonlite::fromJSON(set_api_url)
       df <- tibble::as_tibble(json_df$dataList)
-      attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable")
+      attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
       term <- paste(sort(as.numeric(unique(df$term))), collapse = " ", sep = ",")
       if (isTRUE(verbose)) {
         cat(" Retrieved URL: \n", set_api_url, "\n")
