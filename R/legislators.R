@@ -1,6 +1,6 @@
 #' Retrieving legislator' demographic information and background 提供委員基本資料
 #'
-#'@param term numeric or null. The data is avalaible from the 2nd term. 自第2屆起
+#'@param term numeric or null. The data is available from the 2nd term. 自第2屆起
 #'
 #'@param verbose logical, indicates whether get_meetings should print out
 #'detailed output when retrieving the data. The default is TRUE.
