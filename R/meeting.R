@@ -290,7 +290,7 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
 
 
 #' Retrieving the records of national public debates
-#' 提供公報之國是論壇資訊，並包含書面意見。(自第8屆第1會期起)，但實際上測試資料只有第十屆。
+#' 提供公報之國是論壇資訊，並包含書面意見。自第8屆第1會期起，但實測資料從第十屆。
 #'
 #'@param term numeric or NULL The default value is 10
 #'參數必須為數值，資料從自第8屆第1會期起。
