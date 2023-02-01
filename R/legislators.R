@@ -1,15 +1,25 @@
 #' Retrieving legislator' demographic information and background
 #'
-#'@param term A number, which requests answered questions from the term. The parameter should be set in
-#'a numeric vector.
-#'retrieved in number, url, and computing time.
-#'@param verbose The default is TRUE, which return the information of the return.
-#'object.
-#'@return A list contains query_time, queried_term, url ,variable_names, manual_info and data
+#'@param term numeric Must be a numeric vector.
+#'
+#'@param verbose logical, indicates whether get_meetings should print out
+#'detailed output when retrieving the data. The default is TRUE.
+
+#'@return list contains: \describe{
+#'\item{`query_time`}{the queried time}
+#'\item{`queried_term`}{the queried term}
+#'\item{`url`}{the retrieved json url}
+#'\item{`variable_names`}{the variables of the tibble dataframe}
+#'\item{`manual_info`}{the offical manual}
+#'\item{`data`}{a tibble dataframe}
+#'} contains query_time, queried_term, url ,variable_names, manual_info and data
 #'
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
+#'
+#'@details `get_legislators` produces a list, which contains  `query_time`,
+#'`queried_term`, `url`, `variable_names`, `manual_info` and `data`.
 #'
 #'@export
 #'

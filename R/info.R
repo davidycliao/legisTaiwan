@@ -1,8 +1,21 @@
 #' Check all function information
 #'
-#'@param param_ characters. The parameter should be `get_parlquestions`,
-#'`get_legislators`, `get_executive_response`, `get_bills`, `get_meetings`,
-#'`get_caucus_meetings` or `get_public_debates`,
+#'@param `param_` characters. Must be one of options below: \describe{
+#'\item{get_bills}{get_bills: the records of the bills, see \url{https://data.ly.gov.tw/getds.action?id=6}}
+#'\item{get_bills_2}{the records of legislators and the government proposals, see \url{https://data.ly.gov.tw/getds.action?id=6}}
+#'\item{get_meetings}{the spoken meeting records, see \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}}
+#'\item{get_caucus_meetings}{the meeting records of cross-caucus session, see \url{https://data.ly.gov.tw/getds.action?id=8}}
+#'\item{get_speech_video}{the full video information of meetings and committees, see \url{https://data.ly.gov.tw/getds.action?id=148}}
+#'\item{get_public_debates}{the records of national public debates, see \url{https://data.ly.gov.tw/getds.action?id=7}}
+#'\item{get_parlquestions}{the records of parliamentary questions, see \url{https://data.ly.gov.tw/getds.action?id=6}}
+#'\item{get_executive_response}{the records of the questions answered by the executives, see \url{https://data.ly.gov.tw/getds.action?id=2}}
+#'}
+#'
+#'@return list \describe{
+#'\item{`page_info`}{information of the end point}
+#'\item{`reference_url`}{the url of the page}}
+#'
+#'@details `get_variable_info` produces a list, which contains `page_info` and `reference_url`.
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
@@ -11,22 +24,12 @@
 #'@importFrom stringi stri_escape_unicode
 #'
 #'@export
-#'@seealso
-#'stringi::stri_escape_unicode("質詢事項(本院委員質詢部分)")  \url{https://data.ly.gov.tw/getds.action?id=6}
-#'stringi::stri_escape_unicode("歷屆委員資料") \url{https://data.ly.gov.tw/getds.action?id=16}
-#'stringi::stri_escape_unicode("行政院答復") \url{https://data.ly.gov.tw/getds.action?id=2}
-#'stringi::stri_escape_unicode("黨團協商")  \url{https://data.ly.gov.tw/getds.action?id=8}
-#'stringi::stri_escape_unicode("委員發言片段相關影片資訊")  \url{https://data.ly.gov.tw/getds.action?id=148}
-#'stringi::stri_escape_unicode("質詢事項 (行政院答復部分) ") \url{https://data.ly.gov.tw/getds.action?id=1}
-#'stringi::stri_escape_unicode("國是論壇") 國是論壇 \url{https://data.ly.gov.tw/getds.action?id=7}
-#'stringi::stri_escape_unicode("委員發言(API)") \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}
-#'stringi::stri_escape_unicode("法律提案(API)") \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}
 
-get_variabel_infos <- function(param_) {
+get_variable_info <- function(param_) {
   legisTaiwan::check_internet()
-  attempt::stop_if_all(param_, is.numeric, msg = "use string format only")
-  attempt::stop_if_all(param_, is.null, msg = "use correct funtion names")
-  attempt::stop_if(param_ , ~ length(.x) >1, msg = "only allowed to query one variable")
+  attempt::stop_if_all(param_, is.numeric, msg = "use string format only.")
+  attempt::stop_if_all(param_, is.null, msg = "use correct funtion names.")
+  attempt::stop_if(param_ , ~ length(.x) >1, msg = "only allowed to query one function.")
   if (param_ == "get_parlquestions") {
     url <- "https://data.ly.gov.tw/getds.action?id=6"
   }
@@ -68,7 +71,7 @@ get_variabel_infos <- function(param_) {
          get_caucus_meetings: the meeting records of cross-caucus session
          get_speech_video: the full video information of meetings and committees
          get_public_debates: the records of national public debates
-         get_parlquestions:  the records of parliamentary questions
+         get_parlquestions: the records of parliamentary questions
          get_executive_response: the records of the questions answered by the executives")
     }
     html <- rvest::html_nodes(rvest::read_html(url), "*[id='content']")

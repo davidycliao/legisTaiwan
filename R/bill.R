@@ -3,15 +3,20 @@
 #'@param start_date Requesting meeting records starting from the date. A double
 #'represents a date in ROC Taiwan format. If a double is used, it should specify
 #' as Taiwan calendar format, e.g. 1090110.
+#'
 #'@param end_date Requesting meeting records ending from the date. A double
 #'represents a date in ROC Taiwan format.If a double is used, it should specify
 #'as Taiwan calendar format, e.g. 1090110.
+#'
 #'@param proposer The default value is NULL, which means all bill records are
 #'included between the starting date and the ending date.
+#'
 #'@param verbose The default value is TRUE, displaying the description of data
 #'retrieved in number, url and computing time.
+#'
 #'@return A tibble contains date, term, name, sessionPeriod, sessionTimes,
 #'billName, billProposer, billCosignatory, billStatus, date_ad
+#'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
 #'
@@ -74,9 +79,6 @@ get_bills <- function(start_date = NULL, end_date = NULL,
     }
   )
 }
-
-
-
 
 #' Retrieving the records of legislators and the government proposals 議案提案
 #'

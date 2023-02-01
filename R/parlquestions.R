@@ -10,7 +10,9 @@
 #'@param verbose logical, indicates whether get_meetings should print out
 #'detailed output when retrieving the data. The default is TRUE
 #'
-#'@return An object of the list, which contains query_time,
+#'@return list
+#'
+#'@details Function produces a list, which contains query_time,
 #'retrieved_number, retrieved_term, url, variable_names, manual_info and data.
 #'
 #'
@@ -19,9 +21,9 @@
 #'
 #'@export
 #'@examples
-#' ## search data description
-#' ## 資料說明引所
-#'get_variabel_infos("get_parlquestions")
+#' ## presenting the description of parliamentary questions.
+#' ## 資料說明索引
+#'get_variable_info("get_parlquestions")
 #'
 #' ## query parliamentary questions by term.
 #' ## 輸入「立委會期」下載立委質詢資料
