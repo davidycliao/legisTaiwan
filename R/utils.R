@@ -30,7 +30,6 @@ is_online <- function(site = "https://data.ly.gov.tw/index.action") {
 #' A simple way to check IP for connectivity
 #'@seealso
 #'\url{https://stackoverflow.com/questions/5076593/how-to-determine-if-you-have-an-internet-connection-in-r?noredirect=1&lq=1}
-#'
 havingIP <- function() {
   if (.Platform$OS.type == "windows") {
     ipmessage <- system("ipconfig", intern = TRUE)
@@ -45,38 +44,25 @@ havingIP <- function() {
 
 #' A basic check for internet connectivity
 #'
-#'@param x  The default value is curl::has_internet(), which activate the
-#'internet check.
-#'@export
-#'@importFrom attempt stop_if_not
-#'@importFrom curl has_internet
-check_internet <- function(x = curl::has_internet()) {
-  attempt::stop_if_not(.x = x,
-                       msg = "Please check the internet connetion")
-}
-
-#' A basic check for internet connectivity
+#'@param x  The default value is `curl::has_internet()`, which activate the
+#'internet connectivity check.
 #'
-#'@param x  The default value is curl::has_internet(), which activate the
-#'internet check.
-#'@export
 #'@importFrom attempt stop_if_not
 #'@importFrom curl has_internet
+#'@export
 check_internet <- function(x = curl::has_internet()) {
   attempt::stop_if_not(.x = x,
                        msg = "Please check the internet connetion")
 }
-
-
-# with_warning(as.numeric, msg = "We're performing a numeric conversion")
-
-
 
 #' A basic check for the API
 #'
 #'@param start_date  start_date is inherited from global env.
+#'
 #'@param end_date  end_date is inherited from global env.
+#'
 #'@export
+#'
 #'@importFrom attempt stop_if_not
 
 api_check <- function(start_date = start_date, end_date = end_date) {
@@ -97,11 +83,13 @@ api_check <- function(start_date = start_date, end_date = end_date) {
 #'
 #'@param roc_date Date format in Taiwan ROC calendar (e.g., "105/05/31")
 #'as a string vector
+#'
 #'@return date format in A.D. format
 #'
 #'@importFrom stringr str_split_1
 #'@export
 #'@examples
+#'
 #'transformed_date_meeting("105/05/31")
 
 transformed_date_meeting <- function(roc_date) {
@@ -112,7 +100,6 @@ transformed_date_meeting <- function(roc_date) {
                                 origin = "1582-10-14", tz = "GMT"))
   return(date_ad)
 }
-
 
 #' Transforming the date in Taiwan ROC calendar to A.D. format for get_bill()
 #'
@@ -135,7 +122,6 @@ transformed_date_bill <- function(roc_date) {
                                 origin = "1582-10-14", tz = "GMT"))
   return(date_ad)
 }
-
 
 #' Checking the date
 #'

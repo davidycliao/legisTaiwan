@@ -1,4 +1,4 @@
-#' Retrieving the spoken meeting records 下載「委員發言」
+#' Retrieving the spoken meeting records 委員發言
 #'
 #'@param start_date numeric or double formatted by Taiwan calander. Requesting
 #'meeting records starting from the date. If a double is used, it should specify

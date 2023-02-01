@@ -4,7 +4,7 @@
 #'
 #'@param verbose logical, indicates whether get_meetings should print out
 #'detailed output when retrieving the data. The default is TRUE.
-
+#'
 #'@return list contains: \describe{
 #'\item{`query_time`}{the queried time}
 #'\item{`queried_term`}{the queried term}

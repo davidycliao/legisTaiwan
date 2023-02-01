@@ -2,7 +2,7 @@
 % Please edit documentation in R/meeting.R
 \name{get_meetings}
 \alias{get_meetings}
-\title{Retrieving the spoken meeting records 下載「委員發言」}
+\title{Retrieving the spoken meeting records 委員發言}
 \usage{
 get_meetings(
   start_date = NULL,
@@ -32,7 +32,7 @@ meeting_unit, start_date_ad, end_date_ad, start_date, end_date, url,
 variable_names, manual_info and data.
 }
 \description{
-Retrieving the spoken meeting records 下載「委員發言」
+Retrieving the spoken meeting records 委員發言
 }
 \examples{
 ## query meeting records by a period of the dates in Taiwan ROC calender format
