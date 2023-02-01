@@ -1,19 +1,19 @@
-#' Check all function information
+#' Check each function's manuals
 #'
 #'@param param_ characters. Must be one of options below: \describe{
-#'\item{get_bills}{get_bills: the records of the bills, see \url{https://data.ly.gov.tw/getds.action?id=6}}
-#'\item{get_bills_2}{the records of legislators and the government proposals, see \url{https://data.ly.gov.tw/getds.action?id=6}}
-#'\item{get_meetings}{the spoken meeting records, see \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}}
-#'\item{get_caucus_meetings}{the meeting records of cross-caucus session, see \url{https://data.ly.gov.tw/getds.action?id=8}}
-#'\item{get_speech_video}{the full video information of meetings and committees, see \url{https://data.ly.gov.tw/getds.action?id=148}}
-#'\item{get_public_debates}{the records of national public debates, see \url{https://data.ly.gov.tw/getds.action?id=7}}
-#'\item{get_parlquestions}{the records of parliamentary questions, see \url{https://data.ly.gov.tw/getds.action?id=6}}
-#'\item{get_executive_response}{the records of the questions answered by the executives, see \url{https://data.ly.gov.tw/getds.action?id=2}}
+#'      \item{get_bills}{get_bills: the records of the bills, see \url{https://data.ly.gov.tw/getds.action?id=6}}
+#'      \item{get_bills_2}{the records of legislators and the government proposals, see \url{https://data.ly.gov.tw/getds.action?id=6}}
+#'      \item{get_meetings}{the spoken meeting records, see \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}}
+#'      \item{get_caucus_meetings}{the meeting records of cross-caucus session, see \url{https://data.ly.gov.tw/getds.action?id=8}}
+#'      \item{get_speech_video}{the full video information of meetings and committees, see \url{https://data.ly.gov.tw/getds.action?id=148}}
+#'      \item{get_public_debates}{the records of national public debates, see \url{https://data.ly.gov.tw/getds.action?id=7}}
+#'      \item{get_parlquestions}{the records of parliamentary questions, see \url{https://data.ly.gov.tw/getds.action?id=6}}
+#'      \item{get_executive_response}{the records of the questions answered by the executives, see \url{https://data.ly.gov.tw/getds.action?id=2}}
 #'}
 #'
 #'@return list \describe{
-#'\item{`page_info`}{information of the end point}
-#'\item{`reference_url`}{the url of the page}}
+#'      \item{`page_info`}{information of the end point}
+#'      \item{`reference_url`}{the url of the page}}
 #'
 #'@details `get_variable_info` produces a list, which contains `page_info` and `reference_url`.
 #'

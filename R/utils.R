@@ -2,34 +2,32 @@
 
 #' @export .onAttach
 .onAttach <- function(...) {
-  check_internet()
   packageStartupMessage("## legisTaiwan                                            ###")
   packageStartupMessage("## An R package connecting to the Taiwan Legislative API. ###")
 
 }
 
-
-#' A simple way to check for the website connectivity
+#' A check for the website availability and connection
 #'
 #'@param site https://data.ly.gov.tw/index.action
 #'@export
 #'@seealso
 #'\url{https://stackoverflow.com/questions/5076593/how-to-determine-if-you-have-an-internet-connection-in-r?noredirect=1&lq=1}
 
-is_online <- function(site = "https://data.ly.gov.tw/index.action") {
+website_availability <- function(site = "https://data.ly.gov.tw/index.action") {
   tryCatch({
     readLines(site, n = 1)
     TRUE
-  },
+    },
   warning = function(w) invokeRestart("muffleWarning"),
   error = function(e) FALSE)
 }
 
-#' A simple way to check IP for connectivity
+#' A check for IP and connectivity
 #'@seealso
 #'\url{https://stackoverflow.com/questions/5076593/how-to-determine-if-you-have-an-internet-connection-in-r?noredirect=1&lq=1}
 
-havingIP <- function() {
+ip_availability <- function() {
   if (.Platform$OS.type == "windows") {
     ipmessage <- system("ipconfig", intern = TRUE)
   } else {
@@ -41,7 +39,7 @@ havingIP <- function() {
 
 
 
-#' A basic check for internet connectivity
+#' A check for internet connectivity
 #'
 #'@param x  The default value is `curl::has_internet()`, which activate the
 #'internet connectivity check.
@@ -100,11 +98,14 @@ transformed_date_meeting <- function(roc_date) {
   return(date_ad)
 }
 
-#' Transforming the date in Taiwan ROC calendar to A.D. format for get_bill()
+#' Transforming the date in Taiwan ROC calendar to A.D. in POSIXct  for get_bill()
 #'
-#'@param roc_date date format in Taiwan ROC calendar (e.g., "1050531") as a
-#'string vector
-#'@return date format in A.D. format
+#'@details `check_date` transforms ROC date to a date in POSIXct, e.g. "1050531" to "2016-05-31".
+#'
+#'@param roc_date date format in Taiwan ROC calendar (e.g., "1050531") in a
+#'character vector
+#'
+#'@return date in POSIXct
 #'
 #'@importFrom stringr str_sub
 #'@export
@@ -124,9 +125,12 @@ transformed_date_bill <- function(roc_date) {
 
 #' Checking the date
 #'
-#'@param roc_date date format in Taiwan ROC calendar (e.g., "1050531") as
-#'a string vector
-#'@return date format in A.D. format
+#'@details `check_date` transforms ROC date to a date in POSIXct, e.g. "1050531" to "2016-05-31".
+#'
+#'@param roc_date date format in Taiwan ROC calendar (e.g., "1050531") in a
+#'character vector
+#'
+#'@return date in POSIXct
 #'
 #'@importFrom stringr str_sub
 #'@export

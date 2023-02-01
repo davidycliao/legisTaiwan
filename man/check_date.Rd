@@ -7,14 +7,17 @@
 check_date(roc_date)
 }
 \arguments{
-\item{roc_date}{date format in Taiwan ROC calendar (e.g., "1050531") as
-a string vector}
+\item{roc_date}{date format in Taiwan ROC calendar (e.g., "1050531") in a
+character vector}
 }
 \value{
-date format in A.D. format
+date in POSIXct
 }
 \description{
 Checking the date
+}
+\details{
+\code{check_date} transforms ROC date to a date in POSIXct, e.g. "1050531" to "2016-05-31".
 }
 \examples{
 check_date("1050531")
