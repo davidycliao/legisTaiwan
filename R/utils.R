@@ -12,11 +12,12 @@
 
 #' A simple way to check for the website connectivity
 #'
+#'@param site https://data.ly.gov.tw/index.action
 #'@export
 #'@seealso
 #'\url{https://stackoverflow.com/questions/5076593/how-to-determine-if-you-have-an-internet-connection-in-r?noredirect=1&lq=1}
 
-is_online <- function(site="https://data.ly.gov.tw/index.action") {
+is_online <- function(site = "https://data.ly.gov.tw/index.action") {
   tryCatch({
     readLines(site, n = 1)
     TRUE

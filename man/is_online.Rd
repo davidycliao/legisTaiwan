@@ -6,6 +6,9 @@
 \usage{
 is_online(site = "https://data.ly.gov.tw/index.action")
 }
+\arguments{
+\item{site}{https://data.ly.gov.tw/index.action}
+}
 \description{
 A simple way to check for the website connectivity
 }

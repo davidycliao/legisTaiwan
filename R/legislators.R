@@ -38,7 +38,6 @@
 get_legislators <- function(term = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
   if (is.null(term)) {
-    # request full data
     set_api_url <- paste("https://data.ly.gov.tw/odw/ID16Action.action?name=&sex=&party=&partyGroup=&areaName=&term=",
                          term, "=&fileType=json", sep = "")
     cat("You are now requesting full data from the API. Please make sure your connectivity is stable until its completion.\n")
