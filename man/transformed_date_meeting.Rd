@@ -17,5 +17,6 @@ date format in A.D. format
 Transforming meeting date in Taiwan ROC calendar to A.D. format
 }
 \examples{
+
 transformed_date_meeting("105/05/31")
 }

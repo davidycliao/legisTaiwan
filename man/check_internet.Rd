@@ -5,15 +5,11 @@
 \title{A basic check for internet connectivity}
 \usage{
 check_internet(x = curl::has_internet())
-
-check_internet(x = curl::has_internet())
 }
 \arguments{
-\item{x}{The default value is curl::has_internet(), which activate the
-internet check.}
+\item{x}{The default value is \code{curl::has_internet()}, which activate the
+internet connectivity check.}
 }
 \description{
-A basic check for internet connectivity
-
 A basic check for internet connectivity
 }

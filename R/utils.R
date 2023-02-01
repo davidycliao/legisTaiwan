@@ -9,7 +9,6 @@
 }
 
 
-
 #' A simple way to check for the website connectivity
 #'
 #'@param site https://data.ly.gov.tw/index.action
@@ -26,10 +25,10 @@ is_online <- function(site = "https://data.ly.gov.tw/index.action") {
   error = function(e) FALSE)
 }
 
-
 #' A simple way to check IP for connectivity
 #'@seealso
 #'\url{https://stackoverflow.com/questions/5076593/how-to-determine-if-you-have-an-internet-connection-in-r?noredirect=1&lq=1}
+
 havingIP <- function() {
   if (.Platform$OS.type == "windows") {
     ipmessage <- system("ipconfig", intern = TRUE)
