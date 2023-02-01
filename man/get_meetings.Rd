@@ -23,7 +23,7 @@ between the starting date and the ending date.}
 detailed output when retrieving the data.}
 }
 \value{
-list, which contains:  \describe{
+list, which contains: \describe{
 \item{\code{query_time}}{the query time}
 \item{\code{retrieved_number}}{the number url of the page}
 \item{\code{meeting_unit}}{the meeting unit}

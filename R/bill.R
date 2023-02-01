@@ -57,11 +57,13 @@
 #'get_bills(start_date = 1060120, end_date = 1060510,  proposer = "孔文吉&鄭天財")
 #'@seealso
 #'\url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}
-get_bills <- function(start_date = NULL, end_date = NULL,
-                      proposer = NULL, verbose = TRUE) {
+get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
+                      verbose = TRUE) {
   legisTaiwan::check_internet()
   legisTaiwan::api_check(start_date =  legisTaiwan::check_date(start_date), end_date =  legisTaiwan::check_date(end_date))
-  set_api_url <- paste("https://www.ly.gov.tw/WebAPI/LegislativeBill.aspx?from=", start_date, "&to=", end_date, "&proposer=", proposer, "&mode=json", sep = "")
+  set_api_url <- paste("https://www.ly.gov.tw/WebAPI/LegislativeBill.aspx?from=",
+                       start_date, "&to=", end_date,
+                       "&proposer=", proposer, "&mode=json", sep = "")
   tryCatch(
     {
       json_df <- jsonlite::fromJSON(set_api_url)
@@ -94,16 +96,18 @@ get_bills <- function(start_date = NULL, end_date = NULL,
   )
 }
 
-#' Retrieving the records of legislators and the government proposals 議案提案
+#' Retrieving the records of legislators and the government (executives) proposals
+#' 提供委員及政府之議案提案資訊。(自第8屆第1會期起)
 #'
-#'@param term numeric or NULL The default value is NULL.
+#'@param term numeric or NULL The default value is 8
 #'參數必須為數值，資料從自第8屆第1會期起。
 #'
 #'@param session_period numeric or NULL. Available options for the session periods
-#'is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL. 參數必須為數值。
+#'is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is 8 參數必須為數值。
 #'
 #'@param verbose The default value is TRUE, displaying the description of data
 #'retrieved in number, url and computing time.
+#'
 #'@return A list object contains a tibble carrying the variables of term, sessionPeriod,
 #' sessionTimes, meetingTimes, eyNumber, lyNumber, subject, content, docUrl
 #' selectTerm.
@@ -113,22 +117,35 @@ get_bills <- function(start_date = NULL, end_date = NULL,
 #'@importFrom jsonlite fromJSON
 #'
 #'@export
+#'
 #'@examples
 #' ## query the Executives' answered response by term and the session period.
 #' ## 輸入「立委屆期」與「會期」下載「質詢事項 (行政院答復部分)」
 #'get_bills_2(term = 8, session_period = 1)
 #'
-#'get_bills_2(term = 8, session_period = 4)
-#'
 #'@seealso
 #'\url{https://data.ly.gov.tw/getds.action?id=1}
 
-get_bills_2 <- function(term = NULL, session_period = NULL, verbose = TRUE) {
+get_bills_2 <- function(term = 8, session_period = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
+  if (is.null(term)) {
 
-  attempt::stop_if_all(term, is.character, msg = "use numeric format only")
+    set_api_url <- paste("https://data.ly.gov.tw/odw/ID20Action.action?term=",
+                         term, "&sessionPeriod=",
+                         "&sessionTimes=&meetingTimes=&billName=&billOrg=&billProposer=&billCosignatory=&fileType=json",
+                         sep = "")
+    message(" term is not defined...\n You are now requesting full data from the API. Please make sure your connectivity is stable until its completion.\n")
+  } else if (length(term) == 1) {
+    attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
+    term <- sprintf("%02d", as.numeric(term))
+  } else if (length(term)  > 1) {
+    attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
+    message("The API is unable to query multiple terms and the request mostly falls.")
+    term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
+  }
   set_api_url <- paste("https://data.ly.gov.tw/odw/ID20Action.action?term=",
-                       sprintf("%02d", as.numeric(term)), "&sessionPeriod=", sprintf("%02d", as.numeric(session_period)),
+                       term, "&sessionPeriod=",
+                       sprintf("%02d", as.numeric(session_period)),
                        "&sessionTimes=&meetingTimes=&billName=&billOrg=&billProposer=&billCosignatory=&fileType=json", sep = "")
   tryCatch(
     {

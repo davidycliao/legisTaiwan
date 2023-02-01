@@ -2,10 +2,9 @@
 
 * Fix typo in function name: `get_variabel_infos()` to `get_variable_info()`.
 
-* Add contributors and author in NAMESPACE: `shaka9487`, `國科會`, `立法院`
+* Add contributors and author in NAMESPACE: `國科會` and `立法院`
 
-* Re-document to fix HTML issues in `.Rd`.
-
+* Re-document and inserting handlers in: 
 
 # `legisTaiwan` VERSION 0.1.1
 

@@ -14,7 +14,7 @@
 #'@param verbose logical, indicates whether `get_meetings` should print out
 #'detailed output when retrieving the data.
 #'
-#'@return list, which contains:  \describe{
+#'@return list, which contains: \describe{
 #'      \item{`query_time`}{the query time}
 #'      \item{`retrieved_number`}{the number url of the page}
 #'      \item{`meeting_unit`}{the meeting unit}
@@ -292,7 +292,7 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
 #' Retrieving the records of national public debates
 #' 提供公報之國是論壇資訊，並包含書面意見。(自第8屆第1會期起)，但實際上測試資料只有第十屆。
 #'
-#'@param term numeric or NULL The default value is NULL.
+#'@param term numeric or NULL The default value is 10
 #'參數必須為數值，資料從自第8屆第1會期起。
 #'
 #'@param session_period integer or NULL. Available options for the session periods
@@ -301,7 +301,7 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
 #'@param verbose logical, indicates whether `get_public_debates` should print out
 #'detailed output when retrieving the data. The default is TRUE
 #'
-#'@return list, which contains: s\describe{
+#'@return list, which contains: \describe{
 #'      \item{`title`}{the meeting records of cross-caucus session}
 #'      \item{`query_time`}{the query time}
 #'      \item{`retrieved_number`}{the number of observation}
@@ -340,18 +340,18 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
 #'@seealso
 #'\url{https://data.ly.gov.tw/getds.action?id=7}
 
-get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRUE) {
+get_public_debates <- function(term = 10, session_period = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
   if (is.null(term)) {
     set_api_url <- paste("https://data.ly.gov.tw/odw/ID7Action.action?term=",
-                         term, "&sessionPeriod=", session_period,
+                         term, "&sessionPeriod=",
                          "&sessionTimes=&meetingTimes=&legislatorName=&speakType=&fileType=json",
                          sep = "")
     message(" term is not defined...\n You are now requesting full data from the API. Please make sure your connectivity is stable until its completion.\n")
     } else if (length(term) == 1) {
       attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
       term <- sprintf("%02d", as.numeric(term))
-    } else if (length(term) > 1) {
+    } else if (length(term)  > 1) {
       attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
       message("The API is unable to query multiple terms and the request mostly falls.")
       term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")

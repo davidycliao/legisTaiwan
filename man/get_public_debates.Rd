@@ -5,10 +5,10 @@
 \title{Retrieving the records of national public debates
 提供公報之國是論壇資訊，並包含書面意見。(自第8屆第1會期起)，但實際上測試資料只有第十屆。}
 \usage{
-get_public_debates(term = NULL, session_period = NULL, verbose = TRUE)
+get_public_debates(term = 10, session_period = NULL, verbose = TRUE)
 }
 \arguments{
-\item{term}{numeric or NULL The default value is NULL.
+\item{term}{numeric or NULL The default value is 10
 參數必須為數值，資料從自第8屆第1會期起。}
 
 \item{session_period}{integer or NULL. Available options for the session periods
@@ -18,7 +18,7 @@ is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL. 參數必須為數值。}
 detailed output when retrieving the data. The default is TRUE}
 }
 \value{
-list, which contains: s\describe{
+list, which contains: \describe{
 \item{\code{title}}{the meeting records of cross-caucus session}
 \item{\code{query_time}}{the query time}
 \item{\code{retrieved_number}}{the number of observation}

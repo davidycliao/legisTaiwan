@@ -46,7 +46,7 @@ get_variable_info <- function(param_) {
     url <- "https://data.ly.gov.tw/getds.action?id=148"
   }
   else if (param_ == "get_bills_2") {
-    url <- "https://data.ly.gov.tw/getds.action?id=1"
+    url <- "https://data.ly.gov.tw/getds.action?id=20"
   }
   else if (param_ == "get_public_debates") {
     url <- "https://data.ly.gov.tw/getds.action?id=7"
