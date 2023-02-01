@@ -2,21 +2,23 @@
 % Please edit documentation in R/utils.R
 \name{transformed_date_meeting}
 \alias{transformed_date_meeting}
-\title{Transforming meeting date in Taiwan ROC calendar to A.D. format}
+\title{Transforming the date in Taiwan ROC calendar to A.D. in POSIXct}
 \usage{
 transformed_date_meeting(roc_date)
 }
 \arguments{
-\item{roc_date}{Date format in Taiwan ROC calendar (e.g., "105/05/31")
-as a string vector}
+\item{roc_date}{Date format in Taiwan ROC calendar (e.g., "105/05/31") as a
+string vector}
 }
 \value{
-date format in A.D. format
+date in POSIXct
 }
 \description{
-Transforming meeting date in Taiwan ROC calendar to A.D. format
+Transforming the date in Taiwan ROC calendar to A.D. in POSIXct
+}
+\details{
+\code{check_date} transforms ROC date to a date in POSIXct, e.g. "105/05/31" to "2016-05-31".
 }
 \examples{
-
 transformed_date_meeting("105/05/31")
 }

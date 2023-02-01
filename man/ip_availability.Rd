@@ -2,12 +2,12 @@
 % Please edit documentation in R/utils.R
 \name{ip_availability}
 \alias{ip_availability}
-\title{A check for IP and connectivity}
+\title{A check for IP and connectivity.}
 \usage{
 ip_availability()
 }
 \description{
-A check for IP and connectivity
+A check for IP and connectivity.
 }
 \seealso{
 \url{https://stackoverflow.com/questions/5076593/how-to-determine-if-you-have-an-internet-connection-in-r?noredirect=1&lq=1}

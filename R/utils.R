@@ -7,7 +7,7 @@
 
 }
 
-#' A check for the website availability and connection
+#' A check for the website availability and connection.
 #'
 #'@param site https://data.ly.gov.tw/index.action
 #'@export
@@ -23,7 +23,7 @@ website_availability <- function(site = "https://data.ly.gov.tw/index.action") {
   error = function(e) FALSE)
 }
 
-#' A check for IP and connectivity
+#' A check for IP and connectivity.
 #'@seealso
 #'\url{https://stackoverflow.com/questions/5076593/how-to-determine-if-you-have-an-internet-connection-in-r?noredirect=1&lq=1}
 
@@ -37,9 +37,7 @@ ip_availability <- function() {
   any(grep(validIP, ipmessage))
 }
 
-
-
-#' A check for internet connectivity
+#' A check for internet connectivity.
 #'
 #'@param x  The default value is `curl::has_internet()`, which activate the
 #'internet connectivity check.
@@ -52,7 +50,7 @@ check_internet <- function(x = curl::has_internet()) {
                        msg = "Please check the internet connetion")
 }
 
-#' A basic check for the API
+#' A general check for the API and `legisTaiwan`.
 #'
 #'@param start_date  start_date is inherited from global env.
 #'
@@ -76,17 +74,18 @@ api_check <- function(start_date = start_date, end_date = end_date) {
                                    end_date, ".", sep = " "))
 }
 
-#' Transforming meeting date in Taiwan ROC calendar to A.D. format
+#' Transforming the date in Taiwan ROC calendar to A.D. in POSIXct
 #'
-#'@param roc_date Date format in Taiwan ROC calendar (e.g., "105/05/31")
-#'as a string vector
+#'@details `check_date` transforms ROC date to a date in POSIXct, e.g. "105/05/31" to "2016-05-31".
 #'
-#'@return date format in A.D. format
+#'@param roc_date Date format in Taiwan ROC calendar (e.g., "105/05/31") as a
+#'string vector
+#'
+#'@return date in POSIXct
 #'
 #'@importFrom stringr str_split_1
 #'@export
 #'@examples
-#'
 #'transformed_date_meeting("105/05/31")
 
 transformed_date_meeting <- function(roc_date) {
@@ -98,7 +97,7 @@ transformed_date_meeting <- function(roc_date) {
   return(date_ad)
 }
 
-#' Transforming the date in Taiwan ROC calendar to A.D. in POSIXct  for get_bill()
+#' Transforming the date in Taiwan ROC calendar to A.D. in POSIXct  for `get_bill()`.
 #'
 #'@details `check_date` transforms ROC date to a date in POSIXct, e.g. "1050531" to "2016-05-31".
 #'
