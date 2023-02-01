@@ -136,6 +136,7 @@
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://davidycliao.github.io/legisTaiwan/">legisTaiwan</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; ## legisTaiwan                                            ###</span></span>
 <span><span class="co">#&gt; ## An R package connecting to the Taiwan Legislative API. ###</span></span>
+<span><span class="co">#&gt; Internet connectivity succeeds!</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; ── <span style="font-weight: bold;">Attaching packages</span> ───────────────────────────────── tidyverse</span></span>
 <span><span class="co">#&gt; 1.3.2 ──</span></span>
@@ -148,6 +149,7 @@
 <span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">lag()</span>    masks <span style="color: #0000BB;">stats</span>::lag()</span></span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">info</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_legislators.html">get_legislators</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; You are now requesting full data from the API. Please make sure your connectivity is stable until its completion.</span></span>
 <span><span class="co">#&gt;  Retrieved URL: </span></span>
 <span><span class="co">#&gt;  https://data.ly.gov.tw/odw/ID16Action.action?name=&amp;sex=&amp;party=&amp;partyGroup=&amp;areaName=&amp;term==&amp;fileType=json </span></span>
 <span><span class="co">#&gt;  Retrieved term:  2 3 4 5 6 7 8 9 10</span></span>
@@ -222,7 +224,7 @@
   <footer><div class="container">
   <div class="pkgdown-footer-left">
   <p></p>
-<p>Developed by <a href="https://davidycliao.github.io" class="external-link">David Yen-Chieh Liao</a>.</p>
+<p>Developed by <a href="https://davidycliao.github.io" class="external-link">David Yen-Chieh Liao</a>, Taiwan Legislative Yuan 立法院.</p>
 </div>
 
 <div class="pkgdown-footer-right">

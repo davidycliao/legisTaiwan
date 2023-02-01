@@ -100,33 +100,76 @@
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>start_date</dt>
-<dd><p>Requesting meeting records starting from the date. A double
-represents a date in ROC Taiwan format. If a double is used, it should specify
-as Taiwan calendar format, e.g. 1090110.</p></dd>
+<dd><p>numeric Must be formatted in ROC Taiwan calendar, e.g. 1090101.</p></dd>
 
 
 <dt>end_date</dt>
-<dd><p>Requesting meeting records ending from the date. A double
-represents a date in ROC Taiwan format.If a double is used, it should specify
-as Taiwan calendar format, e.g. 1090110.</p></dd>
+<dd><p>numeric Must be formatted in ROC Taiwan calendar, e.g. 1090102.</p></dd>
 
 
 <dt>proposer</dt>
-<dd><p>The default value is NULL, which means all bill records are
-included between the starting date and the ending date.</p></dd>
+<dd><p>The default value is NULL, which means all bill proposed by all legislators
+are included between the starting date and the ending date.</p></dd>
 
 
 <dt>verbose</dt>
-<dd><p>The default value is TRUE, displaying the description of data
-retrieved in number, url and computing time.</p></dd>
+<dd><p>logical, indicates whether <code>get_bills</code> should print out
+detailed output when retrieving the data. The default value is TRUE.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>A tibble contains date, term, name, sessionPeriod, sessionTimes,
-billName, billProposer, billCosignatory, billStatus, date_ad</p>
+<p>list, which contains: s</p><dl><dt><code>title</code></dt>
+<dd><p>the meeting records of cross-caucus session</p></dd>
+
+<dt><code>query_time</code></dt>
+<dd><p>the query time</p></dd>
+
+<dt><code>retrieved_number</code></dt>
+<dd><p>the number of observation</p></dd>
+
+<dt><code>meeting_unit</code></dt>
+<dd><p>the meeting unit</p></dd>
+
+<dt><code>start_date_ad</code></dt>
+<dd><p>the start date  in POSIXct</p></dd>
+
+<dt><code>end_date_ad</code></dt>
+<dd><p>the end date in POSIXct</p></dd>
+
+<dt><code>start_date</code></dt>
+<dd><p>the start date in ROC Taiwan calendar</p></dd>
+
+<dt><code>url</code></dt>
+<dd><p>the retrieved json url</p></dd>
+
+<dt><code>variable_names</code></dt>
+<dd><p>the variables of the tibble dataframe</p></dd>
+
+<dt><code>manual_info</code></dt>
+<dd><p>the offical manual</p></dd>
+
+<dt><code>data</code></dt>
+<dd><p>a tibble dataframe, whose variables include:
+<code>term</code>,
+<code>sessionPeriod</code>,
+<code>sessionTimes</code>,
+<code>meetingTimes</code>,
+<code>billName</code>,
+<code>billProposer</code>,
+<code>billCosignatory</code>,
+<code>billStatus</code>, and
+<code>date_ad</code></p></dd>
+
+
+</dl></div>
+    <div class="section level2">
+    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
+    <p><code>get_meetings</code> produces a list, which contains <code>query_time</code>,
+<code>retrieved_number</code>, <code>meeting_unit</code>, <code>start_date_ad</code>, <code>end_date_ad</code>, <code>start_date</code>,
+<code>end_date</code>, <code>url</code>, <code>variable_names</code>, <code>manual_info</code> and <code>data</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -147,7 +190,7 @@ billName, billProposer, billCosignatory, billStatus, date_ad</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the records of bill sponsor and co-sponsor"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-01 13:27:13 GMT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-01 20:11:06 GMT"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1589</span>
@@ -197,8 +240,6 @@ billName, billProposer, billCosignatory, billStatus, date_ad</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ⁶​billStatus</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## query bill records by a period of the dates in Taiwan ROC calender format</span></span></span>
 <span class="r-in"><span><span class="co">## and a specific legislator</span></span></span>
 <span class="r-in"><span><span class="co">## 輸入「中華民國民年」與「指定立法委員」下載立法委員提案資料</span></span></span>
@@ -212,7 +253,7 @@ billName, billProposer, billCosignatory, billStatus, date_ad</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the records of bill sponsor and co-sponsor"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-01 13:27:14 GMT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-01 20:11:08 GMT"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 9</span>
@@ -260,8 +301,6 @@ billName, billProposer, billCosignatory, billStatus, date_ad</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ³​billName, ⁴​billProposer, ⁵​billCosignatory, ⁶​billStatus</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## query bill records by a period of the dates in Taiwan ROC calender format</span></span></span>
 <span class="r-in"><span><span class="co">## and multiple legislators</span></span></span>
 <span class="r-in"><span><span class="co">## 輸入「中華民國民年」與「指定多個立法委員」下載立法委員提案資料</span></span></span>
@@ -275,7 +314,7 @@ billName, billProposer, billCosignatory, billStatus, date_ad</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the records of bill sponsor and co-sponsor"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-01 13:27:15 GMT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-01 20:11:08 GMT"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 5</span>
@@ -327,7 +366,7 @@ billName, billProposer, billCosignatory, billStatus, date_ad</p>
    </div>
   <footer><div class="container">
   <div class="pkgdown-footer-left">
-  <p></p><p>Developed by <a href="https://davidycliao.github.io" class="external-link">David Yen-Chieh Liao</a>.</p>
+  <p></p><p>Developed by <a href="https://davidycliao.github.io" class="external-link">David Yen-Chieh Liao</a>, Taiwan Legislative Yuan 立法院.</p>
 </div>
 
 <div class="pkgdown-footer-right">

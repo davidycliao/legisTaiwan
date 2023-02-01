@@ -158,8 +158,48 @@ and <code>data</code>.</p>
 <span class="r-in"><span><span class="co">## 輸入「立委會期」下載立委質詢資料</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">get_parlquestions</span><span class="op">(</span>term <span class="op">=</span> <span class="fl">8</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>URL 'https://data.ly.gov.tw/odw/ID6Action.action?term=08&amp;sessionPeriod=&amp;sessionTimes=&amp;item=&amp;fileType=json': Timeout of 60 seconds was reached</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in readBin(structure(4L, class = c("url", "connection"), conn_id = &lt;pointer: 0x10ee&gt;),     raw(0), 32768L):</span> cannot read from connection</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved URL: </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  https://data.ly.gov.tw/odw/ID6Action.action?term=08&amp;sessionPeriod=&amp;sessionTimes=&amp;item=&amp;fileType=json </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved Term:  8 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved Num:  4717 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $title</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the records of parliarmentary questions"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-01 20:12:07 GMT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 4717</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_term</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $url</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://data.ly.gov.tw/odw/ID6Action.action?term=08&amp;sessionPeriod=&amp;sessionTimes=&amp;item=&amp;fileType=json"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $variable_names</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "term"          "sessionPeriod" "sessionTimes"  "item"         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [5] "selectTerm"   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $manual_info</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://data.ly.gov.tw/getds.action?id=6"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 4,717 × 5</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    term  sessionPeriod sessionTimes item                          select…¹</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 08    01            01           乙、本院委員質詢部分          all     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 08    01            01           一、本院楊委員瓊瓔，針對現行… all     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 08    01            01           二、本院楊委員瓊瓔，針對王金… all     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 08    01            01           三、本院楊委員瓊瓔，針對消費… all     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 08    01            01           四、本院楊委員瓊瓔，針對金融… all     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 08    01            01           五、本院楊委員瓊瓔，針對消基… all     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 08    01            01           六、本院楊委員瓊瓔，針對公用… all     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 08    01            01           七、本院楊委員瓊瓔，針對五都… all     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 08    01            01           八、本院楊委員瓊瓔，有鑑若干… all     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 08    01            01           九、本院楊委員瓊瓔，有鑑於往… all     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 4,707 more rows, and abbreviated variable name ¹​selectTerm</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## query parliamentary questions by term.</span></span></span>
 <span class="r-in"><span><span class="co">## 輸入「立委屆期」與「會期」下載立委質詢資料</span></span></span>
@@ -173,7 +213,7 @@ and <code>data</code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the records of parliarmentary questions"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-01 13:29:21 GMT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-01 20:12:16 GMT"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 923</span>
@@ -220,7 +260,7 @@ and <code>data</code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the records of parliarmentary questions"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-01 13:29:28 GMT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-01 20:12:19 GMT"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 923</span>
@@ -263,7 +303,7 @@ and <code>data</code>.</p>
    </div>
   <footer><div class="container">
   <div class="pkgdown-footer-left">
-  <p></p><p>Developed by <a href="https://davidycliao.github.io" class="external-link">David Yen-Chieh Liao</a>.</p>
+  <p></p><p>Developed by <a href="https://davidycliao.github.io" class="external-link">David Yen-Chieh Liao</a>, Taiwan Legislative Yuan 立法院.</p>
 </div>
 
 <div class="pkgdown-footer-right">
