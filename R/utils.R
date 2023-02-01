@@ -3,13 +3,13 @@
 #'@export .onAttach
 .onAttach <- function(...) {
   packageStartupMessage("## legisTaiwan                                            ###")
-  packageStartupMessage("## An R package connecting to the Taiwan Legislative API. ### \n")
-  attempt::warn_if(.x = curl::has_internet(), .p = ~ curl::has_internet() == FALSE,
-                   msg = "Internet connectivity fails. Please check your internet connection")
+  packageStartupMessage("## An R package connecting to the Taiwan Legislative API. ### \n\n\n")
+  # attempt::warn_if(.x = curl::has_internet(), .p = ~ curl::has_internet() == FALSE,
+  #                  msg = "Internet connectivity fails. Please check your internet connection")
   attempt::message_if(.x = curl::has_internet(), .p = ~ curl::has_internet() == TRUE,
                       msg = "Internet connectivity checks!")
-  attempt::warn_if(.x = legisTaiwan::website_availability(), .p = ~ legisTaiwan::website_availability() == FALSE,
-                   msg = "The API availability fails")
+  # attempt::warn_if(.x = legisTaiwan::website_availability(), .p = ~ legisTaiwan::website_availability() == FALSE,
+  #                  msg = "The API availability fails")
   attempt::message_if(.x =  legisTaiwan::website_availability(), .p = ~  legisTaiwan::website_availability() == TRUE,
                       msg = "The API availability checks!")
 }

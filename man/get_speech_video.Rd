@@ -21,7 +21,7 @@ it should specify as Taiwan calendar format, e.g. 109/01/20.}
 detailed output when retrieving the data.}
 }
 \value{
-list, which contains: s\describe{
+list, which contains: \describe{
 \item{\code{title}}{the meeting records of cross-caucus session}
 \item{\code{query_time}}{the query time}
 \item{\code{retrieved_number}}{the number of observation}

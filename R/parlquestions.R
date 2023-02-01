@@ -1,8 +1,9 @@
-#' Retrieving the records of parliamentary questions 提供議事日程本院委員之質詢事項資訊
+#' Retrieving the records of parliamentary questions
+#' 提供議事日程本院委員之質詢事項資訊
 #'
-#'@details `get_variable_info` produces a list, which contains `query_time`,
-#'`retrieved_number`, `retrieved_term`, `url`, `variable_names`, `manual_info`
-#'and `data`.
+#'@details `get_parlquestions` produces a list, which contains `title`,
+#'`query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
+#' `manual_info` and `data`.
 #'
 #'@param term integer, numeric or null. The default is 8. The data is only
 #'available from 8th term. 參數必須為數值，資料從自第8屆第1會期起。
@@ -15,18 +16,27 @@
 #'detailed output when retrieving the data. The default is TRUE
 #'
 #'@return list contains: \describe{
+#'\item{`title`}{the records of parliamentary questions}
 #'\item{`query_time`}{the queried time}
 #'\item{`retrieved_number`}{the total number of observations}
 #'\item{`retrieved_term`}{the queried term}
 #'\item{`url`}{the retrieved json url}
 #'\item{`variable_names`}{the variables of the tibble dataframe}
 #'\item{`manual_info`}{the offical manual}
-#'\item{`data`}{a tibble dataframe} }
+#'\item{`data`}{a tibble dataframe, whose variables include:
+#'      `term`,
+#'      `sessionPeriod`,
+#'      `sessionTimes`,
+#'      `item`, and
+#'      `selectTerm`}
+#'      }
 #'
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
+#'
 #'@export
+#'
 #'@examples
 #' ## query parliamentary questions by term.
 #' ## 輸入「立委會期」下載立委質詢資料
@@ -78,12 +88,13 @@ get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
   )
 }
 
+
 #' Retrieving the records of the questions answered by the executives
 #' 提供公報質詢事項行政院答復資訊
 #'
-#'@details `get_variable_info` produces a list, which contains `query_time`,
-#'`retrieved_number`, `retrieved_term`, `url`, `variable_names`, `manual_info`
-#'and `data`.
+#'@details `get_executive_response` produces a list, which contains `title`,
+#'`query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
+#' `manual_info` and `data`.
 #'
 #'@param term integer, numeric or null. The default is 8. The data is only
 #'available from 8th term. 參數必須為數值，資料從自第8屆第1會期起。
@@ -92,23 +103,36 @@ get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
 #'options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL.
 #'參數必須為數值。
 #'
-#'@param verbose logical, indicates whether `get_executive_response` should print out
-#'detailed output when retrieving the data. The default is TRUE
+#'@param verbose logical, indicates whether `get_executive_response` should
+#'print out detailed output when retrieving the data. The default is TRUE
 #'
 #'@return list contains: \describe{
-#'\item{`query_time`}{the queried time}
-#'\item{`retrieved_number`}{the total number of observations}
-#'\item{`retrieved_term`}{the queried term}
-#'\item{`url`}{the retrieved json url}
-#'\item{`variable_names`}{the variables of the tibble dataframe}
-#'\item{`manual_info`}{the offical manual}
-#'\item{`data`}{a tibble dataframe} }
+#'    \item{`title`}{the records of the questions answered by the executives}
+#'    \item{`query_time`}{the queried time}
+#'    \item{`retrieved_number`}{the total number of observations}
+#'    \item{`retrieved_term`}{the queried term}
+#'    \item{`url`}{the retrieved json url}
+#'    \item{`variable_names`}{the variables of the tibble dataframe}
+#'    \item{`manual_info`}{the offical manual}
+#'    \item{`data`}{a tibble dataframe , whose variables include:
+#'      `term`,
+#'      `sessionPeriod`,
+#'      `sessionTimes`,
+#'      `meetingTimes`,
+#'      `eyNumber`,
+#'      `lyNumber`,
+#'      `subject`,
+#'      `content`,
+#'      `docUrl`,  and
+#'      `selectTerm`}
+#'    }
 #'
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
 #'
 #'@export
+#'
 #'@examples
 #' ## query the Executives' answered response by term and the session period.
 #' ## 輸入「立委屆期」與「會期」下載「行政院答復」

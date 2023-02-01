@@ -15,27 +15,39 @@ available from 8th term. 參數必須為數值，資料從自第8屆第1會期�
 options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL.
 參數必須為數值。}
 
-\item{verbose}{logical, indicates whether \code{get_executive_response} should print out
-detailed output when retrieving the data. The default is TRUE}
+\item{verbose}{logical, indicates whether \code{get_executive_response} should
+print out detailed output when retrieving the data. The default is TRUE}
 }
 \value{
 list contains: \describe{
+\item{\code{title}}{the records of the questions answered by the executives}
 \item{\code{query_time}}{the queried time}
 \item{\code{retrieved_number}}{the total number of observations}
 \item{\code{retrieved_term}}{the queried term}
 \item{\code{url}}{the retrieved json url}
 \item{\code{variable_names}}{the variables of the tibble dataframe}
 \item{\code{manual_info}}{the offical manual}
-\item{\code{data}}{a tibble dataframe} }
+\item{\code{data}}{a tibble dataframe , whose variables include:
+\code{term},
+\code{sessionPeriod},
+\code{sessionTimes},
+\code{meetingTimes},
+\code{eyNumber},
+\code{lyNumber},
+\code{subject},
+\code{content},
+\code{docUrl},  and
+\code{selectTerm}}
+}
 }
 \description{
 Retrieving the records of the questions answered by the executives
 提供公報質詢事項行政院答復資訊
 }
 \details{
-\code{get_variable_info} produces a list, which contains \code{query_time},
-\code{retrieved_number}, \code{retrieved_term}, \code{url}, \code{variable_names}, \code{manual_info}
-and \code{data}.
+\code{get_executive_response} produces a list, which contains \code{title},
+\code{query_time}, \code{retrieved_number}, \code{retrieved_term}, \code{url}, \code{variable_names},
+\code{manual_info} and \code{data}.
 }
 \examples{
 ## query the Executives' answered response by term and the session period.

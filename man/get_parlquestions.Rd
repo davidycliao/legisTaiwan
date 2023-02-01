@@ -2,7 +2,8 @@
 % Please edit documentation in R/parlquestions.R
 \name{get_parlquestions}
 \alias{get_parlquestions}
-\title{Retrieving the records of parliamentary questions 提供議事日程本院委員之質詢事項資訊}
+\title{Retrieving the records of parliamentary questions
+提供議事日程本院委員之質詢事項資訊}
 \usage{
 get_parlquestions(term = 8, session_period = NULL, verbose = TRUE)
 }
@@ -19,21 +20,29 @@ detailed output when retrieving the data. The default is TRUE}
 }
 \value{
 list contains: \describe{
+\item{\code{title}}{the records of parliamentary questions}
 \item{\code{query_time}}{the queried time}
 \item{\code{retrieved_number}}{the total number of observations}
 \item{\code{retrieved_term}}{the queried term}
 \item{\code{url}}{the retrieved json url}
 \item{\code{variable_names}}{the variables of the tibble dataframe}
 \item{\code{manual_info}}{the offical manual}
-\item{\code{data}}{a tibble dataframe} }
+\item{\code{data}}{a tibble dataframe, whose variables include:
+\code{term},
+\code{sessionPeriod},
+\code{sessionTimes},
+\code{item}, and
+\code{selectTerm}}
+}
 }
 \description{
-Retrieving the records of parliamentary questions 提供議事日程本院委員之質詢事項資訊
+Retrieving the records of parliamentary questions
+提供議事日程本院委員之質詢事項資訊
 }
 \details{
-\code{get_variable_info} produces a list, which contains \code{query_time},
-\code{retrieved_number}, \code{retrieved_term}, \code{url}, \code{variable_names}, \code{manual_info}
-and \code{data}.
+\code{get_parlquestions} produces a list, which contains \code{title},
+\code{query_time}, \code{retrieved_number}, \code{retrieved_term}, \code{url}, \code{variable_names},
+\code{manual_info} and \code{data}.
 }
 \examples{
 ## query parliamentary questions by term.

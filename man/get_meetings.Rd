@@ -47,9 +47,9 @@ list, which contains:  \describe{
 Retrieving the spoken meeting records 委員發言（能取得最早取得日不詳，待檢查。）
 }
 \details{
-\code{get_meetings} produces a list, which contains \code{query_time},
+\code{get_meetings} produces a list, which contains \code{title}, \code{query_time},
 \code{retrieved_number}, \code{meeting_unit}, \code{start_date_ad}, \code{end_date_ad}, \code{start_date},
-\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data.}
+\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data}.
 }
 \examples{
 ## query meeting records by a period of the dates in Taiwan ROC calender format

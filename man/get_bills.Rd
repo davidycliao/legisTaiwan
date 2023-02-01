@@ -7,40 +7,57 @@
 get_bills(start_date = NULL, end_date = NULL, proposer = NULL, verbose = TRUE)
 }
 \arguments{
-\item{start_date}{Requesting meeting records starting from the date. A double
-represents a date in ROC Taiwan format. If a double is used, it should specify
-as Taiwan calendar format, e.g. 1090110.}
+\item{start_date}{numeric Must be formatted in ROC Taiwan calendar, e.g. 1090101.}
 
-\item{end_date}{Requesting meeting records ending from the date. A double
-represents a date in ROC Taiwan format.If a double is used, it should specify
-as Taiwan calendar format, e.g. 1090110.}
+\item{end_date}{numeric Must be formatted in ROC Taiwan calendar, e.g. 1090102.}
 
-\item{proposer}{The default value is NULL, which means all bill records are
-included between the starting date and the ending date.}
+\item{proposer}{The default value is NULL, which means all bill proposed by all legislators
+are included between the starting date and the ending date.}
 
-\item{verbose}{The default value is TRUE, displaying the description of data
-retrieved in number, url and computing time.}
+\item{verbose}{logical, indicates whether \code{get_bills} should print out
+detailed output when retrieving the data. The default value is TRUE.}
 }
 \value{
-A tibble contains date, term, name, sessionPeriod, sessionTimes,
-billName, billProposer, billCosignatory, billStatus, date_ad
+list, which contains: s\describe{
+\item{\code{title}}{the meeting records of cross-caucus session}
+\item{\code{query_time}}{the query time}
+\item{\code{retrieved_number}}{the number of observation}
+\item{\code{meeting_unit}}{the meeting unit}
+\item{\code{start_date_ad}}{the start date  in POSIXct}
+\item{\code{end_date_ad}}{the end date in POSIXct}
+\item{\code{start_date}}{the start date in ROC Taiwan calendar}
+\item{\code{url}}{the retrieved json url}
+\item{\code{variable_names}}{the variables of the tibble dataframe}
+\item{\code{manual_info}}{the offical manual}
+\item{\code{data}}{a tibble dataframe, whose variables include:
+\code{term},
+\code{sessionPeriod},
+\code{sessionTimes},
+\code{meetingTimes},
+\code{billName},
+\code{billProposer},
+\code{billCosignatory},
+\code{billStatus}, and
+\code{date_ad}}
+}
 }
 \description{
 Retrieving the records of the bills 法律提案 (API)
+}
+\details{
+\code{get_meetings} produces a list, which contains \code{query_time},
+\code{retrieved_number}, \code{meeting_unit}, \code{start_date_ad}, \code{end_date_ad}, \code{start_date},
+\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data}.
 }
 \examples{
 ## query bill records by a period of the dates in Taiwan ROC calender format
 ## 輸入「中華民國民年」下載立法委員提案資料
 get_bills(start_date = 1060120, end_date = 1070310)
 
-
-
 ## query bill records by a period of the dates in Taiwan ROC calender format
 ## and a specific legislator
 ## 輸入「中華民國民年」與「指定立法委員」下載立法委員提案資料
 get_bills(start_date = 1060120, end_date = 1070310,  proposer = "孔文吉")
-
-
 
 ## query bill records by a period of the dates in Taiwan ROC calender format
 ## and multiple legislators

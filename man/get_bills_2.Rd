@@ -7,12 +7,11 @@
 get_bills_2(term = NULL, session_period = NULL, verbose = TRUE)
 }
 \arguments{
-\item{term}{Requesting answered questions by term. The parameter should be set in
-a numeric format. The default value is 8. The data is only available from 8th
-term 參數必須為數值，資料從立法院第8屆開始計算。}
+\item{term}{numeric or NULL The default value is NULL.
+參數必須為數值，資料從自第8屆第1會期起。}
 
-\item{session_period}{session in the term. The session is between 1 and 8.
-session_period 參數必須為數值。}
+\item{session_period}{numeric or NULL. Available options for the session periods
+is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL. 參數必須為數值。}
 
 \item{verbose}{The default value is TRUE, displaying the description of data
 retrieved in number, url and computing time.}

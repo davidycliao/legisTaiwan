@@ -1,8 +1,8 @@
 #' Retrieving the spoken meeting records 委員發言（能取得最早取得日不詳，待檢查。）
 #'
-#'@details `get_meetings` produces a list, which contains `query_time`,
+#'@details `get_meetings` produces a list, which contains `title`, `query_time`,
 #'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
-#'`end_date`, `url`, `variable_names`, `manual_info` and `data.`
+#'`end_date`, `url`, `variable_names`, `manual_info` and `data`.
 #'
 #'@param start_date numeric Must be formatted in ROC Taiwan calendar, e.g. 1090101.
 #'
@@ -203,7 +203,7 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL, verbose = TR
 #'@param verbose logical, indicates whether get_meetings should print out
 #'detailed output when retrieving the data.
 #'
-#'@return list, which contains: s\describe{
+#'@return list, which contains: \describe{
 #'      \item{`title`}{the meeting records of cross-caucus session}
 #'      \item{`query_time`}{the query time}
 #'      \item{`retrieved_number`}{the number of observation}
@@ -249,7 +249,7 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL, verbose = TR
 get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
   legisTaiwan::api_check(start_date = legisTaiwan::transformed_date_meeting(start_date), end_date = legisTaiwan::transformed_date_meeting(end_date))
-    # 自第9屆第1會期起 2016  民國 105
+  # 自第9屆第1會期起 2016  民國 105
   queried_year <- format(legisTaiwan::transformed_date_meeting(start_date), format = "%Y")
   attempt::warn_if(queried_year < 2016,
             isTRUE,
@@ -292,11 +292,11 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
 #' Retrieving the records of national public debates
 #' 提供公報之國是論壇資訊，並包含書面意見。(自第8屆第1會期起)，但實際上測試資料只有第十屆。
 #'
-#'@param term numeric or NULL The data is NULL. 參數必須為數值，資料從自第8屆第1會期起。
+#'@param term numeric or NULL The default value is NULL.
+#'參數必須為數值，資料從自第8屆第1會期起。
 #'
-#'@param session_period integer, numeric or NULL. Available
-#'options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL.
-#'參數必須為數值。
+#'@param session_period integer or NULL. Available options for the session periods
+#'is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL. 參數必須為數值。
 #'
 #'@param verbose logical, indicates whether `get_public_debates` should print out
 #'detailed output when retrieving the data. The default is TRUE
@@ -351,13 +351,14 @@ get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRU
     } else if (length(term) == 1) {
       attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
       term <- sprintf("%02d", as.numeric(term))
-      } else if (length(term) > 1) {
-        attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
-        message("The API is unable to query multiple terms and the request mostly falls.")
-        term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
-        }
+    } else if (length(term) > 1) {
+      attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
+      message("The API is unable to query multiple terms and the request mostly falls.")
+      term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
+      }
   set_api_url <- paste("https://data.ly.gov.tw/odw/ID7Action.action?term=",
                        term, "&sessionPeriod=",
+                       sprintf("%02d", as.numeric(session_period)),
                        "&sessionTimes=&meetingTimes=&legislatorName=&speakType=&fileType=json",
                        sep = "")
   tryCatch(

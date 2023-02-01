@@ -8,11 +8,11 @@
 get_public_debates(term = NULL, session_period = NULL, verbose = TRUE)
 }
 \arguments{
-\item{term}{numeric or NULL The data is NULL. 參數必須為數值，資料從自第8屆第1會期起。}
+\item{term}{numeric or NULL The default value is NULL.
+參數必須為數值，資料從自第8屆第1會期起。}
 
-\item{session_period}{integer, numeric or NULL. Available
-options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL.
-參數必須為數值。}
+\item{session_period}{integer or NULL. Available options for the session periods
+is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL. 參數必須為數值。}
 
 \item{verbose}{logical, indicates whether \code{get_public_debates} should print out
 detailed output when retrieving the data. The default is TRUE}
