@@ -1,6 +1,6 @@
 #' Retrieving the records of the bills 法律提案 (API)
 #'
-#'@details `get_meetings` produces a list, which contains `query_time`,
+#'@details `get_bills` produces a list, which contains `query_time`,
 #'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
 #'`end_date`, `url`, `variable_names`, `manual_info` and `data`.
 #'
@@ -99,6 +99,10 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 #' Retrieving the records of legislators and the government (executives) proposals
 #' 提供委員及政府之議案提案資訊。(自第8屆第1會期起)
 #'
+#'@details `get_bills_2` produces a list, which contains `query_time`,
+#'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
+#'`end_date`, `url`, `variable_names`, `manual_info` and `data`.
+#'
 #'@param term numeric or NULL The default value is 8
 #'參數必須為數值，資料從自第8屆第1會期起。
 #'
@@ -108,9 +112,32 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 #'@param verbose The default value is TRUE, displaying the description of data
 #'retrieved in number, url and computing time.
 #'
-#'@return A list object contains a tibble carrying the variables of term, sessionPeriod,
-#' sessionTimes, meetingTimes, eyNumber, lyNumber, subject, content, docUrl
-#' selectTerm.
+#'@return list list, which contains: \describe{
+#'      \item{`title`}{the meeting records of cross-caucus session}
+#'      \item{`query_time`}{the query time}
+#'      \item{`retrieved_number`}{the number of observation}
+#'      \item{`meeting_unit`}{the meeting unit}
+#'      \item{`start_date_ad`}{the start date  in POSIXct}
+#'      \item{`end_date_ad`}{the end date in POSIXct}
+#'      \item{`start_date`}{the start date in ROC Taiwan calendar}
+#'      \item{`url`}{the retrieved json url}
+#'      \item{`variable_names`}{the variables of the tibble dataframe}
+#'      \item{`manual_info`}{the offical manual}
+#'      \item{`data`}{a tibble dataframe, whose variables include:
+#'      `term`,
+#'      `sessionPeriod`,
+#'      `sessionTimes`,
+#'      `meetingTimes`,
+#'      `billNo`,
+#'      `billName`,
+#'      `billOrg`,
+#'      `billProposer`,
+#'      `billCosignatory`,
+#'      `billStatus`,
+#'      `pdfUrl`,
+#'      `docUrl` and
+#'      `selectTerm`}
+#'      }
 #'
 #'
 #'@importFrom attempt stop_if_all

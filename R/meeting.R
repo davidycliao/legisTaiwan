@@ -106,7 +106,7 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
 #'@param verbose logical, indicates whether `get_caucus_meetings` should print out
 #'detailed output when retrieving the data.
 #'
-#'@return list, which contains: s\describe{
+#'@return list, which contains: \describe{
 #'      \item{`title`}{the meeting records of cross-caucus session}
 #'      \item{`query_time`}{the query time}
 #'      \item{`retrieved_number`}{the number of observation}
@@ -191,14 +191,11 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL, verbose = TR
 #'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
 #'`end_date`, `url`, `variable_names`, `manual_info` and `data.`
 #'
-#'@param start_date Requesting meeting records starting from the date.
-#'A double represents a date in ROC Taiwan format.
-#'If a double is used, it should specify as Taiwan
-#'calendar format, e.g. 109/01/10.
+#'@param start_date character Must be formatted in ROC Taiwan calendar with three
+#'forward slashes between year, month and day, e.g. "106/10/20".
 #'
-#'@param end_date Requesting meeting records ending from the date.
-#' A double represents a date in ROC Taiwan format. If a double is used,
-#' it should specify as Taiwan calendar format, e.g. 109/01/20.
+#'@param end_date character Must be formatted in ROC Taiwan calendar with three
+#'forward slashes between year, month and day, e.g. "109/01/10".
 #'
 #'@param verbose logical, indicates whether get_meetings should print out
 #'detailed output when retrieving the data.
