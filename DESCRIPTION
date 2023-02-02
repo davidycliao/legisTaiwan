@@ -6,6 +6,7 @@ Authors@R: c(person("David Yen-Chieh", "Liao", email = "davidycliao@gmail.com", 
              person("Li", "Tang", email = "l.tang@mdx.ac.uk", role = c("ctb", "aut")),
              person("Taiwan Legislative Yuan", role = "cph"),
              person("Taiwan National Science and Technology Council", role = "ctb"))
+             person("Taiwan Science & Technology Policy Research and Information Center, NARLabs", role = "ctb"))
 Description: This is designed to make it quick and easy to download the 
             real-time and archives of Taiwan legislative data via 
             Taiwan Legislative Yuan API.
