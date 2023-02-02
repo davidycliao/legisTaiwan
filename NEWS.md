@@ -2,7 +2,7 @@
 
 * Fix typo in function name: `get_variabel_infos()` to `get_variable_info()`.
 
-* Add contributors and author in NAMESPACE: `國科會` and `立法院`
+* Add contributors in NAMESPACE: `國科會` and `立法院`
 
 * Re-documentation and inserting handlers
 
