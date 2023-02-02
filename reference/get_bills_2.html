@@ -124,9 +124,59 @@ retrieved in number, url and computing time.</p></dd>
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>A list object contains a tibble carrying the variables of term, sessionPeriod,
-sessionTimes, meetingTimes, eyNumber, lyNumber, subject, content, docUrl
-selectTerm.</p>
+<p>list list, which contains:</p><dl><dt><code>title</code></dt>
+<dd><p>the meeting records of cross-caucus session</p></dd>
+
+<dt><code>query_time</code></dt>
+<dd><p>the query time</p></dd>
+
+<dt><code>retrieved_number</code></dt>
+<dd><p>the number of observation</p></dd>
+
+<dt><code>meeting_unit</code></dt>
+<dd><p>the meeting unit</p></dd>
+
+<dt><code>start_date_ad</code></dt>
+<dd><p>the start date  in POSIXct</p></dd>
+
+<dt><code>end_date_ad</code></dt>
+<dd><p>the end date in POSIXct</p></dd>
+
+<dt><code>start_date</code></dt>
+<dd><p>the start date in ROC Taiwan calendar</p></dd>
+
+<dt><code>url</code></dt>
+<dd><p>the retrieved json url</p></dd>
+
+<dt><code>variable_names</code></dt>
+<dd><p>the variables of the tibble dataframe</p></dd>
+
+<dt><code>manual_info</code></dt>
+<dd><p>the offical manual</p></dd>
+
+<dt><code>data</code></dt>
+<dd><p>a tibble dataframe, whose variables include:
+<code>term</code>,
+<code>sessionPeriod</code>,
+<code>sessionTimes</code>,
+<code>meetingTimes</code>,
+<code>billNo</code>,
+<code>billName</code>,
+<code>billOrg</code>,
+<code>billProposer</code>,
+<code>billCosignatory</code>,
+<code>billStatus</code>,
+<code>pdfUrl</code>,
+<code>docUrl</code> and
+<code>selectTerm</code></p></dd>
+
+
+</dl></div>
+    <div class="section level2">
+    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
+    <p><code>get_bills_2</code> produces a list, which contains <code>query_time</code>,
+<code>retrieved_number</code>, <code>meeting_unit</code>, <code>start_date_ad</code>, <code>end_date_ad</code>, <code>start_date</code>,
+<code>end_date</code>, <code>url</code>, <code>variable_names</code>, <code>manual_info</code> and <code>data</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -146,7 +196,7 @@ selectTerm.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the records of the questions answered by the executives"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-02 14:03:11 UTC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-02 16:03:48 UTC"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1155</span>
