@@ -58,8 +58,8 @@ check_internet <- function(x = curl::has_internet()) {
 #'
 #'@param end_date  end_date is inherited from global env.
 #'
-#'
 #'@importFrom attempt stop_if_not
+#'@export
 api_check <- function(start_date = start_date, end_date = end_date) {
   attempt::stop_if_all(start_date > as.Date(Sys.time()),
                        isTRUE, msg = "The start date should not be after the system time")
