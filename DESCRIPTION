@@ -4,7 +4,6 @@ Title: The Real-time and Archives of Taiwan Legislative Data in R
 Version: 0.1.1
 Authors@R: c(person("David Yen-Chieh", "Liao", email = "davidycliao@gmail.com", role = c("aut", "cre")),
              person("Li", "Tang", email = "l.tang@mdx.ac.uk", role = c("ctb", "aut")),
-             person("Shaka", "Li", role = "ctb"),
              person("Taiwan Legislative Yuan 台灣立法院", role = "aut"),
              person("Taiwan National Science and Technology Council,  台灣國科會", role = "cph"))
 Description: This is designed to make it quick and easy to download the 
