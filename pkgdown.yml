@@ -6,7 +6,7 @@ articles:
   get_legislators: get_legislators.html
   get_parlquestions: get_parlquestions.html
   quickstart: quickstart.html
-last_built: 2023-02-02T02:06Z
+last_built: 2023-02-02T02:39Z
 urls:
   reference: https://davidycliao.github.io/legisTaiwan/reference
   article: https://davidycliao.github.io/legisTaiwan/articles
