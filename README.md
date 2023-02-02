@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# The Real-time and Archives of Taiwan Legislative Data <img src="man/figures/logo.png" align="right" width="110"/>
+# The Real-time and Archives of Taiwan Legislative Data <img src="man/figures/pkg.png" align="right" width="110"/>
 
 <!-- badges: start -->
 
