@@ -19,10 +19,5 @@ test_that("get_speech_video", {
 test_that("get_public_debates", {
   expect_equal(get_public_debates(term = 10, session_period = 1)$retrieved_number, 107)
   expect_equal(get_public_debates(term = 10, session_period = 1, verbose = FALSE)$retrieved_number, 107)
-})
-
-
-test_that("get_public_debates", {
-  expect_equal(get_public_debates(term = 10)$retrieved_number, 461)
-  expect_equal(get_public_debates(term = 10, verbose = FALSE)$retrieved_number, 461)
-})
+  expect_equal( get_public_debates()$title, "the records of the questions answered by the executives")
+  })

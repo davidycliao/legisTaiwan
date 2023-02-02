@@ -1,29 +1,19 @@
 ### Package Utility Functions
 
+#'Hello legisTaiwan
 #'@export .onAttach
 .onAttach <- function(...) {
   packageStartupMessage("## legisTaiwan                                            ###")
-  packageStartupMessage("## An R package connecting to the Taiwan Legislative API. ### \n\n\n")
-  # attempt::warn_if(.x = curl::has_internet(), .p = ~ curl::has_internet() == FALSE,
-  #                  msg = "Internet connectivity fails. Please check your internet connection")
-  attempt::message_if(.x = curl::has_internet(), .p = ~ curl::has_internet() == TRUE,
-                      msg = "Internet connectivity checks!")
-  # attempt::warn_if(.x = legisTaiwan::website_availability(), .p = ~ legisTaiwan::website_availability() == FALSE,
-  #                  msg = "The API availability fails")
-  attempt::message_if(.x =  legisTaiwan::website_availability(), .p = ~  legisTaiwan::website_availability() == TRUE,
-                      msg = "The API availability checks!")
-}
+  packageStartupMessage("## An R package connecting to the Taiwan Legislative API. ###")
 
+}
 
 #'A check for the website availability and the connection.
 #'
 #'@param site https://data.ly.gov.tw/index.action
 #'
-#'@export
-#'
 #'@seealso
 #'\url{https://stackoverflow.com/questions/5076593/how-to-determine-if-you-have-an-internet-connection-in-r?noredirect=1&lq=1}
-
 website_availability <- function(site = "https://data.ly.gov.tw/index.action") {
   tryCatch({
     readLines(site, n = 1)
@@ -37,7 +27,6 @@ website_availability <- function(site = "https://data.ly.gov.tw/index.action") {
 #' A check for IP and connectivity.
 #'@seealso
 #'\url{https://stackoverflow.com/questions/5076593/how-to-determine-if-you-have-an-internet-connection-in-r?noredirect=1&lq=1}
-
 ip_availability <- function() {
   if (.Platform$OS.type == "windows") {
     ipmessage <- system("ipconfig", intern = TRUE)
@@ -69,10 +58,8 @@ check_internet <- function(x = curl::has_internet()) {
 #'
 #'@param end_date  end_date is inherited from global env.
 #'
-#'@export
 #'
 #'@importFrom attempt stop_if_not
-
 api_check <- function(start_date = start_date, end_date = end_date) {
   attempt::stop_if_all(start_date > as.Date(Sys.time()),
                        isTRUE, msg = "The start date should not be after the system time")
@@ -101,7 +88,6 @@ api_check <- function(start_date = start_date, end_date = end_date) {
 #'@export
 #'@examples
 #'transformed_date_meeting("105/05/31")
-
 transformed_date_meeting <- function(roc_date) {
   roc_date <- stringr::str_split_1(roc_date, "/")
   date_ad <- as.Date(as.POSIXct(paste(as.numeric(roc_date[1]) + 1911,

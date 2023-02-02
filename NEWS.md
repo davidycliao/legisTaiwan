@@ -4,7 +4,7 @@
 
 * Add contributors and author in NAMESPACE: `國科會` and `立法院`
 
-* Re-document and inserting handlers in: 
+* Re-documentation and inserting handlers
 
 # `legisTaiwan` VERSION 0.1.1
 
