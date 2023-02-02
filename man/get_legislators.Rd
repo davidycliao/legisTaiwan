@@ -19,8 +19,21 @@ list contains: \describe{
 \item{\code{url}}{the retrieved json url}
 \item{\code{variable_names}}{the variables of the tibble dataframe}
 \item{\code{manual_info}}{the offical manual}
-\item{\code{data}}{a tibble dataframe}
-}
+\item{\code{data}}{a tibble dataframe , whose variables include:
+\code{term},
+\code{name},
+\code{ename},
+\code{sex},
+\code{party},
+\code{partyGroup},
+\code{areaName},
+\code{committee},
+\code{onboardDate},
+\code{degree},
+\code{picUrl},
+\code{leaveFlag},
+\code{leaveDate} and
+\code{leaveReason}}}
 }
 \description{
 Retrieving legislator' demographic information and background 提供委員基本資料

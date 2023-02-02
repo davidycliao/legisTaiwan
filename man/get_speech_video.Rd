@@ -8,14 +8,11 @@
 get_speech_video(start_date = NULL, end_date = NULL, verbose = TRUE)
 }
 \arguments{
-\item{start_date}{Requesting meeting records starting from the date.
-A double represents a date in ROC Taiwan format.
-If a double is used, it should specify as Taiwan
-calendar format, e.g. 109/01/10.}
+\item{start_date}{character Must be formatted in ROC Taiwan calendar with three
+forward slashes between year, month and day, e.g. "106/10/20".}
 
-\item{end_date}{Requesting meeting records ending from the date.
-A double represents a date in ROC Taiwan format. If a double is used,
-it should specify as Taiwan calendar format, e.g. 109/01/20.}
+\item{end_date}{character Must be formatted in ROC Taiwan calendar with three
+forward slashes between year, month and day, e.g. "109/01/10".}
 
 \item{verbose}{logical, indicates whether get_meetings should print out
 detailed output when retrieving the data.}

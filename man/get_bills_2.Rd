@@ -18,13 +18,41 @@ is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is 8 參數必須為數值。}
 retrieved in number, url and computing time.}
 }
 \value{
-A list object contains a tibble carrying the variables of term, sessionPeriod,
-sessionTimes, meetingTimes, eyNumber, lyNumber, subject, content, docUrl
-selectTerm.
+list list, which contains: \describe{
+\item{\code{title}}{the meeting records of cross-caucus session}
+\item{\code{query_time}}{the query time}
+\item{\code{retrieved_number}}{the number of observation}
+\item{\code{meeting_unit}}{the meeting unit}
+\item{\code{start_date_ad}}{the start date  in POSIXct}
+\item{\code{end_date_ad}}{the end date in POSIXct}
+\item{\code{start_date}}{the start date in ROC Taiwan calendar}
+\item{\code{url}}{the retrieved json url}
+\item{\code{variable_names}}{the variables of the tibble dataframe}
+\item{\code{manual_info}}{the offical manual}
+\item{\code{data}}{a tibble dataframe, whose variables include:
+\code{term},
+\code{sessionPeriod},
+\code{sessionTimes},
+\code{meetingTimes},
+\code{billNo},
+\code{billName},
+\code{billOrg},
+\code{billProposer},
+\code{billCosignatory},
+\code{billStatus},
+\code{pdfUrl},
+\code{docUrl} and
+\code{selectTerm}}
+}
 }
 \description{
 Retrieving the records of legislators and the government (executives) proposals
 提供委員及政府之議案提案資訊。(自第8屆第1會期起)
+}
+\details{
+\code{get_bills_2} produces a list, which contains \code{query_time},
+\code{retrieved_number}, \code{meeting_unit}, \code{start_date_ad}, \code{end_date_ad}, \code{start_date},
+\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data}.
 }
 \examples{
 ## query the Executives' answered response by term and the session period.

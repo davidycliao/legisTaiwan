@@ -337,7 +337,7 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
 #'@seealso
 #'\url{https://data.ly.gov.tw/getds.action?id=7}
 
-get_public_debates <- function(term = 10, session_period = NULL, verbose = TRUE) {
+get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
   if (is.null(term)) {
     set_api_url <- paste("https://data.ly.gov.tw/odw/ID7Action.action?term=",

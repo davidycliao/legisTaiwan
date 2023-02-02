@@ -5,7 +5,7 @@
 \title{Retrieving the records of national public debates
 提供公報之國是論壇資訊，並包含書面意見。自第8屆第1會期起，但實測資料從第十屆。}
 \usage{
-get_public_debates(term = 10, session_period = NULL, verbose = TRUE)
+get_public_debates(term = NULL, session_period = NULL, verbose = TRUE)
 }
 \arguments{
 \item{term}{numeric or NULL The default value is 10
