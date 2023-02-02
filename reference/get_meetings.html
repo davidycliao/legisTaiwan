@@ -190,7 +190,7 @@ detailed output when retrieving the data.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the spoken meeting records"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-02 19:58:10 GMT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-02 21:49:46 UTC"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1</span>
@@ -234,8 +234,63 @@ detailed output when retrieving the data.</p></dd>
 <span class="r-in"><span><span class="co">## and a meeting</span></span></span>
 <span class="r-in"><span><span class="co">## 輸入「中華民國民年」與「審查會議或委員會名稱」下載會議審查資訊</span></span></span>
 <span class="r-in"><span><span class="fu">get_meetings</span><span class="op">(</span>start_date <span class="op">=</span> <span class="fl">1060120</span>, end_date <span class="op">=</span> <span class="fl">1070310</span>, meeting_unit <span class="op">=</span> <span class="st">"內政委員會"</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>URL 'https://www.ly.gov.tw/WebAPI/LegislativeSpeech.aspx?from=1060120&amp;to=1070310&amp;meeting_unit=內政委員會&amp;mode=json': status was 'Stream error in the HTTP/2 framing layer'</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in readBin(structure(4L, class = c("url", "connection"), conn_id = &lt;pointer: 0xdc0&gt;),     raw(0), 32768L):</span> cannot read from connection</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved URL: </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  https://www.ly.gov.tw/WebAPI/LegislativeSpeech.aspx?from=1060120&amp;to=1070310&amp;meeting_unit=內政委員會&amp;mode=json </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved via : 內政委員會 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved date between: 2017-01-20 and 2018-03-10 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved number: 104 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $title</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the spoken meeting records"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-02 21:49:52 UTC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 104</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $meeting_unit</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "內政委員會"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $start_date_ad</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2017-01-20"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $end_date_ad</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2018-03-10"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $start_date</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1060120</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $end_date</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1070310</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $url</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://www.ly.gov.tw/WebAPI/LegislativeSpeech.aspx?from=1060120&amp;to=1070310&amp;meeting_unit=內政委員會&amp;mode=json"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $variable_names</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "smeeting_date"   "meeting_status"  "meeting_name"   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [4] "meeting_content" "speechers"       "meeting_unit"   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [7] "date_ad"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $manual_info</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://www.ly.gov.tw/Pages/List.aspx?nodeid=154"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 104 × 7</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    smeeting_date meeting_status meeti…¹ meeti…² speec…³ meeti…⁴ date_ad   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 107/03/08     散會(10:58)    立法院… <span style="color: #949494;">"</span>選舉…   <span style="color: #BB0000;">NA</span>     內政委… 2018-03-08</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 106/12/28     散會(17:05)    立法院… <span style="color: #949494;">"</span>一、…   <span style="color: #BB0000;">NA</span>     內政委… 2017-12-28</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 106/12/27     散會(17:36)    立法院… <span style="color: #949494;">"</span>一、…   <span style="color: #BB0000;">NA</span>     內政委… 2017-12-27</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 106/12/25     散會(12:50)    立法院… <span style="color: #949494;">"</span>一、…  <span style="color: #949494;">"</span> 0001… 內政委… 2017-12-25</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 106/12/25     散會(16:56)    立法院… <span style="color: #949494;">"</span> <span style="color: #949494;">"</span>      <span style="color: #BB0000;">NA</span>     內政委… 2017-12-25</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 106/12/22     會議結束       立法院… <span style="color: #949494;">"</span>本院…   <span style="color: #BB0000;">NA</span>     朝野黨… 2017-12-22</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 106/12/21     散會(16:46)    立法院… <span style="color: #949494;">"</span>一、…  <span style="color: #949494;">"</span> 0001… 內政委… 2017-12-21</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 106/12/20     休息           立法院… <span style="color: #949494;">"</span>一、…  <span style="color: #949494;">"</span> 0001… 內政委… 2017-12-20</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 106/12/18     散會(16:15)    立法院… <span style="color: #949494;">"</span>一、…   <span style="color: #BB0000;">NA</span>     內政委… 2017-12-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 106/12/14     散會(14:30)    立法院… <span style="color: #949494;">"</span>一、…  <span style="color: #949494;">"</span> 0001… 內政委… 2017-12-14</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 94 more rows, and abbreviated variable names ¹​meeting_name,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ²​meeting_content, ³​speechers, ⁴​meeting_unit</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
