@@ -1,4 +1,4 @@
-#' Check each function's manuals
+#' Check each function's manual
 #'
 #'@param param_ characters. Must be one of options below: \describe{
 #'      \item{get_bills}{get_bills: the records of the bills, see \url{https://data.ly.gov.tw/getds.action?id=6}}
