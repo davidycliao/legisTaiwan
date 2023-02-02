@@ -8,9 +8,6 @@ authors:
     href: https://davidycliao.github.io
   Li Tang:
     href: https://sites.google.com/view/litang2020?pli=1
-  Taiwan Legislative Yuan:
-    href: <img src="man/figures/ly.jpg"/>
-
 template:
   package: tidytemplate
   bootstrap: 5
