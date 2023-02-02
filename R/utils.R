@@ -1,7 +1,6 @@
 ### Package Utility Functions
 
-#'Hello legisTaiwan
-#'@export .onAttach
+#' @export .onAttach
 .onAttach <- function(...) {
   packageStartupMessage("## legisTaiwan                                            ###")
   packageStartupMessage("## An R package connecting to the Taiwan Legislative API. ###")
