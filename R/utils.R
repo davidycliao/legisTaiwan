@@ -7,35 +7,6 @@
 
 }
 
-#'A check for the website availability and the connection.
-#'
-#'@param site https://data.ly.gov.tw/index.action
-#'
-#'@seealso
-#'\url{https://stackoverflow.com/questions/5076593/how-to-determine-if-you-have-an-internet-connection-in-r?noredirect=1&lq=1}
-website_availability <- function(site = "https://data.ly.gov.tw/index.action") {
-  tryCatch({
-    readLines(site, n = 1)
-    TRUE
-    },
-  warning = function(w) invokeRestart("muffleWarning"),
-  error = function(e) FALSE)
-}
-
-
-#' A check for IP and connectivity.
-#'@seealso
-#'\url{https://stackoverflow.com/questions/5076593/how-to-determine-if-you-have-an-internet-connection-in-r?noredirect=1&lq=1}
-ip_availability <- function() {
-  if (.Platform$OS.type == "windows") {
-    ipmessage <- system("ipconfig", intern = TRUE)
-  } else {
-    ipmessage <- system("ifconfig", intern = TRUE)
-  }
-  validIP <- "((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)[.]){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)"
-  any(grep(validIP, ipmessage))
-}
-
 
 #' A check for internet connectivity.
 #'
