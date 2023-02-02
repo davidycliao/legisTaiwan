@@ -174,7 +174,7 @@ detailed output when retrieving the data. The default is TRUE</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">get_parlquestions</span><span class="op">(</span>term <span class="op">=</span> <span class="fl">8</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>URL 'https://data.ly.gov.tw/odw/ID6Action.action?term=08&amp;sessionPeriod=&amp;sessionTimes=&amp;item=&amp;fileType=json': Timeout of 60 seconds was reached</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in readBin(structure(9L, class = c("url", "connection"), conn_id = &lt;pointer: 0x637f&gt;),     raw(0), 32768L):</span> cannot read from connection</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in readBin(structure(4L, class = c("url", "connection"), conn_id = &lt;pointer: 0x184c&gt;),     raw(0), 32768L):</span> cannot read from connection</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## query parliamentary questions by term.</span></span></span>
 <span class="r-in"><span><span class="co">## 輸入「立委屆期」與「會期」下載立委質詢資料</span></span></span>
@@ -188,7 +188,7 @@ detailed output when retrieving the data. The default is TRUE</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the records of parliarmentary questions"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-01 22:04:23 GMT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-02 01:44:05 GMT"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 923</span>
@@ -207,21 +207,9 @@ detailed output when retrieving the data. The default is TRUE</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://data.ly.gov.tw/getds.action?id=6"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $data</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 923 × 5</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    term  sessionPeriod sessionTimes item                           selec…¹</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 08    02            01           乙、本院委員質詢部分           all    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 08    02            01           一、本院林委員滄敏，鑒於國立…  all    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 08    02            01           二、本院何委員欣純，為因應全…  all    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 08    02            01           三、本院何委員欣純，基於節能…  all    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 08    02            01           四、本院何委員欣純，為維護嬰…  all    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 08    02            01           五、本院何委員欣純，針對台中…  all    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 08    02            01           六、本院何委員欣純，針對中興…  all    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 08    02            01           七、本院何委員欣純，針對台中…  all    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 08    02            01           八、本院楊委員曜，針對101年度… all    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 08    02            01           九、本院魏委員明谷，針對經濟…  all    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 913 more rows, and abbreviated variable name ¹​selectTerm</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>restarting interrupted promise evaluation</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>internal error -3 in R_decompress1</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in get_extent(format_type_sum(type, NULL)):</span> lazy-load database '/Library/Frameworks/R.framework/Versions/4.2/Resources/library/utf8/R/utf8.rdb' is corrupt</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## query parliamentary questions by term.</span></span></span>
 <span class="r-in"><span><span class="co">## 輸入「空白」下載立委全部質詢資料</span></span></span>
@@ -235,7 +223,7 @@ detailed output when retrieving the data. The default is TRUE</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the records of parliarmentary questions"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-01 22:04:30 GMT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-02 01:44:14 GMT"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 923</span>
@@ -254,21 +242,9 @@ detailed output when retrieving the data. The default is TRUE</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://data.ly.gov.tw/getds.action?id=6"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $data</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 923 × 5</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    term  sessionPeriod sessionTimes item                           selec…¹</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 08    02            01           乙、本院委員質詢部分           all    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 08    02            01           一、本院林委員滄敏，鑒於國立…  all    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 08    02            01           二、本院何委員欣純，為因應全…  all    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 08    02            01           三、本院何委員欣純，基於節能…  all    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 08    02            01           四、本院何委員欣純，為維護嬰…  all    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 08    02            01           五、本院何委員欣純，針對台中…  all    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 08    02            01           六、本院何委員欣純，針對中興…  all    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 08    02            01           七、本院何委員欣純，針對台中…  all    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 08    02            01           八、本院楊委員曜，針對101年度… all    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 08    02            01           九、本院魏委員明谷，針對經濟…  all    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 913 more rows, and abbreviated variable name ¹​selectTerm</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>restarting interrupted promise evaluation</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>internal error -3 in R_decompress1</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in get_extent(format_type_sum(type, NULL)):</span> lazy-load database '/Library/Frameworks/R.framework/Versions/4.2/Resources/library/utf8/R/utf8.rdb' is corrupt</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
@@ -278,7 +254,7 @@ detailed output when retrieving the data. The default is TRUE</p></dd>
    </div>
   <footer><div class="container">
   <div class="pkgdown-footer-left">
-  <p></p><p>Developed by <a href="https://davidycliao.github.io" class="external-link">David Yen-Chieh Liao</a>, Taiwan Legislative Yuan 立法院.</p>
+  <p></p><p>Developed by <a href="https://davidycliao.github.io" class="external-link">David Yen-Chieh Liao</a>, <a href="https://sites.google.com/view/litang2020?pli=1" class="external-link">Li Tang</a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">

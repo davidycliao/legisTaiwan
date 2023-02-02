@@ -199,7 +199,7 @@ detailed output when retrieving the data.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the meeting records of cross-caucus session"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-01 22:02:45 GMT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-02 01:42:22 GMT"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 30</span>
@@ -229,24 +229,9 @@ detailed output when retrieving the data.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://data.ly.gov.tw/getds.action?id=8"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $data</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 30 × 15</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    comYear comVolume comBo…¹ term  sessi…² sessi…³ meeti…⁴ meeti…⁵ meeti…⁶</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 103     43        <span style="color: #949494;">"</span>四<span style="color: #949494;">"</span>    08    05      12      null    101053… 黨團協…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 103     43        <span style="color: #949494;">"</span>四<span style="color: #949494;">"</span>    08    05      12      null    102010… 黨團協…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 106     103       <span style="color: #949494;">"</span>下<span style="color: #949494;">"</span>    null  null    null    null    1061120 黨團協…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 106     108       <span style="color: #949494;">""</span>      09    04      10      null    1061122 黨團協…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 106     108       <span style="color: #949494;">""</span>      09    04      10      null    1061129 黨團協…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 106     113       <span style="color: #949494;">"</span>下<span style="color: #949494;">"</span>    null  null    null    null    1061130 黨團協…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 106     113       <span style="color: #949494;">"</span>下<span style="color: #949494;">"</span>    null  null    null    null    1061201 黨團協…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 106     116       <span style="color: #949494;">"</span>下<span style="color: #949494;">"</span>    09    04      12      null    1061208 黨團協…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 106     87        <span style="color: #949494;">"</span>下<span style="color: #949494;">"</span>    09    04      06      null    1061030 黨團協…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 106     87        <span style="color: #949494;">"</span>下<span style="color: #949494;">"</span>    09    04      null    null    1061031 立法院…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 20 more rows, 6 more variables: subject &lt;chr&gt;, pageStart &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   pageEnd &lt;chr&gt;, docUrl &lt;chr&gt;, htmlUrl &lt;chr&gt;, selectTerm &lt;chr&gt;, and</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   abbreviated variable names ¹​comBookId, ²​sessionPeriod, ³​sessionTimes,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ⁴​meetingTimes, ⁵​meetingDate, ⁶​meetingName</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>restarting interrupted promise evaluation</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>internal error -3 in R_decompress1</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in get_extent(format_type_sum(type, NULL)):</span> lazy-load database '/Library/Frameworks/R.framework/Versions/4.2/Resources/library/utf8/R/utf8.rdb' is corrupt</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
@@ -257,7 +242,7 @@ detailed output when retrieving the data.</p></dd>
    </div>
   <footer><div class="container">
   <div class="pkgdown-footer-left">
-  <p></p><p>Developed by <a href="https://davidycliao.github.io" class="external-link">David Yen-Chieh Liao</a>, Taiwan Legislative Yuan 立法院.</p>
+  <p></p><p>Developed by <a href="https://davidycliao.github.io" class="external-link">David Yen-Chieh Liao</a>, <a href="https://sites.google.com/view/litang2020?pli=1" class="external-link">Li Tang</a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">
