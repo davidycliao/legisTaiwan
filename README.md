@@ -36,14 +36,31 @@ Legislative Yuan API](https://data.ly.gov.tw/index.action).
 
 ``` r
 # install.packages("remotes")
-# remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
+remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
+#> Downloading GitHub repo davidycliao/legisTaiwan@HEAD
+#> utf8 (1.2.2 -> 1.2.3) [CRAN]
+#> Installing 1 packages: utf8
+#> 
+#>   There is a binary version available but the source version is later:
+#>      binary source needs_compilation
+#> utf8  1.2.2  1.2.3              TRUE
+#> installing the source package 'utf8'
+#> ── R CMD build ─────────────────────────────────────────────────────────────────
+#>      checking for file ‘/private/var/folders/5n/clfp8vwj01bcy2hpncvffm0r0000gn/T/RtmpCd76EQ/remotesd3b13346033d/davidycliao-legisTaiwan-111061e/DESCRIPTION’ ...  ✔  checking for file ‘/private/var/folders/5n/clfp8vwj01bcy2hpncvffm0r0000gn/T/RtmpCd76EQ/remotesd3b13346033d/davidycliao-legisTaiwan-111061e/DESCRIPTION’
+#>   ─  preparing ‘legisTaiwan’:
+#>      checking DESCRIPTION meta-information ...  ✔  checking DESCRIPTION meta-information
+#>   ─  checking for LF line-endings in source and make files and shell scripts
+#>   ─  checking for empty or unneeded directories
+#>      Omitted ‘LazyData’ from DESCRIPTION
+#>   ─  building ‘legisTaiwan_0.1.1.tar.gz’
+#>      
+#> 
 ```
 
 ``` r
 library(legisTaiwan)
 #> ## legisTaiwan                                            ###
 #> ## An R package connecting to the Taiwan Legislative API. ###
-#> Internet connectivity succeeds!
 ```
 
 ## Acknowledgement
