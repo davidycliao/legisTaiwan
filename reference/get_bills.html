@@ -185,7 +185,7 @@ detailed output when retrieving the data. The default value is TRUE.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the records of bill sponsor and co-sponsor"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-02 01:42:16 GMT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-02 02:06:13 UTC"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1589</span>
@@ -217,8 +217,23 @@ detailed output when retrieving the data. The default value is TRUE.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://www.ly.gov.tw/Pages/List.aspx?nodeid=153"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $data</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>internal error -3 in R_decompress1</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in get_extent(format_type_sum(type, NULL)):</span> lazy-load database '/Library/Frameworks/R.framework/Versions/4.2/Resources/library/utf8/R/utf8.rdb' is corrupt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1,589 × 9</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    date   term  sessi…¹ sessi…² billN…³ billP…⁴ billC…⁵ billS…⁶ date_ad   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 10703… 09    05      03      公職人… 鄭寶清… <span style="color: #949494;">"</span>黃秀…  <span style="color: #949494;">""</span>      2018-03-09</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 10703… 09    05      03      電信管… 鄭寶清  <span style="color: #949494;">"</span>莊瑞…  <span style="color: #949494;">""</span>      2018-03-09</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 10703… 09    05      03      國民教… 親民黨… <span style="color: #949494;">"</span>莊瑞…  <span style="color: #949494;">""</span>      2018-03-09</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 10703… 09    05      03      中央行… 親民黨… <span style="color: #949494;">"</span>莊瑞…  <span style="color: #949494;">""</span>      2018-03-09</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 10703… 09    05      03      行政院… 親民黨… <span style="color: #949494;">"</span>莊瑞…  <span style="color: #949494;">""</span>      2018-03-09</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 10703… 09    05      03      行政院… 親民黨… <span style="color: #949494;">"</span>莊瑞…  <span style="color: #949494;">""</span>      2018-03-09</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 10703… 09    05      03      經濟部… 親民黨… <span style="color: #949494;">"</span>莊瑞…  <span style="color: #949494;">""</span>      2018-03-09</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 10703… 09    05      03      姓名條… 鄭天財  <span style="color: #949494;">"</span>徐榛…  <span style="color: #949494;">""</span>      2018-03-09</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 10703… 09    05      03      勞工保… 鄭天財  <span style="color: #949494;">"</span>曾銘…  <span style="color: #949494;">""</span>      2018-03-09</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 10703… 09    05      03      全民健… 鄭天財  <span style="color: #949494;">"</span>徐榛…  <span style="color: #949494;">""</span>      2018-03-09</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 1,579 more rows, and abbreviated variable names ¹​sessionPeriod,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ²​sessionTimes, ³​billName, ⁴​billProposer, ⁵​billCosignatory,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ⁶​billStatus</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## query bill records by a period of the dates in Taiwan ROC calender format</span></span></span>
 <span class="r-in"><span><span class="co">## and a specific legislator</span></span></span>
@@ -233,7 +248,7 @@ detailed output when retrieving the data. The default value is TRUE.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the records of bill sponsor and co-sponsor"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-02 01:42:17 GMT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-02 02:06:13 UTC"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 9</span>
@@ -265,9 +280,21 @@ detailed output when retrieving the data. The default value is TRUE.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://www.ly.gov.tw/Pages/List.aspx?nodeid=153"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $data</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>restarting interrupted promise evaluation</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>internal error -3 in R_decompress1</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in get_extent(format_type_sum(type, NULL)):</span> lazy-load database '/Library/Frameworks/R.framework/Versions/4.2/Resources/library/utf8/R/utf8.rdb' is corrupt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 9 × 9</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   date    term  sessi…¹ sessi…² billN…³ billP…⁴ billC…⁵ billS…⁶ date_ad   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 1061222 09    04      14      山坡地… 徐榛蔚… <span style="color: #949494;">"</span>許毓…  <span style="color: #949494;">""</span>      2017-12-22</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 1061208 09    04      12      客家基… 吳志揚… <span style="color: #949494;">"</span>顏寬…  <span style="color: #949494;">""</span>      2017-12-08</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 1061006 09    04      03      勞動基… 鄭天財… <span style="color: #949494;">"</span>陳宜…  <span style="color: #949494;">""</span>      2017-10-06</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> 1060922 09    04      01      野生動… 高潞．… <span style="color: #949494;">"</span>洪慈…  <span style="color: #949494;">""</span>      2017-09-22</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> 1060428 09    03      11      前瞻基… 孔文吉  <span style="color: #949494;">"</span>曾銘…  <span style="color: #949494;">""</span>      2017-04-28</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> 1060421 09    03      10      轉型正… 國民黨… <span style="color: #949494;">"</span>林俊…  <span style="color: #949494;">""</span>      2017-04-21</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span> 1060317 09    03      05      就業服… 孔文吉… <span style="color: #949494;">"</span>曾銘…  <span style="color: #949494;">""</span>      2017-03-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">8</span> 1060317 09    03      05      原住民… 孔文吉  <span style="color: #949494;">"</span>許毓…  <span style="color: #949494;">""</span>      2017-03-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">9</span> 1060317 09    03      05      公益彩… 孔文吉… <span style="color: #949494;">"</span>簡東…  <span style="color: #949494;">""</span>      2017-03-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with abbreviated variable names ¹​sessionPeriod, ²​sessionTimes,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ³​billName, ⁴​billProposer, ⁵​billCosignatory, ⁶​billStatus</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## query bill records by a period of the dates in Taiwan ROC calender format</span></span></span>
 <span class="r-in"><span><span class="co">## and multiple legislators</span></span></span>
@@ -282,7 +309,7 @@ detailed output when retrieving the data. The default value is TRUE.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the records of bill sponsor and co-sponsor"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-02 01:42:18 GMT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-02 02:06:13 UTC"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 5</span>
@@ -314,9 +341,17 @@ detailed output when retrieving the data. The default value is TRUE.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://www.ly.gov.tw/Pages/List.aspx?nodeid=153"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $data</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>restarting interrupted promise evaluation</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>internal error -3 in R_decompress1</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in get_extent(format_type_sum(type, NULL)):</span> lazy-load database '/Library/Frameworks/R.framework/Versions/4.2/Resources/library/utf8/R/utf8.rdb' is corrupt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 5 × 9</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   date    term  sessi…¹ sessi…² billN…³ billP…⁴ billC…⁵ billS…⁶ date_ad   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 1060428 09    03      11      前瞻基… 孔文吉  <span style="color: #949494;">"</span>曾銘…  <span style="color: #949494;">""</span>      2017-04-28</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 1060421 09    03      10      轉型正… 國民黨… <span style="color: #949494;">"</span>林俊…  <span style="color: #949494;">""</span>      2017-04-21</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 1060317 09    03      05      就業服… 孔文吉… <span style="color: #949494;">"</span>曾銘…  <span style="color: #949494;">""</span>      2017-03-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> 1060317 09    03      05      原住民… 孔文吉  <span style="color: #949494;">"</span>許毓…  <span style="color: #949494;">""</span>      2017-03-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> 1060317 09    03      05      公益彩… 孔文吉… <span style="color: #949494;">"</span>簡東…  <span style="color: #949494;">""</span>      2017-03-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with abbreviated variable names ¹​sessionPeriod, ²​sessionTimes,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ³​billName, ⁴​billProposer, ⁵​billCosignatory, ⁶​billStatus</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
