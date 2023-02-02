@@ -2,17 +2,17 @@
 % Please edit documentation in R/bill.R
 \name{get_bills_2}
 \alias{get_bills_2}
-\title{Retrieving the records of legislators and the government proposals 議案提案}
+\title{Retrieving the records of legislators and the government (executives) proposals
+提供委員及政府之議案提案資訊。(自第8屆第1會期起)}
 \usage{
-get_bills_2(term = NULL, session_period = NULL, verbose = TRUE)
+get_bills_2(term = 8, session_period = NULL, verbose = TRUE)
 }
 \arguments{
-\item{term}{Requesting answered questions by term. The parameter should be set in
-a numeric format. The default value is 8. The data is only available from 8th
-term 參數必須為數值，資料從立法院第8屆開始計算。}
+\item{term}{numeric or NULL The default value is 8
+參數必須為數值，資料從自第8屆第1會期起。}
 
-\item{session_period}{session in the term. The session is between 1 and 8.
-session_period 參數必須為數值。}
+\item{session_period}{numeric or NULL. Available options for the session periods
+is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is 8 參數必須為數值。}
 
 \item{verbose}{The default value is TRUE, displaying the description of data
 retrieved in number, url and computing time.}
@@ -23,14 +23,13 @@ sessionTimes, meetingTimes, eyNumber, lyNumber, subject, content, docUrl
 selectTerm.
 }
 \description{
-Retrieving the records of legislators and the government proposals 議案提案
+Retrieving the records of legislators and the government (executives) proposals
+提供委員及政府之議案提案資訊。(自第8屆第1會期起)
 }
 \examples{
 ## query the Executives' answered response by term and the session period.
 ## 輸入「立委屆期」與「會期」下載「質詢事項 (行政院答復部分)」
 get_bills_2(term = 8, session_period = 1)
-
-get_bills_2(term = 8, session_period = 4)
 
 }
 \seealso{

@@ -2,23 +2,32 @@
 % Please edit documentation in R/legislators.R
 \name{get_legislators}
 \alias{get_legislators}
-\title{Retrieving legislator' demographic information and background}
+\title{Retrieving legislator' demographic information and background 提供委員基本資料}
 \usage{
 get_legislators(term = NULL, verbose = TRUE)
 }
 \arguments{
-\item{term}{A number, which requests answered questions from the term. The parameter should be set in
-a numeric vector.
-retrieved in number, url, and computing time.}
+\item{term}{numeric or null. The data is available from the 2nd term. 自第2屆起}
 
-\item{verbose}{The default is TRUE, which return the information of the return.
-object.}
+\item{verbose}{logical, indicates whether get_meetings should print out
+detailed output when retrieving the data. The default is TRUE.}
 }
 \value{
-A list contains query_time, queried_term, url ,variable_names, manual_info and data
+list contains: \describe{
+\item{\code{query_time}}{the queried time}
+\item{\code{queried_term}}{the queried term}
+\item{\code{url}}{the retrieved json url}
+\item{\code{variable_names}}{the variables of the tibble dataframe}
+\item{\code{manual_info}}{the offical manual}
+\item{\code{data}}{a tibble dataframe}
+}
 }
 \description{
-Retrieving legislator' demographic information and background
+Retrieving legislator' demographic information and background 提供委員基本資料
+}
+\details{
+\code{get_legislators} produces a list, which contains  \code{query_time},
+\code{queried_term}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data}.
 }
 \examples{
 ## To retrieve legislator' demographic from 8th

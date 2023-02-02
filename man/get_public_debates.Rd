@@ -2,34 +2,55 @@
 % Please edit documentation in R/meeting.R
 \name{get_public_debates}
 \alias{get_public_debates}
-\title{Retrieving the records of national public debates 下載「國是論壇」資料}
+\title{Retrieving the records of national public debates
+提供公報之國是論壇資訊，並包含書面意見。自第8屆第1會期起，但實測資料從第十屆。}
 \usage{
-get_public_debates(term = 8, session_period = NULL, verbose = TRUE)
+get_public_debates(term = 10, session_period = NULL, verbose = TRUE)
 }
 \arguments{
-\item{term}{Requesting answered questions by term. The parameter should be set
-in a numeric vector The default value is 8. The data is only available from
-the 8th term 參數必須為數值，資料從立法院「第8屆」開始計算。}
+\item{term}{numeric or NULL The default value is 10
+參數必須為數值，資料從自第8屆第1會期起。}
 
-\item{session_period}{legislative session in the term. The session is between
-1 and 8. 參數必須為數值。The parameter should be set in a numeric vector.}
+\item{session_period}{integer or NULL. Available options for the session periods
+is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL. 參數必須為數值。}
 
-\item{verbose}{logical, indicates whether get_meetings should print out
+\item{verbose}{logical, indicates whether \code{get_public_debates} should print out
 detailed output when retrieving the data. The default is TRUE}
 }
 \value{
-A list contains query_time, retrieved_number, start_date_ad,
-end_date_ad, start_date, end_date, url, variable_names, manual_info and data
+list, which contains: \describe{
+\item{\code{title}}{the meeting records of cross-caucus session}
+\item{\code{query_time}}{the query time}
+\item{\code{retrieved_number}}{the number of observation}
+\item{\code{meeting_unit}}{the meeting unit}
+\item{\code{start_date_ad}}{the start date  in POSIXct}
+\item{\code{end_date_ad}}{the end date in POSIXct}
+\item{\code{start_date}}{the start date in ROC Taiwan calendar}
+\item{\code{url}}{the retrieved json url}
+\item{\code{variable_names}}{the variables of the tibble dataframe}
+\item{\code{manual_info}}{the offical manual}
+\item{\code{data}}{a tibble dataframe, whose variables include:
+\code{term},
+\code{sessionPeriod},
+\code{sessionTimes},
+\code{meetingTimes},
+\code{dateTimeDesc},
+\code{meetingRoom},
+\code{chairman},
+\code{legislatorName},
+\code{speakType},
+\code{content}, and
+\code{selectTerm}}
+}
 }
 \description{
-Retrieving the records of national public debates 下載「國是論壇」資料
+Retrieving the records of national public debates
+提供公報之國是論壇資訊，並包含書面意見。自第8屆第1會期起，但實測資料從第十屆。
 }
 \examples{
 ## query the Executives' answered response by term and the session period.
-## 輸入「立委屆期」與「會期」下載「質詢事項 (行政院答復部分)」
+## 輸入「立委屆期」與「會期」下載國是論壇資訊。
 get_public_debates(term = 10, session_period = 2)
-
-get_public_debates(term = 10, session_period = 1)
 
 }
 \seealso{

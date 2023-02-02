@@ -2,19 +2,22 @@
 % Please edit documentation in R/utils.R
 \name{transformed_date_bill}
 \alias{transformed_date_bill}
-\title{Transforming the date in Taiwan ROC calendar to A.D. format for get_bill()}
+\title{Transforming the date in Taiwan ROC calendar to A.D. in POSIXct  for \code{get_bill()}.}
 \usage{
 transformed_date_bill(roc_date)
 }
 \arguments{
-\item{roc_date}{date format in Taiwan ROC calendar (e.g., "1050531") as a
-string vector}
+\item{roc_date}{date format in Taiwan ROC calendar (e.g., "1050531") in a
+character vector}
 }
 \value{
-date format in A.D. format
+date in POSIXct
 }
 \description{
-Transforming the date in Taiwan ROC calendar to A.D. format for get_bill()
+Transforming the date in Taiwan ROC calendar to A.D. in POSIXct  for \code{get_bill()}.
+}
+\details{
+\code{check_date} transforms ROC date to a date in POSIXct, e.g. "1050531" to "2016-05-31".
 }
 \examples{
 transformed_date_bill("1050531")

@@ -2,36 +2,64 @@
 % Please edit documentation in R/meeting.R
 \name{get_caucus_meetings}
 \alias{get_caucus_meetings}
-\title{Retrieving the meeting records of cross-caucus session 下載「黨團協商」資料}
+\title{Retrieving the meeting records of cross-caucus session
+提供公報之黨團協商資訊。(自第8屆第1會期起)}
 \usage{
 get_caucus_meetings(start_date = NULL, end_date = NULL, verbose = TRUE)
 }
 \arguments{
-\item{start_date}{Requesting meeting records starting from the date.
-A double represents a date in ROC Taiwan format.
-If a double is used, it should specify as Taiwan
-calendar format, e.g. 109/01/10.}
+\item{start_date}{character Must be formatted in ROC Taiwan calendar with three
+forward slashes between year, month and day, e.g. "106/10/20".}
 
-\item{end_date}{Requesting meeting records ending from the date.
-A double represents a date in ROC Taiwan format. If a double is used,
-it should specify as Taiwan calendar format, e.g. 109/01/20.}
+\item{end_date}{character Must be formatted in ROC Taiwan calendar with three
+forward slashes between year, month and day, e.g. "109/01/10".}
 
-\item{verbose}{logical, indicates whether get_meetings should print out
+\item{verbose}{logical, indicates whether \code{get_caucus_meetings} should print out
 detailed output when retrieving the data.}
 }
 \value{
-An object of the list, which contains query_time, retrieved_number,
-start_date_ad, end_date_ad, start_date, end_date, url, variable_names,
-manual_info and data
+list, which contains: s\describe{
+\item{\code{title}}{the meeting records of cross-caucus session}
+\item{\code{query_time}}{the query time}
+\item{\code{retrieved_number}}{the number of observation}
+\item{\code{meeting_unit}}{the meeting unit}
+\item{\code{start_date_ad}}{the start date  in POSIXct}
+\item{\code{end_date_ad}}{the end date in POSIXct}
+\item{\code{start_date}}{the start date in ROC Taiwan calendar}
+\item{\code{url}}{the retrieved json url}
+\item{\code{variable_names}}{the variables of the tibble dataframe}
+\item{\code{manual_info}}{the offical manual}
+\item{\code{data}}{a tibble dataframe, whose variables include:
+\code{comYear},
+\code{comVolume},
+\code{comBookId},
+\code{term},
+\code{sessionPeriod},
+\code{sessionTimes},
+\code{meetingTimes},
+\code{meetingDate},
+\code{meetingName},
+\code{subject},
+\code{pageEnd},
+\code{docUrl},
+\code{htmlUrl}, and
+\code{selectTerm}}
+}
 }
 \description{
-Retrieving the meeting records of cross-caucus session 下載「黨團協商」資料
+Retrieving the meeting records of cross-caucus session
+提供公報之黨團協商資訊。(自第8屆第1會期起)
+}
+\details{
+\code{get_caucus_meetings} produces a list, which contains \code{title}, \code{query_time},
+\code{retrieved_number}, \code{meeting_unit}, \code{start_date_ad}, \code{end_date_ad}, \code{start_date},
+\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data.}
 }
 \examples{
 ## query the meeting records of cross-caucus session using a period of
 ## the dates in Taiwan ROC calender format with forward slash (/).
-## 輸入「中華民國民年」下載「黨團協商」，輸入時間請依照該格式 "106/10/20"
-## ，需有「正斜線」做隔開。
+## 輸入「中華民國民年」下載「黨團協商」，輸入時間請依照該格式 "106/10/20"，
+## 需有「正斜線」做隔開。
 get_caucus_meetings(start_date = "106/10/20", end_date = "107/03/10")
 
 }

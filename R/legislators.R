@@ -1,15 +1,25 @@
-#' Retrieving legislator' demographic information and background
+#' Retrieving legislator' demographic information and background 提供委員基本資料
 #'
-#'@param term A number, which requests answered questions from the term. The parameter should be set in
-#'a numeric vector.
-#'retrieved in number, url, and computing time.
-#'@param verbose The default is TRUE, which return the information of the return.
-#'object.
-#'@return A list contains query_time, queried_term, url ,variable_names, manual_info and data
+#'@param term numeric or null. The data is available from the 2nd term. 自第2屆起
+#'
+#'@param verbose logical, indicates whether get_meetings should print out
+#'detailed output when retrieving the data. The default is TRUE.
+#'
+#'@return list contains: \describe{
+#'\item{`query_time`}{the queried time}
+#'\item{`queried_term`}{the queried term}
+#'\item{`url`}{the retrieved json url}
+#'\item{`variable_names`}{the variables of the tibble dataframe}
+#'\item{`manual_info`}{the offical manual}
+#'\item{`data`}{a tibble dataframe}
+#'}
 #'
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
+#'
+#'@details `get_legislators` produces a list, which contains  `query_time`,
+#'`queried_term`, `url`, `variable_names`, `manual_info` and `data`.
 #'
 #'@export
 #'
@@ -28,9 +38,9 @@
 get_legislators <- function(term = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
   if (is.null(term)) {
-    # request full data
     set_api_url <- paste("https://data.ly.gov.tw/odw/ID16Action.action?name=&sex=&party=&partyGroup=&areaName=&term=",
                          term, "=&fileType=json", sep = "")
+    message(" term is not defined...\n You are now requesting full data from the API. Please make sure your connectivity is stable until its completion.\n")
   } else {
     attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
     if (length(term) == 1) {
@@ -46,7 +56,7 @@ get_legislators <- function(term = NULL, verbose = TRUE) {
     {
       json_df <- jsonlite::fromJSON(set_api_url)
       df <- tibble::as_tibble(json_df$dataList)
-      attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable")
+      attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
       term <- paste(sort(as.numeric(unique(df$term))), collapse = " ", sep = ",")
       if (isTRUE(verbose)) {
         cat(" Retrieved URL: \n", set_api_url, "\n")

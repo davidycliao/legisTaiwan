@@ -2,31 +2,49 @@
 % Please edit documentation in R/parlquestions.R
 \name{get_parlquestions}
 \alias{get_parlquestions}
-\title{Retrieving the records of parliamentary questions 委員質詢事項}
+\title{Retrieving the records of parliamentary questions
+提供議事日程本院委員之質詢事項資訊}
 \usage{
 get_parlquestions(term = 8, session_period = NULL, verbose = TRUE)
 }
 \arguments{
-\item{term}{integer or numeric. The parameter should be set in a numeric
-format. The default is 8. The data is only available from 8th
-term 參數必須為數值，資料從立法院第8屆開始計算。}
+\item{term}{integer, numeric or null. The default is 8. The data is only
+available from 8th term. 參數必須為數值，資料從自第8屆第1會期起。}
 
-\item{session_period}{integer or numeric. The session is between 1 and 8.
-session_period 參數必須為數值。}
+\item{session_period}{integer, numeric or NULL. Available
+options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL.
+參數必須為數值。}
 
-\item{verbose}{logical, indicates whether get_meetings should print out
+\item{verbose}{logical, indicates whether \code{get_parlquestions} should print out
 detailed output when retrieving the data. The default is TRUE}
 }
 \value{
-An object of the list, which contains query_time,
-retrieved_number, retrieved_term, url, variable_names, manual_info and data.
+list contains: \describe{
+\item{\code{title}}{the records of parliamentary questions}
+\item{\code{query_time}}{the queried time}
+\item{\code{retrieved_number}}{the total number of observations}
+\item{\code{retrieved_term}}{the queried term}
+\item{\code{url}}{the retrieved json url}
+\item{\code{variable_names}}{the variables of the tibble dataframe}
+\item{\code{manual_info}}{the offical manual}
+\item{\code{data}}{a tibble dataframe, whose variables include:
+\code{term},
+\code{sessionPeriod},
+\code{sessionTimes},
+\code{item}, and
+\code{selectTerm}}
+}
 }
 \description{
-Retrieving the records of parliamentary questions 委員質詢事項
+Retrieving the records of parliamentary questions
+提供議事日程本院委員之質詢事項資訊
+}
+\details{
+\code{get_parlquestions} produces a list, which contains \code{title},
+\code{query_time}, \code{retrieved_number}, \code{retrieved_term}, \code{url}, \code{variable_names},
+\code{manual_info} and \code{data}.
 }
 \examples{
-
-
 ## query parliamentary questions by term.
 ## 輸入「立委會期」下載立委質詢資料
 
@@ -37,8 +55,7 @@ get_parlquestions(term = 8)
 
 get_parlquestions(term = 8, session_period = 2)
 
-
-#' ## query parliamentary questions by term.
+## query parliamentary questions by term.
 ## 輸入「空白」下載立委全部質詢資料
 
 get_parlquestions(term = 8, session_period = 2)

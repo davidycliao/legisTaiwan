@@ -3,7 +3,7 @@
 \name{get_speech_video}
 \alias{get_speech_video}
 \title{Retrieving full video information of meetings and committees
-下載「委員發言片段相關影片資訊」}
+提供立法院院會及委員會之委員發言片段相關影片資訊。(自第9屆第1會期起)}
 \usage{
 get_speech_video(start_date = NULL, end_date = NULL, verbose = TRUE)
 }
@@ -21,12 +21,43 @@ it should specify as Taiwan calendar format, e.g. 109/01/20.}
 detailed output when retrieving the data.}
 }
 \value{
-An object of the list, which contains query_time, retrieved_number, start_date_ad,
-end_date_ad, start_date, end_date, url, variable_names, manual_info and data
+list, which contains: \describe{
+\item{\code{title}}{the meeting records of cross-caucus session}
+\item{\code{query_time}}{the query time}
+\item{\code{retrieved_number}}{the number of observation}
+\item{\code{meeting_unit}}{the meeting unit}
+\item{\code{start_date_ad}}{the start date  in POSIXct}
+\item{\code{end_date_ad}}{the end date in POSIXct}
+\item{\code{start_date}}{the start date in ROC Taiwan calendar}
+\item{\code{url}}{the retrieved json url}
+\item{\code{variable_names}}{the variables of the tibble dataframe}
+\item{\code{manual_info}}{the offical manual}
+\item{\code{data}}{a tibble dataframe, whose variables include:
+\code{term},
+\code{sessionPeriod},
+\code{meetingDate},
+\code{meetingTime},
+\code{meetingTypeName},
+\code{meetingName},
+\code{meetingContent},
+\code{legislatorName},
+\code{areaName},
+\code{speechStartTime},
+\code{speechEndTime},
+\code{speechRecordUrl},
+\code{videoLength},
+\code{videoUrl}, and
+\code{selectTerm}}
+}
 }
 \description{
 Retrieving full video information of meetings and committees
-下載「委員發言片段相關影片資訊」
+提供立法院院會及委員會之委員發言片段相關影片資訊。(自第9屆第1會期起)
+}
+\details{
+\code{get_speech_video} produces a list, which contains \code{title}, \code{query_time},
+\code{retrieved_number}, \code{meeting_unit}, \code{start_date_ad}, \code{end_date_ad}, \code{start_date},
+\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data.}
 }
 \examples{
 ## query full video information of meetings and committees using a period of

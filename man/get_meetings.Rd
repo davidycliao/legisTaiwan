@@ -2,7 +2,7 @@
 % Please edit documentation in R/meeting.R
 \name{get_meetings}
 \alias{get_meetings}
-\title{Retrieving the spoken meeting records 下載「委員發言」}
+\title{Retrieving the spoken meeting records 委員發言（能取得最早取得日不詳，待檢查。）}
 \usage{
 get_meetings(
   start_date = NULL,
@@ -12,27 +12,44 @@ get_meetings(
 )
 }
 \arguments{
-\item{start_date}{numeric or double formatted by Taiwan calander. Requesting
-meeting records starting from the date. If a double is used, it should specify
-as Taiwan calendar format, e.g. 1090101.}
+\item{start_date}{numeric Must be formatted in ROC Taiwan calendar, e.g. 1090101.}
 
-\item{end_date}{numeric or double formatted by Taiwan calander. Requesting
-meeting records ending from the date. If a double is used, it should specify as Taiwan
-calendar format, e.g. 1090110.}
+\item{end_date}{numeric Must be formatted in ROC Taiwan calendar, e.g. 1090102.}
 
-\item{meeting_unit}{The default is NULL, which includes all meetings
+\item{meeting_unit}{NULL The default is NULL, which includes all meeting types
 between the starting date and the ending date.}
 
-\item{verbose}{logical, indicates whether get_meetings should print out
+\item{verbose}{logical, indicates whether \code{get_meetings} should print out
 detailed output when retrieving the data.}
 }
 \value{
-An object of the list, which contains query_time, retrieved_number,
-meeting_unit, start_date_ad, end_date_ad, start_date, end_date, url,
-variable_names, manual_info and data.
+list, which contains: \describe{
+\item{\code{query_time}}{the query time}
+\item{\code{retrieved_number}}{the number url of the page}
+\item{\code{meeting_unit}}{the meeting unit}
+\item{\code{start_date_ad}}{the start date  in POSIXct}
+\item{\code{end_date_ad}}{the end date in POSIXct}
+\item{\code{start_date}}{the start date in ROC Taiwan calendar}
+\item{\code{url}}{the retrieved json url}
+\item{\code{variable_names}}{the variables of the tibble dataframe}
+\item{\code{manual_info}}{the offical manual}
+\item{\code{data}}{a tibble dataframe, whose variables include:
+\code{smeeting_date},
+\code{meeting_status},
+\code{meeting_name},
+\code{meeting_content},
+\code{speechers},
+\code{meeting_unit},
+\code{date_ad}}
+}
 }
 \description{
-Retrieving the spoken meeting records 下載「委員發言」
+Retrieving the spoken meeting records 委員發言（能取得最早取得日不詳，待檢查。）
+}
+\details{
+\code{get_meetings} produces a list, which contains \code{title}, \code{query_time},
+\code{retrieved_number}, \code{meeting_unit}, \code{start_date_ad}, \code{end_date_ad}, \code{start_date},
+\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data}.
 }
 \examples{
 ## query meeting records by a period of the dates in Taiwan ROC calender format

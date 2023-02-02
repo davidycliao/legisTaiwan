@@ -2,6 +2,7 @@ url: https://davidycliao.github.io/legisTaiwan/
 
 home:
   title: The Real-time and Archives of Taiwan Legislative Data
+
 authors:
   David Yen-Chieh Liao:
     href: https://davidycliao.github.io
@@ -29,10 +30,12 @@ navbar:
   - icon: fa-project-diagram
     text: Examples
     menu:
-    - text: "綜合案例Ⅰ-李宜展"
-      href: articles/yi_jhan.html
-    - text: 立法委員在兩岸議題連署分析
-      href:
+    - text: 歷屆委員資料(Legislator Demographics)
+      href: articles/get_legislators.html
+    - text: 法律提案（the Records of the Bills）
+      href: articles/get_bills.html
+    - text: 立委質詢 (the Questions Asked by the Legislators)
+      href: articles/get_parlquestions.html
   - icon: fa-newspaper-o
     text: News
     menu:
@@ -43,9 +46,9 @@ navbar:
     menu:
     - text: "Reference"
       href: reference/index.html
+
+
   right:
   - icon: fa-github fa-lg
     text: GitHub
     href: https://github.com/davidycliao/legisTaiwan
-
-
