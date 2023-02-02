@@ -1,5 +1,8 @@
 #' Retrieving legislator' demographic information and background 提供委員基本資料
 #'
+#'@details `get_legislators` produces a list, which contains  `query_time`,
+#'`queried_term`, `url`, `variable_names`, `manual_info` and `data`.
+#'
 #'@param term numeric or null. The data is available from the 2nd term. 自第2屆起
 #'
 #'@param verbose logical, indicates whether get_meetings should print out
@@ -11,15 +14,24 @@
 #'\item{`url`}{the retrieved json url}
 #'\item{`variable_names`}{the variables of the tibble dataframe}
 #'\item{`manual_info`}{the offical manual}
-#'\item{`data`}{a tibble dataframe}
-#'}
-#'
+#'\item{`data`}{a tibble dataframe , whose variables include:
+#'      `term`,
+#'      `name`,
+#'      `ename`,
+#'      `sex`,
+#'      `party`,
+#'      `partyGroup`,
+#'      `areaName`,
+#'      `committee`,
+#'      `onboardDate`,
+#'      `degree`,
+#'      `picUrl`,
+#'      `leaveFlag`,
+#'      `leaveDate` and
+#'      `leaveReason`}}
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
-#'
-#'@details `get_legislators` produces a list, which contains  `query_time`,
-#'`queried_term`, `url`, `variable_names`, `manual_info` and `data`.
 #'
 #'@export
 #'

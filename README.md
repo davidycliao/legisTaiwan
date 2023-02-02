@@ -31,6 +31,7 @@ Legislative Yuan API](https://data.ly.gov.tw/index.action).
 | [`get_executive_response()`](https://davidycliao.github.io/legisTaiwan/reference/get_executive_response.html) | 8th (2014/104)   | [**Questions Answered by the Executives 提供公報質詢事項行政院答復資訊 **](https://data.ly.gov.tw/getds.action?id=1)          |
 | [`get_public_debates()`](https://davidycliao.github.io/legisTaiwan/reference/get_public_debates.html)         | 8th (2014/104)   | [**Public Debates 國是論壇**](https://data.ly.gov.tw/getds.action?id=7)                                                       |
 | [`get_speech_video()`](https://davidycliao.github.io/legisTaiwan/reference/get_speech_video.html)             | 8th (2014/104)   | [**Full Video Information of Meetings and Committees 委員發言片段相關影片資訊+**](https://data.ly.gov.tw/getds.action?id=148) |
+| [`get_variable_info()`](https://davidycliao.github.io/legisTaiwan/reference/get_variable_info.html)           | 8th (2014/104)   | [**API’s Endpoint Manual API使用說明文件**](https://davidycliao.github.io/legisTaiwan/reference/get_variable_info.html)       |
 
 ## Get Started with Using [`remotes`](https://github.com/r-lib/remotes):
 
