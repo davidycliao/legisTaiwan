@@ -107,7 +107,7 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 #'參數必須為數值，資料從自第8屆第1會期起。
 #'
 #'@param session_period numeric or NULL. Available options for the session periods
-#'is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is 8 參數必須為數值。
+#'is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL. 參數必須為數值。
 #'
 #'@param verbose The default value is TRUE, displaying the description of data
 #'retrieved in number, url and computing time.
