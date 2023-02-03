@@ -3,8 +3,7 @@
 #'@details `get_parlquestions` produces a list, which contains `title`,
 #'`query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
 #' `manual_info` and `data`. To retrieve the user manual and more information
-#' about the data frame, please use
-#' legisTaiwan::get_variable_info("get_parlquestions")`.
+#' about the data frame, please use `legisTaiwan::get_variable_info("get_parlquestions")`.
 #' 質詢類: 提供議事日程本院委員之質詢事項資訊。(自第8屆第1會期起)
 #'
 #'@param term numeric or null. The data is only available from 8th term. The default value is 8.
@@ -55,8 +54,6 @@
 #'get_parlquestions(term = 8, session_period = 2)
 #'@seealso
 #'\url{https://data.ly.gov.tw/getds.action?id=6}
-
-
 get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
   attempt::stop_if_all(term, is.character, msg = "use numeric format only")
@@ -95,16 +92,14 @@ get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
 #'@details `get_executive_response` produces a list, which contains `title`,
 #'`query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
 #' `manual_info` and `data`. To retrieve the user manual and more information
-#' about the data frame, please use
-#' legisTaiwan::get_variable_info("get_executive_response")`. 質詢類: 提供公報質
-#' 詢事項行政院答復資訊 (自第8屆第1會期起)。
+#' about the data frame, please use `legisTaiwan::get_variable_info("get_executive_response")`.
+#' 質詢類: 提供公報質詢事項行政院答復資訊 (自第8屆第1會期起)。
 #'
 #'@param term integer, numeric or null. The default is NULL. The data is only
 #'available from 8th term. 參數必須為數值，資料從自第8屆起。
 #'
 #'@param session_period integer, numeric or NULL. Available
-#'options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL.
-#'參數必須為數值。
+#'options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL. 參數必須為數值。
 #'
 #'@param verbose logical, indicates whether `get_executive_response` should
 #'print out detailed output when retrieving the data. The default is TRUE

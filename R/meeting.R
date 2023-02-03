@@ -3,10 +3,9 @@
 #'@details `get_meetings` produces a list, which contains `title`, `query_time`,
 #'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
 #'`end_date`, `url`, `variable_names`, `manual_info` and `data`.To retrieve the user
-#'manual and more information about the data frame, please use
-#'`legisTaiwan::get_variable_info("get_meetings")`.
-#'[+ ***Further Check Required***: the user manuals seems to be inconsistent with actual data. 資料似乎不一致，待確認。]()
-#'委員發言（取得最早時間不詳，待檢查。）
+#'manual and more information about the data frame, please use `legisTaiwan::get_variable_info("get_meetings")`.
+#'Further Check Required: the user manuals seems to be inconsistent
+#'with actual data. 資料似乎不一致，待確認。委員發言（取得最早時間不詳，待檢查。）
 #'
 #'@param start_date numeric Must be formatted in ROC Taiwan calendar, e.g. 1090101.
 #'
@@ -94,15 +93,13 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
 }
 
 
-
 #'The Meeting Records of Cross-caucus Session 黨團協商資訊
 #'
 #'@details `get_caucus_meetings` produces a list, which contains `title`, `query_time`,
 #'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
-#'`end_date`, `url`, `variable_names`, `manual_info` and `data.`
-#'議事類:提供公報之黨團協商資訊 (自第8屆第1會期起)。 To retrieve the user
-#'manual and more information about the data frame, please use
-#'`legisTaiwan::get_variable_info("get_caucus_meetings")`.
+#'`end_date`, `url`, `variable_names`, `manual_info` and `data.` 議事類:提供公報之黨團協商資訊 (自第8屆第1會期起)。
+#' To retrieve the user manual and more information
+#' about the data frame, please use `legisTaiwan::get_variable_info("get_caucus_meetings")`.
 #'
 #'@param start_date character Must be formatted in ROC Taiwan calendar with three
 #'forward slashes between year, month and day, e.g. "106/10/20".
@@ -197,9 +194,9 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
 #'@details `get_speech_video` produces a list, which contains `title`, `query_time`,
 #'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
 #'`end_date`, `url`, `variable_names`, `manual_info` and `data.` To retrieve the user
-#'manual and more information about the data frame, please use
-#'`legisTaiwan::get_variable_info("get_speech_video")`.
-#'會議類:提供立法院院會及委員會之委員發言片段相關影片資訊 (自第9屆第1會期起)。
+#'manual and more information about the data frame,
+#'please use `legisTaiwan::get_variable_info("get_speech_video")`. 會議類:提供立
+#'法院院會及委員會之委員發言片段相關影片資訊 (自第9屆第1會期起)。
 #'
 #'@param start_date character Must be formatted in ROC Taiwan calendar with three
 #'forward slashes between year, month and day, e.g. "106/10/20".
@@ -301,9 +298,8 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
 #'#'@details `get_public_debates` produces a list, which contains `title`, `query_time`,
 #'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
 #'`end_date`, `url`, `variable_names`, `manual_info` and `data.` To retrieve the user
-#'manual and more information about the data frame, please use
-#'`legisTaiwan::get_variable_info("get_public_debates")`. 議事類: 提供公報之國是
-#'論壇資訊，並包含書面意見。自第8屆第1會期起，但實測資料從第10屆。
+#'manual and more information about the data frame, please use `legisTaiwan::get_variable_info("get_public_debates")`.
+#'議事類: 提供公報之國是論壇資訊，並包含書面意見。自第8屆第1會期起，但實測資料從第10屆。
 #'
 #'
 #'@param term numeric or NULL The default value is 10 參數必須為數值，資料從自

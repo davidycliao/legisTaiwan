@@ -14,7 +14,9 @@
 #'internet connectivity check.
 #'
 #'@importFrom attempt stop_if_not
+#'
 #'@importFrom curl has_internet
+#'
 #'@export
 check_internet <- function(x = curl::has_internet()) {
   attempt::stop_if_not(.x = x,
@@ -29,6 +31,7 @@ check_internet <- function(x = curl::has_internet()) {
 #'@param end_date  end_date is inherited from global env.
 #'
 #'@importFrom attempt stop_if_not
+#'
 #'@export
 api_check <- function(start_date = start_date, end_date = end_date) {
   attempt::stop_if_all(start_date > as.Date(Sys.time()),
@@ -56,6 +59,7 @@ api_check <- function(start_date = start_date, end_date = end_date) {
 #'
 #'@importFrom stringr str_split_1
 #'@export
+#'
 #'@examples
 #'transformed_date_meeting("105/05/31")
 transformed_date_meeting <- function(roc_date) {
@@ -72,13 +76,14 @@ transformed_date_meeting <- function(roc_date) {
 #'
 #'@details `check_date` transforms ROC date to a date in POSIXct, e.g. "1050531" to "2016-05-31".
 #'
-#'@param roc_date date format in Taiwan ROC calendar (e.g., "1050531") in a
-#'character vector
+#'@param roc_date date format in Taiwan ROC calendar (e.g., "1050531") in a character vector
 #'
 #'@return date in POSIXct
 #'
 #'@importFrom stringr str_sub
+#'
 #'@export
+#'
 #'@examples
 #'transformed_date_bill("1050531")
 
@@ -104,10 +109,11 @@ transformed_date_bill <- function(roc_date) {
 #'@return date in POSIXct
 #'
 #'@importFrom stringr str_sub
+#'
 #'@export
+#'
 #'@examples
 #'check_date("1050531")
-
 check_date <- function(roc_date) {
   day <- stringr::str_sub(roc_date, -2, -1)
   month <- stringr::str_sub(roc_date, -4, -3)

@@ -7,8 +7,7 @@
 transformed_date_bill(roc_date)
 }
 \arguments{
-\item{roc_date}{date format in Taiwan ROC calendar (e.g., "1050531") in a
-character vector}
+\item{roc_date}{date format in Taiwan ROC calendar (e.g., "1050531") in a character vector}
 }
 \value{
 date in POSIXct

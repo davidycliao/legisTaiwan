@@ -2,9 +2,9 @@
 #'
 #'@details `get_bills` produces a list, which contains `query_time`,
 #'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
-#'`end_date`, `url`, `variable_names`, `manual_info` and `data`. To retrieve the user
-#'manual and more information about the data frame, please use
-#'`legisTaiwan::get_variable_info("get_bills")`. 法律提案
+#'`end_date`, `url`, `variable_names`, `manual_info` and `data`. 法律提案 API To retrieve the user
+#'manual and more information about the data frame, please use `legisTaiwan::get_variable_info("get_bills")`.
+#'Further Check Required: the user manuals seems to be inconsistent with actual data. 資料似乎不一致，取得最早時間不詳，待檢查。
 #'
 #'@param start_date numeric Must be formatted in ROC Taiwan calendar, e.g. 1090101.
 #'
@@ -103,8 +103,7 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 #'@details `get_bills_2` produces a list, which contains `query_time`,
 #'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
 #'`end_date`, `url`, `variable_names`, `manual_info` and `data`. To retrieve the user
-#'manual and more information about the data frame, please use
-#'`legisTaiwan::get_variable_info("get_bills_2")`.
+#'manual and more information about the data frame, please use `legisTaiwan::get_variable_info("get_bills_2")`.
 #'議事類:提供委員及政府之議案提案資訊 (自第8屆第1會期起)。
 #'
 #'@param term numeric or null. The data is only available from 8th term. The default value is 8.

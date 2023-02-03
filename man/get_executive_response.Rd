@@ -11,8 +11,7 @@ get_executive_response(term = NULL, session_period = NULL, verbose = TRUE)
 available from 8th term. 參數必須為數值，資料從自第8屆起。}
 
 \item{session_period}{integer, numeric or NULL. Available
-options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL.
-參數必須為數值。}
+options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL. 參數必須為數值。}
 
 \item{verbose}{logical, indicates whether \code{get_executive_response} should
 print out detailed output when retrieving the data. The default is TRUE}
@@ -46,9 +45,8 @@ The Records of the Questions Answered by the Executives 公報質詢事項行政
 \code{get_executive_response} produces a list, which contains \code{title},
 \code{query_time}, \code{retrieved_number}, \code{retrieved_term}, \code{url}, \code{variable_names},
 \code{manual_info} and \code{data}. To retrieve the user manual and more information
-about the data frame, please use
-legisTaiwan::get_variable_info("get_executive_response")`. 質詢類: 提供公報質
-詢事項行政院答復資訊 (自第8屆第1會期起)。
+about the data frame, please use \code{legisTaiwan::get_variable_info("get_executive_response")}.
+質詢類: 提供公報質詢事項行政院答復資訊 (自第8屆第1會期起)。
 }
 \examples{
 ## query the Executives' answered response by term and the session period.

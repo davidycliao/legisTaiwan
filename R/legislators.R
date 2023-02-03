@@ -1,4 +1,4 @@
-#' The Lgislator' Demographic Information and Background 提供委員基本資料
+#' The Legislator' Demographic Information and Background 提供委員基本資料
 #'
 #'@details `get_legislators` produces a list, which contains  `query_time`,
 #'`queried_term`, `url`, `variable_names`, `manual_info` and `data`.
@@ -49,7 +49,6 @@
 #'get_legislators()
 #'@seealso
 #'\url{https://data.ly.gov.tw/getds.action?id=16}
-#'
 get_legislators <- function(term = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
   if (is.null(term)) {

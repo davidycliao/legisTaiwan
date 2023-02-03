@@ -41,8 +41,7 @@ The Records of Parliamentary Questions Asked by the Legislators 委員質詢事�
 \code{get_parlquestions} produces a list, which contains \code{title},
 \code{query_time}, \code{retrieved_number}, \code{retrieved_term}, \code{url}, \code{variable_names},
 \code{manual_info} and \code{data}. To retrieve the user manual and more information
-about the data frame, please use
-legisTaiwan::get_variable_info("get_parlquestions")`.
+about the data frame, please use \code{legisTaiwan::get_variable_info("get_parlquestions")}.
 質詢類: 提供議事日程本院委員之質詢事項資訊。(自第8屆第1會期起)
 }
 \examples{

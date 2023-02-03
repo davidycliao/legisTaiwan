@@ -2,7 +2,7 @@
 % Please edit documentation in R/legislators.R
 \name{get_legislators}
 \alias{get_legislators}
-\title{The Lgislator' Demographic Information and Background 提供委員基本資料}
+\title{The Legislator' Demographic Information and Background 提供委員基本資料}
 \usage{
 get_legislators(term = NULL, verbose = TRUE)
 }
@@ -36,7 +36,7 @@ list contains: \describe{
 \code{leaveReason}}}
 }
 \description{
-The Lgislator' Demographic Information and Background 提供委員基本資料
+The Legislator' Demographic Information and Background 提供委員基本資料
 }
 \details{
 \code{get_legislators} produces a list, which contains  \code{query_time},
