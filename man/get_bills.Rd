@@ -30,15 +30,15 @@ list, which contains: s\describe{
 \item{\code{variable_names}}{the variables of the tibble dataframe}
 \item{\code{manual_info}}{the offical manual}
 \item{\code{data}}{a tibble dataframe, whose variables include:
-\code{term},
-\code{sessionPeriod},
-\code{sessionTimes},
-\code{meetingTimes},
-\code{billName},
-\code{billProposer},
-\code{billCosignatory},
-\code{billStatus}, and
-\code{date_ad}}
+\code{term:屆別},
+\code{sessionPeriod:會期},
+\code{sessionTimes:會次},
+\code{meetingTimes:提案日期},
+\code{billName:提案名稱},
+\code{billProposer:主提案人},
+\code{billCosignatory:連署提案},
+\verb{billStatus：}, and
+\code{date_ad:西元年}}
 }
 }
 \description{

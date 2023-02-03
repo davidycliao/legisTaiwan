@@ -3,7 +3,7 @@
 \name{get_bills_2}
 \alias{get_bills_2}
 \title{Retrieving the records of legislators and the government (executives) proposals
-提供委員及政府之議案提案資訊。(自第8屆第1會期起)}
+議事類:提供委員及政府之議案提案資訊。(自第8屆第1會期起)}
 \usage{
 get_bills_2(term = 8, session_period = NULL, verbose = TRUE)
 }
@@ -30,24 +30,24 @@ list list, which contains: \describe{
 \item{\code{variable_names}}{the variables of the tibble dataframe}
 \item{\code{manual_info}}{the offical manual}
 \item{\code{data}}{a tibble dataframe, whose variables include:
-\code{term},
-\code{sessionPeriod},
-\code{sessionTimes},
-\code{meetingTimes},
-\code{billNo},
-\code{billName},
-\code{billOrg},
-\code{billProposer},
-\code{billCosignatory},
-\code{billStatus},
-\code{pdfUrl},
-\code{docUrl} and
-\code{selectTerm}}
+\code{term: 屆別},
+\code{sessionPeriod:會期},
+\code{sessionTimes:會次},
+\code{meetingTimes:臨時會會次},
+\code{billNo:議案編號},
+\code{billName:提案名稱},
+\code{billOrg:提案單位/委員},
+\code{billProposer:提案人(委員或黨團)},
+\code{billCosignatory:連署人},
+\code{billStatus:議案狀態},
+\code{pdfUrl:關係文書pdf檔案下載位置},
+\code{docUrl:關係文書doc檔案下載位置} and
+\code{selectTerm:屆別期別篩選條件}}
 }
 }
 \description{
 Retrieving the records of legislators and the government (executives) proposals
-提供委員及政府之議案提案資訊。(自第8屆第1會期起)
+議事類:提供委員及政府之議案提案資訊。(自第8屆第1會期起)
 }
 \details{
 \code{get_bills_2} produces a list, which contains \code{query_time},
@@ -61,5 +61,5 @@ get_bills_2(term = 8, session_period = 1)
 
 }
 \seealso{
-\url{https://data.ly.gov.tw/getds.action?id=1}
+\url{https://data.ly.gov.tw/getds.action?id=20}
 }

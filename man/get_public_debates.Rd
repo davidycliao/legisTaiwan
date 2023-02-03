@@ -3,13 +3,14 @@
 \name{get_public_debates}
 \alias{get_public_debates}
 \title{Retrieving the records of national public debates
-提供公報之國是論壇資訊，並包含書面意見。自第8屆第1會期起，但實測資料從第十屆。}
+議事類: 提供公報之國是論壇資訊，並包含書面意見。自第8屆第1會期起，
+但實測資料從第10屆。}
 \usage{
 get_public_debates(term = NULL, session_period = NULL, verbose = TRUE)
 }
 \arguments{
 \item{term}{numeric or NULL The default value is 10
-參數必須為數值，資料從自第8屆第1會期起。}
+參數必須為數值，資料從自第8屆第1會期起，但實測資料從第十屆。。}
 
 \item{session_period}{integer or NULL. Available options for the session periods
 is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL. 參數必須為數值。}
@@ -30,22 +31,23 @@ list, which contains: \describe{
 \item{\code{variable_names}}{the variables of the tibble dataframe}
 \item{\code{manual_info}}{the offical manual}
 \item{\code{data}}{a tibble dataframe, whose variables include:
-\code{term},
-\code{sessionPeriod},
-\code{sessionTimes},
-\code{meetingTimes},
-\code{dateTimeDesc},
-\code{meetingRoom},
-\code{chairman},
-\code{legislatorName},
-\code{speakType},
-\code{content}, and
-\code{selectTerm}}
+\code{term: 屆別},
+\code{sessionPeriod: 會期},
+\code{sessionTimes: 會次},
+\code{meetingTimes: 臨時會會次},
+\code{dateTimeDesc:日期時間說明},
+\code{meetingRoom: 會議地點},
+\code{chairman:主持人},
+\code{legislatorName: 委員名稱},
+\code{speakType:發言類型(paper:書面發言,speak:發言)},
+\code{content:內容}, and
+\code{selectTerm:屆別期別篩選條件}}
 }
 }
 \description{
 Retrieving the records of national public debates
-提供公報之國是論壇資訊，並包含書面意見。自第8屆第1會期起，但實測資料從第十屆。
+議事類: 提供公報之國是論壇資訊，並包含書面意見。自第8屆第1會期起，
+但實測資料從第10屆。
 }
 \examples{
 ## query the Executives' answered response by term and the session period.

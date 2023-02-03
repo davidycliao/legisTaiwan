@@ -1,4 +1,5 @@
-#' Retrieving the spoken meeting records 委員發言（能取得最早取得日不詳，待檢查。）
+#' Retrieving the spoken meeting records
+#' 委員發言（能取得最早日不詳，待檢查。）
 #'
 #'@details `get_meetings` produces a list, which contains `title`, `query_time`,
 #'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
@@ -15,6 +16,7 @@
 #'detailed output when retrieving the data.
 #'
 #'@return list, which contains: \describe{
+#'      \item{`title`}{Retrieving the spoken meeting records }
 #'      \item{`query_time`}{the query time}
 #'      \item{`retrieved_number`}{the number url of the page}
 #'      \item{`meeting_unit`}{the meeting unit}
@@ -25,13 +27,13 @@
 #'      \item{`variable_names`}{the variables of the tibble dataframe}
 #'      \item{`manual_info`}{the offical manual}
 #'      \item{`data`}{a tibble dataframe, whose variables include:
-#'      `smeeting_date`,
-#'      `meeting_status`,
-#'      `meeting_name`,
-#'      `meeting_content`,
-#'      `speechers`,
-#'      `meeting_unit`,
-#'      `date_ad`}
+#'      `smeeting_date: 會議日期`,
+#'      `meeting_status: 會議狀態`,
+#'      `meeting_name: 會議名稱`,
+#'      `meeting_content: 會議事由`,
+#'      `speechers: 委員發言名單`,
+#'      `meeting_unit:主辦單位`,
+#'      `date_ad: 西元年`}
 #'      }
 #'
 #'@importFrom attempt stop_if_all
@@ -91,7 +93,7 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
 
 
 #' Retrieving the meeting records of cross-caucus session
-#' 提供公報之黨團協商資訊。(自第8屆第1會期起)
+#' 議事類:提供公報之黨團協商資訊。(自第8屆第1會期起)
 #'
 #'@details `get_caucus_meetings` produces a list, which contains `title`, `query_time`,
 #'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
@@ -118,22 +120,22 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
 #'      \item{`variable_names`}{the variables of the tibble dataframe}
 #'      \item{`manual_info`}{the offical manual}
 #'      \item{`data`}{a tibble dataframe, whose variables include:
-#'      `comYear`,
-#'      `comVolume`,
-#'      `comBookId`,
-#'      `term`,
-#'      `sessionPeriod`,
-#'      `sessionTimes`,
-#'      `meetingTimes`,
-#'      `meetingDate`,
-#'      `meetingName`,
-#'      `subject`,
-#'      `pageEnd`,
-#'      `docUrl`,
-#'      `htmlUrl`, and
-#'      `selectTerm`}
+#'      `comYear: 卷`,
+#'      `comVolume: 期`,
+#'      `comBookId: 冊別`,
+#'      `term: 屆別`,
+#'      `sessionPeriod: 會期`,
+#'      `sessionTimes: 會次`,
+#'      `meetingTimes: 臨時會會次`,
+#'      `meetingDate: 會議日期(民國年)`,
+#'      `meetingName: 會議名稱`,
+#'      `subject: 案由`,
+#'      `pageStart: 起始頁`,
+#'      `pageEnd: 結束頁`
+#'      `docUrl: 檔案下載位置 `,
+#'      `htmlUrl: html網址`, and
+#'      `selectTerm: 屆別期別篩選條件`}
 #'      }
-#'
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
@@ -185,7 +187,7 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL, verbose = TR
 
 
 #' Retrieving full video information of meetings and committees
-#' 提供立法院院會及委員會之委員發言片段相關影片資訊。(自第9屆第1會期起)
+#' 會議類:提供立法院院會及委員會之委員發言片段相關影片資訊。(自第9屆第1會期起)
 #'
 #'@details `get_speech_video` produces a list, which contains `title`, `query_time`,
 #'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
@@ -212,21 +214,21 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL, verbose = TR
 #'      \item{`variable_names`}{the variables of the tibble dataframe}
 #'      \item{`manual_info`}{the offical manual}
 #'      \item{`data`}{a tibble dataframe, whose variables include:
-#'      `term`,
-#'      `sessionPeriod`,
-#'      `meetingDate`,
-#'      `meetingTime`,
-#'      `meetingTypeName`,
-#'      `meetingName`,
-#'      `meetingContent`,
-#'      `legislatorName`,
-#'      `areaName`,
-#'      `speechStartTime`,
-#'      `speechEndTime`,
-#'      `speechRecordUrl`,
-#'      `videoLength`,
-#'      `videoUrl`, and
-#'      `selectTerm`}
+#'      `term: 屆期`,
+#'      `sessionPeriod: 會期`,
+#'      `meetingDate: 會議日期(西元年)`,
+#'      `meetingTime: 會議時間`,
+#'      `meetingTypeName: 主辦單位`,
+#'      `meetingName: 會議名稱`,
+#'      `meetingContent:會議事由`,
+#'      `legislatorName:委員姓名`,
+#'      `areaName: 選區名稱`,
+#'      `speechStartTime: 委員發言時間起`,
+#'      `speechEndTime: 委員發言時間迄`,
+#'      `speechRecordUrl: 發言紀錄網址`,
+#'      `videoLength: 影片長度`,
+#'      `videoUrl: 影片網址`, and
+#'      `selectTerm:屆別期別篩選條件`}
 #'      }
 #'
 #'@importFrom attempt stop_if_all
@@ -287,10 +289,11 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
 
 
 #' Retrieving the records of national public debates
-#' 提供公報之國是論壇資訊，並包含書面意見。自第8屆第1會期起，但實測資料從第十屆。
+#' 議事類: 提供公報之國是論壇資訊，並包含書面意見。自第8屆第1會期起，
+#' 但實測資料從第10屆。
 #'
 #'@param term numeric or NULL The default value is 10
-#'參數必須為數值，資料從自第8屆第1會期起。
+#'參數必須為數值，資料從自第8屆第1會期起，但實測資料從第十屆。。
 #'
 #'@param session_period integer or NULL. Available options for the session periods
 #'is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL. 參數必須為數值。
@@ -310,19 +313,18 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
 #'      \item{`variable_names`}{the variables of the tibble dataframe}
 #'      \item{`manual_info`}{the offical manual}
 #'      \item{`data`}{a tibble dataframe, whose variables include:
-#'      `term`,
-#'      `sessionPeriod`,
-#'      `sessionTimes`,
-#'      `meetingTimes`,
-#'      `dateTimeDesc`,
-#'      `meetingRoom`,
-#'      `chairman`,
-#'      `legislatorName`,
-#'      `speakType`,
-#'      `content`, and
-#'      `selectTerm`}
+#'      `term: 屆別`,
+#'      `sessionPeriod: 會期`,
+#'      `sessionTimes: 會次`,
+#'      `meetingTimes: 臨時會會次`,
+#'      `dateTimeDesc:日期時間說明`,
+#'      `meetingRoom: 會議地點`,
+#'      `chairman:主持人`,
+#'      `legislatorName: 委員名稱`,
+#'      `speakType:發言類型(paper:書面發言,speak:發言)`,
+#'      `content:內容`, and
+#'      `selectTerm:屆別期別篩選條件`}
 #'      }
-#'
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
@@ -375,6 +377,96 @@ get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRU
                         "url" = set_api_url,
                         "variable_names" = colnames(df),
                         "manual_info" = "https://data.ly.gov.tw/getds.action?id=7",
+                        "data" = df)
+      return(list_data)
+    },
+    error = function(error_message) {
+      message(error_message)
+    }
+  )
+}
+
+#' Retrieving the records of reviewed items in the committees
+#' 議事類: 提供委員會會議審查之議案項目。(自第8屆第1會期起)
+#'
+#'@details `get_committee_record` produces a list, which contains `title`,
+#'`query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
+#' `manual_info` and `data`.
+#'
+#'@param term integer, numeric or null. The default is 8. The data is only
+#'available from 8th term. 參數必須為數值，資料從自第8屆起。
+#'
+#'@param session_period integer, numeric or NULL. Available
+#'options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL.
+#'參數必須為數值。
+#'
+#'@param verbose logical, indicates whether `get_executive_response` should
+#'print out detailed output when retrieving the data. The default is TRUE
+#'
+#'@return list contains: \describe{
+#'    \item{`title`}{the records of the questions answered by the executives}
+#'    \item{`query_time`}{the queried time}
+#'    \item{`retrieved_number`}{the total number of observations}
+#'    \item{`retrieved_term`}{the queried term}
+#'    \item{`url`}{the retrieved json url}
+#'    \item{`variable_names`}{the variables of the tibble dataframe}
+#'    \item{`manual_info`}{the offical manual}
+#'    \item{`data`}{a tibble dataframe , whose variables include:
+#'      `term: 屆別`,
+#'      `sessionPeriod: 會期`,
+#'      `meetingNo: 會議編號`,
+#'      `billNo: 議案編號`, and
+#'      `selectTerm:屆別期別篩選條件`}
+#'    }
+#'
+#'@importFrom attempt stop_if_all
+#'@importFrom jsonlite fromJSON
+#'
+#'@export
+#'
+#'@examples
+#' ## query the committee record by term and the session period.
+#' ## 輸入「立委屆期」與「會期」下載「委員會審議之議案」
+#'get_committee_record(term = 8, session_period = 1)
+#'@seealso
+#'\url{https://data.ly.gov.tw/getds.action?id=46}
+
+get_committee_record <- function(term = 8, session_period = NULL, verbose = TRUE) {
+  legisTaiwan::check_internet()
+  if (is.null(term)) {
+    set_api_url <- paste("https://data.ly.gov.tw/odw/ID46Action.action?term=",
+                         term, "&sessionPeriod=",
+                         "&sessionTimes=01&meetingTimes=&fileType=json", sep = "")
+    message(" term is not defined...\n You are now requesting full data from the API. Please make sure your connectivity is stable until its completion.\n")
+  } else if (length(term) == 1) {
+    attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
+    term <- sprintf("%02d", as.numeric(term))
+  } else if (length(term)  > 1) {
+    attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
+    message("The API is unable to query multiple terms and the request mostly falls.")
+    term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
+  }
+  set_api_url <- paste("https://data.ly.gov.tw/odw/ID46Action.action?term=",
+                       term,
+                       "&sessionPeriod=", sprintf("%02d", as.numeric(session_period)),
+                       "&sessionTimes=01&meetingTimes=&fileType=json", sep = "")
+  tryCatch(
+    {
+      json_df <- jsonlite::fromJSON(set_api_url)
+      df <- tibble::as_tibble(json_df$dataList)
+      attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
+      if (isTRUE(verbose)) {
+        cat(" Retrieved URL: \n", set_api_url, "\n")
+        cat(" Retrieved Term: ", term, "\n")
+        cat(" Retrieved Num: ", nrow(df), "\n")
+      }
+      list_data <- list("title" = "the records of reviewed items in the committees",
+                        "query_time" = Sys.time(),
+                        "retrieved_number" = nrow(df),
+                        "retrieved_term" = term,
+                        "url" = set_api_url,
+                        "variable_names" = colnames(df),
+                        "manual_info" = "https://data.ly.gov.tw/getds.action?id=46",
                         "data" = df)
       return(list_data)
     },

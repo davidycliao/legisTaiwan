@@ -3,7 +3,7 @@
 \name{get_parlquestions}
 \alias{get_parlquestions}
 \title{Retrieving the records of parliamentary questions
-提供議事日程本院委員之質詢事項資訊}
+質詢類: 提供議事日程本院委員之質詢事項資訊。(自第8屆第1會期起)}
 \usage{
 get_parlquestions(term = 8, session_period = NULL, verbose = TRUE)
 }
@@ -28,16 +28,16 @@ list contains: \describe{
 \item{\code{variable_names}}{the variables of the tibble dataframe}
 \item{\code{manual_info}}{the offical manual}
 \item{\code{data}}{a tibble dataframe, whose variables include:
-\code{term},
-\code{sessionPeriod},
-\code{sessionTimes},
-\code{item}, and
-\code{selectTerm}}
+\code{term:屆別},
+\code{sessionPeriod: 會期},
+\code{sessionTimes: 會次},
+\code{item: 項目}, and
+\code{selectTerm: 屆別期別篩選條件}}
 }
 }
 \description{
 Retrieving the records of parliamentary questions
-提供議事日程本院委員之質詢事項資訊
+質詢類: 提供議事日程本院委員之質詢事項資訊。(自第8屆第1會期起)
 }
 \details{
 \code{get_parlquestions} produces a list, which contains \code{title},

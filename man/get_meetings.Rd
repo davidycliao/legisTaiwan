@@ -2,7 +2,8 @@
 % Please edit documentation in R/meeting.R
 \name{get_meetings}
 \alias{get_meetings}
-\title{Retrieving the spoken meeting records 委員發言（能取得最早取得日不詳，待檢查。）}
+\title{Retrieving the spoken meeting records
+委員發言（能取得最早日不詳，待檢查。）}
 \usage{
 get_meetings(
   start_date = NULL,
@@ -24,6 +25,7 @@ detailed output when retrieving the data.}
 }
 \value{
 list, which contains: \describe{
+\item{\code{title}}{Retrieving the spoken meeting records }
 \item{\code{query_time}}{the query time}
 \item{\code{retrieved_number}}{the number url of the page}
 \item{\code{meeting_unit}}{the meeting unit}
@@ -34,17 +36,18 @@ list, which contains: \describe{
 \item{\code{variable_names}}{the variables of the tibble dataframe}
 \item{\code{manual_info}}{the offical manual}
 \item{\code{data}}{a tibble dataframe, whose variables include:
-\code{smeeting_date},
-\code{meeting_status},
-\code{meeting_name},
-\code{meeting_content},
-\code{speechers},
-\code{meeting_unit},
-\code{date_ad}}
+\code{smeeting_date: 會議日期},
+\code{meeting_status: 會議狀態},
+\code{meeting_name: 會議名稱},
+\code{meeting_content: 會議事由},
+\code{speechers: 委員發言名單},
+\code{meeting_unit:主辦單位},
+\code{date_ad: 西元年}}
 }
 }
 \description{
-Retrieving the spoken meeting records 委員發言（能取得最早取得日不詳，待檢查。）
+Retrieving the spoken meeting records
+委員發言（能取得最早日不詳，待檢查。）
 }
 \details{
 \code{get_meetings} produces a list, which contains \code{title}, \code{query_time},
