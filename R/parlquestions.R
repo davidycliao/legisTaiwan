@@ -89,14 +89,14 @@ get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
 
 
 #' Retrieving the records of the questions answered by the executives
-#' 提供公報質詢事項行政院答復資訊
+#' 質詢類: 提供公報質詢事項行政院答復資訊
 #'
 #'@details `get_executive_response` produces a list, which contains `title`,
 #'`query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
 #' `manual_info` and `data`.
 #'
 #'@param term integer, numeric or null. The default is 8. The data is only
-#'available from 8th term. 參數必須為數值，資料從自第8屆第1會期起。
+#'available from 8th term. 參數必須為數值，資料從自第8屆起。
 #'
 #'@param session_period integer, numeric or NULL. Available
 #'options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL.
@@ -114,16 +114,16 @@ get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
 #'    \item{`variable_names`}{the variables of the tibble dataframe}
 #'    \item{`manual_info`}{the offical manual}
 #'    \item{`data`}{a tibble dataframe , whose variables include:
-#'      `term`,
-#'      `sessionPeriod`,
-#'      `sessionTimes`,
-#'      `meetingTimes`,
-#'      `eyNumber`,
-#'      `lyNumber`,
-#'      `subject`,
-#'      `content`,
-#'      `docUrl`,  and
-#'      `selectTerm`}
+#'      `term: 屆別`,
+#'      `sessionPeriod: 會期`,
+#'      `sessionTimes: 會次`,
+#'      `meetingTimes: 臨時會會次`,
+#'      `eyNumber: 行政院函公文編號`,
+#'      `lyNumber:立法院函編號`,
+#'      `subject: 案由`,
+#'      `content: 內容`,
+#'      `docUrl: 檔案下載位置`,  and
+#'      `selectTerm: 屆別期別篩選條件`}
 #'    }
 #'
 #'

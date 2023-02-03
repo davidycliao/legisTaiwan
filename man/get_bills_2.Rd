@@ -30,19 +30,19 @@ list list, which contains: \describe{
 \item{\code{variable_names}}{the variables of the tibble dataframe}
 \item{\code{manual_info}}{the offical manual}
 \item{\code{data}}{a tibble dataframe, whose variables include:
-\code{term},
-\code{sessionPeriod},
-\code{sessionTimes},
-\code{meetingTimes},
-\code{billNo},
-\code{billName},
-\code{billOrg},
-\code{billProposer},
-\code{billCosignatory},
-\code{billStatus},
-\code{pdfUrl},
-\code{docUrl} and
-\code{selectTerm}}
+\code{term: 屆別},
+\code{sessionPeriod:會期},
+\code{sessionTimes:會次},
+\code{meetingTimes:臨時會會次},
+\code{billNo:議案編號},
+\code{billName:提案名稱},
+\code{billOrg:提案單位/委員},
+\code{billProposer:提案人(委員或黨團)},
+\code{billCosignatory:連署人},
+\code{billStatus:議案狀態},
+\code{pdfUrl:關係文書pdf檔案下載位置},
+\code{docUrl:關係文書doc檔案下載位置} and
+\code{selectTerm:屆別期別篩選條件}}
 }
 }
 \description{

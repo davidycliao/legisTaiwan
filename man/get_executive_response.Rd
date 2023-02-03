@@ -3,13 +3,13 @@
 \name{get_executive_response}
 \alias{get_executive_response}
 \title{Retrieving the records of the questions answered by the executives
-提供公報質詢事項行政院答復資訊}
+質詢類: 提供公報質詢事項行政院答復資訊}
 \usage{
 get_executive_response(term = NULL, session_period = NULL, verbose = TRUE)
 }
 \arguments{
 \item{term}{integer, numeric or null. The default is 8. The data is only
-available from 8th term. 參數必須為數值，資料從自第8屆第1會期起。}
+available from 8th term. 參數必須為數值，資料從自第8屆起。}
 
 \item{session_period}{integer, numeric or NULL. Available
 options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL.
@@ -28,21 +28,21 @@ list contains: \describe{
 \item{\code{variable_names}}{the variables of the tibble dataframe}
 \item{\code{manual_info}}{the offical manual}
 \item{\code{data}}{a tibble dataframe , whose variables include:
-\code{term},
-\code{sessionPeriod},
-\code{sessionTimes},
-\code{meetingTimes},
-\code{eyNumber},
-\code{lyNumber},
-\code{subject},
-\code{content},
-\code{docUrl},  and
-\code{selectTerm}}
+\code{term: 屆別},
+\code{sessionPeriod: 會期},
+\code{sessionTimes: 會次},
+\code{meetingTimes: 臨時會會次},
+\code{eyNumber: 行政院函公文編號},
+\code{lyNumber:立法院函編號},
+\code{subject: 案由},
+\code{content: 內容},
+\code{docUrl: 檔案下載位置},  and
+\code{selectTerm: 屆別期別篩選條件}}
 }
 }
 \description{
 Retrieving the records of the questions answered by the executives
-提供公報質詢事項行政院答復資訊
+質詢類: 提供公報質詢事項行政院答復資訊
 }
 \details{
 \code{get_executive_response} produces a list, which contains \code{title},
