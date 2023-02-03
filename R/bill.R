@@ -97,7 +97,7 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 }
 
 #' Retrieving the records of legislators and the government (executives) proposals
-#' 提供委員及政府之議案提案資訊。(自第8屆第1會期起)
+#' 議事類:提供委員及政府之議案提案資訊。(自第8屆第1會期起)
 #'
 #'@details `get_bills_2` produces a list, which contains `query_time`,
 #'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
@@ -151,12 +151,10 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 #'get_bills_2(term = 8, session_period = 1)
 #'
 #'@seealso
-#'\url{https://data.ly.gov.tw/getds.action?id=1}
-
+#'\url{https://data.ly.gov.tw/getds.action?id=20}
 get_bills_2 <- function(term = 8, session_period = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
   if (is.null(term)) {
-
     set_api_url <- paste("https://data.ly.gov.tw/odw/ID20Action.action?term=",
                          term, "&sessionPeriod=",
                          "&sessionTimes=&meetingTimes=&billName=&billOrg=&billProposer=&billCosignatory=&fileType=json",

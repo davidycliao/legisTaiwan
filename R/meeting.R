@@ -1,4 +1,5 @@
-#' Retrieving the spoken meeting records 委員發言（能取得最早取得日不詳，待檢查。）
+#' Retrieving the spoken meeting records
+#' 委員發言（能取得最早取得日不詳，待檢查。）
 #'
 #'@details `get_meetings` produces a list, which contains `title`, `query_time`,
 #'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
@@ -15,6 +16,7 @@
 #'detailed output when retrieving the data.
 #'
 #'@return list, which contains: \describe{
+#'      \item{`title`}{Retrieving the spoken meeting records }
 #'      \item{`query_time`}{the query time}
 #'      \item{`retrieved_number`}{the number url of the page}
 #'      \item{`meeting_unit`}{the meeting unit}
@@ -25,13 +27,13 @@
 #'      \item{`variable_names`}{the variables of the tibble dataframe}
 #'      \item{`manual_info`}{the offical manual}
 #'      \item{`data`}{a tibble dataframe, whose variables include:
-#'      `smeeting_date`,
-#'      `meeting_status`,
-#'      `meeting_name`,
-#'      `meeting_content`,
-#'      `speechers`,
-#'      `meeting_unit`,
-#'      `date_ad`}
+#'      `smeeting_date: 會議日期`,
+#'      `meeting_status: 會議狀態`,
+#'      `meeting_name: 會議名稱`,
+#'      `meeting_content: 會議事由`,
+#'      `speechers: 委員發言名單`,
+#'      `meeting_unit:主辦單位`,
+#'      `date_ad: 西元年`}
 #'      }
 #'
 #'@importFrom attempt stop_if_all
@@ -91,7 +93,7 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
 
 
 #' Retrieving the meeting records of cross-caucus session
-#' 提供公報之黨團協商資訊。(自第8屆第1會期起)
+#' 議事類:提供公報之黨團協商資訊。(自第8屆第1會期起)
 #'
 #'@details `get_caucus_meetings` produces a list, which contains `title`, `query_time`,
 #'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
@@ -118,22 +120,22 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
 #'      \item{`variable_names`}{the variables of the tibble dataframe}
 #'      \item{`manual_info`}{the offical manual}
 #'      \item{`data`}{a tibble dataframe, whose variables include:
-#'      `comYear`,
-#'      `comVolume`,
-#'      `comBookId`,
-#'      `term`,
-#'      `sessionPeriod`,
-#'      `sessionTimes`,
-#'      `meetingTimes`,
-#'      `meetingDate`,
-#'      `meetingName`,
-#'      `subject`,
-#'      `pageEnd`,
-#'      `docUrl`,
-#'      `htmlUrl`, and
-#'      `selectTerm`}
+#'      `comYear: 卷`,
+#'      `comVolume: 期`,
+#'      `comBookId: 冊別`,
+#'      `term: 屆別`,
+#'      `sessionPeriod: 會期`,
+#'      `sessionTimes: 會次`,
+#'      `meetingTimes: 臨時會會次`,
+#'      `meetingDate: 會議日期(民國年)`,
+#'      `meetingName: 會議名稱`,
+#'      `subject: 案由`,
+#'      `pageStart: 起始頁`,
+#'      `pageEnd: 結束頁`
+#'      `docUrl: 檔案下載位置 `,
+#'      `htmlUrl: html網址`, and
+#'      `selectTerm: 屆別期別篩選條件`}
 #'      }
-#'
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
@@ -185,7 +187,7 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL, verbose = TR
 
 
 #' Retrieving full video information of meetings and committees
-#' 提供立法院院會及委員會之委員發言片段相關影片資訊。(自第9屆第1會期起)
+#' 會議類:提供立法院院會及委員會之委員發言片段相關影片資訊。(自第9屆第1會期起)
 #'
 #'@details `get_speech_video` produces a list, which contains `title`, `query_time`,
 #'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
