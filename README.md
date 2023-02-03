@@ -34,7 +34,7 @@ Legislative Yuan API](https://data.ly.gov.tw/index.action).
 | [`get_committee_record()`](https://davidycliao.github.io/legisTaiwan/reference/get_speech_video.html)         | 8th (2014/104)  | [**the records of reviewed items in the committees 提供委員會會議審查之議案項目 (自第8屆)**](https://davidycliao.github.io/legisTaiwan/reference/get_speech_video.html)     |
 | [`get_variable_info()`](https://davidycliao.github.io/legisTaiwan/reference/get_variable_info.html)           | 8th (2014/104)  | [**API’s endpoint user manuals 使用說明文件**](https://davidycliao.github.io/legisTaiwan/reference/get_variable_info.html)                                                  |
 
-##### [+the user manuals seems to be inconsistent 資料似乎不一致]()
+[+ ***Further Check Required***: the user manuals seems to be inconsistent with actual data. 資料似乎不一致，待確認。]()
 
 ## Get Started with Using [`remotes`](https://github.com/r-lib/remotes):
 
