@@ -95,7 +95,7 @@ get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
 #'`query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
 #' `manual_info` and `data`.
 #'
-#'@param term integer, numeric or null. The default is 8. The data is only
+#'@param term integer, numeric or null. The default is NULL. The data is only
 #'available from 8th term. 參數必須為數值，資料從自第8屆起。
 #'
 #'@param session_period integer, numeric or NULL. Available
@@ -141,13 +141,29 @@ get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
 
 get_executive_response <- function(term = NULL, session_period = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
-  attempt::stop_if_all(term, is.null, msg = "term is missing")
-  attempt::stop_if_all(term, is.character, msg = "use numeric format only")
-  attempt::stop_if_all(term, is.character, msg = "use numeric format only")
-
-
+  if (is.null(term)) {
+    set_api_url <- paste("https://data.ly.gov.tw/odw/ID2Action.action?term=",
+                         term, "&sessionPeriod=",
+                         "&sessionTimes=&item=&fileType=json", sep = "")
+    message(" term is not defined...\n You are now requesting full data from the API. Please make sure your connectivity is stable until its completion.\n")
+  } else if (length(term) == 1) {
+    attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
+    term <- sprintf("%02d", as.numeric(term))
+  } else if (length(term)  > 1) {
+    attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
+    message("The API is unable to query multiple terms and the request mostly falls.")
+    term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
+  }
   set_api_url <- paste("https://data.ly.gov.tw/odw/ID2Action.action?term=",
-                       sprintf("%02d", as.numeric(term)), "&sessionPeriod=", sprintf("%02d", as.numeric(session_period)), "&sessionTimes=&item=&fileType=json", sep = "")
+                       term, "&sessionPeriod=",
+                       sprintf("%02d", as.numeric(session_period)),
+                       "&sessionTimes=&item=&fileType=json", sep = "")
+  # legisTaiwan::check_internet()
+  # attempt::stop_if_all(term, is.null, msg = "term is missing")
+  # attempt::stop_if_all(term, is.character, msg = "use numeric format only")
+  # set_api_url <- paste("https://data.ly.gov.tw/odw/ID2Action.action?term=",
+  #                      sprintf("%02d", as.numeric(term)), "&sessionPeriod=",
+  #                      sprintf("%02d", as.numeric(session_period)), "&sessionTimes=&item=&fileType=json", sep = "")
   tryCatch(
     {
       json_df <- jsonlite::fromJSON(set_api_url)

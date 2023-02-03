@@ -384,3 +384,93 @@ get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRU
     }
   )
 }
+
+#' Retrieving the records of reviewed items in the committees
+#' 議事類: 提供委員會會議審查之議案項目。(自第8屆第1會期起)
+#'
+#'@details `get_committee_record` produces a list, which contains `title`,
+#'`query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
+#' `manual_info` and `data`.
+#'
+#'@param term integer, numeric or null. The default is 8. The data is only
+#'available from 8th term. 參數必須為數值，資料從自第8屆起。
+#'
+#'@param session_period integer, numeric or NULL. Available
+#'options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL.
+#'參數必須為數值。
+#'
+#'@param verbose logical, indicates whether `get_executive_response` should
+#'print out detailed output when retrieving the data. The default is TRUE
+#'
+#'@return list contains: \describe{
+#'    \item{`title`}{the records of the questions answered by the executives}
+#'    \item{`query_time`}{the queried time}
+#'    \item{`retrieved_number`}{the total number of observations}
+#'    \item{`retrieved_term`}{the queried term}
+#'    \item{`url`}{the retrieved json url}
+#'    \item{`variable_names`}{the variables of the tibble dataframe}
+#'    \item{`manual_info`}{the offical manual}
+#'    \item{`data`}{a tibble dataframe , whose variables include:
+#'      `term: 屆別`,
+#'      `sessionPeriod: 會期`,
+#'      `meetingNo: 會議編號`,
+#'      `billNo: 議案編號`, and
+#'      `selectTerm:屆別期別篩選條件`}
+#'    }
+#'
+#'@importFrom attempt stop_if_all
+#'@importFrom jsonlite fromJSON
+#'
+#'@export
+#'
+#'@examples
+#' ## query the committee record by term and the session period.
+#' ## 輸入「立委屆期」與「會期」下載「委員會審議之議案」
+#'get_committee_record(term = 8, session_period = 1)
+#'@seealso
+#'\url{https://data.ly.gov.tw/getds.action?id=46}
+
+get_committee_record <- function(term = 8, session_period = NULL, verbose = TRUE) {
+  legisTaiwan::check_internet()
+  if (is.null(term)) {
+    set_api_url <- paste("https://data.ly.gov.tw/odw/ID46Action.action?term=",
+                         term, "&sessionPeriod=",
+                         "&sessionTimes=01&meetingTimes=&fileType=json", sep = "")
+    message(" term is not defined...\n You are now requesting full data from the API. Please make sure your connectivity is stable until its completion.\n")
+  } else if (length(term) == 1) {
+    attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
+    term <- sprintf("%02d", as.numeric(term))
+  } else if (length(term)  > 1) {
+    attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
+    message("The API is unable to query multiple terms and the request mostly falls.")
+    term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
+  }
+  set_api_url <- paste("https://data.ly.gov.tw/odw/ID46Action.action?term=",
+                       term,
+                       "&sessionPeriod=", sprintf("%02d", as.numeric(session_period)),
+                       "&sessionTimes=01&meetingTimes=&fileType=json", sep = "")
+  tryCatch(
+    {
+      json_df <- jsonlite::fromJSON(set_api_url)
+      df <- tibble::as_tibble(json_df$dataList)
+      attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
+      if (isTRUE(verbose)) {
+        cat(" Retrieved URL: \n", set_api_url, "\n")
+        cat(" Retrieved Term: ", term, "\n")
+        cat(" Retrieved Num: ", nrow(df), "\n")
+      }
+      list_data <- list("title" = "the records of reviewed items in the committees",
+                        "query_time" = Sys.time(),
+                        "retrieved_number" = nrow(df),
+                        "retrieved_term" = term,
+                        "url" = set_api_url,
+                        "variable_names" = colnames(df),
+                        "manual_info" = "https://data.ly.gov.tw/getds.action?id=46",
+                        "data" = df)
+      return(list_data)
+    },
+    error = function(error_message) {
+      message(error_message)
+    }
+  )
+}
