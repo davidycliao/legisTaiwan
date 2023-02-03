@@ -2,7 +2,7 @@
 % Please edit documentation in R/bill.R
 \name{get_bills}
 \alias{get_bills}
-\title{Retrieving the records of the bills 法律提案 (API)}
+\title{The Records of the Bills 法律提案}
 \usage{
 get_bills(start_date = NULL, end_date = NULL, proposer = NULL, verbose = TRUE)
 }
@@ -42,12 +42,14 @@ list, which contains: s\describe{
 }
 }
 \description{
-Retrieving the records of the bills 法律提案 (API)
+The Records of the Bills 法律提案
 }
 \details{
 \code{get_bills} produces a list, which contains \code{query_time},
 \code{retrieved_number}, \code{meeting_unit}, \code{start_date_ad}, \code{end_date_ad}, \code{start_date},
-\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data}.
+\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data}. To retrieve the user
+manual and more information about the data frame, please use
+\code{legisTaiwan::get_variable_info("get_bills")}. 法律提案
 }
 \examples{
 ## query bill records by a period of the dates in Taiwan ROC calender format

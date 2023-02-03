@@ -1,9 +1,12 @@
-#' Retrieving the spoken meeting records
-#' 委員發言（能取得最早日不詳，待檢查。）
+#' The Spoken Meeting Records 委員發言
 #'
 #'@details `get_meetings` produces a list, which contains `title`, `query_time`,
 #'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
-#'`end_date`, `url`, `variable_names`, `manual_info` and `data`.
+#'`end_date`, `url`, `variable_names`, `manual_info` and `data`.To retrieve the user
+#'manual and more information about the data frame, please use
+#'`legisTaiwan::get_variable_info("get_meetings")`.
+#'[+ ***Further Check Required***: the user manuals seems to be inconsistent with actual data. 資料似乎不一致，待確認。]()
+#'委員發言（取得最早時間不詳，待檢查。）
 #'
 #'@param start_date numeric Must be formatted in ROC Taiwan calendar, e.g. 1090101.
 #'
@@ -92,12 +95,14 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
 
 
 
-#' Retrieving the meeting records of cross-caucus session
-#' 議事類:提供公報之黨團協商資訊。(自第8屆第1會期起)
+#'The Meeting Records of Cross-caucus Session 黨團協商資訊
 #'
 #'@details `get_caucus_meetings` produces a list, which contains `title`, `query_time`,
 #'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
 #'`end_date`, `url`, `variable_names`, `manual_info` and `data.`
+#'議事類:提供公報之黨團協商資訊 (自第8屆第1會期起)。 To retrieve the user
+#'manual and more information about the data frame, please use
+#'`legisTaiwan::get_variable_info("get_caucus_meetings")`.
 #'
 #'@param start_date character Must be formatted in ROC Taiwan calendar with three
 #'forward slashes between year, month and day, e.g. "106/10/20".
@@ -151,7 +156,8 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
 #'
 #'@seealso
 #'\url{https://data.ly.gov.tw/getds.action?id=8}
-get_caucus_meetings <- function(start_date = NULL, end_date = NULL, verbose = TRUE) {
+get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
+                                verbose = TRUE) {
   legisTaiwan::check_internet()
   legisTaiwan::api_check(start_date = legisTaiwan::transformed_date_meeting(start_date), end_date = legisTaiwan::transformed_date_meeting(end_date))
   set_api_url <- paste("https://data.ly.gov.tw/odw/ID8Action.action?comYear=&comVolume=&comBookId=&term=&sessionPeriod=&sessionTimes=&meetingTimes=&meetingDateS=",
@@ -186,12 +192,14 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL, verbose = TR
 }
 
 
-#' Retrieving full video information of meetings and committees
-#' 會議類:提供立法院院會及委員會之委員發言片段相關影片資訊。(自第9屆第1會期起)
+#' The Video Information of Meetings and Committees 院會及委員會之委員發言片段相關影片資訊
 #'
 #'@details `get_speech_video` produces a list, which contains `title`, `query_time`,
 #'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
-#'`end_date`, `url`, `variable_names`, `manual_info` and `data.`
+#'`end_date`, `url`, `variable_names`, `manual_info` and `data.` To retrieve the user
+#'manual and more information about the data frame, please use
+#'`legisTaiwan::get_variable_info("get_speech_video")`.
+#'會議類:提供立法院院會及委員會之委員發言片段相關影片資訊 (自第9屆第1會期起)。
 #'
 #'@param start_date character Must be formatted in ROC Taiwan calendar with three
 #'forward slashes between year, month and day, e.g. "106/10/20".
@@ -288,12 +296,18 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
 }
 
 
-#' Retrieving the records of national public debates
-#' 議事類: 提供公報之國是論壇資訊，並包含書面意見。自第8屆第1會期起，
-#' 但實測資料從第10屆。
+#'The Records of National Public Debates 國是論壇
 #'
-#'@param term numeric or NULL The default value is 10
-#'參數必須為數值，資料從自第8屆第1會期起，但實測資料從第十屆。。
+#'#'@details `get_public_debates` produces a list, which contains `title`, `query_time`,
+#'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
+#'`end_date`, `url`, `variable_names`, `manual_info` and `data.` To retrieve the user
+#'manual and more information about the data frame, please use
+#'`legisTaiwan::get_variable_info("get_public_debates")`. 議事類: 提供公報之國是
+#'論壇資訊，並包含書面意見。自第8屆第1會期起，但實測資料從第10屆。
+#'
+#'
+#'@param term numeric or NULL The default value is 10 參數必須為數值，資料從自
+#'第8屆第1會期起，但實測資料從第10屆，故預設為10。
 #'
 #'@param session_period integer or NULL. Available options for the session periods
 #'is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL. 參數必須為數值。
@@ -338,7 +352,6 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
 #'
 #'@seealso
 #'\url{https://data.ly.gov.tw/getds.action?id=7}
-
 get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
   if (is.null(term)) {
@@ -386,15 +399,17 @@ get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRU
   )
 }
 
-#' Retrieving the records of reviewed items in the committees
-#' 議事類: 提供委員會會議審查之議案項目。(自第8屆第1會期起)
+
+#' The Records of Reviewed Items in the Committees 委員會會議審查之議案項目
 #'
 #'@details `get_committee_record` produces a list, which contains `title`,
 #'`query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
-#' `manual_info` and `data`.
+#' `manual_info` and `data`. To retrieve the user manual and more information
+#' about the data frame, please use `legisTaiwan::get_variable_info("get_committee_record")`.
+#' 議事類: 提供委員會會議審查之議案項目 (自第8屆第1會期起)。
 #'
-#'@param term integer, numeric or null. The default is 8. The data is only
-#'available from 8th term. 參數必須為數值，資料從自第8屆起。
+#'@param term numeric or null. The data is only available from 8th term.
+#'The default value is 8. 參數必須為數值。資料從自第8屆起，預設值為8。
 #'
 #'@param session_period integer, numeric or NULL. Available
 #'options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL.
@@ -411,7 +426,7 @@ get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRU
 #'    \item{`url`}{the retrieved json url}
 #'    \item{`variable_names`}{the variables of the tibble dataframe}
 #'    \item{`manual_info`}{the offical manual}
-#'    \item{`data`}{a tibble dataframe , whose variables include:
+#'    \item{`data`}{a tibble dataframe, whose variables include:
 #'      `term: 屆別`,
 #'      `sessionPeriod: 會期`,
 #'      `meetingNo: 會議編號`,

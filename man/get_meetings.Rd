@@ -2,8 +2,7 @@
 % Please edit documentation in R/meeting.R
 \name{get_meetings}
 \alias{get_meetings}
-\title{Retrieving the spoken meeting records
-委員發言（能取得最早日不詳，待檢查。）}
+\title{The Spoken Meeting Records 委員發言}
 \usage{
 get_meetings(
   start_date = NULL,
@@ -46,13 +45,16 @@ list, which contains: \describe{
 }
 }
 \description{
-Retrieving the spoken meeting records
-委員發言（能取得最早日不詳，待檢查。）
+The Spoken Meeting Records 委員發言
 }
 \details{
 \code{get_meetings} produces a list, which contains \code{title}, \code{query_time},
 \code{retrieved_number}, \code{meeting_unit}, \code{start_date_ad}, \code{end_date_ad}, \code{start_date},
-\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data}.
+\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data}.To retrieve the user
+manual and more information about the data frame, please use
+\code{legisTaiwan::get_variable_info("get_meetings")}.
+\url{+ Further Check Required: the user manuals seems to be inconsistent with actual data. 資料似乎不一致，待確認。}
+委員發言（取得最早時間不詳，待檢查。）
 }
 \examples{
 ## query meeting records by a period of the dates in Taiwan ROC calender format

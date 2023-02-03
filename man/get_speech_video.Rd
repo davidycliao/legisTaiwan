@@ -2,8 +2,7 @@
 % Please edit documentation in R/meeting.R
 \name{get_speech_video}
 \alias{get_speech_video}
-\title{Retrieving full video information of meetings and committees
-會議類:提供立法院院會及委員會之委員發言片段相關影片資訊。(自第9屆第1會期起)}
+\title{The Video Information of Meetings and Committees 院會及委員會之委員發言片段相關影片資訊}
 \usage{
 get_speech_video(start_date = NULL, end_date = NULL, verbose = TRUE)
 }
@@ -48,13 +47,15 @@ list, which contains: \describe{
 }
 }
 \description{
-Retrieving full video information of meetings and committees
-會議類:提供立法院院會及委員會之委員發言片段相關影片資訊。(自第9屆第1會期起)
+The Video Information of Meetings and Committees 院會及委員會之委員發言片段相關影片資訊
 }
 \details{
 \code{get_speech_video} produces a list, which contains \code{title}, \code{query_time},
 \code{retrieved_number}, \code{meeting_unit}, \code{start_date_ad}, \code{end_date_ad}, \code{start_date},
-\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data.}
+\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data.} To retrieve the user
+manual and more information about the data frame, please use
+\code{legisTaiwan::get_variable_info("get_speech_video")}.
+會議類:提供立法院院會及委員會之委員發言片段相關影片資訊 (自第9屆第1會期起)。
 }
 \examples{
 ## query full video information of meetings and committees using a period of

@@ -2,8 +2,7 @@
 % Please edit documentation in R/meeting.R
 \name{get_caucus_meetings}
 \alias{get_caucus_meetings}
-\title{Retrieving the meeting records of cross-caucus session
-議事類:提供公報之黨團協商資訊。(自第8屆第1會期起)}
+\title{The Meeting Records of Cross-caucus Session 黨團協商資訊}
 \usage{
 get_caucus_meetings(start_date = NULL, end_date = NULL, verbose = TRUE)
 }
@@ -48,13 +47,15 @@ list, which contains: \describe{
 }
 }
 \description{
-Retrieving the meeting records of cross-caucus session
-議事類:提供公報之黨團協商資訊。(自第8屆第1會期起)
+The Meeting Records of Cross-caucus Session 黨團協商資訊
 }
 \details{
 \code{get_caucus_meetings} produces a list, which contains \code{title}, \code{query_time},
 \code{retrieved_number}, \code{meeting_unit}, \code{start_date_ad}, \code{end_date_ad}, \code{start_date},
 \code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data.}
+議事類:提供公報之黨團協商資訊 (自第8屆第1會期起)。 To retrieve the user
+manual and more information about the data frame, please use
+\code{legisTaiwan::get_variable_info("get_caucus_meetings")}.
 }
 \examples{
 ## query the meeting records of cross-caucus session using a period of

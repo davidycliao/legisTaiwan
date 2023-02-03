@@ -2,15 +2,13 @@
 % Please edit documentation in R/meeting.R
 \name{get_public_debates}
 \alias{get_public_debates}
-\title{Retrieving the records of national public debates
-議事類: 提供公報之國是論壇資訊，並包含書面意見。自第8屆第1會期起，
-但實測資料從第10屆。}
+\title{The Records of National Public Debates 國是論壇}
 \usage{
 get_public_debates(term = NULL, session_period = NULL, verbose = TRUE)
 }
 \arguments{
-\item{term}{numeric or NULL The default value is 10
-參數必須為數值，資料從自第8屆第1會期起，但實測資料從第十屆。。}
+\item{term}{numeric or NULL The default value is 10 參數必須為數值，資料從自
+第8屆第1會期起，但實測資料從第10屆，故預設為10。}
 
 \item{session_period}{integer or NULL. Available options for the session periods
 is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL. 參數必須為數值。}
@@ -45,9 +43,12 @@ list, which contains: \describe{
 }
 }
 \description{
-Retrieving the records of national public debates
-議事類: 提供公報之國是論壇資訊，並包含書面意見。自第8屆第1會期起，
-但實測資料從第10屆。
+#'@details \code{get_public_debates} produces a list, which contains \code{title}, \code{query_time},
+\code{retrieved_number}, \code{meeting_unit}, \code{start_date_ad}, \code{end_date_ad}, \code{start_date},
+\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data.} To retrieve the user
+manual and more information about the data frame, please use
+\code{legisTaiwan::get_variable_info("get_public_debates")}. 議事類: 提供公報之國是
+論壇資訊，並包含書面意見。自第8屆第1會期起，但實測資料從第10屆。
 }
 \examples{
 ## query the Executives' answered response by term and the session period.

@@ -2,12 +2,12 @@
 % Please edit documentation in R/legislators.R
 \name{get_legislators}
 \alias{get_legislators}
-\title{Retrieving legislator' demographic information and background 提供委員基本資料}
+\title{The Lgislator' Demographic Information and Background 提供委員基本資料}
 \usage{
 get_legislators(term = NULL, verbose = TRUE)
 }
 \arguments{
-\item{term}{numeric or null. The data is available from the 2nd term. 自第2屆起}
+\item{term}{numeric or null. The data is available from the 2nd term.}
 
 \item{verbose}{logical, indicates whether get_meetings should print out
 detailed output when retrieving the data. The default is TRUE.}
@@ -36,11 +36,14 @@ list contains: \describe{
 \code{leaveReason}}}
 }
 \description{
-Retrieving legislator' demographic information and background 提供委員基本資料
+The Lgislator' Demographic Information and Background 提供委員基本資料
 }
 \details{
 \code{get_legislators} produces a list, which contains  \code{query_time},
 \code{queried_term}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data}.
+To retrieve the user manual and more information about the data frame, please use
+\code{legisTaiwan::get_variable_info("get_legislators")}. 提供委員基本資料，最早資
+料可追溯至第2屆。
 }
 \examples{
 ## To retrieve legislator' demographic from 8th

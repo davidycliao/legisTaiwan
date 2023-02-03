@@ -2,14 +2,13 @@
 % Please edit documentation in R/bill.R
 \name{get_bills_2}
 \alias{get_bills_2}
-\title{Retrieving the records of legislators and the government (executives) proposals
-議事類:提供委員及政府之議案提案資訊。(自第8屆第1會期起)}
+\title{The Records of Legislation and the Executives Proposals 委員及政府議案提案資訊}
 \usage{
 get_bills_2(term = 8, session_period = NULL, verbose = TRUE)
 }
 \arguments{
-\item{term}{numeric or NULL The default value is 8
-參數必須為數值，資料從自第8屆第1會期起。}
+\item{term}{numeric or null. The data is only available from 8th term. The default value is 8.
+參數必須為數值。資料從自第8屆起，預設值為8。}
 
 \item{session_period}{numeric or NULL. Available options for the session periods
 is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL. 參數必須為數值。}
@@ -46,13 +45,15 @@ list list, which contains: \describe{
 }
 }
 \description{
-Retrieving the records of legislators and the government (executives) proposals
-議事類:提供委員及政府之議案提案資訊。(自第8屆第1會期起)
+The Records of Legislation and the Executives Proposals 委員及政府議案提案資訊
 }
 \details{
 \code{get_bills_2} produces a list, which contains \code{query_time},
 \code{retrieved_number}, \code{meeting_unit}, \code{start_date_ad}, \code{end_date_ad}, \code{start_date},
-\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data}.
+\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data}. To retrieve the user
+manual and more information about the data frame, please use
+\code{legisTaiwan::get_variable_info("get_bills_2")}.
+議事類:提供委員及政府之議案提案資訊 (自第8屆第1會期起)。
 }
 \examples{
 ## query the Executives' answered response by term and the session period.

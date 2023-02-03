@@ -1,9 +1,12 @@
-#' Retrieving legislator' demographic information and background 提供委員基本資料
+#' The Lgislator' Demographic Information and Background 提供委員基本資料
 #'
 #'@details `get_legislators` produces a list, which contains  `query_time`,
 #'`queried_term`, `url`, `variable_names`, `manual_info` and `data`.
+#'To retrieve the user manual and more information about the data frame, please use
+#'`legisTaiwan::get_variable_info("get_legislators")`. 提供委員基本資料，最早資
+#'料可追溯至第2屆。
 #'
-#'@param term numeric or null. The data is available from the 2nd term. 自第2屆起
+#'@param term numeric or null. The data is available from the 2nd term.
 #'
 #'@param verbose logical, indicates whether get_meetings should print out
 #'detailed output when retrieving the data. The default is TRUE.

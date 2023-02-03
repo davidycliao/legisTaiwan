@@ -2,8 +2,7 @@
 % Please edit documentation in R/parlquestions.R
 \name{get_executive_response}
 \alias{get_executive_response}
-\title{Retrieving the records of the questions answered by the executives
-質詢類: 提供公報質詢事項行政院答復資訊。(自第8屆第1會期起)}
+\title{The Records of the Questions Answered by the Executives 公報質詢事項行政院答復資訊}
 \usage{
 get_executive_response(term = NULL, session_period = NULL, verbose = TRUE)
 }
@@ -41,13 +40,15 @@ list contains: \describe{
 }
 }
 \description{
-Retrieving the records of the questions answered by the executives
-質詢類: 提供公報質詢事項行政院答復資訊。(自第8屆第1會期起)
+The Records of the Questions Answered by the Executives 公報質詢事項行政院答復資訊
 }
 \details{
 \code{get_executive_response} produces a list, which contains \code{title},
 \code{query_time}, \code{retrieved_number}, \code{retrieved_term}, \code{url}, \code{variable_names},
-\code{manual_info} and \code{data}.
+\code{manual_info} and \code{data}. To retrieve the user manual and more information
+about the data frame, please use
+legisTaiwan::get_variable_info("get_executive_response")`. 質詢類: 提供公報質
+詢事項行政院答復資訊 (自第8屆第1會期起)。
 }
 \examples{
 ## query the Executives' answered response by term and the session period.

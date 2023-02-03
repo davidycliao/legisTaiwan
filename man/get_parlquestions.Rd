@@ -2,16 +2,15 @@
 % Please edit documentation in R/parlquestions.R
 \name{get_parlquestions}
 \alias{get_parlquestions}
-\title{Retrieving the records of parliamentary questions
-質詢類: 提供議事日程本院委員之質詢事項資訊。(自第8屆第1會期起)}
+\title{The Records of Parliamentary Questions Asked by the Legislators 委員質詢事項資訊}
 \usage{
 get_parlquestions(term = 8, session_period = NULL, verbose = TRUE)
 }
 \arguments{
-\item{term}{integer, numeric or null. The default is 8. The data is only
-available from 8th term. 參數必須為數值，資料從自第8屆第1會期起。}
+\item{term}{numeric or null. The data is only available from 8th term. The default value is 8.
+參數必須為數值。資料從自第8屆起，預設值為8。}
 
-\item{session_period}{integer, numeric or NULL. Available
+\item{session_period}{numeric or NULL. Available
 options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL.
 參數必須為數值。}
 
@@ -36,13 +35,15 @@ list contains: \describe{
 }
 }
 \description{
-Retrieving the records of parliamentary questions
-質詢類: 提供議事日程本院委員之質詢事項資訊。(自第8屆第1會期起)
+The Records of Parliamentary Questions Asked by the Legislators 委員質詢事項資訊
 }
 \details{
 \code{get_parlquestions} produces a list, which contains \code{title},
 \code{query_time}, \code{retrieved_number}, \code{retrieved_term}, \code{url}, \code{variable_names},
-\code{manual_info} and \code{data}.
+\code{manual_info} and \code{data}. To retrieve the user manual and more information
+about the data frame, please use
+legisTaiwan::get_variable_info("get_parlquestions")`.
+質詢類: 提供議事日程本院委員之質詢事項資訊。(自第8屆第1會期起)
 }
 \examples{
 ## query parliamentary questions by term.
