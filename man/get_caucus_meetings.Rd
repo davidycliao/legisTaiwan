@@ -3,7 +3,7 @@
 \name{get_caucus_meetings}
 \alias{get_caucus_meetings}
 \title{Retrieving the meeting records of cross-caucus session
-提供公報之黨團協商資訊。(自第8屆第1會期起)}
+議事類:提供公報之黨團協商資訊。(自第8屆第1會期起)}
 \usage{
 get_caucus_meetings(start_date = NULL, end_date = NULL, verbose = TRUE)
 }
@@ -30,25 +30,26 @@ list, which contains: \describe{
 \item{\code{variable_names}}{the variables of the tibble dataframe}
 \item{\code{manual_info}}{the offical manual}
 \item{\code{data}}{a tibble dataframe, whose variables include:
-\code{comYear},
-\code{comVolume},
-\code{comBookId},
-\code{term},
-\code{sessionPeriod},
-\code{sessionTimes},
-\code{meetingTimes},
-\code{meetingDate},
-\code{meetingName},
-\code{subject},
-\code{pageEnd},
-\code{docUrl},
-\code{htmlUrl}, and
-\code{selectTerm}}
+\code{comYear: 卷},
+\code{comVolume: 期},
+\code{comBookId: 冊別},
+\code{term: 屆別},
+\code{sessionPeriod: 會期},
+\code{sessionTimes: 會次},
+\code{meetingTimes: 臨時會會次},
+\code{meetingDate: 會議日期(民國年)},
+\code{meetingName: 會議名稱},
+\code{subject: 案由},
+\code{pageStart: 起始頁},
+\code{pageEnd: 結束頁}
+\code{docUrl: 檔案下載位置 },
+\code{htmlUrl: html網址}, and
+\code{selectTerm: 屆別期別篩選條件}}
 }
 }
 \description{
 Retrieving the meeting records of cross-caucus session
-提供公報之黨團協商資訊。(自第8屆第1會期起)
+議事類:提供公報之黨團協商資訊。(自第8屆第1會期起)
 }
 \details{
 \code{get_caucus_meetings} produces a list, which contains \code{title}, \code{query_time},

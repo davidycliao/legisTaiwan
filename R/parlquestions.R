@@ -1,5 +1,5 @@
 #' Retrieving the records of parliamentary questions
-#' 提供議事日程本院委員之質詢事項資訊
+#' 質詢類: 提供議事日程本院委員之質詢事項資訊。(自第8屆第1會期起)
 #'
 #'@details `get_parlquestions` produces a list, which contains `title`,
 #'`query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
@@ -24,13 +24,12 @@
 #'\item{`variable_names`}{the variables of the tibble dataframe}
 #'\item{`manual_info`}{the offical manual}
 #'\item{`data`}{a tibble dataframe, whose variables include:
-#'      `term`,
-#'      `sessionPeriod`,
-#'      `sessionTimes`,
-#'      `item`, and
-#'      `selectTerm`}
+#'      `term:屆別`,
+#'      `sessionPeriod: 會期`,
+#'      `sessionTimes: 會次`,
+#'      `item: 項目`, and
+#'      `selectTerm: 屆別期別篩選條件`}
 #'      }
-#'
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON

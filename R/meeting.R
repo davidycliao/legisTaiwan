@@ -214,21 +214,21 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL, verbose = TR
 #'      \item{`variable_names`}{the variables of the tibble dataframe}
 #'      \item{`manual_info`}{the offical manual}
 #'      \item{`data`}{a tibble dataframe, whose variables include:
-#'      `term`,
-#'      `sessionPeriod`,
-#'      `meetingDate`,
-#'      `meetingTime`,
-#'      `meetingTypeName`,
-#'      `meetingName`,
-#'      `meetingContent`,
-#'      `legislatorName`,
-#'      `areaName`,
-#'      `speechStartTime`,
-#'      `speechEndTime`,
-#'      `speechRecordUrl`,
-#'      `videoLength`,
-#'      `videoUrl`, and
-#'      `selectTerm`}
+#'      `term: 屆期`,
+#'      `sessionPeriod: 會期`,
+#'      `meetingDate: 會議日期(西元年)`,
+#'      `meetingTime: 會議時間`,
+#'      `meetingTypeName: 主辦單位`,
+#'      `meetingName: 會議名稱`,
+#'      `meetingContent:會議事由`,
+#'      `legislatorName:委員姓名`,
+#'      `areaName: 選區名稱`,
+#'      `speechStartTime: 委員發言時間起`,
+#'      `speechEndTime: 委員發言時間迄`,
+#'      `speechRecordUrl: 發言紀錄網址`,
+#'      `videoLength: 影片長度`,
+#'      `videoUrl: 影片網址`, and
+#'      `selectTerm:屆別期別篩選條件`}
 #'      }
 #'
 #'@importFrom attempt stop_if_all
@@ -289,10 +289,10 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
 
 
 #' Retrieving the records of national public debates
-#' 提供公報之國是論壇資訊，並包含書面意見。自第8屆第1會期起，但實測資料從第十屆。
+#' 議事類: 提供公報之國是論壇資訊，並包含書面意見。自第8屆第1會期起，但實測資料從第十屆。
 #'
 #'@param term numeric or NULL The default value is 10
-#'參數必須為數值，資料從自第8屆第1會期起。
+#'參數必須為數值，資料從自第8屆第1會期起，但實測資料從第十屆。。
 #'
 #'@param session_period integer or NULL. Available options for the session periods
 #'is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL. 參數必須為數值。
@@ -312,19 +312,18 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
 #'      \item{`variable_names`}{the variables of the tibble dataframe}
 #'      \item{`manual_info`}{the offical manual}
 #'      \item{`data`}{a tibble dataframe, whose variables include:
-#'      `term`,
-#'      `sessionPeriod`,
-#'      `sessionTimes`,
-#'      `meetingTimes`,
-#'      `dateTimeDesc`,
-#'      `meetingRoom`,
-#'      `chairman`,
-#'      `legislatorName`,
-#'      `speakType`,
-#'      `content`, and
-#'      `selectTerm`}
+#'      `term: 屆別`,
+#'      `sessionPeriod: 會期`,
+#'      `sessionTimes: 會次`,
+#'      `meetingTimes: 臨時會會次`,
+#'      `dateTimeDesc:日期時間說明`,
+#'      `meetingRoom: 會議地點`,
+#'      `chairman:主持人`,
+#'      `legislatorName: 委員名稱`,
+#'      `speakType:發言類型(paper:書面發言,speak:發言)`,
+#'      `content:內容`, and
+#'      `selectTerm:屆別期別篩選條件`}
 #'      }
-#'
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON

@@ -3,7 +3,7 @@
 \name{get_bills_2}
 \alias{get_bills_2}
 \title{Retrieving the records of legislators and the government (executives) proposals
-提供委員及政府之議案提案資訊。(自第8屆第1會期起)}
+議事類:提供委員及政府之議案提案資訊。(自第8屆第1會期起)}
 \usage{
 get_bills_2(term = 8, session_period = NULL, verbose = TRUE)
 }
@@ -47,7 +47,7 @@ list list, which contains: \describe{
 }
 \description{
 Retrieving the records of legislators and the government (executives) proposals
-提供委員及政府之議案提案資訊。(自第8屆第1會期起)
+議事類:提供委員及政府之議案提案資訊。(自第8屆第1會期起)
 }
 \details{
 \code{get_bills_2} produces a list, which contains \code{query_time},
@@ -61,5 +61,5 @@ get_bills_2(term = 8, session_period = 1)
 
 }
 \seealso{
-\url{https://data.ly.gov.tw/getds.action?id=1}
+\url{https://data.ly.gov.tw/getds.action?id=20}
 }

@@ -3,7 +3,7 @@
 \name{get_speech_video}
 \alias{get_speech_video}
 \title{Retrieving full video information of meetings and committees
-提供立法院院會及委員會之委員發言片段相關影片資訊。(自第9屆第1會期起)}
+會議類:提供立法院院會及委員會之委員發言片段相關影片資訊。(自第9屆第1會期起)}
 \usage{
 get_speech_video(start_date = NULL, end_date = NULL, verbose = TRUE)
 }
@@ -30,26 +30,26 @@ list, which contains: \describe{
 \item{\code{variable_names}}{the variables of the tibble dataframe}
 \item{\code{manual_info}}{the offical manual}
 \item{\code{data}}{a tibble dataframe, whose variables include:
-\code{term},
-\code{sessionPeriod},
-\code{meetingDate},
-\code{meetingTime},
-\code{meetingTypeName},
-\code{meetingName},
-\code{meetingContent},
-\code{legislatorName},
-\code{areaName},
-\code{speechStartTime},
-\code{speechEndTime},
-\code{speechRecordUrl},
-\code{videoLength},
-\code{videoUrl}, and
-\code{selectTerm}}
+\code{term: 屆期},
+\code{sessionPeriod: 會期},
+\code{meetingDate: 會議日期(西元年)},
+\code{meetingTime: 會議時間},
+\code{meetingTypeName: 主辦單位},
+\code{meetingName: 會議名稱},
+\code{meetingContent:會議事由},
+\code{legislatorName:委員姓名},
+\code{areaName: 選區名稱},
+\code{speechStartTime: 委員發言時間起},
+\code{speechEndTime: 委員發言時間迄},
+\code{speechRecordUrl: 發言紀錄網址},
+\code{videoLength: 影片長度},
+\code{videoUrl: 影片網址}, and
+\code{selectTerm:屆別期別篩選條件}}
 }
 }
 \description{
 Retrieving full video information of meetings and committees
-提供立法院院會及委員會之委員發言片段相關影片資訊。(自第9屆第1會期起)
+會議類:提供立法院院會及委員會之委員發言片段相關影片資訊。(自第9屆第1會期起)
 }
 \details{
 \code{get_speech_video} produces a list, which contains \code{title}, \code{query_time},

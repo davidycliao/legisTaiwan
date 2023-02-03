@@ -26,15 +26,15 @@
 #'      \item{`variable_names`}{the variables of the tibble dataframe}
 #'      \item{`manual_info`}{the offical manual}
 #'      \item{`data`}{a tibble dataframe, whose variables include:
-#'      `term`,
-#'      `sessionPeriod`,
-#'      `sessionTimes`,
-#'      `meetingTimes`,
-#'      `billName`,
-#'      `billProposer`,
-#'      `billCosignatory`,
-#'      `billStatus`, and
-#'      `date_ad`}
+#'      `term:屆別`,
+#'      `sessionPeriod:會期`,
+#'      `sessionTimes:會次`,
+#'      `meetingTimes:提案日期`,
+#'      `billName:提案名稱`,
+#'      `billProposer:主提案人`,
+#'      `billCosignatory:連署提案`,
+#'      `billStatus：`, and
+#'      `date_ad:西元年`}
 #'      }
 #'
 #'@importFrom attempt stop_if_all
@@ -124,21 +124,20 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 #'      \item{`variable_names`}{the variables of the tibble dataframe}
 #'      \item{`manual_info`}{the offical manual}
 #'      \item{`data`}{a tibble dataframe, whose variables include:
-#'      `term`,
-#'      `sessionPeriod`,
-#'      `sessionTimes`,
-#'      `meetingTimes`,
-#'      `billNo`,
-#'      `billName`,
-#'      `billOrg`,
-#'      `billProposer`,
-#'      `billCosignatory`,
-#'      `billStatus`,
-#'      `pdfUrl`,
-#'      `docUrl` and
-#'      `selectTerm`}
+#'      `term: 屆別`,
+#'      `sessionPeriod:會期`,
+#'      `sessionTimes:會次`,
+#'      `meetingTimes:臨時會會次`,
+#'      `billNo:議案編號`,
+#'      `billName:提案名稱`,
+#'      `billOrg:提案單位/委員`,
+#'      `billProposer:提案人(委員或黨團)`,
+#'      `billCosignatory:連署人`,
+#'      `billStatus:議案狀態`,
+#'      `pdfUrl:關係文書pdf檔案下載位置`,
+#'      `docUrl:關係文書doc檔案下載位置` and
+#'      `selectTerm:屆別期別篩選條件`}
 #'      }
-#'
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
