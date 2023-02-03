@@ -1,5 +1,5 @@
 #' Retrieving the spoken meeting records
-#' 委員發言（能取得最早取得日不詳，待檢查。）
+#' 委員發言（能取得最早日不詳，待檢查。）
 #'
 #'@details `get_meetings` produces a list, which contains `title`, `query_time`,
 #'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
@@ -289,7 +289,8 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
 
 
 #' Retrieving the records of national public debates
-#' 議事類: 提供公報之國是論壇資訊，並包含書面意見。自第8屆第1會期起，但實測資料從第十屆。
+#' 議事類: 提供公報之國是論壇資訊，並包含書面意見。自第8屆第1會期起，
+#' 但實測資料從第10屆。
 #'
 #'@param term numeric or NULL The default value is 10
 #'參數必須為數值，資料從自第8屆第1會期起，但實測資料從第十屆。。

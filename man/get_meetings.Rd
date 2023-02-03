@@ -3,7 +3,7 @@
 \name{get_meetings}
 \alias{get_meetings}
 \title{Retrieving the spoken meeting records
-委員發言（能取得最早取得日不詳，待檢查。）}
+委員發言（能取得最早日不詳，待檢查。）}
 \usage{
 get_meetings(
   start_date = NULL,
@@ -47,7 +47,7 @@ list, which contains: \describe{
 }
 \description{
 Retrieving the spoken meeting records
-委員發言（能取得最早取得日不詳，待檢查。）
+委員發言（能取得最早日不詳，待檢查。）
 }
 \details{
 \code{get_meetings} produces a list, which contains \code{title}, \code{query_time},

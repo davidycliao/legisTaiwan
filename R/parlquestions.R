@@ -89,7 +89,7 @@ get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
 
 
 #' Retrieving the records of the questions answered by the executives
-#' 質詢類: 提供公報質詢事項行政院答復資訊
+#' 質詢類: 提供公報質詢事項行政院答復資訊。(自第8屆第1會期起)
 #'
 #'@details `get_executive_response` produces a list, which contains `title`,
 #'`query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,

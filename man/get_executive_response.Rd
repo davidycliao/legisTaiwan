@@ -3,7 +3,7 @@
 \name{get_executive_response}
 \alias{get_executive_response}
 \title{Retrieving the records of the questions answered by the executives
-質詢類: 提供公報質詢事項行政院答復資訊}
+質詢類: 提供公報質詢事項行政院答復資訊。(自第8屆第1會期起)}
 \usage{
 get_executive_response(term = NULL, session_period = NULL, verbose = TRUE)
 }
@@ -42,7 +42,7 @@ list contains: \describe{
 }
 \description{
 Retrieving the records of the questions answered by the executives
-質詢類: 提供公報質詢事項行政院答復資訊
+質詢類: 提供公報質詢事項行政院答復資訊。(自第8屆第1會期起)
 }
 \details{
 \code{get_executive_response} produces a list, which contains \code{title},
