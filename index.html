@@ -8,7 +8,7 @@
 <meta name="description" content="This is designed to make it quick and easy to download the 
             real-time and archives of Taiwan legislative data via 
             Taiwan Legislative Yuan API.">
-<title>The Real-time and Archives of Taiwan Legislative Data • legisTaiwan</title>
+<title>Real-time and Archives of Taiwan Legislative Data in R • legisTaiwan</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
@@ -21,7 +21,7 @@
 <link href="deps/Source_Code_Pro-0.4.5/font.css" rel="stylesheet">
 <!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="The Real-time and Archives of Taiwan Legislative Data">
+<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Real-time and Archives of Taiwan Legislative Data in R">
 <meta property="og:description" content="This is designed to make it quick and easy to download the 
             real-time and archives of Taiwan legislative data via 
             Taiwan Legislative Yuan API.">
@@ -129,9 +129,9 @@
 </h2>
 <table class="table">
 <colgroup>
-<col width="43%">
-<col width="7%">
-<col width="49%">
+<col width="36%">
+<col width="5%">
+<col width="57%">
 </colgroup>
 <thead><tr class="header">
 <th><code>legisTaiwan</code></th>
@@ -141,59 +141,64 @@
 <tbody>
 <tr class="odd">
 <td><a href="https://davidycliao.github.io/legisTaiwan/reference/get_bills.html"><code>get_meetings()</code></a></td>
-<td>7th (2011/100)</td>
-<td><a href="https://www.ly.gov.tw/Pages/List.aspx?nodeid=154" class="external-link"><strong>Spoken Meeting Records (委員發言)</strong></a></td>
+<td>7th (2011/100)+</td>
+<td><a href="https://davidycliao.github.io/legisTaiwan/reference/get_bills.html"><strong>Spoken Meeting Records 委員發言(能取得最早日不詳，待檢查)</strong></a></td>
 </tr>
 <tr class="even">
 <td><a href="https://davidycliao.github.io/legisTaiwan/reference/get_caucus_meetings.html"><code>get_caucus_meetings()</code></a></td>
-<td>8th (2014/100)*</td>
-<td><a href="https://data.ly.gov.tw/getds.action?id=8" class="external-link"><strong>the Meeting Records of Cross-caucus Session 黨團協商</strong></a></td>
+<td>th (2011/100)*</td>
+<td><a href="https://data.ly.gov.tw/getds.action?id=8" class="external-link"><strong>the Meeting Records of Cross-caucus Session 提供公報之黨團協商資訊 (自第8屆)</strong></a></td>
 </tr>
 <tr class="odd">
 <td><a href="https://davidycliao.github.io/legisTaiwan/reference/get_bills.html"><code>get_bills()</code></a></td>
-<td>7th (2011/100)</td>
-<td><a href="https://www.ly.gov.tw/Pages/List.aspx?nodeid=154" class="external-link"><strong>the Records of the Bills 法律提案(API)</strong></a></td>
+<td>7th (2011/100)+</td>
+<td><a href="https://davidycliao.github.io/legisTaiwan/reference/get_bills.html"><strong>the Records of the Bills 法律提案(能取得最早日不詳，待檢查)</strong></a></td>
 </tr>
 <tr class="even">
 <td><a href="https://davidycliao.github.io/legisTaiwan/reference/get_bills_2.html"><code>get_bills_2()</code></a></td>
 <td>8th (2014/100)</td>
-<td><a href="https://data.ly.gov.tw/getds.action?id=1" class="external-link"><strong>the Records of Legislators and the Government Bill Proposals 議案提案</strong></a></td>
+<td><a href="https://data.ly.gov.tw/getds.action?id=1" class="external-link"><strong>the Records of Legislators and the Government Bill Proposals 提供委員及政府之議案提案資訊。(自第8屆)</strong></a></td>
 </tr>
 <tr class="odd">
 <td><a href="https://davidycliao.github.io/legisTaiwan/reference/get_legislators.html"><code>get_legislators()</code></a></td>
 <td>2th (1992/81)</td>
-<td><a href="https://data.ly.gov.tw/getds.action?id=16" class="external-link"><strong>Legislator Demographics (提供委員基本資料)</strong></a></td>
+<td><a href="https://davidycliao.github.io/legisTaiwan/reference/get_legislators.html"><strong>Legislator Demographics (提供委員基本資料)</strong></a></td>
 </tr>
 <tr class="even">
 <td><a href="https://davidycliao.github.io/legisTaiwan/reference/get_parlquestions.html"><code>get_parlquestions()</code></a></td>
 <td>8th (2014/104)</td>
-<td><a href="https://data.ly.gov.tw/getds.action?id=6" class="external-link"><strong>Questions Asked by Legislators 提供議事日程本院委員之質詢事項資訊</strong></a></td>
+<td><a href="https://davidycliao.github.io/legisTaiwan/reference/get_parlquestions.html"><strong>Questions Asked by Legislators 提供議事日程本院委員之質詢事項資訊。(自第8屆) </strong></a></td>
 </tr>
 <tr class="odd">
 <td><a href="https://davidycliao.github.io/legisTaiwan/reference/get_executive_response.html"><code>get_executive_response()</code></a></td>
 <td>8th (2014/104)</td>
-<td><a href="https://data.ly.gov.tw/getds.action?id=1" class="external-link"><strong>Questions Answered by the Executives 提供公報質詢事項行政院答復資訊</strong></a></td>
+<td><a href="https://davidycliao.github.io/legisTaiwan/reference/get_executive_response.html"><strong>Questions Answered by the Executives提供公報質詢事項行政院答復資訊(自第8屆第1會期起)</strong></a></td>
 </tr>
 <tr class="even">
 <td><a href="https://davidycliao.github.io/legisTaiwan/reference/get_public_debates.html"><code>get_public_debates()</code></a></td>
 <td>8th (2014/104)</td>
-<td><a href="https://data.ly.gov.tw/getds.action?id=7" class="external-link"><strong>Public Debates 國是論壇</strong></a></td>
+<td><a href="https://davidycliao.github.io/legisTaiwan/reference/get_public_debates.html"><strong>Public Debates 提供公報之國是論壇資訊，並包含書面意見自(第8屆)</strong></a></td>
 </tr>
 <tr class="odd">
 <td><a href="https://davidycliao.github.io/legisTaiwan/reference/get_speech_video.html"><code>get_speech_video()</code></a></td>
 <td>8th (2014/104)</td>
-<td><a href="https://data.ly.gov.tw/getds.action?id=148" class="external-link"><strong>Full Video Information of Meetings and Committees 委員發言片段相關影片資訊</strong></a></td>
+<td><a href="https://data.ly.gov.tw/getds.action?id=148" class="external-link"><strong>Full Video Information of Meetings and Committees 提供立法院院會及委員會之委員發言片段相關影片資訊(自第9屆)</strong></a></td>
 </tr>
 <tr class="even">
+<td><a href="https://davidycliao.github.io/legisTaiwan/reference/get_speech_video.html"><code>get_committee_record()</code></a></td>
+<td>8th (2014/104)</td>
+<td><a href="https://davidycliao.github.io/legisTaiwan/reference/get_speech_video.html"><strong>The Records of Reviewed Items in the Committees 提供委員會會議審查之議案項目 (自第8屆)</strong></a></td>
+</tr>
+<tr class="odd">
 <td><a href="https://davidycliao.github.io/legisTaiwan/reference/get_variable_info.html"><code>get_variable_info()</code></a></td>
 <td>8th (2014/104)</td>
-<td><a href="https://davidycliao.github.io/legisTaiwan/reference/get_variable_info.html"><strong>API’s Endpoint User Manuals API使用說明文件</strong></a></td>
+<td><a href="https://davidycliao.github.io/legisTaiwan/reference/get_variable_info.html"><strong>API’s Endpoint User Manuals 使用說明文件</strong></a></td>
 </tr>
 </tbody>
 </table>
 <div class="section level5">
-<h5 id="the-user-manuals-seems-to-be-inconsistent-資料似乎不一至">
-<a href="">*the user manuals seems to be inconsistent 資料似乎不一至</a><a class="anchor" aria-label="anchor" href="#the-user-manuals-seems-to-be-inconsistent-%E8%B3%87%E6%96%99%E4%BC%BC%E4%B9%8E%E4%B8%8D%E4%B8%80%E8%87%B3"></a>
+<h5 id="the-user-manuals-seems-to-be-inconsistent-資料似乎不一致">
+<a href="">+the user manuals seems to be inconsistent 資料似乎不一致</a><a class="anchor" aria-label="anchor" href="#the-user-manuals-seems-to-be-inconsistent-%E8%B3%87%E6%96%99%E4%BC%BC%E4%B9%8E%E4%B8%8D%E4%B8%80%E8%87%B4"></a>
 </h5>
 </div>
 </div>
