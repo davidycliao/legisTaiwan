@@ -38,15 +38,6 @@
 #'
 #'@export
 #'
-#'@examples
-#' ## To retrieve legislator' demographic from 8th
-#' ## 輸入「屆次」下載當屆立委資料
-#'get_legislators(term = 8)
-#'
-#'
-#' ## To retrieve legislator' demographic from all of terms
-#' ## 輸入「空白」下載所有立委資料
-#'get_legislators()
 #'@seealso
 #'\url{https://data.ly.gov.tw/getds.action?id=16}
 get_legislators <- function(term = NULL, verbose = TRUE) {

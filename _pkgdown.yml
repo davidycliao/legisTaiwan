@@ -8,6 +8,10 @@ authors:
     href: https://davidycliao.github.io
   Li Tang:
     href: https://sites.google.com/view/litang2020?pli=1
+
+  Taiwan Legislative Yuan 立法院:
+    href: "http://name-website.com"
+    html: "<img src='https://website.com/name-picture.png' width=72>"
 template:
   package: tidytemplate
   bootstrap: 5
@@ -39,14 +43,17 @@ navbar:
   - icon: fa-newspaper-o
     text: News
     menu:
-    - text: "Version 0.1.0"
-      href: news/index.html
+    - text: "Version 0.1.5"
+      href: news/index.html#legistaiwan-version-015-development-version
+    - text: "Version 0.1.2"
+      href: news/index.html#legistaiwan-version-012-development-version
+    - text: "Version 0.1.1"
+      href: news/index.html#legistaiwan-version-011-development-version
   - icon: fa-file-code-o
     text: Features
     menu:
     - text: "Reference"
       href: reference/index.html
-
 
   right:
   - icon: fa-github fa-lg

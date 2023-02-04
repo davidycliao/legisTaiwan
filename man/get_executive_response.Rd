@@ -48,11 +48,6 @@ The Records of the Questions Answered by the Executives 公報質詢事項行政
 about the data frame, please use \code{legisTaiwan::get_variable_info("get_executive_response")}.
 質詢類: 提供公報質詢事項行政院答復資訊 (自第8屆第1會期起)。
 }
-\examples{
-## query the Executives' answered response by term and the session period.
-## 輸入「立委屆期」與「會期」下載「行政院答復」
-get_executive_response(term = 8, session_period = 1)
-}
 \seealso{
 \url{https://data.ly.gov.tw/getds.action?id=2}
 }

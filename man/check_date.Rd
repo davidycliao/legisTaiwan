@@ -19,6 +19,3 @@ Checking the date
 \details{
 \code{check_date} transforms ROC date to a date in POSIXct, e.g. "1050531" to "2016-05-31".
 }
-\examples{
-check_date("1050531")
-}

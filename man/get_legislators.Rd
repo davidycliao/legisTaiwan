@@ -45,16 +45,6 @@ To retrieve the user manual and more information about the data frame, please us
 \code{legisTaiwan::get_variable_info("get_legislators")}. 提供委員基本資料，最早資
 料可追溯至第2屆。
 }
-\examples{
-## To retrieve legislator' demographic from 8th
-## 輸入「屆次」下載當屆立委資料
-get_legislators(term = 8)
-
-
-## To retrieve legislator' demographic from all of terms
-## 輸入「空白」下載所有立委資料
-get_legislators()
-}
 \seealso{
 \url{https://data.ly.gov.tw/getds.action?id=16}
 }

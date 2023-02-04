@@ -42,15 +42,6 @@
 #'@importFrom jsonlite fromJSON
 #'
 #'@export
-#'@examples
-#' ## query meeting records by a period of the dates in Taiwan ROC calender format
-#' ## 輸入「中華民國民年」下載「委員發言」
-#'get_meetings(start_date = "1050120", end_date = "1050210")
-#'
-#' ## query meeting records by a period of the dates in Taiwan ROC calender format
-#' ## and a meeting
-#' ## 輸入「中華民國民年」與「審查會議或委員會名稱」下載會議審查資訊
-#'get_meetings(start_date = 1060120, end_date = 1070310, meeting_unit = "內政委員會")
 #'
 #'@seealso
 #'\url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}
@@ -144,13 +135,6 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
 #'
 #'@export
 #'
-#'@examples
-#' ## query the meeting records of cross-caucus session using a period of
-#' ## the dates in Taiwan ROC calender format with forward slash (/).
-#' ## 輸入「中華民國民年」下載「黨團協商」，輸入時間請依照該格式 "106/10/20"，
-#' ## 需有「正斜線」做隔開。
-#'get_caucus_meetings(start_date = "106/10/20", end_date = "107/03/10")
-#'
 #'@seealso
 #'\url{https://data.ly.gov.tw/getds.action?id=8}
 get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
@@ -240,13 +224,6 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
 #'@importFrom jsonlite fromJSON
 #'
 #'@export
-#'
-#'@examples
-#' ## query full video information of meetings and committees using a period of
-#' ## the dates in Taiwan ROC calender format with forward slash (/).
-#' ## 輸入「中華民國民年」下載「委員發言片段相關影片資訊」，輸入時間請依照該
-#' ## 格式 "105/10/20"，需有「正斜線」做隔開。
-#'get_speech_video(start_date = "105/10/20", end_date = "109/03/10")
 #'
 #'@seealso
 #'委員發言片段相關影片資訊 \url{https://data.ly.gov.tw/getds.action?id=148}
@@ -341,11 +318,6 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
 #'
 #'@export
 #'
-#'@examples
-#' ## query the Executives' answered response by term and the session period.
-#' ## 輸入「立委屆期」與「會期」下載國是論壇資訊。
-#'get_public_debates(term = 10, session_period = 2)
-#'
 #'@seealso
 #'\url{https://data.ly.gov.tw/getds.action?id=7}
 get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRUE) {
@@ -435,10 +407,6 @@ get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRU
 #'
 #'@export
 #'
-#'@examples
-#' ## query the committee record by term and the session period.
-#' ## 輸入「立委屆期」與「會期」下載「委員會審議之議案」
-#'get_committee_record(term = 8, session_period = 1)
 #'@seealso
 #'\url{https://data.ly.gov.tw/getds.action?id=46}
 

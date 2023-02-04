@@ -56,14 +56,6 @@ The Meeting Records of Cross-caucus Session 黨團協商資訊
 To retrieve the user manual and more information
 about the data frame, please use \code{legisTaiwan::get_variable_info("get_caucus_meetings")}.
 }
-\examples{
-## query the meeting records of cross-caucus session using a period of
-## the dates in Taiwan ROC calender format with forward slash (/).
-## 輸入「中華民國民年」下載「黨團協商」，輸入時間請依照該格式 "106/10/20"，
-## 需有「正斜線」做隔開。
-get_caucus_meetings(start_date = "106/10/20", end_date = "107/03/10")
-
-}
 \seealso{
 \url{https://data.ly.gov.tw/getds.action?id=8}
 }

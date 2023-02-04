@@ -19,6 +19,3 @@ Transforming the date in Taiwan ROC calendar to A.D. in POSIXct
 \details{
 \code{check_date} transforms ROC date to a date in POSIXct, e.g. "105/05/31" to "2016-05-31".
 }
-\examples{
-transformed_date_meeting("105/05/31")
-}

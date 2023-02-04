@@ -49,12 +49,6 @@ list, which contains: \describe{
 manual and more information about the data frame, please use \code{legisTaiwan::get_variable_info("get_public_debates")}.
 議事類: 提供公報之國是論壇資訊，並包含書面意見。自第8屆第1會期起，但實測資料從第10屆。
 }
-\examples{
-## query the Executives' answered response by term and the session period.
-## 輸入「立委屆期」與「會期」下載國是論壇資訊。
-get_public_debates(term = 10, session_period = 2)
-
-}
 \seealso{
 \url{https://data.ly.gov.tw/getds.action?id=7}
 }

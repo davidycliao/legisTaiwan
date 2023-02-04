@@ -54,12 +54,6 @@ The Records of Legislation and the Executives Proposals 委員及政府議案提
 manual and more information about the data frame, please use \code{legisTaiwan::get_variable_info("get_bills_2")}.
 議事類:提供委員及政府之議案提案資訊 (自第8屆第1會期起)。
 }
-\examples{
-## query the Executives' answered response by term and the session period.
-## 輸入「立委屆期」與「會期」下載「質詢事項 (行政院答復部分)」
-get_bills_2(term = 8, session_period = 1)
-
-}
 \seealso{
 \url{https://data.ly.gov.tw/getds.action?id=20}
 }

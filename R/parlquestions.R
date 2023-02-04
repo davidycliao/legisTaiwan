@@ -37,21 +37,6 @@
 #'
 #'@export
 #'
-#'@examples
-#' ## query parliamentary questions by term.
-#' ## 輸入「立委會期」下載立委質詢資料
-#'
-#'get_parlquestions(term = 8)
-#'
-#' ## query parliamentary questions by term.
-#' ## 輸入「立委屆期」與「會期」下載立委質詢資料
-#'
-#'get_parlquestions(term = 8, session_period = 2)
-#'
-#' ## query parliamentary questions by term.
-#' ## 輸入「空白」下載立委全部質詢資料
-#'
-#'get_parlquestions(term = 8, session_period = 2)
 #'@seealso
 #'\url{https://data.ly.gov.tw/getds.action?id=6}
 get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
@@ -131,10 +116,6 @@ get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
 #'
 #'@export
 #'
-#'@examples
-#' ## query the Executives' answered response by term and the session period.
-#' ## 輸入「立委屆期」與「會期」下載「行政院答復」
-#'get_executive_response(term = 8, session_period = 1)
 #'@seealso
 #'\url{https://data.ly.gov.tw/getds.action?id=2}
 

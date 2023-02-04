@@ -60,8 +60,6 @@ api_check <- function(start_date = start_date, end_date = end_date) {
 #'@importFrom stringr str_split_1
 #'@export
 #'
-#'@examples
-#'transformed_date_meeting("105/05/31")
 transformed_date_meeting <- function(roc_date) {
   roc_date <- stringr::str_split_1(roc_date, "/")
   date_ad <- as.Date(as.POSIXct(paste(as.numeric(roc_date[1]) + 1911,
@@ -84,8 +82,6 @@ transformed_date_meeting <- function(roc_date) {
 #'
 #'@export
 #'
-#'@examples
-#'transformed_date_bill("1050531")
 
 transformed_date_bill <- function(roc_date) {
   day <- stringr::str_sub(roc_date, -2, -1)
@@ -112,8 +108,6 @@ transformed_date_bill <- function(roc_date) {
 #'
 #'@export
 #'
-#'@examples
-#'check_date("1050531")
 check_date <- function(roc_date) {
   day <- stringr::str_sub(roc_date, -2, -1)
   month <- stringr::str_sub(roc_date, -4, -3)

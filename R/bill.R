@@ -43,20 +43,7 @@
 #'@importFrom jsonlite fromJSON
 #'
 #'@export
-#'@examples
-#' ## query bill records by a period of the dates in Taiwan ROC calender format
-#' ## 輸入「中華民國民年」下載立法委員提案資料
-#'get_bills(start_date = 1060120, end_date = 1070310, verbose = FALSE)
 #'
-#' ## query bill records by a period of the dates in Taiwan ROC calender format
-#' ## and a specific legislator
-#' ## 輸入「中華民國民年」與「指定立法委員」下載立法委員提案資料
-#'get_bills(start_date = 1060120, end_date = 1070310,  proposer = "孔文吉")
-#'
-#' ## query bill records by a period of the dates in Taiwan ROC calender format
-#' ## and multiple legislators
-#' ## 輸入「中華民國民年」與「指定多個立法委員」下載立法委員提案資料
-#'get_bills(start_date = 1060120, end_date = 1060510,  proposer = "孔文吉&鄭天財")
 #'@seealso
 #'\url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}
 get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
@@ -146,11 +133,6 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 #'@importFrom jsonlite fromJSON
 #'
 #'@export
-#'
-#'@examples
-#' ## query the Executives' answered response by term and the session period.
-#' ## 輸入「立委屆期」與「會期」下載「質詢事項 (行政院答復部分)」
-#'get_bills_2(term = 8, session_period = 1)
 #'
 #'@seealso
 #'\url{https://data.ly.gov.tw/getds.action?id=20}
