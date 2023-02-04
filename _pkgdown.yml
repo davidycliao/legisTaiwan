@@ -9,8 +9,8 @@ authors:
   Li Tang:
     href: https://sites.google.com/view/litang2020?pli=1
   Taiwan Legislative Yuan 立法院:
-    href: "http://name-website.com"
-    html: "<img src='https://raw.githack.com/davidycliao/legisTaiwan/v0.1.4/inst/figures/ly.jpeg' width=72>"
+    href: "https://data.ly.gov.tw/catelog.action"
+    html: "<img src='https://raw.githack.com/davidycliao/legisTaiwan/v0.1.4/inst/figures/ly.jpeg' width=52>"
 
 template:
   package: tidytemplate
