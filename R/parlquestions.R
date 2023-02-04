@@ -115,9 +115,6 @@ get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
 #'              }
 #'      }
 #'
-#'@examples
-#'\dontrun{ #get_executive_response(term = 8, session_period = 1, verbose = TRUE)}
-#'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
 #'

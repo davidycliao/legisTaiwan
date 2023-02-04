@@ -27,7 +27,7 @@ list, which contains: \describe{
 \item{\code{start_date}}{the start date in ROC Taiwan calendar}
 \item{\code{url}}{the retrieved json url}
 \item{\code{variable_names}}{the variables of the tibble dataframe}
-\item{\code{manual_info}}{the offical manual from \url{https://data.ly.gov.tw/getds.action?id=8}, or use legisTaiwan::get_variable_info("get_caucus_meetings")}
+\item{\code{manual_info}}{the official manual, \url{https://data.ly.gov.tw/getds.action?id=8}; or use legisTaiwan::get_variable_info("get_caucus_meetings")}
 \item{\code{data}}{a tibble dataframe, whose variables include:
 \describe{\item{\code{comYear}}{卷}
 \item{\code{comVolume}}{期}

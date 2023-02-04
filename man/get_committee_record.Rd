@@ -25,13 +25,15 @@ list contains: \describe{
 \item{\code{retrieved_term}}{the queried term}
 \item{\code{url}}{the retrieved json url}
 \item{\code{variable_names}}{the variables of the tibble dataframe}
-\item{\code{manual_info}}{the offical manual}
+\item{\code{manual_info}}{the official manual, \url{https://data.ly.gov.tw/getds.action?id=46}; or use legisTaiwan::get_variable_info("get_committee_record")}
 \item{\code{data}}{a tibble dataframe, whose variables include:
-\code{term: 屆別},
-\code{sessionPeriod: 會期},
-\code{meetingNo: 會議編號},
-\code{billNo: 議案編號}, and
-\code{selectTerm:屆別期別篩選條件}}
+\describe{\item{\code{term}}{屆別}
+\item{\code{sessionPeriod}}{會期}
+\item{\code{meetingNo}}{會議編號}
+\item{\code{billNo}}{議案編號}
+\item{\code{selectTerm}}{屆別期別篩選條件}
+}
+}
 }
 }
 \description{

@@ -27,17 +27,19 @@
 #'      \item{`start_date`}{the start date in ROC Taiwan calendar}
 #'      \item{`url`}{the retrieved json url}
 #'      \item{`variable_names`}{the variables of the tibble dataframe}
-#'      \item{`manual_info`}{the offical manual}
+#'      \item{`manual_info`}{the official manual, \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}; or use legisTaiwan::get_variable_info("get_bills")}
 #'      \item{`data`}{a tibble dataframe, whose variables include:
-#'      `term:屆別`,
-#'      `sessionPeriod:會期`,
-#'      `sessionTimes:會次`,
-#'      `meetingTimes:提案日期`,
-#'      `billName:提案名稱`,
-#'      `billProposer:主提案人`,
-#'      `billCosignatory:連署提案`,
-#'      `billStatus：`, and
-#'      `date_ad:西元年`}
+#'      \describe{\item{`term`}{屆別}
+#'                \item{`sessionPeriod`}{會期}
+#'                \item{`sessionTimes`}{會次}
+#'                \item{`meetingTimes`}{提案日期}
+#'                \item{`billName`}{提案名稱}
+#'                \item{`billProposer`}{主提案人}
+#'                \item{`billCosignatory`}{連署提案}
+#'                \item{`billStatus`}{議案狀態}
+#'                \item{`date_ad`}{西元年}
+#'                }
+#'              }
 #'      }
 #'
 #'@importFrom attempt stop_if_all
@@ -113,21 +115,23 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 #'      \item{`start_date`}{the start date in ROC Taiwan calendar}
 #'      \item{`url`}{the retrieved json url}
 #'      \item{`variable_names`}{the variables of the tibble dataframe}
-#'      \item{`manual_info`}{the offical manual}
+#'      \item{`manual_info`}{the official manual, \url{https://data.ly.gov.tw/getds.action?id=20}; or use legisTaiwan::get_variable_info("get_bills_2")}
 #'      \item{`data`}{a tibble dataframe, whose variables include:
-#'      `term: 屆別`,
-#'      `sessionPeriod:會期`,
-#'      `sessionTimes:會次`,
-#'      `meetingTimes:臨時會會次`,
-#'      `billNo:議案編號`,
-#'      `billName:提案名稱`,
-#'      `billOrg:提案單位/委員`,
-#'      `billProposer:提案人(委員或黨團)`,
-#'      `billCosignatory:連署人`,
-#'      `billStatus:議案狀態`,
-#'      `pdfUrl:關係文書pdf檔案下載位置`,
-#'      `docUrl:關係文書doc檔案下載位置` and
-#'      `selectTerm:屆別期別篩選條件`}
+#'      \describe{\item{`term`}{屆別}
+#'                \item{`sessionPeriod`}{會期}
+#'                \item{`sessionTimes`}{會次}
+#'                \item{`meetingTimes`}{臨時會會次}
+#'                \item{`billNo`}{議案編號}
+#'                \item{`billName`}{提案名稱}
+#'                \item{`billOrg`}{提案單位/委員}
+#'                \item{`billProposer`}{主提案人}
+#'                \item{`billCosignatory`}{連署提案}
+#'                \item{`billStatus`}{議案狀態}
+#'                \item{`pdfUrl`}{關係文書pdf檔案下載位置}
+#'                \item{`docUrl`}{關係文書doc檔案下載位置}
+#'                \item{`selectTerm`}{屆別期別篩選條件}
+#'                }
+#'              }
 #'      }
 #'
 #'@importFrom attempt stop_if_all

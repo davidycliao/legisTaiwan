@@ -33,7 +33,7 @@ list, which contains: \describe{
 \item{\code{start_date}}{the start date in ROC Taiwan calendar}
 \item{\code{url}}{the retrieved json url}
 \item{\code{variable_names}}{the variables of the tibble dataframe}
-\item{\code{manual_info}}{the offical manual from \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}, or use legisTaiwan::get_variable_info("get_meetings")}
+\item{\code{manual_info}}{the offical manual, \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}; or use legisTaiwan::get_variable_info("get_meetings")}
 \item{\code{data}}{a tibble dataframe, whose variables include:
 \describe{\item{\code{smeeting_date}}{會議日期}
 \item{\code{meeting_status}}{會議狀態}

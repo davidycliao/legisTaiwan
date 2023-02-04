@@ -28,17 +28,19 @@ list, which contains: s\describe{
 \item{\code{start_date}}{the start date in ROC Taiwan calendar}
 \item{\code{url}}{the retrieved json url}
 \item{\code{variable_names}}{the variables of the tibble dataframe}
-\item{\code{manual_info}}{the offical manual}
+\item{\code{manual_info}}{the official manual, \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}; or use legisTaiwan::get_variable_info("get_bills")}
 \item{\code{data}}{a tibble dataframe, whose variables include:
-\code{term:屆別},
-\code{sessionPeriod:會期},
-\code{sessionTimes:會次},
-\code{meetingTimes:提案日期},
-\code{billName:提案名稱},
-\code{billProposer:主提案人},
-\code{billCosignatory:連署提案},
-\verb{billStatus：}, and
-\code{date_ad:西元年}}
+\describe{\item{\code{term}}{屆別}
+\item{\code{sessionPeriod}}{會期}
+\item{\code{sessionTimes}}{會次}
+\item{\code{meetingTimes}}{提案日期}
+\item{\code{billName}}{提案名稱}
+\item{\code{billProposer}}{主提案人}
+\item{\code{billCosignatory}}{連署提案}
+\item{\code{billStatus}}{議案狀態}
+\item{\code{date_ad}}{西元年}
+}
+}
 }
 }
 \description{

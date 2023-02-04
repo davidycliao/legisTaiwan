@@ -12,26 +12,28 @@
 #'detailed output when retrieving the data. The default is TRUE.
 #'
 #'@return list contains: \describe{
-#'\item{`query_time`}{the queried time}
-#'\item{`queried_term`}{the queried term}
-#'\item{`url`}{the retrieved json url}
-#'\item{`variable_names`}{the variables of the tibble dataframe}
-#'\item{`manual_info`}{the offical manual}
-#'\item{`data`}{a tibble dataframe , whose variables include:
-#'      `term`,
-#'      `name`,
-#'      `ename`,
-#'      `sex`,
-#'      `party`,
-#'      `partyGroup`,
-#'      `areaName`,
-#'      `committee`,
-#'      `onboardDate`,
-#'      `degree`,
-#'      `picUrl`,
-#'      `leaveFlag`,
-#'      `leaveDate` and
-#'      `leaveReason`}}
+#'      \item{`query_time`}{the queried time}
+#'      \item{`queried_term`}{the queried term}
+#'      \item{`url`}{the retrieved json url}
+#'      \item{`variable_names`}{the variables of the tibble dataframe}
+#'      \item{`manual_info`}{the offical manual from \url{https://data.ly.gov.tw/getds.action?id=16}, or use legisTaiwan::get_variable_info("get_legislators")}
+#'      \item{`data`}{a tibble dataframe, whose variables include:
+#'      \describe{\item{`term`}{屆別}
+#'                \item{`name`}{委員姓名}
+#'                \item{`ename`}{委員姓名}
+#'                \item{`sex`}{性別}
+#'                \item{`party`}{黨籍}
+#'                \item{`partyGroup`}{黨團}
+#'                \item{`committee`}{委員會}
+#'                \item{`onboardDate`}{到職日(西元年)}
+#'                \item{`degree`}{學歷}
+#'                \item{`experience`}{經歷}
+#'                \item{`picPath`}{照片位址}
+#'                \item{`leaveFlag`}{離職日期(西元年)}
+#'                \item{`leaveReason`}{離職原因}
+#'                }
+#'              }
+#'      }}
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON

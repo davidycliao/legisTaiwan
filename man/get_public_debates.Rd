@@ -27,19 +27,20 @@ list, which contains: \describe{
 \item{\code{start_date}}{the start date in ROC Taiwan calendar}
 \item{\code{url}}{the retrieved json url}
 \item{\code{variable_names}}{the variables of the tibble dataframe}
-\item{\code{manual_info}}{the offical manual}
-\item{\code{data}}{a tibble dataframe, whose variables include:
-\code{term: 屆別},
-\code{sessionPeriod: 會期},
-\code{sessionTimes: 會次},
-\code{meetingTimes: 臨時會會次},
-\code{dateTimeDesc:日期時間說明},
-\code{meetingRoom: 會議地點},
-\code{chairman:主持人},
-\code{legislatorName: 委員名稱},
-\code{speakType:發言類型(paper:書面發言,speak:發言)},
-\code{content:內容}, and
-\code{selectTerm:屆別期別篩選條件}}
+\item{\code{manual_info}}{the official manual, \url{https://data.ly.gov.tw/getds.action?id=7}; or use legisTaiwan::get_variable_info("get_public_debates")}
+\describe{\item{\code{term}}{屆別}
+\item{\code{sessionPeriod}}{會期}
+\item{\code{sessionTimes}}{會次}
+\item{\code{meetingTimes}}{臨時會會次}
+\item{\code{dateTimeDesc}}{日期時間說明}
+\item{\code{meetingRoom}}{會議地點}
+\item{\code{chairman}}{主持人}
+\item{\code{legislatorName}}{委員姓名}
+\item{\code{speakType}}{發言類型(paper:書面發言,speak:發言)}
+\item{\code{content}}{內容}
+\item{\code{selectTerm}}{屆別期別篩選條件}
+}
+}
 }
 }
 \description{

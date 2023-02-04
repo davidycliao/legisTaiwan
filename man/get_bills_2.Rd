@@ -27,21 +27,23 @@ list list, which contains: \describe{
 \item{\code{start_date}}{the start date in ROC Taiwan calendar}
 \item{\code{url}}{the retrieved json url}
 \item{\code{variable_names}}{the variables of the tibble dataframe}
-\item{\code{manual_info}}{the offical manual}
+\item{\code{manual_info}}{the official manual, \url{https://data.ly.gov.tw/getds.action?id=20}; or use legisTaiwan::get_variable_info("get_bills_2")}
 \item{\code{data}}{a tibble dataframe, whose variables include:
-\code{term: 屆別},
-\code{sessionPeriod:會期},
-\code{sessionTimes:會次},
-\code{meetingTimes:臨時會會次},
-\code{billNo:議案編號},
-\code{billName:提案名稱},
-\code{billOrg:提案單位/委員},
-\code{billProposer:提案人(委員或黨團)},
-\code{billCosignatory:連署人},
-\code{billStatus:議案狀態},
-\code{pdfUrl:關係文書pdf檔案下載位置},
-\code{docUrl:關係文書doc檔案下載位置} and
-\code{selectTerm:屆別期別篩選條件}}
+\describe{\item{\code{term}}{屆別}
+\item{\code{sessionPeriod}}{會期}
+\item{\code{sessionTimes}}{會次}
+\item{\code{meetingTimes}}{臨時會會次}
+\item{\code{billNo}}{議案編號}
+\item{\code{billName}}{提案名稱}
+\item{\code{billOrg}}{提案單位/委員}
+\item{\code{billProposer}}{主提案人}
+\item{\code{billCosignatory}}{連署提案}
+\item{\code{billStatus}}{議案狀態}
+\item{\code{pdfUrl}}{關係文書pdf檔案下載位置}
+\item{\code{docUrl}}{關係文書doc檔案下載位置}
+\item{\code{selectTerm}}{屆別期別篩選條件}
+}
+}
 }
 }
 \description{

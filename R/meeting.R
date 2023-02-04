@@ -27,7 +27,7 @@
 #'      \item{`start_date`}{the start date in ROC Taiwan calendar}
 #'      \item{`url`}{the retrieved json url}
 #'      \item{`variable_names`}{the variables of the tibble dataframe}
-#'      \item{`manual_info`}{the offical manual from \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}, or use legisTaiwan::get_variable_info("get_meetings")}
+#'      \item{`manual_info`}{the offical manual, \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}; or use legisTaiwan::get_variable_info("get_meetings")}
 #'      \item{`data`}{a tibble dataframe, whose variables include:
 #'      \describe{\item{`smeeting_date`}{會議日期}
 #'                \item{`meeting_status`}{會議狀態}
@@ -113,7 +113,7 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
 #'      \item{`start_date`}{the start date in ROC Taiwan calendar}
 #'      \item{`url`}{the retrieved json url}
 #'      \item{`variable_names`}{the variables of the tibble dataframe}
-#'      \item{`manual_info`}{the offical manual from \url{https://data.ly.gov.tw/getds.action?id=8}, or use legisTaiwan::get_variable_info("get_caucus_meetings")}
+#'      \item{`manual_info`}{the official manual, \url{https://data.ly.gov.tw/getds.action?id=8}; or use legisTaiwan::get_variable_info("get_caucus_meetings")}
 #'      \item{`data`}{a tibble dataframe, whose variables include:
 #'      \describe{\item{`comYear`}{卷}
 #'                \item{`comVolume`}{期}
@@ -204,23 +204,25 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
 #'      \item{`start_date`}{the start date in ROC Taiwan calendar}
 #'      \item{`url`}{the retrieved json url}
 #'      \item{`variable_names`}{the variables of the tibble dataframe}
-#'      \item{`manual_info`}{the offical manual}
+#'      \item{`manual_info`}{the official manual, \url{https://data.ly.gov.tw/getds.action?id=148}; or use legisTaiwan::get_variable_info("get_speech_video")}
 #'      \item{`data`}{a tibble dataframe, whose variables include:
-#'      `term: 屆期`,
-#'      `sessionPeriod: 會期`,
-#'      `meetingDate: 會議日期(西元年)`,
-#'      `meetingTime: 會議時間`,
-#'      `meetingTypeName: 主辦單位`,
-#'      `meetingName: 會議名稱`,
-#'      `meetingContent:會議事由`,
-#'      `legislatorName:委員姓名`,
-#'      `areaName: 選區名稱`,
-#'      `speechStartTime: 委員發言時間起`,
-#'      `speechEndTime: 委員發言時間迄`,
-#'      `speechRecordUrl: 發言紀錄網址`,
-#'      `videoLength: 影片長度`,
-#'      `videoUrl: 影片網址`, and
-#'      `selectTerm:屆別期別篩選條件`}
+#'      \describe{\item{`term`}{屆別}
+#'                \item{`sessionPeriod`}{會期}
+#'                \item{`meetingDate`}{會議日期(西元年)}
+#'                \item{`meetingTime`}{會議時間}
+#'                \item{`meetingTypeName`}{主辦單位}
+#'                \item{`meetingName`}{會議名稱}
+#'                \item{`meetingContent`}{會議事由}
+#'                \item{`legislatorName`}{委員姓名}
+#'                \item{`areaName`}{選區名稱}
+#'                \item{`speechStartTime`}{委員發言時間起}
+#'                \item{`speechEndTime`}{委員發言時間迄}
+#'                \item{`speechRecordUrl`}{發言紀錄網址}
+#'                \item{`videoLength`}{影片長度}
+#'                \item{`videoUrl`}{影片網址}
+#'                \item{`selectTerm`}{屆別期別篩選條件}
+#'                }
+#'              }
 #'      }
 #'
 #'@importFrom attempt stop_if_all
@@ -301,25 +303,21 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
 #'      \item{`start_date`}{the start date in ROC Taiwan calendar}
 #'      \item{`url`}{the retrieved json url}
 #'      \item{`variable_names`}{the variables of the tibble dataframe}
-#'      \item{`manual_info`}{the offical manual}
-#'      \item{`data`}{a tibble dataframe, whose variables include:
-#'      `term: 屆別`,
-#'      `sessionPeriod: 會期`,
-#'      `sessionTimes: 會次`,
-#'      `meetingTimes: 臨時會會次`,
-#'      `dateTimeDesc:日期時間說明`,
-#'      `meetingRoom: 會議地點`,
-#'      `chairman:主持人`,
-#'      `legislatorName: 委員名稱`,
-#'      `speakType:發言類型(paper:書面發言,speak:發言)`,
-#'      `content:內容`, and
-#'      `selectTerm:屆別期別篩選條件`}
+#'      \item{`manual_info`}{the official manual, \url{https://data.ly.gov.tw/getds.action?id=7}; or use legisTaiwan::get_variable_info("get_public_debates")}
+#'      \describe{\item{`term`}{屆別}
+#'                \item{`sessionPeriod`}{會期}
+#'                \item{`sessionTimes`}{會次}
+#'                \item{`meetingTimes`}{臨時會會次}
+#'                \item{`dateTimeDesc`}{日期時間說明}
+#'                \item{`meetingRoom`}{會議地點}
+#'                \item{`chairman`}{主持人}
+#'                \item{`legislatorName`}{委員姓名}
+#'                \item{`speakType`}{發言類型(paper:書面發言,speak:發言)}
+#'                \item{`content`}{內容}
+#'                \item{`selectTerm`}{屆別期別篩選條件}
+#'                }
+#'              }
 #'      }
-#'
-#'
-#'
-#'
-#'
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
@@ -401,14 +399,16 @@ get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRU
 #'    \item{`retrieved_term`}{the queried term}
 #'    \item{`url`}{the retrieved json url}
 #'    \item{`variable_names`}{the variables of the tibble dataframe}
-#'    \item{`manual_info`}{the offical manual}
+#'    \item{`manual_info`}{the official manual, \url{https://data.ly.gov.tw/getds.action?id=46}; or use legisTaiwan::get_variable_info("get_committee_record")}
 #'    \item{`data`}{a tibble dataframe, whose variables include:
-#'      `term: 屆別`,
-#'      `sessionPeriod: 會期`,
-#'      `meetingNo: 會議編號`,
-#'      `billNo: 議案編號`, and
-#'      `selectTerm:屆別期別篩選條件`}
-#'    }
+#'      \describe{\item{`term`}{屆別}
+#'                \item{`sessionPeriod`}{會期}
+#'                \item{`meetingNo`}{會議編號}
+#'                \item{`billNo`}{議案編號}
+#'                \item{`selectTerm`}{屆別期別篩選條件}
+#'                }
+#'              }
+#'      }
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON

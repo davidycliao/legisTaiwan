@@ -18,22 +18,24 @@ list contains: \describe{
 \item{\code{queried_term}}{the queried term}
 \item{\code{url}}{the retrieved json url}
 \item{\code{variable_names}}{the variables of the tibble dataframe}
-\item{\code{manual_info}}{the offical manual}
-\item{\code{data}}{a tibble dataframe , whose variables include:
-\code{term},
-\code{name},
-\code{ename},
-\code{sex},
-\code{party},
-\code{partyGroup},
-\code{areaName},
-\code{committee},
-\code{onboardDate},
-\code{degree},
-\code{picUrl},
-\code{leaveFlag},
-\code{leaveDate} and
-\code{leaveReason}}}
+\item{\code{manual_info}}{the offical manual from \url{https://data.ly.gov.tw/getds.action?id=16}, or use legisTaiwan::get_variable_info("get_legislators")}
+\item{\code{data}}{a tibble dataframe, whose variables include:
+\describe{\item{\code{term}}{屆別}
+\item{\code{name}}{委員姓名}
+\item{\code{ename}}{委員姓名}
+\item{\code{sex}}{性別}
+\item{\code{party}}{黨籍}
+\item{\code{partyGroup}}{黨團}
+\item{\code{committee}}{委員會}
+\item{\code{onboardDate}}{到職日(西元年)}
+\item{\code{degree}}{學歷}
+\item{\code{experience}}{經歷}
+\item{\code{picPath}}{照片位址}
+\item{\code{leaveFlag}}{離職日期(西元年)}
+\item{\code{leaveReason}}{離職原因}
+}
+}
+}}
 }
 \description{
 The Legislator' Demographic Information and Background 提供委員基本資料
