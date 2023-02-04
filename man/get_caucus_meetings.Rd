@@ -27,23 +27,24 @@ list, which contains: \describe{
 \item{\code{start_date}}{the start date in ROC Taiwan calendar}
 \item{\code{url}}{the retrieved json url}
 \item{\code{variable_names}}{the variables of the tibble dataframe}
-\item{\code{manual_info}}{the offical manual}
+\item{\code{manual_info}}{the offical manual from \url{https://data.ly.gov.tw/getds.action?id=8}, or use legisTaiwan::get_variable_info("get_caucus_meetings")}
 \item{\code{data}}{a tibble dataframe, whose variables include:
-\code{comYear: 卷},
-\code{comVolume: 期},
-\code{comBookId: 冊別},
-\code{term: 屆別},
-\code{sessionPeriod: 會期},
-\code{sessionTimes: 會次},
-\code{meetingTimes: 臨時會會次},
-\code{meetingDate: 會議日期(民國年)},
-\code{meetingName: 會議名稱},
-\code{subject: 案由},
-\code{pageStart: 起始頁},
-\code{pageEnd: 結束頁}
-\code{docUrl: 檔案下載位置 },
-\code{htmlUrl: html網址}, and
-\code{selectTerm: 屆別期別篩選條件}}
+\describe{\item{\code{comYear}}{卷}
+\item{\code{comVolume}}{期}
+\item{\code{comBookId}}{冊別}
+\item{\code{term}}{屆別}
+\item{\code{sessionPeriod}}{會期}
+\item{\code{meetingTimes}}{臨時會會次}
+\item{\code{meetingDate}}{會議日期(民國年)}
+\item{\code{meetingName}}{會議名稱}
+\item{\code{subject}}{案由}
+\item{\code{pageStart}}{起始頁}
+\item{\code{pageEnd}}{結束頁}
+\item{\code{docUrl}}{檔案下載位置}
+\item{\code{htmlUrl}}{html網址}
+\item{\code{selectTerm}}{屆別期別篩選條件}
+}
+}
 }
 }
 \description{

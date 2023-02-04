@@ -2,7 +2,7 @@ Package: legisTaiwan
 Type: Package
 Title: The Real-time and Archives of Taiwan Legislative Data in R
 Version: 0.1.4
-Authors@R: c(person("David Yen-Chieh", "Liao", email = "davidycliao@gmail.com", role = c("aut", "cre", "ctb")),
+Authors@R: c(person("David Yen-Chieh", "Liao", email = "davidycliao@gmail.com", role = c("aut", "cre")),
              person("Li", "Tang", email = "l.tang@mdx.ac.uk", role = c("ctb", "aut")),
              person("Jou-Fei", "Huang", email = "joufeihu@buffalo.edu", role = "ctb"),
              person("Taiwan Legislative Yuan 立法院", role = "cph"),

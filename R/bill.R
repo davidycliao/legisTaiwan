@@ -4,7 +4,8 @@
 #'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
 #'`end_date`, `url`, `variable_names`, `manual_info` and `data`. 法律提案 API To retrieve the user
 #'manual and more information about the data frame, please use `legisTaiwan::get_variable_info("get_bills")`.
-#'Further Check Required: the user manuals seems to be inconsistent with actual data. 資料似乎不一致，取得最早時間不詳，待檢查。
+#'Further Check Required: the user manuals seems to be inconsistent with actual data.
+#'資料似乎不一致，取得最早時間不詳，待檢查。
 #'
 #'@param start_date numeric Must be formatted in ROC Taiwan calendar, e.g. 1090101.
 #'

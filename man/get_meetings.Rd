@@ -24,24 +24,26 @@ detailed output when retrieving the data.}
 }
 \value{
 list, which contains: \describe{
-\item{\code{title}}{Retrieving the spoken meeting records }
+\item{\code{title}}{the spoken meeting records }
 \item{\code{query_time}}{the query time}
-\item{\code{retrieved_number}}{the number url of the page}
+\item{\code{retrieved_number}}{the number of the observation}
 \item{\code{meeting_unit}}{the meeting unit}
-\item{\code{start_date_ad}}{the start date  in POSIXct}
+\item{\code{start_date_ad}}{the start date in POSIXct}
 \item{\code{end_date_ad}}{the end date in POSIXct}
 \item{\code{start_date}}{the start date in ROC Taiwan calendar}
 \item{\code{url}}{the retrieved json url}
 \item{\code{variable_names}}{the variables of the tibble dataframe}
-\item{\code{manual_info}}{the offical manual}
+\item{\code{manual_info}}{the offical manual from \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}, or use legisTaiwan::get_variable_info("get_meetings")}
 \item{\code{data}}{a tibble dataframe, whose variables include:
-\code{smeeting_date: 會議日期},
-\code{meeting_status: 會議狀態},
-\code{meeting_name: 會議名稱},
-\code{meeting_content: 會議事由},
-\code{speechers: 委員發言名單},
-\code{meeting_unit:主辦單位},
-\code{date_ad: 西元年}}
+\describe{\item{\code{smeeting_date}}{會議日期}
+\item{\code{meeting_status}}{會議狀態}
+\item{\code{meeting_name}}{會議名稱}
+\item{\code{meeting_content}}{會議事由}
+\item{\code{speechers}}{委員發言名單}
+\item{\code{meeting_unit}}{主辦單位}
+\item{\code{date_ad}}{西元年}
+}
+}
 }
 }
 \description{

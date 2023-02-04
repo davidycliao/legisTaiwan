@@ -8,7 +8,7 @@ get_executive_response(term = NULL, session_period = NULL, verbose = TRUE)
 }
 \arguments{
 \item{term}{integer, numeric or null. The default is NULL. The data is only
-available from 8th term. 參數必須為數值，資料從自第8屆起。}
+available from 8th term. 參數必須為數值。資料從自第8屆起，預設值為8。}
 
 \item{session_period}{integer, numeric or NULL. Available
 options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL. 參數必須為數值。}
@@ -25,28 +25,36 @@ list contains: \describe{
 \item{\code{url}}{the retrieved json url}
 \item{\code{variable_names}}{the variables of the tibble dataframe}
 \item{\code{manual_info}}{the offical manual}
-\item{\code{data}}{a tibble dataframe , whose variables include:
-\code{term: 屆別},
-\code{sessionPeriod: 會期},
-\code{sessionTimes: 會次},
-\code{meetingTimes: 臨時會會次},
-\code{eyNumber: 行政院函公文編號},
-\code{lyNumber:立法院函編號},
-\code{subject: 案由},
-\code{content: 內容},
-\code{docUrl: 檔案下載位置},  and
-\code{selectTerm: 屆別期別篩選條件}}
+\item{\code{data}}{a tibble dataframe, whose variables include:
+\describe{\item{\code{term}}{屆別}
+\item{\code{sessionPeriod}}{會期}
+\item{\code{sessionTimes}}{會次}
+\item{\code{meetingTimes}}{臨時會會次}
+\item{\code{eyNumber}}{行政院函公文編號}
+\item{\code{lyNumber}}{立法院函編號}
+\item{\code{subject}}{案由}
+\item{\code{content}}{內容}
+\item{\code{docUrl}}{案由}
+\item{\code{item}}{檔案下載位置}
+\item{\code{item}}{檔案下載位置}
+\item{\code{selectTerm}}{屆別期別篩選條件}
+}
+}
 }
 }
 \description{
 The Records of the Questions Answered by the Executives 公報質詢事項行政院答復資訊
 }
 \details{
-\code{get_executive_response} produces a list, which contains \code{title},
+\strong{\code{get_executive_response}} produces a list, which contains \code{title},
 \code{query_time}, \code{retrieved_number}, \code{retrieved_term}, \code{url}, \code{variable_names},
-\code{manual_info} and \code{data}. To retrieve the user manual and more information
-about the data frame, please use \code{legisTaiwan::get_variable_info("get_executive_response")}.
+\code{manual_info} and \code{data}. To retrieve the user manual and more information, please
+use \code{legisTaiwan::get_variable_info("get_executive_response")}.
 質詢類: 提供公報質詢事項行政院答復資訊 (自第8屆第1會期起)。
+}
+\examples{
+\dontrun{ #get_executive_response(term = 8, session_period = 1, verbose = TRUE)}
+
 }
 \seealso{
 \url{https://data.ly.gov.tw/getds.action?id=2}
