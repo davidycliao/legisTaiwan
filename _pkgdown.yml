@@ -8,10 +8,10 @@ authors:
     href: https://davidycliao.github.io
   Li Tang:
     href: https://sites.google.com/view/litang2020?pli=1
-
   Taiwan Legislative Yuan 立法院:
     href: "http://name-website.com"
     html: "<img src='https://website.com/name-picture.png' width=72>"
+
 template:
   package: tidytemplate
   bootstrap: 5
