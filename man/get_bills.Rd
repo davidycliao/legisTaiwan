@@ -2,7 +2,7 @@
 % Please edit documentation in R/bill.R
 \name{get_bills}
 \alias{get_bills}
-\title{Retrieving the records of the bills 法律提案 (API)}
+\title{The Records of the Bills 法律提案}
 \usage{
 get_bills(start_date = NULL, end_date = NULL, proposer = NULL, verbose = TRUE)
 }
@@ -28,26 +28,34 @@ list, which contains: s\describe{
 \item{\code{start_date}}{the start date in ROC Taiwan calendar}
 \item{\code{url}}{the retrieved json url}
 \item{\code{variable_names}}{the variables of the tibble dataframe}
-\item{\code{manual_info}}{the offical manual}
+\item{\code{manual_info}}{the official manual, \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}; or use legisTaiwan::get_variable_info("get_bills")}
 \item{\code{data}}{a tibble dataframe, whose variables include:
-\code{term:屆別},
-\code{sessionPeriod:會期},
-\code{sessionTimes:會次},
-\code{meetingTimes:提案日期},
-\code{billName:提案名稱},
-\code{billProposer:主提案人},
-\code{billCosignatory:連署提案},
-\verb{billStatus：}, and
-\code{date_ad:西元年}}
+\describe{\item{\code{term}}{屆別}
+\item{\code{sessionPeriod}}{會期}
+\item{\code{sessionTimes}}{會次}
+\item{\code{meetingTimes}}{提案日期}
+\item{\code{billName}}{提案名稱}
+\item{\code{billProposer}}{主提案人}
+\item{\code{billCosignatory}}{連署提案}
+\item{\code{billStatus}}{議案狀態}
+\item{\code{date_ad}}{西元年}
+}
+}
 }
 }
 \description{
-Retrieving the records of the bills 法律提案 (API)
+The Records of the Bills 法律提案
 }
 \details{
 \code{get_bills} produces a list, which contains \code{query_time},
 \code{retrieved_number}, \code{meeting_unit}, \code{start_date_ad}, \code{end_date_ad}, \code{start_date},
 \code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data}.
+}
+\note{
+法律提案 API To retrieve the user
+manual and more information about the data frame, please use \code{legisTaiwan::get_variable_info("get_bills")}.
+Further Check Required: the user manuals seems to be inconsistent with actual data.
+資料似乎不一致，取得最早時間不詳，待檢查。
 }
 \examples{
 ## query bill records by a period of the dates in Taiwan ROC calender format
@@ -63,6 +71,7 @@ get_bills(start_date = 1060120, end_date = 1070310,  proposer = "孔文吉")
 ## and multiple legislators
 ## 輸入「中華民國民年」與「指定多個立法委員」下載立法委員提案資料
 get_bills(start_date = 1060120, end_date = 1060510,  proposer = "孔文吉&鄭天財")
+
 }
 \seealso{
 \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}

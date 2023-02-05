@@ -2,8 +2,7 @@
 % Please edit documentation in R/meeting.R
 \name{get_speech_video}
 \alias{get_speech_video}
-\title{Retrieving full video information of meetings and committees
-會議類:提供立法院院會及委員會之委員發言片段相關影片資訊。(自第9屆第1會期起)}
+\title{The Video Information of Meetings and Committees 院會及委員會之委員發言片段相關影片資訊}
 \usage{
 get_speech_video(start_date = NULL, end_date = NULL, verbose = TRUE)
 }
@@ -28,33 +27,38 @@ list, which contains: \describe{
 \item{\code{start_date}}{the start date in ROC Taiwan calendar}
 \item{\code{url}}{the retrieved json url}
 \item{\code{variable_names}}{the variables of the tibble dataframe}
-\item{\code{manual_info}}{the offical manual}
+\item{\code{manual_info}}{the official manual, \url{https://data.ly.gov.tw/getds.action?id=148}; or use legisTaiwan::get_variable_info("get_speech_video")}
 \item{\code{data}}{a tibble dataframe, whose variables include:
-\code{term: 屆期},
-\code{sessionPeriod: 會期},
-\code{meetingDate: 會議日期(西元年)},
-\code{meetingTime: 會議時間},
-\code{meetingTypeName: 主辦單位},
-\code{meetingName: 會議名稱},
-\code{meetingContent:會議事由},
-\code{legislatorName:委員姓名},
-\code{areaName: 選區名稱},
-\code{speechStartTime: 委員發言時間起},
-\code{speechEndTime: 委員發言時間迄},
-\code{speechRecordUrl: 發言紀錄網址},
-\code{videoLength: 影片長度},
-\code{videoUrl: 影片網址}, and
-\code{selectTerm:屆別期別篩選條件}}
+\describe{\item{\code{term}}{屆別}
+\item{\code{sessionPeriod}}{會期}
+\item{\code{meetingDate}}{會議日期(西元年)}
+\item{\code{meetingTime}}{會議時間}
+\item{\code{meetingTypeName}}{主辦單位}
+\item{\code{meetingName}}{會議名稱}
+\item{\code{meetingContent}}{會議事由}
+\item{\code{legislatorName}}{委員姓名}
+\item{\code{areaName}}{選區名稱}
+\item{\code{speechStartTime}}{委員發言時間起}
+\item{\code{speechEndTime}}{委員發言時間迄}
+\item{\code{speechRecordUrl}}{發言紀錄網址}
+\item{\code{videoLength}}{影片長度}
+\item{\code{videoUrl}}{影片網址}
+\item{\code{selectTerm}}{屆別期別篩選條件}
+}
+}
 }
 }
 \description{
-Retrieving full video information of meetings and committees
-會議類:提供立法院院會及委員會之委員發言片段相關影片資訊。(自第9屆第1會期起)
+The Video Information of Meetings and Committees 院會及委員會之委員發言片段相關影片資訊
 }
 \details{
 \code{get_speech_video} produces a list, which contains \code{title}, \code{query_time},
 \code{retrieved_number}, \code{meeting_unit}, \code{start_date_ad}, \code{end_date_ad}, \code{start_date},
-\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data.}
+\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data.} To retrieve the user
+manual and more information about the data frame, please use \code{legisTaiwan::get_variable_info("get_speech_video")}.
+}
+\note{
+會議類:提供立法院院會及委員會之委員發言片段相關影片資訊 (自第9屆第1會期起)。
 }
 \examples{
 ## query full video information of meetings and committees using a period of

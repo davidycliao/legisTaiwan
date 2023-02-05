@@ -36,6 +36,9 @@ get_variable_info <- function(param_) {
   else if (param_ == "get_legislators") {
     url <- "https://data.ly.gov.tw/getds.action?id=16"
   }
+  else if (param_ == "get_committee_record") {
+    url <- "https://data.ly.gov.tw/getds.action?id=46"
+  }
   else if (param_ == "get_executive_response") {
     url <- "https://data.ly.gov.tw/getds.action?id=2"
   }

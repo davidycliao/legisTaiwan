@@ -2,18 +2,16 @@
 % Please edit documentation in R/parlquestions.R
 \name{get_parlquestions}
 \alias{get_parlquestions}
-\title{Retrieving the records of parliamentary questions
-質詢類: 提供議事日程本院委員之質詢事項資訊。(自第8屆第1會期起)}
+\title{The Records of Parliamentary Questions Asked by the Legislators 委員質詢事項資訊}
 \usage{
 get_parlquestions(term = 8, session_period = NULL, verbose = TRUE)
 }
 \arguments{
-\item{term}{integer, numeric or null. The default is 8. The data is only
-available from 8th term. 參數必須為數值，資料從自第8屆第1會期起。}
+\item{term}{numeric or null. The data is only available from 8th term.
+The default is set to 8. 參數必須為數值。資料從自第8屆起，預設值為8。}
 
-\item{session_period}{integer, numeric or NULL. Available
-options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL.
-參數必須為數值。}
+\item{session_period}{numeric or NULL. Available options for the session
+is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to NULL. 參數必須為數值。}
 
 \item{verbose}{logical, indicates whether \code{get_parlquestions} should print out
 detailed output when retrieving the data. The default is TRUE}
@@ -26,39 +24,39 @@ list contains: \describe{
 \item{\code{retrieved_term}}{the queried term}
 \item{\code{url}}{the retrieved json url}
 \item{\code{variable_names}}{the variables of the tibble dataframe}
-\item{\code{manual_info}}{the offical manual}
+\item{\code{manual_info}}{the offical manual from \url{https://data.ly.gov.tw/getds.action?id=6}, or use legisTaiwan::get_variable_info("get_parlquestions")}
 \item{\code{data}}{a tibble dataframe, whose variables include:
-\code{term:屆別},
-\code{sessionPeriod: 會期},
-\code{sessionTimes: 會次},
-\code{item: 項目}, and
-\code{selectTerm: 屆別期別篩選條件}}
+\describe{\item{\code{term}}{屆別}
+\item{\code{sessionPeriod}}{會期}
+\item{\code{sessionTimes}}{會次}
+\item{\code{item}}{項目}
+\item{\code{selectTerm}}{屆別期別篩選條件}
+}
+}
 }
 }
 \description{
-Retrieving the records of parliamentary questions
-質詢類: 提供議事日程本院委員之質詢事項資訊。(自第8屆第1會期起)
+The Records of Parliamentary Questions Asked by the Legislators 委員質詢事項資訊
 }
 \details{
-\code{get_parlquestions} produces a list, which contains \code{title},
-\code{query_time}, \code{retrieved_number}, \code{retrieved_term}, \code{url}, \code{variable_names},
-\code{manual_info} and \code{data}.
+get_parlquestions\verb{produces a list, which contains}title\verb{, }query_time\verb{, }retrieved_number\verb{, }retrieved_term\verb{, }url\verb{, }variable_names\verb{, }manual_info\code{and}data\verb{. To retrieve the user manual and more information about the data frame, please use }legisTaiwan::get_variable_info("get_parlquestions")`.
+}
+\note{
+質詢類: 提供議事日程本院委員之質詢事項資訊(自第8屆第1會期起)。
 }
 \examples{
 ## query parliamentary questions by term.
 ## 輸入「立委會期」下載立委質詢資料
-
 get_parlquestions(term = 8)
 
 ## query parliamentary questions by term.
 ## 輸入「立委屆期」與「會期」下載立委質詢資料
-
 get_parlquestions(term = 8, session_period = 2)
 
 ## query parliamentary questions by term.
 ## 輸入「空白」下載立委全部質詢資料
-
 get_parlquestions(term = 8, session_period = 2)
+
 }
 \seealso{
 \url{https://data.ly.gov.tw/getds.action?id=6}

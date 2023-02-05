@@ -2,12 +2,12 @@
 % Please edit documentation in R/legislators.R
 \name{get_legislators}
 \alias{get_legislators}
-\title{Retrieving legislator' demographic information and background 提供委員基本資料}
+\title{The Legislator' Demographic Information and Background 提供委員基本資料}
 \usage{
 get_legislators(term = NULL, verbose = TRUE)
 }
 \arguments{
-\item{term}{numeric or null. The data is available from the 2nd term. 自第2屆起}
+\item{term}{numeric or null. The data is available from the 2nd term.}
 
 \item{verbose}{logical, indicates whether get_meetings should print out
 detailed output when retrieving the data. The default is TRUE.}
@@ -18,39 +18,42 @@ list contains: \describe{
 \item{\code{queried_term}}{the queried term}
 \item{\code{url}}{the retrieved json url}
 \item{\code{variable_names}}{the variables of the tibble dataframe}
-\item{\code{manual_info}}{the offical manual}
-\item{\code{data}}{a tibble dataframe , whose variables include:
-\code{term},
-\code{name},
-\code{ename},
-\code{sex},
-\code{party},
-\code{partyGroup},
-\code{areaName},
-\code{committee},
-\code{onboardDate},
-\code{degree},
-\code{picUrl},
-\code{leaveFlag},
-\code{leaveDate} and
-\code{leaveReason}}}
+\item{\code{manual_info}}{the official manual from \url{https://data.ly.gov.tw/getds.action?id=16}, or use legisTaiwan::get_variable_info("get_legislators")}
+\item{\code{data}}{a tibble dataframe, whose variables include:
+\describe{\item{\code{term}}{屆別}
+\item{\code{name}}{委員姓名}
+\item{\code{ename}}{委員姓名}
+\item{\code{sex}}{性別}
+\item{\code{party}}{黨籍}
+\item{\code{partyGroup}}{黨團}
+\item{\code{committee}}{委員會}
+\item{\code{onboardDate}}{到職日(西元年)}
+\item{\code{degree}}{學歷}
+\item{\code{experience}}{經歷}
+\item{\code{picPath}}{照片位址}
+\item{\code{leaveFlag}}{離職日期(西元年)}
+\item{\code{leaveReason}}{離職原因}
+}
+}
+}
 }
 \description{
-Retrieving legislator' demographic information and background 提供委員基本資料
+The Legislator' Demographic Information and Background 提供委員基本資料
 }
 \details{
 \code{get_legislators} produces a list, which contains  \code{query_time},
 \code{queried_term}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data}.
+To retrieve the user manual and more information about the data frame, please use
+\code{legisTaiwan::get_variable_info("get_legislators")}.
+}
+\note{
+提供委員基本資料，最早資料可追溯至第2屆。
 }
 \examples{
-## To retrieve legislator' demographic from 8th
-## 輸入「屆次」下載當屆立委資料
-get_legislators(term = 8)
+## query the Executives' answered response by term and the session period.
+## 輸入「立委屆期」與「會期」下載「行政院答復」
+get_executive_response(term = 8, session_period = 1)
 
-
-## To retrieve legislator' demographic from all of terms
-## 輸入「空白」下載所有立委資料
-get_legislators()
 }
 \seealso{
 \url{https://data.ly.gov.tw/getds.action?id=16}

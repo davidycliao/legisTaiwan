@@ -2,14 +2,13 @@
 % Please edit documentation in R/bill.R
 \name{get_bills_2}
 \alias{get_bills_2}
-\title{Retrieving the records of legislators and the government (executives) proposals
-議事類:提供委員及政府之議案提案資訊。(自第8屆第1會期起)}
+\title{The Records of Legislation and the Executives Proposals 委員及政府議案提案資訊}
 \usage{
 get_bills_2(term = 8, session_period = NULL, verbose = TRUE)
 }
 \arguments{
-\item{term}{numeric or NULL The default value is 8
-參數必須為數值，資料從自第8屆第1會期起。}
+\item{term}{numeric or null. The data is only available from 8th term. The default value is 8.
+參數必須為數值。資料從自第8屆起，預設值為8。}
 
 \item{session_period}{numeric or NULL. Available options for the session periods
 is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL. 參數必須為數值。}
@@ -28,31 +27,36 @@ list list, which contains: \describe{
 \item{\code{start_date}}{the start date in ROC Taiwan calendar}
 \item{\code{url}}{the retrieved json url}
 \item{\code{variable_names}}{the variables of the tibble dataframe}
-\item{\code{manual_info}}{the offical manual}
+\item{\code{manual_info}}{the official manual, \url{https://data.ly.gov.tw/getds.action?id=20}; or use legisTaiwan::get_variable_info("get_bills_2")}
 \item{\code{data}}{a tibble dataframe, whose variables include:
-\code{term: 屆別},
-\code{sessionPeriod:會期},
-\code{sessionTimes:會次},
-\code{meetingTimes:臨時會會次},
-\code{billNo:議案編號},
-\code{billName:提案名稱},
-\code{billOrg:提案單位/委員},
-\code{billProposer:提案人(委員或黨團)},
-\code{billCosignatory:連署人},
-\code{billStatus:議案狀態},
-\code{pdfUrl:關係文書pdf檔案下載位置},
-\code{docUrl:關係文書doc檔案下載位置} and
-\code{selectTerm:屆別期別篩選條件}}
+\describe{\item{\code{term}}{屆別}
+\item{\code{sessionPeriod}}{會期}
+\item{\code{sessionTimes}}{會次}
+\item{\code{meetingTimes}}{臨時會會次}
+\item{\code{billNo}}{議案編號}
+\item{\code{billName}}{提案名稱}
+\item{\code{billOrg}}{提案單位/委員}
+\item{\code{billProposer}}{主提案人}
+\item{\code{billCosignatory}}{連署提案}
+\item{\code{billStatus}}{議案狀態}
+\item{\code{pdfUrl}}{關係文書pdf檔案下載位置}
+\item{\code{docUrl}}{關係文書doc檔案下載位置}
+\item{\code{selectTerm}}{屆別期別篩選條件}
+}
+}
 }
 }
 \description{
-Retrieving the records of legislators and the government (executives) proposals
-議事類:提供委員及政府之議案提案資訊。(自第8屆第1會期起)
+The Records of Legislation and the Executives Proposals 委員及政府議案提案資訊
 }
 \details{
 \code{get_bills_2} produces a list, which contains \code{query_time},
 \code{retrieved_number}, \code{meeting_unit}, \code{start_date_ad}, \code{end_date_ad}, \code{start_date},
-\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data}.
+\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data}. To retrieve the user
+manual and more information about the data frame, please use \code{legisTaiwan::get_variable_info("get_bills_2")}.
+}
+\note{
+議事類: 提供委員及政府之議案提案資訊 (自第8屆第1會期起)。
 }
 \examples{
 ## query the Executives' answered response by term and the session period.

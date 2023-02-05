@@ -1,8 +1,4 @@
-#' Retrieving the records of the bills 法律提案 (API)
-#'
-#'@details `get_bills` produces a list, which contains `query_time`,
-#'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
-#'`end_date`, `url`, `variable_names`, `manual_info` and `data`.
+#'The Records of the Bills 法律提案
 #'
 #'@param start_date numeric Must be formatted in ROC Taiwan calendar, e.g. 1090101.
 #'
@@ -24,23 +20,26 @@
 #'      \item{`start_date`}{the start date in ROC Taiwan calendar}
 #'      \item{`url`}{the retrieved json url}
 #'      \item{`variable_names`}{the variables of the tibble dataframe}
-#'      \item{`manual_info`}{the offical manual}
+#'      \item{`manual_info`}{the official manual, \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}; or use legisTaiwan::get_variable_info("get_bills")}
 #'      \item{`data`}{a tibble dataframe, whose variables include:
-#'      `term:屆別`,
-#'      `sessionPeriod:會期`,
-#'      `sessionTimes:會次`,
-#'      `meetingTimes:提案日期`,
-#'      `billName:提案名稱`,
-#'      `billProposer:主提案人`,
-#'      `billCosignatory:連署提案`,
-#'      `billStatus：`, and
-#'      `date_ad:西元年`}
+#'      \describe{\item{`term`}{屆別}
+#'                \item{`sessionPeriod`}{會期}
+#'                \item{`sessionTimes`}{會次}
+#'                \item{`meetingTimes`}{提案日期}
+#'                \item{`billName`}{提案名稱}
+#'                \item{`billProposer`}{主提案人}
+#'                \item{`billCosignatory`}{連署提案}
+#'                \item{`billStatus`}{議案狀態}
+#'                \item{`date_ad`}{西元年}
+#'                }
+#'              }
 #'      }
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
 #'
 #'@export
+#'
 #'@examples
 #' ## query bill records by a period of the dates in Taiwan ROC calender format
 #' ## 輸入「中華民國民年」下載立法委員提案資料
@@ -55,6 +54,15 @@
 #' ## and multiple legislators
 #' ## 輸入「中華民國民年」與「指定多個立法委員」下載立法委員提案資料
 #'get_bills(start_date = 1060120, end_date = 1060510,  proposer = "孔文吉&鄭天財")
+#'
+#'@details `get_bills` produces a list, which contains `query_time`,
+#'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
+#'`end_date`, `url`, `variable_names`, `manual_info` and `data`.
+#'
+#'@note 法律提案 API To retrieve the user
+#'manual and more information about the data frame, please use `legisTaiwan::get_variable_info("get_bills")`.
+#'Further Check Required: the user manuals seems to be inconsistent with actual data.
+#'資料似乎不一致，取得最早時間不詳，待檢查。
 #'@seealso
 #'\url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}
 get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
@@ -96,15 +104,11 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
   )
 }
 
-#' Retrieving the records of legislators and the government (executives) proposals
-#' 議事類:提供委員及政府之議案提案資訊。(自第8屆第1會期起)
+#'The Records of Legislation and the Executives Proposals 委員及政府議案提案資訊
 #'
-#'@details `get_bills_2` produces a list, which contains `query_time`,
-#'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
-#'`end_date`, `url`, `variable_names`, `manual_info` and `data`.
 #'
-#'@param term numeric or NULL The default value is 8
-#'參數必須為數值，資料從自第8屆第1會期起。
+#'@param term numeric or null. The data is only available from 8th term. The default value is 8.
+#'參數必須為數值。資料從自第8屆起，預設值為8。
 #'
 #'@param session_period numeric or NULL. Available options for the session periods
 #'is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL. 參數必須為數值。
@@ -122,21 +126,23 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 #'      \item{`start_date`}{the start date in ROC Taiwan calendar}
 #'      \item{`url`}{the retrieved json url}
 #'      \item{`variable_names`}{the variables of the tibble dataframe}
-#'      \item{`manual_info`}{the offical manual}
+#'      \item{`manual_info`}{the official manual, \url{https://data.ly.gov.tw/getds.action?id=20}; or use legisTaiwan::get_variable_info("get_bills_2")}
 #'      \item{`data`}{a tibble dataframe, whose variables include:
-#'      `term: 屆別`,
-#'      `sessionPeriod:會期`,
-#'      `sessionTimes:會次`,
-#'      `meetingTimes:臨時會會次`,
-#'      `billNo:議案編號`,
-#'      `billName:提案名稱`,
-#'      `billOrg:提案單位/委員`,
-#'      `billProposer:提案人(委員或黨團)`,
-#'      `billCosignatory:連署人`,
-#'      `billStatus:議案狀態`,
-#'      `pdfUrl:關係文書pdf檔案下載位置`,
-#'      `docUrl:關係文書doc檔案下載位置` and
-#'      `selectTerm:屆別期別篩選條件`}
+#'      \describe{\item{`term`}{屆別}
+#'                \item{`sessionPeriod`}{會期}
+#'                \item{`sessionTimes`}{會次}
+#'                \item{`meetingTimes`}{臨時會會次}
+#'                \item{`billNo`}{議案編號}
+#'                \item{`billName`}{提案名稱}
+#'                \item{`billOrg`}{提案單位/委員}
+#'                \item{`billProposer`}{主提案人}
+#'                \item{`billCosignatory`}{連署提案}
+#'                \item{`billStatus`}{議案狀態}
+#'                \item{`pdfUrl`}{關係文書pdf檔案下載位置}
+#'                \item{`docUrl`}{關係文書doc檔案下載位置}
+#'                \item{`selectTerm`}{屆別期別篩選條件}
+#'                }
+#'              }
 #'      }
 #'
 #'@importFrom attempt stop_if_all
@@ -148,6 +154,13 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 #' ## query the Executives' answered response by term and the session period.
 #' ## 輸入「立委屆期」與「會期」下載「質詢事項 (行政院答復部分)」
 #'get_bills_2(term = 8, session_period = 1)
+#'
+#'@details `get_bills_2` produces a list, which contains `query_time`,
+#'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
+#'`end_date`, `url`, `variable_names`, `manual_info` and `data`. To retrieve the user
+#'manual and more information about the data frame, please use `legisTaiwan::get_variable_info("get_bills_2")`.
+#'
+#'@note 議事類: 提供委員及政府之議案提案資訊 (自第8屆第1會期起)。
 #'
 #'@seealso
 #'\url{https://data.ly.gov.tw/getds.action?id=20}

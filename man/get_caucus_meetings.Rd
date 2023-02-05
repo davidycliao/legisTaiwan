@@ -2,8 +2,7 @@
 % Please edit documentation in R/meeting.R
 \name{get_caucus_meetings}
 \alias{get_caucus_meetings}
-\title{Retrieving the meeting records of cross-caucus session
-議事類:提供公報之黨團協商資訊。(自第8屆第1會期起)}
+\title{The Meeting Records of Cross-caucus Session 黨團協商資訊}
 \usage{
 get_caucus_meetings(start_date = NULL, end_date = NULL, verbose = TRUE)
 }
@@ -28,33 +27,37 @@ list, which contains: \describe{
 \item{\code{start_date}}{the start date in ROC Taiwan calendar}
 \item{\code{url}}{the retrieved json url}
 \item{\code{variable_names}}{the variables of the tibble dataframe}
-\item{\code{manual_info}}{the offical manual}
+\item{\code{manual_info}}{the official manual, \url{https://data.ly.gov.tw/getds.action?id=8}; or use legisTaiwan::get_variable_info("get_caucus_meetings")}
 \item{\code{data}}{a tibble dataframe, whose variables include:
-\code{comYear: 卷},
-\code{comVolume: 期},
-\code{comBookId: 冊別},
-\code{term: 屆別},
-\code{sessionPeriod: 會期},
-\code{sessionTimes: 會次},
-\code{meetingTimes: 臨時會會次},
-\code{meetingDate: 會議日期(民國年)},
-\code{meetingName: 會議名稱},
-\code{subject: 案由},
-\code{pageStart: 起始頁},
-\code{pageEnd: 結束頁}
-\code{docUrl: 檔案下載位置 },
-\code{htmlUrl: html網址}, and
-\code{selectTerm: 屆別期別篩選條件}}
+\describe{\item{\code{comYear}}{卷}
+\item{\code{comVolume}}{期}
+\item{\code{comBookId}}{冊別}
+\item{\code{term}}{屆別}
+\item{\code{sessionPeriod}}{會期}
+\item{\code{meetingTimes}}{臨時會會次}
+\item{\code{meetingDate}}{會議日期(民國年)}
+\item{\code{meetingName}}{會議名稱}
+\item{\code{subject}}{案由}
+\item{\code{pageStart}}{起始頁}
+\item{\code{pageEnd}}{結束頁}
+\item{\code{docUrl}}{檔案下載位置}
+\item{\code{htmlUrl}}{html網址}
+\item{\code{selectTerm}}{屆別期別篩選條件}
+}
+}
 }
 }
 \description{
-Retrieving the meeting records of cross-caucus session
-議事類:提供公報之黨團協商資訊。(自第8屆第1會期起)
+The Meeting Records of Cross-caucus Session 黨團協商資訊
 }
 \details{
 \code{get_caucus_meetings} produces a list, which contains \code{title}, \code{query_time},
 \code{retrieved_number}, \code{meeting_unit}, \code{start_date_ad}, \code{end_date_ad}, \code{start_date},
-\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data.}
+\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data.}To retrieve the user manual and more information
+about the data frame, please use \code{legisTaiwan::get_variable_info("get_caucus_meetings")}.
+}
+\note{
+議事類:提供公報之黨團協商資訊 (自第8屆第1會期起)
 }
 \examples{
 ## query the meeting records of cross-caucus session using a period of

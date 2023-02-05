@@ -1,34 +1,33 @@
-#' Retrieving legislator' demographic information and background 提供委員基本資料
+#' The Legislator' Demographic Information and Background 提供委員基本資料
 #'
-#'@details `get_legislators` produces a list, which contains  `query_time`,
-#'`queried_term`, `url`, `variable_names`, `manual_info` and `data`.
-#'
-#'@param term numeric or null. The data is available from the 2nd term. 自第2屆起
+#'@param term numeric or null. The data is available from the 2nd term.
 #'
 #'@param verbose logical, indicates whether get_meetings should print out
 #'detailed output when retrieving the data. The default is TRUE.
 #'
 #'@return list contains: \describe{
-#'\item{`query_time`}{the queried time}
-#'\item{`queried_term`}{the queried term}
-#'\item{`url`}{the retrieved json url}
-#'\item{`variable_names`}{the variables of the tibble dataframe}
-#'\item{`manual_info`}{the offical manual}
-#'\item{`data`}{a tibble dataframe , whose variables include:
-#'      `term`,
-#'      `name`,
-#'      `ename`,
-#'      `sex`,
-#'      `party`,
-#'      `partyGroup`,
-#'      `areaName`,
-#'      `committee`,
-#'      `onboardDate`,
-#'      `degree`,
-#'      `picUrl`,
-#'      `leaveFlag`,
-#'      `leaveDate` and
-#'      `leaveReason`}}
+#'      \item{`query_time`}{the queried time}
+#'      \item{`queried_term`}{the queried term}
+#'      \item{`url`}{the retrieved json url}
+#'      \item{`variable_names`}{the variables of the tibble dataframe}
+#'      \item{`manual_info`}{the official manual from \url{https://data.ly.gov.tw/getds.action?id=16}, or use legisTaiwan::get_variable_info("get_legislators")}
+#'      \item{`data`}{a tibble dataframe, whose variables include:
+#'      \describe{\item{`term`}{屆別}
+#'                \item{`name`}{委員姓名}
+#'                \item{`ename`}{委員姓名}
+#'                \item{`sex`}{性別}
+#'                \item{`party`}{黨籍}
+#'                \item{`partyGroup`}{黨團}
+#'                \item{`committee`}{委員會}
+#'                \item{`onboardDate`}{到職日(西元年)}
+#'                \item{`degree`}{學歷}
+#'                \item{`experience`}{經歷}
+#'                \item{`picPath`}{照片位址}
+#'                \item{`leaveFlag`}{離職日期(西元年)}
+#'                \item{`leaveReason`}{離職原因}
+#'                }
+#'              }
+#'      }
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
@@ -36,17 +35,19 @@
 #'@export
 #'
 #'@examples
-#' ## To retrieve legislator' demographic from 8th
-#' ## 輸入「屆次」下載當屆立委資料
-#'get_legislators(term = 8)
+#' ## query the Executives' answered response by term and the session period.
+#' ## 輸入「立委屆期」與「會期」下載「行政院答復」
+#'get_executive_response(term = 8, session_period = 1)
 #'
+#'@details `get_legislators` produces a list, which contains  `query_time`,
+#'`queried_term`, `url`, `variable_names`, `manual_info` and `data`.
+#'To retrieve the user manual and more information about the data frame, please use
+#'`legisTaiwan::get_variable_info("get_legislators")`.
 #'
-#' ## To retrieve legislator' demographic from all of terms
-#' ## 輸入「空白」下載所有立委資料
-#'get_legislators()
+#'@note 提供委員基本資料，最早資料可追溯至第2屆。
+#'
 #'@seealso
 #'\url{https://data.ly.gov.tw/getds.action?id=16}
-#'
 get_legislators <- function(term = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
   if (is.null(term)) {

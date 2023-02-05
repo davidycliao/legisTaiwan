@@ -1,16 +1,11 @@
-#' Retrieving the records of parliamentary questions
-#' 質詢類: 提供議事日程本院委員之質詢事項資訊。(自第8屆第1會期起)
+#'The Records of Parliamentary Questions Asked by the Legislators 委員質詢事項資訊
 #'
-#'@details `get_parlquestions` produces a list, which contains `title`,
-#'`query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
-#' `manual_info` and `data`.
 #'
-#'@param term integer, numeric or null. The default is 8. The data is only
-#'available from 8th term. 參數必須為數值，資料從自第8屆第1會期起。
+#'@param term numeric or null. The data is only available from 8th term.
+#'The default is set to 8. 參數必須為數值。資料從自第8屆起，預設值為8。
 #'
-#'@param session_period integer, numeric or NULL. Available
-#'options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL.
-#'參數必須為數值。
+#'@param session_period numeric or NULL. Available options for the session
+#'is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to NULL. 參數必須為數值。
 #'
 #'@param verbose logical, indicates whether `get_parlquestions` should print out
 #'detailed output when retrieving the data. The default is TRUE
@@ -22,13 +17,15 @@
 #'\item{`retrieved_term`}{the queried term}
 #'\item{`url`}{the retrieved json url}
 #'\item{`variable_names`}{the variables of the tibble dataframe}
-#'\item{`manual_info`}{the offical manual}
+#'\item{`manual_info`}{the offical manual from \url{https://data.ly.gov.tw/getds.action?id=6}, or use legisTaiwan::get_variable_info("get_parlquestions")}
 #'\item{`data`}{a tibble dataframe, whose variables include:
-#'      `term:屆別`,
-#'      `sessionPeriod: 會期`,
-#'      `sessionTimes: 會次`,
-#'      `item: 項目`, and
-#'      `selectTerm: 屆別期別篩選條件`}
+#'      \describe{\item{`term`}{屆別}
+#'                \item{`sessionPeriod`}{會期}
+#'                \item{`sessionTimes`}{會次}
+#'                \item{`item`}{項目}
+#'                \item{`selectTerm`}{屆別期別篩選條件}
+#'                }
+#'              }
 #'      }
 #'
 #'@importFrom attempt stop_if_all
@@ -39,28 +36,51 @@
 #'@examples
 #' ## query parliamentary questions by term.
 #' ## 輸入「立委會期」下載立委質詢資料
-#'
 #'get_parlquestions(term = 8)
 #'
 #' ## query parliamentary questions by term.
 #' ## 輸入「立委屆期」與「會期」下載立委質詢資料
-#'
 #'get_parlquestions(term = 8, session_period = 2)
 #'
 #' ## query parliamentary questions by term.
 #' ## 輸入「空白」下載立委全部質詢資料
-#'
 #'get_parlquestions(term = 8, session_period = 2)
+#'
+#' @details get_parlquestions` produces a list, which contains `title`,
+#'`query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
+#' `manual_info` and `data`. To retrieve the user manual and more information
+#' about the data frame, please use `legisTaiwan::get_variable_info("get_parlquestions")`.
+#'
+#'@note
+#'質詢類: 提供議事日程本院委員之質詢事項資訊(自第8屆第1會期起)。
+#'
 #'@seealso
 #'\url{https://data.ly.gov.tw/getds.action?id=6}
-
-
+#'
 get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
-  attempt::stop_if_all(term, is.character, msg = "use numeric format only")
-  attempt::stop_if_all(term, is.character, msg = "use numeric format only")
-  set_api_url <- paste("https://data.ly.gov.tw/odw/ID6Action.action?term=",
-                       sprintf("%02d", as.numeric(term)), "&sessionPeriod=", sprintf("%02d", as.numeric(session_period)), "&sessionTimes=&item=&fileType=json", sep = "")
+  if (is.null(term)) {
+    set_api_url <- paste("https://data.ly.gov.tw/odw/ID6Action.action?term=", term,
+                         "&sessionPeriod=",
+                         "&sessionTimes=&item=&fileType=json", sep = "")
+    message(" term is not defined...\n You are now requesting full data from the API. Please make sure your connectivity is stable until its completion.\n")
+  } else if (length(term) == 1) {
+    attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
+    term <- sprintf("%02d", as.numeric(term))
+  } else if (length(term)  > 1) {
+    attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
+    message("The API is unable to query multiple terms and the request mostly falls.")
+    term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
+  }
+  set_api_url <- paste("https://data.ly.gov.tw/odw/ID6Action.action?term=", term,
+                       "&sessionPeriod=",
+                       sprintf("%02d", as.numeric(session_period)),
+                       "&sessionTimes=&item=&fileType=json", sep = "")
+  # legisTaiwan::check_internet()
+  # attempt::stop_if_all(term, is.character, msg = "use numeric format only")
+  # attempt::stop_if_all(term, is.character, msg = "use numeric format only")
+  # set_api_url <- paste("https://data.ly.gov.tw/odw/ID6Action.action?term=",
+  #                      sprintf("%02d", as.numeric(term)), "&sessionPeriod=", sprintf("%02d", as.numeric(session_period)), "&sessionTimes=&item=&fileType=json", sep = "")
   tryCatch(
     {
       json_df <- jsonlite::fromJSON(set_api_url)
@@ -88,19 +108,13 @@ get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
 }
 
 
-#' Retrieving the records of the questions answered by the executives
-#' 質詢類: 提供公報質詢事項行政院答復資訊。(自第8屆第1會期起)
-#'
-#'@details `get_executive_response` produces a list, which contains `title`,
-#'`query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
-#' `manual_info` and `data`.
+#'The Records of the Questions Answered by the Executives 公報質詢事項行政院答復資訊
 #'
 #'@param term integer, numeric or null. The default is NULL. The data is only
-#'available from 8th term. 參數必須為數值，資料從自第8屆起。
+#'available from 8th term. 參數必須為數值。資料從自第8屆起，預設值為8。
 #'
 #'@param session_period integer, numeric or NULL. Available
-#'options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL.
-#'參數必須為數值。
+#'options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL. 參數必須為數值。
 #'
 #'@param verbose logical, indicates whether `get_executive_response` should
 #'print out detailed output when retrieving the data. The default is TRUE
@@ -113,19 +127,22 @@ get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
 #'    \item{`url`}{the retrieved json url}
 #'    \item{`variable_names`}{the variables of the tibble dataframe}
 #'    \item{`manual_info`}{the offical manual}
-#'    \item{`data`}{a tibble dataframe , whose variables include:
-#'      `term: 屆別`,
-#'      `sessionPeriod: 會期`,
-#'      `sessionTimes: 會次`,
-#'      `meetingTimes: 臨時會會次`,
-#'      `eyNumber: 行政院函公文編號`,
-#'      `lyNumber:立法院函編號`,
-#'      `subject: 案由`,
-#'      `content: 內容`,
-#'      `docUrl: 檔案下載位置`,  and
-#'      `selectTerm: 屆別期別篩選條件`}
-#'    }
-#'
+#'    \item{`data`}{a tibble dataframe, whose variables include:
+#'      \describe{\item{`term`}{屆別}
+#'                \item{`sessionPeriod`}{會期}
+#'                \item{`sessionTimes`}{會次}
+#'                \item{`meetingTimes`}{臨時會會次}
+#'                \item{`eyNumber`}{行政院函公文編號}
+#'                \item{`lyNumber`}{立法院函編號}
+#'                \item{`subject`}{案由}
+#'                \item{`content`}{內容}
+#'                \item{`docUrl`}{案由}
+#'                \item{`item`}{檔案下載位置}
+#'                \item{`item`}{檔案下載位置}
+#'                \item{`selectTerm`}{屆別期別篩選條件}
+#'                }
+#'              }
+#'      }
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
@@ -136,6 +153,14 @@ get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
 #' ## query the Executives' answered response by term and the session period.
 #' ## 輸入「立委屆期」與「會期」下載「行政院答復」
 #'get_executive_response(term = 8, session_period = 1)
+#'
+#'@details **`get_executive_response`** produces a list, which contains `title`,
+#'`query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
+#' `manual_info` and `data`. To retrieve the user manual and more information, please
+#' use `legisTaiwan::get_variable_info("get_executive_response")`.
+#'
+#'@note
+#'質詢類: 提供公報質詢事項行政院答復資訊 (自第8屆第1會期起)。
 #'@seealso
 #'\url{https://data.ly.gov.tw/getds.action?id=2}
 
@@ -158,12 +183,6 @@ get_executive_response <- function(term = NULL, session_period = NULL, verbose =
                        term, "&sessionPeriod=",
                        sprintf("%02d", as.numeric(session_period)),
                        "&sessionTimes=&item=&fileType=json", sep = "")
-  # legisTaiwan::check_internet()
-  # attempt::stop_if_all(term, is.null, msg = "term is missing")
-  # attempt::stop_if_all(term, is.character, msg = "use numeric format only")
-  # set_api_url <- paste("https://data.ly.gov.tw/odw/ID2Action.action?term=",
-  #                      sprintf("%02d", as.numeric(term)), "&sessionPeriod=",
-  #                      sprintf("%02d", as.numeric(session_period)), "&sessionTimes=&item=&fileType=json", sep = "")
   tryCatch(
     {
       json_df <- jsonlite::fromJSON(set_api_url)

@@ -2,14 +2,13 @@
 % Please edit documentation in R/meeting.R
 \name{get_committee_record}
 \alias{get_committee_record}
-\title{Retrieving the records of reviewed items in the committees
-議事類: 提供委員會會議審查之議案項目。(自第8屆第1會期起)}
+\title{The Records of Reviewed Items in the Committees 委員會會議審查之議案項目}
 \usage{
 get_committee_record(term = 8, session_period = NULL, verbose = TRUE)
 }
 \arguments{
-\item{term}{integer, numeric or null. The default is 8. The data is only
-available from 8th term. 參數必須為數值，資料從自第8屆起。}
+\item{term}{numeric or null. The data is only available from 8th term.
+The default value is 8. 參數必須為數值。資料從自第8屆起，預設值為8。}
 
 \item{session_period}{integer, numeric or NULL. Available
 options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL.
@@ -26,28 +25,34 @@ list contains: \describe{
 \item{\code{retrieved_term}}{the queried term}
 \item{\code{url}}{the retrieved json url}
 \item{\code{variable_names}}{the variables of the tibble dataframe}
-\item{\code{manual_info}}{the offical manual}
-\item{\code{data}}{a tibble dataframe , whose variables include:
-\code{term: 屆別},
-\code{sessionPeriod: 會期},
-\code{meetingNo: 會議編號},
-\code{billNo: 議案編號}, and
-\code{selectTerm:屆別期別篩選條件}}
+\item{\code{manual_info}}{the official manual, \url{https://data.ly.gov.tw/getds.action?id=46}; or use legisTaiwan::get_variable_info("get_committee_record")}
+\item{\code{data}}{a tibble dataframe, whose variables include:
+\describe{\item{\code{term}}{屆別}
+\item{\code{sessionPeriod}}{會期}
+\item{\code{meetingNo}}{會議編號}
+\item{\code{billNo}}{議案編號}
+\item{\code{selectTerm}}{屆別期別篩選條件}
+}
+}
 }
 }
 \description{
-Retrieving the records of reviewed items in the committees
-議事類: 提供委員會會議審查之議案項目。(自第8屆第1會期起)
+The Records of Reviewed Items in the Committees 委員會會議審查之議案項目
 }
 \details{
 \code{get_committee_record} produces a list, which contains \code{title},
 \code{query_time}, \code{retrieved_number}, \code{retrieved_term}, \code{url}, \code{variable_names},
-\code{manual_info} and \code{data}.
+\code{manual_info} and \code{data}. To retrieve the user manual and more information
+about the data frame, please use \code{legisTaiwan::get_variable_info("get_committee_record")}.
+}
+\note{
+議事類: 提供委員會會議審查之議案項目 (自第8屆第1會期起)。
 }
 \examples{
 ## query the committee record by term and the session period.
 ## 輸入「立委屆期」與「會期」下載「委員會審議之議案」
 get_committee_record(term = 8, session_period = 1)
+
 }
 \seealso{
 \url{https://data.ly.gov.tw/getds.action?id=46}
