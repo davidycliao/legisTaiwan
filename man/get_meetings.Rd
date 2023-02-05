@@ -55,7 +55,21 @@ The Spoken Meeting Records 委員發言
 \code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data}.To retrieve the user
 manual and more information about the data frame, please use \code{legisTaiwan::get_variable_info("get_meetings")}.
 Further Check Required: the user manuals seems to be inconsistent
-with actual data. 資料似乎不一致，待確認。委員發言（取得最早時間不詳，待檢查。）
+with actual data.
+}
+\note{
+資料似乎不一致，待確認。委員發言（取得最早時間不詳，待檢查。）
+}
+\examples{
+## query meeting records by a period of the dates in Taiwan ROC calender format
+## 輸入「中華民國民年」下載「委員發言」
+get_meetings(start_date = "1050120", end_date = "1050210")
+
+## query meeting records by a period of the dates in Taiwan ROC calender format
+## and a meeting
+## 輸入「中華民國民年」與「審查會議或委員會名稱」下載會議審查資訊
+get_meetings(start_date = 1060120, end_date = 1070310, meeting_unit = "內政委員會")
+
 }
 \seealso{
 \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}

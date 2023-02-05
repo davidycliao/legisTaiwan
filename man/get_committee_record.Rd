@@ -44,7 +44,15 @@ The Records of Reviewed Items in the Committees 委員會會議審查之議案�
 \code{query_time}, \code{retrieved_number}, \code{retrieved_term}, \code{url}, \code{variable_names},
 \code{manual_info} and \code{data}. To retrieve the user manual and more information
 about the data frame, please use \code{legisTaiwan::get_variable_info("get_committee_record")}.
+}
+\note{
 議事類: 提供委員會會議審查之議案項目 (自第8屆第1會期起)。
+}
+\examples{
+## query the committee record by term and the session period.
+## 輸入「立委屆期」與「會期」下載「委員會審議之議案」
+get_committee_record(term = 8, session_period = 1)
+
 }
 \seealso{
 \url{https://data.ly.gov.tw/getds.action?id=46}

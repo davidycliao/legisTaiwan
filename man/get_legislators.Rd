@@ -18,7 +18,7 @@ list contains: \describe{
 \item{\code{queried_term}}{the queried term}
 \item{\code{url}}{the retrieved json url}
 \item{\code{variable_names}}{the variables of the tibble dataframe}
-\item{\code{manual_info}}{the offical manual from \url{https://data.ly.gov.tw/getds.action?id=16}, or use legisTaiwan::get_variable_info("get_legislators")}
+\item{\code{manual_info}}{the official manual from \url{https://data.ly.gov.tw/getds.action?id=16}, or use legisTaiwan::get_variable_info("get_legislators")}
 \item{\code{data}}{a tibble dataframe, whose variables include:
 \describe{\item{\code{term}}{屆別}
 \item{\code{name}}{委員姓名}
@@ -35,7 +35,7 @@ list contains: \describe{
 \item{\code{leaveReason}}{離職原因}
 }
 }
-}}
+}
 }
 \description{
 The Legislator' Demographic Information and Background 提供委員基本資料
@@ -44,8 +44,16 @@ The Legislator' Demographic Information and Background 提供委員基本資料
 \code{get_legislators} produces a list, which contains  \code{query_time},
 \code{queried_term}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data}.
 To retrieve the user manual and more information about the data frame, please use
-\code{legisTaiwan::get_variable_info("get_legislators")}. 提供委員基本資料，最早資
-料可追溯至第2屆。
+\code{legisTaiwan::get_variable_info("get_legislators")}.
+}
+\note{
+提供委員基本資料，最早資料可追溯至第2屆。
+}
+\examples{
+## query the Executives' answered response by term and the session period.
+## 輸入「立委屆期」與「會期」下載「行政院答復」
+get_executive_response(term = 8, session_period = 1)
+
 }
 \seealso{
 \url{https://data.ly.gov.tw/getds.action?id=16}

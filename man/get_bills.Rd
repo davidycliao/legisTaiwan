@@ -49,10 +49,29 @@ The Records of the Bills 法律提案
 \details{
 \code{get_bills} produces a list, which contains \code{query_time},
 \code{retrieved_number}, \code{meeting_unit}, \code{start_date_ad}, \code{end_date_ad}, \code{start_date},
-\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data}. 法律提案 API To retrieve the user
+\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data}.
+}
+\note{
+法律提案 API To retrieve the user
 manual and more information about the data frame, please use \code{legisTaiwan::get_variable_info("get_bills")}.
 Further Check Required: the user manuals seems to be inconsistent with actual data.
 資料似乎不一致，取得最早時間不詳，待檢查。
+}
+\examples{
+## query bill records by a period of the dates in Taiwan ROC calender format
+## 輸入「中華民國民年」下載立法委員提案資料
+get_bills(start_date = 1060120, end_date = 1070310, verbose = FALSE)
+
+## query bill records by a period of the dates in Taiwan ROC calender format
+## and a specific legislator
+## 輸入「中華民國民年」與「指定立法委員」下載立法委員提案資料
+get_bills(start_date = 1060120, end_date = 1070310,  proposer = "孔文吉")
+
+## query bill records by a period of the dates in Taiwan ROC calender format
+## and multiple legislators
+## 輸入「中華民國民年」與「指定多個立法委員」下載立法委員提案資料
+get_bills(start_date = 1060120, end_date = 1060510,  proposer = "孔文吉&鄭天財")
+
 }
 \seealso{
 \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}

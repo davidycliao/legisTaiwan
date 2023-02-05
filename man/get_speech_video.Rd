@@ -55,9 +55,18 @@ The Video Information of Meetings and Committees 院會及委員會之委員發�
 \code{get_speech_video} produces a list, which contains \code{title}, \code{query_time},
 \code{retrieved_number}, \code{meeting_unit}, \code{start_date_ad}, \code{end_date_ad}, \code{start_date},
 \code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data.} To retrieve the user
-manual and more information about the data frame,
-please use \code{legisTaiwan::get_variable_info("get_speech_video")}. 會議類:提供立
-法院院會及委員會之委員發言片段相關影片資訊 (自第9屆第1會期起)。
+manual and more information about the data frame, please use \code{legisTaiwan::get_variable_info("get_speech_video")}.
+}
+\note{
+會議類:提供立法院院會及委員會之委員發言片段相關影片資訊 (自第9屆第1會期起)。
+}
+\examples{
+## query full video information of meetings and committees using a period of
+## the dates in Taiwan ROC calender format with forward slash (/).
+## 輸入「中華民國民年」下載「委員發言片段相關影片資訊」，輸入時間請依照該
+## 格式 "105/10/20"，需有「正斜線」做隔開。
+get_speech_video(start_date = "105/10/20", end_date = "109/03/10")
+
 }
 \seealso{
 委員發言片段相關影片資訊 \url{https://data.ly.gov.tw/getds.action?id=148}
