@@ -1,9 +1,5 @@
 #'The Records of Parliamentary Questions Asked by the Legislators 委員質詢事項資訊
 #'
-#' @details get_parlquestions` produces a list, which contains `title`,
-#'`query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
-#' `manual_info` and `data`. To retrieve the user manual and more information
-#' about the data frame, please use `legisTaiwan::get_variable_info("get_parlquestions")`. 質詢類: 提供議事日程本院委員之質詢事項資訊(自第8屆第1會期起)。
 #'
 #'@param term numeric or null. The data is only available from 8th term. The default value is 8.
 #'參數必須為數值。資料從自第8屆起，預設值為8。
@@ -36,6 +32,27 @@
 #'@importFrom jsonlite fromJSON
 #'
 #'@export
+#'
+#'@examples
+#' ## query parliamentary questions by term.
+#' ## 輸入「立委會期」下載立委質詢資料
+#'get_parlquestions(term = 8)
+#'
+#' ## query parliamentary questions by term.
+#' ## 輸入「立委屆期」與「會期」下載立委質詢資料
+#'get_parlquestions(term = 8, session_period = 2)
+#'
+#' ## query parliamentary questions by term.
+#' ## 輸入「空白」下載立委全部質詢資料
+#'get_parlquestions(term = 8, session_period = 2)
+#'
+#' @details get_parlquestions` produces a list, which contains `title`,
+#'`query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
+#' `manual_info` and `data`. To retrieve the user manual and more information
+#' about the data frame, please use `legisTaiwan::get_variable_info("get_parlquestions")`.
+#'
+#'@note
+#'質詢類: 提供議事日程本院委員之質詢事項資訊(自第8屆第1會期起)。
 #'
 #'@seealso
 #'\url{https://data.ly.gov.tw/getds.action?id=6}
@@ -74,12 +91,6 @@ get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
 
 
 #'The Records of the Questions Answered by the Executives 公報質詢事項行政院答復資訊
-#'
-#'@details **`get_executive_response`** produces a list, which contains `title`,
-#'`query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
-#' `manual_info` and `data`. To retrieve the user manual and more information, please
-#' use `legisTaiwan::get_variable_info("get_executive_response")`.
-#' 質詢類: 提供公報質詢事項行政院答復資訊 (自第8屆第1會期起)。
 #'
 #'@param term integer, numeric or null. The default is NULL. The data is only
 #'available from 8th term. 參數必須為數值。資料從自第8屆起，預設值為8。
@@ -120,6 +131,18 @@ get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
 #'
 #'@export
 #'
+#'@examples
+#' ## query the Executives' answered response by term and the session period.
+#' ## 輸入「立委屆期」與「會期」下載「行政院答復」
+#'get_executive_response(term = 8, session_period = 1)
+#'
+#'@details **`get_executive_response`** produces a list, which contains `title`,
+#'`query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
+#' `manual_info` and `data`. To retrieve the user manual and more information, please
+#' use `legisTaiwan::get_variable_info("get_executive_response")`.
+#'
+#'@note
+#'質詢類: 提供公報質詢事項行政院答復資訊 (自第8屆第1會期起)。
 #'@seealso
 #'\url{https://data.ly.gov.tw/getds.action?id=2}
 

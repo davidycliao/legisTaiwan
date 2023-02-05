@@ -3,6 +3,10 @@ url: https://davidycliao.github.io/legisTaiwan/
 home:
   title: Real-time and Archives of Taiwan Legislative Data in R
 
+  links:
+  - text: Discussion
+    href: https://github.com/davidycliao/legisTaiwan/discussions
+
 authors:
   David Yen-Chieh Liao:
     href: https://davidycliao.github.io
@@ -12,15 +16,20 @@ authors:
     href: "https://data.ly.gov.tw/catelog.action"
     html: "<img src='https://raw.githack.com/davidycliao/legisTaiwan/v0.1.4/inst/figures/ly.jpeg' width=52>"
 
+
 template:
   package: tidytemplate
   bootstrap: 5
   includes:
     in_header: |
       <script defer data-domain="{YOUR DOMAIN},all.tidyverse.org" src="https://plausible.io/js/plausible.js"></script>
+
+  params:
     ganalytics: G-X85ED8P5EW
+
 development:
   mode: auto
+
 navbar:
   type: inverse
   left:
@@ -31,15 +40,29 @@ navbar:
     menu:
     - text: "Quick Start Guide"
       href: articles/quickstart.html
+
   - icon: fa-project-diagram
-    text: Examples
+    text: Manual
     menu:
-    - text: 歷屆委員資料(Legislator Demographics)
+    - text: Legilsative Interpellation
       href: articles/get_legislators.html
-    - text: 法律提案（the Records of the Bills）
+    - text: Legislation and Bill
       href: articles/get_bills.html
-    - text: 立委質詢 (the Questions Asked by the Legislators)
-      href: articles/get_parlquestions.html
+    - text: Misc
+      href: articles/get_bills.html
+
+  - icon: fa-file-code-o
+    text: Reference
+    menu:
+    - text: "Function reference"
+      href: reference/index.html
+
+  - icon: fas fa-money-check-edit
+    text: Research
+    menu:
+    - text: ""
+      href: reference/index.html
+
   - icon: fa-newspaper-o
     text: News
     menu:
@@ -49,11 +72,7 @@ navbar:
       href: news/index.html#legistaiwan-version-012-development-version
     - text: "Version 0.1.1"
       href: news/index.html#legistaiwan-version-011-development-version
-  - icon: fa-file-code-o
-    text: Features
-    menu:
-    - text: "Reference"
-      href: reference/index.html
+
 
   right:
   - icon: fa-github fa-lg

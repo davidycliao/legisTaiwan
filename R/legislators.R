@@ -1,11 +1,5 @@
 #' The Legislator' Demographic Information and Background 提供委員基本資料
 #'
-#'@details `get_legislators` produces a list, which contains  `query_time`,
-#'`queried_term`, `url`, `variable_names`, `manual_info` and `data`.
-#'To retrieve the user manual and more information about the data frame, please use
-#'`legisTaiwan::get_variable_info("get_legislators")`. 提供委員基本資料，最早資
-#'料可追溯至第2屆。
-#'
 #'@param term numeric or null. The data is available from the 2nd term.
 #'
 #'@param verbose logical, indicates whether get_meetings should print out
@@ -16,7 +10,7 @@
 #'      \item{`queried_term`}{the queried term}
 #'      \item{`url`}{the retrieved json url}
 #'      \item{`variable_names`}{the variables of the tibble dataframe}
-#'      \item{`manual_info`}{the offical manual from \url{https://data.ly.gov.tw/getds.action?id=16}, or use legisTaiwan::get_variable_info("get_legislators")}
+#'      \item{`manual_info`}{the official manual from \url{https://data.ly.gov.tw/getds.action?id=16}, or use legisTaiwan::get_variable_info("get_legislators")}
 #'      \item{`data`}{a tibble dataframe, whose variables include:
 #'      \describe{\item{`term`}{屆別}
 #'                \item{`name`}{委員姓名}
@@ -33,12 +27,24 @@
 #'                \item{`leaveReason`}{離職原因}
 #'                }
 #'              }
-#'      }}
+#'      }
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
 #'
 #'@export
+#'
+#'@examples
+#' ## query the Executives' answered response by term and the session period.
+#' ## 輸入「立委屆期」與「會期」下載「行政院答復」
+#'get_executive_response(term = 8, session_period = 1)
+#'
+#'@details `get_legislators` produces a list, which contains  `query_time`,
+#'`queried_term`, `url`, `variable_names`, `manual_info` and `data`.
+#'To retrieve the user manual and more information about the data frame, please use
+#'`legisTaiwan::get_variable_info("get_legislators")`.
+#'
+#'@note 提供委員基本資料，最早資料可追溯至第2屆。
 #'
 #'@seealso
 #'\url{https://data.ly.gov.tw/getds.action?id=16}

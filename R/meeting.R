@@ -1,11 +1,5 @@
 #' The Spoken Meeting Records 委員發言
 #'
-#'@details `get_meetings` produces a list, which contains `title`, `query_time`,
-#'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
-#'`end_date`, `url`, `variable_names`, `manual_info` and `data`.To retrieve the user
-#'manual and more information about the data frame, please use `legisTaiwan::get_variable_info("get_meetings")`.
-#'Further Check Required: the user manuals seems to be inconsistent
-#'with actual data. 資料似乎不一致，待確認。委員發言（取得最早時間不詳，待檢查。）
 #'
 #'@param start_date numeric Must be formatted in ROC Taiwan calendar, e.g. 1090101.
 #'
@@ -44,6 +38,25 @@
 #'@importFrom jsonlite fromJSON
 #'
 #'@export
+#'
+#'@examples
+#' ## query meeting records by a period of the dates in Taiwan ROC calender format
+#' ## 輸入「中華民國民年」下載「委員發言」
+#'get_meetings(start_date = "1050120", end_date = "1050210")
+#'
+#' ## query meeting records by a period of the dates in Taiwan ROC calender format
+#' ## and a meeting
+#' ## 輸入「中華民國民年」與「審查會議或委員會名稱」下載會議審查資訊
+#'get_meetings(start_date = 1060120, end_date = 1070310, meeting_unit = "內政委員會")
+#'
+#'@details `get_meetings` produces a list, which contains `title`, `query_time`,
+#'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
+#'`end_date`, `url`, `variable_names`, `manual_info` and `data`.To retrieve the user
+#'manual and more information about the data frame, please use `legisTaiwan::get_variable_info("get_meetings")`.
+#'Further Check Required: the user manuals seems to be inconsistent
+#'with actual data.
+#'
+#'@note 資料似乎不一致，待確認。委員發言（取得最早時間不詳，待檢查。）
 #'
 #'@seealso
 #'\url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}
@@ -88,11 +101,6 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
 
 #'The Meeting Records of Cross-caucus Session 黨團協商資訊
 #'
-#'@details `get_caucus_meetings` produces a list, which contains `title`, `query_time`,
-#'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
-#'`end_date`, `url`, `variable_names`, `manual_info` and `data.` 議事類:提供公報之黨團協商資訊 (自第8屆第1會期起)。
-#' To retrieve the user manual and more information
-#' about the data frame, please use `legisTaiwan::get_variable_info("get_caucus_meetings")`.
 #'
 #'@param start_date character Must be formatted in ROC Taiwan calendar with three
 #'forward slashes between year, month and day, e.g. "106/10/20".
@@ -138,6 +146,20 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
 #'
 #'@export
 #'
+#'@examples
+#' ## query the meeting records of cross-caucus session using a period of
+#' ## the dates in Taiwan ROC calender format with forward slash (/).
+#' ## 輸入「中華民國民年」下載「黨團協商」，輸入時間請依照該格式 "106/10/20"，
+#' ## 需有「正斜線」做隔開。
+#'get_caucus_meetings(start_date = "106/10/20", end_date = "107/03/10")
+#'
+#'@details `get_caucus_meetings` produces a list, which contains `title`, `query_time`,
+#'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
+#'`end_date`, `url`, `variable_names`, `manual_info` and `data.`To retrieve the user manual and more information
+#' about the data frame, please use `legisTaiwan::get_variable_info("get_caucus_meetings")`.
+#'
+#'@note 議事類:提供公報之黨團協商資訊 (自第8屆第1會期起)
+#'
 #'@seealso
 #'\url{https://data.ly.gov.tw/getds.action?id=8}
 get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
@@ -177,13 +199,6 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
 
 
 #' The Video Information of Meetings and Committees 院會及委員會之委員發言片段相關影片資訊
-#'
-#'@details `get_speech_video` produces a list, which contains `title`, `query_time`,
-#'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
-#'`end_date`, `url`, `variable_names`, `manual_info` and `data.` To retrieve the user
-#'manual and more information about the data frame,
-#'please use `legisTaiwan::get_variable_info("get_speech_video")`. 會議類:提供立
-#'法院院會及委員會之委員發言片段相關影片資訊 (自第9屆第1會期起)。
 #'
 #'@param start_date character Must be formatted in ROC Taiwan calendar with three
 #'forward slashes between year, month and day, e.g. "106/10/20".
@@ -229,6 +244,20 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
 #'@importFrom jsonlite fromJSON
 #'
 #'@export
+#'
+#'@examples
+#' ## query full video information of meetings and committees using a period of
+#' ## the dates in Taiwan ROC calender format with forward slash (/).
+#' ## 輸入「中華民國民年」下載「委員發言片段相關影片資訊」，輸入時間請依照該
+#' ## 格式 "105/10/20"，需有「正斜線」做隔開。
+#'get_speech_video(start_date = "105/10/20", end_date = "109/03/10")
+#'
+#'@details `get_speech_video` produces a list, which contains `title`, `query_time`,
+#'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
+#'`end_date`, `url`, `variable_names`, `manual_info` and `data.` To retrieve the user
+#'manual and more information about the data frame, please use `legisTaiwan::get_variable_info("get_speech_video")`.
+#'
+#'@note 會議類:提供立法院院會及委員會之委員發言片段相關影片資訊 (自第9屆第1會期起)。
 #'
 #'@seealso
 #'委員發言片段相關影片資訊 \url{https://data.ly.gov.tw/getds.action?id=148}
@@ -277,11 +306,6 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
 
 #'The Records of National Public Debates 國是論壇
 #'
-#'#'@details `get_public_debates` produces a list, which contains `title`, `query_time`,
-#'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
-#'`end_date`, `url`, `variable_names`, `manual_info` and `data.` To retrieve the user
-#'manual and more information about the data frame, please use `legisTaiwan::get_variable_info("get_public_debates")`.
-#'議事類: 提供公報之國是論壇資訊，並包含書面意見。自第8屆第1會期起，但實測資料從第10屆。
 #'
 #'
 #'@param term numeric or NULL The default value is 10 參數必須為數值，資料從自
@@ -304,25 +328,39 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
 #'      \item{`url`}{the retrieved json url}
 #'      \item{`variable_names`}{the variables of the tibble dataframe}
 #'      \item{`manual_info`}{the official manual, \url{https://data.ly.gov.tw/getds.action?id=7}; or use legisTaiwan::get_variable_info("get_public_debates")}
-#'      \describe{\item{`term`}{屆別}
-#'                \item{`sessionPeriod`}{會期}
-#'                \item{`sessionTimes`}{會次}
-#'                \item{`meetingTimes`}{臨時會會次}
-#'                \item{`dateTimeDesc`}{日期時間說明}
-#'                \item{`meetingRoom`}{會議地點}
-#'                \item{`chairman`}{主持人}
-#'                \item{`legislatorName`}{委員姓名}
-#'                \item{`speakType`}{發言類型(paper:書面發言,speak:發言)}
-#'                \item{`content`}{內容}
-#'                \item{`selectTerm`}{屆別期別篩選條件}
+#'      \item{`data`}{a tibble dataframe, whose variables include:
+#'            \describe{\item{`term`}{屆別}
+#'                      \item{`sessionPeriod`}{會期}
+#'                      \item{`sessionTimes`}{會次}
+#'                      \item{`meetingTimes`}{臨時會會次}
+#'                      \item{`dateTimeDesc`}{日期時間說明}
+#'                      \item{`meetingRoom`}{會議地點}
+#'                      \item{`chairman`}{主持人}
+#'                      \item{`legislatorName`}{委員姓名}
+#'                      \item{`speakType`}{發言類型(paper:書面發言,speak:發言)}
+#'                      \item{`content`}{內容}
+#'                      \item{`selectTerm`}{屆別期別篩選條件}
+#'                      }
+#'                  }
 #'                }
-#'              }
-#'      }
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
 #'
 #'@export
+#'
+#'@examples
+#' ## query the Executives' answered response by term and the session period.
+#' ## 輸入「立委屆期」與「會期」下載國是論壇資訊。
+#'get_public_debates(term = 10, session_period = 2)
+#'
+#'@details `get_public_debates` produces a list, which contains `title`, `query_time`,
+#'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
+#'`end_date`, `url`, `variable_names`, `manual_info` and `data.` To retrieve the user
+#'manual and more information about the data frame, please use `legisTaiwan::get_variable_info("get_public_debates")`.
+#'
+#'@note
+#'議事類: 提供公報之國是論壇資訊，並包含書面意見。自第8屆第1會期起，但實測資料從第10屆。
 #'
 #'@seealso
 #'\url{https://data.ly.gov.tw/getds.action?id=7}
@@ -376,11 +414,6 @@ get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRU
 
 #' The Records of Reviewed Items in the Committees 委員會會議審查之議案項目
 #'
-#'@details `get_committee_record` produces a list, which contains `title`,
-#'`query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
-#' `manual_info` and `data`. To retrieve the user manual and more information
-#' about the data frame, please use `legisTaiwan::get_variable_info("get_committee_record")`.
-#' 議事類: 提供委員會會議審查之議案項目 (自第8屆第1會期起)。
 #'
 #'@param term numeric or null. The data is only available from 8th term.
 #'The default value is 8. 參數必須為數值。資料從自第8屆起，預設值為8。
@@ -414,6 +447,19 @@ get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRU
 #'@importFrom jsonlite fromJSON
 #'
 #'@export
+#'
+#'@examples
+#' ## query the committee record by term and the session period.
+#' ## 輸入「立委屆期」與「會期」下載「委員會審議之議案」
+#'get_committee_record(term = 8, session_period = 1)
+#'
+#'@details `get_committee_record` produces a list, which contains `title`,
+#'`query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
+#' `manual_info` and `data`. To retrieve the user manual and more information
+#' about the data frame, please use `legisTaiwan::get_variable_info("get_committee_record")`.
+#'
+#'@note
+#'議事類: 提供委員會會議審查之議案項目 (自第8屆第1會期起)。
 #'
 #'@seealso
 #'\url{https://data.ly.gov.tw/getds.action?id=46}
