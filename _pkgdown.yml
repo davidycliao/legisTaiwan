@@ -45,8 +45,8 @@ navbar:
       href: articles/quickstart.html#get-started-with-using-remotes
     - text: "The Overview of the API Accesses"
       href: articles/quickstart.html#the-overview-of-the-api-access
-    - text: "Examples"
-      href: articles/quickstart.html#quickstart.html#examples
+    - text: "Tutorials"
+      href: articles/quickstart.html#quickstart.html#tutorials
 
   - icon: fa-project-diagram
     text: Manual

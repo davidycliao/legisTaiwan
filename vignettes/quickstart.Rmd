@@ -29,8 +29,6 @@ and video records for a research project and analyze public policies. The packag
 
 -----
 
-<br> 
-
 ## Get Started with Using [`remotes`](https://github.com/r-lib/remotes):
 
 ```{r eval = FALSE}
@@ -73,7 +71,7 @@ library(legisTaiwan)
 
 -----
 
-## Examples
+## Tutorials
 
 + [取得歷屆委員資料為例 (李宜展 東海大學政治系)]()
 

@@ -1,13 +1,21 @@
-# `legisTaiwan` v0.1.4 (development version)
+# `legisTaiwan` Version 0.1.4 (development version)
 
+* re-documentation and inserting handlers
 
+* formatting the website and documentation:  `get_executive_response()`, `get_bills_2()`, `get_debates()` and `get_speech_video()`.
 
+* `get_bills()` and `get_meeting()`'s starting date are not clear. 
 
+* `get_public_debates()` manual information is inconsistent with actual data.
 
+* The number of  `get_parlquestions()` and `get_public_debates()` becomes zero due to the APIs themselves.
+ 
+
+<br> 
 
 ------
 
-# `legisTaiwan` v0.1.3 (development version)
+# `legisTaiwan` Version 0.1.3 (development version)
 
 * Fix typo in function name: `get_variabel_infos()` to `get_variable_info()`.
 
@@ -17,18 +25,15 @@
 
 * Re-documentation and inserting handlers
 
-* add `get_committee_record()`
-
-* re-documentation and inserting handlers
-
+<br> 
 
 ------
 
-# `legisTaiwan` v0.1.1 (development version)
+# `legisTaiwan` Version 0.1.1 (development version)
 
 * `get_executive_response()`, `get_bills_2()`, `get_debates()` and `get_speech_video()` are added.
 
-* lack of documentation 
-
 * The package is created with `get_meetings()`, `get_bills()`, `get_legislators()`, `get_parlquestions()`
+
+<br> 
 
