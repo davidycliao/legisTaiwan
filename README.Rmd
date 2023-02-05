@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 ```
 
 
-# The Real-time and Archives of Taiwan Legislative Data <img src="man/figures/logo.png" align="right" width="180"/>
+# Accessing Real-time and Archives of Taiwan Legislative Data in R <img src="man/figures/logo.png" align="right" width="180"/>
 
 <!-- badges: start -->
 [![R](https://github.com/davidycliao/legisTaiwan/actions/workflows/r.yml/badge.svg)](https://github.com/davidycliao/legisTaiwan/actions/workflows/r.yml) [![codecov](https://codecov.io/gh/davidycliao/legisTaiwan/branch/master/graph/badge.svg?token=HVVTCOE90D)](https://codecov.io/gh/davidycliao/legisTaiwan)

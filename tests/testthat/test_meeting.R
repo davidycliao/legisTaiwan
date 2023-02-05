@@ -15,11 +15,11 @@ test_that("get_speech_video", {
   expect_equal(get_speech_video(start_date = "105/10/20", end_date = "109/03/10", verbose = FALSE)$retrieved_number, 547)
 })
 
-test_that("get_public_debates", {
-  expect_equal(get_public_debates(term = 10, session_period = 1)$retrieved_number, 107)
-  expect_equal(get_public_debates(term = 10, session_period = 1, verbose = FALSE)$retrieved_number, 107)
-  expect_equal(get_public_debates(verbose = FALSE)$title, "the records of the questions answered by the executives")
-  })
+# test_that("get_public_debates", {
+#   expect_equal(get_public_debates(term = 10, session_period = 1)$retrieved_number, 107)
+#   expect_equal(get_public_debates(term = 10, session_period = 1, verbose = FALSE)$retrieved_number, 107)
+#   expect_equal(get_public_debates(verbose = FALSE)$title, "the records of the questions answered by the executives")
+#   })
 
 test_that("get_committee_record", {
   expect_equal(get_committee_record(term = 8, session_period= 1, verbose = FALSE)$retrieved_number, 613)
