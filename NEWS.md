@@ -1,12 +1,17 @@
 # `legisTaiwan` v0.1.4 (development version)
 
+
+
+
+
+
 ------
 
 # `legisTaiwan` v0.1.3 (development version)
 
 * Fix typo in function name: `get_variabel_infos()` to `get_variable_info()`.
 
-* `get_committee_record() ` is added to access to xxxx
+* `get_committee_record() ` is added to access to the records of reviewed items in the committees 提供委員會會議審查之議案項目.
 
 * Add funder and copyright holder in NAMESPACE: `國科會` and `立法院`
 

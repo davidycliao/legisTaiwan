@@ -1,0 +1,27 @@
+---
+title: "Quick Start"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Quick Start}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Get Started with Using [`remotes`](https://github.com/r-lib/remotes):
+
+```{r }
+# install.packages("remotes")
+# remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
+```
+
+```{r}
+library(legisTaiwan)
+```
+
