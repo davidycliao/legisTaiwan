@@ -9,3 +9,6 @@ test_that("get_bills_2", {
   # expect_equal(get_bills_2()$title, "the records of the questions answered by the executives")
 })
 
+# test_that("get_bills_2", {
+#   expect_equal(get_bills_2()$title, "the records of the questions answered by the executives")
+# })

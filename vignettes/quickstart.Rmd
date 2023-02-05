@@ -14,6 +14,8 @@ knitr::opts_chunk$set(
 )
 ```
 
+## Get Started with Using [`remotes`](https://github.com/r-lib/remotes):
+
 
 <div style="text-align: justify">
 
@@ -27,9 +29,6 @@ and video records for a research project and analyze public policies. The packag
 
 <br> 
 
------
-
-## Get Started with Using [`remotes`](https://github.com/r-lib/remotes):
 
 ```{r eval = FALSE}
 install.packages("remotes")

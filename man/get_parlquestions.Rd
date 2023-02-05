@@ -7,11 +7,11 @@
 get_parlquestions(term = 8, session_period = NULL, verbose = TRUE)
 }
 \arguments{
-\item{term}{numeric or null. The data is only available from 8th term. The default value is 8.
-參數必須為數值。資料從自第8屆起，預設值為8。}
+\item{term}{numeric or null. The data is only available from 8th term.
+The default is set to 8. 參數必須為數值。資料從自第8屆起，預設值為8。}
 
 \item{session_period}{numeric or NULL. Available options for the session
-is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL. 參數必須為數值。}
+is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to NULL. 參數必須為數值。}
 
 \item{verbose}{logical, indicates whether \code{get_parlquestions} should print out
 detailed output when retrieving the data. The default is TRUE}
