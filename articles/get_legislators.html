@@ -25,7 +25,13 @@
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]--><script defer data-domain="{YOUR DOMAIN},all.tidyverse.org" src="https://plausible.io/js/plausible.js"></script>
+<![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-X85ED8P5EW"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-X85ED8P5EW');
+</script><script defer data-domain="{YOUR DOMAIN},all.tidyverse.org" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
     <a href="#container" class="visually-hidden-focusable">Skip to content</a>
@@ -35,7 +41,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">legisTaiwan</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.4</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,19 +63,31 @@
     Quick Start
   </a>
   <div class="dropdown-menu" aria-labelledby="dropdown--quick-start">
-    <a class="dropdown-item" href="../articles/quickstart.html">Quick Start Guide</a>
+    <a class="dropdown-item" href="../articles/quickstart.html#get-started-with-using-remotes">Quick Start Guide</a>
+    <a class="dropdown-item" href="../articles/quickstart.html#the-overview-of-the-api-access">The Overview of the API Accesses</a>
+    <a class="dropdown-item" href="../articles/quickstart.html#quickstart.html#examples">Examples</a>
   </div>
 </li>
-<li class="active nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown--examples">
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown--manual">
     <span class="fa fa-project-diagram"></span>
      
-    Examples
+    Manual
   </a>
-  <div class="dropdown-menu" aria-labelledby="dropdown--examples">
-    <a class="dropdown-item" href="../articles/get_legislators.html">歷屆委員資料(Legislator Demographics)</a>
-    <a class="dropdown-item" href="../articles/get_bills.html">法律提案（the Records of the Bills）</a>
-    <a class="dropdown-item" href="../articles/get_parlquestions.html">立委質詢 (the Questions Asked by the Legislators)</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown--manual">
+    <a class="dropdown-item" href="../articles/manual.html#interpellation-and-debates">Interpellation and Debates</a>
+    <a class="dropdown-item" href="../articles/manual.html#bill-and-budget">Bill and Budget</a>
+    <a class="dropdown-item" href="../articles/manual.html#bill-and-budget#miscellaneous">Miscellaneous</a>
+  </div>
+</li>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown--reference">
+    <span class="fa fa-file-code-o"></span>
+     
+    Reference
+  </a>
+  <div class="dropdown-menu" aria-labelledby="dropdown--reference">
+    <a class="dropdown-item" href="../reference/index.html">Function Reference</a>
   </div>
 </li>
 <li class="nav-item dropdown">
@@ -79,17 +97,9 @@
     News
   </a>
   <div class="dropdown-menu" aria-labelledby="dropdown--news">
-    <a class="dropdown-item" href="../news/index.html">Version 0.1.0</a>
-  </div>
-</li>
-<li class="nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown--features">
-    <span class="fa fa-file-code-o"></span>
-     
-    Features
-  </a>
-  <div class="dropdown-menu" aria-labelledby="dropdown--features">
-    <a class="dropdown-item" href="../reference/index.html">Reference</a>
+    <a class="dropdown-item" href="../news/index.html#legistaiwan-version-014-development-version">Version 0.1.4</a>
+    <a class="dropdown-item" href="../news/index.html#legistaiwan-version-013-development-version">Version 0.1.3</a>
+    <a class="dropdown-item" href="../news/index.html#legistaiwan-version-011-development-version">Version 0.1.1</a>
   </div>
 </li>
       </ul>
@@ -161,7 +171,7 @@
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 2</span></span></span>
 <span><span class="co">#&gt;   sex       n</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 女      368</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 女      369</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 男     <span style="text-decoration: underline;">1</span>163</span></span></code></pre></div>
 <p>計算「黨籍」之個數</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
@@ -177,7 +187,7 @@
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 建國黨           3</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 新黨            33</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 時代力量         7</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 民主進步黨     590</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 民主進步黨     591</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 民國黨           1</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 無黨團結聯盟    23</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span> 無黨籍          49</span></span>
@@ -224,12 +234,12 @@
   <footer><div class="container">
   <div class="pkgdown-footer-left">
   <p></p>
-<p>Developed by <a href="https://davidycliao.github.io" class="external-link">David Yen-Chieh Liao</a>, <a href="https://sites.google.com/view/litang2020?pli=1" class="external-link">Li Tang</a>.</p>
+<p>Developed by <a href="https://davidycliao.github.io" class="external-link">David Yen-Chieh Liao</a>, <a href="https://sites.google.com/view/litang2020?pli=1" class="external-link">Li Tang</a>, <a href="https://data.ly.gov.tw/catelog.action" class="external-link"><img src="https://raw.githack.com/davidycliao/legisTaiwan/v0.1.4/inst/figures/ly.jpeg" width="52"></a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.9000.</p>
 </div>
 
   </div></footer>
