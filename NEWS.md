@@ -24,7 +24,7 @@
 
 ------
 
-# `legisTaiwan` v0.1.0 (development version)
+# `legisTaiwan` v0.1.1 (development version)
 
 * `get_executive_response()`, `get_bills_2()`, `get_debates()` and `get_speech_video()` are added.
 
