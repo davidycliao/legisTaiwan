@@ -41,9 +41,9 @@ library(legisTaiwan)
 #> ## An R package connecting to the Taiwan Legislative API. ###
 ```
 
-## Notice and Information:
+## Notice:
 
-- Two API endpoints (`質詢事項(本院委員質詢部分)` and `國是論壇`) are
+- Two API endpoints,`質詢事項(本院委員質詢部分)` and `國是論壇`, are
   temporarily down. Therefore, the data retrieved by
   `get_parlquestions()` and `get_public_debates()` may not be correct.
   \[*UPDATE: Feb 5 2023*\]

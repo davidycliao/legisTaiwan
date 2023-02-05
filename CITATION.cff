@@ -3,10 +3,8 @@ message: "If you use this software, please cite it as below."
 authors:
 - family-names: "Liao"
   given-names: "David Yen-Chieh"
-  orcid: ""
 - family-names: "Tang"
   given-names: "Li"
-  orcid: ""
 title: "Accessing Real-time and Archives of Taiwan Legislative Data in R"
 version: 0.1.5
 date-released: 2023-01-20
