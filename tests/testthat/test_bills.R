@@ -12,3 +12,9 @@ test_that("get_bills_2", {
 # test_that("get_bills_2", {
 #   expect_equal(get_bills_2()$title, "the records of the questions answered by the executives")
 # })
+
+test_that("get_bills_2", {
+  expect_error(get_bills_2(term = "10"),   "use numeric format only.")
+  expect_error(get_bills_2(term = "10", verbose = TRUE),   "use numeric format only.")
+  expect_equal(get_bills_2(term = c(9, 10))$retrieved_term, "09&10")
+})
