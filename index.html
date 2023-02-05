@@ -69,7 +69,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown--quick-start">
     <a class="dropdown-item" href="articles/quickstart.html#get-started-with-using-remotes">Quick Start Guide</a>
     <a class="dropdown-item" href="articles/quickstart.html#the-overview-of-the-api-access">The Overview of the API Accesses</a>
-    <a class="dropdown-item" href="articles/quickstart.html#quickstart.html#examples">Examples</a>
+    <a class="dropdown-item" href="articles/quickstart.html#quickstart.html#tutorials">Tutorials</a>
   </div>
 </li>
 <li class="nav-item dropdown">
@@ -79,7 +79,7 @@
     Manual
   </a>
   <div class="dropdown-menu" aria-labelledby="dropdown--manual">
-    <a class="dropdown-item" href="articles/manual.html#interpellation-and-debates">Interpellation and Debates</a>
+    <a class="dropdown-item" href="articles/manual.html#interpellation-and-debates#interpellation-and-debates">Interpellation and Debates</a>
     <a class="dropdown-item" href="articles/manual.html#bill-and-budget">Bill and Budget</a>
     <a class="dropdown-item" href="articles/manual.html#bill-and-budget#miscellaneous">Miscellaneous</a>
   </div>
@@ -134,7 +134,7 @@
 <!-- badges: start -->
 
 <div style="text-align: justify">
-<p><code>legisTaiwan</code> is designed to make it quickly and easy to download the real-time and archives of Taiwan legislative data via <a href="https://data.ly.gov.tw/index.action" class="external-link">Taiwan Legislative Yuan API</a>.</p>
+<p><code>legisTaiwan</code> is designed to make it quickly and easy to download the real-time and archives of Taiwan legislative data via <a href="https://data.ly.gov.tw/index.action" class="external-link">Taiwan Legislative Yuan API</a>. Its initial development was part of David Yen-Chieh Liao’ Dissertation project <strong><a href="https://raw.githack.com/davidycliao/phd-thesis/main/Yen_Chieh_Liao_PhD_Dissertation_Jan_2023.pdf" class="external-link">Electoral Reform, Distributive Politics, and Parties in the Taiwanese Congress</a></strong>* supported by Taiwanese Overseas Pioneers Grant (TOP GRANT), the National Science and Technology Council (NSTC) of Taiwan.</p>
 </div>
 <div class="section level2">
 <h2 id="get-started-with-using-remotes">Get Started with Using <a href="https://github.com/r-lib/remotes" class="external-link"><code>remotes</code></a>:<a class="anchor" aria-label="anchor" href="#get-started-with-using-remotes"></a>
@@ -146,6 +146,13 @@
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://davidycliao.github.io/legisTaiwan/">legisTaiwan</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; ## legisTaiwan                                            ###</span></span>
 <span><span class="co">#&gt; ## An R package connecting to the Taiwan Legislative API. ###</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="notice-and-information">Notice and Information:<a class="anchor" aria-label="anchor" href="#notice-and-information"></a>
+</h2>
+<ul>
+<li>Two API endpoints (<code>質詢事項(本院委員質詢部分)</code> and <code>國是論壇</code>) are temporarily down. Therefore, the data retrieved by <code><a href="reference/get_parlquestions.html">get_parlquestions()</a></code> and <code><a href="reference/get_public_debates.html">get_public_debates()</a></code> may not be correct. [<em>UPDATE: Feb 5 2023</em>]</li>
+</ul>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
