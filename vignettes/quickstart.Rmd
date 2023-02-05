@@ -19,15 +19,10 @@ knitr::opts_chunk$set(
 
 <div style="text-align: justify">
 
-**`legisTaiwan`** is an R package for accessing [Taiwan Legislative Yuan API](https://data.ly.gov.tw/index.action). The goal of `legisTaiwan` is to make it easy to download real-time data and historical archives. Its initial development was part of David Yen-Chieh Liao' Dissertation project **[Electoral Reform, Distributive Politics, and Parties in the Taiwanese Congress](https://raw.githack.com/davidycliao/phd-thesis/main/Yen_Chieh_Liao_PhD_Dissertation_Jan_2023.pdf)** supported by Taiwanese Overseas Pioneers Grant (TOP GRANT), the National Science and Technology Council (NSTC) of Taiwan. 
-
-The goal of `legisTaiwan` is to make it quickly and instantly download Taiwan's legislative data, digitized textual 
-and video records for a research project and analyze public policies. The package is, therefore, of great benefit to researchers, students, and other analysts interested in Taiwan legislative politics (Taiwan politics in general) with fewer financial resources. In addition, the annotation of digitized text and labelled topics of video records may be of interest to researchers and students who want to build an algorithm for computational research in social science as well as enhance transparency, accountability and democracy.
+**`legisTaiwan`** is an R package for accessing [Taiwan Legislative Yuan API](https://data.ly.gov.tw/index.action). The goal of `legisTaiwan` is to make it quickly and instantly download Taiwan's legislative data, digitized textual 
+and video records for a research project and analyze public policies. Its initial development was part of David Yen-Chieh Liao' Dissertation project **[Electoral Reform, Distributive Politics, and Parties in the Taiwanese Congress](https://raw.githack.com/davidycliao/phd-thesis/main/Yen_Chieh_Liao_PhD_Dissertation_Jan_2023.pdf)** supported by Taiwanese Overseas Pioneers Grant (TOP GRANT), the National Science and Technology Council (NSTC) of Taiwan. The package is, therefore, of great benefit to researchers, students, and policy analysts interested in Taiwan legislative politics (and Taiwan politics in general) with fewer financial resources. In addition, the annotation of digitized text and labelled topics of video records may be of interest to researchers and students who want to build an algorithm for computational research in social science as well as enhance transparency, accountability and democracy towards our country.
 
 </div>
-
-
-<br> 
 
 
 ```{r eval = FALSE}
@@ -74,5 +69,16 @@ library(legisTaiwan)
 
 + [取得歷屆委員資料為例 (李宜展 東海大學政治系)]()
 
+<br> 
 
+-----
 
+## How to Contribute
+
+Contributions in the form of comments, code suggestions or functions, and tutorial examples are very welcome:
+
+- Fork the source code, modify, and issue a pull request through the project GitHub page are welcome. Please read the [Contributor Code of Conduct]().
+
+- Issues, bug reports, and wish lists: File a GitHub issue.
+
+- Contact the maintainer by email: _*davidycliao[at]cas.au.dk*_.
