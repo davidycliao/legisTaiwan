@@ -9,6 +9,5 @@ authors:
   orcid: ""
 title: "Accessing Real-time and Archives of Taiwan Legislative Data in R"
 version: 0.1.5
-doi:
 date-released: 2023-01-20
 url: "https://github.com/davidycliao/legisTaiwan"
