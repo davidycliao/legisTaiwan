@@ -75,10 +75,10 @@ library(legisTaiwan)
 
 ## How to Contribute
 
-Contributions in the form of comments, code suggestions or functions, and tutorial examples are very welcome:
+Contributions in the form of comments, code suggestions, functions, and tutorial examples are very welcome:
 
-- Fork the source code, modify, and issue a pull request through the project GitHub page are welcome. Please read the [Contributor Code of Conduct]().
+- Fork the source code, modify, and issue a pull request through the project GitHub page are welcome. Please read the [Contributor Code of Conduct]([![codecov](https://codecov.io/gh/davidycliao/asmcjr/branch/master/graph/badge.svg?token=OJKOF5SX9X)](https://codecov.io/gh/davidycliao/asmcjr)).
 
-- Issues, bug reports, and wish lists: File a GitHub issue.
+- Regarding issues, bug reports, or wish lists, please [file a GitHub issue](https://github.com/davidycliao/legisTaiwan/issues).
 
 - Contact the maintainer by email: _*davidycliao[at]cas.au.dk*_.
