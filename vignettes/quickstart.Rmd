@@ -77,7 +77,7 @@ library(legisTaiwan)
 
 Contributions in the form of comments, code suggestions, functions, and tutorial examples are very welcome:
 
-- Fork the source code, modify, and issue a pull request through the project GitHub page are welcome. Please read the [Contributor Code of Conduct]([![codecov](https://codecov.io/gh/davidycliao/asmcjr/branch/master/graph/badge.svg?token=OJKOF5SX9X)](https://codecov.io/gh/davidycliao/asmcjr)).
+- Fork the source code, modify, and issue a pull request through the project GitHub page are welcome. Please read and follow the [Contributor Code of Conduct](https://github.com/davidycliao/legisTaiwan/blob/master/CONDUCT.md).
 
 - Regarding issues, bug reports, or wish lists, please [file a GitHub issue](https://github.com/davidycliao/legisTaiwan/issues).
 
