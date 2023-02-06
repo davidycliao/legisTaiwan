@@ -1,6 +1,6 @@
 # `legisTaiwan` Version 0.1.4 (development version)
 
-* re-documentation and inserting handlers
+* re-documentation and inserting handlers.
 
 * formatting the website and documentation:  `get_executive_response()`, `get_bills_2()`, `get_debates()` and `get_speech_video()`.
 

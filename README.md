@@ -12,7 +12,6 @@
 coverage](https://github.com/davidycliao/legisTaiwan/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/davidycliao/legisTaiwan/actions/workflows/test-coverage.yaml)
 [![pkgdown](https://github.com/davidycliao/legisTaiwan/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/davidycliao/legisTaiwan/actions/workflows/pkgdown.yaml)
 [![CodeFactor](https://www.codefactor.io/repository/github/davidycliao/legistaiwan/badge)](https://www.codefactor.io/repository/github/davidycliao/legistaiwan)
-[![LifeCycle](https://img.shields.io/badge/lifecycle-experimental-orange)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
 <div style="text-align: justify">
@@ -41,9 +40,9 @@ library(legisTaiwan)
 #> ## An R package connecting to the Taiwan Legislative API. ###
 ```
 
-## Notice and Information:
+## Notice:
 
-- Two API endpoints (`質詢事項(本院委員質詢部分)` and `國是論壇`) are
+- Two API endpoints,`質詢事項(本院委員質詢部分)` and `國是論壇`, are
   temporarily down. Therefore, the data retrieved by
   `get_parlquestions()` and `get_public_debates()` may not be correct.
   \[*UPDATE: Feb 5 2023*\]
