@@ -201,7 +201,7 @@ To retrieve the user manual and more information about the data frame, please us
 <span class="r-in"><span><span class="co">## 輸入「立委屆期」與「會期」下載「行政院答復」</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="get_executive_response.html">get_executive_response</a></span><span class="op">(</span>term <span class="op">=</span> <span class="fl">8</span>, session_period <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>URL 'https://data.ly.gov.tw/odw/ID2Action.action?term=08&amp;sessionPeriod=01&amp;sessionTimes=&amp;item=&amp;fileType=json': Timeout of 60 seconds was reached</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in open.connection(con, "rb"):</span> cannot open the connection to 'https://data.ly.gov.tw/odw/ID2Action.action?term=08&amp;sessionPeriod=01&amp;sessionTimes=&amp;item=&amp;fileType=json'</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in readBin(structure(4L, class = c("url", "connection"), conn_id = &lt;pointer: 0x513&gt;),     raw(0), 32768L):</span> cannot read from connection</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
