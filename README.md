@@ -18,14 +18,13 @@ coverage](https://github.com/davidycliao/legisTaiwan/actions/workflows/test-cove
 
 `legisTaiwan` is designed to make it quickly and easily to download the
 real-time and archives of Taiwan legislative data via [Taiwan
-Legislative Yuan API](https://data.ly.gov.tw/index.action). Its initial
-development was part of David Yen-Chieh Liao’ Dissertation project
-**[Electoral Reform, Distributive Politics, and Parties in the Taiwanese
-Congress](https://raw.githack.com/davidycliao/phd-thesis/main/Yen_Chieh_Liao_PhD_Dissertation_Jan_2023.pdf)**
-supported by Taiwanese Overseas Pioneers Grant (TOP GRANT), the National
-Science and Technology Council (NSTC) of Taiwan.
+Legislative Yuan API](https://data.ly.gov.tw/index.action).
 
 </div>
+
+<br>
+
+------------------------------------------------------------------------
 
 ## Get Started with Using [`remotes`](https://github.com/r-lib/remotes):
 
