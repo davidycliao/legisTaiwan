@@ -190,7 +190,48 @@ about the data frame, please use <code>legisTaiwan::get_variable_info("get_commi
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## query the committee record by term and the session period.</span></span></span>
 <span class="r-in"><span><span class="co">## 輸入「立委屆期」與「會期」下載「委員會審議之議案」</span></span></span>
 <span class="r-in"><span><span class="fu">get_committee_record</span><span class="op">(</span>term <span class="op">=</span> <span class="fl">8</span>, session_period <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> Please check the internet connetion</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved URL: </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  https://data.ly.gov.tw/odw/ID46Action.action?term=08&amp;sessionPeriod=01&amp;sessionTimes=01&amp;meetingTimes=&amp;fileType=json </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved Term:  08 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved Num:  613 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $title</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the records of reviewed items in the committees"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-07 20:46:27 CET"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 613</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_term</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "08"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $url</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://data.ly.gov.tw/odw/ID46Action.action?term=08&amp;sessionPeriod=01&amp;sessionTimes=01&amp;meetingTimes=&amp;fileType=json"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $variable_names</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "term"          "sessionPeriod" "meetingNo"     "billNo"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [5] "billName"      "docUrl"        "selectTerm"   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $manual_info</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://data.ly.gov.tw/getds.action?id=46"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 613 × 7</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    term  sessionPeriod meetingNo billNo           billName  docUrl selec…¹</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 08    01            201203098 0990901071000100 國家通訊… https… all    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 08    01            201203098 0990903071100100 交通部函… https… all    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 08    01            201203098 1000525070100100 交通部函… https… all    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 08    01            201203098 1000602070100400 國家通訊… https… all    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 08    01            201203098 1000902070100400 國家通訊… https… all    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 08    01            201203098 1000907070100500 交通部函… https… all    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 08    01            201203098 1010224070202300 本院委員… https… all    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 08    01            201203099 1010224070200800 本院委員… https… all    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 08    01            201203099 1010224070200900 本院親民… https… all    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 08    01            201203099 1010224070202100 本院委員… https… all    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 603 more rows, and abbreviated variable name ¹​selectTerm</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
