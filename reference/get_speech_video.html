@@ -230,64 +230,7 @@ manual and more information about the data frame, please use <code>legisTaiwan::
 <span class="r-in"><span><span class="co">## 輸入「中華民國民年」下載「委員發言片段相關影片資訊」，輸入時間請依照該</span></span></span>
 <span class="r-in"><span><span class="co">## 格式 "105/10/20"，需有「正斜線」做隔開。</span></span></span>
 <span class="r-in"><span><span class="fu">get_speech_video</span><span class="op">(</span>start_date <span class="op">=</span> <span class="st">"105/10/20"</span>, end_date <span class="op">=</span> <span class="st">"109/03/10"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved URL: </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  https://data.ly.gov.tw/odw/ID148Action.action?term=&amp;sessionPeriod=&amp;meetingDateS=105/10/20&amp;meetingDateE=109/03/10&amp;meetingTime=&amp;legislatorName=&amp;fileType=json </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved date between: 2016-10-20 and 2020-03-10 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved number: 547 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $title</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the meeting records of cross-caucus session"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-07 01:15:53 GMT"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 547</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $start_date_ad</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2016-10-20"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $end_date_ad</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2020-03-10"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $start_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "105/10/20"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $end_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "109/03/10"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $url</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://data.ly.gov.tw/odw/ID148Action.action?term=&amp;sessionPeriod=&amp;meetingDateS=105/10/20&amp;meetingDateE=109/03/10&amp;meetingTime=&amp;legislatorName=&amp;fileType=json"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $variable_names</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "term"            "sessionPeriod"   "meetingDate"    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "meetingTime"     "meetingTypeName" "meetingName"    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "meetingContent"  "legislatorName"  "areaName"       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "speechStartTime" "speechEndTime"   "speechRecordUrl"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "videoLength"     "videoUrl"        "selectTerm"     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $manual_info</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://data.ly.gov.tw/getds.action?id=8"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $data</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 547 × 15</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    term  session…¹ meeti…² meeti…³ meeti…⁴ meeti…⁵ meeti…⁶ legis…⁷ areaN…⁸</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 10    1         2020-0… 09:00   院會    第10屆… <span style="color: #949494;">"</span>21日…  李德維  全國不…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 10    1         2020-0… 09:00   院會    第10屆… <span style="color: #949494;">"</span>21日…  賴香伶  全國不…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 10    1         2020-0… 09:00   院會    第10屆… <span style="color: #949494;">"</span>21日…  賴瑞隆  高雄市…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 10    1         2020-0… 09:00   院會    第10屆… <span style="color: #949494;">"</span>21日…  鄭運鵬  桃園市…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 10    1         2020-0… 09:00   院會    第10屆… <span style="color: #949494;">"</span>21日…  吳斯懷  全國不…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 10    1         2020-0… 09:00   院會    第10屆… <span style="color: #949494;">"</span>21日…  邱顯智  全國不…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 10    1         2020-0… 09:00   院會    第10屆… <span style="color: #949494;">"</span>21日…  高虹安  全國不…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 10    1         2020-0… 09:00   院會    第10屆… <span style="color: #949494;">"</span>21日…  楊瓊瓔  台中市…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 10    1         2020-0… 09:00   院會    第10屆… <span style="color: #949494;">"</span>21日…  李貴敏  全國不…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 10    1         2020-0… 09:00   院會    第10屆… <span style="color: #949494;">"</span>21日…  陳以信  全國不…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 537 more rows, 6 more variables: speechStartTime &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   speechEndTime &lt;chr&gt;, speechRecordUrl &lt;chr&gt;, videoLength &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   videoUrl &lt;chr&gt;, selectTerm &lt;chr&gt;, and abbreviated variable names</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ¹​sessionPeriod, ²​meetingDate, ³​meetingTime, ⁴​meetingTypeName,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ⁵​meetingName, ⁶​meetingContent, ⁷​legislatorName, ⁸​areaName</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> Please check the internet connetion</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
