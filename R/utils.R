@@ -23,7 +23,6 @@ check_internet <- function(x = curl::has_internet()) {
                        msg = "Please check the internet connetion")
 }
 
-
 #' A general check for the API and `legisTaiwan`.
 #'
 #'@param start_date  start_date is inherited from global env.

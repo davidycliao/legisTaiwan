@@ -10,6 +10,10 @@ home:
     href: https://twcongress.weebly.com/2228326371360392600924235.html
   - text: legisCrawler 爬立法委員問政專輯的爬蟲小幫手️🕸️
     href: https://davidycliao.github.io/legisCrawler/
+  - text: "LACAN: Legislators between Accountability and Collective Agency"
+    href: https://projectlacan.wordpress.com/team/
+  - text: "ParlSpeech: Legislative Speeches in the Key Parliamentary Democracies"
+    href: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/L4OAKN
 
 authors:
   David Yen-Chieh Liao:
@@ -46,16 +50,19 @@ navbar:
       href: articles/quickstart.html#the-overview-of-the-api-access
     - text: "Tutorials"
       href: articles/quickstart.html#quickstart.html#tutorials
+    - text: "How to Contribute"
+      href: articles/quickstart.html#quickstart.html#how-to-contribute
+
 
   - icon: fa-project-diagram
     text: Manual
     menu:
     - text: "Interpellation and Debates"
-      href: articles/manual.html#interpellation-and-debates#interpellation-and-debates
+      href: articles/manual.html#interpellation-and-debates
     - text: "Bill and Budget"
       href: articles/manual.html#bill-and-budget
     - text: "Miscellaneous"
-      href: articles/manual.html#bill-and-budget#miscellaneous
+      href: articles/manual.html#miscellaneous
 
   - icon: fa-file-code-o
     text: Reference

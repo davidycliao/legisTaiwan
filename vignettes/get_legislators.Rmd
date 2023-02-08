@@ -23,8 +23,12 @@ library(legisTaiwan)
 library(tidyverse)
 ```
 
+```{r include=FALSE}
+assign("has_internet_via_proxy", TRUE, environment(curl::has_internet))
+```
+
 ```{r}
-info <- get_legislators()
+info <- get_legislators(verbose = FALSE)
 legislators <- info$data
 ```
 
@@ -33,6 +37,7 @@ legislators <- info$data
 legislators %>% 
   count(sex) 
 ```
+
 計算「黨籍」之個數
 ```{r}
 legislators %>% 
@@ -43,11 +48,8 @@ legislators %>%
 
 ```{r}
 library(ggplot2)
-
 party <- legislators %>% 
   count(party) 
-
-
 ggplot(data = legislators, aes(x = party)) +
   geom_bar() +
   theme(text = element_text(family = "Heiti TC Light"))
@@ -71,6 +73,6 @@ ggplot(data = party.freq, aes(x = "", y = Freq, fill = party)) +
 ```{r}
 ggplot(data = legislators, aes(x = party, fill = sex)) +
   geom_bar(position = "stack") +
-  theme(text = element_text(family = "Heiti TC Light")) +
+  # theme(text = element_text(family = "Heiti TC Light")) +
   coord_flip()
 ```
