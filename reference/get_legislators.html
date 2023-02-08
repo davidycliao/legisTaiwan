@@ -201,51 +201,7 @@ To retrieve the user manual and more information about the data frame, please us
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## query the Executives' answered response by term and the session period.</span></span></span>
 <span class="r-in"><span><span class="co">## 輸入「立委屆期」與「會期」下載「行政院答復」</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="get_executive_response.html">get_executive_response</a></span><span class="op">(</span>term <span class="op">=</span> <span class="fl">8</span>, session_period <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved URL: </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  https://data.ly.gov.tw/odw/ID2Action.action?term=08&amp;sessionPeriod=01&amp;sessionTimes=&amp;item=&amp;fileType=json </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved Term:  08 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved Num:  1065 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $title</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the records of the questions answered by the executives"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-08 02:11:43 CET"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1065</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_term</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "08"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $url</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://data.ly.gov.tw/odw/ID2Action.action?term=08&amp;sessionPeriod=01&amp;sessionTimes=&amp;item=&amp;fileType=json"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $variable_names</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "term"          "sessionPeriod" "sessionTimes"  "meetingTimes" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "eyNumber"      "lyNumber"      "subject"       "content"      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "docUrl"        "selectTerm"   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $manual_info</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://data.ly.gov.tw/getds.action?id=2"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $data</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1,065 × 10</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    term  sessionP…¹ sessi…² meeti…³ eyNum…⁴ lyNum…⁵ subject content docUrl</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 08    01         01      null    （行政… （立法… （一八… 盧委員… http:…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 08    01         01      null    （行政… （立法… （一八… 陳委員… http:…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 08    01         01      null    （行政… （立法… （一八… 王委員… http:…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 08    01         01      null    （行政… （立法… （一八… 有關王… http:…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 08    01         01      null    （行政… （立法… （一八… 陳委員… http:…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 08    01         01      null    （行政… （立法… （一八… 陳委員… http:…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 08    01         01      null    （行政… （立法… （一八… 蔡委員… http:…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 08    01         01      null    （行政… （立法… （一八… 一、有… http:…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 08    01         01      null    （行政… （立法… （一八… 蔡委員… http:…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 08    01         01      null    （行政… （立法… （一九… 蔡委員… http:…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 1,055 more rows, 1 more variable: selectTerm &lt;chr&gt;, and</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   abbreviated variable names ¹​sessionPeriod, ²​sessionTimes,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ³​meetingTimes, ⁴​eyNumber, ⁵​lyNumber</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> Please check the internet connetion</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

@@ -227,62 +227,7 @@ about the data frame, please use <code>legisTaiwan::get_variable_info("get_caucu
 <span class="r-in"><span><span class="co">## 輸入「中華民國民年」下載「黨團協商」，輸入時間請依照該格式 "106/10/20"，</span></span></span>
 <span class="r-in"><span><span class="co">## 需有「正斜線」做隔開。</span></span></span>
 <span class="r-in"><span><span class="fu">get_caucus_meetings</span><span class="op">(</span>start_date <span class="op">=</span> <span class="st">"106/10/20"</span>, end_date <span class="op">=</span> <span class="st">"107/03/10"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved URL: </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  https://data.ly.gov.tw/odw/ID8Action.action?comYear=&amp;comVolume=&amp;comBookId=&amp;term=&amp;sessionPeriod=&amp;sessionTimes=&amp;meetingTimes=&amp;meetingDateS=106/10/20&amp;meetingDateE=107/03/10&amp;fileType=json </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved date between: 2017-10-20 and 2018-03-10 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved number: 30 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $title</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the meeting records of cross-caucus session"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-08 02:10:26 CET"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 30</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $start_date_ad</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2017-10-20"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $end_date_ad</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2018-03-10"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $start_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "106/10/20"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $end_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "107/03/10"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $url</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://data.ly.gov.tw/odw/ID8Action.action?comYear=&amp;comVolume=&amp;comBookId=&amp;term=&amp;sessionPeriod=&amp;sessionTimes=&amp;meetingTimes=&amp;meetingDateS=106/10/20&amp;meetingDateE=107/03/10&amp;fileType=json"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $variable_names</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "comYear"       "comVolume"     "comBookId"     "term"         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "sessionPeriod" "sessionTimes"  "meetingTimes"  "meetingDate"  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "meetingName"   "subject"       "pageStart"     "pageEnd"      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "docUrl"        "htmlUrl"       "selectTerm"   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $manual_info</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://data.ly.gov.tw/getds.action?id=8"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $data</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 30 × 15</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    comYear comVolume comBo…¹ term  sessi…² sessi…³ meeti…⁴ meeti…⁵ meeti…⁶</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 103     43        <span style="color: #949494;">"</span>四<span style="color: #949494;">"</span>    08    05      12      null    101053… 黨團協…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 103     43        <span style="color: #949494;">"</span>四<span style="color: #949494;">"</span>    08    05      12      null    102010… 黨團協…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 106     103       <span style="color: #949494;">"</span>下<span style="color: #949494;">"</span>    null  null    null    null    1061120 黨團協…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 106     108       <span style="color: #949494;">""</span>      09    04      10      null    1061122 黨團協…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 106     108       <span style="color: #949494;">""</span>      09    04      10      null    1061129 黨團協…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 106     113       <span style="color: #949494;">"</span>下<span style="color: #949494;">"</span>    null  null    null    null    1061130 黨團協…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 106     113       <span style="color: #949494;">"</span>下<span style="color: #949494;">"</span>    null  null    null    null    1061201 黨團協…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 106     116       <span style="color: #949494;">"</span>下<span style="color: #949494;">"</span>    09    04      12      null    1061208 黨團協…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 106     87        <span style="color: #949494;">"</span>下<span style="color: #949494;">"</span>    09    04      06      null    1061030 黨團協…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 106     87        <span style="color: #949494;">"</span>下<span style="color: #949494;">"</span>    09    04      null    null    1061031 立法院…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 20 more rows, 6 more variables: subject &lt;chr&gt;, pageStart &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   pageEnd &lt;chr&gt;, docUrl &lt;chr&gt;, htmlUrl &lt;chr&gt;, selectTerm &lt;chr&gt;, and</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   abbreviated variable names ¹​comBookId, ²​sessionPeriod, ³​sessionTimes,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ⁴​meetingTimes, ⁵​meetingDate, ⁶​meetingName</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> Please check the internet connetion</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
