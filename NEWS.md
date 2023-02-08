@@ -8,8 +8,9 @@
 
 * `get_public_debates()` manual information is inconsistent with actual data.
 
-* The number of  `get_parlquestions()` and `get_public_debates()` becomes zero due to the APIs themselves.
- 
+* ~~Two API endpoints,`質詢事項(本院委員質詢部分)` ~~and `國是論壇`, are~~ is temporarily down. Therefore, the data retrieved by `get_parlquestions()` ~~and `get_public_debates()`~~ may not be correct. [*UPDATE: Feb 5 2023*]~~
+
+* `get_public_debates()` is on. [*UPDATE: Feb 7 2023*]
 
 <br> 
 

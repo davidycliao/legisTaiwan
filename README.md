@@ -16,9 +16,12 @@ coverage](https://github.com/davidycliao/legisTaiwan/actions/workflows/test-cove
 
 <div style="text-align: justify">
 
-`legisTaiwan` is designed to make it quickly and easily to download the
-real-time and archives of Taiwan legislative data via [Taiwan
-Legislative Yuan API](https://data.ly.gov.tw/index.action).
+`legisTaiwan` is designed to download the real-time archives of Taiwan
+legislative data easily. This package includes many streamlined
+functions to access [Taiwan Legislative Yuan
+API](https://data.ly.gov.tw/index.action) and efficiently perform
+analysis and natural language processing tasks in R without any hassle
+or runarounds.
 
 </div>
 
@@ -38,10 +41,3 @@ library(legisTaiwan)
 #> ## legisTaiwan                                            ###
 #> ## An R package connecting to the Taiwan Legislative API. ###
 ```
-
-## Notice:
-
-- Two API endpoints,`質詢事項(本院委員質詢部分)` and `國是論壇`, are
-  temporarily down. Therefore, the data retrieved by
-  `get_parlquestions()` and `get_public_debates()` may not be correct.
-  \[*UPDATE: Feb 5 2023*\]

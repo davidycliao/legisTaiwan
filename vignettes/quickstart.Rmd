@@ -66,7 +66,7 @@ library(legisTaiwan)
 
 ## Tutorials
 
-+ [取得歷屆委員資料為例 (李宜展 東海大學政治系)]()
++ [取得歷屆委員資料為例 (李宜展 東海大學政治系)](#/articles/get_legislators.html)
 
 <br> 
 
