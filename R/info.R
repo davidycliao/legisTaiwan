@@ -98,7 +98,7 @@ get_variable_info <- function(param_) {
 #'@return dataframe
 #'
 #'@details `review_session_info` produces a dataframe, displaying each session
-#'period in year formated in Minguo (ROC) calendar.
+#'period in year formatted in Minguo (ROC) calendar.
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom rvest html_text2 read_html
