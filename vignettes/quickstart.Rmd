@@ -56,8 +56,6 @@ library(legisTaiwan)
 | [`get_variable_info()`](https://davidycliao.github.io/legisTaiwan/reference/get_variable_info.html)           | 8th (2014/104)  | [**the API’s endpoint user manuals 使用說明文件**](https://davidycliao.github.io/legisTaiwan/reference/get_variable_info.html)                                       | 
 
 
-[+ **Further Check Required**: the user manual seems to be inconsistent with actual data. Please check them out in the discussion 資料似乎不一致，待確認。](https://github.com/davidycliao/legisTaiwan/discussions)
-
 </div>
 
 <br> 
