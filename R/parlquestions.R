@@ -176,7 +176,7 @@ get_executive_response <- function(term = NULL, session_period = NULL, verbose =
     term <- sprintf("%02d", as.numeric(term))
   } else if (length(term)  > 1) {
     attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
-    message("The API is unable to query multiple terms and the request mostly falls.")
+    message("The API is unable to query multiple terms and the request mostly incomplete")
     term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
   }
   set_api_url <- paste("https://data.ly.gov.tw/odw/ID2Action.action?term=",

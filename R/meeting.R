@@ -365,6 +365,21 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
 #'@seealso
 #'\url{https://data.ly.gov.tw/getds.action?id=7}
 get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRUE) {
+  # legisTaiwan::check_internet()
+  # if (is.null(term)) {
+    # set_api_url <- paste("https://data.ly.gov.tw/odw/ID7Action.action?term=",
+    #                      term, "&sessionPeriod=",
+    #                      "&sessionTimes=&meetingTimes=&legislatorName=&speakType=&fileType=json",
+    #                      sep = "")
+  #   message(" term is not defined...\n You are now requesting full data from the API. Please make sure your connectivity is stable until its completion.\n")
+  #   } else if (length(term) == 1) {
+  #     attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
+      # term <- sprintf("%02d", as.numeric(term))
+  #   } else if (length(term)  > 1) {
+      # attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
+      # message("The API is unable to query multiple terms and the request mostly falls.")
+      # term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
+      # }
   legisTaiwan::check_internet()
   if (is.null(term)) {
     set_api_url <- paste("https://data.ly.gov.tw/odw/ID7Action.action?term=",
@@ -372,14 +387,14 @@ get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRU
                          "&sessionTimes=&meetingTimes=&legislatorName=&speakType=&fileType=json",
                          sep = "")
     message(" term is not defined...\n You are now requesting full data from the API. Please make sure your connectivity is stable until its completion.\n")
-    } else if (length(term) == 1) {
-      attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
-      term <- sprintf("%02d", as.numeric(term))
-    } else if (length(term)  > 1) {
-      attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
-      message("The API is unable to query multiple terms and the request mostly falls.")
+    } else {
+    attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
+    if (length(term) == 1) {
+      term <- sprintf("%02d", as.numeric(term))}
+    else if (length(term) > 1) {
       term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
-      }
+      message("The API is unable to query multiple terms and the retrieved data might not be complete.")}
+          }
   set_api_url <- paste("https://data.ly.gov.tw/odw/ID7Action.action?term=",
                        term, "&sessionPeriod=",
                        sprintf("%02d", as.numeric(session_period)),
