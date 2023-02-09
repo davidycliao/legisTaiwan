@@ -112,7 +112,7 @@ get_variable_info <- function(param_) {
 review_session_info <- function(term, ...){
   attempt::stop_if_all(website_availability2(), isFALSE, msg = "the error from the API.")
   attempt::stop_if_all(term, is.null, msg = "use correct `term`")
-  attempt::stop_if_all(term %in% c(1:11), isFALSE, msg = "use correct `term`")
+  attempt::stop_if_all(term %in% 1:11, isFALSE, msg = "use correct `term`")
   url <- paste("https://npl.ly.gov.tw/do/www/appDate?status=0&expire=",
                sprintf("%02d", as.numeric(term)),
                "&startYear=0", sep ="")
