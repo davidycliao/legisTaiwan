@@ -22,7 +22,8 @@ Imports:
 	stringr,
   curl,
   tibble,
-  rvest
+  rvest,
+  purrr
 Suggests: 
   knitr,
   rmarkdown,
