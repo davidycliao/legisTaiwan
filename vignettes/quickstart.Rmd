@@ -67,8 +67,9 @@ library(legisTaiwan)
 + [取得歷屆委員資料為例 (李宜展 東海大學政治系)](https://davidycliao.github.io/legisTaiwan/articles/get_legislators.html)
 
 
-+ [取得歷屆委員資料為例 (李宜展 東海大學政治系)](https://davidycliao.github.io/legisTaiwan/articles/get_legislators.html)
-+ [取得歷屆委員資料為例 (李宜展 東海大學政治系)](https://davidycliao.github.io/legisTaiwan/articles/get_legislators.html)
++ [取以「立委質詢」為例 (李宜展 東海大學政治系)](https://davidycliao.github.io/legisTaiwan/articles/get_parlquestions.html)
+
++ [取得以「法律提案」為例(李宜展 東海大學政治系)](https://davidycliao.github.io/legisTaiwan/articles/get_bills.html)
 
 
 <br> 
