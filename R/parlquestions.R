@@ -60,27 +60,24 @@
 get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
   if (is.null(term)) {
+    options(timeout = max(1000, getOption("timeout")))
     set_api_url <- paste("https://data.ly.gov.tw/odw/ID6Action.action?term=", term,
                          "&sessionPeriod=",
                          "&sessionTimes=&item=&fileType=json", sep = "")
     message(" term is not defined...\n You are now requesting full data from the API. Please make sure your connectivity is stable until its completion.\n")
-  } else if (length(term) == 1) {
+  } else {
     attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
-    term <- sprintf("%02d", as.numeric(term))
-  } else if (length(term)  > 1) {
-    attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
-    message("The API is unable to query multiple terms and the request mostly falls.")
-    term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
+    if (length(term) == 1) {
+      term <- sprintf("%02d", as.numeric(term))}
+    else if (length(term) > 1) {
+      options(timeout = max(1000, getOption("timeout")))
+      term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
+      message("The API is unable to query multiple terms and the retrieved data might not be complete.")}
   }
   set_api_url <- paste("https://data.ly.gov.tw/odw/ID6Action.action?term=", term,
                        "&sessionPeriod=",
                        sprintf("%02d", as.numeric(session_period)),
                        "&sessionTimes=&item=&fileType=json", sep = "")
-  # legisTaiwan::check_internet()
-  # attempt::stop_if_all(term, is.character, msg = "use numeric format only")
-  # attempt::stop_if_all(term, is.character, msg = "use numeric format only")
-  # set_api_url <- paste("https://data.ly.gov.tw/odw/ID6Action.action?term=",
-  #                      sprintf("%02d", as.numeric(term)), "&sessionPeriod=", sprintf("%02d", as.numeric(session_period)), "&sessionTimes=&item=&fileType=json", sep = "")
   tryCatch(
     {
       json_df <- jsonlite::fromJSON(set_api_url)
@@ -167,17 +164,19 @@ get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
 get_executive_response <- function(term = NULL, session_period = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
   if (is.null(term)) {
+    options(timeout = max(1000, getOption("timeout")))
     set_api_url <- paste("https://data.ly.gov.tw/odw/ID2Action.action?term=",
                          term, "&sessionPeriod=",
                          "&sessionTimes=&item=&fileType=json", sep = "")
     message(" term is not defined...\n You are now requesting full data from the API. Please make sure your connectivity is stable until its completion.\n")
-  } else if (length(term) == 1) {
+  } else {
     attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
-    term <- sprintf("%02d", as.numeric(term))
-  } else if (length(term)  > 1) {
-    attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
-    message("The API is unable to query multiple terms and the request mostly falls.")
-    term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
+    if (length(term) == 1) {
+      term <- sprintf("%02d", as.numeric(term))}
+    else if (length(term) > 1) {
+      options(timeout = max(1000, getOption("timeout")))
+      term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
+      message("The API is unable to query multiple terms and the retrieved data might not be complete.")}
   }
   set_api_url <- paste("https://data.ly.gov.tw/odw/ID2Action.action?term=",
                        term, "&sessionPeriod=",
