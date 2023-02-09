@@ -105,11 +105,10 @@ get_variable_info <- function(param_) {
 #'@importFrom attempt stop_if_all
 #'@importFrom rvest html_text2 read_html
 #'@importFrom tibble as_tibble
-#'@importFrom purrr map
 #'
 #'@export
 
-review_session_info <- function(term, ...){
+review_session_info <- function(term){
   attempt::stop_if_all(website_availability2(), isFALSE, msg = "the error from the API.")
   attempt::stop_if_all(term, is.null, msg = "use correct `term`")
   attempt::stop_if_all(term %in% 1:11, isFALSE, msg = "use correct `term`")

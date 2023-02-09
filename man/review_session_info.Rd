@@ -4,7 +4,7 @@
 \alias{review_session_info}
 \title{Check Session Periods in Each ROC Year}
 \usage{
-review_session_info(term, ...)
+review_session_info(term)
 }
 \arguments{
 \item{term}{numeric}

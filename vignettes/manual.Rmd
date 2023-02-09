@@ -68,5 +68,6 @@ day.
 
 - [`get_legislators()`](https://davidycliao.github.io/legisTaiwan/reference/get_legislators.html): legislator demographics 提供委員基本資料
 
+<br> <br> 
 
 [+ **Further Check Required**: the user manual seems to be inconsistent with actual data. Please check them out in the discussion 資料似乎不一致，待確認。](https://github.com/davidycliao/legisTaiwan/discussions)

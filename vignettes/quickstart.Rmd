@@ -66,9 +66,13 @@ library(legisTaiwan)
 
 + [取得歷屆委員資料為例 (李宜展 東海大學政治系)](https://davidycliao.github.io/legisTaiwan/articles/get_legislators.html)
 
+
++ [取得歷屆委員資料為例 (李宜展 東海大學政治系)](https://davidycliao.github.io/legisTaiwan/articles/get_legislators.html)
++ [取得歷屆委員資料為例 (李宜展 東海大學政治系)](https://davidycliao.github.io/legisTaiwan/articles/get_legislators.html)
+
+
 <br> 
 
------
 
 Code of Conduct
 
@@ -77,3 +81,5 @@ Please note that the lifecycle project is released with a Contributor Code of Co
 ## How to Contribute
  
 Contributions in the form of comments, code suggestions, and tutorial examples are very welcome. Please note that the `LeigsTaiwan` is released with the [Contributor Code of Conduct](https://github.com/davidycliao/legisTaiwan/blob/master/CONDUCT.md). By contributing to this project, you agree to abide by its terms. 
+
+<br> 
