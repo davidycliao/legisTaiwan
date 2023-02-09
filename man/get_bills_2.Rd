@@ -56,6 +56,9 @@ The Records of Legislation and the Executives Proposals 委員及政府議案提
 manual and more information about the data frame, please use \code{legisTaiwan::get_variable_info("get_bills_2")}.
 }
 \note{
+To retrieve the user manual and more information about variable of the data
+frame, please use \code{legisTaiwan::get_variable_info("get_bills_2")}
+or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=20}.
 議事類: 提供委員及政府之議案提案資訊 (自第8屆第1會期起)。
 }
 \examples{
@@ -65,5 +68,5 @@ get_bills_2(term = 8, session_period = 1)
 
 }
 \seealso{
-\url{https://data.ly.gov.tw/getds.action?id=20}
+\code{get_variable_info("get_bills_2")},\code{review_session_info()}
 }

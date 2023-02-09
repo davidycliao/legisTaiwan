@@ -50,10 +50,12 @@ The Records of National Public Debates 國是論壇
 \details{
 \code{get_public_debates} produces a list, which contains \code{title}, \code{query_time},
 \code{retrieved_number}, \code{meeting_unit}, \code{start_date_ad}, \code{end_date_ad}, \code{start_date},
-\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data.} To retrieve the user
-manual and more information about the data frame, please use \code{legisTaiwan::get_variable_info("get_public_debates")}.
+\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data.}
 }
 \note{
+To retrieve the user manual and more information about variable of the data
+frame, please use \code{legisTaiwan::get_variable_info("get_public_debates")}
+or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=7}.
 議事類: 提供公報之國是論壇資訊，並包含書面意見。自第8屆第1會期起，但實測資料從第10屆。
 }
 \examples{
@@ -63,5 +65,5 @@ get_public_debates(term = 10, session_period = 2)
 
 }
 \seealso{
-\url{https://data.ly.gov.tw/getds.action?id=7}
+\code{get_variable_info("get_public_debates")}, \code{review_session_info()}
 }

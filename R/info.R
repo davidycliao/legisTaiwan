@@ -1,4 +1,4 @@
-#' Check each function's manual
+#' Check Each Function's Manual
 #'
 #'@param param_ characters. Must be one of options below: \describe{
 #'      \item{get_bills}{get_bills: the records of the bills, see \url{https://data.ly.gov.tw/getds.action?id=6}}
@@ -21,12 +21,15 @@
 #'@importFrom jsonlite fromJSON
 #'@importFrom rvest html_text2 read_html
 #'@importFrom tibble as_tibble
-#'@importFrom stringi stri_escape_unicode
 #'
 #'@export
+#'
+#'@seealso
+#'`review_session_info()`
 
 get_variable_info <- function(param_) {
   legisTaiwan::check_internet()
+  attempt::stop_if_all(website_availability(), isFALSE, msg = "the error from the API.")
   attempt::stop_if_all(param_, is.numeric, msg = "use string format only.")
   attempt::stop_if_all(param_, is.null, msg = "use correct funtion names.")
   attempt::stop_if(param_ , ~ length(.x) >1, msg = "only allowed to query one function.")
@@ -55,7 +58,6 @@ get_variable_info <- function(param_) {
     url <- "https://data.ly.gov.tw/getds.action?id=7"
   }
   else if (param_ %in% c("get_bills", "get_meetings")) {
-    # outliers: get_bills & get_meetings
     if (param_ == "get_meetings") {
       url <- "https://www.ly.gov.tw/Pages/List.aspx?nodeid=154"
       }
@@ -88,3 +90,39 @@ get_variable_info <- function(param_) {
     page_info <- list(page_info = df, reference_url = url)
   return(page_info)
 }
+
+
+#' Check Session Periods in Each ROC Year
+#'@param term_ characters or numeric. M
+#'
+#'@return dataframe
+#'
+#'@details `review_session_info` produces a dataframe, displaying each session
+#'period in year formated in Minguo (ROC) calendar.
+#'
+#'@importFrom attempt stop_if_all
+#'@importFrom rvest html_text2 read_html
+#'@importFrom tibble as_tibble
+#'@importFrom purrr map
+#'
+#'@export
+
+review_session_info <- function(term_, ...){
+  attempt::stop_if_all(website_availability2(), isFALSE, msg = "the error from the API.")
+  attempt::stop_if_all(term_, is.null, msg = "use correct `term`")
+  attempt::stop_if_all(term_ %in% c(1:11), isFALSE, msg = "use correct `term`")
+  url <- paste("https://npl.ly.gov.tw/do/www/appDate?status=0&expire=",
+               sprintf("%02d", as.numeric(term_)),
+               "&startYear=0", sep ="")
+  html_ <- rvest::html_nodes(rvest::read_html(url), "*[class='section_wrapper']")
+  title <- stringr::str_split_1(rvest::html_text2(rvest::html_nodes(html_, "[class='tt_titlebar2']")), "\t\r")[1:2]
+  odd <- rvest::html_text2(rvest::html_nodes(html_, "[class='tt_listrow_odd']"))
+  even <-rvest::html_text2(rvest::html_nodes(html_, "[class='tt_listrow_even']"))
+  sessions <- purrr::map(purrr::map(c(odd, odd), function(.){stringr::str_split_1(., "\r\t\r\r" )}),
+                         function(.){gsub("[[:space:]]", "", .)})
+  df <- do.call(rbind, sessions)
+  df <- data.frame(df)
+  colnames(df) <- title
+  return(df)
+  }
+

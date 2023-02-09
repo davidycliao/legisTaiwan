@@ -51,15 +51,16 @@
 #'
 #'@details `get_meetings` produces a list, which contains `title`, `query_time`,
 #'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
-#'`end_date`, `url`, `variable_names`, `manual_info` and `data`.To retrieve the user
-#'manual and more information about the data frame, please use `legisTaiwan::get_variable_info("get_meetings")`.
-#'Further Check Required: the user manuals seems to be inconsistent
-#'with actual data.
+#'`end_date`, `url`, `variable_names`, `manual_info` and `data`.
 #'
-#'@note 資料似乎不一致，待確認。委員發言（取得最早時間不詳，待檢查。）
+#'@note To retrieve the user manual and more information about variable of the data
+#' frame, please use `legisTaiwan::get_variable_info("get_meetings")`
+#' or visit the API manual at \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}.
+#' 資料似乎不一致，待確認。委員發言（取得最早時間不詳，待檢查。）
 #'
 #'@seealso
-#'\url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}
+#'`get_variable_info("get_meetings")`
+
 get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL,
                          verbose = TRUE) {
   legisTaiwan::check_internet()
@@ -155,13 +156,16 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
 #'
 #'@details `get_caucus_meetings` produces a list, which contains `title`, `query_time`,
 #'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
-#'`end_date`, `url`, `variable_names`, `manual_info` and `data.`To retrieve the user manual and more information
-#' about the data frame, please use `legisTaiwan::get_variable_info("get_caucus_meetings")`.
+#'`end_date`, `url`, `variable_names`, `manual_info` and `data.`
 #'
-#'@note 議事類:提供公報之黨團協商資訊 (自第8屆第1會期起)
+#'@note To retrieve the user manual and more information about variable of the data
+#' frame, please use `legisTaiwan::get_variable_info("get_caucus_meetings")`
+#' or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=8}.
+#' 議事類:提供公報之黨團協商資訊 (自第8屆第1會期起)
 #'
 #'@seealso
-#'\url{https://data.ly.gov.tw/getds.action?id=8}
+#'`get_variable_info("get_caucus_meetings")`
+
 get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
                                 verbose = TRUE) {
   legisTaiwan::check_internet()
@@ -257,10 +261,14 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
 #'`end_date`, `url`, `variable_names`, `manual_info` and `data.` To retrieve the user
 #'manual and more information about the data frame, please use `legisTaiwan::get_variable_info("get_speech_video")`.
 #'
-#'@note 會議類:提供立法院院會及委員會之委員發言片段相關影片資訊 (自第9屆第1會期起)。
+#'@note To retrieve the user manual and more information about variable of the data
+#' frame, please use `legisTaiwan::get_variable_info("get_speech_video")`
+#' or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=148}.
+#' 會議類:提供立法院院會及委員會之委員發言片段相關影片資訊 (自第9屆第1會期起)。
 #'
 #'@seealso
-#'委員發言片段相關影片資訊 \url{https://data.ly.gov.tw/getds.action?id=148}
+#'`get_variable_info("get_speech_video")`
+
 get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
   legisTaiwan::api_check(start_date = legisTaiwan::transformed_date_meeting(start_date), end_date = legisTaiwan::transformed_date_meeting(end_date))
@@ -355,14 +363,17 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
 #'
 #'@details `get_public_debates` produces a list, which contains `title`, `query_time`,
 #'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
-#'`end_date`, `url`, `variable_names`, `manual_info` and `data.` To retrieve the user
-#'manual and more information about the data frame, please use `legisTaiwan::get_variable_info("get_public_debates")`.
+#'`end_date`, `url`, `variable_names`, `manual_info` and `data.`
 #'
 #'@note
-#'議事類: 提供公報之國是論壇資訊，並包含書面意見。自第8屆第1會期起，但實測資料從第10屆。
+#' To retrieve the user manual and more information about variable of the data
+#' frame, please use `legisTaiwan::get_variable_info("get_public_debates")`
+#' or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=7}.
+#' 議事類: 提供公報之國是論壇資訊，並包含書面意見。自第8屆第1會期起，但實測資料從第10屆。
 #'
 #'@seealso
-#'\url{https://data.ly.gov.tw/getds.action?id=7}
+#'`get_variable_info("get_public_debates")`, `review_session_info()`
+
 get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
   if (is.null(term)) {
@@ -413,7 +424,7 @@ get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRU
 
 #' The Records of Reviewed Items in the Committees 委員會會議審查之議案項目
 #'
-#'
+#'@author David Yen-Chieh Liao
 #'@param term numeric or null. The data is only available from 8th term.
 #'The default is set to 8. 參數必須為數值。資料從自第8屆起，預設值為8。
 #'
@@ -454,14 +465,16 @@ get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRU
 #'
 #'@details `get_committee_record` produces a list, which contains `title`,
 #'`query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
-#' `manual_info` and `data`. To retrieve the user manual and more information
-#' about the data frame, please use `legisTaiwan::get_variable_info("get_committee_record")`.
+#' `manual_info` and `data`.
 #'
 #'@note
-#'議事類: 提供委員會會議審查之議案項目 (自第8屆第1會期起)。
+#' To retrieve the user manual and more information
+#' about variable of the data frame, please use `legisTaiwan::get_variable_info("get_committee_record")`
+#' or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=46}.
+#' 議事類: 提供委員會會議審查之議案項目 (自第8屆第1會期起)。
 #'
 #'@seealso
-#'\url{https://data.ly.gov.tw/getds.action?id=46}
+#'`get_variable_info("get_committee_record")`, `review_session_info()`
 
 get_committee_record <- function(term = 8, session_period = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()

@@ -41,13 +41,15 @@
 #'
 #'@details `get_legislators` produces a list, which contains  `query_time`,
 #'`queried_term`, `url`, `variable_names`, `manual_info` and `data`.
-#'To retrieve the user manual and more information about the data frame, please use
-#'`legisTaiwan::get_variable_info("get_legislators")`.
 #'
-#'@note 提供委員基本資料，最早資料可追溯至第2屆。
+#'@note To retrieve the user manual and more information about variable of the data
+#' frame, please use `legisTaiwan::get_variable_info("get_legislators")`
+#' or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=16}.
+#' 提供委員基本資料，最早資料可追溯至第2屆。
 #'
 #'@seealso
-#'\url{https://data.ly.gov.tw/getds.action?id=16}
+#'`get_variable_info("get_legislators")`, `review_session_info()`
+
 get_legislators <- function(term = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
   if (is.null(term)) {

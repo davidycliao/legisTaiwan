@@ -59,13 +59,14 @@
 #'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
 #'`end_date`, `url`, `variable_names`, `manual_info` and `data`.
 #'
-#'@note 法律提案 API To retrieve the user
-#'manual and more information about the data frame, please use `legisTaiwan::get_variable_info("get_bills")`.
-#'Further Check Required: the user manuals seems to be inconsistent with actual data.
-#'資料似乎不一致，取得最早時間不詳，待檢查。
+#'@note To retrieve the user manual and more information about variable of the data
+#' frame, please use `legisTaiwan::get_variable_info("get_bills")`
+#' or visit the API manual at \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}.
+#' 資料似乎不一致，待確認。委員發言（取得最早時間不詳，待檢查。）
 #'
 #'@seealso
-#'\url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}
+#'`get_variable_info("get_bills")`
+
 
 get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
                       verbose = TRUE) {
@@ -162,10 +163,14 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 #'`end_date`, `url`, `variable_names`, `manual_info` and `data`. To retrieve the user
 #'manual and more information about the data frame, please use `legisTaiwan::get_variable_info("get_bills_2")`.
 #'
-#'@note 議事類: 提供委員及政府之議案提案資訊 (自第8屆第1會期起)。
+#'@note To retrieve the user manual and more information about variable of the data
+#' frame, please use `legisTaiwan::get_variable_info("get_bills_2")`
+#' or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=20}.
+#' 議事類: 提供委員及政府之議案提案資訊 (自第8屆第1會期起)。
 #'
 #'@seealso
-#'\url{https://data.ly.gov.tw/getds.action?id=20}
+#'`get_variable_info("get_bills_2")`,`review_session_info()`
+
 get_bills_2 <- function(term = 8, session_period = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
   if (is.null(term)) {

@@ -52,10 +52,10 @@ The Records of the Bills 法律提案
 \code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data}.
 }
 \note{
-法律提案 API To retrieve the user
-manual and more information about the data frame, please use \code{legisTaiwan::get_variable_info("get_bills")}.
-Further Check Required: the user manuals seems to be inconsistent with actual data.
-資料似乎不一致，取得最早時間不詳，待檢查。
+To retrieve the user manual and more information about variable of the data
+frame, please use \code{legisTaiwan::get_variable_info("get_bills")}
+or visit the API manual at \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}.
+資料似乎不一致，待確認。委員發言（取得最早時間不詳，待檢查。）
 }
 \examples{
 ## query bill records by a period of the dates in Taiwan ROC calender format
@@ -74,5 +74,5 @@ get_bills(start_date = 1060120, end_date = 1060510,  proposer = "孔文吉&鄭�
 
 }
 \seealso{
-\url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}
+\code{get_variable_info("get_bills")}
 }

@@ -53,10 +53,12 @@ The Meeting Records of Cross-caucus Session 黨團協商資訊
 \details{
 \code{get_caucus_meetings} produces a list, which contains \code{title}, \code{query_time},
 \code{retrieved_number}, \code{meeting_unit}, \code{start_date_ad}, \code{end_date_ad}, \code{start_date},
-\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data.}To retrieve the user manual and more information
-about the data frame, please use \code{legisTaiwan::get_variable_info("get_caucus_meetings")}.
+\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data.}
 }
 \note{
+To retrieve the user manual and more information about variable of the data
+frame, please use \code{legisTaiwan::get_variable_info("get_caucus_meetings")}
+or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=8}.
 議事類:提供公報之黨團協商資訊 (自第8屆第1會期起)
 }
 \examples{
@@ -68,5 +70,5 @@ get_caucus_meetings(start_date = "106/10/20", end_date = "107/03/10")
 
 }
 \seealso{
-\url{https://data.ly.gov.tw/getds.action?id=8}
+\code{get_variable_info("get_caucus_meetings")}
 }

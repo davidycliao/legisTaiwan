@@ -52,12 +52,12 @@ The Spoken Meeting Records 委員發言
 \details{
 \code{get_meetings} produces a list, which contains \code{title}, \code{query_time},
 \code{retrieved_number}, \code{meeting_unit}, \code{start_date_ad}, \code{end_date_ad}, \code{start_date},
-\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data}.To retrieve the user
-manual and more information about the data frame, please use \code{legisTaiwan::get_variable_info("get_meetings")}.
-Further Check Required: the user manuals seems to be inconsistent
-with actual data.
+\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data}.
 }
 \note{
+To retrieve the user manual and more information about variable of the data
+frame, please use \code{legisTaiwan::get_variable_info("get_meetings")}
+or visit the API manual at \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}.
 資料似乎不一致，待確認。委員發言（取得最早時間不詳，待檢查。）
 }
 \examples{
@@ -72,5 +72,5 @@ get_meetings(start_date = 1060120, end_date = 1070310, meeting_unit = "內政委
 
 }
 \seealso{
-\url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}
+\code{get_variable_info("get_meetings")}
 }

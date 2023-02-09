@@ -40,7 +40,6 @@ day.
 
 - [`get_speech_video()`](https://davidycliao.github.io/legisTaiwan/reference/get_speech_video.html): full video information of meetings and committees 提供立法院院會及委員會之委員發言片段相關影片資訊 (自第9屆)
 
-- [`get_committee_record()`](https://davidycliao.github.io/legisTaiwan/reference/get_speech_video.html): the records of reviewed items in the committees 提供委員會會議審查之議案項目 (自第8屆)
 
 <br> 
 

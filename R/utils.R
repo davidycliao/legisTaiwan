@@ -7,6 +7,39 @@
 
 }
 
+#'A check for the website availability and the connection.
+#'
+#'@param site https://data.ly.gov.tw/index.action
+#'
+#'@seealso
+#' `check_internet()`,
+
+website_availability <- function(site = "https://data.ly.gov.tw/index.action") {
+  tryCatch({
+    readLines(site, n = 1)
+    TRUE
+  },
+  warning = function(w) invokeRestart("muffleWarning"),
+  error = function(e) FALSE)
+}
+
+#'A check for the website availability and the connection.
+#'
+#'@param site https://npl.ly.gov.tw/do/www/appDate?status=0&expire=02&startYear=0
+#'
+#'@seealso
+#' `check_internet()`, `website_availability()`
+
+website_availability2 <- function(site = "https://npl.ly.gov.tw/do/www/appDate?status=0&expire=02&startYear=0n") {
+  tryCatch({
+    readLines(site, n = 1)
+    TRUE
+  },
+  warning = function(w) invokeRestart("muffleWarning"),
+  error = function(e) FALSE)
+}
+
+
 
 #' A check for internet connectivity.
 #'
@@ -120,6 +153,34 @@ check_date <- function(roc_date) {
   date_ad <- as.Date(as.POSIXct(paste(as.numeric(roc_year) + 1911,
                                       as.numeric(month),
                                       as.numeric(day), sep = "-"),
+                                origin = "1582-10-14", tz = "GMT"))
+  return(date_ad)
+}
+
+
+#' Transforming the date in Taiwan ROC calendar to A.D. in POSIXct
+#'
+#'
+#'@param roc_date Date format in Taiwan ROC calendar (e.g., "105/05/31") as a
+#'string vector
+#'
+#'@return date in POSIXct
+#'
+#'@importFrom stringr str_split_1
+#'
+#'@export
+#'
+#'@examples
+#' x<- check_date2("105/05/31")
+#'
+#'@details `check_date` transforms ROC date to a date in POSIXct, e.g. "105/05/31" to "2016-05-31".
+
+
+check_date2 <- function(roc_date) {
+  roc_date <- stringr::str_split_1(roc_date, "/")
+  date_ad <- as.Date(as.POSIXct(paste(as.numeric(roc_date[1]) + 1911,
+                                      roc_date[2],
+                                      roc_date[3], sep = "-"),
                                 origin = "1582-10-14", tz = "GMT"))
   return(date_ad)
 }

@@ -39,9 +39,12 @@ list contains: \describe{
 The Records of Parliamentary Questions Asked by the Legislators 委員質詢事項資訊
 }
 \details{
-get_parlquestions\verb{produces a list, which contains}title\verb{, }query_time\verb{, }retrieved_number\verb{, }retrieved_term\verb{, }url\verb{, }variable_names\verb{, }manual_info\code{and}data\verb{. To retrieve the user manual and more information about the data frame, please use }legisTaiwan::get_variable_info("get_parlquestions")`.
+get_parlquestions\verb{produces a list, which contains}title\verb{, }query_time\verb{, }retrieved_number\verb{, }retrieved_term\verb{, }url\verb{, }variable_names\verb{, }manual_info\code{and}data`.
 }
 \note{
+To retrieve the user manual and more information about variable of the data
+frame, please use \code{legisTaiwan::get_variable_info("get_parlquestions")}
+or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=6}.
 質詢類: 提供議事日程本院委員之質詢事項資訊(自第8屆第1會期起)。
 }
 \examples{
@@ -59,5 +62,5 @@ get_parlquestions(term = 8, session_period = 2)
 
 }
 \seealso{
-\url{https://data.ly.gov.tw/getds.action?id=6}
+\code{get_variable_info("get_parlquestions")}
 }

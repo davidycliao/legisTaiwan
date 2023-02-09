@@ -2,7 +2,7 @@
 % Please edit documentation in R/info.R
 \name{get_variable_info}
 \alias{get_variable_info}
-\title{Check each function's manual}
+\title{Check Each Function's Manual}
 \usage{
 get_variable_info(param_)
 }
@@ -24,8 +24,11 @@ list \describe{
 \item{\code{reference_url}}{the url of the page}}
 }
 \description{
-Check each function's manual
+Check Each Function's Manual
 }
 \details{
 \code{get_variable_info} produces a list, which contains \code{page_info} and \code{reference_url}.
+}
+\seealso{
+\code{review_session_info()}
 }

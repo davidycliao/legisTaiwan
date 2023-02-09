@@ -42,10 +42,12 @@ The Records of Reviewed Items in the Committees 委員會會議審查之議案�
 \details{
 \code{get_committee_record} produces a list, which contains \code{title},
 \code{query_time}, \code{retrieved_number}, \code{retrieved_term}, \code{url}, \code{variable_names},
-\code{manual_info} and \code{data}. To retrieve the user manual and more information
-about the data frame, please use \code{legisTaiwan::get_variable_info("get_committee_record")}.
+\code{manual_info} and \code{data}.
 }
 \note{
+To retrieve the user manual and more information
+about variable of the data frame, please use \code{legisTaiwan::get_variable_info("get_committee_record")}
+or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=46}.
 議事類: 提供委員會會議審查之議案項目 (自第8屆第1會期起)。
 }
 \examples{
@@ -55,5 +57,8 @@ get_committee_record(term = 8, session_period = 1)
 
 }
 \seealso{
-\url{https://data.ly.gov.tw/getds.action?id=46}
+\code{get_variable_info("get_committee_record")}, \code{review_session_info()}
+}
+\author{
+David Yen-Chieh Liao
 }
