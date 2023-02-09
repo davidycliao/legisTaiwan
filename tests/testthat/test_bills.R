@@ -6,12 +6,9 @@ test_that("get_bill", {
 test_that("get_bills_2", {
   expect_equal(get_bills_2(term = 8, session_period = 1)$retrieved_number, 1155)
   expect_equal(get_bills_2(term = 8, session_period = 1, verbose = FALSE)$retrieved_number, 1155)
-  # expect_equal(get_bills_2()$title, "the records of the questions answered by the executives")
+  expect_message(get_bills_2(c(8,10)),
+                 "The API is unable to query multiple terms and the retrieved data might not be complete.")
 })
-
-# test_that("get_bills_2", {
-#   expect_equal(get_bills_2()$title, "the records of the questions answered by the executives")
-# })
 
 test_that("get_bills_2", {
   expect_error(get_bills_2(term = "10"),   "use numeric format only.")

@@ -63,8 +63,10 @@
 #'manual and more information about the data frame, please use `legisTaiwan::get_variable_info("get_bills")`.
 #'Further Check Required: the user manuals seems to be inconsistent with actual data.
 #'資料似乎不一致，取得最早時間不詳，待檢查。
+#'
 #'@seealso
 #'\url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}
+
 get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
                       verbose = TRUE) {
   legisTaiwan::check_internet()
@@ -107,11 +109,11 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 #'The Records of Legislation and the Executives Proposals 委員及政府議案提案資訊
 #'
 #'
-#'@param term numeric or null. The data is only available from 8th term. The default value is 8.
+#'@param term numeric or null. The data is only available from 8th term. The default is set to 8.
 #'參數必須為數值。資料從自第8屆起，預設值為8。
 #'
 #'@param session_period numeric or NULL. Available options for the session periods
-#'is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL. 參數必須為數值。
+#'is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to NULL. 參數必須為數值。
 #'
 #'@param verbose The default value is TRUE, displaying the description of data
 #'retrieved in number, url and computing time.
@@ -167,18 +169,20 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 get_bills_2 <- function(term = 8, session_period = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
   if (is.null(term)) {
+    options(timeout = max(1000, getOption("timeout")))
     set_api_url <- paste("https://data.ly.gov.tw/odw/ID20Action.action?term=",
                          term, "&sessionPeriod=",
                          "&sessionTimes=&meetingTimes=&billName=&billOrg=&billProposer=&billCosignatory=&fileType=json",
                          sep = "")
     message(" term is not defined...\n You are now requesting full data from the API. Please make sure your connectivity is stable until its completion.\n")
-  } else if (length(term) == 1) {
+  } else {
     attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
-    term <- sprintf("%02d", as.numeric(term))
-  } else if (length(term)  > 1) {
-    attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
-    message("The API is unable to query multiple terms and the request mostly falls.")
-    term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
+    if (length(term) == 1) {
+      term <- sprintf("%02d", as.numeric(term))}
+    else if (length(term) > 1) {
+      options(timeout = max(1000, getOption("timeout")))
+      term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
+      message("The API is unable to query multiple terms and the retrieved data might not be complete.")}
   }
   set_api_url <- paste("https://data.ly.gov.tw/odw/ID20Action.action?term=",
                        term, "&sessionPeriod=",

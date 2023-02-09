@@ -307,12 +307,11 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
 #'The Records of National Public Debates 國是論壇
 #'
 #'
-#'
-#'@param term numeric or NULL The default value is 10 參數必須為數值，資料從自
+#'@param term numeric or NULL The default is set to 10. 參數必須為數值，資料從自
 #'第8屆第1會期起，但實測資料從第10屆，故預設為10。
 #'
 #'@param session_period integer or NULL. Available options for the session periods
-#'is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL. 參數必須為數值。
+#'is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to NULL 參數必須為數值。
 #'
 #'@param verbose logical, indicates whether `get_public_debates` should print out
 #'detailed output when retrieving the data. The default is TRUE
@@ -365,21 +364,6 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
 #'@seealso
 #'\url{https://data.ly.gov.tw/getds.action?id=7}
 get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRUE) {
-  # legisTaiwan::check_internet()
-  # if (is.null(term)) {
-    # set_api_url <- paste("https://data.ly.gov.tw/odw/ID7Action.action?term=",
-    #                      term, "&sessionPeriod=",
-    #                      "&sessionTimes=&meetingTimes=&legislatorName=&speakType=&fileType=json",
-    #                      sep = "")
-  #   message(" term is not defined...\n You are now requesting full data from the API. Please make sure your connectivity is stable until its completion.\n")
-  #   } else if (length(term) == 1) {
-  #     attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
-      # term <- sprintf("%02d", as.numeric(term))
-  #   } else if (length(term)  > 1) {
-      # attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
-      # message("The API is unable to query multiple terms and the request mostly falls.")
-      # term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
-      # }
   legisTaiwan::check_internet()
   if (is.null(term)) {
     set_api_url <- paste("https://data.ly.gov.tw/odw/ID7Action.action?term=",
@@ -431,7 +415,7 @@ get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRU
 #'
 #'
 #'@param term numeric or null. The data is only available from 8th term.
-#'The default value is 8. 參數必須為數值。資料從自第8屆起，預設值為8。
+#'The default is set to 8. 參數必須為數值。資料從自第8屆起，預設值為8。
 #'
 #'@param session_period integer, numeric or NULL. Available
 #'options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL.
@@ -486,13 +470,13 @@ get_committee_record <- function(term = 8, session_period = NULL, verbose = TRUE
                          term, "&sessionPeriod=",
                          "&sessionTimes=01&meetingTimes=&fileType=json", sep = "")
     message(" term is not defined...\n You are now requesting full data from the API. Please make sure your connectivity is stable until its completion.\n")
-  } else if (length(term) == 1) {
+  } else {
     attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
-    term <- sprintf("%02d", as.numeric(term))
-  } else if (length(term)  > 1) {
-    attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
-    message("The API is unable to query multiple terms and the request mostly falls.")
-    term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
+    if (length(term) == 1) {
+      term <- sprintf("%02d", as.numeric(term))}
+    else if (length(term) > 1) {
+      term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
+      message("The API is unable to query multiple terms and the retrieved data might not be complete.")}
   }
   set_api_url <- paste("https://data.ly.gov.tw/odw/ID46Action.action?term=",
                        term,
