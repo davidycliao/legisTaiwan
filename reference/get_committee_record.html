@@ -173,16 +173,22 @@ print out detailed output when retrieving the data. The default is TRUE</p></dd>
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p><code>get_committee_record</code> produces a list, which contains <code>title</code>,
 <code>query_time</code>, <code>retrieved_number</code>, <code>retrieved_term</code>, <code>url</code>, <code>variable_names</code>,
-<code>manual_info</code> and <code>data</code>. To retrieve the user manual and more information
-about the data frame, please use <code>legisTaiwan::get_variable_info("get_committee_record")</code>.</p>
+<code>manual_info</code> and <code>data</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="note">Note<a class="anchor" aria-label="anchor" href="#note"></a></h2>
-    <p>議事類: 提供委員會會議審查之議案項目 (自第8屆第1會期起)。</p>
+    <p>To retrieve the user manual and more information
+about variable of the data frame, please use <code>legisTaiwan::get_variable_info("get_committee_record")</code>
+or visit the API manual at <a href="https://data.ly.gov.tw/getds.action?id=46" class="external-link">https://data.ly.gov.tw/getds.action?id=46</a>.
+議事類: 提供委員會會議審查之議案項目 (自第8屆第1會期起)。</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><a href="https://data.ly.gov.tw/getds.action?id=46" class="external-link">https://data.ly.gov.tw/getds.action?id=46</a></p></div>
+    <div class="dont-index"><p><code>get_variable_info("get_committee_record")</code>, <code><a href="review_session_info.html">review_session_info()</a></code></p></div>
+    </div>
+    <div class="section level2">
+    <h2 id="author">Author<a class="anchor" aria-label="anchor" href="#author"></a></h2>
+    <p>David Yen-Chieh Liao</p>
     </div>
 
     <div class="section level2">
@@ -198,7 +204,7 @@ about the data frame, please use <code>legisTaiwan::get_variable_info("get_commi
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the records of reviewed items in the committees"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-09 07:11:33 CET"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-10 00:56:22 CET"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 613</span>

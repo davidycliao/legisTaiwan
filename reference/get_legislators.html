@@ -183,17 +183,18 @@ detailed output when retrieving the data. The default is TRUE.</p></dd>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p><code>get_legislators</code> produces a list, which contains  <code>query_time</code>,
-<code>queried_term</code>, <code>url</code>, <code>variable_names</code>, <code>manual_info</code> and <code>data</code>.
-To retrieve the user manual and more information about the data frame, please use
-<code>legisTaiwan::get_variable_info("get_legislators")</code>.</p>
+<code>queried_term</code>, <code>url</code>, <code>variable_names</code>, <code>manual_info</code> and <code>data</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="note">Note<a class="anchor" aria-label="anchor" href="#note"></a></h2>
-    <p>提供委員基本資料，最早資料可追溯至第2屆。</p>
+    <p>To retrieve the user manual and more information about variable of the data
+frame, please use <code>legisTaiwan::get_variable_info("get_legislators")</code>
+or visit the API manual at <a href="https://data.ly.gov.tw/getds.action?id=16" class="external-link">https://data.ly.gov.tw/getds.action?id=16</a>.
+提供委員基本資料，最早資料可追溯至第2屆。</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><a href="https://data.ly.gov.tw/getds.action?id=16" class="external-link">https://data.ly.gov.tw/getds.action?id=16</a></p></div>
+    <div class="dont-index"><p><code>get_variable_info("get_legislators")</code>, <code><a href="review_session_info.html">review_session_info()</a></code></p></div>
     </div>
 
     <div class="section level2">
@@ -209,7 +210,7 @@ To retrieve the user manual and more information about the data frame, please us
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the records of the questions answered by the executives"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-09 07:12:45 CET"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-10 00:56:40 CET"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1065</span>

@@ -199,16 +199,18 @@ detailed output when retrieving the data. The default is TRUE</p></dd>
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p><code>get_public_debates</code> produces a list, which contains <code>title</code>, <code>query_time</code>,
 <code>retrieved_number</code>, <code>meeting_unit</code>, <code>start_date_ad</code>, <code>end_date_ad</code>, <code>start_date</code>,
-<code>end_date</code>, <code>url</code>, <code>variable_names</code>, <code>manual_info</code> and <code>data.</code> To retrieve the user
-manual and more information about the data frame, please use <code>legisTaiwan::get_variable_info("get_public_debates")</code>.</p>
+<code>end_date</code>, <code>url</code>, <code>variable_names</code>, <code>manual_info</code> and <code>data.</code></p>
     </div>
     <div class="section level2">
     <h2 id="note">Note<a class="anchor" aria-label="anchor" href="#note"></a></h2>
-    <p>議事類: 提供公報之國是論壇資訊，並包含書面意見。自第8屆第1會期起，但實測資料從第10屆。</p>
+    <p>To retrieve the user manual and more information about variable of the data
+frame, please use <code>legisTaiwan::get_variable_info("get_public_debates")</code>
+or visit the API manual at <a href="https://data.ly.gov.tw/getds.action?id=7" class="external-link">https://data.ly.gov.tw/getds.action?id=7</a>.
+議事類: 提供公報之國是論壇資訊，並包含書面意見。自第8屆第1會期起，但實測資料從第10屆。</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><a href="https://data.ly.gov.tw/getds.action?id=7" class="external-link">https://data.ly.gov.tw/getds.action?id=7</a></p></div>
+    <div class="dont-index"><p><code>get_variable_info("get_public_debates")</code>, <code><a href="review_session_info.html">review_session_info()</a></code></p></div>
     </div>
 
     <div class="section level2">
@@ -224,7 +226,7 @@ manual and more information about the data frame, please use <code>legisTaiwan::
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the records of the questions answered by the executives"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-09 07:13:57 CET"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-10 00:57:07 CET"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 39</span>

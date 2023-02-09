@@ -10,7 +10,13 @@
     <loc>https://davidycliao.github.io/legisTaiwan/LICENSE-text.html</loc>
   </url>
   <url>
+    <loc>https://davidycliao.github.io/legisTaiwan/articles/get_bills.html</loc>
+  </url>
+  <url>
     <loc>https://davidycliao.github.io/legisTaiwan/articles/get_legislators.html</loc>
+  </url>
+  <url>
+    <loc>https://davidycliao.github.io/legisTaiwan/articles/get_parlquestions.html</loc>
   </url>
   <url>
     <loc>https://davidycliao.github.io/legisTaiwan/articles/index.html</loc>
@@ -38,6 +44,9 @@
   </url>
   <url>
     <loc>https://davidycliao.github.io/legisTaiwan/reference/check_date.html</loc>
+  </url>
+  <url>
+    <loc>https://davidycliao.github.io/legisTaiwan/reference/check_date2.html</loc>
   </url>
   <url>
     <loc>https://davidycliao.github.io/legisTaiwan/reference/check_internet.html</loc>
@@ -79,9 +88,18 @@
     <loc>https://davidycliao.github.io/legisTaiwan/reference/index.html</loc>
   </url>
   <url>
+    <loc>https://davidycliao.github.io/legisTaiwan/reference/review_session_info.html</loc>
+  </url>
+  <url>
     <loc>https://davidycliao.github.io/legisTaiwan/reference/transformed_date_bill.html</loc>
   </url>
   <url>
     <loc>https://davidycliao.github.io/legisTaiwan/reference/transformed_date_meeting.html</loc>
+  </url>
+  <url>
+    <loc>https://davidycliao.github.io/legisTaiwan/reference/website_availability.html</loc>
+  </url>
+  <url>
+    <loc>https://davidycliao.github.io/legisTaiwan/reference/website_availability2.html</loc>
   </url>
 </urlset>
