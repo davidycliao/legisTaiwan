@@ -23,7 +23,8 @@ Imports:
   curl,
   tibble,
   rvest,
-  purrr
+  purrr,
+  lifecycle
 Suggests: 
   knitr,
   rmarkdown,
