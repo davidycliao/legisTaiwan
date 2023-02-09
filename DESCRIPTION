@@ -23,7 +23,6 @@ Imports:
   curl,
   tibble,
   rvest,
-  purrr,
   lifecycle
 Suggests: 
   knitr,

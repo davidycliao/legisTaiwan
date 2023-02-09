@@ -8,8 +8,6 @@ review_session_info(term, ...)
 }
 \arguments{
 \item{term}{numeric}
-
-\item{term_}{characters or numeric. M}
 }
 \value{
 dataframe
