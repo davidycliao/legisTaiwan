@@ -125,4 +125,3 @@ review_session_info <- function(term_, ...){
   colnames(df) <- title
   return(df)
   }
-
