@@ -93,12 +93,14 @@ get_variable_info <- function(param_) {
 
 
 #' Check Session Periods in Each ROC Year
-#'@param term_ characters or numeric. M
 #'
-#'@return dataframe
 #'
 #'@details `review_session_info` produces a dataframe, displaying each session
 #'period in year formatted in Minguo (ROC) calendar.
+#'
+#'@param term numeric
+#'
+#'@return dataframe
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom rvest html_text2 read_html
@@ -107,21 +109,23 @@ get_variable_info <- function(param_) {
 #'
 #'@export
 
-review_session_info <- function(term_, ...){
+review_session_info <- function(term, ...){
   attempt::stop_if_all(website_availability2(), isFALSE, msg = "the error from the API.")
-  attempt::stop_if_all(term_, is.null, msg = "use correct `term`")
-  attempt::stop_if_all(term_ %in% c(1:11), isFALSE, msg = "use correct `term`")
+  attempt::stop_if_all(term, is.null, msg = "use correct `term`")
+  attempt::stop_if_all(term %in% c(1:11), isFALSE, msg = "use correct `term`")
   url <- paste("https://npl.ly.gov.tw/do/www/appDate?status=0&expire=",
-               sprintf("%02d", as.numeric(term_)),
+               sprintf("%02d", as.numeric(term)),
                "&startYear=0", sep ="")
   html_ <- rvest::html_nodes(rvest::read_html(url), "*[class='section_wrapper']")
   title <- stringr::str_split_1(rvest::html_text2(rvest::html_nodes(html_, "[class='tt_titlebar2']")), "\t\r")[1:2]
-  odd <- rvest::html_text2(rvest::html_nodes(html_, "[class='tt_listrow_odd']"))
-  even <-rvest::html_text2(rvest::html_nodes(html_, "[class='tt_listrow_even']"))
-  sessions <- purrr::map(purrr::map(c(odd, odd), function(.){stringr::str_split_1(., "\r\t\r\r" )}),
-                         function(.){gsub("[[:space:]]", "", .)})
-  df <- do.call(rbind, sessions)
-  df <- data.frame(df)
+  o <- rvest::html_text2(rvest::html_nodes(html_, "[class='tt_listrow_odd']"))
+  e <- rvest::html_text2(rvest::html_nodes(html_, "[class='tt_listrow_even']"))
+  s <- lapply(lapply(c(o, e),function(.){stringr::str_split_1(., "\r\r" )}),
+                     function(.){gsub("[[:space:]]", "", .)})
+  df <- do.call(rbind, s)
   colnames(df) <- title
+  df <- as_tibble(df)
   return(df)
   }
+
+
