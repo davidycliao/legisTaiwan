@@ -10,7 +10,6 @@ vignette: >
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
-  error = TRUE
   collapse = TRUE,
   comment = "#>"
 )
@@ -26,6 +25,7 @@ library(stringr)
 ```
 
 用[`get_bills()`](https://davidycliao.github.io/legisTaiwan/reference/get_bills.html)抓取*周春米*在「民國106年1月20」至「民111年3月10日」所提之法案。
+
 ```{r}
 get_bills(start_date = 1060120, end_date = 1110310, proposer = "周春米", verbose = FALSE)
 ```
