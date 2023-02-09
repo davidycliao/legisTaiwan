@@ -20,6 +20,6 @@ Transforming the date in Taiwan ROC calendar to A.D. in POSIXct
 \code{check_date} transforms ROC date to a date in POSIXct, e.g. "105/05/31" to "2016-05-31".
 }
 \examples{
-x<- check_date2("105/05/31")
+x <- check_date2("105/05/31")
 
 }

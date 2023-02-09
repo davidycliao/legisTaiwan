@@ -160,7 +160,6 @@ check_date <- function(roc_date) {
 
 #' Transforming the date in Taiwan ROC calendar to A.D. in POSIXct
 #'
-#'
 #'@param roc_date Date format in Taiwan ROC calendar (e.g., "105/05/31") as a
 #'string vector
 #'
@@ -171,7 +170,7 @@ check_date <- function(roc_date) {
 #'@export
 #'
 #'@examples
-#' x<- check_date2("105/05/31")
+#' x <- check_date2("105/05/31")
 #'
 #'@details `check_date` transforms ROC date to a date in POSIXct, e.g. "105/05/31" to "2016-05-31".
 
