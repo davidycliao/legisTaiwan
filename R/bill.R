@@ -1,8 +1,8 @@
 #'The Records of the Bills 法律提案
 #'
-#'@param start_date numeric Must be formatted in ROC Taiwan calendar, e.g. 1090101.
+#'@param start_date numeric Must be formatted in Minguo (Taiwan) calendar, e.g. 1090101.
 #'
-#'@param end_date numeric Must be formatted in ROC Taiwan calendar, e.g. 1090102.
+#'@param end_date numeric Must be formatted in Minguo (Taiwan) calendar, e.g. 1090102.
 #'
 #'@param proposer The default value is NULL, which means all bill proposed by all legislators
 #' are included between the starting date and the ending date.
@@ -10,7 +10,7 @@
 #'@param verbose logical, indicates whether `get_bills` should print out
 #'detailed output when retrieving the data. The default value is TRUE.
 #'
-#'@return list, which contains: s\describe{
+#'@return list, which contains: \describe{
 #'      \item{`title`}{the meeting records of cross-caucus session}
 #'      \item{`query_time`}{the query time}
 #'      \item{`retrieved_number`}{the number of observation}
@@ -65,7 +65,10 @@
 #' 資料似乎不一致，待確認。委員發言（取得最早時間不詳，待檢查。）
 #'
 #'@seealso
-#'`get_variable_info("get_bills")`
+#'`get_variable_info("get_bills_2")`,`review_session_info()`
+#'
+#'@seealso
+#'Regarding Minguo calendar, please see \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}.
 
 get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
                       verbose = TRUE) {
@@ -106,14 +109,14 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
   )
 }
 
+
 #'The Records of Legislation and the Executives Proposals 委員及政府議案提案資訊
 #'
-#'
-#'@param term numeric or null. The data is only available from 8th term. The default is set to 8.
-#'參數必須為數值。資料從自第8屆起，預設值為8。
+#'@param term numeric or null. The data is only available from 8th term.
+#'The default is set to 8. 參數必須為數值。資料從自第8屆起，預設值為8。
 #'
 #'@param session_period numeric or NULL. Available options for the session periods
-#'is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to NULL. 參數必須為數值。
+#'is: 1, 2, 3, 4, 5, 6, 7, and 8 since term 8th. The default is set to NULL.
 #'
 #'@param verbose The default value is TRUE, displaying the description of data
 #'retrieved in number, url and computing time.
@@ -173,7 +176,7 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 get_bills_2 <- function(term = 8, session_period = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
   if (is.null(term)) {
-    options(timeout = max(1000, getOption("timeout")))
+    # options(timeout = max(1000, getOption("timeout")))
     set_api_url <- paste("https://data.ly.gov.tw/odw/ID20Action.action?term=",
                          term, "&sessionPeriod=",
                          "&sessionTimes=&meetingTimes=&billName=&billOrg=&billProposer=&billCosignatory=&fileType=json",
@@ -184,7 +187,7 @@ get_bills_2 <- function(term = 8, session_period = NULL, verbose = TRUE) {
     if (length(term) == 1) {
       term <- sprintf("%02d", as.numeric(term))}
     else if (length(term) > 1) {
-      options(timeout = max(1000, getOption("timeout")))
+      # options(timeout = max(1000, getOption("timeout")))
       term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
       message("The API is unable to query multiple terms and the retrieved data might not be complete.")}
   }

@@ -36,7 +36,7 @@ day.
 
 - [`get_executive_response()`](https://davidycliao.github.io/legisTaiwan/reference/get_executive_response.html): questions answered by the executives提供公報質詢事項行政院答復資訊 (自第8屆)
 
-- [`get_public_debates()`](https://davidycliao.github.io/legisTaiwan/reference/get_public_debates.html): public debates 提供公報之國是論壇資訊，並包含書面意見自 (自第8屆)
+- [`get_public_debates()`+](https://davidycliao.github.io/legisTaiwan/reference/get_public_debates.html): public debates 提供公報之國是論壇資訊，並包含書面意見自 (自第8屆)
 
 - [`get_speech_video()`](https://davidycliao.github.io/legisTaiwan/reference/get_speech_video.html): full video information of meetings and committees 提供立法院院會及委員會之委員發言片段相關影片資訊 (自第9屆)
 
@@ -47,13 +47,13 @@ day.
 
 # Bill and Budget
 
-- [`get_committee_record()`](https://davidycliao.github.io/legisTaiwan/reference/get_speech_video.html): the records of reviewed items in the committees 提供委員會會議審查之議案項目 (自第8屆)
+- [`get_committee_record()`](https://davidycliao.github.io/legisTaiwan/reference/get_committee_record.html): the records of reviewed items in the committees 提供委員會會議審查之議案項目 (自第8屆)
 
 - [`get_bills()`](https://davidycliao.github.io/legisTaiwan/reference/get_bills.html): the records of the bills 法律提案 (能取得最早日不詳，待檢查)
 
 - [`get_bills_2()`](https://davidycliao.github.io/legisTaiwan/reference/get_bills_2.html): the records of legislators and the government bill proposals 提供委員及政府之議案提案資訊 (自第8屆)
 
-- [`passed_legislation()`](https://data.ly.gov.tw/getds.action?id=48): legislation and information passed on the third reading 提供公報院會紀錄之三讀通過議案資訊。(自第8屆第1會期起) *coming soon*
+- [`passed_legislation()`](https://data.ly.gov.tw/getds.action?id=48): legislation and information passed on the third reading 提供公報院會紀錄之三讀通過議案資訊。(自第8屆第1會期起) **coming soon**
 
 <br> 
 
@@ -70,4 +70,4 @@ day.
 
 <br> <br> 
 
-[+ **Further Check Required**: the user manual seems to be inconsistent with actual data. Please check them out in the discussion 資料似乎不一致，待確認。](https://github.com/davidycliao/legisTaiwan/discussions)
+[+ **Further Check Required**: the user manual seems to be inconsistent with actual data. Please check them out in the discussion 參數設定後與資料取得不一致，待確認。](https://github.com/davidycliao/legisTaiwan/discussions)

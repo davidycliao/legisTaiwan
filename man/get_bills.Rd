@@ -7,9 +7,9 @@
 get_bills(start_date = NULL, end_date = NULL, proposer = NULL, verbose = TRUE)
 }
 \arguments{
-\item{start_date}{numeric Must be formatted in ROC Taiwan calendar, e.g. 1090101.}
+\item{start_date}{numeric Must be formatted in Minguo (Taiwan) calendar, e.g. 1090101.}
 
-\item{end_date}{numeric Must be formatted in ROC Taiwan calendar, e.g. 1090102.}
+\item{end_date}{numeric Must be formatted in Minguo (Taiwan) calendar, e.g. 1090102.}
 
 \item{proposer}{The default value is NULL, which means all bill proposed by all legislators
 are included between the starting date and the ending date.}
@@ -18,7 +18,7 @@ are included between the starting date and the ending date.}
 detailed output when retrieving the data. The default value is TRUE.}
 }
 \value{
-list, which contains: s\describe{
+list, which contains: \describe{
 \item{\code{title}}{the meeting records of cross-caucus session}
 \item{\code{query_time}}{the query time}
 \item{\code{retrieved_number}}{the number of observation}
@@ -74,5 +74,7 @@ get_bills(start_date = 1060120, end_date = 1060510,  proposer = "孔文吉&鄭�
 
 }
 \seealso{
-\code{get_variable_info("get_bills")}
+\code{get_variable_info("get_bills_2")},\code{review_session_info()}
+
+Regarding Minguo calendar, please see \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}.
 }

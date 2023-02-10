@@ -1,5 +1,11 @@
 #' Check Each Function's Manual
 #'
+#'@description `get_variable_info` generate each API's endpoint manual returned
+#'from the website of Taiwan Legislative Yuan. The avalaible options is: `get_bills`,
+#'`get_bills_2`, `get_meetings`, `get_caucus_meetings`, `get_speech_video` ,
+#'`get_public_debates`, `get_parlquestions`, `get_executive_response` and
+#'`get_committee_record`.
+#'
 #'@param param_ characters. Must be one of options below: \describe{
 #'      \item{get_bills}{get_bills: the records of the bills, see \url{https://data.ly.gov.tw/getds.action?id=6}}
 #'      \item{get_bills_2}{the records of legislators and the government proposals, see \url{https://data.ly.gov.tw/getds.action?id=6}}

@@ -1,9 +1,9 @@
 #' The Spoken Meeting Records 委員發言
 #'
 #'
-#'@param start_date numeric Must be formatted in ROC Taiwan calendar, e.g. 1090101.
+#'@param start_date numeric Must be formatted in Minguo (Taiwan) calendar, e.g. 1090101.
 #'
-#'@param end_date numeric Must be formatted in ROC Taiwan calendar, e.g. 1090102.
+#'@param end_date numeric Must be formatted in Minguo (Taiwan) calendar, e.g. 1090102.
 #'
 #'@param meeting_unit NULL The default is NULL, which includes all meeting types
 #' between the starting date and the ending date.
@@ -40,11 +40,11 @@
 #'@export
 #'
 #'@examples
-#' ## query meeting records by a period of the dates in Taiwan ROC calender format
+#' ## query meeting records by a period of the dates in Minguo (Taiwan) calendar
 #' ## 輸入「中華民國民年」下載「委員發言」
 #'get_meetings(start_date = "1050120", end_date = "1050210")
 #'
-#' ## query meeting records by a period of the dates in Taiwan ROC calender format
+#' ## query meeting records by a period of the dates in Minguo (Taiwan) calendar format
 #' ## and a meeting
 #' ## 輸入「中華民國民年」與「審查會議或委員會名稱」下載會議審查資訊
 #'get_meetings(start_date = 1060120, end_date = 1070310, meeting_unit = "內政委員會")
@@ -60,6 +60,9 @@
 #'
 #'@seealso
 #'`get_variable_info("get_meetings")`
+#'
+#'@seealso
+#' Regarding Minguo calendar, please see \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}.
 
 get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL,
                          verbose = TRUE) {
@@ -103,10 +106,10 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
 #' The Meeting Records of Cross-caucus Session 黨團協商資訊
 #'
 #'
-#'@param start_date character Must be formatted in ROC Taiwan calendar with three
+#'@param start_date character Must be formatted in Minguo (ROC) calendar with three
 #'forward slashes between year, month and day, e.g. "106/10/20".
 #'
-#'@param end_date character Must be formatted in ROC Taiwan calendar with three
+#'@param end_date character Must be formatted in Minguo (ROC) calendar with three
 #'forward slashes between year, month and day, e.g. "109/01/10".
 #'
 #'@param verbose logical, indicates whether `get_caucus_meetings` should print out
@@ -166,6 +169,9 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
 #'
 #'@seealso
 #'`get_variable_info("get_caucus_meetings")`
+#'
+#'@seealso
+#' Regarding Minguo calendar, please see \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}.
 
 get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
                                 verbose = TRUE) {
@@ -205,10 +211,10 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
 
 #' The Video Information of Meetings and Committees 院會及委員會之委員發言片段相關影片資訊
 #'
-#'@param start_date character Must be formatted in ROC Taiwan calendar with three
+#'@param start_date character Must be formatted in Minguo (ROC) calendar with three
 #'forward slashes between year, month and day, e.g. "106/10/20".
 #'
-#'@param end_date character Must be formatted in ROC Taiwan calendar with three
+#'@param end_date character Must be formatted in Minguo (ROC) calendar  with three
 #'forward slashes between year, month and day, e.g. "109/01/10".
 #'
 #'@param verbose logical, indicates whether get_meetings should print out
@@ -273,11 +279,11 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
 get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
   legisTaiwan::api_check(start_date = legisTaiwan::transformed_date_meeting(start_date), end_date = legisTaiwan::transformed_date_meeting(end_date))
-  # 自第9屆第1會期起 2016  民國 105
-  queried_year <- format(legisTaiwan::transformed_date_meeting(start_date), format = "%Y")
-  attempt::warn_if(queried_year < 2016,
-            isTRUE,
-            msg =  paste("The query retrieved from", queried_year,  "may not be complete.", "The data is only available from the 6th session of the 8th legislative term in 2015/104 in ROC."))
+  # # 自第9屆第1會期起 2016  民國 105
+  # queried_year <- format(legisTaiwan::transformed_date_meeting(start_date), format = "%Y")
+  # attempt::warn_if(queried_year < 2016,
+  #           isTRUE,
+  #           msg =  paste("The query retrieved from", queried_year,  "may not be complete.", "The data is only available from the 6th session of the 8th legislative term in 2015/104 in ROC."))
   set_api_url <- paste("https://data.ly.gov.tw/odw/ID148Action.action?term=",
                        "&sessionPeriod=",
                        "&meetingDateS=", start_date,
@@ -374,6 +380,9 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
 #'
 #'@seealso
 #'`get_variable_info("get_public_debates")`, `review_session_info()`
+#'
+#'@seealso
+#' Regarding Minguo calendar, please see \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}.
 
 get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
@@ -426,6 +435,7 @@ get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRU
 #' The Records of Reviewed Items in the Committees 委員會會議審查之議案項目
 #'
 #'@author David Yen-Chieh Liao
+#'
 #'@param term numeric or null. The data is only available from 8th term.
 #'The default is set to 8. 參數必須為數值。資料從自第8屆起，預設值為8。
 #'

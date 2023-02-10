@@ -46,8 +46,6 @@ navbar:
     menu:
     - text: "Quick Start Guide"
       href: articles/quickstart.html#get-started-with-using-remotes
-    - text: "The Overview of the API Accesses"
-      href: articles/quickstart.html#the-overview-of-the-api-access
     - text: "Tutorials"
       href: articles/quickstart.html#quickstart.html#tutorials
     - text: "How to Contribute"

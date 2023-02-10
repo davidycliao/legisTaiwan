@@ -12,9 +12,9 @@ get_meetings(
 )
 }
 \arguments{
-\item{start_date}{numeric Must be formatted in ROC Taiwan calendar, e.g. 1090101.}
+\item{start_date}{numeric Must be formatted in Minguo (Taiwan) calendar, e.g. 1090101.}
 
-\item{end_date}{numeric Must be formatted in ROC Taiwan calendar, e.g. 1090102.}
+\item{end_date}{numeric Must be formatted in Minguo (Taiwan) calendar, e.g. 1090102.}
 
 \item{meeting_unit}{NULL The default is NULL, which includes all meeting types
 between the starting date and the ending date.}
@@ -61,11 +61,11 @@ or visit the API manual at \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154
 資料似乎不一致，待確認。委員發言（取得最早時間不詳，待檢查。）
 }
 \examples{
-## query meeting records by a period of the dates in Taiwan ROC calender format
+## query meeting records by a period of the dates in Minguo (Taiwan) calendar
 ## 輸入「中華民國民年」下載「委員發言」
 get_meetings(start_date = "1050120", end_date = "1050210")
 
-## query meeting records by a period of the dates in Taiwan ROC calender format
+## query meeting records by a period of the dates in Minguo (Taiwan) calendar format
 ## and a meeting
 ## 輸入「中華民國民年」與「審查會議或委員會名稱」下載會議審查資訊
 get_meetings(start_date = 1060120, end_date = 1070310, meeting_unit = "內政委員會")
@@ -73,4 +73,6 @@ get_meetings(start_date = 1060120, end_date = 1070310, meeting_unit = "內政委
 }
 \seealso{
 \code{get_variable_info("get_meetings")}
+
+Regarding Minguo calendar, please see \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}.
 }

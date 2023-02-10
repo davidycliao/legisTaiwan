@@ -7,10 +7,10 @@
 get_speech_video(start_date = NULL, end_date = NULL, verbose = TRUE)
 }
 \arguments{
-\item{start_date}{character Must be formatted in ROC Taiwan calendar with three
+\item{start_date}{character Must be formatted in Minguo (ROC) calendar with three
 forward slashes between year, month and day, e.g. "106/10/20".}
 
-\item{end_date}{character Must be formatted in ROC Taiwan calendar with three
+\item{end_date}{character Must be formatted in Minguo (ROC) calendar  with three
 forward slashes between year, month and day, e.g. "109/01/10".}
 
 \item{verbose}{logical, indicates whether get_meetings should print out

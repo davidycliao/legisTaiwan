@@ -66,4 +66,6 @@ get_public_debates(term = 10, session_period = 2)
 }
 \seealso{
 \code{get_variable_info("get_public_debates")}, \code{review_session_info()}
+
+Regarding Minguo calendar, please see \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}.
 }
