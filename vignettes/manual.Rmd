@@ -51,7 +51,7 @@ day.
 
 - [`get_bills()`](https://davidycliao.github.io/legisTaiwan/reference/get_bills.html): the records of the bills 法律提案 (能取得最早日不詳，待檢查)
 
-- [`get_bills_2()`](https://davidycliao.github.io/legisTaiwan/reference/get_bills_2.html): the records of legislators and the government bill proposals 提供委員及政府之議案提案資訊 (自第8屆)
+- [`get_bills_2()`](https://davidycliao.github.io/legisTaiwan/reference/get_bills_2.html): the records of legislators and the government bill proposals 提供委員及政府之議案提案資訊 (自第8屆)         
 
 - [`passed_legislation()`](https://data.ly.gov.tw/getds.action?id=48): legislation and information passed on the third reading 提供公報院會紀錄之三讀通過議案資訊。(自第8屆第1會期起) **coming soon**
 

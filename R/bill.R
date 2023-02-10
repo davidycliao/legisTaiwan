@@ -176,7 +176,7 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 get_bills_2 <- function(term = 8, session_period = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
   if (is.null(term)) {
-    # options(timeout = max(1000, getOption("timeout")))
+    options(timeout = max(1000, getOption("timeout")))
     set_api_url <- paste("https://data.ly.gov.tw/odw/ID20Action.action?term=",
                          term, "&sessionPeriod=",
                          "&sessionTimes=&meetingTimes=&billName=&billOrg=&billProposer=&billCosignatory=&fileType=json",

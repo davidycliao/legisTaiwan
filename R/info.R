@@ -98,11 +98,11 @@ get_variable_info <- function(param_) {
 }
 
 
-#' Check Session Periods in Each ROC Year
+#' Check Session Periods in Each Year (Minguo Calendar.)
 #'
 #'
 #'@details `review_session_info` produces a dataframe, displaying each session
-#'period in year formatted in Minguo (ROC) calendar.
+#'period in year formatted in Minguo (Taiwan) calendar.
 #'
 #'@param term numeric
 #'
@@ -113,6 +113,9 @@ get_variable_info <- function(param_) {
 #'@importFrom tibble as_tibble
 #'
 #'@export
+#'
+#'@seealso
+#'Regarding Minguo calendar, please see \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}.
 
 review_session_info <- function(term){
   attempt::stop_if_all(website_availability2(), isFALSE, msg = "the error from the API.")
