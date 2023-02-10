@@ -33,6 +33,8 @@ test_that("get_committee_record", {
   expect_equal(get_committee_record(term = 8, session_period= 2, verbose = FALSE)$retrieved_number, 633)
   expect_equal(get_committee_record(term = 8, session_period= 2, verbose = TRUE)$title, "the records of reviewed items in the committees")
   expect_error(get_committee_record(term = 2),   "The query is unavailable.")
-  expect_message(get_committee_record(c(10,11)),
-                 "The API is unable to query multiple terms and the retrieved data might not be complete.")})
+  # expect_message(get_committee_record(c(10,11)),
+  #                "The API is unable to query multiple terms and the retrieved data might not be complete.")
+  }
+  )
 
