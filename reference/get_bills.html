@@ -38,7 +38,6 @@
   </a>
   <div class="dropdown-menu" aria-labelledby="dropdown--quick-start">
     <a class="dropdown-item" href="../articles/quickstart.html#get-started-with-using-remotes">Quick Start Guide</a>
-    <a class="dropdown-item" href="../articles/quickstart.html#the-overview-of-the-api-access">The Overview of the API Accesses</a>
     <a class="dropdown-item" href="../articles/quickstart.html#quickstart.html#tutorials">Tutorials</a>
     <a class="dropdown-item" href="../articles/quickstart.html#quickstart.html#how-to-contribute">How to Contribute</a>
   </div>
@@ -111,11 +110,11 @@
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>start_date</dt>
-<dd><p>numeric Must be formatted in ROC Taiwan calendar, e.g. 1090101.</p></dd>
+<dd><p>numeric Must be formatted in Minguo (Taiwan) calendar, e.g. 1090101.</p></dd>
 
 
 <dt>end_date</dt>
-<dd><p>numeric Must be formatted in ROC Taiwan calendar, e.g. 1090102.</p></dd>
+<dd><p>numeric Must be formatted in Minguo (Taiwan) calendar, e.g. 1090102.</p></dd>
 
 
 <dt>proposer</dt>
@@ -132,7 +131,7 @@ detailed output when retrieving the data. The default value is TRUE.</p></dd>
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>list, which contains: s</p><dl><dt><code>title</code></dt>
+<p>list, which contains:</p><dl><dt><code>title</code></dt>
 <dd><p>the meeting records of cross-caucus session</p></dd>
 
 <dt><code>query_time</code></dt>
@@ -207,7 +206,8 @@ or visit the API manual at <a href="https://www.ly.gov.tw/Pages/List.aspx?nodeid
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code>get_variable_info("get_bills")</code></p></div>
+    <div class="dont-index"><p><code>get_variable_info("get_bills_2")</code>,<code><a href="review_session_info.html">review_session_info()</a></code></p>
+<p>Regarding Minguo calendar, please see <a href="https://en.wikipedia.org/wiki/Republic_of_China_calendar" class="external-link">https://en.wikipedia.org/wiki/Republic_of_China_calendar</a>.</p></div>
     </div>
 
     <div class="section level2">
@@ -219,7 +219,7 @@ or visit the API manual at <a href="https://www.ly.gov.tw/Pages/List.aspx?nodeid
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the records of bill sponsor and co-sponsor"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-10 02:40:23 CET"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-10 17:23:51 CET"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1589</span>
@@ -282,7 +282,7 @@ or visit the API manual at <a href="https://www.ly.gov.tw/Pages/List.aspx?nodeid
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the records of bill sponsor and co-sponsor"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-10 02:40:24 CET"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-10 17:23:52 CET"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 9</span>
@@ -343,7 +343,7 @@ or visit the API manual at <a href="https://www.ly.gov.tw/Pages/List.aspx?nodeid
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the records of bill sponsor and co-sponsor"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-10 02:40:25 CET"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-10 17:23:53 CET"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 5</span>

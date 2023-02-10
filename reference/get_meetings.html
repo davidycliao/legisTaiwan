@@ -38,7 +38,6 @@
   </a>
   <div class="dropdown-menu" aria-labelledby="dropdown--quick-start">
     <a class="dropdown-item" href="../articles/quickstart.html#get-started-with-using-remotes">Quick Start Guide</a>
-    <a class="dropdown-item" href="../articles/quickstart.html#the-overview-of-the-api-access">The Overview of the API Accesses</a>
     <a class="dropdown-item" href="../articles/quickstart.html#quickstart.html#tutorials">Tutorials</a>
     <a class="dropdown-item" href="../articles/quickstart.html#quickstart.html#how-to-contribute">How to Contribute</a>
   </div>
@@ -116,11 +115,11 @@
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>start_date</dt>
-<dd><p>numeric Must be formatted in ROC Taiwan calendar, e.g. 1090101.</p></dd>
+<dd><p>numeric Must be formatted in Minguo (Taiwan) calendar, e.g. 1090101.</p></dd>
 
 
 <dt>end_date</dt>
-<dd><p>numeric Must be formatted in ROC Taiwan calendar, e.g. 1090102.</p></dd>
+<dd><p>numeric Must be formatted in Minguo (Taiwan) calendar, e.g. 1090102.</p></dd>
 
 
 <dt>meeting_unit</dt>
@@ -206,12 +205,13 @@ or visit the API manual at <a href="https://www.ly.gov.tw/Pages/List.aspx?nodeid
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code>get_variable_info("get_meetings")</code></p></div>
+    <div class="dont-index"><p><code>get_variable_info("get_meetings")</code></p>
+<p>Regarding Minguo calendar, please see <a href="https://en.wikipedia.org/wiki/Republic_of_China_calendar" class="external-link">https://en.wikipedia.org/wiki/Republic_of_China_calendar</a>.</p></div>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## query meeting records by a period of the dates in Taiwan ROC calender format</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## query meeting records by a period of the dates in Minguo (Taiwan) calendar</span></span></span>
 <span class="r-in"><span><span class="co">## 輸入「中華民國民年」下載「委員發言」</span></span></span>
 <span class="r-in"><span><span class="fu">get_meetings</span><span class="op">(</span>start_date <span class="op">=</span> <span class="st">"1050120"</span>, end_date <span class="op">=</span> <span class="st">"1050210"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved URL: </span>
@@ -223,7 +223,7 @@ or visit the API manual at <a href="https://www.ly.gov.tw/Pages/List.aspx?nodeid
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the spoken meeting records"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-10 02:40:52 CET"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-10 17:25:12 CET"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1</span>
@@ -263,7 +263,7 @@ or visit the API manual at <a href="https://www.ly.gov.tw/Pages/List.aspx?nodeid
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ³​speechers, ⁴​meeting_unit</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co">## query meeting records by a period of the dates in Taiwan ROC calender format</span></span></span>
+<span class="r-in"><span><span class="co">## query meeting records by a period of the dates in Minguo (Taiwan) calendar format</span></span></span>
 <span class="r-in"><span><span class="co">## and a meeting</span></span></span>
 <span class="r-in"><span><span class="co">## 輸入「中華民國民年」與「審查會議或委員會名稱」下載會議審查資訊</span></span></span>
 <span class="r-in"><span><span class="fu">get_meetings</span><span class="op">(</span>start_date <span class="op">=</span> <span class="fl">1060120</span>, end_date <span class="op">=</span> <span class="fl">1070310</span>, meeting_unit <span class="op">=</span> <span class="st">"內政委員會"</span><span class="op">)</span></span></span>
@@ -276,7 +276,7 @@ or visit the API manual at <a href="https://www.ly.gov.tw/Pages/List.aspx?nodeid
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the spoken meeting records"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-10 02:40:57 CET"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-02-10 17:25:13 CET"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 104</span>
