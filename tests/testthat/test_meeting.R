@@ -9,7 +9,7 @@ test_that("get_meetings", {
 test_that("get_caucus_meetings", {
   expect_equal(get_caucus_meetings(start_date = "106/10/20", end_date = "107/03/10")$retrieved_number, 30)
   expect_equal(get_caucus_meetings(start_date = "106/10/20", end_date = "107/03/10", verbose = FALSE)$retrieved_number ,30)
-  expect_error(get_caucus_meetings(start_date = "105/01/01", end_date = "105/01/02", verbose = TRUE), "The query is unavailable.")
+  expect_error(get_caucus_meetings(start_date = "104/12/31", end_date = "105/01/01", verbose = TRUE), "The query is unavailable.")
 })
 
 test_that("get_speech_video", {
@@ -33,6 +33,6 @@ test_that("get_committee_record", {
   expect_equal(get_committee_record(term = 8, session_period= 2, verbose = FALSE)$retrieved_number, 633)
   expect_equal(get_committee_record(term = 8, session_period= 2, verbose = TRUE)$title, "the records of reviewed items in the committees")
   expect_error(get_committee_record(term = 2),   "The query is unavailable.")
-})
-
+  expect_message(get_committee_record(c(10,11)),
+                 "The API is unable to query multiple terms and the retrieved data might not be complete.")})
 
