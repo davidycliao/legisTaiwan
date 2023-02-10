@@ -67,7 +67,6 @@
 #'@seealso
 #'`get_variable_info("get_bills")`
 
-
 get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
                       verbose = TRUE) {
   legisTaiwan::check_internet()
@@ -79,7 +78,7 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
     {
       json_df <- jsonlite::fromJSON(set_api_url)
       df <- tibble::as_tibble(json_df)
-      attempt::stop_if_all(length(df) == 0, isTRUE, msg = paste("The query is unavailable:", set_api_url, sep = "\n" ))
+      attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
       df["date_ad"] <- do.call("c", lapply(df$date, legisTaiwan::transformed_date_bill))
       if (isTRUE(verbose)) {
         cat(" Retrieved URL: \n", set_api_url, "\n")
@@ -197,7 +196,7 @@ get_bills_2 <- function(term = 8, session_period = NULL, verbose = TRUE) {
     {
       json_df <- jsonlite::fromJSON(set_api_url)
       df <- tibble::as_tibble(json_df$dataList)
-      attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = paste("The query is unavailable:", set_api_url, sep = "\n" ))
+      attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
       if (isTRUE(verbose)) {
         cat(" Retrieved URL: \n", set_api_url, "\n")
         cat(" Retrieved Term: ", term, "\n")

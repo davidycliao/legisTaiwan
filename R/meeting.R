@@ -71,7 +71,7 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
     {
       json_df <- jsonlite::fromJSON(set_api_url)
       df <- tibble::as_tibble(json_df)
-      attempt::stop_if_all(length(df) == 0, isTRUE, msg = paste("The query is unavailable:", set_api_url, sep = "\n" ))
+      attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
       df["date_ad"] <- do.call("c", lapply(df$smeeting_date, legisTaiwan::transformed_date_meeting))
       if (isTRUE(verbose)) {
         cat(" Retrieved URL: \n", set_api_url, "\n")
@@ -100,7 +100,7 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
 }
 
 
-#'The Meeting Records of Cross-caucus Session 黨團協商資訊
+#' The Meeting Records of Cross-caucus Session 黨團協商資訊
 #'
 #'
 #'@param start_date character Must be formatted in ROC Taiwan calendar with three
@@ -157,6 +157,7 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
 #'@details `get_caucus_meetings` produces a list, which contains `title`, `query_time`,
 #'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
 #'`end_date`, `url`, `variable_names`, `manual_info` and `data.`
+#'\\ifelse{html}{\\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\\strong{[Experimental]}}
 #'
 #'@note To retrieve the user manual and more information about variable of the data
 #' frame, please use `legisTaiwan::get_variable_info("get_caucus_meetings")`
@@ -176,7 +177,7 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
     {
       json_df <- jsonlite::fromJSON(set_api_url)
       df <- tibble::as_tibble(json_df$dataList)
-      attempt::stop_if_all(length(df) == 0, isTRUE, msg = paste("The query is unavailable:", set_api_url, sep = "\n" ))
+      attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
       if (isTRUE(verbose)) {
         cat(" Retrieved URL: \n", set_api_url, "\n")
         cat(" Retrieved date between:", as.character(legisTaiwan::transformed_date_meeting(start_date)), "and", as.character(legisTaiwan::transformed_date_meeting(end_date)), "\n")
@@ -286,7 +287,7 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
     {
       json_df <- jsonlite::fromJSON(set_api_url)
       df <- tibble::as_tibble(json_df$dataList)
-      attempt::stop_if_all(length(df) == 0, isTRUE, msg = paste("The query is unavailable:", set_api_url, sep = "\n" ))
+      attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
       if (isTRUE(verbose)) {
         cat(" Retrieved URL: \n", set_api_url, "\n")
         cat(" Retrieved date between:", as.character(legisTaiwan::transformed_date_meeting(start_date)), "and", as.character(legisTaiwan::transformed_date_meeting(end_date)), "\n")
@@ -399,7 +400,7 @@ get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRU
     {
       json_df <- jsonlite::fromJSON(set_api_url)
       df <- tibble::as_tibble(json_df$dataList)
-      attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = paste("The query is unavailable:", set_api_url, sep = "\n" ))
+      attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
       if (isTRUE(verbose)) {
         cat(" Retrieved URL: \n", set_api_url, "\n")
         cat(" Retrieved Term: ", term, "\n")

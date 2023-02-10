@@ -53,7 +53,7 @@ The Meeting Records of Cross-caucus Session 黨團協商資訊
 \details{
 \code{get_caucus_meetings} produces a list, which contains \code{title}, \code{query_time},
 \code{retrieved_number}, \code{meeting_unit}, \code{start_date_ad}, \code{end_date_ad}, \code{start_date},
-\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data.}
+\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data.} lifecycle::badge("experimental")
 }
 \note{
 To retrieve the user manual and more information about variable of the data
