@@ -31,12 +31,7 @@ library(tidyverse)
 
 格式：get_caucus_meetings(start_date = NULL, end_date = NULL, verbose = TRUE)
 
-首先，須先知道該會期之期間(請參見：<https://npl.ly.gov.tw/do/www/appDate?blockId=2&titleName=%E5%B1%86%E6%9C%83%E6%9C%9F%E5%B0%8D%E7%85%A7%E8%A1%A8>) 或者用
-
-```{r}
-page_info <- get_variable_info("get_caucus_meetings")$page_info
-page_info
-```
+首先，須先知道該會期之期間(請參見：<https://npl.ly.gov.tw/do/www/appDate?blockId=2&titleName=%E5%B1%86%E6%9C%83%E6%9C%9F%E5%B0%8D%E7%85%A7%E8%A1%A8>)
 
 
 設定好指定時間區間後即可看到變數名稱
