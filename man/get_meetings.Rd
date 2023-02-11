@@ -76,3 +76,6 @@ get_meetings(start_date = 1060120, end_date = 1070310, meeting_unit = "內政委
 
 Regarding Minguo calendar, please see \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}.
 }
+\author{
+David Liao (davidycliao@gmail.com)
+}

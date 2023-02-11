@@ -22,3 +22,6 @@ period in year formatted in Minguo (Taiwan) calendar.
 \seealso{
 Regarding Minguo calendar, please see \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}.
 }
+\author{
+David Liao (davidycliao@gmail.com)
+}

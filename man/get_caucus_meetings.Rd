@@ -75,3 +75,6 @@ get_caucus_meetings(start_date = "106/10/20", end_date = "107/03/10")
 
 Regarding Minguo calendar, please see \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}.
 }
+\author{
+David Liao (davidycliao@gmail.com)
+}

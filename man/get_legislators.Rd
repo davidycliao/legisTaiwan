@@ -59,3 +59,6 @@ get_executive_response(term = 8, session_period = 1)
 \seealso{
 \code{get_variable_info("get_legislators")}, \code{review_session_info()}
 }
+\author{
+David Liao (davidycliao@gmail.com)
+}

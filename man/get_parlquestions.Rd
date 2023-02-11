@@ -64,3 +64,6 @@ get_parlquestions(term = 8, session_period = 2)
 \seealso{
 \code{get_variable_info("get_parlquestions")}
 }
+\author{
+David Liao (davidycliao@gmail.com)
+}

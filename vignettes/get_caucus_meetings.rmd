@@ -18,12 +18,6 @@ knitr::opts_chunk$set(
 ```{r include=FALSE}
 assign("has_internet_via_proxy", TRUE, environment(curl::has_internet))
 ```
-開始使用
-
-```{r}
-install.packages("remotes")
-remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
-```
 
 讀取 legisTaiwan 與 stringr,tidyverse 套件
 
