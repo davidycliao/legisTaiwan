@@ -15,6 +15,11 @@ knitr::opts_chunk$set(
 )
 ```
 
+```{r include=FALSE}
+assign("has_internet_via_proxy", TRUE, environment(curl::has_internet))
+```
+
+
 ##  以[`get_parlquestions()`](https://davidycliao.github.io/legisTaiwan/reference/get_parlquestions.html)「立委質詢」為例
 找出立委在第八屆會期質詢當中，包含「中國」字眼之質詢。
 ```{r}

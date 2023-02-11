@@ -98,7 +98,7 @@ get_variable_info <- function(param_) {
 }
 
 
-#' Check Session Periods in Each Year (Minguo Calendar.)
+#' Check Session Periods in Each Year (Minguo Calendar)
 #'
 #'
 #'@details `review_session_info` produces a dataframe, displaying each session

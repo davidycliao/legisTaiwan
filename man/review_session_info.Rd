@@ -2,7 +2,7 @@
 % Please edit documentation in R/info.R
 \name{review_session_info}
 \alias{review_session_info}
-\title{Check Session Periods in Each Year (Minguo Calendar.)}
+\title{Check Session Periods in Each Year (Minguo Calendar)}
 \usage{
 review_session_info(term)
 }
@@ -13,7 +13,7 @@ review_session_info(term)
 dataframe
 }
 \description{
-Check Session Periods in Each Year (Minguo Calendar.)
+Check Session Periods in Each Year (Minguo Calendar)
 }
 \details{
 \code{review_session_info} produces a dataframe, displaying each session

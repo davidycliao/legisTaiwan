@@ -17,6 +17,33 @@ home:
   - text: "DEMINOVA LAB"
     href: https://projects.au.dk/deminova-lab/about-deminova
 
+reference:
+- title: API Functions
+  desc: functions connect to Taiwan Legialtive Yuan API.
+- contents:
+  - get_parlquestions
+  - get_meetings
+  - get_caucus_meetings
+  - get_executive_response
+  - get_public_debates
+  - get_speech_video
+  - get_committee_record
+  - get_bills
+  - get_bills_2
+  - get_legislators
+  - get_variable_info
+  - review_session_info
+- title: Utility
+  desc: internal functions supports `legisTaiwan` function
+- contents:
+  - website_availability
+  - website_availability2
+  - check_internet
+  - api_check
+  - check_date
+  - check_date2
+  - transformed_date_meeting
+  - transformed_date_bill
 
 authors:
   David Yen-Chieh Liao:
@@ -26,6 +53,7 @@ authors:
   Taiwan Legislative Yuan 立法院:
     href: "https://data.ly.gov.tw/catelog.action"
     html: "<img src='https://raw.githack.com/davidycliao/legisTaiwan/v0.1.4/inst/figures/ly.jpeg' width=52>"
+
 
 template:
   package: tidytemplate
@@ -74,14 +102,17 @@ navbar:
   - icon: fa-newspaper-o
     text: News
     menu:
-    - text: "Version 0.1.4"
-      href: news/index.html#legistaiwan-version-014-development-version
-    - text: "Version 0.1.3"
-      href: news/index.html#legistaiwan-version-013-development-version
-    - text: "Version 0.1.1"
-      href: news/index.html#legistaiwan-version-011-development-version
+    - text: "0.1.4"
+      href: news/index.html#legistaiwan-014-development-version
+    - text: "0.1.3"
+      href: news/index.html#legistaiwan-013-development-version
+    - text: "0.1.1"
+      href: news/index.html#legistaiwan-011-development-version
 
   right:
   - icon: fa-github fa-lg
     text: GitHub
     href: https://github.com/davidycliao/legisTaiwan
+
+
+

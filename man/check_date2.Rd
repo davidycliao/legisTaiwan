@@ -2,24 +2,25 @@
 % Please edit documentation in R/utils.R
 \name{check_date2}
 \alias{check_date2}
-\title{Transforming the date in Taiwan ROC calendar to A.D. in POSIXct}
+\title{Transforming Minguo (Taiwan) Calendar to A.D. Calendar IIII}
 \usage{
 check_date2(roc_date)
 }
 \arguments{
-\item{roc_date}{Date format in Taiwan ROC calendar (e.g., "105/05/31") as a
+\item{roc_date}{Date format in Minguo (Taiwan) calendar (e.g., "105/05/31") as a
 string vector}
 }
 \value{
 date in POSIXct
 }
 \description{
-Transforming the date in Taiwan ROC calendar to A.D. in POSIXct
+\code{transformed_date_meeting()} transforms Minguo (Taiwan) Calendar
+to A.D. format in POSIXct for \code{get_bill()}, e.g. "1050531" to "2016-05-31".
 }
 \details{
 \code{check_date} transforms ROC date to a date in POSIXct, e.g. "105/05/31" to "2016-05-31".
 }
 \examples{
-x <- check_date2("105/05/31")
+check_date2("105/05/31")
 
 }

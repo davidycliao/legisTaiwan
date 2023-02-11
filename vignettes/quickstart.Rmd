@@ -39,12 +39,14 @@ library(legisTaiwan)
 
 ## Tutorials
 
-+ [取得歷屆委員資料為例 (李宜展 東海大學政治系)](https://davidycliao.github.io/legisTaiwan/articles/get_legislators.html)
++ [取得「歷屆委員學經歷、與委員會擔任成員之歷史資料」為例 (李宜展 東海大學政治系碩士生)](https://davidycliao.github.io/legisTaiwan/articles/get_legislators.html)
 
 
-+ [取以「立委質詢」為例 (李宜展 東海大學政治系)](https://davidycliao.github.io/legisTaiwan/articles/get_parlquestions.html)
++ [取得「立委質詢」為例 (李宜展 東海大學政治系碩士生)](https://davidycliao.github.io/legisTaiwan/articles/get_parlquestions.html)
 
-+ [取得以「法律提案」為例(李宜展 東海大學政治系)](https://davidycliao.github.io/legisTaiwan/articles/get_bills.html)
++ [取得以「法律提案」為例 (李宜展 東海大學政治系碩士生)](https://davidycliao.github.io/legisTaiwan/articles/get_bills.html)
+
++ [以「黨團協商」為例 (陳逸儒 清華大學資訊系統與應用研究所博士生)](https://davidycliao.github.io/legisTaiwan/articles/get_bills.html)
 
 
 <br> 

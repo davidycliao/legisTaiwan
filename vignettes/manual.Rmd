@@ -28,7 +28,7 @@ day.
 
 # Interpellation and Debates
 
-- [`get_parlquestions()`](https://davidycliao.github.io/legisTaiwan/reference/get_parlquestions.html): parliarmentary questions asked by the legislators 提供議事日程本院委員之質詢事項資訊 (自第8屆)
+- [`get_parlquestions()`](https://davidycliao.github.io/legisTaiwan/reference/get_parlquestions.html): parliamentary questions asked by the legislators 提供議事日程本院委員之質詢事項資訊 (自第8屆)
 
 - [`get_meetings()`](https://davidycliao.github.io/legisTaiwan/reference/get_bills.html): spoken meeting records 委員發言
 
