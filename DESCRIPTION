@@ -20,10 +20,10 @@ Imports:
 	jsonlite,
 	attempt,
 	stringr,
-	stringi,
   curl,
   tibble,
-  rvest
+  rvest,
+  lifecycle
 Suggests: 
   knitr,
   rmarkdown,

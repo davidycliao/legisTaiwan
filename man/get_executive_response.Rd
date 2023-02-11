@@ -50,8 +50,10 @@ The Records of the Questions Answered by the Executives 公報質詢事項行政
 \code{query_time}, \code{retrieved_number}, \code{retrieved_term}, \code{url}, \code{variable_names},
 \code{manual_info} and \code{data}. To retrieve the user manual and more information, please
 use \code{legisTaiwan::get_variable_info("get_executive_response")}.
-}
-\note{
+
+#'@note To retrieve the user manual and more information about variable of the data
+frame, please use \code{legisTaiwan::get_variable_info("get_executive_response")}
+or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=2}.
 質詢類: 提供公報質詢事項行政院答復資訊 (自第8屆第1會期起)。
 }
 \examples{
@@ -61,5 +63,5 @@ get_executive_response(term = 8, session_period = 1)
 
 }
 \seealso{
-\url{https://data.ly.gov.tw/getds.action?id=2}
+\code{get_variable_info("get_executive_response")}, \code{review_session_info()}
 }

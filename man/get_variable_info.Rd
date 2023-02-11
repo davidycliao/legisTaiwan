@@ -2,7 +2,7 @@
 % Please edit documentation in R/info.R
 \name{get_variable_info}
 \alias{get_variable_info}
-\title{Check each function's manual}
+\title{Check Each Function's Manual}
 \usage{
 get_variable_info(param_)
 }
@@ -24,8 +24,15 @@ list \describe{
 \item{\code{reference_url}}{the url of the page}}
 }
 \description{
-Check each function's manual
+\code{get_variable_info} generate each API's endpoint manual returned
+from the website of Taiwan Legislative Yuan. The avalaible options is: \code{get_bills},
+\code{get_bills_2}, \code{get_meetings}, \code{get_caucus_meetings}, \code{get_speech_video} ,
+\code{get_public_debates}, \code{get_parlquestions}, \code{get_executive_response} and
+\code{get_committee_record}.
 }
 \details{
 \code{get_variable_info} produces a list, which contains \code{page_info} and \code{reference_url}.
+}
+\seealso{
+\code{review_session_info()}
 }

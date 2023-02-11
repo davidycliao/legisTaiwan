@@ -13,7 +13,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-
 # Real-time and Archives of Taiwan Legislative Data in R <img src="man/figures/logo.png" align="right" width="180"/>
 
 <!-- badges: start -->
@@ -32,7 +31,7 @@ knitr::opts_chunk$set(
 
 <br> 
 
------
+---
 
 ## Get Started with Using [`remotes`](https://github.com/r-lib/remotes):
 

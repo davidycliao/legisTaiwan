@@ -7,10 +7,10 @@
 get_caucus_meetings(start_date = NULL, end_date = NULL, verbose = TRUE)
 }
 \arguments{
-\item{start_date}{character Must be formatted in ROC Taiwan calendar with three
+\item{start_date}{character Must be formatted in Minguo (ROC) calendar with three
 forward slashes between year, month and day, e.g. "106/10/20".}
 
-\item{end_date}{character Must be formatted in ROC Taiwan calendar with three
+\item{end_date}{character Must be formatted in Minguo (ROC) calendar with three
 forward slashes between year, month and day, e.g. "109/01/10".}
 
 \item{verbose}{logical, indicates whether \code{get_caucus_meetings} should print out
@@ -53,10 +53,13 @@ The Meeting Records of Cross-caucus Session 黨團協商資訊
 \details{
 \code{get_caucus_meetings} produces a list, which contains \code{title}, \code{query_time},
 \code{retrieved_number}, \code{meeting_unit}, \code{start_date_ad}, \code{end_date_ad}, \code{start_date},
-\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data.}To retrieve the user manual and more information
-about the data frame, please use \code{legisTaiwan::get_variable_info("get_caucus_meetings")}.
+\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data.}
+\\ifelse{html}{\\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\\strong{[Experimental]}}
 }
 \note{
+To retrieve the user manual and more information about variable of the data
+frame, please use \code{legisTaiwan::get_variable_info("get_caucus_meetings")}
+or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=8}.
 議事類:提供公報之黨團協商資訊 (自第8屆第1會期起)
 }
 \examples{
@@ -68,5 +71,7 @@ get_caucus_meetings(start_date = "106/10/20", end_date = "107/03/10")
 
 }
 \seealso{
-\url{https://data.ly.gov.tw/getds.action?id=8}
+\code{get_variable_info("get_caucus_meetings")}
+
+Regarding Minguo calendar, please see \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}.
 }

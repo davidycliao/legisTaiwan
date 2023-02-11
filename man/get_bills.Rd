@@ -7,9 +7,9 @@
 get_bills(start_date = NULL, end_date = NULL, proposer = NULL, verbose = TRUE)
 }
 \arguments{
-\item{start_date}{numeric Must be formatted in ROC Taiwan calendar, e.g. 1090101.}
+\item{start_date}{numeric Must be formatted in Minguo (Taiwan) calendar, e.g. 1090101.}
 
-\item{end_date}{numeric Must be formatted in ROC Taiwan calendar, e.g. 1090102.}
+\item{end_date}{numeric Must be formatted in Minguo (Taiwan) calendar, e.g. 1090102.}
 
 \item{proposer}{The default value is NULL, which means all bill proposed by all legislators
 are included between the starting date and the ending date.}
@@ -18,7 +18,7 @@ are included between the starting date and the ending date.}
 detailed output when retrieving the data. The default value is TRUE.}
 }
 \value{
-list, which contains: s\describe{
+list, which contains: \describe{
 \item{\code{title}}{the meeting records of cross-caucus session}
 \item{\code{query_time}}{the query time}
 \item{\code{retrieved_number}}{the number of observation}
@@ -52,10 +52,10 @@ The Records of the Bills 法律提案
 \code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data}.
 }
 \note{
-法律提案 API To retrieve the user
-manual and more information about the data frame, please use \code{legisTaiwan::get_variable_info("get_bills")}.
-Further Check Required: the user manuals seems to be inconsistent with actual data.
-資料似乎不一致，取得最早時間不詳，待檢查。
+To retrieve the user manual and more information about variable of the data
+frame, please use \code{legisTaiwan::get_variable_info("get_bills")}
+or visit the API manual at \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}.
+資料似乎不一致，待確認。委員發言（取得最早時間不詳，待檢查。）
 }
 \examples{
 ## query bill records by a period of the dates in Taiwan ROC calender format
@@ -74,5 +74,7 @@ get_bills(start_date = 1060120, end_date = 1060510,  proposer = "孔文吉&鄭�
 
 }
 \seealso{
-\url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}
+\code{get_variable_info("get_bills_2")},\code{review_session_info()}
+
+Regarding Minguo calendar, please see \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}.
 }

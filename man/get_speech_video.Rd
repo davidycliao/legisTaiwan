@@ -7,10 +7,10 @@
 get_speech_video(start_date = NULL, end_date = NULL, verbose = TRUE)
 }
 \arguments{
-\item{start_date}{character Must be formatted in ROC Taiwan calendar with three
+\item{start_date}{character Must be formatted in Minguo (ROC) calendar with three
 forward slashes between year, month and day, e.g. "106/10/20".}
 
-\item{end_date}{character Must be formatted in ROC Taiwan calendar with three
+\item{end_date}{character Must be formatted in Minguo (ROC) calendar  with three
 forward slashes between year, month and day, e.g. "109/01/10".}
 
 \item{verbose}{logical, indicates whether get_meetings should print out
@@ -58,6 +58,9 @@ The Video Information of Meetings and Committees 院會及委員會之委員發�
 manual and more information about the data frame, please use \code{legisTaiwan::get_variable_info("get_speech_video")}.
 }
 \note{
+To retrieve the user manual and more information about variable of the data
+frame, please use \code{legisTaiwan::get_variable_info("get_speech_video")}
+or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=148}.
 會議類:提供立法院院會及委員會之委員發言片段相關影片資訊 (自第9屆第1會期起)。
 }
 \examples{
@@ -69,5 +72,5 @@ get_speech_video(start_date = "105/10/20", end_date = "109/03/10")
 
 }
 \seealso{
-委員發言片段相關影片資訊 \url{https://data.ly.gov.tw/getds.action?id=148}
+\code{get_variable_info("get_speech_video")}
 }

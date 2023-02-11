@@ -7,11 +7,11 @@
 get_bills_2(term = 8, session_period = NULL, verbose = TRUE)
 }
 \arguments{
-\item{term}{numeric or null. The data is only available from 8th term. The default is set to 8.
-參數必須為數值。資料從自第8屆起，預設值為8。}
+\item{term}{numeric or null. The data is only available from 8th term.
+The default is set to 8. 參數必須為數值。資料從自第8屆起，預設值為8。}
 
 \item{session_period}{numeric or NULL. Available options for the session periods
-is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to NULL. 參數必須為數值。}
+is: 1, 2, 3, 4, 5, 6, 7, and 8 since term 8th. The default is set to NULL.}
 
 \item{verbose}{The default value is TRUE, displaying the description of data
 retrieved in number, url and computing time.}
@@ -56,6 +56,9 @@ The Records of Legislation and the Executives Proposals 委員及政府議案提
 manual and more information about the data frame, please use \code{legisTaiwan::get_variable_info("get_bills_2")}.
 }
 \note{
+To retrieve the user manual and more information about variable of the data
+frame, please use \code{legisTaiwan::get_variable_info("get_bills_2")}
+or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=20}.
 議事類: 提供委員及政府之議案提案資訊 (自第8屆第1會期起)。
 }
 \examples{
@@ -65,5 +68,5 @@ get_bills_2(term = 8, session_period = 1)
 
 }
 \seealso{
-\url{https://data.ly.gov.tw/getds.action?id=20}
+\code{get_variable_info("get_bills_2")},\code{review_session_info()}
 }

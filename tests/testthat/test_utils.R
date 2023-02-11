@@ -20,3 +20,12 @@ test_that("transformed_date_bill", {
   expect_equal(transformed_date_bill("1050521"), as.Date("2016-05-21"))
   expect_equal(transformed_date_bill("1020531"), as.Date("2013-05-31"))
 })
+
+test_that("website_availability2", {
+  expect_equal(website_availability2(), TRUE)
+})
+
+test_that("website_availability2", {
+  expect_equal(check_date2("105/05/31"), as.Date("2016-05-31"))
+})
+

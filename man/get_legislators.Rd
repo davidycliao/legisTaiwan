@@ -43,10 +43,11 @@ The Legislator' Demographic Information and Background 提供委員基本資料
 \details{
 \code{get_legislators} produces a list, which contains  \code{query_time},
 \code{queried_term}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data}.
-To retrieve the user manual and more information about the data frame, please use
-\code{legisTaiwan::get_variable_info("get_legislators")}.
 }
 \note{
+To retrieve the user manual and more information about variable of the data
+frame, please use \code{legisTaiwan::get_variable_info("get_legislators")}
+or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=16}.
 提供委員基本資料，最早資料可追溯至第2屆。
 }
 \examples{
@@ -56,5 +57,5 @@ get_executive_response(term = 8, session_period = 1)
 
 }
 \seealso{
-\url{https://data.ly.gov.tw/getds.action?id=16}
+\code{get_variable_info("get_legislators")}, \code{review_session_info()}
 }

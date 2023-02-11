@@ -46,17 +46,18 @@
 #' ## 輸入「空白」下載立委全部質詢資料
 #'get_parlquestions(term = 8, session_period = 2)
 #'
-#' @details get_parlquestions` produces a list, which contains `title`,
+#'@details get_parlquestions` produces a list, which contains `title`,
 #'`query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
-#' `manual_info` and `data`. To retrieve the user manual and more information
-#' about the data frame, please use `legisTaiwan::get_variable_info("get_parlquestions")`.
+#' `manual_info` and `data`.
 #'
-#'@note
-#'質詢類: 提供議事日程本院委員之質詢事項資訊(自第8屆第1會期起)。
+#'@note To retrieve the user manual and more information about variable of the data
+#' frame, please use `legisTaiwan::get_variable_info("get_parlquestions")`
+#' or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=6}.
+#' 質詢類: 提供議事日程本院委員之質詢事項資訊(自第8屆第1會期起)。
 #'
 #'@seealso
-#'\url{https://data.ly.gov.tw/getds.action?id=6}
-#'
+#'`get_variable_info("get_parlquestions")`
+
 get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
   if (is.null(term)) {
@@ -156,10 +157,15 @@ get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
 #' `manual_info` and `data`. To retrieve the user manual and more information, please
 #' use `legisTaiwan::get_variable_info("get_executive_response")`.
 #'
-#'@note
-#'質詢類: 提供公報質詢事項行政院答復資訊 (自第8屆第1會期起)。
+#'
+#'#'@note To retrieve the user manual and more information about variable of the data
+#' frame, please use `legisTaiwan::get_variable_info("get_executive_response")`
+#' or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=2}.
+#' 質詢類: 提供公報質詢事項行政院答復資訊 (自第8屆第1會期起)。
+#'
 #'@seealso
-#'\url{https://data.ly.gov.tw/getds.action?id=2}
+#'`get_variable_info("get_executive_response")`, `review_session_info()`
+
 
 get_executive_response <- function(term = NULL, session_period = NULL, verbose = TRUE) {
   legisTaiwan::check_internet()
