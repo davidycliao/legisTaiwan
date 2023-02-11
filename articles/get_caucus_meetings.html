@@ -138,25 +138,8 @@
 
     
     
-<p>開始使用</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; The downloaded binary packages are in</span></span>
-<span><span class="co">#&gt;  /var/folders/5n/clfp8vwj01bcy2hpncvffm0r0000gn/T//RtmpCzOqwq/downloaded_packages</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"davidycliao/legisTaiwan"</span>, force <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Downloading GitHub repo davidycliao/legisTaiwan@HEAD</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="color: #00BBBB;">R CMD build</span> <span style="color: #00BBBB;">───────────────────────────────────────────────────────────</span></span></span>
-<span><span class="co">#&gt; * checking for file ‘/private/var/folders/5n/clfp8vwj01bcy2hpncvffm0r0000gn/T/RtmpCzOqwq/remotes2bdd3efb2e2d/davidycliao-legisTaiwan-54e41ab/DESCRIPTION’ ... OK</span></span>
-<span><span class="co">#&gt; * preparing ‘legisTaiwan’:</span></span>
-<span><span class="co">#&gt; * checking DESCRIPTION meta-information ... OK</span></span>
-<span><span class="co">#&gt; * checking for LF line-endings in source and make files and shell scripts</span></span>
-<span><span class="co">#&gt; * checking for empty or unneeded directories</span></span>
-<span><span class="co">#&gt; Omitted ‘LazyData’ from DESCRIPTION</span></span>
-<span><span class="co">#&gt; * building ‘legisTaiwan_0.1.4.tar.gz’</span></span></code></pre></div>
 <p>讀取 legisTaiwan 與 stringr,tidyverse 套件</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://davidycliao.github.io/legisTaiwan/">legisTaiwan</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; ## legisTaiwan                                            ###</span></span>
 <span><span class="co">#&gt; ## An R package connecting to the Taiwan Legislative API. ###</span></span>
@@ -164,38 +147,19 @@
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; ── <span style="font-weight: bold;">Attaching packages</span> ───────────────────────────────── tidyverse</span></span>
 <span><span class="co">#&gt; 1.3.2 ──</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">ggplot2</span> 3.4.0     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">purrr  </span> 1.0.1</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">ggplot2</span> 3.4.1     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">purrr  </span> 1.0.1</span></span>
 <span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tibble </span> 3.1.8     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">dplyr  </span> 1.1.0</span></span>
 <span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tidyr  </span> 1.3.0     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">forcats</span> 1.0.0</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">readr  </span> 2.1.3     </span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">readr  </span> 2.1.4     </span></span>
 <span><span class="co">#&gt; ── <span style="font-weight: bold;">Conflicts</span> ──────────────────────────────────── tidyverse_conflicts() ──</span></span>
 <span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">filter()</span> masks <span style="color: #0000BB;">stats</span>::filter()</span></span>
 <span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">lag()</span>    masks <span style="color: #0000BB;">stats</span>::lag()</span></span></code></pre></div>
 <p>以get_caucus_meetings()「黨團協商」為例</p>
 <p>格式：get_caucus_meetings(start_date = NULL, end_date = NULL, verbose
 = TRUE)</p>
-<p>首先，須先知道該會期之期間(請參見：<a href="https://npl.ly.gov.tw/do/www/appDate?blockId=2&amp;titleName=%E5%B1%86%E6%9C%83%E6%9C%9F%E5%B0%8D%E7%85%A7%E8%A1%A8" class="external-link uri">https://npl.ly.gov.tw/do/www/appDate?blockId=2&amp;titleName=%E5%B1%86%E6%9C%83%E6%9C%9F%E5%B0%8D%E7%85%A7%E8%A1%A8</a>)
-或者用</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">page_info</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_variable_info.html">get_variable_info</a></span><span class="op">(</span><span class="st">"get_caucus_meetings"</span><span class="op">)</span><span class="op">$</span><span class="va">page_info</span></span>
-<span><span class="va">page_info</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 12 × 2</span></span></span>
-<span><span class="co">#&gt;    `資料集名稱：黨團協商` 資料集描述                                      </span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                           </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 資料目錄               <span style="color: #949494;">"</span>議事類<span style="color: #949494;">"</span>                                        </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 資料集說明             <span style="color: #949494;">"</span>提供公報之黨團協商資訊。(自第8屆第1會期起)<span style="color: #949494;">"</span>    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 資料提供者             <span style="color: #949494;">"</span>議事暨公報資訊網<span style="color: #949494;">"</span>                              </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 欄位說明               <span style="color: #949494;">"</span>comYear：卷,comVolume：期,comBookId：冊別,term…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 資料集預覽             <span style="color: #949494;">"</span>HTML預覽&lt;aclass=\"btn_yellow\"href='/openDatas…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 資料集使用             <span style="color: #949494;">"</span>使用方式及列表<span style="color: #949494;">"</span>                                </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> API說明                <span style="color: #949494;">"</span>API提供參數分別為卷(comYear)、期(comVolume)、… </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 連結說明               <span style="color: #949494;">"</span>https://data.ly.gov.tw/odw/ID8Action.action?co…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 更新頻率               <span style="color: #949494;">"</span>每日01時30分<span style="color: #949494;">"</span>                                  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 資料筆數               <span style="color: #949494;">"</span>838<span style="color: #949494;">"</span>                                           </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span> 建立時間               <span style="color: #949494;">"</span>2014-08-18MonAug1806:00:00CST2014<span style="color: #949494;">"</span>             </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span> 更新時間               <span style="color: #949494;">"</span>2023-02-11SatFeb1101:32:43CST2023<span style="color: #949494;">"</span></span></span></code></pre></div>
+<p>首先，須先知道該會期之期間(請參見：<a href="https://npl.ly.gov.tw/do/www/appDate?blockId=2&amp;titleName=%E5%B1%86%E6%9C%83%E6%9C%9F%E5%B0%8D%E7%85%A7%E8%A1%A8" class="external-link uri">https://npl.ly.gov.tw/do/www/appDate?blockId=2&amp;titleName=%E5%B1%86%E6%9C%83%E6%9C%9F%E5%B0%8D%E7%85%A7%E8%A1%A8</a>)</p>
 <p>設定好指定時間區間後即可看到變數名稱</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#第10屆第6會期</span></span>
 <span><span class="fu"><a href="../reference/get_caucus_meetings.html">get_caucus_meetings</a></span><span class="op">(</span>start_date <span class="op">=</span> <span class="st">"111/09/23"</span>, end_date <span class="op">=</span> <span class="st">"112/01/19"</span><span class="op">)</span></span>
 <span><span class="co">#&gt;  Retrieved URL: </span></span>
@@ -206,7 +170,7 @@
 <span><span class="co">#&gt; [1] "the meeting records of cross-caucus session"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $query_time</span></span>
-<span><span class="co">#&gt; [1] "2023-02-11 09:41:36 CET"</span></span>
+<span><span class="co">#&gt; [1] "2023-02-11 11:30:50 UTC"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $retrieved_number</span></span>
 <span><span class="co">#&gt; [1] 68</span></span>
@@ -254,7 +218,7 @@
 <span><span class="co">#&gt; <span style="color: #949494;">#   abbreviated variable names ¹​comBookId, ²​sessionPeriod, ³​sessionTimes,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   ⁴​meetingTimes, ⁵​meetingDate, ⁶​meetingName</span></span></span></code></pre></div>
 <p>可建立指定區間的資料變數(info)（第10屆第6會期）</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">info10_6</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_caucus_meetings.html">get_caucus_meetings</a></span><span class="op">(</span>start_date <span class="op">=</span> <span class="st">"111/09/23"</span>, end_date <span class="op">=</span> <span class="st">"112/01/19"</span><span class="op">)</span></span>
 <span><span class="co">#&gt;  Retrieved URL: </span></span>
 <span><span class="co">#&gt;  https://data.ly.gov.tw/odw/ID8Action.action?comYear=&amp;comVolume=&amp;comBookId=&amp;term=&amp;sessionPeriod=&amp;sessionTimes=&amp;meetingTimes=&amp;meetingDateS=111/09/23&amp;meetingDateE=112/01/19&amp;fileType=json </span></span>
@@ -264,7 +228,7 @@
 <p>請注意：</p>
 <p>API提供參數「只有」：卷(comYear)、期(comVolume)、冊別(comBookId)、屆別(term)、會期(sessionPeriod)、會次(sessionTimes)、臨時會會次(meetingTimes)、會議起始日期(民國年)(meetingDateS)、會議結束日期(民國年)(meetingDateE)、檔案類型(fileType)，檔案類型可為json、xml、csv、txt、xls。</p>
 <p>雖然API沒有提供，但是接著還是可以開始搜尋議案內容（subject）</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">meetings10_6</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">subject</span><span class="op">)</span> </span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 38 × 2</span></span></span>
@@ -283,10 +247,10 @@
 <span><span class="co">#&gt; <span style="color: #949494;"># … with 28 more rows</span></span></span></code></pre></div>
 <p>創建一個新的條目，
 找出第十屆第六會期中包含「原住民」字眼之黨團協商議案</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Q10_aborigines</span> <span class="op">&lt;-</span> <span class="va">meetings10_6</span><span class="op">[</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html" class="external-link">str_detect</a></span><span class="op">(</span><span class="va">meetings10_6</span><span class="op">[[</span><span class="st">"subject"</span><span class="op">]</span><span class="op">]</span>, <span class="st">"原住民"</span>, negate <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>,<span class="op">]</span></span></code></pre></div>
 <p>接著列出來</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Q10_aborigines</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">subject</span><span class="op">)</span> </span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 2</span></span></span>
@@ -307,7 +271,7 @@
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.9000.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
   </div></footer>
