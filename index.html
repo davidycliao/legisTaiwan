@@ -148,6 +148,13 @@
 <span><span class="co">#&gt; ## legisTaiwan                                            ###</span></span>
 <span><span class="co">#&gt; ## An R package connecting to the Taiwan Legislative API. ###</span></span></code></pre></div>
 </div>
+<div class="section level2">
+<h2 id="caution">Caution:<a class="anchor" aria-label="anchor" href="#caution"></a>
+</h2>
+<div style="text-align: justify">
+<p><code>legisTaiwan</code> requires stable internet connectivity for any data retrieval function from the API. Most functions can be directly used to retrieve a long period of data but are extremely bandwidth-intensive, given the download sizes of these data stores. When downloading a more extended period of data, I suggest using <strong>get_variable_info()</strong> to double-check the current size of files on the API manual and write a loop with appropriate handlers recording the progress of file input to make sure the requested data is complete.</p>
+</div>
+</div>
 </div>
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
