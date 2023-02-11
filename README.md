@@ -27,8 +27,6 @@ or runarounds.
 
 <br>
 
-------------------------------------------------------------------------
-
 ## Get Started with Using [`remotes`](https://github.com/r-lib/remotes):
 
 ``` r
