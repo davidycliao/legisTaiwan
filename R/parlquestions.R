@@ -1,5 +1,6 @@
 #'The Records of Parliamentary Questions Asked by the Legislators 委員質詢事項資訊
 #'
+#'@author David Liao (davidycliao@@gmail.com)
 #'
 #'@param term numeric or null. The data is only available from 8th term.
 #'The default is set to 8. 參數必須為數值。資料從自第8屆起，預設值為8。
@@ -107,6 +108,8 @@ get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
 
 
 #'The Records of the Questions Answered by the Executives 公報質詢事項行政院答復資訊
+#'
+#'@author David Liao (davidycliao@@gmail.com)
 #'
 #'@param term integer, numeric or null. The default is NULL. The data is only
 #'available from 8th term. 參數必須為數值。資料從自第8屆起，預設值為8。
