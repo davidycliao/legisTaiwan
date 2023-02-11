@@ -36,3 +36,6 @@ from the website of Taiwan Legislative Yuan. The avalaible options is: \code{get
 \seealso{
 \code{review_session_info()}
 }
+\author{
+David Liao (davidycliao@gmail.com)
+}

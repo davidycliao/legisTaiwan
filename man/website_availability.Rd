@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{website_availability}
 \alias{website_availability}
-\title{A check for the website availability and the connection.}
+\title{A Check for the Website Availability I}
 \usage{
 website_availability(site = "https://data.ly.gov.tw/index.action")
 }
@@ -10,7 +10,7 @@ website_availability(site = "https://data.ly.gov.tw/index.action")
 \item{site}{https://data.ly.gov.tw/index.action}
 }
 \description{
-A check for the website availability and the connection.
+A Check for the Website Availability I
 }
 \seealso{
 \code{check_internet()},

@@ -1,5 +1,7 @@
 #'The Records of the Bills 法律提案
 #'
+#'@author David Liao (davidycliao@@gmail.com)
+#'
 #'@param start_date numeric Must be formatted in Minguo (Taiwan) calendar, e.g. 1090101.
 #'
 #'@param end_date numeric Must be formatted in Minguo (Taiwan) calendar, e.g. 1090102.
@@ -111,6 +113,8 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 
 
 #'The Records of Legislation and the Executives Proposals 委員及政府議案提案資訊
+#'
+#'@author David Liao (davidycliao@@gmail.com)
 #'
 #'@param term numeric or null. The data is only available from 8th term.
 #'The default is set to 8. 參數必須為數值。資料從自第8屆起，預設值為8。

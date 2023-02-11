@@ -27,8 +27,6 @@ or runarounds.
 
 <br>
 
-------------------------------------------------------------------------
-
 ## Get Started with Using [`remotes`](https://github.com/r-lib/remotes):
 
 ``` r
@@ -41,3 +39,18 @@ library(legisTaiwan)
 #> ## legisTaiwan                                            ###
 #> ## An R package connecting to the Taiwan Legislative API. ###
 ```
+
+## Caution:
+
+<div style="text-align: justify">
+
+`legisTaiwan` requires stable internet connectivity for any data
+retrieval function from the API. Most functions can be directly used to
+retrieve a long period of data but are extremely bandwidth-intensive,
+given the download sizes of these data stores. When downloading a more
+extended period of data, I suggest using **get_variable_info()** to
+double-check the current size of files on the API manual and write a
+loop with appropriate handlers recording the progress of file input to
+make sure the requested data is complete.
+
+</div>

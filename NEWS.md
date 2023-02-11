@@ -1,4 +1,4 @@
-# `legisTaiwan` Version 0.1.4 (development version)
+# `legisTaiwan` 0.1.4 (development version)
 
 * re-documentation and inserting handlers.
 
@@ -16,7 +16,7 @@
 
 ------
 
-# `legisTaiwan` Version 0.1.3 (development version)
+# `legisTaiwan` 0.1.3 (development version)
 
 * Fix typo in function name: `get_variabel_infos()` to `get_variable_info()`.
 
@@ -30,7 +30,7 @@
 
 ------
 
-# `legisTaiwan` Version 0.1.1 (development version)
+# `legisTaiwan` 0.1.1 (development version)
 
 * `get_executive_response()`, `get_bills_2()`, `get_debates()` and `get_speech_video()` are added.
 

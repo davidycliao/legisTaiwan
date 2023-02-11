@@ -15,16 +15,16 @@ knitr::opts_chunk$set(
 )
 ```
 
+```{r include=FALSE}
+assign("has_internet_via_proxy", TRUE, environment(curl::has_internet))
+```
+
 
 ## 以[`get_legislators()`](https://davidycliao.github.io/legisTaiwan/reference/get_legislators.html) 抓取「歷屆委員資料」為例
 
 ```{r}
 library(legisTaiwan)
 library(tidyverse)
-```
-
-```{r include=FALSE}
-assign("has_internet_via_proxy", TRUE, environment(curl::has_internet))
 ```
 
 ```{r}

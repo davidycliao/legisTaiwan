@@ -15,6 +15,10 @@ knitr::opts_chunk$set(
 )
 ```
 
+```{r include=FALSE}
+assign("has_internet_via_proxy", TRUE, environment(curl::has_internet))
+```
+
 
 ## 法律提案（the Records of the Bills）為例
 

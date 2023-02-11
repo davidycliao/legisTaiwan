@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{transformed_date_bill}
 \alias{transformed_date_bill}
-\title{Transforming the date in Taiwan ROC calendar to A.D. in POSIXct  for \code{get_bill()}.}
+\title{Transforming Minguo (Taiwan) Calendar to A.D. Calendar II}
 \usage{
 transformed_date_bill(roc_date)
 }
@@ -13,8 +13,6 @@ transformed_date_bill(roc_date)
 date in POSIXct
 }
 \description{
-Transforming the date in Taiwan ROC calendar to A.D. in POSIXct  for \code{get_bill()}.
-}
-\details{
-\code{check_date} transforms ROC date to a date in POSIXct, e.g. "1050531" to "2016-05-31".
+\code{transformed_date_meeting()} transforms Minguo (Taiwan) Calendar
+to A.D. format in POSIXct for \code{get_bill()}, e.g. "1050531" to "2016-05-31".
 }

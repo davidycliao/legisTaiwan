@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{check_internet}
 \alias{check_internet}
-\title{A check for internet connectivity.}
+\title{A Check for Internet Connectivity.}
 \usage{
 check_internet(x = curl::has_internet())
 }
@@ -11,5 +11,5 @@ check_internet(x = curl::has_internet())
 internet connectivity check.}
 }
 \description{
-A check for internet connectivity.
+A Check for Internet Connectivity.
 }

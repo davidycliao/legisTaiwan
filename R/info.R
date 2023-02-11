@@ -1,5 +1,7 @@
 #' Check Each Function's Manual
 #'
+#'@author David Liao (davidycliao@@gmail.com)
+#'
 #'@description `get_variable_info` generate each API's endpoint manual returned
 #'from the website of Taiwan Legislative Yuan. The avalaible options is: `get_bills`,
 #'`get_bills_2`, `get_meetings`, `get_caucus_meetings`, `get_speech_video` ,
@@ -98,8 +100,9 @@ get_variable_info <- function(param_) {
 }
 
 
-#' Check Session Periods in Each Year (Minguo Calendar.)
+#' Check Session Periods in Each Year (Minguo Calendar)
 #'
+#'@author David Liao (davidycliao@@gmail.com)
 #'
 #'@details `review_session_info` produces a dataframe, displaying each session
 #'period in year formatted in Minguo (Taiwan) calendar.
@@ -118,7 +121,7 @@ get_variable_info <- function(param_) {
 #'Regarding Minguo calendar, please see \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}.
 
 review_session_info <- function(term){
-  attempt::stop_if_all(website_availability2(), isFALSE, msg = "the error from the API.")
+  attempt::stop_if_all(legisTaiwan::website_availability2(), isFALSE, msg = "the error from the API.")
   attempt::stop_if_all(term, is.null, msg = "use correct `term`")
   attempt::stop_if_all(term %in% 1:11, isFALSE, msg = "use correct `term`")
   url <- paste("https://npl.ly.gov.tw/do/www/appDate?status=0&expire=",
@@ -132,7 +135,7 @@ review_session_info <- function(term){
                      function(.){gsub("[[:space:]]", "", .)})
   df <- do.call(rbind, s)
   colnames(df) <- title
-  df <- as_tibble(df)
+  df <- tibble::as_tibble(df)
   return(df)
   }
 

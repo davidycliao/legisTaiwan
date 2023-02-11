@@ -1,5 +1,6 @@
 #' The Spoken Meeting Records 委員發言
 #'
+#'@author David Liao (davidycliao@@gmail.com)
 #'
 #'@param start_date numeric Must be formatted in Minguo (Taiwan) calendar, e.g. 1090101.
 #'
@@ -105,6 +106,7 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
 
 #' The Meeting Records of Cross-caucus Session 黨團協商資訊
 #'
+#'@author David Liao (davidycliao@@gmail.com)
 #'
 #'@param start_date character Must be formatted in Minguo (ROC) calendar with three
 #'forward slashes between year, month and day, e.g. "106/10/20".

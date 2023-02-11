@@ -1,5 +1,7 @@
 #' The Legislator' Demographic Information and Background 提供委員基本資料
 #'
+#'@author David Liao (davidycliao@@gmail.com)
+#'
 #'@param term numeric or null. The data is available from the 2nd term.
 #'
 #'@param verbose logical, indicates whether get_meetings should print out

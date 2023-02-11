@@ -70,3 +70,6 @@ get_bills_2(term = 8, session_period = 1)
 \seealso{
 \code{get_variable_info("get_bills_2")},\code{review_session_info()}
 }
+\author{
+David Liao (davidycliao@gmail.com)
+}

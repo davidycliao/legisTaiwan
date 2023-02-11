@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{api_check}
 \alias{api_check}
-\title{A general check for the API and \code{legisTaiwan}.}
+\title{A General Check for Taiwan Legislative Yuan API}
 \usage{
 api_check(start_date = start_date, end_date = end_date)
 }
@@ -12,5 +12,5 @@ api_check(start_date = start_date, end_date = end_date)
 \item{end_date}{end_date is inherited from global env.}
 }
 \description{
-A general check for the API and \code{legisTaiwan}.
+A General Check for Taiwan Legislative Yuan API
 }
