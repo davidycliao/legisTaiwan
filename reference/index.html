@@ -71,9 +71,9 @@
     News
   </a>
   <div class="dropdown-menu" aria-labelledby="dropdown--news">
-    <a class="dropdown-item" href="../news/index.html#legistaiwan-version-014-development-version">Version 0.1.4</a>
-    <a class="dropdown-item" href="../news/index.html#legistaiwan-version-013-development-version">Version 0.1.3</a>
-    <a class="dropdown-item" href="../news/index.html#legistaiwan-version-011-development-version">Version 0.1.1</a>
+    <a class="dropdown-item" href="../news/index.html#legistaiwan-014-development-version">0.1.4</a>
+    <a class="dropdown-item" href="../news/index.html#legistaiwan-013-development-version">0.1.3</a>
+    <a class="dropdown-item" href="../news/index.html#legistaiwan-011-development-version">0.1.1</a>
   </div>
 </li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
@@ -97,9 +97,9 @@
     </div>
 
     <div class="section level2">
-      <h2 id="all-functions">All functions<a class="anchor" aria-label="anchor" href="#all-functions"></a></h2>
+      <h2 id="api-functions">API Functions<a class="anchor" aria-label="anchor" href="#api-functions"></a></h2>
       
-      
+      <p class="section-desc"></p><p>functions connect to Taiwan Legialtive Yuan API.</p>
 
       
     </div><div id="" class="section level2">
@@ -108,6 +108,92 @@
       
 
       <dl><dt>
+          
+          <code><a href="get_parlquestions.html">get_parlquestions()</a></code> 
+        </dt>
+        <dd>The Records of Parliamentary Questions Asked by the Legislators 委員質詢事項資訊</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_meetings.html">get_meetings()</a></code> 
+        </dt>
+        <dd>The Spoken Meeting Records 委員發言</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_caucus_meetings.html">get_caucus_meetings()</a></code> 
+        </dt>
+        <dd>The Meeting Records of Cross-caucus Session 黨團協商資訊</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_executive_response.html">get_executive_response()</a></code> 
+        </dt>
+        <dd>The Records of the Questions Answered by the Executives 公報質詢事項行政院答復資訊</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_public_debates.html">get_public_debates()</a></code> 
+        </dt>
+        <dd>The Records of National Public Debates 國是論壇</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_speech_video.html">get_speech_video()</a></code> 
+        </dt>
+        <dd>The Video Information of Meetings and Committees 院會及委員會之委員發言片段相關影片資訊</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_committee_record.html">get_committee_record()</a></code> 
+        </dt>
+        <dd>The Records of Reviewed Items in the Committees 委員會會議審查之議案項目</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_bills.html">get_bills()</a></code> 
+        </dt>
+        <dd>The Records of the Bills 法律提案</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_bills_2.html">get_bills_2()</a></code> 
+        </dt>
+        <dd>The Records of Legislation and the Executives Proposals 委員及政府議案提案資訊</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_legislators.html">get_legislators()</a></code> 
+        </dt>
+        <dd>The Legislator' Demographic Information and Background 提供委員基本資料</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_variable_info.html">get_variable_info()</a></code> 
+        </dt>
+        <dd>Check Each Function's Manual</dd>
+      </dl><dl><dt>
+          
+          <code><a href="review_session_info.html">review_session_info()</a></code> 
+        </dt>
+        <dd>Check Session Periods in Each Year (Minguo Calendar.)</dd>
+      </dl></div><div class="section level2">
+      <h2 id="utility">Utility<a class="anchor" aria-label="anchor" href="#utility"></a></h2>
+      
+      <p class="section-desc"></p><p>internal functions supports <code>legisTaiwan</code> function</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="website_availability.html">website_availability()</a></code> 
+        </dt>
+        <dd>A check for the website availability and the connection.</dd>
+      </dl><dl><dt>
+          
+          <code><a href="website_availability2.html">website_availability2()</a></code> 
+        </dt>
+        <dd>A check for the website availability and the connection.</dd>
+      </dl><dl><dt>
+          
+          <code><a href="check_internet.html">check_internet()</a></code> 
+        </dt>
+        <dd>A check for internet connectivity.</dd>
+      </dl><dl><dt>
           
           <code><a href="api_check.html">api_check()</a></code> 
         </dt>
@@ -124,91 +210,17 @@
         <dd>Transforming the date in Taiwan ROC calendar to A.D. in POSIXct</dd>
       </dl><dl><dt>
           
-          <code><a href="check_internet.html">check_internet()</a></code> 
-        </dt>
-        <dd>A check for internet connectivity.</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_bills.html">get_bills()</a></code> 
-        </dt>
-        <dd>The Records of the Bills 法律提案</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_bills_2.html">get_bills_2()</a></code> 
-        </dt>
-        <dd>The Records of Legislation and the Executives Proposals 委員及政府議案提案資訊</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_caucus_meetings.html">get_caucus_meetings()</a></code> 
-        </dt>
-        <dd>The Meeting Records of Cross-caucus Session 黨團協商資訊</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_committee_record.html">get_committee_record()</a></code> 
-        </dt>
-        <dd>The Records of Reviewed Items in the Committees 委員會會議審查之議案項目</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_executive_response.html">get_executive_response()</a></code> 
-        </dt>
-        <dd>The Records of the Questions Answered by the Executives 公報質詢事項行政院答復資訊</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_legislators.html">get_legislators()</a></code> 
-        </dt>
-        <dd>The Legislator' Demographic Information and Background 提供委員基本資料</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_meetings.html">get_meetings()</a></code> 
-        </dt>
-        <dd>The Spoken Meeting Records 委員發言</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_parlquestions.html">get_parlquestions()</a></code> 
-        </dt>
-        <dd>The Records of Parliamentary Questions Asked by the Legislators 委員質詢事項資訊</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_public_debates.html">get_public_debates()</a></code> 
-        </dt>
-        <dd>The Records of National Public Debates 國是論壇</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_speech_video.html">get_speech_video()</a></code> 
-        </dt>
-        <dd>The Video Information of Meetings and Committees 院會及委員會之委員發言片段相關影片資訊</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_variable_info.html">get_variable_info()</a></code> 
-        </dt>
-        <dd>Check Each Function's Manual</dd>
-      </dl><dl><dt>
-          
-          <code><a href="review_session_info.html">review_session_info()</a></code> 
-        </dt>
-        <dd>Check Session Periods in Each Year (Minguo Calendar.)</dd>
-      </dl><dl><dt>
-          
-          <code><a href="transformed_date_bill.html">transformed_date_bill()</a></code> 
-        </dt>
-        <dd>Transforming the date in Taiwan ROC calendar to A.D. in POSIXct  for <code>get_bill()</code>.</dd>
-      </dl><dl><dt>
-          
           <code><a href="transformed_date_meeting.html">transformed_date_meeting()</a></code> 
         </dt>
         <dd>Transforming the date in Taiwan ROC calendar to A.D. in POSIXct</dd>
       </dl><dl><dt>
           
-          <code><a href="website_availability.html">website_availability()</a></code> 
+          <code><a href="transformed_date_bill.html">transformed_date_bill()</a></code> 
         </dt>
-        <dd>A check for the website availability and the connection.</dd>
-      </dl><dl><dt>
-          
-          <code><a href="website_availability2.html">website_availability2()</a></code> 
-        </dt>
-        <dd>A check for the website availability and the connection.</dd>
+        <dd>Transforming the date in Taiwan ROC calendar to A.D. in POSIXct  for <code>get_bill()</code>.</dd>
       </dl></div>
-  </main></div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside></div>
 
 
    </div>
