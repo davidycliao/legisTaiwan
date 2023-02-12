@@ -7,10 +7,10 @@
 get_legislators(term = NULL, verbose = TRUE)
 }
 \arguments{
-\item{term}{numeric or null. The data is available from the 2nd term.}
+\item{term}{numeric or NULL The data is available from the 2nd term.}
 
 \item{verbose}{logical, indicates whether get_meetings should print out
-detailed output when retrieving the data. The default is TRUE.}
+detailed output when retrieving the data. The default is set to TRUE.}
 }
 \value{
 list contains: \describe{

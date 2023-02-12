@@ -55,9 +55,9 @@
 #'`end_date`, `url`, `variable_names`, `manual_info` and `data`.
 #'
 #'@note To retrieve the user manual and more information about variable of the data
-#' frame, please use `legisTaiwan::get_variable_info("get_meetings")`
-#' or visit the API manual at \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}.
-#' 資料似乎不一致，待確認。委員發言（取得最早時間不詳，待檢查。）
+#'frame, please use `legisTaiwan::get_variable_info("get_meetings")` or visit
+#'the API manual at \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}.
+#'資料似乎不一致，待確認。委員發言（取得最早時間不詳，待檢查。）
 #'
 #'@seealso
 #'`get_variable_info("get_meetings")`
@@ -174,11 +174,12 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
 #'
 #'@seealso
 #' Regarding Minguo calendar, please see \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}.
-
+#
 get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
                                 verbose = TRUE) {
   legisTaiwan::check_internet()
-  legisTaiwan::api_check(start_date = legisTaiwan::transformed_date_meeting(start_date), end_date = legisTaiwan::transformed_date_meeting(end_date))
+  legisTaiwan::api_check(start_date = legisTaiwan::transformed_date_meeting(start_date),
+                         end_date = legisTaiwan::transformed_date_meeting(end_date))
   set_api_url <- paste("https://data.ly.gov.tw/odw/ID8Action.action?comYear=&comVolume=&comBookId=&term=&sessionPeriod=&sessionTimes=&meetingTimes=&meetingDateS=",
                        start_date, "&meetingDateE=", end_date, "&fileType=json", sep = "")
   tryCatch(
@@ -327,8 +328,10 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
 #'@param term numeric or NULL The default is set to 10. 參數必須為數值，資料從自
 #'第8屆第1會期起，但實測資料從第10屆，故預設為10。
 #'
-#'@param session_period integer or NULL. Available options for the session periods
-#'is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to NULL 參數必須為數值。
+#'@param session_period integer, numeric or NULL. Available
+#'options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to NULL. 參數必須為數值。
+#'`review_session_info()` generates each session period  available option period
+#' in Minguo (Taiwan) calendar.
 #'
 #'@param verbose logical, indicates whether `get_public_debates` should print out
 #'detailed output when retrieving the data. The default is TRUE
@@ -442,8 +445,9 @@ get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRU
 #'The default is set to 8. 參數必須為數值。資料從自第8屆起，預設值為8。
 #'
 #'@param session_period integer, numeric or NULL. Available
-#'options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL.
-#'參數必須為數值。
+#'options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to NULL. 參數必須為數值。
+#'`review_session_info()` generates each session period  available option period
+#' in Minguo (Taiwan) calendar.
 #'
 #'@param verbose logical, indicates whether `get_executive_response` should
 #'print out detailed output when retrieving the data. The default is TRUE

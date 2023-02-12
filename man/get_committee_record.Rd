@@ -11,8 +11,9 @@ get_committee_record(term = 8, session_period = NULL, verbose = TRUE)
 The default is set to 8. 參數必須為數值。資料從自第8屆起，預設值為8。}
 
 \item{session_period}{integer, numeric or NULL. Available
-options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL.
-參數必須為數值。}
+options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to NULL. 參數必須為數值。
+\code{review_session_info()} generates each session period  available option period
+in Minguo (Taiwan) calendar.}
 
 \item{verbose}{logical, indicates whether \code{get_executive_response} should
 print out detailed output when retrieving the data. The default is TRUE}

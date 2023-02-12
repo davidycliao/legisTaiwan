@@ -119,8 +119,11 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 #'@param term numeric or null. The data is only available from 8th term.
 #'The default is set to 8. 參數必須為數值。資料從自第8屆起，預設值為8。
 #'
-#'@param session_period numeric or NULL. Available options for the session periods
-#'is: 1, 2, 3, 4, 5, 6, 7, and 8 since term 8th. The default is set to NULL.
+#'@param session_period integer, numeric or NULL. Available
+#'options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to NULL.
+#'參數必須為數值。
+#'`review_session_info()` generates each session period  available option period
+#'in Minguo (Taiwan) calendar.
 #'
 #'@param verbose The default value is TRUE, displaying the description of data
 #'retrieved in number, url and computing time.

@@ -2,10 +2,10 @@
 #'
 #'@author David Liao (davidycliao@@gmail.com)
 #'
-#'@param term numeric or null. The data is available from the 2nd term.
+#'@param term numeric or NULL The data is available from the 2nd term.
 #'
 #'@param verbose logical, indicates whether get_meetings should print out
-#'detailed output when retrieving the data. The default is TRUE.
+#'detailed output when retrieving the data. The default is set to TRUE.
 #'
 #'@return list contains: \describe{
 #'      \item{`query_time`}{the queried time}
