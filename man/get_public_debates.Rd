@@ -10,8 +10,10 @@ get_public_debates(term = NULL, session_period = NULL, verbose = TRUE)
 \item{term}{numeric or NULL The default is set to 10. 參數必須為數值，資料從自
 第8屆第1會期起，但實測資料從第10屆，故預設為10。}
 
-\item{session_period}{integer or NULL. Available options for the session periods
-is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to NULL 參數必須為數值。}
+\item{session_period}{integer, numeric or NULL. Available
+options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to NULL. 參數必須為數值。
+\code{review_session_info()} generates each session period  available option period
+in Minguo (Taiwan) calendar.}
 
 \item{verbose}{logical, indicates whether \code{get_public_debates} should print out
 detailed output when retrieving the data. The default is TRUE}

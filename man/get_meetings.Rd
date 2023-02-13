@@ -56,8 +56,8 @@ The Spoken Meeting Records 委員發言
 }
 \note{
 To retrieve the user manual and more information about variable of the data
-frame, please use \code{legisTaiwan::get_variable_info("get_meetings")}
-or visit the API manual at \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}.
+frame, please use \code{legisTaiwan::get_variable_info("get_meetings")} or visit
+the API manual at \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}.
 資料似乎不一致，待確認。委員發言（取得最早時間不詳，待檢查。）
 }
 \examples{

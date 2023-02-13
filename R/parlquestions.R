@@ -1,12 +1,14 @@
-#'The Records of Parliamentary Questions Asked by the Legislators 委員質詢事項資訊
+#'The Records of Parliamentary Questions 委員質詢事項資訊
 #'
 #'@author David Liao (davidycliao@@gmail.com)
 #'
-#'@param term numeric or null. The data is only available from 8th term.
+#'@param term numeric or NULL. The data is only available from 8th term.
 #'The default is set to 8. 參數必須為數值。資料從自第8屆起，預設值為8。
 #'
-#'@param session_period numeric or NULL. Available options for the session
-#'is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to NULL. 參數必須為數值。
+#'@param session_period integer, numeric or NULL. Available
+#'options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to 8 參數必須為數值。
+#'`review_session_info()` generates each session period  available option period
+#' in Minguo (Taiwan) calendar.
 #'
 #'@param verbose logical, indicates whether `get_parlquestions` should print out
 #'detailed output when retrieving the data. The default is TRUE
@@ -107,18 +109,20 @@ get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
 }
 
 
-#'The Records of the Questions Answered by the Executives 公報質詢事項行政院答復資訊
+#'The Records of Response to the Questions by the Executives 公報質詢事項行政院答復資訊
 #'
 #'@author David Liao (davidycliao@@gmail.com)
 #'
-#'@param term integer, numeric or null. The default is NULL. The data is only
+#'@param term integer, numeric or NULL. The default is NULL. The data is only
 #'available from 8th term. 參數必須為數值。資料從自第8屆起，預設值為8。
 #'
 #'@param session_period integer, numeric or NULL. Available
-#'options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL. 參數必須為數值。
+#'options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to NULL. 參數必須為數值。
+#'`review_session_info()` generates each session period  available option period
+#' in Minguo (Taiwan) calendar.
 #'
 #'@param verbose logical, indicates whether `get_executive_response` should
-#'print out detailed output when retrieving the data. The default is TRUE
+#'print out detailed output when retrieving the data. The default is set to TRUE
 #'
 #'@return list contains: \describe{
 #'    \item{`title`}{the records of the questions answered by the executives}

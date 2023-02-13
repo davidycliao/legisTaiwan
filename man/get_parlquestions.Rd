@@ -2,16 +2,18 @@
 % Please edit documentation in R/parlquestions.R
 \name{get_parlquestions}
 \alias{get_parlquestions}
-\title{The Records of Parliamentary Questions Asked by the Legislators 委員質詢事項資訊}
+\title{The Records of Parliamentary Questions 委員質詢事項資訊}
 \usage{
 get_parlquestions(term = 8, session_period = NULL, verbose = TRUE)
 }
 \arguments{
-\item{term}{numeric or null. The data is only available from 8th term.
+\item{term}{numeric or NULL. The data is only available from 8th term.
 The default is set to 8. 參數必須為數值。資料從自第8屆起，預設值為8。}
 
-\item{session_period}{numeric or NULL. Available options for the session
-is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to NULL. 參數必須為數值。}
+\item{session_period}{integer, numeric or NULL. Available
+options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to 8 參數必須為數值。
+\code{review_session_info()} generates each session period  available option period
+in Minguo (Taiwan) calendar.}
 
 \item{verbose}{logical, indicates whether \code{get_parlquestions} should print out
 detailed output when retrieving the data. The default is TRUE}
@@ -36,7 +38,7 @@ list contains: \describe{
 }
 }
 \description{
-The Records of Parliamentary Questions Asked by the Legislators 委員質詢事項資訊
+The Records of Parliamentary Questions 委員質詢事項資訊
 }
 \details{
 get_parlquestions\verb{produces a list, which contains}title\verb{, }query_time\verb{, }retrieved_number\verb{, }retrieved_term\verb{, }url\verb{, }variable_names\verb{, }manual_info\code{and}data`.

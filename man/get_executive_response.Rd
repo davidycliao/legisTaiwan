@@ -2,19 +2,21 @@
 % Please edit documentation in R/parlquestions.R
 \name{get_executive_response}
 \alias{get_executive_response}
-\title{The Records of the Questions Answered by the Executives 公報質詢事項行政院答復資訊}
+\title{The Records of Response to the Questions by the Executives 公報質詢事項行政院答復資訊}
 \usage{
 get_executive_response(term = NULL, session_period = NULL, verbose = TRUE)
 }
 \arguments{
-\item{term}{integer, numeric or null. The default is NULL. The data is only
+\item{term}{integer, numeric or NULL. The default is NULL. The data is only
 available from 8th term. 參數必須為數值。資料從自第8屆起，預設值為8。}
 
 \item{session_period}{integer, numeric or NULL. Available
-options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is NULL. 參數必須為數值。}
+options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to NULL. 參數必須為數值。
+\code{review_session_info()} generates each session period  available option period
+in Minguo (Taiwan) calendar.}
 
 \item{verbose}{logical, indicates whether \code{get_executive_response} should
-print out detailed output when retrieving the data. The default is TRUE}
+print out detailed output when retrieving the data. The default is set to TRUE}
 }
 \value{
 list contains: \describe{
@@ -43,7 +45,7 @@ list contains: \describe{
 }
 }
 \description{
-The Records of the Questions Answered by the Executives 公報質詢事項行政院答復資訊
+The Records of Response to the Questions by the Executives 公報質詢事項行政院答復資訊
 }
 \details{
 \strong{\code{get_executive_response}} produces a list, which contains \code{title},
