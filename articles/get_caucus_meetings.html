@@ -15,8 +15,8 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><link href="../deps/Source_Sans_Pro-0.4.5/font.css" rel="stylesheet">
-<link href="../deps/Source_Code_Pro-0.4.5/font.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><link href="../deps/Source_Sans_Pro-0.4.6/font.css" rel="stylesheet">
+<link href="../deps/Source_Code_Pro-0.4.6/font.css" rel="stylesheet">
 <!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="以「黨團協商」為例">
@@ -145,15 +145,15 @@
 <span><span class="co">#&gt; ## An R package connecting to the Taiwan Legislative API. ###</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://stringr.tidyverse.org" class="external-link">stringr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; ── <span style="font-weight: bold;">Attaching packages</span> ───────────────────────────────── tidyverse</span></span>
-<span><span class="co">#&gt; 1.3.2 ──</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">ggplot2</span> 3.4.1     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">purrr  </span> 1.0.1</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tibble </span> 3.1.8     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">dplyr  </span> 1.1.0</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tidyr  </span> 1.3.0     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">forcats</span> 1.0.0</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">readr  </span> 2.1.4     </span></span>
+<span><span class="co">#&gt; ── <span style="font-weight: bold;">Attaching core tidyverse packages</span> ────────────────── tidyverse 2.0.0 ──</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">dplyr    </span> 1.1.0     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">purrr    </span> 1.0.1</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">forcats  </span> 1.0.0     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">readr    </span> 2.1.4</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">ggplot2  </span> 3.4.1     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tibble   </span> 3.2.1</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">lubridate</span> 1.9.2     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tidyr    </span> 1.3.0</span></span>
 <span><span class="co">#&gt; ── <span style="font-weight: bold;">Conflicts</span> ──────────────────────────────────── tidyverse_conflicts() ──</span></span>
 <span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">filter()</span> masks <span style="color: #0000BB;">stats</span>::filter()</span></span>
-<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">lag()</span>    masks <span style="color: #0000BB;">stats</span>::lag()</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">lag()</span>    masks <span style="color: #0000BB;">stats</span>::lag()</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Use the conflicted package (<span style="color: #0000BB; font-style: italic;">&lt;http://conflicted.r-lib.org/&gt;</span>) to force all conflicts to become errors</span></span></code></pre></div>
 <p>以get_caucus_meetings()「黨團協商」為例</p>
 <p>格式：get_caucus_meetings(start_date = NULL, end_date = NULL, verbose
 = TRUE)</p>
@@ -170,7 +170,7 @@
 <span><span class="co">#&gt; [1] "the meeting records of cross-caucus session"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $query_time</span></span>
-<span><span class="co">#&gt; [1] "2023-02-16 01:39:30 CET"</span></span>
+<span><span class="co">#&gt; [1] "2023-07-28 16:08:01 BST"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $retrieved_number</span></span>
 <span><span class="co">#&gt; [1] 68</span></span>
@@ -201,22 +201,22 @@
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $data</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 68 × 15</span></span></span>
-<span><span class="co">#&gt;    comYear comVolume comBo…¹ term  sessi…² sessi…³ meeti…⁴ meeti…⁵ meeti…⁶</span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 103     43        <span style="color: #949494;">"</span>四<span style="color: #949494;">"</span>    08    05      12      null    101053… 黨團協…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 103     43        <span style="color: #949494;">"</span>四<span style="color: #949494;">"</span>    08    05      12      null    102010… 黨團協…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 107     87        <span style="color: #949494;">""</span>      09    06      05      null    107101… 院會紀…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 107     87        <span style="color: #949494;">""</span>      09    06      05      null    107101… 院會紀…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 107     87        <span style="color: #949494;">""</span>      09    06      05      null    107101… 院會紀…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 111     101       <span style="color: #949494;">"</span>下<span style="color: #949494;">"</span>    null  null    null    null    1111104 黨團協…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 111     101       <span style="color: #949494;">"</span>下<span style="color: #949494;">"</span>    null  null    null    null    1111104 黨團協…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 111     104       <span style="color: #949494;">""</span>      10    06      08      null    1111108 黨團協…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 111     104       <span style="color: #949494;">""</span>      10    06      08      null    1111109 黨團協…</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 111     104       <span style="color: #949494;">""</span>      10    06      08      null    1111109 黨團協…</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># … with 58 more rows, 6 more variables: subject &lt;chr&gt;, pageStart &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   pageEnd &lt;chr&gt;, docUrl &lt;chr&gt;, htmlUrl &lt;chr&gt;, selectTerm &lt;chr&gt;, and</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   abbreviated variable names ¹​comBookId, ²​sessionPeriod, ³​sessionTimes,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   ⁴​meetingTimes, ⁵​meetingDate, ⁶​meetingName</span></span></span></code></pre></div>
+<span><span class="co">#&gt;    comYear comVolume comBookId term  sessionPeriod sessionTimes</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 103     43        <span style="color: #949494;">"</span>四<span style="color: #949494;">"</span>      08    05            12          </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 103     43        <span style="color: #949494;">"</span>四<span style="color: #949494;">"</span>      08    05            12          </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 107     87        <span style="color: #949494;">""</span>        09    06            05          </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 107     87        <span style="color: #949494;">""</span>        09    06            05          </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 107     87        <span style="color: #949494;">""</span>        09    06            05          </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 111     101       <span style="color: #949494;">"</span>下<span style="color: #949494;">"</span>      null  null          null        </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 111     101       <span style="color: #949494;">"</span>下<span style="color: #949494;">"</span>      null  null          null        </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 111     104       <span style="color: #949494;">""</span>        10    06            08          </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 111     104       <span style="color: #949494;">""</span>        10    06            08          </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 111     104       <span style="color: #949494;">""</span>        10    06            08          </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 58 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 9 more variables: meetingTimes &lt;chr&gt;, meetingDate &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   meetingName &lt;chr&gt;, subject &lt;chr&gt;, pageStart &lt;chr&gt;, pageEnd &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   docUrl &lt;chr&gt;, htmlUrl &lt;chr&gt;, selectTerm &lt;chr&gt;</span></span></span></code></pre></div>
 <p>可建立指定區間的資料變數(info)（第10屆第6會期）</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">info10_6</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_caucus_meetings.html">get_caucus_meetings</a></span><span class="op">(</span>start_date <span class="op">=</span> <span class="st">"111/09/23"</span>, end_date <span class="op">=</span> <span class="st">"112/01/19"</span><span class="op">)</span></span>
@@ -244,7 +244,7 @@
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 一、國民黨黨團擬具「農民健康保險條例第四十條條文修正草案」、台灣…     1</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 一、本院內政委員會報告併案審查行政院函請審議、委員王美惠等20人、…     1</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 一、本院內政委員會報告併案審查行政院函請審議「原住民族保留地管理…     1</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># … with 28 more rows</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 28 more rows</span></span></span></code></pre></div>
 <p>創建一個新的條目，
 找出第十屆第六會期中包含「原住民」字眼之黨團協商議案</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
