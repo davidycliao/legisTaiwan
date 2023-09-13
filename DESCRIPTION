@@ -23,7 +23,8 @@ Imports:
 	stringi,
   curl,
   tibble,
-  rvest
+  rvest,
+  memoise
 Suggests: 
   knitr,
   rmarkdown,
