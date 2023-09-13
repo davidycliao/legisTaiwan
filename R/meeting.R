@@ -157,6 +157,7 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
 #'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
 #'`end_date`, `url`, `variable_names`, `manual_info` and `data.`To retrieve the user manual and more information
 #' about the data frame, please use `legisTaiwan::get_variable_info("get_caucus_meetings")`.
+#'`end_date`, `url`, `variable_names`, `manual_info` and `data.`
 #'
 #'@note 議事類:提供公報之黨團協商資訊 (自第8屆第1會期起)
 #'

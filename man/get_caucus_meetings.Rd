@@ -55,6 +55,7 @@ The Meeting Records of Cross-caucus Session 黨團協商資訊
 \code{retrieved_number}, \code{meeting_unit}, \code{start_date_ad}, \code{end_date_ad}, \code{start_date},
 \code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data.}To retrieve the user manual and more information
 about the data frame, please use \code{legisTaiwan::get_variable_info("get_caucus_meetings")}.
+\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data.}
 }
 \note{
 議事類:提供公報之黨團協商資訊 (自第8屆第1會期起)

@@ -10,6 +10,47 @@ home:
     href: https://twcongress.weebly.com/2228326371360392600924235.html
   - text: legisCrawler 爬立法委員問政專輯的爬蟲小幫手️🕸️
     href: https://davidycliao.github.io/legisCrawler/
+    href: https://twcongress.weebly.com/2228326371360392600924235.html
+  - text: "legisCrawler: Webcrawling Toolkit for Taiwan Parliamentary Questions in Python️ 🐍"
+    href: https://davidycliao.github.io/legisCrawler/
+  - text: "LACAN: Legislators, Accountability and Collective Agency"
+    href: https://projectlacan.wordpress.com/team/
+  - text: "ParlSpeech: Legislative Speeches in the Key Parliamentary Democracies"
+    href: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/L4OAKN
+  - text: "ParlEE: Sentence-level Speeches of Six EU Legislative Chambers"
+    href: https://pureportal.strath.ac.uk/en/datasets/parlee-plenary-speeches-v2-data-set-annotated-full-text-of-151-mi
+  - text: "Text and Policy Research Group in UCD"
+    href: https://text-and-policy.com
+  - text: "The Connected_Politics Lab in UCD"
+    href: https://www.ucd.ie/connected_politics/
+
+reference:
+- title: API Functions
+  desc: functions connect to Taiwan Legialtive Yuan API.
+- contents:
+  - get_parlquestions
+  - get_meetings
+  - get_caucus_meetings
+  - get_executive_response
+  - get_public_debates
+  - get_speech_video
+  - get_committee_record
+  - get_bills
+  - get_bills_2
+  - get_legislators
+  - get_variable_info
+  - review_session_info
+- title: Utility
+  desc: internal functions supports `legisTaiwan` function
+- contents:
+  - website_availability
+  - website_availability2
+  - check_internet
+  - api_check
+  - check_date
+  - check_date2
+  - transformed_date_meeting
+  - transformed_date_bill
 
 authors:
   David Yen-Chieh Liao:

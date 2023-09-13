@@ -9,6 +9,12 @@
 test_that("get_parlquestions", {
   expect_error(get_parlquestions(term = "9", verbose = FALSE),  "use numeric format only.")
   expect_error(get_parlquestions(term = "9", verbose = TRUE),  "use numeric format only.")
+  expect_equal(get_parlquestions(term = 10, session_period = 1, verbose = FALSE)$title, "the records of parliarmentary questions")
+  expect_equal(get_parlquestions(term = 10, session_period = 1, verbose = TRUE)$retrieved_number, 784)
+  expect_error(get_parlquestions(term = "9", verbose = FALSE),  "use numeric format only.")
+  expect_equal(get_parlquestions(NULL)$url, "https://data.ly.gov.tw/odw/ID6Action.action?term=&sessionPeriod=&sessionTimes=&item=&fileType=json")
+  expect_message(get_parlquestions(c(10,11)), "The API is unable to query multiple terms and the retrieved data might not be complete.")
+  expect_error(get_parlquestions(30), "The query is unavailable.")
 })
 
 test_that("get_executive_response", {
