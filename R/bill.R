@@ -1,146 +1,154 @@
-#'The Records of the Bills 法律提案
+#'The Records of the Bills: 法律提案
 #'
-#'@author David Liao (davidycliao@@gmail.com)
+#' @param start_date numeric. Must be formatted in the ROC Taiwan calendar, e.g., 1090101.
+#' @param end_date numeric. Must be formatted in the ROC Taiwan calendar, e.g., 1090102.
+#' @param proposer The default value is NULL, indicating that bills proposed by all legislators
+#' are included between the start and end dates.
+#' @param verbose logical. Specifies whether `get_bills` should print out
+#' detailed output when retrieving the data. The default value is TRUE.
 #'
-#'@param start_date numeric Must be formatted in Minguo (Taiwan) calendar, e.g. 1090101.
+#' @return A list, which contains:
+#' \describe{
+#'   \item{`title`}{Records of cross-caucus sessions}
+#'   \item{`query_time`}{Query timestamp}
+#'   \item{`retrieved_number`}{Number of observations retrieved}
+#'   \item{`meeting_unit`}{Meeting unit}
+#'   \item{`start_date_ad`}{Start date in POSIXct format}
+#'   \item{`end_date_ad`}{End date in POSIXct format}
+#'   \item{`start_date`}{Start date in the ROC Taiwan calendar}
+#'   \item{`url`}{URL of the retrieved JSON data}
+#'   \item{`variable_names`}{Variable names of the tibble dataframe}
+#'   \item{`manual_info`}{Official manual. See \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153} or use legisTaiwan::get_variable_info("get_bills")}
+#'   \item{`data`}{A tibble dataframe with the following variables:
+#'   \describe{\item{`term`}{Session number}
+#'             \item{`sessionPeriod`}{Session period}
+#'             \item{`sessionTimes`}{Session count}
+#'             \item{`meetingTimes`}{Proposal date}
+#'             \item{`billName`}{Bill name}
+#'             \item{`billProposer`}{Primary proposer}
+#'             \item{`billCosignatory`}{Co-signatories of the bill}
+#'             \item{`billStatus`}{Status of the bill}
+#'             \item{`date_ad`}{Date in the Gregorian calendar}
+#'             }
+#'           }
+#' }
 #'
-#'@param end_date numeric Must be formatted in Minguo (Taiwan) calendar, e.g. 1090102.
+#' @importFrom httr GET
+#' @importFrom httr content
+#' @importFrom jsonlite fromJSON
+#' @importFrom tibble as_tibble
 #'
-#'@param proposer The default value is NULL, which means all bill proposed by all legislators
-#' are included between the starting date and the ending date.
+#' @export
+#' @examples
+#' ## Query bill records by a date range in the Taiwan ROC calendar format
+#' get_bills(start_date = 1060120, end_date = 1070310, verbose = FALSE)
 #'
-#'@param verbose logical, indicates whether `get_bills` should print out
-#'detailed output when retrieving the data. The default value is TRUE.
+#' ## Query bill records by a date range and a specific legislator
+#' get_bills(start_date = 1060120, end_date = 1070310,  proposer = "孔文吉")
 #'
-#'@return list, which contains: \describe{
-#'      \item{`title`}{the meeting records of cross-caucus session}
-#'      \item{`query_time`}{the query time}
-#'      \item{`retrieved_number`}{the number of observation}
-#'      \item{`meeting_unit`}{the meeting unit}
-#'      \item{`start_date_ad`}{the start date  in POSIXct}
-#'      \item{`end_date_ad`}{the end date in POSIXct}
-#'      \item{`start_date`}{the start date in ROC Taiwan calendar}
-#'      \item{`url`}{the retrieved json url}
-#'      \item{`variable_names`}{the variables of the tibble dataframe}
-#'      \item{`manual_info`}{the official manual, \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}; or use legisTaiwan::get_variable_info("get_bills")}
-#'      \item{`data`}{a tibble dataframe, whose variables include:
-#'      \describe{\item{`term`}{屆別}
-#'                \item{`sessionPeriod`}{會期}
-#'                \item{`sessionTimes`}{會次}
-#'                \item{`meetingTimes`}{提案日期}
-#'                \item{`billName`}{提案名稱}
-#'                \item{`billProposer`}{主提案人}
-#'                \item{`billCosignatory`}{連署提案}
-#'                \item{`billStatus`}{議案狀態}
-#'                \item{`date_ad`}{西元年}
-#'                }
-#'              }
-#'      }
+#' ## Query bill records by a date range and multiple legislators
+#' get_bills(start_date = 1060120, end_date = 1060510,  proposer = "孔文吉&鄭天財")
 #'
-#'@importFrom attempt stop_if_all
-#'@importFrom jsonlite fromJSON
+#' @details The `get_bills` function returns a list that contains `query_time`,
+#' `retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
+#' `end_date`, `url`, `variable_names`, `manual_info`, and `data`.
 #'
-#'@export
-#'
-#'@examples
-#' ## query bill records by a period of the dates in Taiwan ROC calender format
-#' ## 輸入「中華民國民年」下載立法委員提案資料
-#'get_bills(start_date = 1060120, end_date = 1070310, verbose = FALSE)
-#'
-#' ## query bill records by a period of the dates in Taiwan ROC calender format
-#' ## and a specific legislator
-#' ## 輸入「中華民國民年」與「指定立法委員」下載立法委員提案資料
-#'get_bills(start_date = 1060120, end_date = 1070310,  proposer = "孔文吉")
-#'
-#' ## query bill records by a period of the dates in Taiwan ROC calender format
-#' ## and multiple legislators
-#' ## 輸入「中華民國民年」與「指定多個立法委員」下載立法委員提案資料
-#'get_bills(start_date = 1060120, end_date = 1060510,  proposer = "孔文吉&鄭天財")
-#'
-#'@details `get_bills` produces a list, which contains `query_time`,
-#'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
-#'`end_date`, `url`, `variable_names`, `manual_info` and `data`.
-#'
-#'@note To retrieve the user manual and more information about variable of the data
-#' frame, please use `legisTaiwan::get_variable_info("get_bills")`
-#' or visit the API manual at \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}.
-#' 資料似乎不一致，待確認。委員發言（取得最早時間不詳，待檢查。）
-#'
-#'@seealso
-#'`get_variable_info("get_bills_2")`,`review_session_info()`
-#'
-#'@seealso
-#'Regarding Minguo calendar, please see \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}.
+#' @note To retrieve the user manual and more details about the data frame, use `legisTaiwan::get_variable_info("get_bills")`.
+#' Further checks are required as the user manual seems to be inconsistent with the actual data.
+#' @seealso
+#' \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}
+get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL, verbose = TRUE) {
 
-get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
-                      verbose = TRUE) {
-  legisTaiwan::check_internet()
-  legisTaiwan::api_check(start_date =  legisTaiwan::check_date(start_date), end_date =  legisTaiwan::check_date(end_date))
-  set_api_url <- paste("https://www.ly.gov.tw/WebAPI/LegislativeBill.aspx?from=",
-                       start_date, "&to=", end_date,
-                       "&proposer=", proposer, "&mode=json", sep = "")
-  tryCatch(
-    {
-      json_df <- jsonlite::fromJSON(set_api_url)
-      df <- tibble::as_tibble(json_df)
-      attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
-      df["date_ad"] <- do.call("c", lapply(df$date, legisTaiwan::transformed_date_bill))
-      if (isTRUE(verbose)) {
-        cat(" Retrieved URL: \n", set_api_url, "\n")
-        cat(" Retrieved Bill Sponsor(s): ", proposer, "\n")
-        cat(" Retrieved date between:", as.character(legisTaiwan::check_date(start_date)), "and", as.character(legisTaiwan::check_date(end_date)) , "\n")
-        cat(" Retrieved Num:", nrow(df), "\n")
-      }
-      list_data <- list("title" = "the records of bill sponsor and co-sponsor",
-                        "query_time" = Sys.time(),
-                        "retrieved_number" = nrow(df),
-                        "proposer" = proposer,
-                        "start_date_ad" = legisTaiwan::check_date(start_date),
-                        "end_date_ad" = legisTaiwan::check_date(end_date),
-                        "start_date" = start_date,
-                        "end_date" = end_date,
-                        "url" = set_api_url,
-                        "variable_names" = colnames(df),
-                        "manual_info" = "https://www.ly.gov.tw/Pages/List.aspx?nodeid=153",
-                        "data" = df)
-      return(list_data)
-    },
-    error = function(error_message) {
-      message(error_message)
-    }
+  # Parameter validation: Check if ROC format date is correct
+  if (!grepl("^\\d{7}$", as.character(start_date)) || !grepl("^\\d{7}$", as.character(end_date))) {
+    stop("Error: Both start_date and end_date should be in ROC format (e.g., 1090101).")
+  }
+
+  if (start_date > end_date) {
+    stop("Error: start_date should be earlier than end_date.")
+  }
+
+  # Parameter validation: Validate the proposer's name
+  # This is just an example; you might need to check against an actual list of proposers.
+  # valid_proposers <- c("Kong Wenji", "Zheng Tiancai") # Example proposer list
+  # if (!is.null(proposer) && !all(unlist(strsplit(proposer, "&")) %in% valid_proposers)) {
+  #   stop("Error: Invalid proposer name.")
+  # }
+
+  api_url <- sprintf("https://www.ly.gov.tw/WebAPI/LegislativeBill.aspx?from=%s&to=%s&proposer=%s&mode=json", start_date, end_date, proposer)
+  response <- GET(api_url)
+
+  # API response handling
+  if (response$status_code != 200) {
+    stop(sprintf("Error: Failed to retrieve data from the API with status code %s.", response$status_code))
+  }
+
+  json_df <- fromJSON(content(response, "text"))
+  df <- as_tibble(json_df)
+
+  if (nrow(df) == 0) {
+    stop(sprintf("Error: The query is unavailable:\n%s", api_url))
+  }
+
+  df["date_ad"] <- sapply(df$date, legisTaiwan::transformed_date_bill)
+
+  # Data handling: Handle anomalies or missing data
+  if (any(is.na(df$date_ad))) {
+    stop("Error: Some dates couldn't be transformed to Gregorian calendar dates.")
+  }
+
+  if (verbose) {
+    cat("Retrieved URL:", api_url, "\n")
+    cat("Retrieved Bill Sponsor(s):", proposer, "\n")
+    cat("Retrieved date between:", as.character(legisTaiwan::check_date(start_date)), "and", as.character(legisTaiwan::check_date(end_date)), "\n")
+    cat("Retrieved Num:", nrow(df), "\n")
+  }
+
+  list_data <- list(
+    title = "the records of bill sponsor and co-sponsor",
+    query_time = Sys.time(),
+    retrieved_number = nrow(df),
+    proposer = proposer,
+    start_date_ad = legisTaiwan::check_date(start_date),
+    end_date_ad = legisTaiwan::check_date(end_date),
+    start_date = start_date,
+    end_date = end_date,
+    url = api_url,
+    variable_names = colnames(df),
+    manual_info = "https://www.ly.gov.tw/Pages/List.aspx?nodeid=153",
+    data = df
   )
+
+  return(list_data)
 }
 
 
-#'The Records of Legislation and the Executives Proposals 委員及政府議案提案資訊
+
+#' The Records of Legislation and the Executives Proposals: 委員及政府議案提案資訊
 #'
-#'@author David Liao (davidycliao@@gmail.com)
+#' @author David Liao (davidycliao@@gmail.com)
 #'
-#'@param term numeric or null. The data is only available from 8th term.
-#'The default is set to 8. 參數必須為數值。資料從自第8屆起，預設值為8。
+#' @param term A numeric or NULL value. Data is available from the 8th term onwards.
+#' Default is set to 8. 參數必須為數值。資料從第8屆開始，預設值為8。
 #'
-#'@param session_period integer, numeric or NULL. Available
-#'options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to NULL.
-#'參數必須為數值。
-#'`review_session_info()` generates each session period  available option period
-#'in Minguo (Taiwan) calendar.
+#' @param session_period An integer, numeric, or NULL. Valid options for the session are:
+#' 1, 2, 3, 4, 5, 6, 7, and 8. Default is set to NULL.
+#' 參數必須為數值。
+#' `review_session_info()` provides available session periods based on the Minguo (Taiwan) calendar.
 #'
-#'@param verbose The default value is TRUE, displaying the description of data
-#'retrieved in number, url and computing time.
+#' @param verbose Default value is TRUE. Displays details of the retrieved data, including the number, URL, and computing time.
 #'
-#'@return list list, which contains: \describe{
-#'      \item{`title`}{the meeting records of cross-caucus session}
-#'      \item{`query_time`}{the query time}
-#'      \item{`retrieved_number`}{the number of observation}
-#'      \item{`meeting_unit`}{the meeting unit}
-#'      \item{`start_date_ad`}{the start date  in POSIXct}
-#'      \item{`end_date_ad`}{the end date in POSIXct}
-#'      \item{`start_date`}{the start date in ROC Taiwan calendar}
-#'      \item{`url`}{the retrieved json url}
-#'      \item{`variable_names`}{the variables of the tibble dataframe}
-#'      \item{`manual_info`}{the official manual, \url{https://data.ly.gov.tw/getds.action?id=20}; or use legisTaiwan::get_variable_info("get_bills_2")}
-#'      \item{`data`}{a tibble dataframe, whose variables include:
-#'      \describe{\item{`term`}{屆別}
+#' @return A list containing:
+#'      \item{`title`}{Records of questions answered by the executives}
+#'      \item{`query_time`}{Query time}
+#'      \item{`retrieved_number`}{Number of observations}
+#'      \item{`retrieved_term`}{Retrieved term}
+#'      \item{`url`}{Retrieved JSON URL}
+#'      \item{`variable_names`}{Variables of the tibble dataframe}
+#'      \item{`manual_info`}{Official manual: \url{https://data.ly.gov.tw/getds.action?id=20} or use `legisTaiwan::get_variable_info("get_bills_2")`}
+#'      \item{`data`}{A tibble dataframe with variables such as:
+#'      \describe{
+#'                \item{`term`}{屆別}
 #'                \item{`sessionPeriod`}{會期}
 #'                \item{`sessionTimes`}{會次}
 #'                \item{`meetingTimes`}{臨時會會次}
@@ -150,79 +158,93 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 #'                \item{`billProposer`}{主提案人}
 #'                \item{`billCosignatory`}{連署提案}
 #'                \item{`billStatus`}{議案狀態}
-#'                \item{`pdfUrl`}{關係文書pdf檔案下載位置}
-#'                \item{`docUrl`}{關係文書doc檔案下載位置}
-#'                \item{`selectTerm`}{屆別期別篩選條件}
+#'                \item{`pdfUrl`}{PDF download link for related documents}
+#'                \item{`docUrl`}{DOC download link for related documents}
+#'                \item{`selectTerm`}{Filtering criteria based on term}
 #'                }
 #'              }
-#'      }
 #'
-#'@importFrom attempt stop_if_all
-#'@importFrom jsonlite fromJSON
+#' @importFrom attempt stop_if_all
+#' @importFrom jsonlite fromJSON
+#' @importFrom httr GET
+#' @importFrom tibble as_tibble
 #'
-#'@export
+#' @export
 #'
-#'@examples
-#' ## query the Executives' answered response by term and the session period.
-#' ## 輸入「立委屆期」與「會期」下載「質詢事項 (行政院答復部分)」
-#'get_bills_2(term = 8, session_period = 1)
+#' @examples
+#' ## Query the executives' responses by term and session period.
+#' ## 輸入「立委屆期」與「會期」以下載「質詢事項 (行政院答復部分)」
+#' get_bills_2(term = 8, session_period = 1)
 #'
-#'@details `get_bills_2` produces a list, which contains `query_time`,
-#'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
-#'`end_date`, `url`, `variable_names`, `manual_info` and `data`. To retrieve the user
-#'manual and more information about the data frame, please use `legisTaiwan::get_variable_info("get_bills_2")`.
+#' @details The `get_bills_2` function produces a list, which includes `query_time`,
+#' `retrieved_number`, `retrieved_term`, `url`, `variable_names`, `manual_info`, and `data`.
+#' For the user manual and more information about the dataframe, use `legisTaiwan::get_variable_info("get_bills_2")`.
 #'
-#'@note To retrieve the user manual and more information about variable of the data
-#' frame, please use `legisTaiwan::get_variable_info("get_bills_2")`
+#' @note For more details about the dataframe's variables, use `legisTaiwan::get_variable_info("get_bills_2")`
 #' or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=20}.
-#' 議事類: 提供委員及政府之議案提案資訊 (自第8屆第1會期起)。
+#' 議事類: 提供委員及政府之議案提案資訊 (從第8屆第1會期開始)。
 #'
-#'@seealso
-#'`get_variable_info("get_bills_2")`,`review_session_info()`
-
+#' @seealso
+#' `get_variable_info("get_bills_2")`,`review_session_info()`
+# Define the function get_bills_2
 get_bills_2 <- function(term = 8, session_period = NULL, verbose = TRUE) {
+
+  # Check for internet connectivity
   legisTaiwan::check_internet()
+
+  # If the term is not specified
   if (is.null(term)) {
-    options(timeout = max(1000, getOption("timeout")))
-    set_api_url <- paste("https://data.ly.gov.tw/odw/ID20Action.action?term=",
-                         term, "&sessionPeriod=",
-                         "&sessionTimes=&meetingTimes=&billName=&billOrg=&billProposer=&billCosignatory=&fileType=json",
-                         sep = "")
-    message(" term is not defined...\n You are now requesting full data from the API. Please make sure your connectivity is stable until its completion.\n")
+    # Set the base API URL without specifying any term
+    set_api_url <- "https://data.ly.gov.tw/odw/ID20Action.action?term=&sessionPeriod=&sessionTimes=&meetingTimes=&billName=&billOrg=&billProposer=&billCosignatory=&fileType=json"
+    # Display a notification message
+    message("The term is not defined...\nYou are now requesting full data from the API. Please ensure a stable internet connection until completion.\n")
   } else {
-    attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
+    # If the term is in character format, stop execution and display an error message
+    attempt::stop_if_all(term, is.character, msg = "Please use numeric format only.")
+
+    # If term length is one, format the term to two digits
     if (length(term) == 1) {
-      term <- sprintf("%02d", as.numeric(term))}
-    else if (length(term) > 1) {
-      # options(timeout = max(1000, getOption("timeout")))
+      term <- sprintf("%02d", as.numeric(term))
+    } else if (length(term) > 1) { # If multiple terms are provided
       term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
-      message("The API is unable to query multiple terms and the retrieved data might not be complete.")}
+      message("The API doesn't support querying multiple terms, and the retrieved data may be incomplete.")
+    }
+
+    # Convert session period to two-digit format, if it's not NULL
+    session_str <- ifelse(is.null(session_period), "", sprintf("%02d", as.numeric(session_period)))
+
+    # Construct the complete API URL
+    set_api_url <- paste0("https://data.ly.gov.tw/odw/ID20Action.action?term=",
+                          term, "&sessionPeriod=", session_str,
+                          "&sessionTimes=&meetingTimes=&billName=&billOrg=&billProposer=&billCosignatory=&fileType=json")
   }
-  set_api_url <- paste("https://data.ly.gov.tw/odw/ID20Action.action?term=",
-                       term, "&sessionPeriod=",
-                       sprintf("%02d", as.numeric(session_period)),
-                       "&sessionTimes=&meetingTimes=&billName=&billOrg=&billProposer=&billCosignatory=&fileType=json", sep = "")
+
+  # Try to fetch the data and process it
   tryCatch(
     {
       json_df <- jsonlite::fromJSON(set_api_url)
       df <- tibble::as_tibble(json_df$dataList)
+      # If the returned data is empty, stop execution and display an error message
       attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
       if (isTRUE(verbose)) {
-        cat(" Retrieved URL: \n", set_api_url, "\n")
-        cat(" Retrieved Term: ", term, "\n")
-        cat(" Retrieved Num: ", nrow(df), "\n")
+        cat("Retrieved URL: ", set_api_url, "\n")
+        cat("Retrieved Term: ", term, "\n")
+        cat("Retrieved Number of Records: ", nrow(df), "\n")
       }
-      list_data <- list("title" = "the records of the questions answered by the executives",
-                        "query_time" = Sys.time(),
-                        "retrieved_number" = nrow(df),
-                        "retrieved_term" = term,
-                        "url" = set_api_url,
-                        "variable_names" = colnames(df),
-                        "manual_info" = "https://data.ly.gov.tw/getds.action?id=2",
-                        "data" = df)
-      return(list_data)
+      # Construct the result list
+      list_data <- list(
+        "title" = "The records of the questions answered by the executives",
+        "query_time" = Sys.time(),
+        "retrieved_number" = nrow(df),
+        "retrieved_term" = term,
+        "url" = set_api_url,
+        "variable_names" = colnames(df),
+        "manual_info" = "https://data.ly.gov.tw/getds.action?id=2",
+        "data" = df
+      )
+      return(list_data) # Return the result list
     },
-    error = function(error_message) {
+    error = function(error_message) { # Handle any errors
       message(error_message)
     }
   )

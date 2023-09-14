@@ -2,37 +2,33 @@
 % Please edit documentation in R/bill.R
 \name{get_bills_2}
 \alias{get_bills_2}
-\title{The Records of Legislation and the Executives Proposals 委員及政府議案提案資訊}
+\title{The Records of Legislation and the Executives Proposals: 委員及政府議案提案資訊}
 \usage{
 get_bills_2(term = 8, session_period = NULL, verbose = TRUE)
 }
 \arguments{
-\item{term}{numeric or null. The data is only available from 8th term.
-The default is set to 8. 參數必須為數值。資料從自第8屆起，預設值為8。}
+\item{term}{A numeric or NULL value. Data is available from the 8th term onwards.
+Default is set to 8. 參數必須為數值。資料從第8屆開始，預設值為8。}
 
-\item{session_period}{integer, numeric or NULL. Available
-options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to NULL.
+\item{session_period}{An integer, numeric, or NULL. Valid options for the session are:
+1, 2, 3, 4, 5, 6, 7, and 8. Default is set to NULL.
 參數必須為數值。
-\code{review_session_info()} generates each session period  available option period
-in Minguo (Taiwan) calendar.}
+\code{review_session_info()} provides available session periods based on the Minguo (Taiwan) calendar.}
 
-\item{verbose}{The default value is TRUE, displaying the description of data
-retrieved in number, url and computing time.}
+\item{verbose}{Default value is TRUE. Displays details of the retrieved data, including the number, URL, and computing time.}
 }
 \value{
-list list, which contains: \describe{
-\item{\code{title}}{the meeting records of cross-caucus session}
-\item{\code{query_time}}{the query time}
-\item{\code{retrieved_number}}{the number of observation}
-\item{\code{meeting_unit}}{the meeting unit}
-\item{\code{start_date_ad}}{the start date  in POSIXct}
-\item{\code{end_date_ad}}{the end date in POSIXct}
-\item{\code{start_date}}{the start date in ROC Taiwan calendar}
-\item{\code{url}}{the retrieved json url}
-\item{\code{variable_names}}{the variables of the tibble dataframe}
-\item{\code{manual_info}}{the official manual, \url{https://data.ly.gov.tw/getds.action?id=20}; or use legisTaiwan::get_variable_info("get_bills_2")}
-\item{\code{data}}{a tibble dataframe, whose variables include:
-\describe{\item{\code{term}}{屆別}
+A list containing:
+\item{\code{title}}{Records of questions answered by the executives}
+\item{\code{query_time}}{Query time}
+\item{\code{retrieved_number}}{Number of observations}
+\item{\code{retrieved_term}}{Retrieved term}
+\item{\code{url}}{Retrieved JSON URL}
+\item{\code{variable_names}}{Variables of the tibble dataframe}
+\item{\code{manual_info}}{Official manual: \url{https://data.ly.gov.tw/getds.action?id=20} or use \code{legisTaiwan::get_variable_info("get_bills_2")}}
+\item{\code{data}}{A tibble dataframe with variables such as:
+\describe{
+\item{\code{term}}{屆別}
 \item{\code{sessionPeriod}}{會期}
 \item{\code{sessionTimes}}{會次}
 \item{\code{meetingTimes}}{臨時會會次}
@@ -42,31 +38,28 @@ list list, which contains: \describe{
 \item{\code{billProposer}}{主提案人}
 \item{\code{billCosignatory}}{連署提案}
 \item{\code{billStatus}}{議案狀態}
-\item{\code{pdfUrl}}{關係文書pdf檔案下載位置}
-\item{\code{docUrl}}{關係文書doc檔案下載位置}
-\item{\code{selectTerm}}{屆別期別篩選條件}
-}
+\item{\code{pdfUrl}}{PDF download link for related documents}
+\item{\code{docUrl}}{DOC download link for related documents}
+\item{\code{selectTerm}}{Filtering criteria based on term}
 }
 }
 }
 \description{
-The Records of Legislation and the Executives Proposals 委員及政府議案提案資訊
+The Records of Legislation and the Executives Proposals: 委員及政府議案提案資訊
 }
 \details{
-\code{get_bills_2} produces a list, which contains \code{query_time},
-\code{retrieved_number}, \code{meeting_unit}, \code{start_date_ad}, \code{end_date_ad}, \code{start_date},
-\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data}. To retrieve the user
-manual and more information about the data frame, please use \code{legisTaiwan::get_variable_info("get_bills_2")}.
+The \code{get_bills_2} function produces a list, which includes \code{query_time},
+\code{retrieved_number}, \code{retrieved_term}, \code{url}, \code{variable_names}, \code{manual_info}, and \code{data}.
+For the user manual and more information about the dataframe, use \code{legisTaiwan::get_variable_info("get_bills_2")}.
 }
 \note{
-To retrieve the user manual and more information about variable of the data
-frame, please use \code{legisTaiwan::get_variable_info("get_bills_2")}
+For more details about the dataframe's variables, use \code{legisTaiwan::get_variable_info("get_bills_2")}
 or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=20}.
-議事類: 提供委員及政府之議案提案資訊 (自第8屆第1會期起)。
+議事類: 提供委員及政府之議案提案資訊 (從第8屆第1會期開始)。
 }
 \examples{
-## query the Executives' answered response by term and the session period.
-## 輸入「立委屆期」與「會期」下載「質詢事項 (行政院答復部分)」
+## Query the executives' responses by term and session period.
+## 輸入「立委屆期」與「會期」以下載「質詢事項 (行政院答復部分)」
 get_bills_2(term = 8, session_period = 1)
 
 }
