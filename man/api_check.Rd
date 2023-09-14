@@ -14,3 +14,4 @@ api_check(start_date = start_date, end_date = end_date)
 \description{
 A General Check for Taiwan Legislative Yuan API
 }
+\keyword{internal}

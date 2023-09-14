@@ -57,69 +57,43 @@
 #' Further checks are required as the user manual seems to be inconsistent with the actual data.
 #' @seealso
 #' \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}
-get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL, verbose = TRUE) {
-
-  # Parameter validation: Check if ROC format date is correct
-  if (!grepl("^\\d{7}$", as.character(start_date)) || !grepl("^\\d{7}$", as.character(end_date))) {
-    stop("Error: Both start_date and end_date should be in ROC format (e.g., 1090101).")
-  }
-
-  if (start_date > end_date) {
-    stop("Error: start_date should be earlier than end_date.")
-  }
-
-  # Parameter validation: Validate the proposer's name
-  # This is just an example; you might need to check against an actual list of proposers.
-  # valid_proposers <- c("Kong Wenji", "Zheng Tiancai") # Example proposer list
-  # if (!is.null(proposer) && !all(unlist(strsplit(proposer, "&")) %in% valid_proposers)) {
-  #   stop("Error: Invalid proposer name.")
-  # }
-
-  api_url <- sprintf("https://www.ly.gov.tw/WebAPI/LegislativeBill.aspx?from=%s&to=%s&proposer=%s&mode=json", start_date, end_date, proposer)
-  response <- GET(api_url)
-
-  # API response handling
-  if (response$status_code != 200) {
-    stop(sprintf("Error: Failed to retrieve data from the API with status code %s.", response$status_code))
-  }
-
-  json_df <- fromJSON(content(response, "text"))
-  df <- as_tibble(json_df)
-
-  if (nrow(df) == 0) {
-    stop(sprintf("Error: The query is unavailable:\n%s", api_url))
-  }
-
-  df["date_ad"] <- sapply(df$date, legisTaiwan::transformed_date_bill)
-
-  # Data handling: Handle anomalies or missing data
-  if (any(is.na(df$date_ad))) {
-    stop("Error: Some dates couldn't be transformed to Gregorian calendar dates.")
-  }
-
-  if (verbose) {
-    cat("Retrieved URL:", api_url, "\n")
-    cat("Retrieved Bill Sponsor(s):", proposer, "\n")
-    cat("Retrieved date between:", as.character(legisTaiwan::check_date(start_date)), "and", as.character(legisTaiwan::check_date(end_date)), "\n")
-    cat("Retrieved Num:", nrow(df), "\n")
-  }
-
-  list_data <- list(
-    title = "the records of bill sponsor and co-sponsor",
-    query_time = Sys.time(),
-    retrieved_number = nrow(df),
-    proposer = proposer,
-    start_date_ad = legisTaiwan::check_date(start_date),
-    end_date_ad = legisTaiwan::check_date(end_date),
-    start_date = start_date,
-    end_date = end_date,
-    url = api_url,
-    variable_names = colnames(df),
-    manual_info = "https://www.ly.gov.tw/Pages/List.aspx?nodeid=153",
-    data = df
+get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
+                      verbose = TRUE) {
+  check_internet()
+  api_check(start_date =  check_date(start_date), end_date = check_date(end_date))
+  set_api_url <- paste("https://www.ly.gov.tw/WebAPI/LegislativeBill.aspx?from=",
+                       start_date, "&to=", end_date,
+                       "&proposer=", proposer, "&mode=json", sep = "")
+  tryCatch(
+    {
+      json_df <- jsonlite::fromJSON(set_api_url)
+      df <- tibble::as_tibble(json_df)
+      attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
+      df["date_ad"] <- do.call("c", lapply(df$date, transformed_date_bill))
+      if (isTRUE(verbose)) {
+        cat(" Retrieved URL: \n", set_api_url, "\n")
+        cat(" Retrieved Bill Sponsor(s): ", proposer, "\n")
+        cat(" Retrieved date between:", as.character(check_date(start_date)), "and", as.character(check_date(end_date)) , "\n")
+        cat(" Retrieved Num:", nrow(df), "\n")
+      }
+      list_data <- list("title" = "the records of bill sponsor and co-sponsor",
+                        "query_time" = Sys.time(),
+                        "retrieved_number" = nrow(df),
+                        "proposer" = proposer,
+                        "start_date_ad" = check_date(start_date),
+                        "end_date_ad" = check_date(end_date),
+                        "start_date" = start_date,
+                        "end_date" = end_date,
+                        "url" = set_api_url,
+                        "variable_names" = colnames(df),
+                        "manual_info" = "https://www.ly.gov.tw/Pages/List.aspx?nodeid=153",
+                        "data" = df)
+      return(list_data)
+    },
+    error = function(error_message) {
+      message(error_message)
+    }
   )
-
-  return(list_data)
 }
 
 
@@ -206,8 +180,7 @@ get_bills_2 <- function(term = 8, session_period = NULL, verbose = TRUE) {
     if (length(term) == 1) {
       term <- sprintf("%02d", as.numeric(term))
     } else if (length(term) > 1) { # If multiple terms are provided
-      term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
-      message("The API doesn't support querying multiple terms, and the retrieved data may be incomplete.")
+      stop("The API doesn't support querying multiple terms. Consider implementing batch processing. Please refer to the tutorial for guidance.")
     }
 
     # Convert session period to two-digit format, if it's not NULL

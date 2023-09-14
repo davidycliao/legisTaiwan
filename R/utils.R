@@ -65,22 +65,44 @@ check_internet <- function(x = curl::has_internet()) {
 #'@param end_date  end_date is inherited from global env.
 #'
 #'@importFrom attempt stop_if_not
-#'
-#'@export
-
+#'@keywords internal
+# api_check <- function(start_date = start_date, end_date = end_date) {
+#   attempt::stop_if_all(start_date > as.Date(Sys.time()),
+#                        isTRUE, msg = "The start date should not be after the system time")
+#   attempt::stop_if_all(end_date > as.Date(Sys.time()),
+#                        isTRUE, msg = "The end date should not be after the system time")
+#   attempt::stop_if_all(start_date, is.character, msg = "use numeric format")
+#   attempt::stop_if_all(end_date, is.character, msg = "use numeric format")
+#   attempt::stop_if_all(start_date, is.null, msg = "start_date is missing")
+#   attempt::stop_if_all(end_date, is.null, msg = "end_date is missing")
+#   attempt::stop_if_all(end_date > start_date, isFALSE,
+#                        msg = paste("The start date, ", start_date, ",", " should not be later than the end date, ",
+#                                    end_date, ".", sep = ""))
+# }
 api_check <- function(start_date = start_date, end_date = end_date) {
+
   attempt::stop_if_all(start_date > as.Date(Sys.time()),
-                       isTRUE, msg = "The start date should not be after the system time")
+                       isTRUE, msg = "The start date should not be after the current system time.")
+
   attempt::stop_if_all(end_date > as.Date(Sys.time()),
-                       isTRUE, msg = "The end date should not be after the system time")
-  attempt::stop_if_all(start_date, is.character, msg = "use numeric format")
-  attempt::stop_if_all(end_date, is.character, msg = "use numeric format")
-  attempt::stop_if_all(start_date, is.null, msg = "start_date is missing")
-  attempt::stop_if_all(end_date, is.null, msg = "end_date is missing")
+                       isTRUE, msg = "The end date should not be after the current system time.")
+
+  attempt::stop_if_all(start_date, is.character,
+                       msg = "Use numeric format for start_date.")
+
+  attempt::stop_if_all(end_date, is.character,
+                       msg = "Use numeric format for end_date.")
+
+  attempt::stop_if_all(start_date, is.null,
+                       msg = "The parameter 'start_date' is missing.")
+
+  attempt::stop_if_all(end_date, is.null,
+                       msg = "The parameter 'end_date' is missing.")
+
   attempt::stop_if_all(end_date > start_date, isFALSE,
-                       msg = paste("The start date,", start_date, ",", "should not be later than the end date,",
-                                   end_date, ".", sep = " "))
+                       msg = paste("The start date, ", start_date, ", should not be later than the end date, ", end_date, "."))
 }
+
 
 
 #' Transforming Minguo (Taiwan) Calendar to A.D. Calendar I
