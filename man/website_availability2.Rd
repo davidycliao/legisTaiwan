@@ -2,18 +2,20 @@
 % Please edit documentation in R/utils.R
 \name{website_availability2}
 \alias{website_availability2}
-\title{A Check for the Website Availability II}
+\title{Check for the Website Availability II}
 \usage{
 website_availability2(
-  site = "https://npl.ly.gov.tw/do/www/appDate?status=0&expire=02&startYear=0n"
+  site = "https://npl.ly.gov.tw/do/www/appDate?status=0&expire=02&startYear=0"
 )
 }
 \arguments{
-\item{site}{https://npl.ly.gov.tw/do/www/appDate?status=0&expire=02&startYear=0}
+\item{site}{A website URL to check. Default is "https://npl.ly.gov.tw/do/www/appDate?status=0&expire=02&startYear=0".}
 }
 \description{
-A Check for the Website Availability II
+This function checks the availability of a specified website by trying to read
+the first line of the site's content.
 }
 \seealso{
 \code{check_internet()}, \code{website_availability()}
 }
+\keyword{internal}

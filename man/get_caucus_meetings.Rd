@@ -27,7 +27,7 @@ list, which contains: \describe{
 \item{\code{start_date}}{the start date in ROC Taiwan calendar}
 \item{\code{url}}{the retrieved json url}
 \item{\code{variable_names}}{the variables of the tibble dataframe}
-\item{\code{manual_info}}{the official manual, \url{https://data.ly.gov.tw/getds.action?id=8}; or use legisTaiwan::get_variable_info("get_caucus_meetings")}
+\item{\code{manual_info}}{the official manual, \url{https://data.ly.gov.tw/getds.action?id=8}; or use get_variable_info("get_caucus_meetings")}
 \item{\code{data}}{a tibble dataframe, whose variables include:
 \describe{\item{\code{comYear}}{卷}
 \item{\code{comVolume}}{期}
@@ -58,7 +58,7 @@ The Meeting Records of Cross-caucus Session 黨團協商資訊
 }
 \note{
 To retrieve the user manual and more information about variable of the data
-frame, please use \code{legisTaiwan::get_variable_info("get_caucus_meetings")}
+frame, please use \code{get_variable_info("get_caucus_meetings")}
 or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=8}.
 議事類:提供公報之黨團協商資訊 (自第8屆第1會期起)
 }

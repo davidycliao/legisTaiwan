@@ -61,6 +61,7 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
                       verbose = TRUE) {
   check_internet()
   api_check(start_date =  check_date(start_date), end_date = check_date(end_date))
+  validate_dates_format(start_date, end_date)
   set_api_url <- paste("https://www.ly.gov.tw/WebAPI/LegislativeBill.aspx?from=",
                        start_date, "&to=", end_date,
                        "&proposer=", proposer, "&mode=json", sep = "")

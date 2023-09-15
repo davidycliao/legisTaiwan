@@ -25,3 +25,4 @@ and \code{get_speech_video()},
 transformed_date_meeting("105/05/31")
 
 }
+\keyword{internal}

@@ -16,3 +16,4 @@ date in POSIXct
 \code{transformed_date_meeting()} transforms Minguo (Taiwan) Calendar
 to A.D. format in POSIXct for \code{get_bill()}, e.g. "1050531" to "2016-05-31".
 }
+\keyword{internal}

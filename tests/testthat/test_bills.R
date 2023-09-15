@@ -18,8 +18,6 @@ test_that("Testing get_bills function", {
   # Test if the function returns a list
   result <- get_bills(start_date = 1060120, end_date = 1070310, verbose = FALSE)
   expect_type(result, "list")
-
-
   # Test if get_bills throws the expected error for incorrect date format
   expect_error(get_bills(start_date = 1070310, end_date = 1060120, verbose = FALSE),
                "The start date, 2018-03-10, should not be later than the end date, 2017-01-20.")
@@ -27,21 +25,7 @@ test_that("Testing get_bills function", {
   # Test if the function correctly handles invalid date format
   expect_error(get_bills(start_date = "10601", end_date = 1070310, verbose = FALSE),
                "Dates should be in numeric format. E.g., 1090101.")
-
-  # # Test if verbose works
-  # expect_output(get_bills(start_date = 1060120, end_date = 1070310, verbose = TRUE),
-  #               "Fetching bills data...")
 })
 
-library(testthat)
-
-
-
-test_that("get_bills throws an error for incorrect date format", {
-
-  # Test if get_bills throws the expected error for incorrect date format
-  expect_error(get_bills(start_date = 1070310, end_date = 1060120, verbose = FALSE),
-               "Dates should be in numeric format. E.g., 1090101.")
-})
 
 

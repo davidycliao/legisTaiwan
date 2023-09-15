@@ -1,19 +1,39 @@
-### Package Utility Functions
+#' Validate Date Formats
+#'
+#' This function checks if the provided start and end dates are in the correct numeric format.
+#'
+#' @param start_date A string representing the start date. Expected format is numeric, e.g., "1090101".
+#' @param end_date A string representing the end date. Expected format is numeric, e.g., "1090101".
+#' @return NULL. If the dates are not in the expected format, an error is thrown.
+#' @examples
+#' # This should work:
+#' validate_dates_format("1090101", "1100101")
+#'
+#' # This should throw an error:
+#' # validate_dates_format("10901", "1100101")
+#' @keywords internal
+validate_dates_format <- function(start_date, end_date) {
+  valid_date_format <- function(date) {
+    return(grepl("^\\d{7}$", date))
+  }
 
-#' @export .onAttach
-.onAttach <- function(...) {
-  packageStartupMessage("## legisTaiwan                                            ###")
-  packageStartupMessage("## An R package connecting to the Taiwan Legislative API. ###")
-
+  if (!valid_date_format(start_date) || !valid_date_format(end_date)) {
+    stop("Dates should be in numeric format. E.g., 1090101.")
+  }
 }
 
-#'A Check for the Website Availability I
-#'
-#'@param site https://data.ly.gov.tw/index.action
-#'
-#'@seealso
-#' `check_internet()`,
 
+#' Check for the Website Availability I
+#'
+#' This function checks the availability of a specified website by trying to read
+#' the first line of the site's content.
+#'
+#' @param site A website URL to check. Default is "https://data.ly.gov.tw/index.action".
+#'
+#' @seealso
+#' `check_internet()`
+#'
+#' @keywords internal
 website_availability <- function(site = "https://data.ly.gov.tw/index.action") {
   tryCatch({
     readLines(site, n = 1)
@@ -23,15 +43,18 @@ website_availability <- function(site = "https://data.ly.gov.tw/index.action") {
   error = function(e) FALSE)
 }
 
-#'A Check for the Website Availability II
+#' Check for the Website Availability II
 #'
-#'@param site https://npl.ly.gov.tw/do/www/appDate?status=0&expire=02&startYear=0
+#' This function checks the availability of a specified website by trying to read
+#' the first line of the site's content.
 #'
-#'@seealso
+#' @param site A website URL to check. Default is "https://npl.ly.gov.tw/do/www/appDate?status=0&expire=02&startYear=0".
+#'
+#' @seealso
 #' `check_internet()`, `website_availability()`
-#'@export
-
-website_availability2 <- function(site = "https://npl.ly.gov.tw/do/www/appDate?status=0&expire=02&startYear=0n") {
+#'
+#' @keywords internal
+website_availability2 <- function(site = "https://npl.ly.gov.tw/do/www/appDate?status=0&expire=02&startYear=0") {
   tryCatch({
     readLines(site, n = 1)
     TRUE
@@ -100,7 +123,8 @@ api_check <- function(start_date = start_date, end_date = end_date) {
                        msg = "The parameter 'end_date' is missing.")
 
   attempt::stop_if_all(end_date > start_date, isFALSE,
-                       msg = paste("The start date, ", start_date, ", should not be later than the end date, ", end_date, "."))
+                       msg = paste("The start date, ", start_date, ",", " should not be later than the end date, ",
+                                   end_date, ".", sep = ""))
 }
 
 
@@ -119,14 +143,12 @@ api_check <- function(start_date = start_date, end_date = end_date) {
 #'
 #'@importFrom stringr str_split_1
 #'
-#'@export
+#' @keywords internal
 #'
 #'@examples
 #'transformed_date_meeting("105/05/31")
 #'
 #'@details `check_date` transforms ROC date to a date in POSIXct, e.g. "105/05/31" to "2016-05-31".
-
-
 transformed_date_meeting <- function(roc_date) {
   roc_date <- stringr::str_split_1(roc_date, "/")
   date_ad <- as.Date(as.POSIXct(paste(as.numeric(roc_date[1]) + 1911,
@@ -148,7 +170,7 @@ transformed_date_meeting <- function(roc_date) {
 #'
 #'@importFrom stringr str_sub
 #'
-#'@export
+#' @keywords internal
 
 transformed_date_bill <- function(roc_date) {
   day <- stringr::str_sub(roc_date, -2, -1)
@@ -173,7 +195,7 @@ transformed_date_bill <- function(roc_date) {
 #'
 #'@importFrom stringr str_sub
 #'
-#'@export
+#'@keywords internal
 
 check_date <- function(roc_date) {
   day <- stringr::str_sub(roc_date, -2, -1)
@@ -199,7 +221,7 @@ check_date <- function(roc_date) {
 #'
 #'@importFrom stringr str_split_1
 #'
-#'@export
+#'@keywords internal
 #'
 #'@examples
 #'check_date2("105/05/31")
