@@ -33,17 +33,6 @@ reference:
   - get_legislators
   - get_variable_info
   - review_session_info
-- title: Utility
-  desc: internal functions supports `legisTaiwan` function
-- contents:
-  - website_availability
-  - website_availability2
-  - check_internet
-  - api_check
-  - check_date
-  - check_date2
-  - transformed_date_meeting
-  - transformed_date_bill
 
 authors:
   David Yen-Chieh Liao:
@@ -102,6 +91,8 @@ navbar:
   - icon: fa-newspaper-o
     text: News
     menu:
+    - text: "0.1.6"
+      href: news/index.html#legistaiwan-016-development-version
     - text: "0.1.4"
       href: news/index.html#legistaiwan-014-development-version
     - text: "0.1.3"

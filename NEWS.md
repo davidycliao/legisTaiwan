@@ -1,3 +1,6 @@
+# `legisTaiwan` 0.1.6
+
+
 # `legisTaiwan` 0.1.4 (development version)
 
 * re-documentation and inserting handlers.

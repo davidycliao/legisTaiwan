@@ -32,6 +32,8 @@ Suggests:
   remotes,
   tidyverse,
   testthat (>= 3.0.0)
+Config/Needs/website:
+    tidyverse/tidytemplate  
 RoxygenNote: 7.2.3
 BugReports: https://github.com/davidycliao/legisTaiwan/issues
 URL: https://davidycliao.github.io/legisTaiwan/
