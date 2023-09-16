@@ -26,6 +26,3 @@ test_that("Testing get_bills function", {
   expect_error(get_bills(start_date = "10601", end_date = 1070310, verbose = FALSE),
                "Dates should be in numeric format. E.g., 1090101.")
 })
-
-
-

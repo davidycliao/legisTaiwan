@@ -1,9 +1,9 @@
 ---
-title: "以「立委質詢」為例"
-author: "李宜展 東海大學政治系"
+title: "Parliarmentary Questions"
+author: ""
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{以「立委質詢」為例}
+  %\VignetteIndexEntry{Parliarmentary Questions}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -34,7 +34,7 @@ pa_term10 <- get_parlquestions(term = 10, verbose = TRUE)
 
 ```{r}
 pa_term10$data
-```s
+```
 
 
 

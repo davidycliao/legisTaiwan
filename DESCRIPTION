@@ -23,7 +23,8 @@ Imports:
   curl,
   tibble,
   rvest,
-  withr
+  withr,
+  httr
 Suggests: 
   knitr,
   rmarkdown,

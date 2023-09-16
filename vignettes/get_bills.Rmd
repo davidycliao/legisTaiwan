@@ -1,9 +1,9 @@
 ---
-title: "An Example of the Records of the Bills"
+title: "The Records of the Bills"
 author: ""
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{An Example of the Records of the Bills}
+  %\VignetteIndexEntry{The Records of the Bills}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

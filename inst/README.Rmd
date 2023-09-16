@@ -11,9 +11,24 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
+
 ```
 
-# Real-time and Archives of Taiwan Legislative Data in R <img src="man/figures/logo.png" align="right" width="180"/>
+
+```{r setup, include = FALSE}
+ # Get the current working directory
+original_wd <- getwd()
+
+# Set the working directory to one level up
+setwd('..')
+
+# Your code here
+
+# Reset the working directory back to its original
+setwd(original_wd)
+```
+
+# Real-time and Archives of Taiwan Legislative Data in R <img src="../man/figures/logo.png" align="right" width="180"/>
 
 <!-- badges: start -->
 [![R](https://github.com/davidycliao/legisTaiwan/actions/workflows/r.yml/badge.svg)](https://github.com/davidycliao/legisTaiwan/actions/workflows/r.yml) [![codecov](https://codecov.io/gh/davidycliao/legisTaiwan/branch/master/graph/badge.svg?token=HVVTCOE90D)](https://codecov.io/gh/davidycliao/legisTaiwan)
@@ -52,3 +67,5 @@ library(legisTaiwan)
 `legisTaiwan` requires a stable internet connection to retrieve data from the API. While most functions can fetch data spanning a long period, they tend to be bandwidth-intensive due to the size of the datasets. If you plan to download data over an extended period, I recommend using get_variable_info() first to verify the current file sizes on the API manual. Also, consider writing a batch retrieval process with appropriate handlers to track the progress of file input, ensuring the completeness of the requested data.
 
 </div>
+
+

@@ -24,4 +24,3 @@ expect_error(get_variable_info("x"),
          get_executive_response: the records of the questions answered by the executives")
 })
 
-# test_that("review_session_info", {expect_equal(nrow(review_session_info(6)), 8)})
