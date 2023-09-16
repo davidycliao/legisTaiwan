@@ -49,10 +49,8 @@ website_availability <- function(site = "https://data.ly.gov.tw/index.action") {
 #'
 #' @param site A website URL to check. Default is "https://npl.ly.gov.tw/do/www/appDate?status=0&expire=02&startYear=0".
 #'
-#' @seealso
-#' `check_internet()`, `website_availability()`
-#'
 #' @keywords internal
+#' @seealso `check_internet()` and `website_availability()`.
 website_availability2 <- function(site = "https://npl.ly.gov.tw/do/www/appDate?status=0&expire=02&startYear=0") {
   tryCatch({
     readLines(site, n = 1)

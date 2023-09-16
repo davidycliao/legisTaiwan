@@ -16,6 +16,6 @@ This function checks the availability of a specified website by trying to read
 the first line of the site's content.
 }
 \seealso{
-\code{check_internet()}, \code{website_availability()}
+\code{check_internet()} and \code{website_availability()}.
 }
 \keyword{internal}

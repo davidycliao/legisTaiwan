@@ -33,8 +33,13 @@ from the website of Taiwan Legislative Yuan. The avalaible options is: \code{get
 \details{
 \code{get_variable_info} produces a list, which contains \code{page_info} and \code{reference_url}.
 }
+\examples{
+\dontrun{
+get_variable_info("get_bills")
+}
+}
 \seealso{
-\code{review_session_info()}
+\code{review_session_info()}.
 }
 \author{
 David Liao (davidycliao@gmail.com)
