@@ -27,7 +27,7 @@ A list containing:
 \item{\code{retrieved_term}}{the queried term}
 \item{\code{url}}{the retrieved json url}
 \item{\code{variable_names}}{the variables of the tibble dataframe}
-\item{\code{manual_info}}{the offical manual from \url{https://data.ly.gov.tw/getds.action?id=6}, or use legisTaiwan::get_variable_info("get_parlquestions")}
+\item{\code{manual_info}}{the offical manual from \url{https://data.ly.gov.tw/getds.action?id=6}, or use get_variable_info("get_parlquestions")}
 \item{\code{data}}{a tibble dataframe, whose variables include:
 \describe{
 \item{\code{term}}{屆別}
@@ -49,7 +49,7 @@ The Records of Parliamentary Questions 委員質詢事項資訊
 }
 \note{
 To retrieve the user manual and more information about variable of the data
-frame, please use \code{legisTaiwan::get_variable_info("get_parlquestions")}
+frame, please use \code{get_variable_info("get_parlquestions")}
 or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=6}.
 質詢類: 提供議事日程本院委員之質詢事項資訊(自第8屆第1會期起)。
 }

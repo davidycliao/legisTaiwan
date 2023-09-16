@@ -20,9 +20,8 @@ coverage](https://github.com/davidycliao/legisTaiwan/actions/workflows/test-cove
 `legisTaiwan` is designed to download the real-time archives of Taiwan
 legislative data easily. This package includes many streamlined
 functions to access [Taiwan Legislative Yuan
-API](https://data.ly.gov.tw/index.action) and efficiently perform
-analysis and natural language processing tasks in R without any hassle
-or runarounds.
+API](https://data.ly.gov.tw/index.action) in R without any hassle or
+runarounds.
 
 </div>
 
@@ -37,21 +36,21 @@ remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
 
 ``` r
 library(legisTaiwan)
-#> ## legisTaiwan                                            ###
-#> ## An R package connecting to the Taiwan Legislative API. ###
+#> ## legisTaiwan                                            ##
+#> ## An R package connecting to the Taiwan Legislative API. ##
 ```
 
 ## Caution:
 
 <div style="text-align: justify">
 
-`legisTaiwan` requires stable internet connectivity for any data
-retrieval function from the API. Most functions can be directly used to
-retrieve a long period of data but are extremely bandwidth-intensive,
-given the download sizes of these data stores. When downloading a more
-extended period of data, I suggest using **get_variable_info()** to
-double-check the current size of files on the API manual and write a
-loop with appropriate handlers recording the progress of file input to
-make sure the requested data is complete.
+`legisTaiwan` requires a stable internet connection to retrieve data
+from the API. While most functions can fetch data spanning a long
+period, they tend to be bandwidth-intensive due to the size of the
+datasets. If you plan to download data over an extended period, I
+recommend using get_variable_info() first to verify the current file
+sizes on the API manual. Also, consider writing a batch retrieval
+process with appropriate handlers to track the progress of file input,
+ensuring the completeness of the requested data.
 
 </div>

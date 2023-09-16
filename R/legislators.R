@@ -45,7 +45,7 @@
 #'`queried_term`, `url`, `variable_names`, `manual_info` and `data`.
 #'
 #'@note To retrieve the user manual and more information about variable of the data
-#' frame, please use `legisTaiwan::get_variable_info("get_legislators")`
+#' frame, please use `get_variable_info("get_legislators")`
 #' or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=16}.
 #' 提供委員基本資料，最早資料可追溯至第2屆。
 #'
@@ -53,7 +53,7 @@
 #'`get_variable_info("get_legislators")`, `review_session_info()`
 
 get_legislators <- function(term = NULL, verbose = TRUE) {
-  legisTaiwan::check_internet()
+  check_internet()
   if (is.null(term)) {
     set_api_url <- paste("https://data.ly.gov.tw/odw/ID16Action.action?name=&sex=&party=&partyGroup=&areaName=&term=",
                          term, "=&fileType=json", sep = "")

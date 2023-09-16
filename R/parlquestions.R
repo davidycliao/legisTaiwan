@@ -21,7 +21,7 @@
 #'     \item{`retrieved_term`}{the queried term}
 #'     \item{`url`}{the retrieved json url}
 #'     \item{`variable_names`}{the variables of the tibble dataframe}
-#'     \item{`manual_info`}{the offical manual from \url{https://data.ly.gov.tw/getds.action?id=6}, or use legisTaiwan::get_variable_info("get_parlquestions")}
+#'     \item{`manual_info`}{the offical manual from \url{https://data.ly.gov.tw/getds.action?id=6}, or use get_variable_info("get_parlquestions")}
 #'     \item{`data`}{a tibble dataframe, whose variables include:
 #'       \describe{
 #'         \item{`term`}{屆別}
@@ -52,13 +52,13 @@
 #' `manual_info`, and `data`.
 #'
 #' @note To retrieve the user manual and more information about variable of the data
-#' frame, please use `legisTaiwan::get_variable_info("get_parlquestions")`
+#' frame, please use `get_variable_info("get_parlquestions")`
 #' or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=6}.
 #' 質詢類: 提供議事日程本院委員之質詢事項資訊(自第8屆第1會期起)。
 #'
 #' @seealso `get_variable_info("get_parlquestions")`
 get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
-  legisTaiwan::check_internet()
+  check_internet()
   if (is.null(term)) {
     options(timeout = max(1000, getOption("timeout")))
     set_api_url <- paste("https://data.ly.gov.tw/odw/ID6Action.action?term=", term,
@@ -158,11 +158,11 @@ get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
 #'@details **`get_executive_response`** produces a list, which contains `title`,
 #'`query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
 #' `manual_info` and `data`. To retrieve the user manual and more information, please
-#' use `legisTaiwan::get_variable_info("get_executive_response")`.
+#' use `get_variable_info("get_executive_response")`.
 #'
 #'
 #'#'@note To retrieve the user manual and more information about variable of the data
-#' frame, please use `legisTaiwan::get_variable_info("get_executive_response")`
+#' frame, please use `get_variable_info("get_executive_response")`
 #' or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=2}.
 #' 質詢類: 提供公報質詢事項行政院答復資訊 (自第8屆第1會期起)。
 #'
@@ -171,7 +171,7 @@ get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
 
 
 get_executive_response <- function(term = NULL, session_period = NULL, verbose = TRUE) {
-  legisTaiwan::check_internet()
+  check_internet()
   if (is.null(term)) {
     options(timeout = max(1000, getOption("timeout")))
     set_api_url <- paste("https://data.ly.gov.tw/odw/ID2Action.action?term=",

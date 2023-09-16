@@ -1,9 +1,9 @@
 ---
-title: "以「歷屆委員資料」為例"
-author: "李宜展 東海大學政治系"
+title: "Retrieve Legislator Data"
+author: ""
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{以「歷屆委員資料」為例}
+  %\VignetteIndexEntry{Retrieve Legislator Data}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -19,60 +19,18 @@ knitr::opts_chunk$set(
 assign("has_internet_via_proxy", TRUE, environment(curl::has_internet))
 ```
 
-
-## 以[`get_legislators()`](https://davidycliao.github.io/legisTaiwan/reference/get_legislators.html) 抓取「歷屆委員資料」為例
+## Using `get_legislators()` as an Example to Fetch Historical Legislator Data'.
 
 ```{r}
 library(legisTaiwan)
-library(tidyverse)
 ```
 
 ```{r}
 info <- get_legislators(verbose = FALSE)
-legislators <- info$data
 ```
 
-使用`tidyverse`協助做資料整理，計算「性別」之個數。
-```{r}
-legislators %>% 
-  count(sex) 
-```
-
-計算「黨籍」之個數
-```{r}
-legislators %>% 
-  count(party) 
-```
-
-製作直方圖
 
 ```{r}
-library(ggplot2)
-party <- legislators %>% 
-  count(party) 
-ggplot(data = legislators, aes(x = party)) +
-  geom_bar() +
-  theme(text = element_text(family = "Heiti TC Light"))
+info$data
 ```
 
-製作圓餅圖
-```{r}
-party_1 <- table(legislators$party)
-party.freq <- data.frame(party_1)
-names(party.freq)[1] <- "party"
-
-ggplot(data = party.freq, aes(x = "", y = Freq, fill = party)) +
-  geom_bar(stat = "identity", width = 1) +
-  coord_polar(theta = "y", start = 0) +
-  theme_void()+
-  theme(text = element_text(family = "Heiti TC Light"))
-
-```
-
-查看不同性別於不同政黨中之比例
-```{r}
-ggplot(data = legislators, aes(x = party, fill = sex)) +
-  geom_bar(position = "stack") +
-  # theme(text = element_text(family = "Heiti TC Light")) +
-  coord_flip()
-```

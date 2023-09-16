@@ -74,11 +74,10 @@ website_availability2 <- function(site = "https://npl.ly.gov.tw/do/www/appDate?s
 #'
 #'@importFrom curl has_internet
 #'
-#'@export
-
+#'@keywords internal
 check_internet <- function(x = curl::has_internet()) {
   attempt::stop_if_not(.x = x,
-                       msg = "Please check the internet connetion")
+                       msg = "Please check the internet connection")
 }
 
 #' A General Check for Taiwan Legislative Yuan API
@@ -106,22 +105,16 @@ api_check <- function(start_date = start_date, end_date = end_date) {
 
   attempt::stop_if_all(start_date > as.Date(Sys.time()),
                        isTRUE, msg = "The start date should not be after the current system time.")
-
   attempt::stop_if_all(end_date > as.Date(Sys.time()),
                        isTRUE, msg = "The end date should not be after the current system time.")
-
   attempt::stop_if_all(start_date, is.character,
                        msg = "Use numeric format for start_date.")
-
   attempt::stop_if_all(end_date, is.character,
                        msg = "Use numeric format for end_date.")
-
   attempt::stop_if_all(start_date, is.null,
                        msg = "The parameter 'start_date' is missing.")
-
   attempt::stop_if_all(end_date, is.null,
                        msg = "The parameter 'end_date' is missing.")
-
   attempt::stop_if_all(end_date > start_date, isFALSE,
                        msg = paste("The start date, ", start_date, ",", " should not be later than the end date, ",
                                    end_date, ".", sep = ""))
@@ -143,7 +136,7 @@ api_check <- function(start_date = start_date, end_date = end_date) {
 #'
 #'@importFrom stringr str_split_1
 #'
-#' @keywords internal
+#'@keywords internal
 #'
 #'@examples
 #'transformed_date_meeting("105/05/31")
