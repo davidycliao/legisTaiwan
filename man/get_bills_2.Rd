@@ -25,7 +25,7 @@ A list containing:
 \item{\code{retrieved_term}}{Retrieved term}
 \item{\code{url}}{Retrieved JSON URL}
 \item{\code{variable_names}}{Variables of the tibble dataframe}
-\item{\code{manual_info}}{Official manual: \url{https://data.ly.gov.tw/getds.action?id=20} or use \code{legisTaiwan::get_variable_info("get_bills_2")}}
+\item{\code{manual_info}}{Official manual: \url{https://data.ly.gov.tw/getds.action?id=20} or use \code{get_variable_info("get_bills_2")}}
 \item{\code{data}}{A tibble dataframe with variables such as:
 \describe{
 \item{\code{term}}{屆別}
@@ -50,10 +50,10 @@ The Records of Legislation and the Executives Proposals: 委員及政府議案�
 \details{
 The \code{get_bills_2} function produces a list, which includes \code{query_time},
 \code{retrieved_number}, \code{retrieved_term}, \code{url}, \code{variable_names}, \code{manual_info}, and \code{data}.
-For the user manual and more information about the dataframe, use \code{legisTaiwan::get_variable_info("get_bills_2")}.
+For the user manual and more information about the dataframe, use \code{get_variable_info("get_bills_2")}.
 }
 \note{
-For more details about the dataframe's variables, use \code{legisTaiwan::get_variable_info("get_bills_2")}
+For more details about the dataframe's variables, use \code{get_variable_info("get_bills_2")}
 or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=20}.
 議事類: 提供委員及政府之議案提案資訊 (從第8屆第1會期開始)。
 }

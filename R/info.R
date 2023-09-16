@@ -36,7 +36,7 @@
 #'`review_session_info()`
 
 get_variable_info <- function(param_) {
-  legisTaiwan::check_internet()
+  check_internet()
   attempt::stop_if_all(website_availability(), isFALSE, msg = "the error from the API.")
   attempt::stop_if_all(param_, is.numeric, msg = "use string format only.")
   attempt::stop_if_all(param_, is.null, msg = "use correct funtion names.")

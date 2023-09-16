@@ -18,7 +18,7 @@
 #'   \item{`start_date`}{Start date in the ROC Taiwan calendar}
 #'   \item{`url`}{URL of the retrieved JSON data}
 #'   \item{`variable_names`}{Variable names of the tibble dataframe}
-#'   \item{`manual_info`}{Official manual. See \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153} or use legisTaiwan::get_variable_info("get_bills")}
+#'   \item{`manual_info`}{Official manual. See \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153} or use get_variable_info("get_bills")}
 #'   \item{`data`}{A tibble dataframe with the following variables:
 #'   \describe{\item{`term`}{Session number}
 #'             \item{`sessionPeriod`}{Session period}
@@ -37,7 +37,7 @@
 #' @importFrom httr content
 #' @importFrom jsonlite fromJSON
 #' @importFrom tibble as_tibble
-#'
+#' @importFrom withr with_options
 #' @export
 #' @examples
 #' ## Query bill records by a date range in the Taiwan ROC calendar format
@@ -53,7 +53,7 @@
 #' `retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
 #' `end_date`, `url`, `variable_names`, `manual_info`, and `data`.
 #'
-#' @note To retrieve the user manual and more details about the data frame, use `legisTaiwan::get_variable_info("get_bills")`.
+#' @note To retrieve the user manual and more details about the data frame, use `get_variable_info("get_bills")`.
 #' Further checks are required as the user manual seems to be inconsistent with the actual data.
 #' @seealso
 #' \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}
@@ -67,7 +67,7 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
                        "&proposer=", proposer, "&mode=json", sep = "")
   tryCatch(
     {
-      json_df <- jsonlite::fromJSON(set_api_url)
+      with_options(list(timeout = max(1000, getOption("timeout"))),{json_df <- jsonlite::fromJSON(set_api_url)})
       df <- tibble::as_tibble(json_df)
       attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
       df["date_ad"] <- do.call("c", lapply(df$date, transformed_date_bill))
@@ -98,7 +98,6 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 }
 
 
-
 #' The Records of Legislation and the Executives Proposals: 委員及政府議案提案資訊
 #'
 #' @author David Liao (davidycliao@@gmail.com)
@@ -120,7 +119,7 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 #'      \item{`retrieved_term`}{Retrieved term}
 #'      \item{`url`}{Retrieved JSON URL}
 #'      \item{`variable_names`}{Variables of the tibble dataframe}
-#'      \item{`manual_info`}{Official manual: \url{https://data.ly.gov.tw/getds.action?id=20} or use `legisTaiwan::get_variable_info("get_bills_2")`}
+#'      \item{`manual_info`}{Official manual: \url{https://data.ly.gov.tw/getds.action?id=20} or use `get_variable_info("get_bills_2")`}
 #'      \item{`data`}{A tibble dataframe with variables such as:
 #'      \describe{
 #'                \item{`term`}{屆別}
@@ -143,6 +142,7 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 #' @importFrom jsonlite fromJSON
 #' @importFrom httr GET
 #' @importFrom tibble as_tibble
+#' @importFrom withr with_options
 #'
 #' @export
 #'
@@ -153,9 +153,9 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 #'
 #' @details The `get_bills_2` function produces a list, which includes `query_time`,
 #' `retrieved_number`, `retrieved_term`, `url`, `variable_names`, `manual_info`, and `data`.
-#' For the user manual and more information about the dataframe, use `legisTaiwan::get_variable_info("get_bills_2")`.
+#' For the user manual and more information about the dataframe, use `get_variable_info("get_bills_2")`.
 #'
-#' @note For more details about the dataframe's variables, use `legisTaiwan::get_variable_info("get_bills_2")`
+#' @note For more details about the dataframe's variables, use `get_variable_info("get_bills_2")`
 #' or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=20}.
 #' 議事類: 提供委員及政府之議案提案資訊 (從第8屆第1會期開始)。
 #'
@@ -165,7 +165,7 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 get_bills_2 <- function(term = 8, session_period = NULL, verbose = TRUE) {
 
   # Check for internet connectivity
-  legisTaiwan::check_internet()
+  check_internet()
 
   # If the term is not specified
   if (is.null(term)) {
@@ -196,7 +196,7 @@ get_bills_2 <- function(term = 8, session_period = NULL, verbose = TRUE) {
   # Try to fetch the data and process it
   tryCatch(
     {
-      json_df <- jsonlite::fromJSON(set_api_url)
+      with_options(list(timeout = max(1000, getOption("timeout"))),{json_df <- jsonlite::fromJSON(set_api_url)})
       df <- tibble::as_tibble(json_df$dataList)
       # If the returned data is empty, stop execution and display an error message
       attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")

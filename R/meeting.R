@@ -37,6 +37,7 @@
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
+#'@importFrom withr with_options
 #'
 #'@export
 #'
@@ -68,12 +69,12 @@
 get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL,
                          verbose = TRUE) {
   check_internet()
-  api_check(start_date = check_date(start_date), end_date =check_date(end_date))
+  api_check(start_date = check_date(start_date), end_date = check_date(end_date))
   set_api_url <- paste("https://www.ly.gov.tw/WebAPI/LegislativeSpeech.aspx?from=",
                        start_date, "&to=", end_date, "&meeting_unit=", meeting_unit, "&mode=json", sep = "")
   tryCatch(
     {
-      json_df <- jsonlite::fromJSON(set_api_url)
+      with_options(list(timeout = max(1000, getOption("timeout"))),{json_df <- jsonlite::fromJSON(set_api_url)})
       df <- tibble::as_tibble(json_df)
       attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
       df["date_ad"] <- do.call("c", lapply(df$smeeting_date, transformed_date_meeting))
@@ -149,6 +150,7 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
+#'@importFrom withr with_options
 #'
 #'@export
 #'
@@ -184,7 +186,7 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
                        start_date, "&meetingDateE=", end_date, "&fileType=json", sep = "")
   tryCatch(
     {
-      json_df <- jsonlite::fromJSON(set_api_url)
+      with_options(list(timeout = max(1000, getOption("timeout"))),{json_df <- jsonlite::fromJSON(set_api_url)})
       df <- tibble::as_tibble(json_df$dataList)
       attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
       if (isTRUE(verbose)) {
@@ -256,6 +258,7 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
+#'@importFrom withr with_options
 #'
 #'@export
 #'
@@ -294,7 +297,7 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
                        "&meetingTime=&legislatorName=&fileType=json" , sep = "")
   tryCatch(
     {
-      json_df <- jsonlite::fromJSON(set_api_url)
+      with_options(list(timeout = max(1000, getOption("timeout"))),{json_df <- jsonlite::fromJSON(set_api_url)})
       df <- tibble::as_tibble(json_df$dataList)
       attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
       if (isTRUE(verbose)) {
@@ -365,6 +368,7 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
+#'@importFrom withr with_options
 #'
 #'@export
 #'
@@ -412,7 +416,7 @@ get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRU
                        sep = "")
   tryCatch(
     {
-      json_df <- jsonlite::fromJSON(set_api_url)
+      with_options(list(timeout = max(1000, getOption("timeout"))),{json_df <- jsonlite::fromJSON(set_api_url)})
       df <- tibble::as_tibble(json_df$dataList)
       attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
       if (isTRUE(verbose)) {
@@ -471,6 +475,7 @@ get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRU
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
+#'@importFrom withr with_options
 #'
 #'@export
 #'
@@ -525,6 +530,7 @@ get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRU
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
+#'@importFrom withr with_options
 #'
 #'@export
 #'
@@ -567,7 +573,7 @@ get_committee_record <- function(term = 10, session_period = NULL, verbose = TRU
                        "&sessionTimes=01&meetingTimes=&fileType=json", sep = "")
   tryCatch(
     {
-      json_df <- jsonlite::fromJSON(set_api_url)
+      with_options(list(timeout = max(1000, getOption("timeout"))),{json_df <- jsonlite::fromJSON(set_api_url)})
       df <- tibble::as_tibble(json_df$dataList)
       attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
       if (isTRUE(verbose)) {

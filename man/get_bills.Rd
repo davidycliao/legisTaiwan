@@ -29,7 +29,7 @@ A list, which contains:
 \item{\code{start_date}}{Start date in the ROC Taiwan calendar}
 \item{\code{url}}{URL of the retrieved JSON data}
 \item{\code{variable_names}}{Variable names of the tibble dataframe}
-\item{\code{manual_info}}{Official manual. See \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153} or use legisTaiwan::get_variable_info("get_bills")}
+\item{\code{manual_info}}{Official manual. See \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153} or use get_variable_info("get_bills")}
 \item{\code{data}}{A tibble dataframe with the following variables:
 \describe{\item{\code{term}}{Session number}
 \item{\code{sessionPeriod}}{Session period}
@@ -53,7 +53,7 @@ The \code{get_bills} function returns a list that contains \code{query_time},
 \code{end_date}, \code{url}, \code{variable_names}, \code{manual_info}, and \code{data}.
 }
 \note{
-To retrieve the user manual and more details about the data frame, use \code{legisTaiwan::get_variable_info("get_bills")}.
+To retrieve the user manual and more details about the data frame, use \code{get_variable_info("get_bills")}.
 Further checks are required as the user manual seems to be inconsistent with the actual data.
 }
 \examples{

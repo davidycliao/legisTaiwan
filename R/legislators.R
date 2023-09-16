@@ -33,6 +33,7 @@
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
+#'@importFrom withr with_options
 #'
 #'@export
 #'
@@ -71,7 +72,7 @@ get_legislators <- function(term = NULL, verbose = TRUE) {
   }
   tryCatch(
     {
-      json_df <- jsonlite::fromJSON(set_api_url)
+      with_options(list(timeout = max(1000, getOption("timeout"))),{json_df <- jsonlite::fromJSON(set_api_url)})
       df <- tibble::as_tibble(json_df$dataList)
       attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
       term <- paste(sort(as.numeric(unique(df$term))), collapse = " ", sep = ",")
