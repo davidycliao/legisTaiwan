@@ -34,7 +34,7 @@ pa_term10 <- get_parlquestions(term = 10, verbose = TRUE)
 
 ```{r}
 pa_term10$data
-```
+```s
 
 
 

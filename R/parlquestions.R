@@ -60,19 +60,22 @@
 get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
   check_internet()
   if (is.null(term)) {
-    options(timeout = max(1000, getOption("timeout")))
-    set_api_url <- paste("https://data.ly.gov.tw/odw/ID6Action.action?term=", term,
-                         "&sessionPeriod=",
-                         "&sessionTimes=&item=&fileType=json", sep = "")
-    message(" term is not defined...\n You are now requesting full data from the API. Please make sure your connectivity is stable until its completion.\n")
+    with_options(list(timeout = max(1000, getOption("timeout"))), {
+      set_api_url <- paste("https://data.ly.gov.tw/odw/ID6Action.action?term=", term,
+                           "&sessionPeriod=",
+                           "&sessionTimes=&item=&fileType=json", sep = "")
+      message(" term is not defined...\n You are now requesting full data from the API. Please make sure your connectivity is stable until its completion.\n")
+      })
   } else {
     attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
     if (length(term) == 1) {
       term <- sprintf("%02d", as.numeric(term))}
     else if (length(term) > 1) {
-      options(timeout = max(1000, getOption("timeout")))
-      term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
-      message("The API is unable to query multiple terms and the retrieved data might not be complete.")}
+      with_options(list(timeout = max(1000, getOption("timeout"))), {
+        options(timeout = max(1000, getOption("timeout")))
+        term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
+        message("The API is unable to query multiple terms.") })
+      }
   }
   set_api_url <- paste("https://data.ly.gov.tw/odw/ID6Action.action?term=", term,
                        "&sessionPeriod=",
@@ -173,19 +176,22 @@ get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
 get_executive_response <- function(term = NULL, session_period = NULL, verbose = TRUE) {
   check_internet()
   if (is.null(term)) {
-    options(timeout = max(1000, getOption("timeout")))
-    set_api_url <- paste("https://data.ly.gov.tw/odw/ID2Action.action?term=",
-                         term, "&sessionPeriod=",
-                         "&sessionTimes=&item=&fileType=json", sep = "")
-    message(" term is not defined...\n You are now requesting full data from the API. Please make sure your connectivity is stable until its completion.\n")
+    with_options(list(timeout = max(1000, getOption("timeout"))), {
+      set_api_url <- paste("https://data.ly.gov.tw/odw/ID2Action.action?term=",
+                           term, "&sessionPeriod=",
+                           "&sessionTimes=&item=&fileType=json", sep = "")
+      message(" term is not defined...\n You are now requesting full data from the API. Please make sure your connectivity is stable until its completion.\n")
+    })
   } else {
     attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
     if (length(term) == 1) {
       term <- sprintf("%02d", as.numeric(term))}
     else if (length(term) > 1) {
+      with_options(list(timeout = max(1000, getOption("timeout"))), {
       options(timeout = max(1000, getOption("timeout")))
       term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
-      message("The API is unable to query multiple terms and the retrieved data might not be complete.")}
+      message("The API is unable to query multiple terms and the retrieved data might not be complete.") })
+      }
   }
   set_api_url <- paste("https://data.ly.gov.tw/odw/ID2Action.action?term=",
                        term, "&sessionPeriod=",
