@@ -18,10 +18,9 @@ NULL. If the dates are not in the expected format, an error is thrown.
 This function checks if the provided start and end dates are in the correct numeric format.
 }
 \examples{
-# This should work:
-validate_dates_format("1090101", "1100101")
-
 # This should throw an error:
-# validate_dates_format("10901", "1100101")
+\dontrun{
+validate_dates_format("10901", "1100101")
+}
 }
 \keyword{internal}

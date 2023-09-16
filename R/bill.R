@@ -38,8 +38,11 @@
 #' @importFrom jsonlite fromJSON
 #' @importFrom tibble as_tibble
 #' @importFrom withr with_options
+#'
 #' @export
+#'
 #' @examples
+#' \dontrun{
 #' ## Query bill records by a date range in the Taiwan ROC calendar format
 #' get_bills(start_date = 1060120, end_date = 1070310, verbose = FALSE)
 #'
@@ -48,6 +51,7 @@
 #'
 #' ## Query bill records by a date range and multiple legislators
 #' get_bills(start_date = 1060120, end_date = 1060510,  proposer = "孔文吉&鄭天財")
+#' }
 #'
 #' @details The `get_bills` function returns a list that contains `query_time`,
 #' `retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
@@ -55,6 +59,7 @@
 #'
 #' @note To retrieve the user manual and more details about the data frame, use `get_variable_info("get_bills")`.
 #' Further checks are required as the user manual seems to be inconsistent with the actual data.
+#'
 #' @seealso
 #' \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}
 get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
@@ -147,9 +152,11 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' ## Query the executives' responses by term and session period.
 #' ## 輸入「立委屆期」與「會期」以下載「質詢事項 (行政院答復部分)」
 #' get_bills_2(term = 8, session_period = 1)
+#' }
 #'
 #' @details The `get_bills_2` function produces a list, which includes `query_time`,
 #' `retrieved_number`, `retrieved_term`, `url`, `variable_names`, `manual_info`, and `data`.

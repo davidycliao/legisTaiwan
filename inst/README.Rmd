@@ -15,17 +15,11 @@ knitr::opts_chunk$set(
 ```
 
 
-```{r setup, include = FALSE}
- # Get the current working directory
-original_wd <- getwd()
+```{r setup2, include = FALSE}
+library(rmarkdown)
 
-# Set the working directory to one level up
-setwd('..')
+render("README.Rmd", output_format = "github_document", output_dir = "..")
 
-# Your code here
-
-# Reset the working directory back to its original
-setwd(original_wd)
 ```
 
 # Real-time and Archives of Taiwan Legislative Data in R <img src="../man/figures/logo.png" align="right" width="180"/>

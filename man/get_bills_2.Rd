@@ -58,9 +58,11 @@ or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=20}.
 議事類: 提供委員及政府之議案提案資訊 (從第8屆第1會期開始)。
 }
 \examples{
+\dontrun{
 ## Query the executives' responses by term and session period.
 ## 輸入「立委屆期」與「會期」以下載「質詢事項 (行政院答復部分)」
 get_bills_2(term = 8, session_period = 1)
+}
 
 }
 \seealso{

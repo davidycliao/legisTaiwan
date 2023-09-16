@@ -6,11 +6,10 @@
 #' @param end_date A string representing the end date. Expected format is numeric, e.g., "1090101".
 #' @return NULL. If the dates are not in the expected format, an error is thrown.
 #' @examples
-#' # This should work:
-#' validate_dates_format("1090101", "1100101")
-#'
 #' # This should throw an error:
-#' # validate_dates_format("10901", "1100101")
+#' \dontrun{
+#' validate_dates_format("10901", "1100101")
+#' }
 #' @keywords internal
 validate_dates_format <- function(start_date, end_date) {
   valid_date_format <- function(date) {
@@ -121,27 +120,27 @@ api_check <- function(start_date = start_date, end_date = end_date) {
 }
 
 
-
 #' Transforming Minguo (Taiwan) Calendar to A.D. Calendar I
 #'
-#'@description `transformed_date_meeting()` transforms Minguo (Taiwan) Calendar
-#'to A.D. calendar in POSIXct for `get_meetings()`, `get_caucus_meetings()`,
-#'and `get_speech_video()`,
+#' @description `transformed_date_meeting()` transforms Minguo (Taiwan) Calendar
+#' to A.D. calendar in POSIXct for `get_meetings()`, `get_caucus_meetings()`,
+#' and `get_speech_video()`,
 #'
+#' @param roc_date Date format in Minguo (Taiwan) calendar (e.g., "105/05/31") as a
+#' string vector
 #'
-#'@param roc_date Date format in Minguo (Taiwan) calendar (e.g., "105/05/31") as a
-#'string vector
+#' @return date in POSIXct
 #'
-#'@return date in POSIXct
+#' @importFrom stringr str_split_1
 #'
-#'@importFrom stringr str_split_1
+#' @keywords internal
 #'
-#'@keywords internal
+#' @examples
+#' \dontrun{
+#' transformed_date_meeting("105/05/31")
+#' }
 #'
-#'@examples
-#'transformed_date_meeting("105/05/31")
-#'
-#'@details `check_date` transforms ROC date to a date in POSIXct, e.g. "105/05/31" to "2016-05-31".
+#' @details `check_date` transforms ROC date to a date in POSIXct, e.g. "105/05/31" to "2016-05-31".
 transformed_date_meeting <- function(roc_date) {
   roc_date <- stringr::str_split_1(roc_date, "/")
   date_ad <- as.Date(as.POSIXct(paste(as.numeric(roc_date[1]) + 1911,
@@ -154,17 +153,21 @@ transformed_date_meeting <- function(roc_date) {
 
 #' Transforming Minguo (Taiwan) Calendar to A.D. Calendar II
 #'
-#'@description `transformed_date_meeting()` transforms Minguo (Taiwan) Calendar
-#'to A.D. format in POSIXct for `get_bill()`, e.g. "1050531" to "2016-05-31".
+#' @description `transformed_date_meeting()` transforms Minguo (Taiwan) Calendar
+#' to A.D. format in POSIXct for `get_bill()`, e.g. "1050531" to "2016-05-31".
 #'
-#'@param roc_date date format in Taiwan ROC calendar (e.g., "1050531") in a character vector
+#' @param roc_date date format in Taiwan ROC calendar (e.g., "1050531") in a character vector
 #'
-#'@return date in POSIXct
+#' @return date in POSIXct
 #'
-#'@importFrom stringr str_sub
+#' @importFrom stringr str_sub
 #'
 #' @keywords internal
-
+#'
+#' @examples
+#' \dontrun{
+#' transformed_date_bill("1050531")
+#' }
 transformed_date_bill <- function(roc_date) {
   day <- stringr::str_sub(roc_date, -2, -1)
   month <- stringr::str_sub(roc_date, -4, -3)
@@ -189,7 +192,6 @@ transformed_date_bill <- function(roc_date) {
 #'@importFrom stringr str_sub
 #'
 #'@keywords internal
-
 check_date <- function(roc_date) {
   day <- stringr::str_sub(roc_date, -2, -1)
   month <- stringr::str_sub(roc_date, -4, -3)
@@ -216,11 +218,12 @@ check_date <- function(roc_date) {
 #'
 #'@keywords internal
 #'
-#'@examples
-#'check_date2("105/05/31")
+#' @examples
+#' \dontrun{
+#' check_date2("105/05/31")
+#' }
 #'
 #'@details `check_date` transforms ROC date to a date in POSIXct, e.g. "105/05/31" to "2016-05-31".
-
 check_date2 <- function(roc_date) {
   roc_date <- stringr::str_split_1(roc_date, "/")
   date_ad <- as.Date(as.POSIXct(paste(as.numeric(roc_date[1]) + 1911,
