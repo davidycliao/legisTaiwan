@@ -4,11 +4,10 @@
 \alias{get_parlquestions}
 \title{The Records of Parliamentary Questions 委員質詢事項資訊}
 \usage{
-get_parlquestions(term = 8, session_period = NULL, verbose = TRUE)
+get_parlquestions(term = NULL, session_period = NULL, verbose = TRUE)
 }
 \arguments{
-\item{term}{numeric or NULL. The data is only available from 8th term.
-The default is set to 8. 參數必須為數值。資料從自第8屆起，預設值為8。}
+\item{term}{numeric or NULL. The default is set to NULL. 參數必須為數值。}
 
 \item{session_period}{integer, numeric or NULL. Available
 options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to 8 參數必須為數值。
@@ -56,11 +55,11 @@ or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=6}.
 \examples{
 ## Query parliamentary questions by term.
 ## 輸入「立委會期」下載立委質詢資料
-get_parlquestions(term = 8)
+get_parlquestions(term = 10)
 
 ## Query parliamentary questions by term and session period.
 ## 輸入「立委屆期」與「會期」下載立委質詢資料
-get_parlquestions(term = 8, session_period = 2)
+get_parlquestions(term = 10, session_period = 2)
 
 }
 \seealso{
