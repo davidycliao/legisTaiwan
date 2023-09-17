@@ -71,7 +71,6 @@ navbar:
     - text: "How to Contribute"
       href: articles/quickstart.html#quickstart.html#how-to-contribute
 
-
   - icon: fa-project-diagram
     text: Manual
     menu:
@@ -98,7 +97,7 @@ navbar:
     - text: "Parliarmentary Questions"
       href: articles/get_parlquestions.html
     - text: "Party Caucus Negotiation"
-      href: articles/Party Caucus Negotiation.html
+      href: articles/get_caucus_meetings.html
 
   - icon: fa-newspaper-o
     text: News

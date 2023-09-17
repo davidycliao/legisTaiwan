@@ -74,4 +74,3 @@ day.
 
 <br> <br> 
 
-[+ **Further Check Required**: the user manual seems to be inconsistent with actual data. Please check them out in the discussion 參數設定後與資料取得不一致，待確認。](https://github.com/davidycliao/legisTaiwan/discussions)
