@@ -21,7 +21,7 @@ assign("has_internet_via_proxy", TRUE, environment(curl::has_internet))
 library(legisTaiwan)
 ```
 
-## Using `get_parlquestions()` as an Example to Parliarmentary Questions'.
+## Fetching Parliarmentary Questions'.
 
 ```{r}
 library(legisTaiwan)
