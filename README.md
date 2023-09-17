@@ -41,10 +41,6 @@ library(legisTaiwan)
 
 <br>
 
------
-
-<br>
-
 ## Caution:
 
 <div style="text-align: justify">
