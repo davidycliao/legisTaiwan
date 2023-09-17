@@ -21,8 +21,7 @@ assign("has_internet_via_proxy", TRUE, environment(curl::has_internet))
 
 <div style="text-align: justify">
 
-Parliamentary activities such as debates and written parliamentary questions, play a significant role in most parliamentary democracies. For example, the floor debate
-functions as a major platform for Members of Parliament (MPs) to uncover information and discussion regarding government policy, proposed new laws and topical issues of the
+Parliamentary activities such as debates and written parliamentary questions, play a significant role in most parliamentary democracies. For example, the floor debate functions as a major platform for Members of Parliament (MPs) to uncover information and discussion regarding government policy, proposed new laws and topical issues of the
 day. 
 
 </div>
@@ -41,7 +40,7 @@ day.
 
 - [`get_executive_response()`](https://davidycliao.github.io/legisTaiwan/reference/get_executive_response.html): questions answered by the executives提供公報質詢事項行政院答復資訊 (自第8屆)
 
-- [`get_public_debates()`+](https://davidycliao.github.io/legisTaiwan/reference/get_public_debates.html): public debates 提供公報之國是論壇資訊，並包含書面意見自 (自第8屆)
+- [`get_public_debates()`](https://davidycliao.github.io/legisTaiwan/reference/get_public_debates.html): public debates 提供公報之國是論壇資訊，並包含書面意見自 (自第8屆)
 
 - [`get_speech_video()`](https://davidycliao.github.io/legisTaiwan/reference/get_speech_video.html): full video information of meetings and committees 提供立法院院會及委員會之委員發言片段相關影片資訊 (自第9屆)
 
