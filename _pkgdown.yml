@@ -72,8 +72,6 @@ navbar:
     menu:
     - text: "Quick Start Guide"
       href: articles/quickstart.html#get-started-with-using-remotes
-    - text: "Tutorials"
-      href: articles/quickstart.html#quickstart.html#tutorials
     - text: "How to Contribute"
       href: articles/quickstart.html#quickstart.html#how-to-contribute
 
@@ -97,7 +95,7 @@ navbar:
   - icon: fa-file-code-o
     text: Tutorial
     menu:
-    - text: "The Records of the Bills"
+    - text: "Records of the Bills"
       href: articles/get_bills.html
     - text: "Demographic Data"
       href: articles/get_legislators.html
