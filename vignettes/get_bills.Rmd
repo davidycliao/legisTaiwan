@@ -1,9 +1,9 @@
 ---
-title: "以「法律提案」為例"
-author: "李宜展 東海大學政治系"
+title: "The Records of the Bills"
+author: ""
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{以「法律提案」為例}
+  %\VignetteIndexEntry{The Records of the Bills}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -20,30 +20,20 @@ assign("has_internet_via_proxy", TRUE, environment(curl::has_internet))
 ```
 
 
-## 法律提案（the Records of the Bills）為例
+## An Example of the Records of the Bills
 
-讀取 `legisTaiwan` 與  `stringr` 套件
+First, we'll import legisTaiwan, and then we'll retrieve data from January 20th of the Republic of China year 106 to March 10th of the Republic of China year 111.
 ```{r}
 library(legisTaiwan)
-library(stringr)
 ```
 
-用[`get_bills()`](https://davidycliao.github.io/legisTaiwan/reference/get_bills.html)抓取*周春米*在「民國106年1月20」至「民111年3月10日」所提之法案。
 
 ```{r}
-get_bills(start_date = 1060120, end_date = 1110310, proposer = "周春米", verbose = FALSE)
+billdata <- get_bills(start_date = 1060120, 
+                      end_date = 1110310, verbose = FALSE)
 ```
 
-抓取*莊瑞雄*在「民國106年1月20」至「民111年3月10日」所提之法案。
+The get_bills function returns a list that contains query_time, retrieved_number, meeting_unit, start_date_ad (A.D) , end_date_ad (A.D), start_date, end_date, url, variable_names, manual_info, and data.
 ```{r}
-get_bills(start_date = 1060120, end_date = 1110310, proposer = "莊瑞雄", verbose = FALSE)
+billdata$data
 ```
-
-看看「民國106年1月20日」與「民國107年3月10日」之間，有提到「原住民」的法案
-```{r}
-bills_data <- get_bills(start_date = 1060120, end_date = 1070310, verbose = FALSE)
-bills <- bills_data$data
-bills[str_detect(bills$billName, "原住民", negate = FALSE), ]
-```
-
-

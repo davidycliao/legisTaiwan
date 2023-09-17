@@ -19,6 +19,11 @@ Check Session Periods in Each Year (Minguo Calendar)
 \code{review_session_info} produces a dataframe, displaying each session
 period in year formatted in Minguo (Taiwan) calendar.
 }
+\examples{
+\dontrun{
+review_session_info(7)
+}
+}
 \seealso{
 Regarding Minguo calendar, please see \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}.
 }

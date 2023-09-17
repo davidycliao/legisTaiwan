@@ -2,82 +2,73 @@
 % Please edit documentation in R/bill.R
 \name{get_bills}
 \alias{get_bills}
-\title{The Records of the Bills 法律提案}
+\title{The Records of the Bills: 法律提案}
 \usage{
 get_bills(start_date = NULL, end_date = NULL, proposer = NULL, verbose = TRUE)
 }
 \arguments{
-\item{start_date}{numeric Must be formatted in Minguo (Taiwan) calendar, e.g. 1090101.}
+\item{start_date}{numeric. Must be formatted in the ROC Taiwan calendar, e.g., 1090101.}
 
-\item{end_date}{numeric Must be formatted in Minguo (Taiwan) calendar, e.g. 1090102.}
+\item{end_date}{numeric. Must be formatted in the ROC Taiwan calendar, e.g., 1090102.}
 
-\item{proposer}{The default value is NULL, which means all bill proposed by all legislators
-are included between the starting date and the ending date.}
+\item{proposer}{The default value is NULL, indicating that bills proposed by all legislators
+are included between the start and end dates.}
 
-\item{verbose}{logical, indicates whether \code{get_bills} should print out
+\item{verbose}{logical. Specifies whether \code{get_bills} should print out
 detailed output when retrieving the data. The default value is TRUE.}
 }
 \value{
-list, which contains: \describe{
-\item{\code{title}}{the meeting records of cross-caucus session}
-\item{\code{query_time}}{the query time}
-\item{\code{retrieved_number}}{the number of observation}
-\item{\code{meeting_unit}}{the meeting unit}
-\item{\code{start_date_ad}}{the start date  in POSIXct}
-\item{\code{end_date_ad}}{the end date in POSIXct}
-\item{\code{start_date}}{the start date in ROC Taiwan calendar}
-\item{\code{url}}{the retrieved json url}
-\item{\code{variable_names}}{the variables of the tibble dataframe}
-\item{\code{manual_info}}{the official manual, \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}; or use legisTaiwan::get_variable_info("get_bills")}
-\item{\code{data}}{a tibble dataframe, whose variables include:
-\describe{\item{\code{term}}{屆別}
-\item{\code{sessionPeriod}}{會期}
-\item{\code{sessionTimes}}{會次}
-\item{\code{meetingTimes}}{提案日期}
-\item{\code{billName}}{提案名稱}
-\item{\code{billProposer}}{主提案人}
-\item{\code{billCosignatory}}{連署提案}
-\item{\code{billStatus}}{議案狀態}
-\item{\code{date_ad}}{西元年}
+A list, which contains:
+\describe{
+\item{\code{title}}{Records of cross-caucus sessions}
+\item{\code{query_time}}{Query timestamp}
+\item{\code{retrieved_number}}{Number of observations retrieved}
+\item{\code{meeting_unit}}{Meeting unit}
+\item{\code{start_date_ad}}{Start date in POSIXct format}
+\item{\code{end_date_ad}}{End date in POSIXct format}
+\item{\code{start_date}}{Start date in the ROC Taiwan calendar}
+\item{\code{url}}{URL of the retrieved JSON data}
+\item{\code{variable_names}}{Variable names of the tibble dataframe}
+\item{\code{manual_info}}{Official manual. See \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153} or use get_variable_info("get_bills")}
+\item{\code{data}}{A tibble dataframe with the following variables:
+\describe{\item{\code{term}}{Session number}
+\item{\code{sessionPeriod}}{Session period}
+\item{\code{sessionTimes}}{Session count}
+\item{\code{meetingTimes}}{Proposal date}
+\item{\code{billName}}{Bill name}
+\item{\code{billProposer}}{Primary proposer}
+\item{\code{billCosignatory}}{Co-signatories of the bill}
+\item{\code{billStatus}}{Status of the bill}
+\item{\code{date_ad}}{Date in the Gregorian calendar}
 }
 }
 }
 }
 \description{
-The Records of the Bills 法律提案
+The Records of the Bills: 法律提案
 }
 \details{
-\code{get_bills} produces a list, which contains \code{query_time},
+The \code{get_bills} function returns a list that contains \code{query_time},
 \code{retrieved_number}, \code{meeting_unit}, \code{start_date_ad}, \code{end_date_ad}, \code{start_date},
-\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data}.
+\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info}, and \code{data}.
 }
 \note{
-To retrieve the user manual and more information about variable of the data
-frame, please use \code{legisTaiwan::get_variable_info("get_bills")}
-or visit the API manual at \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}.
-資料似乎不一致，待確認。委員發言（取得最早時間不詳，待檢查。）
+To retrieve the user manual and more details about the data frame, use \code{get_variable_info("get_bills")}.
+Further checks are required as the user manual seems to be inconsistent with the actual data.
 }
 \examples{
-## query bill records by a period of the dates in Taiwan ROC calender format
-## 輸入「中華民國民年」下載立法委員提案資料
+\dontrun{
+## Query bill records by a date range in the Taiwan ROC calendar format
 get_bills(start_date = 1060120, end_date = 1070310, verbose = FALSE)
 
-## query bill records by a period of the dates in Taiwan ROC calender format
-## and a specific legislator
-## 輸入「中華民國民年」與「指定立法委員」下載立法委員提案資料
+## Query bill records by a date range and a specific legislator
 get_bills(start_date = 1060120, end_date = 1070310,  proposer = "孔文吉")
 
-## query bill records by a period of the dates in Taiwan ROC calender format
-## and multiple legislators
-## 輸入「中華民國民年」與「指定多個立法委員」下載立法委員提案資料
+## Query bill records by a date range and multiple legislators
 get_bills(start_date = 1060120, end_date = 1060510,  proposer = "孔文吉&鄭天財")
+}
 
 }
 \seealso{
-\code{get_variable_info("get_bills_2")},\code{review_session_info()}
-
-Regarding Minguo calendar, please see \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}.
-}
-\author{
-David Liao (davidycliao@gmail.com)
+\url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}
 }

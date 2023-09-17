@@ -21,6 +21,9 @@ to A.D. format in POSIXct for \code{get_bill()}, e.g. "1050531" to "2016-05-31".
 \code{check_date} transforms ROC date to a date in POSIXct, e.g. "105/05/31" to "2016-05-31".
 }
 \examples{
+\dontrun{
 check_date2("105/05/31")
+}
 
 }
+\keyword{internal}

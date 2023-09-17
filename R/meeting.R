@@ -22,7 +22,7 @@
 #'      \item{`start_date`}{the start date in ROC Taiwan calendar}
 #'      \item{`url`}{the retrieved json url}
 #'      \item{`variable_names`}{the variables of the tibble dataframe}
-#'      \item{`manual_info`}{the offical manual, \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}; or use legisTaiwan::get_variable_info("get_meetings")}
+#'      \item{`manual_info`}{the offical manual, \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}; or use get_variable_info("get_meetings")}
 #'      \item{`data`}{a tibble dataframe, whose variables include:
 #'      \describe{\item{`smeeting_date`}{會議日期}
 #'                \item{`meeting_status`}{會議狀態}
@@ -37,6 +37,7 @@
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
+#'@importFrom withr with_options
 #'
 #'@export
 #'
@@ -55,7 +56,7 @@
 #'`end_date`, `url`, `variable_names`, `manual_info` and `data`.
 #'
 #'@note To retrieve the user manual and more information about variable of the data
-#'frame, please use `legisTaiwan::get_variable_info("get_meetings")` or visit
+#'frame, please use `get_variable_info("get_meetings")` or visit
 #'the API manual at \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}.
 #'資料似乎不一致，待確認。委員發言（取得最早時間不詳，待檢查。）
 #'
@@ -67,28 +68,28 @@
 
 get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL,
                          verbose = TRUE) {
-  legisTaiwan::check_internet()
-  legisTaiwan::api_check(start_date = legisTaiwan::check_date(start_date), end_date = legisTaiwan::check_date(end_date))
+  check_internet()
+  api_check(start_date = check_date(start_date), end_date = check_date(end_date))
   set_api_url <- paste("https://www.ly.gov.tw/WebAPI/LegislativeSpeech.aspx?from=",
                        start_date, "&to=", end_date, "&meeting_unit=", meeting_unit, "&mode=json", sep = "")
   tryCatch(
     {
-      json_df <- jsonlite::fromJSON(set_api_url)
+      with_options(list(timeout = max(1000, getOption("timeout"))),{json_df <- jsonlite::fromJSON(set_api_url)})
       df <- tibble::as_tibble(json_df)
       attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
-      df["date_ad"] <- do.call("c", lapply(df$smeeting_date, legisTaiwan::transformed_date_meeting))
+      df["date_ad"] <- do.call("c", lapply(df$smeeting_date, transformed_date_meeting))
       if (isTRUE(verbose)) {
         cat(" Retrieved URL: \n", set_api_url, "\n")
         cat(" Retrieved via :", meeting_unit, "\n")
-        cat(" Retrieved date between:", as.character(legisTaiwan::check_date(start_date)), "and", as.character(legisTaiwan::check_date(end_date)), "\n")
+        cat(" Retrieved date between:", as.character(check_date(start_date)), "and", as.character(check_date(end_date)), "\n")
         cat(" Retrieved number:", nrow(df), "\n")
         }
       list_data <- list("title" = "the spoken meeting records",
                         "query_time" = Sys.time(),
                         "retrieved_number" = nrow(df),
                         "meeting_unit" = meeting_unit,
-                        "start_date_ad" = legisTaiwan::check_date(start_date),
-                        "end_date_ad" = legisTaiwan::check_date(end_date),
+                        "start_date_ad" = check_date(start_date),
+                        "end_date_ad" = check_date(end_date),
                         "start_date" = start_date,
                         "end_date" = end_date,
                         "url" = set_api_url,
@@ -127,7 +128,7 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
 #'      \item{`start_date`}{the start date in ROC Taiwan calendar}
 #'      \item{`url`}{the retrieved json url}
 #'      \item{`variable_names`}{the variables of the tibble dataframe}
-#'      \item{`manual_info`}{the official manual, \url{https://data.ly.gov.tw/getds.action?id=8}; or use legisTaiwan::get_variable_info("get_caucus_meetings")}
+#'      \item{`manual_info`}{the official manual, \url{https://data.ly.gov.tw/getds.action?id=8}; or use get_variable_info("get_caucus_meetings")}
 #'      \item{`data`}{a tibble dataframe, whose variables include:
 #'      \describe{\item{`comYear`}{卷}
 #'                \item{`comVolume`}{期}
@@ -149,6 +150,7 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
+#'@importFrom withr with_options
 #'
 #'@export
 #'
@@ -165,7 +167,7 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
 #'\\ifelse{html}{\\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\\strong{[Experimental]}}
 #'
 #'@note To retrieve the user manual and more information about variable of the data
-#' frame, please use `legisTaiwan::get_variable_info("get_caucus_meetings")`
+#' frame, please use `get_variable_info("get_caucus_meetings")`
 #' or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=8}.
 #' 議事類:提供公報之黨團協商資訊 (自第8屆第1會期起)
 #'
@@ -177,26 +179,26 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
 #
 get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
                                 verbose = TRUE) {
-  legisTaiwan::check_internet()
-  legisTaiwan::api_check(start_date = legisTaiwan::transformed_date_meeting(start_date),
-                         end_date = legisTaiwan::transformed_date_meeting(end_date))
+  check_internet()
+  api_check(start_date = transformed_date_meeting(start_date),
+                         end_date = transformed_date_meeting(end_date))
   set_api_url <- paste("https://data.ly.gov.tw/odw/ID8Action.action?comYear=&comVolume=&comBookId=&term=&sessionPeriod=&sessionTimes=&meetingTimes=&meetingDateS=",
                        start_date, "&meetingDateE=", end_date, "&fileType=json", sep = "")
   tryCatch(
     {
-      json_df <- jsonlite::fromJSON(set_api_url)
+      with_options(list(timeout = max(1000, getOption("timeout"))),{json_df <- jsonlite::fromJSON(set_api_url)})
       df <- tibble::as_tibble(json_df$dataList)
       attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
       if (isTRUE(verbose)) {
         cat(" Retrieved URL: \n", set_api_url, "\n")
-        cat(" Retrieved date between:", as.character(legisTaiwan::transformed_date_meeting(start_date)), "and", as.character(legisTaiwan::transformed_date_meeting(end_date)), "\n")
+        cat(" Retrieved date between:", as.character(transformed_date_meeting(start_date)), "and", as.character(transformed_date_meeting(end_date)), "\n")
         cat(" Retrieved number:", nrow(df), "\n")
       }
       list_data <- list("title" = "the meeting records of cross-caucus session",
                         "query_time" = Sys.time(),
                         "retrieved_number" = nrow(df),
-                        "start_date_ad" = legisTaiwan::transformed_date_meeting(start_date),
-                        "end_date_ad" = legisTaiwan::transformed_date_meeting(end_date),
+                        "start_date_ad" = transformed_date_meeting(start_date),
+                        "end_date_ad" = transformed_date_meeting(end_date),
                         "start_date" = start_date,
                         "end_date" = end_date,
                         "url" = set_api_url,
@@ -233,7 +235,7 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
 #'      \item{`start_date`}{the start date in ROC Taiwan calendar}
 #'      \item{`url`}{the retrieved json url}
 #'      \item{`variable_names`}{the variables of the tibble dataframe}
-#'      \item{`manual_info`}{the official manual, \url{https://data.ly.gov.tw/getds.action?id=148}; or use legisTaiwan::get_variable_info("get_speech_video")}
+#'      \item{`manual_info`}{the official manual, \url{https://data.ly.gov.tw/getds.action?id=148}; or use get_variable_info("get_speech_video")}
 #'      \item{`data`}{a tibble dataframe, whose variables include:
 #'      \describe{\item{`term`}{屆別}
 #'                \item{`sessionPeriod`}{會期}
@@ -256,6 +258,7 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
+#'@importFrom withr with_options
 #'
 #'@export
 #'
@@ -269,10 +272,10 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
 #'@details `get_speech_video` produces a list, which contains `title`, `query_time`,
 #'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
 #'`end_date`, `url`, `variable_names`, `manual_info` and `data.` To retrieve the user
-#'manual and more information about the data frame, please use `legisTaiwan::get_variable_info("get_speech_video")`.
+#'manual and more information about the data frame, please use `get_variable_info("get_speech_video")`.
 #'
 #'@note To retrieve the user manual and more information about variable of the data
-#' frame, please use `legisTaiwan::get_variable_info("get_speech_video")`
+#' frame, please use `get_variable_info("get_speech_video")`
 #' or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=148}.
 #' 會議類:提供立法院院會及委員會之委員發言片段相關影片資訊 (自第9屆第1會期起)。
 #'
@@ -280,10 +283,10 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
 #'`get_variable_info("get_speech_video")`
 
 get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE) {
-  legisTaiwan::check_internet()
-  legisTaiwan::api_check(start_date = legisTaiwan::transformed_date_meeting(start_date), end_date = legisTaiwan::transformed_date_meeting(end_date))
+  check_internet()
+  api_check(start_date = transformed_date_meeting(start_date), end_date = transformed_date_meeting(end_date))
   # # 自第9屆第1會期起 2016  民國 105
-  # queried_year <- format(legisTaiwan::transformed_date_meeting(start_date), format = "%Y")
+  # queried_year <- format(transformed_date_meeting(start_date), format = "%Y")
   # attempt::warn_if(queried_year < 2016,
   #           isTRUE,
   #           msg =  paste("The query retrieved from", queried_year,  "may not be complete.", "The data is only available from the 6th session of the 8th legislative term in 2015/104 in ROC."))
@@ -294,19 +297,19 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
                        "&meetingTime=&legislatorName=&fileType=json" , sep = "")
   tryCatch(
     {
-      json_df <- jsonlite::fromJSON(set_api_url)
+      with_options(list(timeout = max(1000, getOption("timeout"))),{json_df <- jsonlite::fromJSON(set_api_url)})
       df <- tibble::as_tibble(json_df$dataList)
       attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
       if (isTRUE(verbose)) {
         cat(" Retrieved URL: \n", set_api_url, "\n")
-        cat(" Retrieved date between:", as.character(legisTaiwan::transformed_date_meeting(start_date)), "and", as.character(legisTaiwan::transformed_date_meeting(end_date)), "\n")
+        cat(" Retrieved date between:", as.character(transformed_date_meeting(start_date)), "and", as.character(transformed_date_meeting(end_date)), "\n")
         cat(" Retrieved number:", nrow(df), "\n")
       }
       list_data <- list("title" = "the meeting records of cross-caucus session",
                         "query_time" = Sys.time(),
                         "retrieved_number" = nrow(df),
-                        "start_date_ad" = legisTaiwan::transformed_date_meeting(start_date),
-                        "end_date_ad" = legisTaiwan::transformed_date_meeting(end_date),
+                        "start_date_ad" = transformed_date_meeting(start_date),
+                        "end_date_ad" = transformed_date_meeting(end_date),
                         "start_date" = start_date,
                         "end_date" = end_date,
                         "url" = set_api_url,
@@ -346,7 +349,7 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
 #'      \item{`start_date`}{the start date in ROC Taiwan calendar}
 #'      \item{`url`}{the retrieved json url}
 #'      \item{`variable_names`}{the variables of the tibble dataframe}
-#'      \item{`manual_info`}{the official manual, \url{https://data.ly.gov.tw/getds.action?id=7}; or use legisTaiwan::get_variable_info("get_public_debates")}
+#'      \item{`manual_info`}{the official manual, \url{https://data.ly.gov.tw/getds.action?id=7}; or use get_variable_info("get_public_debates")}
 #'      \item{`data`}{a tibble dataframe, whose variables include:
 #'            \describe{\item{`term`}{屆別}
 #'                      \item{`sessionPeriod`}{會期}
@@ -365,6 +368,7 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
+#'@importFrom withr with_options
 #'
 #'@export
 #'
@@ -379,7 +383,7 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
 #'
 #'@note
 #' To retrieve the user manual and more information about variable of the data
-#' frame, please use `legisTaiwan::get_variable_info("get_public_debates")`
+#' frame, please use `get_variable_info("get_public_debates")`
 #' or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=7}.
 #' 議事類: 提供公報之國是論壇資訊，並包含書面意見。自第8屆第1會期起，但實測資料從第10屆。
 #'
@@ -390,7 +394,7 @@ get_speech_video <- function(start_date = NULL, end_date = NULL, verbose = TRUE)
 #' Regarding Minguo calendar, please see \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}.
 
 get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRUE) {
-  legisTaiwan::check_internet()
+  check_internet()
   if (is.null(term)) {
     set_api_url <- paste("https://data.ly.gov.tw/odw/ID7Action.action?term=",
                          term, "&sessionPeriod=",
@@ -412,7 +416,7 @@ get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRU
                        sep = "")
   tryCatch(
     {
-      json_df <- jsonlite::fromJSON(set_api_url)
+      with_options(list(timeout = max(1000, getOption("timeout"))),{json_df <- jsonlite::fromJSON(set_api_url)})
       df <- tibble::as_tibble(json_df$dataList)
       attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
       if (isTRUE(verbose)) {
@@ -441,60 +445,115 @@ get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRU
 #'
 #'@author David Yen-Chieh Liao
 #'
-#'@param term numeric or null. The data is only available from 8th term.
-#'The default is set to 8. 參數必須為數值。資料從自第8屆起，預設值為8。
+#'@param term numeric or null. Data is available only from the 8th term.
+#'The default is set to 10. 參數必須為數值。提供委員會會議審查之議案項目。(自第10屆第1會期起)
 #'
-#'@param session_period integer, numeric or NULL. Available
-#'options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to NULL. 參數必須為數值。
-#'`review_session_info()` generates each session period  available option period
-#' in Minguo (Taiwan) calendar.
+#'@param session_period integer, numeric or NULL.
+#'`review_session_info()` provides each session period's available options based on the
+#' Minguo (Taiwan) calendar.
 #'
-#'@param verbose logical, indicates whether `get_executive_response` should
-#'print out detailed output when retrieving the data. The default is TRUE
+#'@param verbose logical. This indicates whether `get_executive_response` should
+#'print a detailed output during data retrieval. Default is TRUE.
 #'
-#'@return list contains: \describe{
-#'    \item{`title`}{the records of the questions answered by the executives}
-#'    \item{`query_time`}{the queried time}
-#'    \item{`retrieved_number`}{the total number of observations}
-#'    \item{`retrieved_term`}{the queried term}
-#'    \item{`url`}{the retrieved json url}
-#'    \item{`variable_names`}{the variables of the tibble dataframe}
-#'    \item{`manual_info`}{the official manual, \url{https://data.ly.gov.tw/getds.action?id=46}; or use legisTaiwan::get_variable_info("get_committee_record")}
-#'    \item{`data`}{a tibble dataframe, whose variables include:
-#'      \describe{\item{`term`}{屆別}
-#'                \item{`sessionPeriod`}{會期}
-#'                \item{`meetingNo`}{會議編號}
-#'                \item{`billNo`}{議案編號}
-#'                \item{`selectTerm`}{屆別期別篩選條件}
+#'@return A list containing:
+#'    \item{`title`}{Records of questions answered by executives}
+#'    \item{`query_time`}{Time of query}
+#'    \item{`retrieved_number`}{Total number of observations}
+#'    \item{`retrieved_term`}{Queried term}
+#'    \item{`url`}{Retrieved JSON URL}
+#'    \item{`variable_names`}{Variables of the tibble dataframe}
+#'    \item{`manual_info`}{Official manual, \url{https://data.ly.gov.tw/getds.action?id=46}; or use get_variable_info("get_committee_record")}
+#'    \item{`data`}{A tibble dataframe with variables:
+#'      \describe{
+#'                \item{`term`}{Term number}
+#'                \item{`sessionPeriod`}{Session}
+#'                \item{`meetingNo`}{Meeting number}
+#'                \item{`billNo`}{Bill number}
+#'                \item{`selectTerm`}{Term selection filter}
 #'                }
 #'              }
-#'      }
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
+#'@importFrom withr with_options
 #'
 #'@export
 #'
 #'@examples
-#' ## query the committee record by term and the session period.
+#' ## Query the committee record by term and session period.
 #' ## 輸入「立委屆期」與「會期」下載「委員會審議之議案」
-#'get_committee_record(term = 8, session_period = 1)
+#'get_committee_record(term = 10, session_period = 1)
 #'
-#'@details `get_committee_record` produces a list, which contains `title`,
+#'@details `get_committee_record` provides a list which includes `title`,
 #'`query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
-#' `manual_info` and `data`.
+#' `manual_info`, and `data`.
 #'
 #'@note
-#' To retrieve the user manual and more information
-#' about variable of the data frame, please use `legisTaiwan::get_variable_info("get_committee_record")`
-#' or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=46}.
-#' 議事類: 提供委員會會議審查之議案項目 (自第8屆第1會期起)。
+#' To access the user manual and more information about the data frame's variables,
+#' please refer to `get_variable_info("get_committee_record")` or check the API manual at
+#' \url{https://data.ly.gov.tw/getds.action?id=46}.
+#' This provides agenda items reviewed in committee meetings (from the 10th term, 1st session onwards).
+#'
+#'@seealso
+#'`get_variable_info("get_committee_record")`, `review_session_info()`
+#' The Records of Reviewed Items in the Committees 委員會會議審查之議案項目
+#'
+#'@author David Yen-Chieh Liao
+#'
+#'@param term numeric or null. Data is available only from the 8th term.
+#'The default is set to 10. 參數必須為數值。提供委員會會議審查之議案項目。(自第10屆第1會期起)
+#'
+#'@param session_period integer, numeric or NULL.
+#'`review_session_info()` provides each session period's available options based on the
+#' Minguo (Taiwan) calendar.
+#'
+#'@param verbose logical. This indicates whether `get_executive_response` should
+#'print a detailed output during data retrieval. Default is TRUE.
+#'
+#'@return A list containing:
+#'    \item{`title`}{Records of questions answered by executives}
+#'    \item{`query_time`}{Time of query}
+#'    \item{`retrieved_number`}{Total number of observations}
+#'    \item{`retrieved_term`}{Queried term}
+#'    \item{`url`}{Retrieved JSON URL}
+#'    \item{`variable_names`}{Variables of the tibble dataframe}
+#'    \item{`manual_info`}{Official manual, \url{https://data.ly.gov.tw/getds.action?id=46}; or use get_variable_info("get_committee_record")}
+#'    \item{`data`}{A tibble dataframe with variables:
+#'      \describe{
+#'                \item{`term`}{Term number}
+#'                \item{`sessionPeriod`}{Session}
+#'                \item{`meetingNo`}{Meeting number}
+#'                \item{`billNo`}{Bill number}
+#'                \item{`selectTerm`}{Term selection filter}
+#'                }
+#'              }
+#'
+#'@importFrom attempt stop_if_all
+#'@importFrom jsonlite fromJSON
+#'@importFrom withr with_options
+#'
+#'@export
+#'
+#'@examples
+#' ## Query the committee record by term and session period.
+#' ## 輸入「立委屆期」與「會期」下載「委員會審議之議案」
+#'get_committee_record(term = 10, session_period = 1)
+#'
+#'@details `get_committee_record` provides a list which includes `title`,
+#'`query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
+#' `manual_info`, and `data`.
+#'
+#'@note
+#' To access the user manual and more information about the data frame's variables,
+#' please refer to `get_variable_info("get_committee_record")` or check the API manual at
+#' \url{https://data.ly.gov.tw/getds.action?id=46}.
+#' This provides agenda items reviewed in committee meetings (from the 10th term, 1st session onwards).
 #'
 #'@seealso
 #'`get_variable_info("get_committee_record")`, `review_session_info()`
 
-get_committee_record <- function(term = 8, session_period = NULL, verbose = TRUE) {
-  legisTaiwan::check_internet()
+get_committee_record <- function(term = 10, session_period = NULL, verbose = TRUE) {
+  check_internet()
   if (is.null(term)) {
     set_api_url <- paste("https://data.ly.gov.tw/odw/ID46Action.action?term=",
                          term, "&sessionPeriod=",
@@ -514,7 +573,7 @@ get_committee_record <- function(term = 8, session_period = NULL, verbose = TRUE
                        "&sessionTimes=01&meetingTimes=&fileType=json", sep = "")
   tryCatch(
     {
-      json_df <- jsonlite::fromJSON(set_api_url)
+      with_options(list(timeout = max(1000, getOption("timeout"))),{json_df <- jsonlite::fromJSON(set_api_url)})
       df <- tibble::as_tibble(json_df$dataList)
       attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
       if (isTRUE(verbose)) {

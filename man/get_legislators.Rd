@@ -46,7 +46,7 @@ The Legislator' Demographic Information and Background 提供委員基本資料
 }
 \note{
 To retrieve the user manual and more information about variable of the data
-frame, please use \code{legisTaiwan::get_variable_info("get_legislators")}
+frame, please use \code{get_variable_info("get_legislators")}
 or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=16}.
 提供委員基本資料，最早資料可追溯至第2屆。
 }

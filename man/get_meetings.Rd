@@ -33,7 +33,7 @@ list, which contains: \describe{
 \item{\code{start_date}}{the start date in ROC Taiwan calendar}
 \item{\code{url}}{the retrieved json url}
 \item{\code{variable_names}}{the variables of the tibble dataframe}
-\item{\code{manual_info}}{the offical manual, \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}; or use legisTaiwan::get_variable_info("get_meetings")}
+\item{\code{manual_info}}{the offical manual, \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}; or use get_variable_info("get_meetings")}
 \item{\code{data}}{a tibble dataframe, whose variables include:
 \describe{\item{\code{smeeting_date}}{會議日期}
 \item{\code{meeting_status}}{會議狀態}
@@ -56,7 +56,7 @@ The Spoken Meeting Records 委員發言
 }
 \note{
 To retrieve the user manual and more information about variable of the data
-frame, please use \code{legisTaiwan::get_variable_info("get_meetings")} or visit
+frame, please use \code{get_variable_info("get_meetings")} or visit
 the API manual at \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}.
 資料似乎不一致，待確認。委員發言（取得最早時間不詳，待檢查。）
 }

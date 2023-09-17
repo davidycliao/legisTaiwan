@@ -29,7 +29,7 @@ list, which contains: \describe{
 \item{\code{start_date}}{the start date in ROC Taiwan calendar}
 \item{\code{url}}{the retrieved json url}
 \item{\code{variable_names}}{the variables of the tibble dataframe}
-\item{\code{manual_info}}{the official manual, \url{https://data.ly.gov.tw/getds.action?id=7}; or use legisTaiwan::get_variable_info("get_public_debates")}
+\item{\code{manual_info}}{the official manual, \url{https://data.ly.gov.tw/getds.action?id=7}; or use get_variable_info("get_public_debates")}
 \item{\code{data}}{a tibble dataframe, whose variables include:
 \describe{\item{\code{term}}{屆別}
 \item{\code{sessionPeriod}}{會期}
@@ -56,7 +56,7 @@ The Records of National Public Debates 國是論壇
 }
 \note{
 To retrieve the user manual and more information about variable of the data
-frame, please use \code{legisTaiwan::get_variable_info("get_public_debates")}
+frame, please use \code{get_variable_info("get_public_debates")}
 or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=7}.
 議事類: 提供公報之國是論壇資訊，並包含書面意見。自第8屆第1會期起，但實測資料從第10屆。
 }

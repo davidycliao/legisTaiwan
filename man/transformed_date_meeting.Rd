@@ -22,6 +22,9 @@ and \code{get_speech_video()},
 \code{check_date} transforms ROC date to a date in POSIXct, e.g. "105/05/31" to "2016-05-31".
 }
 \examples{
+\dontrun{
 transformed_date_meeting("105/05/31")
+}
 
 }
+\keyword{internal}

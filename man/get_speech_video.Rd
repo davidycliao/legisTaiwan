@@ -27,7 +27,7 @@ list, which contains: \describe{
 \item{\code{start_date}}{the start date in ROC Taiwan calendar}
 \item{\code{url}}{the retrieved json url}
 \item{\code{variable_names}}{the variables of the tibble dataframe}
-\item{\code{manual_info}}{the official manual, \url{https://data.ly.gov.tw/getds.action?id=148}; or use legisTaiwan::get_variable_info("get_speech_video")}
+\item{\code{manual_info}}{the official manual, \url{https://data.ly.gov.tw/getds.action?id=148}; or use get_variable_info("get_speech_video")}
 \item{\code{data}}{a tibble dataframe, whose variables include:
 \describe{\item{\code{term}}{屆別}
 \item{\code{sessionPeriod}}{會期}
@@ -55,11 +55,11 @@ The Video Information of Meetings and Committees 院會及委員會之委員發�
 \code{get_speech_video} produces a list, which contains \code{title}, \code{query_time},
 \code{retrieved_number}, \code{meeting_unit}, \code{start_date_ad}, \code{end_date_ad}, \code{start_date},
 \code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data.} To retrieve the user
-manual and more information about the data frame, please use \code{legisTaiwan::get_variable_info("get_speech_video")}.
+manual and more information about the data frame, please use \code{get_variable_info("get_speech_video")}.
 }
 \note{
 To retrieve the user manual and more information about variable of the data
-frame, please use \code{legisTaiwan::get_variable_info("get_speech_video")}
+frame, please use \code{get_variable_info("get_speech_video")}
 or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=148}.
 會議類:提供立法院院會及委員會之委員發言片段相關影片資訊 (自第9屆第1會期起)。
 }

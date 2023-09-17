@@ -1,82 +1,78 @@
-#'The Records of Parliamentary Questions 委員質詢事項資訊
+#' The Records of Parliamentary Questions 委員質詢事項資訊
 #'
-#'@author David Liao (davidycliao@@gmail.com)
+#' @author David Liao (davidycliao@@gmail.com)
 #'
-#'@param term numeric or NULL. The data is only available from 8th term.
-#'The default is set to 8. 參數必須為數值。資料從自第8屆起，預設值為8。
+#' @param term numeric or NULL. The data is only available from 8th term.
+#' The default is set to 8. 參數必須為數值。資料從自第8屆起，預設值為8。
 #'
-#'@param session_period integer, numeric or NULL. Available
-#'options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to 8 參數必須為數值。
-#'`review_session_info()` generates each session period  available option period
+#' @param session_period integer, numeric or NULL. Available
+#' options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to 8 參數必須為數值。
+#' `review_session_info()` generates each session period available option period
 #' in Minguo (Taiwan) calendar.
 #'
-#'@param verbose logical, indicates whether `get_parlquestions` should print out
-#'detailed output when retrieving the data. The default is TRUE
+#' @param verbose logical, indicates whether `get_parlquestions` should print out
+#' detailed output when retrieving the data. The default is TRUE.
 #'
-#'@return list contains: \describe{
-#'\item{`title`}{the records of parliamentary questions}
-#'\item{`query_time`}{the queried time}
-#'\item{`retrieved_number`}{the total number of observations}
-#'\item{`retrieved_term`}{the queried term}
-#'\item{`url`}{the retrieved json url}
-#'\item{`variable_names`}{the variables of the tibble dataframe}
-#'\item{`manual_info`}{the offical manual from \url{https://data.ly.gov.tw/getds.action?id=6}, or use legisTaiwan::get_variable_info("get_parlquestions")}
-#'\item{`data`}{a tibble dataframe, whose variables include:
-#'      \describe{\item{`term`}{屆別}
-#'                \item{`sessionPeriod`}{會期}
-#'                \item{`sessionTimes`}{會次}
-#'                \item{`item`}{項目}
-#'                \item{`selectTerm`}{屆別期別篩選條件}
-#'                }
-#'              }
-#'      }
+#' @return A list containing:
+#'   \describe{
+#'     \item{`title`}{the records of parliamentary questions}
+#'     \item{`query_time`}{the queried time}
+#'     \item{`retrieved_number`}{the total number of observations}
+#'     \item{`retrieved_term`}{the queried term}
+#'     \item{`url`}{the retrieved json url}
+#'     \item{`variable_names`}{the variables of the tibble dataframe}
+#'     \item{`manual_info`}{the offical manual from \url{https://data.ly.gov.tw/getds.action?id=6}, or use get_variable_info("get_parlquestions")}
+#'     \item{`data`}{a tibble dataframe, whose variables include:
+#'       \describe{
+#'         \item{`term`}{屆別}
+#'         \item{`sessionPeriod`}{會期}
+#'         \item{`sessionTimes`}{會次}
+#'         \item{`item`}{項目}
+#'         \item{`selectTerm`}{屆別期別篩選條件}
+#'       }
+#'     }
+#'   }
 #'
-#'@importFrom attempt stop_if_all
-#'@importFrom jsonlite fromJSON
+#' @importFrom attempt stop_if_all
+#' @importFrom jsonlite fromJSON
+#' @importFrom withr with_options
+#' @export
 #'
-#'@export
-#'
-#'@examples
-#' ## query parliamentary questions by term.
+#' @examples
+#' ## Query parliamentary questions by term.
 #' ## 輸入「立委會期」下載立委質詢資料
-#'get_parlquestions(term = 8)
+#' get_parlquestions(term = 8)
 #'
-#' ## query parliamentary questions by term.
+#' ## Query parliamentary questions by term and session period.
 #' ## 輸入「立委屆期」與「會期」下載立委質詢資料
-#'get_parlquestions(term = 8, session_period = 2)
+#' get_parlquestions(term = 8, session_period = 2)
 #'
-#' ## query parliamentary questions by term.
-#' ## 輸入「空白」下載立委全部質詢資料
-#'get_parlquestions(term = 8, session_period = 2)
+#' @details `get_parlquestions` produces a list, which contains `title`,
+#' `query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
+#' `manual_info`, and `data`.
 #'
-#'@details get_parlquestions` produces a list, which contains `title`,
-#'`query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
-#' `manual_info` and `data`.
-#'
-#'@note To retrieve the user manual and more information about variable of the data
-#' frame, please use `legisTaiwan::get_variable_info("get_parlquestions")`
+#' @note To retrieve the user manual and more information about variable of the data
+#' frame, please use `get_variable_info("get_parlquestions")`
 #' or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=6}.
 #' 質詢類: 提供議事日程本院委員之質詢事項資訊(自第8屆第1會期起)。
 #'
-#'@seealso
-#'`get_variable_info("get_parlquestions")`
-
+#' @seealso `get_variable_info("get_parlquestions")`
 get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
-  legisTaiwan::check_internet()
+  check_internet()
   if (is.null(term)) {
-    options(timeout = max(1000, getOption("timeout")))
-    set_api_url <- paste("https://data.ly.gov.tw/odw/ID6Action.action?term=", term,
-                         "&sessionPeriod=",
-                         "&sessionTimes=&item=&fileType=json", sep = "")
-    message(" term is not defined...\n You are now requesting full data from the API. Please make sure your connectivity is stable until its completion.\n")
+      set_api_url <- paste("https://data.ly.gov.tw/odw/ID6Action.action?term=", term,
+                           "&sessionPeriod=",
+                           "&sessionTimes=&item=&fileType=json", sep = "")
+      message(" term is not defined...\n You are now requesting full data from the API. Please make sure your connectivity is stable until its completion.\n")
   } else {
     attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
     if (length(term) == 1) {
       term <- sprintf("%02d", as.numeric(term))}
     else if (length(term) > 1) {
-      options(timeout = max(1000, getOption("timeout")))
-      term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
-      message("The API is unable to query multiple terms and the retrieved data might not be complete.")}
+        options(timeout = max(1000, getOption("timeout")))
+        term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
+        stop("The API is unable to query multiple terms.")
+      }
   }
   set_api_url <- paste("https://data.ly.gov.tw/odw/ID6Action.action?term=", term,
                        "&sessionPeriod=",
@@ -84,7 +80,7 @@ get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
                        "&sessionTimes=&item=&fileType=json", sep = "")
   tryCatch(
     {
-      json_df <- jsonlite::fromJSON(set_api_url)
+      with_options(list(timeout = max(1000, getOption("timeout"))),{json_df <- jsonlite::fromJSON(set_api_url)})
       df <- tibble::as_tibble(json_df$dataList)
       attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
       if (isTRUE(verbose)) {
@@ -151,7 +147,7 @@ get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
 #'
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
-#'
+#'@importFrom withr with_options
 #'@export
 #'
 #'@examples
@@ -162,11 +158,11 @@ get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
 #'@details **`get_executive_response`** produces a list, which contains `title`,
 #'`query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
 #' `manual_info` and `data`. To retrieve the user manual and more information, please
-#' use `legisTaiwan::get_variable_info("get_executive_response")`.
+#' use `get_variable_info("get_executive_response")`.
 #'
 #'
 #'#'@note To retrieve the user manual and more information about variable of the data
-#' frame, please use `legisTaiwan::get_variable_info("get_executive_response")`
+#' frame, please use `get_variable_info("get_executive_response")`
 #' or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=2}.
 #' 質詢類: 提供公報質詢事項行政院答復資訊 (自第8屆第1會期起)。
 #'
@@ -175,21 +171,20 @@ get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
 
 
 get_executive_response <- function(term = NULL, session_period = NULL, verbose = TRUE) {
-  legisTaiwan::check_internet()
+  check_internet()
   if (is.null(term)) {
-    options(timeout = max(1000, getOption("timeout")))
-    set_api_url <- paste("https://data.ly.gov.tw/odw/ID2Action.action?term=",
-                         term, "&sessionPeriod=",
-                         "&sessionTimes=&item=&fileType=json", sep = "")
-    message(" term is not defined...\n You are now requesting full data from the API. Please make sure your connectivity is stable until its completion.\n")
+      set_api_url <- paste("https://data.ly.gov.tw/odw/ID2Action.action?term=",
+                           term, "&sessionPeriod=",
+                           "&sessionTimes=&item=&fileType=json", sep = "")
+      message(" term is not defined...\n You are now requesting full data from the API. Please make sure your connectivity is stable until its completion.\n")
   } else {
     attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
     if (length(term) == 1) {
       term <- sprintf("%02d", as.numeric(term))}
     else if (length(term) > 1) {
-      options(timeout = max(1000, getOption("timeout")))
       term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
-      message("The API is unable to query multiple terms and the retrieved data might not be complete.")}
+      stop("The API is unable to query multiple terms.")
+      }
   }
   set_api_url <- paste("https://data.ly.gov.tw/odw/ID2Action.action?term=",
                        term, "&sessionPeriod=",
@@ -197,7 +192,7 @@ get_executive_response <- function(term = NULL, session_period = NULL, verbose =
                        "&sessionTimes=&item=&fileType=json", sep = "")
   tryCatch(
     {
-      json_df <- jsonlite::fromJSON(set_api_url)
+      with_options(list(timeout = max(1000, getOption("timeout"))),{json_df <- jsonlite::fromJSON(set_api_url)})
       df <- tibble::as_tibble(json_df$dataList)
       attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
       if (isTRUE(verbose)) {

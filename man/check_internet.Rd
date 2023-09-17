@@ -13,3 +13,4 @@ internet connectivity check.}
 \description{
 A Check for Internet Connectivity.
 }
+\keyword{internal}
