@@ -97,7 +97,7 @@
     <a class="dropdown-item" href="../articles/get_bills.html">Records of the Bills</a>
     <a class="dropdown-item" href="../articles/get_legislators.html">Demographic Data</a>
     <a class="dropdown-item" href="../articles/get_parlquestions.html">Parliarmentary Questions</a>
-    <a class="dropdown-item" href="../articles/Party%20Caucus%20Negotiation.html">Party Caucus Negotiation</a>
+    <a class="dropdown-item" href="../articles/get_caucus_meetings.html">Party Caucus Negotiation</a>
   </div>
 </li>
 <li class="nav-item dropdown">
@@ -152,7 +152,9 @@
 <h2 id="fetching-parliarmentary-questions-">Fetching Parliarmentary Questions’.<a class="anchor" aria-label="anchor" href="#fetching-parliarmentary-questions-"></a>
 </h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://davidycliao.github.io/legisTaiwan/">legisTaiwan</a></span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://davidycliao.github.io/legisTaiwan/">legisTaiwan</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; ## legisTaiwan                                            ##</span></span>
+<span><span class="co">#&gt; ## An R package connecting to the Taiwan Legislative API. ##</span></span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pa_term10</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_parlquestions.html">get_parlquestions</a></span><span class="op">(</span>term <span class="op">=</span> <span class="fl">10</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co">#&gt;  Retrieved URL: </span></span>
