@@ -40,6 +40,8 @@ library(legisTaiwan)
 #> ## An R package connecting to the Taiwan Legislative API. ##
 ```
 
+<br>
+
 -----
 
 <br>
