@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Real-time and Archives of Taiwan Legislative Data in R <img src="man/figures/logo.png" align="right" width="180"/>
+# Real-time and Archives of Taiwan Legislative Data in R <img src="../man/figures/logo.png" align="right" width="180"/>
 
 <!-- badges: start -->
 
@@ -39,10 +39,10 @@ library(legisTaiwan)
 #> ## legisTaiwan                                            ##
 #> ## An R package connecting to the Taiwan Legislative API. ##
 ```
----
+
+------------------------------------------------------------------------
 
 <br>
-
 
 ## Caution:
 
