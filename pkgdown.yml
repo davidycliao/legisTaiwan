@@ -1,4 +1,4 @@
-pandoc: 2.19.2
+pandoc: 3.1.1
 pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
@@ -8,7 +8,7 @@ articles:
   get_parlquestions: get_parlquestions.html
   manual: manual.html
   quickstart: quickstart.html
-last_built: 2023-09-17T00:05Z
+last_built: 2023-09-17T00:47Z
 urls:
   reference: https://davidycliao.github.io/legisTaiwan/reference
   article: https://davidycliao.github.io/legisTaiwan/articles
