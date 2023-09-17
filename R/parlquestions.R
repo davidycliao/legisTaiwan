@@ -2,8 +2,7 @@
 #'
 #' @author David Liao (davidycliao@@gmail.com)
 #'
-#' @param term numeric or NULL. The data is only available from 8th term.
-#' The default is set to 8. 參數必須為數值。資料從自第8屆起，預設值為8。
+#' @param term numeric or NULL. The default is set to NULL. 參數必須為數值。
 #'
 #' @param session_period integer, numeric or NULL. Available
 #' options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to 8 參數必須為數值。
@@ -41,11 +40,11 @@
 #' @examples
 #' ## Query parliamentary questions by term.
 #' ## 輸入「立委會期」下載立委質詢資料
-#' get_parlquestions(term = 8)
+#' get_parlquestions(term = 10)
 #'
 #' ## Query parliamentary questions by term and session period.
 #' ## 輸入「立委屆期」與「會期」下載立委質詢資料
-#' get_parlquestions(term = 8, session_period = 2)
+#' get_parlquestions(term = 10, session_period = 2)
 #'
 #' @details `get_parlquestions` produces a list, which contains `title`,
 #' `query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
@@ -57,7 +56,7 @@
 #' 質詢類: 提供議事日程本院委員之質詢事項資訊(自第8屆第1會期起)。
 #'
 #' @seealso `get_variable_info("get_parlquestions")`
-get_parlquestions <- function(term = 8, session_period = NULL, verbose = TRUE) {
+get_parlquestions <- function(term = NULL, session_period = NULL, verbose = TRUE) {
   check_internet()
   if (is.null(term)) {
       set_api_url <- paste("https://data.ly.gov.tw/odw/ID6Action.action?term=", term,
