@@ -13,7 +13,7 @@
   violet  <- "\033[35m"
   reset   <- "\033[0m"
 
-  # Coloring Taiwan in rainbow colors
+  # Coloring Taiwan
   rainbow_taiwan <- paste0(
     red, "T",
     orange, "a",
@@ -27,16 +27,16 @@
   # Creating the first message
   message1 <- paste0(dark_green, "legis", reset, rainbow_taiwan)
 
-  # Maximum allowed length
-  max_len <- 64
-  num_spaces <- max_len - nchar(message1, type = "bytes") - 4
-  num_spaces <- max(0, num_spaces)
-
-  message1 <- paste0("## ", message1, rep(" ", num_spaces), " ##")
-
   # Second message
   message2 <- "## An R package connecting to the Taiwan Legislative API. ##"
+
+  # Calculate the required number of spaces to align the two lines
+  num_spaces <- nchar(message2, type = "bytes") - nchar(message1, type = "bytes") - 6  # -6 to account for the four hashes and two spaces
+  num_spaces <- max(0, num_spaces)
+
+  message1 <- paste0("## ", message1, rep(" ", num_spaces), "                                            ##")
 
   packageStartupMessage(message1)
   packageStartupMessage(message2)
 }
+
