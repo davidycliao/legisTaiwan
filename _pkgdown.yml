@@ -88,6 +88,18 @@ navbar:
     - text: "Function Reference"
       href: reference/index.html
 
+  - icon: fa-file-code-o
+    text: Tutorial
+    menu:
+    - text: "The Records of the Bills"
+      href: articles/get_bills.html
+    - text: "Demographic Data"
+      href: articles/get_legislators.html
+    - text: "Parliarmentary Questions"
+      href: articles/get_parlquestions.html
+    - text: "Party Caucus Negotiation"
+      href: articles/Party Caucus Negotiation.html
+
   - icon: fa-newspaper-o
     text: News
     menu:

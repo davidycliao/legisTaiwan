@@ -1,9 +1,9 @@
 ---
-title: "Legislator's Democraphic Data"
+title: "Legislator's Demographic Data"
 author: ""
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Legislator's Democraphic Data}
+  %\VignetteIndexEntry{Legislator's Demographic Data}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

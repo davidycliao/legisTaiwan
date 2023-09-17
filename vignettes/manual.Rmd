@@ -21,8 +21,7 @@ assign("has_internet_via_proxy", TRUE, environment(curl::has_internet))
 
 <div style="text-align: justify">
 
-Parliamentary activities such as debates and written parliamentary questions, play a significant role in most parliamentary democracies. For example, the floor debate
-functions as a major platform for Members of Parliament (MPs) to uncover information and discussion regarding government policy, proposed new laws and topical issues of the
+Parliamentary activities such as debates and written parliamentary questions, play a significant role in most parliamentary democracies. For example, the floor debate functions as a major platform for Members of Parliament (MPs) to uncover information and discussion regarding government policy, proposed new laws and topical issues of the
 day. 
 
 </div>

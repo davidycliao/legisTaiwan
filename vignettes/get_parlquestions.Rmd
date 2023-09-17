@@ -1,9 +1,9 @@
 ---
-title: "Parliarmentary Questions"
+title: "Fetching Parliarmentary Questions"
 author: ""
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Parliarmentary Questions}
+  %\VignetteIndexEntry{Fetching Parliarmentary Questions}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
