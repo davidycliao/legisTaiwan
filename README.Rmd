@@ -1,3 +1,7 @@
+---
+output: github_document
+---
+
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -14,6 +18,18 @@ coverage](https://github.com/davidycliao/legisTaiwan/actions/workflows/test-cove
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7633962.svg)](https://doi.org/10.5281/zenodo.7633962)
 <!-- badges: end -->
 
+
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/",
+  out.width = "100%"
+)
+```
+
+
 <div style="text-align: justify">
 
 `legisTaiwan` requires a stable internet connection to retrieve data
@@ -21,11 +37,12 @@ from the API. While most functions can fetch data spanning a long
 period, they tend to be bandwidth-intensive due to the size of the
 datasets. If you plan to download data over an extended period, I
 recommend using `get_variable_info()` first to verify the current file
-sizes on the API. Also, consider writing a batch retrieval process with
-appropriate handlers to track the progress of file input, ensuring the
-completeness of the requested data.
+sizes on the API. Also, consider writing a batch retrieval
+process with appropriate handlers to track the progress of file input,
+ensuring the completeness of the requested data.
 
 </div>
+
 
 </div>
 
@@ -38,9 +55,12 @@ install.packages("remotes")
 remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
 ```
 
-    library(legisTaiwan)
-    #> ## legisTaiwan                                            ##
-    #> ## An R package connecting to the Taiwan Legislative API. ##
+```
+library(legisTaiwan)
+#> ## legisTaiwan                                            ##
+#> ## An R package connecting to the Taiwan Legislative API. ##
+```
+
 
 <br>
 
@@ -53,8 +73,8 @@ from the API. While most functions can fetch data spanning a long
 period, they tend to be bandwidth-intensive due to the size of the
 datasets. If you plan to download data over an extended period, I
 recommend using `get_variable_info()` first to verify the current file
-sizes on the API. Also, consider writing a batch retrieval process with
-appropriate handlers to track the progress of file input, ensuring the
-completeness of the requested data.
+sizes on the API. Also, consider writing a batch retrieval
+process with appropriate handlers to track the progress of file input,
+ensuring the completeness of the requested data.
 
 </div>

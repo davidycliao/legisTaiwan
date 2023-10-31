@@ -1,5 +1,9 @@
 # `legisTaiwan` 0.1.6
 
+* reformat examples. 
+
+* Add testthat to monitor the performance of the Legislative Yan API. If the API malfunctions, the package's percentage of coverage would also decrease.
+
 
 # `legisTaiwan` 0.1.4 (development version)
 
