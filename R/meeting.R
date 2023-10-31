@@ -1,4 +1,4 @@
-#' The Spoken Meeting Records 委員發言
+#'@title The Spoken Meeting Records 委員發言
 #'
 #'@author David Liao (davidycliao@@gmail.com)
 #'
@@ -105,7 +105,7 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
 }
 
 
-#' The Meeting Records of Cross-caucus Session 黨團協商資訊
+#'@title The Meeting Records of Cross-caucus Session 黨團協商資訊
 #'
 #'@author David Liao (davidycliao@@gmail.com)
 #'
@@ -214,7 +214,7 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
 }
 
 
-#' The Video Information of Meetings and Committees 院會及委員會之委員發言片段相關影片資訊
+#'@title The Video Information of Meetings and Committees 院會及委員會之委員發言片段相關影片資訊
 #'
 #'@param start_date character Must be formatted in Minguo (ROC) calendar with three
 #'forward slashes between year, month and day, e.g. "106/10/20".
