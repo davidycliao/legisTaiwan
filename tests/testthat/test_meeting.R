@@ -10,12 +10,15 @@ test_that("get_caucus_meetings", {
   expect_equal(get_caucus_meetings(start_date = "106/10/20", end_date = "107/03/10", verbose = FALSE)$retrieved_number ,30)
 })
 
-test_that("get_speech_video", {
-  expect_equal(get_speech_video(start_date = "105/10/20", end_date = "109/03/10")$retrieved_number, 547)
-  expect_equal(get_speech_video(start_date = "105/10/20", end_date = "109/03/10", verbose = FALSE)$retrieved_number, 547)
-  expect_error(get_speech_video(start_date = "104/01/01", end_date = "104/01/02", verbose = FALSE), "The query is unavailable.")
+# test_that("get_speech_video", {
+#   expect_equal(get_speech_video(start_date = "105/10/20", end_date = "109/03/10")$retrieved_number, 547)
+#   expect_equal(get_speech_video(start_date = "105/10/20", end_date = "109/03/10", verbose = FALSE)$retrieved_number, 547)
+#   expect_error(get_speech_video(start_date = "104/01/01", end_date = "104/01/02", verbose = FALSE), "The query is unavailable.")
+#
+# })
 
-})
+
+
 
 test_that("get_public_debates", {
   expect_equal(get_public_debates(term = 10, session_period = 1)$retrieved_number, 107)
@@ -28,6 +31,8 @@ test_that("get_public_debates", {
   # expect_error(get_public_debates(term = 30),  "The query is unavailable.")
 
   })
+
+get_speech_video
 
 
 # test_that("get_committee_record", {

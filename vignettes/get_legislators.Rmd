@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 assign("has_internet_via_proxy", TRUE, environment(curl::has_internet))
 ```
 
-## Using `get_legislators()` as an Example to Fetch Historical Legislator Data'.
+## Fetching Historical Legislator Data'.
 
 ```{r}
 library(legisTaiwan)

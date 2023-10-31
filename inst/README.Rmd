@@ -37,10 +37,11 @@ knitr::opts_chunk$set(
 
 ## Get Started with Using [`remotes`](https://github.com/r-lib/remotes):
 
-```{r eval=FALSE, include=TRUE}
+```{r include=FALSE}
 install.packages("remotes")
 remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
 ```
+
 
 ```{r}
 library(legisTaiwan)

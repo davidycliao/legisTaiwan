@@ -42,7 +42,10 @@ library(legisTaiwan)
 ## How to Contribute
 
 <div style="text-align: justify">
-Contributions in the form of comments, code suggestions, and tutorial examples are very welcome. Please note that the `LeigsTaiwan` is released with the [Contributor Code of Conduct](https://github.com/davidycliao/legisTaiwan/blob/master/CONDUCT.md). By contributing to this project, you agree to abide by its terms. 
+
+{`legisTaiwan`} is an open source project in R. Contributions in the form of comments, code suggestions, and tutorial examples are very welcome. Please note that the `LeigsTaiwan` is released with the [Contributor Code of Conduct](https://github.com/davidycliao/legisTaiwan/blob/master/CONDUCT.md). By contributing to this project, you agree to abide by its terms. 
+
+
 
 </div>
 

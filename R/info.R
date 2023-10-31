@@ -1,5 +1,4 @@
-#' Check Each Function's Manual
-#'
+#'@title Check Each Function's Manual
 #'@author David Liao (davidycliao@@gmail.com)
 #'
 #'@description `get_variable_info` generate each API's endpoint manual returned
@@ -167,7 +166,7 @@ get_variable_info <- function(param_) {
 }
 
 
-#' Check Session Periods in Each Year (Minguo Calendar)
+#'@title Check Session Periods in Each Year (Minguo Calendar)
 #'
 #'@author David Liao (davidycliao@@gmail.com)
 #'
@@ -210,8 +209,6 @@ get_variable_info <- function(param_) {
 #   }
 #
 #
-
-
 
 review_session_info <- function(term) {
   attempt::stop_if_not(website_availability2(), msg = "the error from the API.")

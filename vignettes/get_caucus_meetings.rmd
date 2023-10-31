@@ -1,8 +1,8 @@
 ---
-title: "An Example of Party Caucus Negotiation"
+title: "Party Caucus Negotiation"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{An Example of Party Caucus Negotiation}
+  %\VignetteIndexEntry{Party Caucus Negotiation}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
