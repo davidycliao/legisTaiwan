@@ -56,8 +56,8 @@ remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
 ### Summary Descriptive of Current Bills (法案提案統計)
 
 ``` r
-get_variable_info("get_bills_2")
-#> $page_info
+page_info <- get_variable_info("get_bills_2")$page_info
+print(page_info)
 #> # A tibble: 12 × 2
 #>    `資料集名稱：議案提案` 資料集描述                                            
 #>    <chr>                  <chr>                                                 
@@ -72,17 +72,14 @@ get_variable_info("get_bills_2")
 #>  9 更新頻率               "每日04時15分"                                        
 #> 10 資料筆數               "30766"                                               
 #> 11 建立時間               "2014-09-03WedSep0310:38:36CST2014"                   
-#> 12 更新時間               "2024-12-26ThuDec2604:21:02CST2024"                   
-#> 
-#> $reference_url
-#> [1] "https://data.ly.gov.tw/getds.action?id=20"
+#> 12 更新時間               "2024-12-28SatDec2804:21:21CST2024"
 ```
 
-### Summary Descriptive of Parliamentary Questions (委員質詢事項統計分析)
+### Summary Descriptive of Parliamentary Questions (委員質詢事項)
 
 ``` r
-get_variable_info("get_parlquestions")
-#> $page_info
+page_info <- get_variable_info("get_parlquestions")$page_info
+print(page_info)
 #> # A tibble: 12 × 2
 #>    `資料集名稱：質詢事項(本院委員質詢部分)` 資料集描述                          
 #>    <chr>                                    <chr>                               
@@ -97,10 +94,7 @@ get_variable_info("get_parlquestions")
 #>  9 更新頻率                                 "每日01時55分"                      
 #> 10 資料筆數                                 "1689"                              
 #> 11 建立時間                                 "2014-08-18MonAug1806:00:00CST2014" 
-#> 12 更新時間                                 "2024-12-27FriDec2701:56:46CST2024" 
-#> 
-#> $reference_url
-#> [1] "https://data.ly.gov.tw/getds.action?id=6"
+#> 12 更新時間                                 "2024-12-28SatDec2801:56:53CST2024"
 ```
 
 <br>
@@ -119,6 +113,8 @@ appropriate handlers to track the progress of file input, ensuring the
 completeness of the requested data.
 
 </div>
+
+<br>
 
 ### Acknowledgments
 

@@ -1,8 +1,7 @@
 test_that("get_meetings", {
   expect_equal(get_meetings(start_date = 1050120, end_date = 1050210, verbose = FALSE)$data$smeeting_date, "105/02/01")
   expect_equal(nrow(get_meetings(start_date = 1040120, end_date = 1050310, verbose = TRUE)$data), 807)
-  expect_error(get_meetings(start_date = 1040101, end_date = 1040102, verbose = FALSE), "The query is unavailable.")
-
+  expect_error(get_meetings(start_date = 1040101, end_date = 1040102, verbose = FALSE), "Query returned no data.")
 })
 
 test_that("get_caucus_meetings", {

@@ -50,7 +50,7 @@
 #' ## query meeting records by a period of the dates in Minguo (Taiwan) calendar format
 #' ## and a meeting
 #' ## 輸入「中華民國民年」與「審查會議或委員會名稱」下載會議審查資訊
-#'get_meetings(start_date = 1060120, end_date = 1070310, meeting_unit = "內政委員會")
+#' get_meetings(start_date = 1060120, end_date = 1070310, meeting_unit = "內政委員會")
 #'
 #'@details `get_meetings` produces a list, which contains `title`, `query_time`,
 #'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
@@ -66,40 +66,142 @@
 #'
 #'@seealso
 #' Regarding Minguo calendar, please see \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}.
+#'
+#'@encoding UTF-8
 
+# get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL,
+#                          verbose = TRUE) {
+#   check_internet()
+#   api_check(start_date = check_date(start_date), end_date = check_date(end_date))
+#   set_api_url <- paste("https://www.ly.gov.tw/WebAPI/LegislativeSpeech.aspx?from=",
+#                        start_date, "&to=", end_date, "&meeting_unit=", meeting_unit, "&mode=json", sep = "")
+#   tryCatch(
+#     {
+#       with_options(list(timeout = max(1000, getOption("timeout"))),{json_df <- jsonlite::fromJSON(set_api_url)})
+#       df <- tibble::as_tibble(json_df)
+#       attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
+#       df["date_ad"] <- do.call("c", lapply(df$smeeting_date, transformed_date_meeting))
+#       if (isTRUE(verbose)) {
+#         cat(" Retrieved URL: \n", set_api_url, "\n")
+#         cat(" Retrieved via :", meeting_unit, "\n")
+#         cat(" Retrieved date between:", as.character(check_date(start_date)), "and", as.character(check_date(end_date)), "\n")
+#         cat(" Retrieved number:", nrow(df), "\n")
+#         }
+#       list_data <- list("title" = "the spoken meeting records",
+#                         "query_time" = Sys.time(),
+#                         "retrieved_number" = nrow(df),
+#                         "meeting_unit" = meeting_unit,
+#                         "start_date_ad" = check_date(start_date),
+#                         "end_date_ad" = check_date(end_date),
+#                         "start_date" = start_date,
+#                         "end_date" = end_date,
+#                         "url" = set_api_url,
+#                         "variable_names" = colnames(df),
+#                         "manual_info" = "https://www.ly.gov.tw/Pages/List.aspx?nodeid=154",
+#                         "data" = df)
+#       return(list_data)
+#     },
+#     error = function(error_message) {
+#       message(error_message)
+#     }
+#   )
+# }
 get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL,
                          verbose = TRUE) {
   check_internet()
+
+  # 先檢查必要參數
+  if(is.null(start_date) || is.null(end_date)) {
+    message("\nBoth start_date and end_date must be provided.\n")
+  }
+
+  # 初始化進度顯示
+  if(isTRUE(verbose)) {
+    cat("\nInput Format Information:\n")
+    cat("------------------------\n")
+    cat("Date Format: YYYMMDD (ROC calendar)\n")
+    cat("Example: 1090101 for 2020/01/01\n")
+    cat("------------------------\n\n")
+    cat("Downloading meeting records data...\n")
+    pb <- txtProgressBar(min = 0, max = 100, style = 3)
+  }
+
+  # Update progress bar to 20%
+  if(isTRUE(verbose)) setTxtProgressBar(pb, 20)
+
   api_check(start_date = check_date(start_date), end_date = check_date(end_date))
+
+  # Update progress bar to 40%
+  if(isTRUE(verbose)) setTxtProgressBar(pb, 40)
+
   set_api_url <- paste("https://www.ly.gov.tw/WebAPI/LegislativeSpeech.aspx?from=",
-                       start_date, "&to=", end_date, "&meeting_unit=", meeting_unit, "&mode=json", sep = "")
+                       start_date, "&to=", end_date,
+                       "&meeting_unit=", meeting_unit, "&mode=json", sep = "")
+
   tryCatch(
     {
-      with_options(list(timeout = max(1000, getOption("timeout"))),{json_df <- jsonlite::fromJSON(set_api_url)})
+      # Update progress bar to 60%
+      if(isTRUE(verbose)) setTxtProgressBar(pb, 60)
+
+      with_options(list(timeout = max(1000, getOption("timeout"))),{
+        json_df <- jsonlite::fromJSON(set_api_url)
+      })
+
+      # Update progress bar to 80%
+      if(isTRUE(verbose)) setTxtProgressBar(pb, 80)
+
       df <- tibble::as_tibble(json_df)
-      attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
+      attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "Query returned no data.")
       df["date_ad"] <- do.call("c", lapply(df$smeeting_date, transformed_date_meeting))
-      if (isTRUE(verbose)) {
-        cat(" Retrieved URL: \n", set_api_url, "\n")
-        cat(" Retrieved via :", meeting_unit, "\n")
-        cat(" Retrieved date between:", as.character(check_date(start_date)), "and", as.character(check_date(end_date)), "\n")
-        cat(" Retrieved number:", nrow(df), "\n")
+
+      # Update progress bar to 100% and show results
+      if(isTRUE(verbose)) {
+        setTxtProgressBar(pb, 100)
+        close(pb)
+        cat("\n\n")
+        cat("====== Retrieved Information ======\n")
+        cat("-----------------------------------\n")
+        cat(" URL: \n", set_api_url, "\n")
+        if(!is.null(meeting_unit)) {
+          cat(" Meeting Unit: ", meeting_unit, "\n")
         }
-      list_data <- list("title" = "the spoken meeting records",
-                        "query_time" = Sys.time(),
-                        "retrieved_number" = nrow(df),
-                        "meeting_unit" = meeting_unit,
-                        "start_date_ad" = check_date(start_date),
-                        "end_date_ad" = check_date(end_date),
-                        "start_date" = start_date,
-                        "end_date" = end_date,
-                        "url" = set_api_url,
-                        "variable_names" = colnames(df),
-                        "manual_info" = "https://www.ly.gov.tw/Pages/List.aspx?nodeid=154",
-                        "data" = df)
+        cat(" Date Range: ", as.character(check_date(start_date)),
+            " to ", as.character(check_date(end_date)), "\n")
+        cat(" Total Records: ", nrow(df), "\n")
+
+        # Add meeting type distribution if available
+        if("meeting_type" %in% colnames(df)) {
+          meeting_counts <- table(df$meeting_type)
+          cat("\nMeeting Type Distribution:\n")
+          for(type in names(meeting_counts)) {
+            cat(sprintf(" %s: %d\n", type, meeting_counts[type]))
+          }
+        }
+        cat("===================================\n")
+      }
+
+      list_data <- list(
+        "title" = "Meeting Records",
+        "query_time" = Sys.time(),
+        "retrieved_number" = nrow(df),
+        "meeting_unit" = meeting_unit,
+        "start_date_ad" = check_date(start_date),
+        "end_date_ad" = check_date(end_date),
+        "start_date" = start_date,
+        "end_date" = end_date,
+        "url" = set_api_url,
+        "variable_names" = colnames(df),
+        "manual_info" = "https://www.ly.gov.tw/Pages/List.aspx?nodeid=154",
+        "data" = df
+      )
       return(list_data)
     },
     error = function(error_message) {
+      if(isTRUE(verbose)) {
+        close(pb)
+        cat("\nError occurred while fetching data:\n")
+        cat(sprintf("Error: %s\n", error_message))
+      }
       message(error_message)
     }
   )
@@ -173,6 +275,8 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
 #'
 #'@seealso
 #'`get_variable_info("get_caucus_meetings")`  Regarding Minguo calendar, please see \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}.
+#'
+#'@encoding UTF-8
 get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
                                 verbose = TRUE) {
   # 檢查日期格式
@@ -259,29 +363,43 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
 }
 
 
-#' The Video Information of Meetings and Committees 院會及委員會之委員發言片段相關影片資訊
+#' Video Information of Legislative Meetings and Committees
+#'
 #' @title The Video Information of Meetings and Committees 院會及委員會之委員發言片段相關影片資訊
 #'
-#' @param term numeric or NULL. Legislative term number (e.g., 10). Data is available from the 9th term onwards.
-#' @param session_period numeric or NULL. Session period (1-8).
-#' @param start_date character Must be formatted in Minguo (ROC) calendar with three
-#' forward slashes between year, month and day, e.g. "110/10/01".
-#' @param end_date character Must be formatted in Minguo (ROC) calendar with three
-#' forward slashes between year, month and day, e.g. "110/10/30".
-#' @param verbose logical, indicates whether get_speech_video should print out
-#' detailed output when retrieving the data. Default is TRUE.
+#' @description
+#' Retrieves video records and information of legislative meetings and committee sessions,
+#' including speech segments, meeting details, and video URLs. Data is available in both
+#' JSON and CSV formats from the 9th legislative term onwards.
 #'
-#' @return list, which contains:
+#' @param term numeric or NULL. Legislative term number (e.g., 10).
+#' Data is available from the 9th term onwards. Default is NULL.
+#'
+#' @param session_period numeric or NULL. Session period number (1-8).
+#' Default is NULL.
+#'
+#' @param start_date character. Must be formatted in ROC calendar with forward slashes
+#' between year, month and day, e.g., "110/10/01".
+#'
+#' @param end_date character. Must be formatted in ROC calendar with forward slashes
+#' between year, month and day, e.g., "110/10/30".
+#'
+#' @param verbose logical. Whether to display download progress and detailed information.
+#' Default is TRUE.
+#'
+#' @param format character. Data format to retrieve, either "json" or "csv".
+#' Default is "json".
+#'
+#' @return A list containing:
 #' \describe{
 #'   \item{`title`}{speech video records}
 #'   \item{`query_time`}{query timestamp}
 #'   \item{`retrieved_number`}{number of videos retrieved}
 #'   \item{`term`}{queried legislative term}
 #'   \item{`session_period`}{queried session period}
-#'   \item{`start_date_ad`}{start date in POSIXct}
-#'   \item{`end_date_ad`}{end date in POSIXct}
 #'   \item{`start_date`}{start date in ROC calendar}
 #'   \item{`end_date`}{end date in ROC calendar}
+#'   \item{`format`}{data format ("json" or "csv")}
 #'   \item{`url`}{retrieved API URL}
 #'   \item{`variable_names`}{variables in the tibble dataframe}
 #'   \item{`manual_info`}{official manual URL}
@@ -309,37 +427,54 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
 #' @importFrom attempt stop_if_all
 #' @importFrom jsonlite fromJSON
 #' @importFrom withr with_options
+#' @importFrom readr read_csv
 #'
 #' @export
+#'
 #' @examples
 #' \dontrun{
-#' ## Query video information by term, session period and date range
-#' get_speech_video(
+#' # Query video information in JSON format
+#' videos <- get_speech_video(
 #'   term = 10,
 #'   session_period = 4,
 #'   start_date = "110/10/01",
 #'   end_date = "110/10/30"
 #' )
 #'
-#' ## Query without specifying term or session
-#' get_speech_video(
+#' # Query in CSV format
+#' videos_csv <- get_speech_video(
+#'   term = 10,
+#'   session_period = 4,
+#'   start_date = "110/10/01",
+#'   end_date = "110/10/30",
+#'   format = "csv"
+#' )
+#'
+#' # Query without specifying term/session
+#' videos <- get_speech_video(
 #'   start_date = "110/10/01",
 #'   end_date = "110/10/30"
 #' )
 #' }
 #'
-#' @details The `get_speech_video` function retrieves video information of
-#' legislative meetings and committee sessions. Data is available from the
-#' 9th legislative term onwards (2016/民國105年). The date parameters must
-#' use the ROC calendar format with forward slashes.
+#' @details
+#' The function retrieves video information from legislative meetings and committee
+#' sessions. Data is available from the 9th legislative term onwards (2016/民國105年).
+#' The date parameters must use the ROC calendar format with forward slashes.
+#' Data can be retrieved in either JSON or CSV format.
 #'
-#' @note For more details about the data variables and API information,
-#' use `get_variable_info("get_speech_video")` or visit the API manual at
-#' \url{https://data.ly.gov.tw/getds.action?id=148}.
+#' @note
+#' For more details about the data variables and API information,
+#' use `get_variable_info("get_speech_video")` or visit:
+#' \url{https://data.ly.gov.tw/getds.action?id=148}
+#'
 #' 會議類:提供立法院院會及委員會之委員發言片段相關影片資訊 (自第9屆第1會期起)。
 #'
 #' @seealso
-#' `get_variable_info("get_speech_video")` https://data.ly.gov.tw/odw/ID148Action.action?term=10&sessionPeriod=4&meetingDateS=110/10/01&meetingDateE=110/10/30&meetingTime=&legislatorName=&fileType=csv
+#' * `get_variable_info("get_speech_video")`
+#' * Example API URL: \url{https://data.ly.gov.tw/odw/ID148Action.action?term=10&sessionPeriod=4&meetingDateS=110/10/01&meetingDateE=110/10/30&meetingTime=&legislatorName=&fileType=csv}
+#'
+#'@encoding UTF-8
 get_speech_video <- function(term = NULL,
                              session_period = NULL,
                              start_date = NULL,
@@ -552,6 +687,8 @@ get_speech_video <- function(term = NULL,
 #' * `get_variable_info("get_public_debates")`
 #' * `review_session_info()`
 #' * For ROC calendar information: \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}
+#'
+#' @encoding UTF-8
 get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRUE) {
   check_internet()
 
@@ -762,6 +899,8 @@ get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRU
 #'
 #'@seealso
 #'`get_variable_info("get_committee_record")`, `review_session_info()`
+#'
+#' @encoding UTF-8
 get_committee_record <- function(term = 10, session_period = NULL, verbose = TRUE) {
   check_internet()
 

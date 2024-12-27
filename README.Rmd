@@ -65,13 +65,15 @@ library(legisTaiwan)
 ```
 
 ```{r}
-get_variable_info("get_bills_2")
+page_info <- get_variable_info("get_bills_2")$page_info
+print(page_info)
 ```
 
-### Summary Descriptive of Parliamentary Questions (委員質詢事項統計分析)
+### Summary Descriptive of Parliamentary Questions (委員質詢事項)
 
 ```{r}
-get_variable_info("get_parlquestions")
+page_info <- get_variable_info("get_parlquestions")$page_info
+print(page_info)
 ```
 
 
@@ -93,11 +95,10 @@ ensuring the completeness of the requested data.
 
 </div>
 
-
 <br>
  
-
 ### Acknowledgments
+
 <div style="text-align: justify">
 This package supported the author's doctoral dissertation *"Electoral Reform, Distributive Politics, and Parties in the Taiwanese Congress"* at the University of Essex. The PhD project was made possible through the generous funding of the 2022 Taiwan Ministry of Science and Technology (MOST) TOP Grant and a full PhD fellowship from the Ministry of Education (2018-2021), Taiwan. The author extends sincere gratitude to the Legislative Yuan API Center for their technical assistance and commitment to data transparency.
 </div>

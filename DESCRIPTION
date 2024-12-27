@@ -16,15 +16,16 @@ License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:
-	jsonlite,
-	attempt,
-	stringr,
-  curl,
-  tibble,
-  rvest,
-  withr,
-  httr,
-  utils
+    jsonlite,
+    attempt,
+    stringr,
+    curl,
+    tibble,
+    rvest,
+    withr,
+    httr,
+    utils,
+    readr
 Suggests: 
   knitr,
   rmarkdown,

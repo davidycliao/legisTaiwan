@@ -1,5 +1,5 @@
-#' Clean legislator names
-#'
+#' Clean legislator Names
+#' @encoding UTF-8
 #' @keywords internal
 .clean_names <- function(x) {
   names <- gsub("本院委員", "", x)

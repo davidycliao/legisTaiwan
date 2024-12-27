@@ -213,6 +213,8 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 #'
 #' @seealso
 #' `get_variable_info("get_bills_2")`,`review_session_info()`
+#'
+#' @encoding UTF-8
 get_bills_2 <- function(term = 8, session_period = NULL, verbose = TRUE) {
   # Check for internet connectivity
   check_internet()

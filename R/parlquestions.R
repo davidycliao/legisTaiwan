@@ -31,7 +31,6 @@
 #'       }
 #'     }
 #'   }
-#'
 #' @importFrom attempt stop_if_all
 #' @importFrom jsonlite fromJSON
 #' @importFrom withr with_options
@@ -56,6 +55,8 @@
 #' 質詢類: 提供議事日程本院委員之質詢事項資訊(自第8屆第1會期起)。
 #'
 #' @seealso `get_variable_info("get_parlquestions")`
+#'
+#' @encoding UTF-8
 get_parlquestions <- function(term = NULL, session_period = NULL, verbose = TRUE) {
   check_internet()
 
@@ -229,6 +230,8 @@ get_parlquestions <- function(term = NULL, session_period = NULL, verbose = TRUE
 #'
 #'@seealso
 #'`get_variable_info("get_executive_response")`, `review_session_info()`
+#'
+#' @encoding UTF-8
 get_executive_response <- function(term = NULL, session_period = NULL, verbose = TRUE) {
   check_internet()
 
