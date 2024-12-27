@@ -1,60 +1,19 @@
 # Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
 # Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
-# on:
-#   push:
-#     branches: [main, master]
-#   pull_request:
-#     branches: [main, master]
-#
-# name: R-CMD-check
-#
-# jobs:
-#   R-CMD-check:
-#     runs-on: ${{ matrix.config.os }}
-#
-#     name: ${{ matrix.config.os }} (${{ matrix.config.r }})
-#
-#     strategy:
-#       fail-fast: false
-#       matrix:
-#         config:
-#           - {os: macos-latest,   r: 'release'}
-#           - {os: windows-latest, r: 'release'}
-#           - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}
-#           - {os: ubuntu-latest,   r: 'release'}
-#     env:
-#       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-#       R_KEEP_PKG_SOURCE: yes
-#
-#     steps:
-#       - uses: actions/checkout@v2
-#
-#       - uses: r-lib/actions/setup-pandoc@v2
-#
-#       - uses: r-lib/actions/setup-r@v2
-#         with:
-#           r-version: ${{ matrix.config.r }}
-#           http-user-agent: ${{ matrix.config.http-user-agent }}
-#           use-public-rspm: true
-#
-#       - uses: r-lib/actions/setup-r-dependencies@v2
-#         with:
-#           extra-packages: any::rcmdcheck
-#           needs: check
-#
-#       - uses: r-lib/actions/check-r-package@v2
-#         with:
-#           upload-snapshots: true
 on:
   push:
     branches: [main, master]
   pull_request:
     branches: [main, master]
+
 name: R-CMD-check
+
 jobs:
   R-CMD-check:
     runs-on: ${{ matrix.config.os }}
+
     name: ${{ matrix.config.os }} (${{ matrix.config.r }})
+
     strategy:
       fail-fast: false
       matrix:
@@ -66,11 +25,9 @@ jobs:
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       R_KEEP_PKG_SOURCE: yes
-      _R_CHECK_ASCII_CODE_: FALSE  # 修正語法
-      _R_CHECK_RD_ASCII_CODE_: FALSE  # 修正語法
-      R_CHECK_IGNORE_ASCII: TRUE
+
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
 
       - uses: r-lib/actions/setup-pandoc@v2
 
@@ -80,22 +37,11 @@ jobs:
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
 
-      # 修改依賴安裝步驟
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: rcmdcheck
+          extra-packages: any::rcmdcheck
           needs: check
-          cache-version: 2
 
       - uses: r-lib/actions/check-r-package@v2
         with:
-          error-on: '"warning"'
-          check-dir: 'check'
-          args: 'c("--no-manual", "--as-cran", "--no-codoc", "--no-examples", "--no-tests")'
-          upload-snapshots: false
-        env:
-          _R_CHECK_ASCII_CODE_: false
-          _R_CHECK_RD_ASCII_CODE_: false
-          R_CHECK_IGNORE_ASCII: true
-          _R_CHECK_SYSTEM_CLOCK_: false
-          NOT_CRAN: true
+          upload-snapshots: true
