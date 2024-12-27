@@ -1,0 +1,61 @@
+---
+title: "Legislator's Demographic Data"
+author: ""
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Legislator's Demographic Data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r include=FALSE}
+assign("has_internet_via_proxy", TRUE, environment(curl::has_internet))
+```
+
+## Using `get_legislators()` as an Example to Fetch Legislator Data
+<div class="text-justify">
+
+The get_legislators() function provides a straightforward way to access Taiwan's legislator data from the official parliamentary database. Here's a step-by-step demonstration:
+</div>
+
+```{r}
+library(legisTaiwan)
+```
+
+<div class="text-justify">
+
+First, we load the legisTaiwan package which contains tools for accessing Taiwan's legislative data.
+</div>
+
+```{r}
+info <- get_legislators(verbose = FALSE)
+```
+
+<div class="text-justify">
+Here, we call get_legislators() and store the results in info. The verbose = FALSE parameter suppresses the progress bar during data fetching. This makes the function run quietly without displaying download progress.
+</div>
+
+```{r}
+info$data
+```
+
+<div class="text-justify">
+
+This command displays the retrieved data which includes comprehensive information about legislators. The returned data frame contains various fields about each legislator, such as:
+
+- Personal information (name, gender, birth date)
+- Electoral district details
+- Party affiliation
+- Committee and more!
+
+Each row represents a unique legislator, making it easy to analyze or extract specific information about Taiwan's parliamentary representatives.
+
+</div>
+

@@ -1,0 +1,41 @@
+Package: legisTaiwan
+Type: Package
+Title: An Interface to Access Taiwan Legislative API in R 
+Version: 0.1.6
+Authors@R: c(person("David Yen-Chieh", "Liao", email = "davidycliao@gmail.com", role = c("aut", "cre")),
+             person("Li", "Tang", email = "l.tang@mdx.ac.uk", role = c("ctb", "aut")),
+             person("Taiwan Legislative Yuan 立法院", role =  c("cph", "fnd")),
+             person("Jou-Fei", "Huang", email = "joufeihu@buffalo.edu", role = "ctb"),
+             person("Taiwan National Science and Technology Council", role = "ctb"),
+             person("Taiwan Science & Technology Policy Research and Information Center NARLabs", role = "ctb"))
+Description: The pacakge is designed to make it quickly and easy to access Taiwan 
+            Legislative Yuan API for downloading real-time data legislative and 
+            historical archives.
+Maintainer: David Yen-Chieh Liao <davidycliao@gmail.com>
+Depends: R (>= 3.4.0)
+License: GPL-3 + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+	jsonlite,
+	attempt,
+	stringr,
+  curl,
+  tibble,
+  rvest,
+  withr,
+  httr
+Suggests: 
+  knitr,
+  rmarkdown,
+  ggplot2,
+  remotes,
+  tidyverse,
+  testthat (>= 3.0.0)
+RoxygenNote: 7.2.3
+BugReports: https://github.com/davidycliao/legisTaiwan/issues
+URL: https://davidycliao.github.io/legisTaiwan/
+VignetteBuilder: knitr
+Roxygen: list(markdown = TRUE)
+Config/testthat/edition: 3
+SystemRequirements: pandoc (>= 1.14) - http://pandoc.org

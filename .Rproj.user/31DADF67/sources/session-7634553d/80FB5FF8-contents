@@ -1,0 +1,39 @@
+---
+title: "An Example of Party Caucus Negotiation"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{An Example of Party Caucus Negotiation}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r include=FALSE}
+assign("has_internet_via_proxy", TRUE, environment(curl::has_internet))
+```
+
+
+## An Example of the Records of the Bills
+
+First, we'll import legisTaiwan. Next, we'll retrieve data from September 23rd in the Republic of China year 111 to January 19th in the Republic of China year 112. Unlike the date parameter in get_bills(), it needs to be formatted as a Republic of China year in a string with "/". The reason is due to inconsistencies in the API's parameter design. In the next version, 0.2 and above, we aim to overcome this issue and unify the date format within the `legisTaiwan` framework.
+
+```{r}
+library(legisTaiwan)
+```
+
+
+```{r}
+caucus_df <- get_caucus_meetings(start_date = "111/09/23", end_date = "112/01/19", verbose = FALSE)
+```
+
+
+```{r}
+caucus_df$data
+```
+

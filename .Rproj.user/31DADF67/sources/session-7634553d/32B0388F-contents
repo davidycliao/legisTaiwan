@@ -1,0 +1,121 @@
+url: https://davidycliao.github.io/legisTaiwan/
+
+home:
+  title: Accessing Real-time and Archives of Taiwan Legislative Data in R
+
+  links:
+  - text: Discussion
+    href: https://github.com/davidycliao/legisTaiwan/discussions
+  - text: legisCrawler 爬台灣立法委員問政專輯的爬蟲小幫手️🕸️
+    href: https://davidycliao.github.io/legisCrawler/
+  - text: "Text and Policy Research Group @ UCD"
+    href: https://text-and-policy.com
+  - text: "The Connected_Politics Lab @ UCD"
+    href: https://www.ucd.ie/connected_politics/
+  - text: "LACAN: Legislators, Accountability and Collective Agency"
+    href: https://projectlacan.wordpress.com/team/
+  - text: "ParlSpeech: Legislative Speeches in the Key Parliamentary Democracies"
+    href: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/L4OAKN
+  - text: "ParlEE: Sentence-level Speeches of Six EU Legislative Chambers"
+    href: https://pureportal.strath.ac.uk/en/datasets/parlee-plenary-speeches-v2-data-set-annotated-full-text-of-151-mi
+
+reference:
+- title: API Functions
+  desc: functions connect to Taiwan Legialtive Yuan API.
+- contents:
+  - get_parlquestions
+  - get_meetings
+  - get_caucus_meetings
+  - get_executive_response
+  - get_public_debates
+  - get_speech_video
+  - get_committee_record
+  - get_bills
+  - get_bills_2
+  - get_legislators
+  - get_variable_info
+  - review_session_info
+
+authors:
+  David Yen-Chieh Liao:
+    href: https://davidycliao.github.io
+  Li Tang:
+    href: https://sites.google.com/view/litang2020?pli=1
+  Taiwan Legislative Yuan 立法院:
+    href: "https://data.ly.gov.tw/catelog.action"
+    html: "<img src='https://raw.githack.com/davidycliao/legisTaiwan/v0.1.4/inst/figures/ly.jpeg' width=52>"
+
+
+template:
+  package: tidytemplate
+  bootstrap: 5
+  includes:
+    in_header: |
+      <script defer data-domain="{YOUR DOMAIN},all.tidyverse.org" src="https://plausible.io/js/plausible.js"></script>
+  params:
+    ganalytics: G-X85ED8P5EW
+
+development:
+  mode: auto
+
+navbar:
+  type: inverse
+  left:
+  - icon: fa-home
+    href: index.html
+  - icon: fa-rocket
+    text: Quick Start
+    menu:
+    - text: "Quick Start Guide"
+      href: articles/quickstart.html#get-started-with-using-remotes
+    - text: "How to Contribute"
+      href: articles/quickstart.html#quickstart.html#how-to-contribute
+
+
+  - icon: fa-project-diagram
+    text: Manual
+    menu:
+    - text: "Interpellation and Debates"
+      href: articles/manual.html#interpellation-and-debates
+    - text: "Bill and Budget"
+      href: articles/manual.html#bill-and-budget
+    - text: "Miscellaneous"
+      href: articles/manual.html#miscellaneous
+
+  - icon: fa-file-code-o
+    text: Reference
+    menu:
+    - text: "Function Reference"
+      href: reference/index.html
+
+  - icon: fa-file-code-o
+    text: Tutorial
+    menu:
+    - text: "Records of the Bills"
+      href: articles/get_bills.html
+    - text: "Demographic Data"
+      href: articles/get_legislators.html
+    - text: "Parliarmentary Questions"
+      href: articles/get_parlquestions.html
+    - text: "Party Caucus Negotiation"
+      href: articles/Party Caucus Negotiation.html
+
+  - icon: fa-newspaper-o
+    text: News
+    menu:
+    - text: "0.1.6"
+      href: news/index.html#legistaiwan-016-development-version
+    - text: "0.1.4"
+      href: news/index.html#legistaiwan-014-development-version
+    - text: "0.1.3"
+      href: news/index.html#legistaiwan-013-development-version
+    - text: "0.1.1"
+      href: news/index.html#legistaiwan-011-development-version
+
+  right:
+  - icon: fa-github fa-lg
+    text: GitHub
+    href: https://github.com/davidycliao/legisTaiwan
+
+
+

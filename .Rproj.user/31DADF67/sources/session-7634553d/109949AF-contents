@@ -1,0 +1,36 @@
+---
+title: "Legislator's Demographic Data"
+author: ""
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Legislator's Demographic Data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r include=FALSE}
+assign("has_internet_via_proxy", TRUE, environment(curl::has_internet))
+```
+
+## Using `get_legislators()` as an Example to Fetch Historical Legislator Data'.
+
+```{r}
+library(legisTaiwan)
+```
+
+```{r}
+info <- get_legislators(verbose = FALSE)
+```
+
+
+```{r}
+info$data
+```
+

@@ -1,0 +1,39 @@
+---
+title: "The Records of the Bills"
+author: ""
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{The Records of the Bills}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r include=FALSE}
+assign("has_internet_via_proxy", TRUE, environment(curl::has_internet))
+```
+
+
+## An Example of the Records of the Bills
+
+First, we'll import legisTaiwan, and then we'll retrieve data from January 20th of the Republic of China year 106 to March 10th of the Republic of China year 111.
+```{r}
+library(legisTaiwan)
+```
+
+
+```{r}
+billdata <- get_bills(start_date = 1060120, 
+                      end_date = 1110310, verbose = FALSE)
+```
+
+The get_bills function returns a list that contains query_time, retrieved_number, meeting_unit, start_date_ad (A.D) , end_date_ad (A.D), start_date, end_date, url, variable_names, manual_info, and data.
+```{r}
+billdata$data
+```

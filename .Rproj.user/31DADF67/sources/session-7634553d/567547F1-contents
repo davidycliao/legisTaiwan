@@ -1,0 +1,40 @@
+---
+title: "Parliarmentary Questions"
+author: ""
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Parliarmentary Questions}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+```{r include=FALSE}
+assign("has_internet_via_proxy", TRUE, environment(curl::has_internet))
+library(legisTaiwan)
+```
+
+## Using `get_parlquestions()` as an Example to Parliarmentary Questions'.
+
+```{r}
+library(legisTaiwan)
+```
+
+
+```{r}
+pa_term10 <- get_parlquestions(term = 10, verbose = TRUE)
+```
+
+```{r}
+pa_term10$data
+```
+
+
+

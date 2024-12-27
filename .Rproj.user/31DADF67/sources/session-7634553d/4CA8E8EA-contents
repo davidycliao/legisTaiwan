@@ -1,0 +1,77 @@
+---
+title: "User Manual"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{User Manual}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r include=FALSE}
+assign("has_internet_via_proxy", TRUE, environment(curl::has_internet))
+```
+
+
+<div style="text-align: justify">
+
+Parliamentary activities such as debates and written parliamentary questions, play a significant role in most parliamentary democracies. For example, the floor debate functions as a major platform for Members of Parliament (MPs) to uncover information and discussion regarding government policy, proposed new laws and topical issues of the
+day. 
+
+</div>
+
+<br> 
+
+-----
+
+# Interpellation and Debates
+
+- [`get_parlquestions()`](https://davidycliao.github.io/legisTaiwan/reference/get_parlquestions.html): parliamentary questions asked by the legislators 提供議事日程本院委員之質詢事項資訊 (自第8屆)
+
+- [`get_meetings()`](https://davidycliao.github.io/legisTaiwan/reference/get_bills.html): spoken meeting records 委員發言
+
+- [`get_caucus_meetings()`](https://davidycliao.github.io/legisTaiwan/reference/get_caucus_meetings.html): the meeting records of cross-caucus session 提供公報之黨團協商資訊 (自第8屆)
+
+- [`get_executive_response()`](https://davidycliao.github.io/legisTaiwan/reference/get_executive_response.html): questions answered by the executives提供公報質詢事項行政院答復資訊 (自第8屆)
+
+- [`get_public_debates()`](https://davidycliao.github.io/legisTaiwan/reference/get_public_debates.html): public debates 提供公報之國是論壇資訊，並包含書面意見自 (自第8屆)
+
+- [`get_speech_video()`](https://davidycliao.github.io/legisTaiwan/reference/get_speech_video.html): full video information of meetings and committees 提供立法院院會及委員會之委員發言片段相關影片資訊 (自第9屆)
+
+
+<br> 
+
+-----
+
+# Bill and Budget
+
+- [`get_committee_record()`](https://davidycliao.github.io/legisTaiwan/reference/get_committee_record.html): the records of reviewed items in the committees 提供委員會會議審查之議案項目 (自第8屆)
+
+- [`get_bills()`](https://davidycliao.github.io/legisTaiwan/reference/get_bills.html): the records of the bills 法律提案 (能取得最早日不詳，待檢查)
+
+- [`get_bills_2()`](https://davidycliao.github.io/legisTaiwan/reference/get_bills_2.html): the records of legislators and the government bill proposals 提供委員及政府之議案提案資訊 (自第8屆)         
+
+- [`passed_legislation()`](https://data.ly.gov.tw/getds.action?id=48): legislation and information passed on the third reading 提供公報院會紀錄之三讀通過議案資訊。(自第8屆第1會期起) **coming soon**
+
+<br> 
+
+-----
+
+# Miscellaneous
+
+- [`get_variable_info()`](https://davidycliao.github.io/legisTaiwan/reference/get_variable_info.html): the API’s endpoint user manuals 使用說明文件
+
+- [`review_session_info()`](https://davidycliao.github.io/legisTaiwan/reference/review_session_info.html): the session period and year in formatted in Minguo (ROC) calendar. 屆期年對照表
+
+
+- [`get_legislators()`](https://davidycliao.github.io/legisTaiwan/reference/get_legislators.html): legislator demographics 提供委員基本資料
+
+<br> <br> 
+
+[+ **Further Check Required**: the user manual seems to be inconsistent with actual data. Please check them out in the discussion 參數設定後與資料取得不一致，待確認。](https://github.com/davidycliao/legisTaiwan/discussions)

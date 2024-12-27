@@ -1,0 +1,131 @@
+---
+title: "Tagging Named Entities with Flair Standard Models"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Tagging Named Entities with Flair Standard Models}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r, echo=FALSE}
+library(reticulate)
+library(flaiR)
+reticulate::py_install("flair")
+system(paste(reticulate::py_config()$python, "-m pip install flair"))
+```
+
+## List of NER Models
+
+| ID                  | Task              | Language         | Training Dataset            | Accuracy     | Contributor / Notes    |
+|---------------------|-------------------|------------------|-----------------------------|--------------|------------------------|
+| 'ner'               | NER (4-class)     | English          | Conll-03                    | 93.03 (F1)   |                        |
+| 'ner-fast'          | NER (4-class)     | English          | Conll-03                    | 92.75 (F1)   | (fast model)           |
+| 'ner-large'         | NER (4-class)     | English / Multilingual | Conll-03               | 94.09 (F1)   | (large model)          |
+| 'ner-pooled'        | NER (4-class)     | English          | Conll-03                    | 93.24 (F1)   | (memory inefficient)   |
+| 'ner-ontonotes'     | NER (18-class)    | English          | Ontonotes                   | 89.06 (F1)   |                        |
+| 'ner-ontonotes-fast'| NER (18-class)    | English          | Ontonotes                   | 89.27 (F1)   | (fast model)           |
+| 'ner-ontonotes-large'| NER (18-class)   | English / Multilingual | Ontonotes               | 90.93 (F1)   | (large model)          |
+| 'ar-ner'            | NER (4-class)     | Arabic           | AQMAR & ANERcorp (curated)  | 86.66 (F1)   |                        |
+| 'da-ner'            | NER (4-class)     | Danish           | Danish NER dataset          |              | AmaliePauli            |
+| 'de-ner'            | NER (4-class)     | German           | Conll-03                    | 87.94 (F1)   |                        |
+| 'de-ner-large'      | NER (4-class)     | German / Multilingual | Conll-03                 | 92.31 (F1)   |                        |
+| 'de-ner-germeval'   | NER (4-class)     | German           | Germeval                    | 84.90 (F1)   |                        |
+| 'de-ner-legal'      | NER (legal text)  | German           | LER dataset                 | 96.35 (F1)   |                        |
+| 'fr-ner'            | NER (4-class)     | French           | WikiNER (aij-wikiner-fr-wp3)| 95.57 (F1)   | mhham                  |
+| 'es-ner-large'      | NER (4-class)     | Spanish          | CoNLL-03                    | 90.54 (F1)   | mhham                  |
+| 'nl-ner'            | NER (4-class)     | Dutch            | CoNLL 2002                  | 92.58 (F1)   |                        |
+| 'nl-ner-large'      | NER (4-class)     | Dutch            | Conll-03                    | 95.25 (F1)   |                        |
+| 'nl-ner-rnn'        | NER (4-class)     | Dutch            | CoNLL 2002                  | 90.79 (F1)   |                        |
+| 'ner-ukrainian'     | NER (4-class)     | Ukrainian        | NER-UK dataset              | 86.05 (F1)   | dchaplinsky             |
+
+
+__Source__: https://flairnlp.github.io/docs/tutorial-basics/tagging-entities
+
+
+## An Example Using `ner` Model (Pre-trained NER English Model)
+
+### Generic Approach Using `get_entities()`
+
+```{r}
+library(flaiR)
+data("uk_immigration")
+uk_immigration <- head(uk_immigration, 10)
+```
+
+Use `load_tagger_ner` to call the NER pretrained model. The model will be downloaded from Flair's Hugging Face repo. Thus, ensure you have an internet connection. Once downloaded, the model will be stored in __.flair__ as the cache in your device. So, once you've downloaded it and it hasn't been manually removed, executing the command again will not trigger a download.
+
+```{r}
+tagger_pos <- flaiR::load_tagger_ner("ner")
+```
+
+If you want the computation to run faster, it is recommended to keep the show.text_id set to FALSE by default. 
+
+```{r}
+time <- system.time({
+    results <- get_entities(uk_immigration$text,
+                            uk_immigration$speaker, 
+                            tagger_pos,
+                            show.text_id = FALSE
+                            )
+    gc()
+})
+
+
+print(time)
+```
+
+
+```{r}
+print(results)
+```
+
+### Batch Processing  Using `get_entities_batch()`
+
+```{r}
+batch_process_time <- system.time({
+    batch_process_results  <- get_entities_batch(uk_immigration$text,
+                                                 uk_immigration$speaker, 
+                                                 tagger_pos, 
+                                                 show.text_id = FALSE,
+                                                 batch_size = 2)
+    gc()
+})
+print(batch_process_time)
+
+
+\
+
+  g <- igraph::graph_from_data_frame(edges,
+                                     vertices = x[, c("token_id", "token", "upos")],
+                                     directed = TRUE)
+
+  ggraph::ggraph(g, layout = layout) +
+    ggraph::geom_edge_arc(ggplot2::aes(label = dep_rel, vjust = -0.20),
+                  arrow = grid::arrow(length = ggplot2::unit(4, 'mm'), ends = "last", type = "closed"),
+                  end_cap = ggraph::label_rect("wordswordswords"),
+                  label_colour = edge_color, check_overlap = TRUE, label_size = size) +
+    ggraph::geom_node_label(ggplot2::aes(label = token), col = vertex_color, size = size, fontface = "bold") +
+    ggraph::geom_node_text(ggplot2::aes(label = upos), nudge_y = -0.35, size = size) +
+    ggraph::theme_graph(base_family = base_family) +
+    ggplot2::labs(title = title, subtitle = subtitle)
+  
+  
+```
+
+```{r}
+print(batch_process_results)
+```
+
+Comparing the two sets of timings, the batch process slightly faster than the process without batching when processing slightly larger amount of data.
+```{r}
+time_difference <- time["elapsed"] - batch_process_time["elapsed"]
+print(time_difference)
+```
+
