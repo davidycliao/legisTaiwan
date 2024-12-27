@@ -189,33 +189,7 @@ get_variable_info <- function(param_) {
 #' \dontrun{
 #' review_session_info(7)
 #' }
-<<<<<<< Updated upstream
 
-# review_session_info <- function(term){
-#   attempt::stop_if_all(website_availability2(), isFALSE, msg = "the error from the API.")
-#   attempt::stop_if_all(term, is.null, msg = "use correct `term`")
-#   attempt::stop_if_all(term %in% 1:11, isFALSE, msg = "use correct `term`")
-#   url <- paste("https://npl.ly.gov.tw/do/www/appDate?status=0&expire=",
-#                sprintf("%02d", as.numeric(term)),
-#                "&startYear=0", sep ="")
-#   html_ <- rvest::html_nodes(rvest::read_html(url), "*[class='section_wrapper']")
-#   title <- stringr::str_split_1(rvest::html_text2(rvest::html_nodes(html_, "[class='tt_titlebar2']")), "\t\r")[1:2]
-#   o <- rvest::html_text2(rvest::html_nodes(html_, "[class='tt_listrow_odd']"))
-#   e <- rvest::html_text2(rvest::html_nodes(html_, "[class='tt_listrow_even']"))
-#   s <- lapply(lapply(c(o, e),function(.){stringr::str_split_1(., "\r\r" )}),
-#                      function(.){gsub("[[:space:]]", "", .)})
-#   df <- do.call(rbind, s)
-#   colnames(df) <- title
-#   df <- tibble::as_tibble(df)
-#   return(df)
-#   }
-#
-#
-
-
-
-=======
->>>>>>> Stashed changes
 review_session_info <- function(term) {
   # Input validation
   if(missing(term)) {

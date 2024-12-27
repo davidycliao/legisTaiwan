@@ -299,12 +299,9 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
   )
 }
 
-<<<<<<< Updated upstream
 
 #' The Video Information of Meetings and Committees 院會及委員會之委員發言片段相關影片資訊
-=======
 #' @title The Video Information of Meetings and Committees 院會及委員會之委員發言片段相關影片資訊
->>>>>>> Stashed changes
 #'
 #' @param term numeric or NULL. Legislative term number (e.g., 10). Data is available from the 9th term onwards.
 #' @param session_period numeric or NULL. Session period (1-8).

@@ -144,12 +144,9 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
   )
 }
 
-<<<<<<< Updated upstream
 
 #' The Records of Legislation and the Executives Proposals: 委員及政府議案提案資訊
-=======
 #' @title The Records of Legislation and the Executives Proposals: 委員及政府議案提案資訊
->>>>>>> Stashed changes
 #'
 #' @author David Liao (davidycliao@@gmail.com)
 #'
