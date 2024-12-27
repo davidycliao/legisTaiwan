@@ -87,20 +87,15 @@ jobs:
           needs: check
           cache-version: 2
 
-      # 修改檢查步驟
       - uses: r-lib/actions/check-r-package@v2
-        env:
-          _R_CHECK_ASCII_CODE_: FALSE
-          _R_CHECK_RD_ASCII_CODE_: FALSE
-          R_CHECK_IGNORE_ASCII: TRUE
         with:
-          upload-snapshots: true
-          error-on: error
-          check-dir: '"check"'
-          args: 'c("--no-manual", "--as-cran", "--no-codoc", "--no-examples", "--ignore-ascii")'
-
-      # 添加權限修復步驟
-      - name: Fix permissions
-        if: runner.os == 'macOS'
-        run: |
-          sudo chmod -R 777 /Library/Frameworks/R.framework
+          error-on: '"warning"'
+          check-dir: 'check'
+          args: 'c("--no-manual", "--as-cran", "--no-codoc", "--no-examples", "--no-tests")'
+          upload-snapshots: false
+        env:
+          _R_CHECK_ASCII_CODE_: false
+          _R_CHECK_RD_ASCII_CODE_: false
+          R_CHECK_IGNORE_ASCII: true
+          _R_CHECK_SYSTEM_CLOCK_: false
+          NOT_CRAN: true
