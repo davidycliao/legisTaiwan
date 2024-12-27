@@ -54,7 +54,6 @@ The Meeting Records of Cross-caucus Session 黨團協商資訊
 \code{get_caucus_meetings} produces a list, which contains \code{title}, \code{query_time},
 \code{retrieved_number}, \code{meeting_unit}, \code{start_date_ad}, \code{end_date_ad}, \code{start_date},
 \code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data.}
-\\ifelse{html}{\\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\\strong{[Experimental]}}
 }
 \note{
 To retrieve the user manual and more information about variable of the data
@@ -71,9 +70,7 @@ get_caucus_meetings(start_date = "106/10/20", end_date = "107/03/10")
 
 }
 \seealso{
-\code{get_variable_info("get_caucus_meetings")}
-
-Regarding Minguo calendar, please see \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}.
+\code{get_variable_info("get_caucus_meetings")}  Regarding Minguo calendar, please see \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}.
 }
 \author{
 David Liao (davidycliao@gmail.com)

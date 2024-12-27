@@ -8,12 +8,8 @@ home:
     href: https://github.com/davidycliao/legisTaiwan/discussions
   - text: legisCrawler 爬台灣立法委員問政專輯的爬蟲小幫手️🕸️
     href: https://davidycliao.github.io/legisCrawler/
-  - text: "Text and Policy Research Group @ UCD"
-    href: https://text-and-policy.com
-  - text: "The Connected_Politics Lab @ UCD"
-    href: https://www.ucd.ie/connected_politics/
-  - text: "LACAN: Legislators, Accountability and Collective Agency"
-    href: https://projectlacan.wordpress.com/team/
+  - text: "The Centre for Artificial Intelligence in Government (CAIG)"
+    href: https://www.birmingham.ac.uk/research/centres-institutes/centre-for-artificial-intelligence-in-government
   - text: "ParlSpeech: Legislative Speeches in the Key Parliamentary Democracies"
     href: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/L4OAKN
   - text: "ParlEE: Sentence-level Speeches of Six EU Legislative Chambers"
@@ -37,7 +33,7 @@ reference:
   - review_session_info
 
 authors:
-  David Yen-Chieh Liao:
+  Yen-Chieh Liao:
     href: https://davidycliao.github.io
   Li Tang:
     href: https://sites.google.com/view/litang2020?pli=1

@@ -33,6 +33,7 @@
 #'           }
 #' }
 #'
+#' @import utils
 #' @importFrom httr GET
 #' @importFrom httr content
 #' @importFrom jsonlite fromJSON
@@ -186,6 +187,7 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 #'                }
 #'              }
 #'
+#' @import utils
 #' @importFrom attempt stop_if_all
 #' @importFrom jsonlite fromJSON
 #' @importFrom httr GET

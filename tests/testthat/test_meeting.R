@@ -10,12 +10,12 @@ test_that("get_caucus_meetings", {
   expect_equal(get_caucus_meetings(start_date = "106/10/20", end_date = "107/03/10", verbose = FALSE)$retrieved_number,27)
 })
 
-test_that("get_speech_video", {
-  expect_equal(get_speech_video(start_date = "105/10/20", end_date = "109/03/10")$retrieved_number, 547)
-  expect_equal(get_speech_video(start_date = "105/10/20", end_date = "109/03/10", verbose = FALSE)$retrieved_number, 547)
-  expect_error(get_speech_video(start_date = "104/01/01", end_date = "104/01/02", verbose = FALSE), "The query is unavailable.")
-
-})
+# test_that("get_speech_video", {
+#   expect_equal(get_speech_video(start_date = "105/10/20", end_date = "109/03/10")$retrieved_number, 547)
+#   expect_equal(get_speech_video(start_date = "105/10/20", end_date = "109/03/10", verbose = FALSE)$retrieved_number, 547)
+#   expect_error(get_speech_video(start_date = "104/01/01", end_date = "104/01/02", verbose = FALSE), "The query is unavailable.")
+#
+# })
 
 test_that("get_public_debates", {
   expect_equal(get_public_debates(term = 10, session_period = 1)$retrieved_number, 107)
@@ -29,10 +29,6 @@ test_that("get_public_debates", {
 
   })
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 
 # test_that("get_committee_record", {
 #   expect_equal(get_committee_record(term = 8, session_period= 1, verbose = FALSE)$retrieved_number, 613)

@@ -79,6 +79,7 @@ use \code{get_variable_info("get_speech_video")} or visit the API manual at
 會議類:提供立法院院會及委員會之委員發言片段相關影片資訊 (自第9屆第1會期起)。
 }
 \examples{
+\dontrun{
 ## Query video information by term, session period and date range
 get_speech_video(
   term = 10,
@@ -92,8 +93,9 @@ get_speech_video(
   start_date = "110/10/01",
   end_date = "110/10/30"
 )
+}
 
 }
 \seealso{
-\code{get_variable_info("get_speech_video")}
+\code{get_variable_info("get_speech_video")} https://data.ly.gov.tw/odw/ID148Action.action?term=10&sessionPeriod=4&meetingDateS=110/10/01&meetingDateE=110/10/30&meetingTime=&legislatorName=&fileType=csv
 }

@@ -35,6 +35,7 @@
 #'              }
 #'      }
 #'
+#'@import utils
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
 #'@importFrom withr with_options
@@ -148,12 +149,12 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
 #'              }
 #'      }
 #'
+#'@import utils
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
 #'@importFrom withr with_options
 #'
 #'@export
-#'
 #'@examples
 #' ## query the meeting records of cross-caucus session using a period of
 #' ## the dates in Taiwan ROC calender format with forward slash (/).
@@ -164,7 +165,6 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
 #'@details `get_caucus_meetings` produces a list, which contains `title`, `query_time`,
 #'`retrieved_number`, `meeting_unit`, `start_date_ad`, `end_date_ad`, `start_date`,
 #'`end_date`, `url`, `variable_names`, `manual_info` and `data.`
-#'\\ifelse{html}{\\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\\strong{[Experimental]}}
 #'
 #'@note To retrieve the user manual and more information about variable of the data
 #' frame, please use `get_variable_info("get_caucus_meetings")`
@@ -172,46 +172,7 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
 #' 議事類:提供公報之黨團協商資訊 (自第8屆第1會期起)
 #'
 #'@seealso
-#'`get_variable_info("get_caucus_meetings")`
-#'
-#'@seealso
-#' Regarding Minguo calendar, please see \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}.
-#
-# get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
-#                                 verbose = TRUE) {
-#   check_internet()
-#   api_check(start_date = transformed_date_meeting(start_date),
-#                          end_date = transformed_date_meeting(end_date))
-#   set_api_url <- paste("https://data.ly.gov.tw/odw/ID8Action.action?comYear=&comVolume=&comBookId=&term=&sessionPeriod=&sessionTimes=&meetingTimes=&meetingDateS=",
-#                        start_date, "&meetingDateE=", end_date, "&fileType=json", sep = "")
-#   tryCatch(
-#     {
-#       with_options(list(timeout = max(1000, getOption("timeout"))),{json_df <- jsonlite::fromJSON(set_api_url)})
-#       df <- tibble::as_tibble(json_df$dataList)
-#       attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
-#       if (isTRUE(verbose)) {
-#         cat(" Retrieved URL: \n", set_api_url, "\n")
-#         cat(" Retrieved date between:", as.character(transformed_date_meeting(start_date)), "and", as.character(transformed_date_meeting(end_date)), "\n")
-#         cat(" Retrieved number:", nrow(df), "\n")
-#       }
-#       list_data <- list("title" = "the meeting records of cross-caucus session",
-#                         "query_time" = Sys.time(),
-#                         "retrieved_number" = nrow(df),
-#                         "start_date_ad" = transformed_date_meeting(start_date),
-#                         "end_date_ad" = transformed_date_meeting(end_date),
-#                         "start_date" = start_date,
-#                         "end_date" = end_date,
-#                         "url" = set_api_url,
-#                         "variable_names" = colnames(df),
-#                         "manual_info" = "https://data.ly.gov.tw/getds.action?id=8",
-#                         "data" = df)
-#       return(list_data)
-#     },
-#     error = function(error_message) {
-#       message(error_message)
-#     }
-#   )
-# }
+#'`get_variable_info("get_caucus_meetings")`  Regarding Minguo calendar, please see \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}.
 get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
                                 verbose = TRUE) {
   # 檢查日期格式
@@ -225,8 +186,6 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
   }
 
   check_internet()
-
-  # 檢查開始和結束日期
   date_format_check(start_date)
   date_format_check(end_date)
 
@@ -352,8 +311,8 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
 #' @importFrom withr with_options
 #'
 #' @export
-#'
 #' @examples
+#' \dontrun{
 #' ## Query video information by term, session period and date range
 #' get_speech_video(
 #'   term = 10,
@@ -367,6 +326,7 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
 #'   start_date = "110/10/01",
 #'   end_date = "110/10/30"
 #' )
+#' }
 #'
 #' @details The `get_speech_video` function retrieves video information of
 #' legislative meetings and committee sessions. Data is available from the
@@ -379,9 +339,7 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
 #' 會議類:提供立法院院會及委員會之委員發言片段相關影片資訊 (自第9屆第1會期起)。
 #'
 #' @seealso
-#' `get_variable_info("get_speech_video")`
-
-# https://data.ly.gov.tw/odw/ID148Action.action?term=10&sessionPeriod=4&meetingDateS=110/10/01&meetingDateE=110/10/30&meetingTime=&legislatorName=&fileType=csv
+#' `get_variable_info("get_speech_video")` https://data.ly.gov.tw/odw/ID148Action.action?term=10&sessionPeriod=4&meetingDateS=110/10/01&meetingDateE=110/10/30&meetingTime=&legislatorName=&fileType=csv
 get_speech_video <- function(term = NULL,
                              session_period = NULL,
                              start_date = NULL,
@@ -563,6 +521,7 @@ get_speech_video <- function(term = NULL,
 #'   }
 #' }
 #'
+#' @import utils
 #' @importFrom attempt stop_if_all
 #' @importFrom jsonlite fromJSON
 #' @importFrom withr with_options
@@ -779,6 +738,7 @@ get_public_debates <- function(term = NULL, session_period = NULL, verbose = TRU
 #'                }
 #'              }
 #'
+#'@import utils
 #'@importFrom attempt stop_if_all
 #'@importFrom jsonlite fromJSON
 #'@importFrom withr with_options

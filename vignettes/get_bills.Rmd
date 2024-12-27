@@ -21,11 +21,9 @@ assign("has_internet_via_proxy", TRUE, environment(curl::has_internet))
 
 
 ## An Example of the Records of the Bills
-
 <div class="text-justify">
 
-First, we'll import legisTaiwan, and then we'll retrieve data from January 20th of the Republic of China year 106 to March 10th of the Republic of China year 111.
-
+This section demonstrates how to fetch and analyze legislative bills data from Taiwan's parliament using the legisTaiwan package. We'll explore two different methods of retrieving bill data using specific date ranges and legislative terms.
 </div>
 
 
@@ -33,21 +31,79 @@ First, we'll import legisTaiwan, and then we'll retrieve data from January 20th 
 library(legisTaiwan)
 ```
 
+<div class="text-justify">
+
+First, we'll fetch bills within a specific date range. Note that the dates use the Republic of China (ROC) calendar system:
+
+- Start date: 106/01/20 (ROC calendar)
+- End date: 111/03/10 (ROC calendar)
+
+</div>
 
 ```{r}
 billdata <- get_bills(start_date = 1030120,end_date = 1110310, verbose = TRUE)
 ```
+<div class="text-justify">
 
-The get_bills function returns a list that contains query_time, retrieved_number, meeting_unit, start_date_ad (A.D) , end_date_ad (A.D), start_date, end_date, url, variable_names, manual_info, and data.
+
+The get_bills() function returns a comprehensive list containing the metadata and the actual bill data:
+
+</div>
+
+
+```{r}
+str(billdata,  give.attr = FALSE)
+```
+
+
+`billdata` is a list containing 12 elements:
+
+- `$title` "the records of bill sponsor and co-sponsor"
+- `$query_time`: imestamp of when the data was retrieved
+- `$retrieved_number`: Total number of records retrieved
+- `$proposer`: Filter condition for bill proposers
+- `$start_date_ad` and `end_date_ad`: 
+- `$url`: source API URL for the data
+- `$variable_names`: List of column names in the dataset
+- `$manual_info`: Link to official documentation page
+- `$data`: tibble [12,519 × 9]
+
+`billdata$data` returns tibble table containing relevent information.
+
 ```{r}
 billdata$data
 ```
 
 
+- `query_time`: When the data was retrieved
+- `retrieved_number`: Number of records fetched
+- `meeting_unit`: Legislative unit information
+- `start_date_ad/end_date_ad`: Dates in Western calendar
+- `start_date/end_date`: Dates in ROC calendar
+- `url`: Source URL
+- `variable_names`: Column names in the dataset
+- `manual_info`: Additional documentation
+- `data`: The actual bill records
+
+
+Alternatively, you can fetch bills by legislative term using `get_bills_2()`:
+
 ```{r}
 full_term <- get_bills_2(term = 11)
 full_term
 ```
+<div class="text-justify">
+
+This retrieves all bills from the specified legislative term (in this case, the 11th term), providing a convenient way to analyze legislative activities within specific parliamentary periods.
+</div>
+
+The returned data includes detailed information about each bill, such as:
+
+- Bill status and progress
+- Sponsoring legislators
+- Committee referrals
+- Dates of various legislative actions
+- Bill content and explanatory notes
 
 <!-- ```{r} -->
 <!-- # 安裝套件 -->

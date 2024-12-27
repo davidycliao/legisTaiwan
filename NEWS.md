@@ -1,5 +1,17 @@
+
+# `legisTaiwan` 0.1.7
+
+* Enhanced user experience by implementing progress bars for time-intensive operations. Progress bars are now displayed when verbose = TRUE.
+
+* Performed comprehensive spelling and typographical corrections throughout the package documentation and function names.
+
+<br> 
+
+------
+
 # `legisTaiwan` 0.1.6
 
+* Corrected spelling errors and standardized terminology across function documentation.
 
 # `legisTaiwan` 0.1.4 (development version)
 
