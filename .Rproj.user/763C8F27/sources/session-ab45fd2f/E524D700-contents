@@ -40,3 +40,4 @@ VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
 Config/testthat/edition: 3
 SystemRequirements: pandoc (>= 1.14) - http://pandoc.org
+Config/default/buildignore-noascii: TRUE
