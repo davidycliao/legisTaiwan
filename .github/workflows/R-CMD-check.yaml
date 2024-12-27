@@ -46,6 +46,11 @@
 #         with:
 #           upload-snapshots: true
 
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
 name: R-CMD-check
 
 jobs:
