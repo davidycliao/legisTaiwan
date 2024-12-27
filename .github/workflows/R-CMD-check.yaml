@@ -45,19 +45,16 @@
 #       - uses: r-lib/actions/check-r-package@v2
 #         with:
 #           upload-snapshots: true
-
 on:
   push:
     branches: [main, master]
   pull_request:
     branches: [main, master]
 name: R-CMD-check
-
 jobs:
   R-CMD-check:
     runs-on: ${{ matrix.config.os }}
     name: ${{ matrix.config.os }} (${{ matrix.config.r }})
-
     strategy:
       fail-fast: false
       matrix:
@@ -66,14 +63,12 @@ jobs:
           - {os: windows-latest, r: 'release'}
           - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}
           - {os: ubuntu-latest,   r: 'release'}
-
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       R_KEEP_PKG_SOURCE: yes
-      _R_CHECK_ASCII_CODE_: FALSE
-      _R_CHECK_RD_ASCII_CODE_: FALSE
+      _R_CHECK_ASCII_CODE_: FALSE  # 修正語法
+      _R_CHECK_RD_ASCII_CODE_: FALSE  # 修正語法
       R_CHECK_IGNORE_ASCII: TRUE
-
     steps:
       - uses: actions/checkout@v3
 
@@ -85,18 +80,27 @@ jobs:
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
 
+      # 修改依賴安裝步驟
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::rcmdcheck
+          extra-packages: rcmdcheck
           needs: check
+          cache-version: 2
 
+      # 修改檢查步驟
       - uses: r-lib/actions/check-r-package@v2
         env:
           _R_CHECK_ASCII_CODE_: FALSE
           _R_CHECK_RD_ASCII_CODE_: FALSE
           R_CHECK_IGNORE_ASCII: TRUE
         with:
-          args: 'c("--no-manual", "--no-codoc", "--no-examples", "--ignore-ascii")'
-          error-on: '"error"'
           upload-snapshots: true
-          check-dir: check
+          error-on: error
+          check-dir: '"check"'
+          args: 'c("--no-manual", "--as-cran", "--no-codoc", "--no-examples", "--ignore-ascii")'
+
+      # 添加權限修復步驟
+      - name: Fix permissions
+        if: runner.os == 'macOS'
+        run: |
+          sudo chmod -R 777 /Library/Frameworks/R.framework
