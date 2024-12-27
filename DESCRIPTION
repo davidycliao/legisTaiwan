@@ -2,7 +2,7 @@ Package: legisTaiwan
 Type: Package
 Title: An Interface to Access Taiwan Legislative API in R 
 Version: 0.1.6
-Authors@R: c(person("David Yen-Chieh", "Liao", email = "davidycliao@gmail.com", role = c("aut", "cre")),
+Authors@R: c(person("David", "Liao", email = "davidycliao@gmail.com", role = c("aut", "cre")),
              person("Li", "Tang", email = "l.tang@mdx.ac.uk", role = c("ctb", "aut")),
              person("Taiwan Legislative Yuan 立法院", role =  c("cph", "fnd")),
              person("Jou-Fei", "Huang", email = "joufeihu@buffalo.edu", role = "ctb"),
@@ -32,7 +32,7 @@ Suggests:
   remotes,
   tidyverse,
   testthat (>= 3.0.0)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 BugReports: https://github.com/davidycliao/legisTaiwan/issues
 URL: https://davidycliao.github.io/legisTaiwan/
 VignetteBuilder: knitr

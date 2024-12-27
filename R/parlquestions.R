@@ -58,51 +58,113 @@
 #' @seealso `get_variable_info("get_parlquestions")`
 get_parlquestions <- function(term = NULL, session_period = NULL, verbose = TRUE) {
   check_internet()
+
+  # 先檢查 term 並顯示訊息
   if (is.null(term)) {
-      set_api_url <- paste("https://data.ly.gov.tw/odw/ID6Action.action?term=", term,
-                           "&sessionPeriod=",
-                           "&sessionTimes=&item=&fileType=json", sep = "")
-      message(" term is not defined...\n You are now requesting full data from the API. Please make sure your connectivity is stable until its completion.\n")
-  } else {
-    attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
-    if (length(term) == 1) {
-      term <- sprintf("%02d", as.numeric(term))}
-    else if (length(term) > 1) {
-        options(timeout = max(1000, getOption("timeout")))
-        term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
-        stop("The API is unable to query multiple terms.")
-      }
+    message("\nTerm is not defined...\nRequesting full data from the API. Please ensure stable connectivity.\n")
   }
+
+  # 初始化進度顯示
+  if(isTRUE(verbose)) {
+    cat("\nInput Format Information:\n")
+    cat("------------------------\n")
+    cat("Term: Must be numeric (e.g., 8, 9, 10)\n")
+    cat("Session Period: Must be numeric (1-8)\n")
+    cat("------------------------\n\n")
+    cat("Downloading parliamentary questions data...\n")
+    pb <- txtProgressBar(min = 0, max = 100, style = 3)
+  }
+
+  # Update progress bar to 20%
+  if(isTRUE(verbose)) setTxtProgressBar(pb, 20)
+
+  # 建構 API URL
+  if (is.null(term)) {
+    set_api_url <- paste("https://data.ly.gov.tw/odw/ID6Action.action?term=", term,
+                         "&sessionPeriod=",
+                         "&sessionTimes=&item=&fileType=json", sep = "")
+  } else {
+    attempt::stop_if_all(term, is.character, msg = "Please use numeric format only.")
+    if (length(term) == 1) {
+      term <- sprintf("%02d", as.numeric(term))
+    } else if (length(term) > 1) {
+      if(isTRUE(verbose)) close(pb)
+      term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
+      stop("API does not support multiple terms.")
+    }
+  }
+
+  # Update progress bar to 40%
+  if(isTRUE(verbose)) setTxtProgressBar(pb, 40)
+
   set_api_url <- paste("https://data.ly.gov.tw/odw/ID6Action.action?term=", term,
                        "&sessionPeriod=",
                        sprintf("%02d", as.numeric(session_period)),
                        "&sessionTimes=&item=&fileType=json", sep = "")
+
   tryCatch(
     {
-      with_options(list(timeout = max(1000, getOption("timeout"))),{json_df <- jsonlite::fromJSON(set_api_url)})
+      # Update progress bar to 60%
+      if(isTRUE(verbose)) setTxtProgressBar(pb, 60)
+
+      with_options(list(timeout = max(1000, getOption("timeout"))),{
+        json_df <- jsonlite::fromJSON(set_api_url)
+      })
+
+      # Update progress bar to 80%
+      if(isTRUE(verbose)) setTxtProgressBar(pb, 80)
+
       df <- tibble::as_tibble(json_df$dataList)
-      attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
-      if (isTRUE(verbose)) {
-        cat(" Retrieved URL: \n", set_api_url, "\n")
-        cat(" Retrieved Term: ", term, "\n")
-        cat(" Retrieved Num: ", nrow(df), "\n")
+      attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "Query returned no data.")
+
+      # Update progress bar to 100% and show results
+      if(isTRUE(verbose)) {
+        setTxtProgressBar(pb, 100)
+        close(pb)
+        cat("\n\n")
+        cat("====== Retrieved Information ======\n")
+        cat("-----------------------------------\n")
+        cat(" URL: \n", set_api_url, "\n")
+        cat(" Term: ", term, "\n")
+        if(!is.null(session_period)) {
+          cat(" Session Period: ", session_period, "\n")
+        }
+        cat(" Total Questions: ", nrow(df), "\n")
+
+        # Add session period distribution if available
+        if("sessionPeriod" %in% colnames(df)) {
+          session_counts <- table(df$sessionPeriod)
+          cat("\nSession Distribution:\n")
+          for(session in names(session_counts)) {
+            cat(sprintf(" Session %s: %d\n", session, session_counts[session]))
+          }
+        }
+        cat("===================================\n")
       }
-      list_data <- list("title" = "the records of parliarmentary questions",
-                        "query_time" = Sys.time(),
-                        "retrieved_number" = nrow(df),
-                        "retrieved_term" = term,
-                        "url" = set_api_url,
-                        "variable_names" = colnames(df),
-                        "manual_info" = "https://data.ly.gov.tw/getds.action?id=6",
-                        "data" = df)
+
+      # 回傳結果
+      list_data <- list(
+        "title" = "Parliamentary Questions Records",
+        "query_time" = Sys.time(),
+        "retrieved_number" = nrow(df),
+        "retrieved_term" = term,
+        "url" = set_api_url,
+        "variable_names" = colnames(df),
+        "manual_info" = "https://data.ly.gov.tw/getds.action?id=6",
+        "data" = df
+      )
       return(list_data)
     },
     error = function(error_message) {
+      if(isTRUE(verbose)) {
+        close(pb)
+        cat("\nError occurred while fetching data:\n")
+        cat(sprintf("Error: %s\n", error_message))
+      }
       message(error_message)
     }
   )
 }
-
 
 #'The Records of Response to the Questions by the Executives 公報質詢事項行政院答復資訊
 #'
@@ -152,7 +214,7 @@ get_parlquestions <- function(term = NULL, session_period = NULL, verbose = TRUE
 #'@examples
 #' ## query the Executives' answered response by term and the session period.
 #' ## 輸入「立委屆期」與「會期」下載「行政院答復」
-#'get_executive_response(term = 8, session_period = 1)
+#' get_executive_response(term = 8, session_period = 1)
 #'
 #'@details **`get_executive_response`** produces a list, which contains `title`,
 #'`query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
@@ -167,49 +229,111 @@ get_parlquestions <- function(term = NULL, session_period = NULL, verbose = TRUE
 #'
 #'@seealso
 #'`get_variable_info("get_executive_response")`, `review_session_info()`
-
-
 get_executive_response <- function(term = NULL, session_period = NULL, verbose = TRUE) {
   check_internet()
+
+  # 先檢查 term 並顯示訊息
   if (is.null(term)) {
-      set_api_url <- paste("https://data.ly.gov.tw/odw/ID2Action.action?term=",
-                           term, "&sessionPeriod=",
-                           "&sessionTimes=&item=&fileType=json", sep = "")
-      message(" term is not defined...\n You are now requesting full data from the API. Please make sure your connectivity is stable until its completion.\n")
-  } else {
-    attempt::stop_if_all(term, is.character, msg = "use numeric format only.")
-    if (length(term) == 1) {
-      term <- sprintf("%02d", as.numeric(term))}
-    else if (length(term) > 1) {
-      term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
-      stop("The API is unable to query multiple terms.")
-      }
+    message("\nTerm is not defined...\nRequesting full data from the API. Please ensure stable connectivity.\n")
   }
+
+  # 初始化進度顯示
+  if(isTRUE(verbose)) {
+    cat("\nInput Format Information:\n")
+    cat("------------------------\n")
+    cat("Term: Must be numeric (e.g., 8, 9, 10, 11)\n")
+    cat("Session Period: Must be numeric (1-8)\n")
+    cat("------------------------\n\n")
+    cat("Downloading executive response data...\n")
+    pb <- txtProgressBar(min = 0, max = 100, style = 3)
+  }
+
+  # Update progress bar to 20%
+  if(isTRUE(verbose)) setTxtProgressBar(pb, 20)
+
+  # 建構 API URL
+  if (is.null(term)) {
+    set_api_url <- paste("https://data.ly.gov.tw/odw/ID2Action.action?term=",
+                         term, "&sessionPeriod=",
+                         "&sessionTimes=&item=&fileType=json", sep = "")
+  } else {
+    attempt::stop_if_all(term, is.character, msg = "\nPlease use numeric format only.")
+    if (length(term) == 1) {
+      term <- sprintf("%02d", as.numeric(term))
+    } else if (length(term) > 1) {
+      if(isTRUE(verbose)) close(pb)
+      term <- paste(sprintf("%02d", as.numeric(term)), collapse = "&")
+      stop("API does not support multiple terms.")
+    }
+  }
+
+  # Update progress bar to 40%
+  if(isTRUE(verbose)) setTxtProgressBar(pb, 40)
+
   set_api_url <- paste("https://data.ly.gov.tw/odw/ID2Action.action?term=",
                        term, "&sessionPeriod=",
                        sprintf("%02d", as.numeric(session_period)),
                        "&sessionTimes=&item=&fileType=json", sep = "")
+
   tryCatch(
     {
-      with_options(list(timeout = max(1000, getOption("timeout"))),{json_df <- jsonlite::fromJSON(set_api_url)})
+      # Update progress bar to 60%
+      if(isTRUE(verbose)) setTxtProgressBar(pb, 60)
+
+      with_options(list(timeout = max(1000, getOption("timeout"))),{
+        json_df <- jsonlite::fromJSON(set_api_url)
+      })
+
+      # Update progress bar to 80%
+      if(isTRUE(verbose)) setTxtProgressBar(pb, 80)
+
       df <- tibble::as_tibble(json_df$dataList)
-      attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
-      if (isTRUE(verbose)) {
-        cat(" Retrieved URL: \n", set_api_url, "\n")
-        cat(" Retrieved Term: ", term, "\n")
-        cat(" Retrieved Num: ", nrow(df), "\n")
+      attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "Query returned no data.")
+
+      # Update progress bar to 100% and show results
+      if(isTRUE(verbose)) {
+        setTxtProgressBar(pb, 100)
+        close(pb)
+        cat("\n\n")
+        cat("====== Retrieved Information ======\n")
+        cat("-----------------------------------\n")
+        cat(" URL: \n", set_api_url, "\n")
+        cat(" Term: ", term, "\n")
+        if(!is.null(session_period)) {
+          cat(" Session Period: ", session_period, "\n")
+        }
+        cat(" Total Responses: ", nrow(df), "\n")
+
+        # Add session period distribution if available
+        if("sessionPeriod" %in% colnames(df)) {
+          session_counts <- table(df$sessionPeriod)
+          cat("\nSession Distribution:\n")
+          for(session in names(session_counts)) {
+            cat(sprintf(" Session %s: %d\n", session, session_counts[session]))
+          }
+        }
+        cat("===================================\n")
       }
-      list_data <- list("title" = "the records of the questions answered by the executives",
-                        "query_time" = Sys.time(),
-                        "retrieved_number" = nrow(df),
-                        "retrieved_term" = term,
-                        "url" = set_api_url,
-                        "variable_names" = colnames(df),
-                        "manual_info" = "https://data.ly.gov.tw/getds.action?id=2",
-                        "data" = df)
+
+      # 回傳結果
+      list_data <- list(
+        "title" = "Executive Response Records",
+        "query_time" = Sys.time(),
+        "retrieved_number" = nrow(df),
+        "retrieved_term" = term,
+        "url" = set_api_url,
+        "variable_names" = colnames(df),
+        "manual_info" = "https://data.ly.gov.tw/getds.action?id=2",
+        "data" = df
+      )
       return(list_data)
     },
     error = function(error_message) {
+      if(isTRUE(verbose)) {
+        close(pb)
+        cat("\nError occurred while fetching data:\n")
+        cat(sprintf("Error: %s\n", error_message))
+      }
       message(error_message)
     }
   )

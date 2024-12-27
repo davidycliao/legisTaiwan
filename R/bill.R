@@ -44,7 +44,7 @@
 #' @examples
 #' \dontrun{
 #' ## Query bill records by a date range in the Taiwan ROC calendar format
-#' get_bills(start_date = 1060120, end_date = 1070310, verbose = FALSE)
+#' get_bills(start_date = 1060120, end_date = 1070310, verbose = TRUE)
 #'
 #' ## Query bill records by a date range and a specific legislator
 #' get_bills(start_date = 1060120, end_date = 1070310,  proposer = "孔文吉")
@@ -70,18 +70,56 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
   set_api_url <- paste("https://www.ly.gov.tw/WebAPI/LegislativeBill.aspx?from=",
                        start_date, "&to=", end_date,
                        "&proposer=", proposer, "&mode=json", sep = "")
+
+  if(isTRUE(verbose)) {
+    cat("\nInput Format Information:\n")
+    cat("------------------------\n")
+    cat("Date format: YYYMMDD (ROC calendar)\n")
+    cat("Example: 1090101 for 2020/01/01\n")
+    cat("------------------------\n\n")
+    cat("Downloading data...\n")
+    pb <- txtProgressBar(min = 0, max = 100, style = 3)
+  }
+
   tryCatch(
     {
-      with_options(list(timeout = max(1000, getOption("timeout"))),{json_df <- jsonlite::fromJSON(set_api_url)})
+      # 更新進度條到 30%
+      if(isTRUE(verbose)) setTxtProgressBar(pb, 30)
+
+      with_options(list(timeout = max(1000, getOption("timeout"))),{
+        json_df <- jsonlite::fromJSON(set_api_url)
+      })
+
+      # 更新進度條到 60%
+      if(isTRUE(verbose)) setTxtProgressBar(pb, 60)
+
       df <- tibble::as_tibble(json_df)
       attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
       df["date_ad"] <- do.call("c", lapply(df$date, transformed_date_bill))
-      if (isTRUE(verbose)) {
+
+      # 更新進度條到 90%
+      if(isTRUE(verbose)) setTxtProgressBar(pb, 90)
+
+      if(isTRUE(verbose)) {
+        setTxtProgressBar(pb, 100)
+        close(pb)
+        cat("\n\n")  # Add newlines after progress bar
+        cat("====== Retrieved Information ======\n")
+        cat("-----------------------------------\n")
         cat(" Retrieved URL: \n", set_api_url, "\n")
-        cat(" Retrieved Bill Sponsor(s): ", proposer, "\n")
-        cat(" Retrieved date between:", as.character(check_date(start_date)), "and", as.character(check_date(end_date)) , "\n")
-        cat(" Retrieved Num:", nrow(df), "\n")
+        cat(" Total Unique Proposers:", length(unique(.clean_names(df$billProposer))), "\n")
+        cat(" Retrieved date between:", as.character(check_date(start_date)),
+            "and", as.character(check_date(end_date)), "\n")
+        cat(" Retrieved Number: ", nrow(df), "\n")
+
+        # Add bill statistics
+        if(!is.null(df$billProposer)) {
+          unique_proposers <- length(unique(.clean_names(df$billProposer)))
+          cat(sprintf(" Total Unique Proposers: %d\n", unique_proposers))
+        }
+        cat("===================================\n")
       }
+
       list_data <- list("title" = "the records of bill sponsor and co-sponsor",
                         "query_time" = Sys.time(),
                         "retrieved_number" = nrow(df),
@@ -97,13 +135,21 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
       return(list_data)
     },
     error = function(error_message) {
+      if(isTRUE(verbose)) {
+        close(pb)
+        cat("\n")
+      }
       message(error_message)
     }
   )
 }
 
+<<<<<<< Updated upstream
 
 #' The Records of Legislation and the Executives Proposals: 委員及政府議案提案資訊
+=======
+#' @title The Records of Legislation and the Executives Proposals: 委員及政府議案提案資訊
+>>>>>>> Stashed changes
 #'
 #' @author David Liao (davidycliao@@gmail.com)
 #'
@@ -168,11 +214,20 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 #'
 #' @seealso
 #' `get_variable_info("get_bills_2")`,`review_session_info()`
-# Define the function get_bills_2
 get_bills_2 <- function(term = 8, session_period = NULL, verbose = TRUE) {
-
   # Check for internet connectivity
   check_internet()
+
+  # Format info at the start
+  if(isTRUE(verbose)) {
+    cat("\nInput Format Information:\n")
+    cat("------------------------\n")
+    cat("Term: Must be numeric (e.g., 8, 9, 10, 11)\n")
+    cat("Session Period: Must be numeric (1-8)\n")
+    cat("------------------------\n\n")
+    cat("Downloading legislative bills data...\n")
+    pb <- txtProgressBar(min = 0, max = 100, style = 3)
+  }
 
   # If the term is not specified
   if (is.null(term)) {
@@ -181,51 +236,138 @@ get_bills_2 <- function(term = 8, session_period = NULL, verbose = TRUE) {
     # Display a notification message
     message("The term is not defined...\nYou are now requesting full data from the API. Please ensure a stable internet connection until completion.\n")
   } else {
+    # Update progress bar to 20%
+    if(isTRUE(verbose)) setTxtProgressBar(pb, 20)
     # If the term is in character format, stop execution and display an error message
-    attempt::stop_if_all(term, is.character, msg = "Please use numeric format only.")
-
+    attempt::stop_if_all(term, is.character, msg = "\nPlease use numeric format only.")
     # If term length is one, format the term to two digits
     if (length(term) == 1) {
       term <- sprintf("%02d", as.numeric(term))
-    } else if (length(term) > 1) { # If multiple terms are provided
+    } else if (length(term) > 1) {
+      if(isTRUE(verbose)) close(pb)
       stop("The API doesn't support querying multiple terms. Consider implementing batch processing. Please refer to the tutorial for guidance.")
     }
-
     # Convert session period to two-digit format, if it's not NULL
     session_str <- ifelse(is.null(session_period), "", sprintf("%02d", as.numeric(session_period)))
-
     # Construct the complete API URL
     set_api_url <- paste0("https://data.ly.gov.tw/odw/ID20Action.action?term=",
                           term, "&sessionPeriod=", session_str,
                           "&sessionTimes=&meetingTimes=&billName=&billOrg=&billProposer=&billCosignatory=&fileType=json")
   }
 
+  # Update progress bar to 40%
+  if(isTRUE(verbose)) setTxtProgressBar(pb, 40)
+
   # Try to fetch the data and process it
   tryCatch(
     {
-      with_options(list(timeout = max(1000, getOption("timeout"))),{json_df <- jsonlite::fromJSON(set_api_url)})
+      with_options(list(timeout = max(1000, getOption("timeout"))),{
+        json_df <- jsonlite::fromJSON(set_api_url)
+      })
+
+      # Update progress bar to 60%
+      if(isTRUE(verbose)) setTxtProgressBar(pb, 60)
+
       df <- tibble::as_tibble(json_df$dataList)
+
+      # Update progress bar to 80%
+      if(isTRUE(verbose)) setTxtProgressBar(pb, 80)
+
       # If the returned data is empty, stop execution and display an error message
       attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
-      if (isTRUE(verbose)) {
-        cat("Retrieved URL: ", set_api_url, "\n")
-        cat("Retrieved Term: ", term, "\n")
-        cat("Retrieved Number of Records: ", nrow(df), "\n")
+
+      # Calculate summary statistics
+      total_bills <- nrow(df)
+      budget_bills <- if("billName" %in% colnames(df)) sum(grepl("預算", df$billName)) else 0
+      budget_percentage <- if(total_bills > 0) (budget_bills / total_bills) * 100 else 0
+
+      # Update progress bar to 100%
+      if(isTRUE(verbose)) {
+        setTxtProgressBar(pb, 100)
+        close(pb)
+        cat("\n\n")  # Add newlines after progress bar
+        cat("====== Retrieved Information ======\n")
+        cat("-----------------------------------\n")
+        cat(" Retrieved URL: \n", set_api_url, "\n")
+        if(!is.null(session_period)) {
+          cat(" Retrieved Session Period: ", session_period, "\n")
+        }
+        cat(" Retrieved Term: ", term, "\n")
+
+        # Calculate total bills and unique legislators
+        total_bills <- nrow(df)
+        unique_legislators <- length(unique(.clean_names(df$billOrg)))
+
+        cat(sprintf(" Total Bills: %d\n", total_bills))
+        cat(sprintf(" Total Unique Proposers: %d\n", unique_legislators))
+        cat("===================================\n")
+      # if(isTRUE(verbose)) {
+      #   setTxtProgressBar(pb, 100)
+      #   close(pb)
+      #   cat("\n\n")  # Add newlines after progress bar
+      #   cat("====== Retrieved Information ======\n")
+      #   cat("-----------------------------------\n")
+      #   cat(" URL: \n", set_api_url, "\n")
+      #   cat(" Term: ", term, "\n")
+      #   if(!is.null(session_period)) {
+      #     cat(" Session Period: ", session_period, "\n")
+      #   }
+      #
+      #   # Overall Statistics
+      #   cat("\nOverall Statistics:\n")
+      #   cat("-----------------------------------\n")
+      #   cat(sprintf(" Total Bills: %d\n", total_bills))
+      #   cat(sprintf(" Budget Bills: %d (%.1f%%)\n", budget_bills, budget_percentage))
+      #
+      #   # Detailed Bill Type Distribution
+      #   if("billName" %in% colnames(df)) {
+      #     bill_types <- table(df$billName)
+      #     cat("\nBill Type Distribution:\n")
+      #     cat("-----------------------------------\n")
+      #     for(type in names(bill_types)) {
+      #       count <- bill_types[type]
+      #       percentage <- (count / total_bills) * 100
+      #       cat(sprintf(" %s: %d (%.1f%%)\n", type, count, percentage))
+      #     }
+      #   }
+      #
+      #   # Proposer Distribution
+      #   if("billOrg" %in% colnames(df)) {
+      #     cat("\nProposer Distribution:\n")
+      #     cat("-----------------------------------\n")
+      #     proposer_counts <- table(.clean_legislator_names(df$billOrg))
+      #     for(proposer in names(proposer_counts)) {
+      #       count <- proposer_counts[proposer]
+      #       percentage <- (count / total_bills) * 100
+      #       if(nchar(trimws(proposer)) > 0) {  # Only show non-empty proposers
+      #         cat(sprintf(" %s: %d (%.1f%%)\n", proposer, count, percentage))
+      #       }
+      #     }
+      #   }
+      #   cat("===================================\n")
+
       }
+
       # Construct the result list
       list_data <- list(
         "title" = "The records of the questions answered by the executives",
         "query_time" = Sys.time(),
-        "retrieved_number" = nrow(df),
+        "retrieved_number" = total_bills,
+        "budget_bills" = budget_bills,
+        "budget_percentage" = budget_percentage,
         "retrieved_term" = term,
         "url" = set_api_url,
         "variable_names" = colnames(df),
         "manual_info" = "https://data.ly.gov.tw/getds.action?id=2",
         "data" = df
       )
-      return(list_data) # Return the result list
+      return(list_data)
     },
-    error = function(error_message) { # Handle any errors
+    error = function(error_message) {
+      if(isTRUE(verbose)) {
+        close(pb)
+        cat("\n")
+      }
       message(error_message)
     }
   )

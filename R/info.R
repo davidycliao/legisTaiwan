@@ -189,6 +189,7 @@ get_variable_info <- function(param_) {
 #' \dontrun{
 #' review_session_info(7)
 #' }
+<<<<<<< Updated upstream
 
 # review_session_info <- function(term){
 #   attempt::stop_if_all(website_availability2(), isFALSE, msg = "the error from the API.")
@@ -213,24 +214,63 @@ get_variable_info <- function(param_) {
 
 
 
+=======
+>>>>>>> Stashed changes
 review_session_info <- function(term) {
-  attempt::stop_if_not(website_availability2(), msg = "the error from the API.")
-  attempt::stop_if(term, is.null, msg = "use correct `term`.")
-  attempt::stop_if_not(term %in% 1:11, msg = "use correct `term`.")
+  # Input validation
+  if(missing(term)) {
+    stop("Term parameter is required")
+  }
 
-  url <- paste("https://npl.ly.gov.tw/do/www/appDate?status=0&expire=",
-               sprintf("%02d", as.numeric(term)),
-               "&startYear=0", sep ="")
+  attempt::stop_if_not(website_availability2(),
+                       msg = "API connection error. Please check your internet connection.")
 
-  html_ <- rvest::html_nodes(rvest::read_html(url), "*[class='section_wrapper']")
-  title <- stringr::str_split_1(rvest::html_text2(rvest::html_nodes(html_, "[class='tt_titlebar2']")), "\t\r")[1:2]
-  o <- rvest::html_text2(rvest::html_nodes(html_, "[class='tt_listrow_odd']"))
-  e <- rvest::html_text2(rvest::html_nodes(html_, "[class='tt_listrow_even']"))
-  s <- lapply(lapply(c(o, e), function(.) {stringr::str_split_1(., "\r\r")}),
-              function(.) {gsub("[[:space:]]", "", .)})
-  df <- do.call(rbind, s)
-  colnames(df) <- title
-  df <- tibble::as_tibble(df)
+  attempt::stop_if(term, is.null,
+                   msg = "Term cannot be NULL. Please provide a valid term number (1-11).")
 
-  return(df)
+  attempt::stop_if_not(term %in% 1:11,
+                       msg = paste("Invalid term:", term,
+                                   "\nPlease provide a term number between 1 and 11."))
+
+  # Construct URL
+  url <- sprintf("https://npl.ly.gov.tw/do/www/appDate?status=0&expire=%02d&startYear=0",
+                 as.numeric(term))
+
+  tryCatch({
+    # Parse HTML
+    html_ <- rvest::html_nodes(rvest::read_html(url),
+                               "*[class='section_wrapper']")
+
+    # Extract titles
+    title <- stringr::str_split_1(
+      rvest::html_text2(
+        rvest::html_nodes(html_, "[class='tt_titlebar2']")
+      ),
+      "\t\r"
+    )[1:2]
+
+    # Extract rows
+    odd_rows <- rvest::html_text2(
+      rvest::html_nodes(html_, "[class='tt_listrow_odd']")
+    )
+    even_rows <- rvest::html_text2(
+      rvest::html_nodes(html_, "[class='tt_listrow_even']")
+    )
+
+    # Process data
+    data <- lapply(
+      lapply(c(odd_rows, even_rows),
+             function(x) stringr::str_split_1(x, "\r\r")),
+      function(x) gsub("[[:space:]]", "", x)
+    )
+
+    # Create dataframe
+    df <- do.call(rbind, data)
+    colnames(df) <- title
+
+    return(tibble::as_tibble(df))
+  },
+  error = function(e) {
+    stop(paste("Error retrieving session information:", e$message))
+  })
 }

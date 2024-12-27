@@ -4,32 +4,47 @@
 \alias{get_speech_video}
 \title{The Video Information of Meetings and Committees 院會及委員會之委員發言片段相關影片資訊}
 \usage{
-get_speech_video(start_date = NULL, end_date = NULL, verbose = TRUE)
+get_speech_video(
+  term = NULL,
+  session_period = NULL,
+  start_date = NULL,
+  end_date = NULL,
+  verbose = TRUE,
+  format = "json"
+)
 }
 \arguments{
+\item{term}{numeric or NULL. Legislative term number (e.g., 10). Data is available from the 9th term onwards.}
+
+\item{session_period}{numeric or NULL. Session period (1-8).}
+
 \item{start_date}{character Must be formatted in Minguo (ROC) calendar with three
-forward slashes between year, month and day, e.g. "106/10/20".}
+forward slashes between year, month and day, e.g. "110/10/01".}
 
-\item{end_date}{character Must be formatted in Minguo (ROC) calendar  with three
-forward slashes between year, month and day, e.g. "109/01/10".}
+\item{end_date}{character Must be formatted in Minguo (ROC) calendar with three
+forward slashes between year, month and day, e.g. "110/10/30".}
 
-\item{verbose}{logical, indicates whether get_meetings should print out
-detailed output when retrieving the data.}
+\item{verbose}{logical, indicates whether get_speech_video should print out
+detailed output when retrieving the data. Default is TRUE.}
 }
 \value{
-list, which contains: \describe{
-\item{\code{title}}{the meeting records of cross-caucus session}
-\item{\code{query_time}}{the query time}
-\item{\code{retrieved_number}}{the number of observation}
-\item{\code{meeting_unit}}{the meeting unit}
-\item{\code{start_date_ad}}{the start date  in POSIXct}
-\item{\code{end_date_ad}}{the end date in POSIXct}
-\item{\code{start_date}}{the start date in ROC Taiwan calendar}
-\item{\code{url}}{the retrieved json url}
-\item{\code{variable_names}}{the variables of the tibble dataframe}
-\item{\code{manual_info}}{the official manual, \url{https://data.ly.gov.tw/getds.action?id=148}; or use get_variable_info("get_speech_video")}
-\item{\code{data}}{a tibble dataframe, whose variables include:
-\describe{\item{\code{term}}{屆別}
+list, which contains:
+\describe{
+\item{\code{title}}{speech video records}
+\item{\code{query_time}}{query timestamp}
+\item{\code{retrieved_number}}{number of videos retrieved}
+\item{\code{term}}{queried legislative term}
+\item{\code{session_period}}{queried session period}
+\item{\code{start_date_ad}}{start date in POSIXct}
+\item{\code{end_date_ad}}{end date in POSIXct}
+\item{\code{start_date}}{start date in ROC calendar}
+\item{\code{end_date}}{end date in ROC calendar}
+\item{\code{url}}{retrieved API URL}
+\item{\code{variable_names}}{variables in the tibble dataframe}
+\item{\code{manual_info}}{official manual URL}
+\item{\code{data}}{a tibble dataframe containing:
+\describe{
+\item{\code{term}}{屆別}
 \item{\code{sessionPeriod}}{會期}
 \item{\code{meetingDate}}{會議日期(西元年)}
 \item{\code{meetingTime}}{會議時間}
@@ -52,23 +67,31 @@ list, which contains: \describe{
 The Video Information of Meetings and Committees 院會及委員會之委員發言片段相關影片資訊
 }
 \details{
-\code{get_speech_video} produces a list, which contains \code{title}, \code{query_time},
-\code{retrieved_number}, \code{meeting_unit}, \code{start_date_ad}, \code{end_date_ad}, \code{start_date},
-\code{end_date}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data.} To retrieve the user
-manual and more information about the data frame, please use \code{get_variable_info("get_speech_video")}.
+The \code{get_speech_video} function retrieves video information of
+legislative meetings and committee sessions. Data is available from the
+9th legislative term onwards (2016/民國105年). The date parameters must
+use the ROC calendar format with forward slashes.
 }
 \note{
-To retrieve the user manual and more information about variable of the data
-frame, please use \code{get_variable_info("get_speech_video")}
-or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=148}.
+For more details about the data variables and API information,
+use \code{get_variable_info("get_speech_video")} or visit the API manual at
+\url{https://data.ly.gov.tw/getds.action?id=148}.
 會議類:提供立法院院會及委員會之委員發言片段相關影片資訊 (自第9屆第1會期起)。
 }
 \examples{
-## query full video information of meetings and committees using a period of
-## the dates in Taiwan ROC calender format with forward slash (/).
-## 輸入「中華民國民年」下載「委員發言片段相關影片資訊」，輸入時間請依照該
-## 格式 "105/10/20"，需有「正斜線」做隔開。
-get_speech_video(start_date = "105/10/20", end_date = "109/03/10")
+## Query video information by term, session period and date range
+get_speech_video(
+  term = 10,
+  session_period = 4,
+  start_date = "110/10/01",
+  end_date = "110/10/30"
+)
+
+## Query without specifying term or session
+get_speech_video(
+  start_date = "110/10/01",
+  end_date = "110/10/30"
+)
 
 }
 \seealso{

@@ -1,3 +1,20 @@
+#' Clean legislator names
+#'
+#' @keywords internal
+.clean_names <- function(x) {
+  names <- gsub("本院委員", "", x)
+  names <- gsub("委員", "", names)
+  names <- gsub("等\\s*\\d+\\s*人", "", names)
+  names <- gsub("等\\d+人", "", names)
+  names <- gsub("等", "", names)
+  names <- gsub("\\s+", "", names)
+  names <- gsub("本院", "", names)
+  names <- trimws(names)
+
+  return(names)
+}
+
+
 #' Validate Date Formats
 #'
 #' This function checks if the provided start and end dates are in the correct numeric format.
