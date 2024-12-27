@@ -3,7 +3,7 @@
     "path": "~/Dropbox/My Packages/legisTaiwan/README.Rmd",
     "project_path": "README.Rmd",
     "type": "r_markdown",
-    "hash": "19934249",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1698771600546.0,
@@ -12,18 +12,18 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "68,16",
-        "scrollLine": "52",
+        "cursorPosition": "81,4",
+        "scrollLine": "70",
         "rmdVisualMode": "false",
         "rmdVisualCollapsedChunks": "",
         "rmdVisualModeLocation": "2:0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1735331289,
+    "lastKnownWriteTime": 1735335571,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1735332845390,
+    "last_content_update": 1735335571233,
     "read_only": false,
     "read_only_alternatives": []
 }

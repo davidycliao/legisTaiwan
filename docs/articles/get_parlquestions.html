@@ -35,7 +35,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">legisTaiwan</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.6</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.7</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,7 +72,7 @@
 <li><a class="dropdown-item" href="../articles/get_bills.html">Records of the Bills</a></li>
     <li><a class="dropdown-item" href="../articles/get_legislators.html">Demographic Data</a></li>
     <li><a class="dropdown-item" href="../articles/get_parlquestions.html">Parliarmentary Questions</a></li>
-    <li><a class="dropdown-item" href="../articles/get_caucus_meetings.html">Party Caucus Negotiation</a></li>
+    <li><a class="dropdown-item" href="../articles/Party%20Caucus%20Negotiation.html">Party Caucus Negotiation</a></li>
   </ul>
 </li>
 <li class="nav-item dropdown">
@@ -124,11 +124,7 @@ publicly available data.</p>
 </h3>
 <p>First, install and load the legisTaiwan package:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://davidycliao.github.io/legisTaiwan/">legisTaiwan</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; Error in get(paste0(generic, ".", class), envir = get_method_env()) : </span></span>
-<span><span class="co">#&gt;   object 'type_sum.accel' not found</span></span>
-<span><span class="co">#&gt; ## <span style="color: #005F00;">legis</span><span style="color: #BB0000;">T</span><span style="color: #FFAF00;">a</span><span style="color: #BBBB00;">i</span><span style="color: #00BB00;">w</span><span style="color: #0000BB;">a</span><span style="color: #5F0087;">n</span>                                            ##</span></span>
-<span><span class="co">#&gt; ## An R package connecting to the Taiwan Legislative API. ##</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://davidycliao.github.io/legisTaiwan/">legisTaiwan</a></span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="fetching-parliamentary-questions">Fetching Parliamentary Questions<a class="anchor" aria-label="anchor" href="#fetching-parliamentary-questions"></a>
@@ -167,7 +163,7 @@ parliamentary questions from legislators:</p>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">pa_term10</span><span class="op">)</span></span>
 <span><span class="co">#&gt; List of 8</span></span>
 <span><span class="co">#&gt;  $ title           : chr "Parliamentary Questions Records"</span></span>
-<span><span class="co">#&gt;  $ query_time      : POSIXct[1:1], format: "2024-12-27 02:44:10"</span></span>
+<span><span class="co">#&gt;  $ query_time      : POSIXct[1:1], format: "2024-12-27 21:42:20"</span></span>
 <span><span class="co">#&gt;  $ retrieved_number: int 105</span></span>
 <span><span class="co">#&gt;  $ retrieved_term  : chr "11"</span></span>
 <span><span class="co">#&gt;  $ url             : chr "https://data.ly.gov.tw/odw/ID6Action.action?term=11&amp;sessionPeriod=&amp;sessionTimes=&amp;item=&amp;fileType=json"</span></span>
@@ -284,7 +280,7 @@ information</li>
    
   <footer><div class="container">
   <div class="pkgdown-footer-left">
-  <p>Developed by <a href="https://davidycliao.github.io" class="external-link">David Liao</a>, <a href="https://sites.google.com/view/litang2020?pli=1" class="external-link">Li Tang</a>, <a href="https://data.ly.gov.tw/catelog.action" class="external-link"><img src="https://raw.githack.com/davidycliao/legisTaiwan/v0.1.4/inst/figures/ly.jpeg" width="52"></a>.</p>
+  <p>Developed by <a href="https://davidycliao.github.io" class="external-link">Yen-Chieh Liao</a>, <a href="https://sites.google.com/view/litang2020?pli=1" class="external-link">Li Tang</a>, <a href="https://data.ly.gov.tw/catelog.action" class="external-link"><img src="https://raw.githack.com/davidycliao/legisTaiwan/v0.1.4/inst/figures/ly.jpeg" width="52"></a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">
