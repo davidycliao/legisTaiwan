@@ -16,8 +16,8 @@
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Source_Sans_Pro-0.4.9/font.css" rel="stylesheet">
 <link href="../deps/Source_Code_Pro-0.4.9/font.css" rel="stylesheet">
-<link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
-<link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Fetching Parliarmentary Questions">
 <!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-X85ED8P5EW"></script><script>
   window.dataLayer = window.dataLayer || [];
@@ -44,7 +44,7 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item"><a class="nav-link" href="../index.html" aria-label="Home"><span class="fa fa-home"></span></a></li>
+<li class="nav-item"><a class="nav-link" href="../index.html"><span class="fa fa-home"></span></a></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-quick-start" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fa-rocket"></span> Quick Start</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-quick-start">
@@ -66,13 +66,13 @@
 <li><a class="dropdown-item" href="../reference/index.html">Function Reference</a></li>
   </ul>
 </li>
-<li class="nav-item dropdown">
+<li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-tutorial" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fa-file-code-o"></span> Tutorial</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-tutorial">
 <li><a class="dropdown-item" href="../articles/get_bills.html">Records of the Bills</a></li>
     <li><a class="dropdown-item" href="../articles/get_legislators.html">Demographic Data</a></li>
     <li><a class="dropdown-item" href="../articles/get_parlquestions.html">Parliarmentary Questions</a></li>
-    <li><a class="dropdown-item" href="../articles/get_caucus_meetings.html">Party Caucus Negotiation</a></li>
+    <li><a class="dropdown-item" href="../articles/Party%20Caucus%20Negotiation.html">Party Caucus Negotiation</a></li>
   </ul>
 </li>
 <li class="nav-item dropdown">
@@ -104,20 +104,21 @@
                         <h4 data-toc-skip class="author"></h4>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/davidycliao/legisTaiwan/blob/HEAD/vignettes/get_parlquestions.Rmd" class="external-link"><code>vignettes/get_parlquestions.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/davidycliao/legisTaiwan/blob/master/vignettes/get_parlquestions.Rmd" class="external-link"><code>vignettes/get_parlquestions.Rmd</code></a></small>
       <div class="d-none name"><code>get_parlquestions.Rmd</code></div>
     </div>
 
     
     
 <div class="section level2">
-<h2 id="accessing-parliamentary-questions">Accessing Parliamentary Questions<a class="anchor" aria-label="anchor" href="#accessing-parliamentary-questions"></a>
+<h2 id="accessing-parliamentary-questions-with-legistaiwan-package">Accessing Parliamentary Questions with legisTaiwan Package<a class="anchor" aria-label="anchor" href="#accessing-parliamentary-questions-with-legistaiwan-package"></a>
 </h2>
 <div class="text-justify">
 <p>This tutorial demonstrates how to use the legisTaiwan package to
 access parliamentary questions and executive responses from Taiwan’s
 Legislative Yuan. The package provides convenient functions to fetch
 publicly available data.</p>
+</div>
 </div>
 <div class="section level3">
 <h3 id="loading-the-package">Loading the Package<a class="anchor" aria-label="anchor" href="#loading-the-package"></a>
@@ -163,7 +164,7 @@ parliamentary questions from legislators:</p>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">pa_term10</span><span class="op">)</span></span>
 <span><span class="co">#&gt; List of 8</span></span>
 <span><span class="co">#&gt;  $ title           : chr "Parliamentary Questions Records"</span></span>
-<span><span class="co">#&gt;  $ query_time      : POSIXct[1:1], format: "2024-12-28 03:00:44"</span></span>
+<span><span class="co">#&gt;  $ query_time      : POSIXct[1:1], format: "2024-12-28 03:11:49"</span></span>
 <span><span class="co">#&gt;  $ retrieved_number: int 105</span></span>
 <span><span class="co">#&gt;  $ retrieved_term  : chr "11"</span></span>
 <span><span class="co">#&gt;  $ url             : chr "https://data.ly.gov.tw/odw/ID6Action.action?term=11&amp;sessionPeriod=&amp;sessionTimes=&amp;item=&amp;fileType=json"</span></span>
@@ -190,31 +191,25 @@ information</li>
 <li>
 <code>title</code>: Data title</li>
 <li>
-<code>query_time</code>: Query timestamp</li>
-<li>
+<code>query_time</code>: Query timestamp
 <code>_retrieved_number</code>: Number of records retrieved</li>
 <li>
 <code>data</code>: A dataframe containing:
 <ul>
-<li>
-<code>term</code>: Legislative term</li>
-<li>
-<code>sessionPeriod</code>: Session period</li>
-<li>
-<code>sessionTimes</code>: Session count</li>
-<li>
-<code>item</code>: Question items</li>
+<li>term: Legislative term</li>
+<li>sessionPeriod: Session period</li>
+<li>sessionTimes: Session count</li>
+<li>item: Question items</li>
 </ul>
 </li>
 </ul>
+<!-- ```{r} --><!-- library(jiebaR) --><!-- pacman::p_load(tidyverse, readxl, lubridate, data.table,       --><!--                parallel, future, furrr, future.apply,         # Parallel Computing --><!--                doParallel, foreach, doFuture, cowplot,        # Computing & Plot --><!--                ggplot2, ggpubr, ggrepel, ggraph,              # Visualization  --><!--                igraph, ggforce, ggridges, ggthemes,            --><!--                geomtextpath, Cairo, lattice, showtext,         --><!--                fixest, marginaleffects, zoo, gt,              # Stats & Tables --><!--                quanteda, quanteda.textplots, jiebaR,          # Text Analysis  --><!--                udpipe, textrank, quanteda.textstats,          # NLP Tools --><!--                colorspace)                                    # Color --><!-- # parallel --><!-- # CHINESE TOKENIZATION  --><!-- pa_term10$data$item --><!-- segment_text <- function(i) {jiebaR::segment(code = i,  --><!--                                             jiebar = jiebaR::worker())} --><!-- cl <- makeCluster(detectCores()-1) --><!-- clusterExport(cl, varlist = ls(), envir = globalenv()) --><!-- press.seg <- parLapply(cl, pa_term10$data$item , segment_text, chunk.size = 6 ) --><!-- stopCluster(cl) --><!-- batch_size <- 20  # 每批處理500筆 --><!-- # 檢查檔案權限 --><!-- stopwords_path <- file.path("data", "stopwords.txt") --><!-- file.info(stopwords_path) --><!-- file.info(userdict_path) --><!-- # 5. 分批處理 --><!-- n_batches <- ceiling(nrow(merged_seg_dt) / batch_size) --><!-- result_list <- vector("list", n_batches) --><!-- for(i in 1:n_batches) { --><!--   # 計算批次的開始和結束索引 --><!--   start_idx <- (i-1) * batch_size + 1 --><!--   end_idx <- min(i * batch_size, nrow(merged_seg_dt)) --><!--   # 處理當前批次 --><!--   cat(sprintf("Processing batch %d/%d...\n", i, n_batches)) --><!--   batch_dt <- merged_seg_dt[start_idx:end_idx] --><!--   result_list[[i]] <- process_batch(batch_dt) --><!--   # 強制進行垃圾回收 --><!--   gc() --><!-- } --><!-- result_dt <- rbindlist(result_list) --><!-- cat("\n基本統計：\n") --><!-- cat("總處理文本數：", nrow(result_dt), "\n") --><!-- cat("成功分詞數量：", sum(sapply(result_dt$segmented_text, length) > 0), "\n") --><!-- # 8. 顯示各屆次統計 --><!-- cat("\n各屆次的文本數量：\n") --><!-- print(table(result_dt$term)) --><!-- ``` -->
 </div>
 <div class="section level3">
 <h3 id="retrieving-executive-responses">Retrieving Executive Responses<a class="anchor" aria-label="anchor" href="#retrieving-executive-responses"></a>
 </h3>
-<div class="text-justify">
 <p>Use the get_executive_response() function to fetch responses from the
 Executive Yuan:</p>
-</div>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Fetch executive responses from the 10th term, 2nd session</span></span>
 <span><span class="va">exec_response</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_executive_response.html">get_executive_response</a></span><span class="op">(</span>term <span class="op">=</span> <span class="fl">10</span>, session_period <span class="op">=</span> <span class="fl">2</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
@@ -275,14 +270,15 @@ information</li>
 <code>data</code>: A dataframe containing response information</li>
 </ul>
 </div>
+</main>
 </div>
-  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
+  <aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
 </div>
 
 
 
-   </div>
+   
   <footer><div class="container">
   <div class="pkgdown-footer-left">
   <p>Developed by <a href="https://davidycliao.github.io" class="external-link">Yen-Chieh Liao</a>, <a href="https://sites.google.com/view/litang2020?pli=1" class="external-link">Li Tang</a>, <a href="https://data.ly.gov.tw/catelog.action" class="external-link"><img src="https://raw.githack.com/davidycliao/legisTaiwan/v0.1.4/inst/figures/ly.jpeg" width="52"></a>.</p>
