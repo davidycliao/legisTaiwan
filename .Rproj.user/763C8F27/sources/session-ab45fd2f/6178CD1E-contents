@@ -31,6 +31,7 @@ reference:
   - get_legislators
   - get_variable_info
   - review_session_info
+  - legis_keywords
 
 authors:
   Yen-Chieh Liao:

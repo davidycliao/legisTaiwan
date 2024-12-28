@@ -20,9 +20,12 @@ assign("has_internet_via_proxy", TRUE, environment(curl::has_internet))
 ```
 
 ## Using `get_legislators()` as an Example to Fetch Legislator Data
+
 <div class="text-justify">
 
 The get_legislators() function provides a straightforward way to access Taiwan's legislator data from the official parliamentary database. Here's a step-by-step demonstration:
+
+
 </div>
 
 ```{r}
