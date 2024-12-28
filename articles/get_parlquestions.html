@@ -164,7 +164,7 @@ parliamentary questions from legislators:</p>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">pa_term10</span><span class="op">)</span></span>
 <span><span class="co">#&gt; List of 8</span></span>
 <span><span class="co">#&gt;  $ title           : chr "Parliamentary Questions Records"</span></span>
-<span><span class="co">#&gt;  $ query_time      : POSIXct[1:1], format: "2024-12-28 00:13:49"</span></span>
+<span><span class="co">#&gt;  $ query_time      : POSIXct[1:1], format: "2024-12-28 02:21:37"</span></span>
 <span><span class="co">#&gt;  $ retrieved_number: int 105</span></span>
 <span><span class="co">#&gt;  $ retrieved_term  : chr "11"</span></span>
 <span><span class="co">#&gt;  $ url             : chr "https://data.ly.gov.tw/odw/ID6Action.action?term=11&amp;sessionPeriod=&amp;sessionTimes=&amp;item=&amp;fileType=json"</span></span>
@@ -191,15 +191,20 @@ information</li>
 <li>
 <code>title</code>: Data title</li>
 <li>
-<code>query_time</code>: Query timestamp
+<code>query_time</code>: Query timestamp</li>
+<li>
 <code>_retrieved_number</code>: Number of records retrieved</li>
 <li>
 <code>data</code>: A dataframe containing:
 <ul>
-<li>term: Legislative term</li>
-<li>sessionPeriod: Session period</li>
-<li>sessionTimes: Session count</li>
-<li>item: Question items</li>
+<li>
+<code>term</code>: Legislative term</li>
+<li>
+<code>sessionPeriod</code>: Session period</li>
+<li>
+<code>sessionTimes</code>: Session count</li>
+<li>
+<code>item</code>: Question items</li>
 </ul>
 </li>
 </ul>
