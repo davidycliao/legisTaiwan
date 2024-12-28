@@ -16,8 +16,8 @@
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Source_Sans_Pro-0.4.9/font.css" rel="stylesheet">
 <link href="../deps/Source_Code_Pro-0.4.9/font.css" rel="stylesheet">
-<link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
-<link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="An Example of Party Caucus Negotiation">
 <!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-X85ED8P5EW"></script><script>
   window.dataLayer = window.dataLayer || [];
@@ -44,7 +44,7 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item"><a class="nav-link" href="../index.html"><span class="fa fa-home"></span></a></li>
+<li class="nav-item"><a class="nav-link" href="../index.html" aria-label="Home"><span class="fa fa-home"></span></a></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-quick-start" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fa-rocket"></span> Quick Start</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-quick-start">
@@ -72,7 +72,7 @@
 <li><a class="dropdown-item" href="../articles/get_bills.html">Records of the Bills</a></li>
     <li><a class="dropdown-item" href="../articles/get_legislators.html">Demographic Data</a></li>
     <li><a class="dropdown-item" href="../articles/get_parlquestions.html">Parliarmentary Questions</a></li>
-    <li><a class="dropdown-item" href="../articles/Party%20Caucus%20Negotiation.html">Party Caucus Negotiation</a></li>
+    <li><a class="dropdown-item" href="../articles/get_caucus_meetings.html">Party Caucus Negotiation</a></li>
   </ul>
 </li>
 <li class="nav-item dropdown">
@@ -103,7 +103,7 @@
       <img src="../logo.png" class="logo" alt=""><h1>An Example of Party Caucus Negotiation</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/davidycliao/legisTaiwan/blob/master/vignettes/get_caucus_meetings.rmd" class="external-link"><code>vignettes/get_caucus_meetings.rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/davidycliao/legisTaiwan/blob/HEAD/vignettes/get_caucus_meetings.rmd" class="external-link"><code>vignettes/get_caucus_meetings.rmd</code></a></small>
       <div class="d-none name"><code>get_caucus_meetings.rmd</code></div>
     </div>
 
@@ -112,6 +112,9 @@
 <div class="section level2">
 <h2 id="fetching-caucus-meeting-data">Fetching Caucus Meeting Data<a class="anchor" aria-label="anchor" href="#fetching-caucus-meeting-data"></a>
 </h2>
+<div class="section level3">
+<h3 id="retrive-data">Retrive Data<a class="anchor" aria-label="anchor" href="#retrive-data"></a>
+</h3>
 <p>First, load the package:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://davidycliao.github.io/legisTaiwan/">legisTaiwan</a></span><span class="op">)</span></span>
@@ -132,9 +135,20 @@ format required:</p>
 <li>Dates must be in ROC calendar format</li>
 <li>Format required: “YYY/MM/DD” (with slashes)</li>
 <li>This differs from the format used in get_bills()</li>
-<li>Format standardization is planned for version 0.2+</li>
 </ul>
-<p>View the retrieved data:</p>
+</div>
+<div class="section level3">
+<h3 id="view-the-retrieved-data">View the Retrieved data:<a class="anchor" aria-label="anchor" href="#view-the-retrieved-data"></a>
+</h3>
+<p>The returned data includes comprehensive information about caucus
+meetings, such as:</p>
+<ul>
+<li>Meeting dates and times</li>
+<li>Participating party caucuses</li>
+<li>Meeting agendas and topics</li>
+<li>Attendance records</li>
+<li>Meeting outcomes and decisions</li>
+</ul>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">caucus_df</span><span class="op">$</span><span class="va">data</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 43 × 15</span></span></span>
@@ -154,19 +168,16 @@ format required:</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 9 more variables: meetingTimes &lt;chr&gt;, meetingDate &lt;chr&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   meetingName &lt;chr&gt;, subject &lt;chr&gt;, pageStart &lt;chr&gt;, pageEnd &lt;chr&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   docUrl &lt;chr&gt;, htmlUrl &lt;chr&gt;, selectTerm &lt;chr&gt;</span></span></span></code></pre></div>
-<p>The returned data includes comprehensive information about caucus
-meetings, such as:</p>
-<ul>
-<li>Meeting dates and times</li>
-<li>Participating party caucuses</li>
-<li>Meeting agendas and topics</li>
-<li>Attendance records</li>
-<li>Meeting outcomes and decisions</li>
-</ul>
+</div>
+<div class="section level3">
+<h3 id="access-original-legislative-documents">Access Original Legislative Documents<a class="anchor" aria-label="anchor" href="#access-original-legislative-documents"></a>
+</h3>
+<div class="text-justify">
 <p>The <code>docUrl</code> field provides direct access to the original
 caucus meeting minutes and documentation. This URL links to the official
 Legislative Yuan’s repository where researchers and the public can view
 detailed records of caucus deliberations.</p>
+</div>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">caucus_df</span><span class="op">$</span><span class="va">data</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"subject"</span>, <span class="st">"docUrl"</span><span class="op">)</span><span class="op">]</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 43 × 2</span></span></span>
@@ -184,7 +195,9 @@ detailed records of caucus deliberations.</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 本院內政委員會報告併案審查民眾黨黨團、委員曾銘宗等18人、民眾黨黨團、時代力量黨團及委員吳玉琴等19人分別擬具「租賃住宅市場發… https…</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 33 more rows</span></span></span></code></pre></div>
 </div>
-  </main>
+</div>
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 
