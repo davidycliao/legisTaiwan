@@ -38,7 +38,7 @@
 
     <a class="navbar-brand me-2" href="index.html">legisTaiwan</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.6</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.7</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,7 +81,8 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-news" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fa-newspaper-o"></span> News</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-news">
-<li><a class="dropdown-item" href="news/index.html#legistaiwan-016-development-version">0.1.6</a></li>
+<li><a class="dropdown-item" href="news/index.html#legistaiwan-017-development-version">0.1.7</a></li>
+    <li><a class="dropdown-item" href="news/index.html#legistaiwan-016-development-version">0.1.6</a></li>
     <li><a class="dropdown-item" href="news/index.html#legistaiwan-014-development-version">0.1.4</a></li>
     <li><a class="dropdown-item" href="news/index.html#legistaiwan-013-development-version">0.1.3</a></li>
     <li><a class="dropdown-item" href="news/index.html#legistaiwan-011-development-version">0.1.1</a></li>
@@ -97,33 +98,37 @@
   </div>
 </nav><div class="container template-home" id="container">
 <div class="row">
-  <main id="main" class="col-md-9"><div class="section level1">
-<div class="page-header">
-<img src="logo.png" class="logo" alt=""><h1 id="real-time-and-archives-of-taiwan-legislative-data-in-r-">Real-time and Archives of Taiwan Legislative Data in R <a class="anchor" aria-label="anchor" href="#real-time-and-archives-of-taiwan-legislative-data-in-r-"></a>
-</h1>
-</div>
+  <main id="main" class="col-md-9"><div class="section level2">
+<h2 id="real-time-and-archives-of-taiwan-legislative-data-in-r-">Real-time and Archives of Taiwan Legislative Data in R <img src="reference/figures/logo.png" align="right" width="180"><a class="anchor" aria-label="anchor" href="#real-time-and-archives-of-taiwan-legislative-data-in-r-"></a>
+</h2>
 <!-- badges: start -->
 
-<div style="text-align: justify">
-<p><code>legisTaiwan</code> is designed to download the real-time archives of Taiwan legislative data easily. This package includes many streamlined functions to access <a href="https://data.ly.gov.tw/index.action" class="external-link">Taiwan Legislative Yuan API</a> in R without any hassle or runarounds.</p>
+<!-- <div style="text-align: justify"> -->
+<!-- `legisTaiwan` is designed to streamline access to real-time archives of Taiwan's legislative data, drawing inspiration from the UK's TheyWorkForYou API. By providing straightforward access to the Taiwan Legislative Yuan API in R, this package not only aims to enhance legislative accountability and public transparency but also serves as a powerful tool for academic research. Scholars can easily retrieve and analyze legislative data including voting records, parliamentary questions, and bill proposals, facilitating quantitative research and empirical analysis. As the package interfaces directly with Legislative Yuan API endpoints, a stable internet connection is required. Users are welcome to contact [the author](https://davidycliao.github.io) for any API implementation assistance. -->
+<!-- </div> -->
+<div style="text-align: justify; font-size: 1.1rem; line-height: 1.6; color: #333; max-width: 800px; margin: 1rem auto; padding: 0 1rem; font-family: 'Helvetica Neue', Arial, sans-serif;">
+<p><code>legisTaiwan</code> is designed to streamline access to real-time archives of Taiwan’s legislative data, drawing inspiration from the UK’s TheyWorkForYou API. By providing straightforward access to the Taiwan Legislative Yuan API in R, this package not only aims to enhance legislative accountability and public transparency but also serves as a powerful tool for academic research. Scholars can easily retrieve and analyze legislative data including voting records, parliamentary questions, and bill proposals, facilitating quantitative research and empirical analysis. As the package interfaces directly with Legislative Yuan API endpoints, a stable internet connection is required. Users are welcome to contact <a href="https://davidycliao.github.io" style="color: #3498db; text-decoration: none; border-bottom: 1px solid #3498db;" class="external-link">the author</a> for any API implementation assistance.</p>
+</div>
+<div style="text-align: justify; font-size: 0.95rem; line-height: 1.6; color: #333; max-width: 800px; margin: 1rem auto; padding: 0 1rem; font-family: 'Helvetica Neue', Arial, sans-serif;">
+<p><code>legisTaiwan</code> 套件旨在簡化台灣立法院資料的即時存取，其設計理念來自於英國的 TheyWorkForYou API。透過在 R 環境中提供直接連接立法院開放資料 API 的便捷管道，本套件不僅致力於提升立法問責制和公共透明度，更為學術研究者提供了系統化分析立法數據的工具。研究人員可以輕鬆獲取並分析立法委員的表決紀錄、問政質詢、法案提案等資料，有助於量化研究和實證分析。由於套件需要直接與立法院 API 介接，使用時請確保網路連線穩定。如有任何 API 使用上的問題，歡迎與套件<a href="https://davidycliao.github.io" style="color: #3498db; text-decoration: none; border-bottom: 1px solid #3498db;" class="external-link">作者</a>聯繫。</p>
 </div>
 <p><br></p>
-<div class="section level2">
-<h2 id="get-started-with-using-remotes">Get Started with Using <a href="https://github.com/r-lib/remotes" class="external-link"><code>remotes</code></a>:<a class="anchor" aria-label="anchor" href="#get-started-with-using-remotes"></a>
-</h2>
+<div class="section level3">
+<h3 id="get-started-with-using-remotes">Get Started with Using <a href="https://github.com/r-lib/remotes" class="external-link"><code>remotes</code></a>:<a class="anchor" aria-label="anchor" href="#get-started-with-using-remotes"></a>
+</h3>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span>
 <span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"davidycliao/legisTaiwan"</span>, force <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://davidycliao.github.io/legisTaiwan/">legisTaiwan</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; ## legisTaiwan                                            ##</span></span>
-<span><span class="co">#&gt; ## An R package connecting to the Taiwan Legislative API. ##</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">library</span>(legisTaiwan)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="co">#&gt; ## legisTaiwan                                            ##</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co">#&gt; ## An R package connecting to the Taiwan Legislative API. ##</span></span></code></pre></div>
+</div>
 <div class="section level3">
-<h3 id="summary-descriptive-of-current-bills-法案提案統計">Summary Descriptive of Current Bills (法案提案統計)<a class="anchor" aria-label="anchor" href="#summary-descriptive-of-current-bills-%E6%B3%95%E6%A1%88%E6%8F%90%E6%A1%88%E7%B5%B1%E8%A8%88"></a>
+<h3 id="summary-descriptive-of-current-bills-法案提案統計">Summary Descriptive of Current Bills 法案提案統計<a class="anchor" aria-label="anchor" href="#summary-descriptive-of-current-bills-%E6%B3%95%E6%A1%88%E6%8F%90%E6%A1%88%E7%B5%B1%E8%A8%88"></a>
 </h3>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/get_variable_info.html">get_variable_info</a></span><span class="op">(</span><span class="st">"get_bills_2"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; $page_info</span></span>
+<code class="sourceCode R"><span><span class="va">page_info</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_variable_info.html">get_variable_info</a></span><span class="op">(</span><span class="st">"get_bills_2"</span><span class="op">)</span><span class="op">$</span><span class="va">page_info</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">page_info</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 12 × 2</span></span>
 <span><span class="co">#&gt;    `資料集名稱：議案提案` 資料集描述                                            </span></span>
 <span><span class="co">#&gt;    &lt;chr&gt;                  &lt;chr&gt;                                                 </span></span>
@@ -138,17 +143,14 @@
 <span><span class="co">#&gt;  9 更新頻率               "每日04時15分"                                        </span></span>
 <span><span class="co">#&gt; 10 資料筆數               "30766"                                               </span></span>
 <span><span class="co">#&gt; 11 建立時間               "2014-09-03WedSep0310:38:36CST2014"                   </span></span>
-<span><span class="co">#&gt; 12 更新時間               "2024-12-26ThuDec2604:21:02CST2024"                   </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $reference_url</span></span>
-<span><span class="co">#&gt; [1] "https://data.ly.gov.tw/getds.action?id=20"</span></span></code></pre></div>
+<span><span class="co">#&gt; 12 更新時間               "2024-12-28SatDec2804:21:21CST2024"</span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="summary-descriptive-of-parliamentary-questions-委員質詢事項統計分析">Summary Descriptive of Parliamentary Questions (委員質詢事項統計分析)<a class="anchor" aria-label="anchor" href="#summary-descriptive-of-parliamentary-questions-%E5%A7%94%E5%93%A1%E8%B3%AA%E8%A9%A2%E4%BA%8B%E9%A0%85%E7%B5%B1%E8%A8%88%E5%88%86%E6%9E%90"></a>
+<h3 id="summary-descriptive-of-parliamentary-questions-委員質詢事項">Summary Descriptive of Parliamentary Questions 委員質詢事項<a class="anchor" aria-label="anchor" href="#summary-descriptive-of-parliamentary-questions-%E5%A7%94%E5%93%A1%E8%B3%AA%E8%A9%A2%E4%BA%8B%E9%A0%85"></a>
 </h3>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/get_variable_info.html">get_variable_info</a></span><span class="op">(</span><span class="st">"get_parlquestions"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; $page_info</span></span>
+<code class="sourceCode R"><span><span class="va">page_info</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_variable_info.html">get_variable_info</a></span><span class="op">(</span><span class="st">"get_parlquestions"</span><span class="op">)</span><span class="op">$</span><span class="va">page_info</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">page_info</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 12 × 2</span></span>
 <span><span class="co">#&gt;    `資料集名稱：質詢事項(本院委員質詢部分)` 資料集描述                          </span></span>
 <span><span class="co">#&gt;    &lt;chr&gt;                                    &lt;chr&gt;                               </span></span>
@@ -163,19 +165,30 @@
 <span><span class="co">#&gt;  9 更新頻率                                 "每日01時55分"                      </span></span>
 <span><span class="co">#&gt; 10 資料筆數                                 "1689"                              </span></span>
 <span><span class="co">#&gt; 11 建立時間                                 "2014-08-18MonAug1806:00:00CST2014" </span></span>
-<span><span class="co">#&gt; 12 更新時間                                 "2024-12-27FriDec2701:56:46CST2024" </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $reference_url</span></span>
-<span><span class="co">#&gt; [1] "https://data.ly.gov.tw/getds.action?id=6"</span></span></code></pre></div>
+<span><span class="co">#&gt; 12 更新時間                                 "2024-12-28SatDec2801:56:53CST2024"</span></span></code></pre></div>
 <p><br></p>
 </div>
+<div class="section level3">
+<h3 id="notice">Notice:<a class="anchor" aria-label="anchor" href="#notice"></a>
+</h3>
+<!-- <div style="text-align: justify"> -->
+<!-- `legisTaiwan` requires a stable internet connection to retrieve data -->
+<!-- from the API. While most functions can fetch data spanning a long -->
+<!-- period, they tend to be bandwidth-intensive due to the size of the -->
+<!-- datasets. If you plan to download data over an extended period, I -->
+<!-- recommend using `get_variable_info()` first to verify the current file -->
+<!-- sizes on the API. Also, consider writing a batch retrieval -->
+<!-- process with appropriate handlers to track the progress of file input, -->
+<!-- ensuring the completeness of the requested data. -->
+<!-- </div> -->
+<div style="text-align: justify; font-size: 1.1rem; line-height: 1.6; color: #333; max-width: 800px; margin: 1rem auto; padding: 0 1rem; font-family: 'Helvetica Neue', Arial, sans-serif;">
+<p><code>legisTaiwan</code> requires a stable internet connection to retrieve data from the API. While most functions can fetch data spanning a long period, they tend to be bandwidth-intensive due to the size of the datasets. If you plan to download data over an extended period, I recommend using <code><a href="reference/get_variable_info.html">get_variable_info()</a></code> first to verify the current file sizes on the API. Also, consider writing a batch retrieval process with appropriate handlers to track the progress of file input, ensuring the completeness of the requested data.</p>
 </div>
-<div class="section level2">
-<h2 id="caution">Caution:<a class="anchor" aria-label="anchor" href="#caution"></a>
-</h2>
-<div style="text-align: justify">
-<p><code>legisTaiwan</code> requires a stable internet connection to retrieve data from the API. While most functions can fetch data spanning a long period, they tend to be bandwidth-intensive due to the size of the datasets. If you plan to download data over an extended period, I recommend using get_variable_info() first to verify the current file sizes on the API manual. Also, consider writing a batch retrieval process with appropriate handlers to track the progress of file input, ensuring the completeness of the requested data.</p>
-</div>
+<p><br></p>
+<!-- ### Acknowledgments -->
+<!-- <div style="text-align: justify"> -->
+<!-- This package supported the author's doctoral dissertation *"Electoral Reform, Distributive Politics, and Parties in the Taiwanese Congress"* at the University of Essex. The PhD project was made possible through the generous funding of the 2022 Taiwan Ministry of Science and Technology (MOST) TOP Grant and a full PhD fellowship from the Ministry of Education (2018-2021), Taiwan. The author extends sincere gratitude to the Legislative Yuan API Center for their technical assistance and commitment to data transparency. -->
+<!-- </div> -->
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
@@ -185,9 +198,7 @@
 <li><a href="https://github.com/davidycliao/legisTaiwan/issues" class="external-link">Report a bug</a></li>
 <li><a href="https://github.com/davidycliao/legisTaiwan/discussions" class="external-link">Discussion</a></li>
 <li><a href="https://davidycliao.github.io/legisCrawler/" class="external-link">legisCrawler 爬台灣立法委員問政專輯的爬蟲小幫手️🕸️</a></li>
-<li><a href="https://text-and-policy.com" class="external-link">Text and Policy Research Group @ UCD</a></li>
-<li><a href="https://www.ucd.ie/connected_politics/" class="external-link">The Connected_Politics Lab @ UCD</a></li>
-<li><a href="https://projectlacan.wordpress.com/team/" class="external-link">LACAN: Legislators, Accountability and Collective Agency</a></li>
+<li><a href="https://www.birmingham.ac.uk/research/centres-institutes/centre-for-artificial-intelligence-in-government" class="external-link">The Centre for Artificial Intelligence in Government (CAIG)</a></li>
 <li><a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/L4OAKN" class="external-link">ParlSpeech: Legislative Speeches in the Key Parliamentary Democracies</a></li>
 <li><a href="https://pureportal.strath.ac.uk/en/datasets/parlee-plenary-speeches-v2-data-set-annotated-full-text-of-151-mi" class="external-link">ParlEE: Sentence-level Speeches of Six EU Legislative Chambers</a></li>
 </ul>
@@ -213,7 +224,8 @@
 <div class="developers">
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li>David Liao <br><small class="roles"> Author, maintainer </small>  </li>
+<li>
+<a href="https://davidycliao.github.io" class="external-link">Yen-Chieh Liao</a> <br><small class="roles"> Author, maintainer </small>  </li>
 <li>
 <a href="https://sites.google.com/view/litang2020?pli=1" class="external-link">Li Tang</a> <br><small class="roles"> Contributor, author </small>  </li>
 <li>
@@ -231,7 +243,7 @@
    </div>
   <footer><div class="container">
   <div class="pkgdown-footer-left">
-  <p>Developed by David Liao, <a href="https://sites.google.com/view/litang2020?pli=1" class="external-link">Li Tang</a>, <a href="https://data.ly.gov.tw/catelog.action" class="external-link"><img src="https://raw.githack.com/davidycliao/legisTaiwan/v0.1.4/inst/figures/ly.jpeg" width="52"></a>.</p>
+  <p>Developed by <a href="https://davidycliao.github.io" class="external-link">Yen-Chieh Liao</a>, <a href="https://sites.google.com/view/litang2020?pli=1" class="external-link">Li Tang</a>, <a href="https://data.ly.gov.tw/catelog.action" class="external-link"><img src="https://raw.githack.com/davidycliao/legisTaiwan/v0.1.4/inst/figures/ly.jpeg" width="52"></a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">
