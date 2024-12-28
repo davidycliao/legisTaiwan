@@ -1,0 +1,125 @@
+url: https://davidycliao.github.io/flaiR/
+
+home:
+  title: An R Wrapper for Accessing Flair NLP Tagging Features
+
+  links:
+  - text: Discussion
+    href: https://github.com/davidycliao/flaiR/discussions
+  - text: flair in Python
+    href: https://flairnlp.github.io
+  - text: "Text and Policy Research Group @ UCD"
+    href: https://text-and-policy.com
+  - text: "The Connected_Politics Lab @ UCD"
+    href: https://www.ucd.ie/connected_politics/
+  - text: "legisTaiwan: An Interface to Access Taiwan Legislative API in R"
+    href: https://davidycliao.github.io/legisTaiwan/
+  - text: "LACAN: Legislators, Accountability and Collective Agency"
+    href: https://projectlacan.wordpress.com/team/
+  - text: "ParlSpeech: Legislative Speeches in the Key Parliamentary Democracies"
+    href: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/L4OAKN
+  - text: "ParlEE: Sentence-level Speeches of Six EU Legislative Chambers"
+    href: https://pureportal.strath.ac.uk/en/datasets/parlee-plenary-speeches-v2-data-set-annotated-full-text-of-151-mi
+
+reference:
+- title: flaiR Functions
+  desc: functions accessing to core tagging features in FlairNLP
+- contents:
+  - get_entities
+  - get_entities_batch
+  - get_pos
+  - get_pos_batch
+  - get_sentiments
+  - get_sentiments_batch
+
+- title: Utility Functions
+  desc: functions accessing to Flair NLP Tagging Features
+- contents:
+  - clear_flair_cache
+  - create_flair_env
+  - load_tagger_ner
+  - load_tagger_pos
+  - load_tagger_sentiments
+
+- title: Example Dataset
+  desc:  A sampled  ParSpeech dataset containing speeches and debates from the UK House of Commons and the German Bundestag on the topic of immigration.
+- contents:
+  - de_immigration
+  - uk_immigration
+
+authors:
+  David Yen-Chieh Liao:
+    href: https://davidycliao.github.io
+
+template:
+  package: tidytemplate
+  bootstrap: 5
+  includes:
+    in_header: |
+      <script defer data-domain="{YOUR DOMAIN},all.tidyverse.org" src="https://plausible.io/js/plausible.js"></script>
+  params:
+    ganalytics: G-3ZG40PPG98
+    css: [man/pkgdown/extra.css]
+
+development:
+  mode: auto
+
+navbar:
+  type: inverse
+  left:
+  - icon: fa-home
+    href: index.html
+  - icon: fa-rocket
+    text: Quick Start
+    menu:
+    - text: "Install flaiR with Using `remotes`"
+      href: articles/quickstart.html#install-flair-with-using-remotes
+    - text: "Quick Start Guide"
+      href: articles/quickstart.html#get-started-with-using-remotes
+    - text: "How to Contribute"
+      href: articles/quickstart.html#quickstart.html#how-to-contribute
+
+  - icon: fa-project-diagram
+    text: Manual
+    menu:
+    - text: "Tagging Named Entities"
+      href: articles/get_entities.html
+    - text: "Part-of-Speech Tagging with Flair Standard Models"
+      href: articles/get_pos.html
+    - text: "Tagging Sentiment with Flair Models"
+      href: articles/get_sentiments.html
+
+  - icon: fa-newspaper-o
+    text: News
+    menu:
+    - text: "0.0.4"
+      href: news/index.html#flair-004-development-version
+    - text: "0.0.3"
+      href: news/index.html#flair-003-development-version
+    - text: "0.0.1"
+      href: news/index.html#flair-001-development-version
+
+
+  - icon: fa-file-code-o
+    text: Reference
+    menu:
+    - text: "flaiR"
+      href: reference/index.html#flair-functions
+    - text: "Utility"
+      href: reference/index.html#utility-functions
+    - text: "Dataset"
+      href: reference/index.html#example-dataset
+
+  - icon: fa-file-code-o
+    text: Tutorial
+    menu:
+    - text: "Comming Soon"
+      href:
+
+  right:
+  - icon: fa-github fa-lg
+    text: GitHub
+    href: https://github.com/davidycliao/flaiR
+
+
+

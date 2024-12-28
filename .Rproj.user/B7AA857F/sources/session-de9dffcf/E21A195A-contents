@@ -1,0 +1,75 @@
+---
+title: "以「黨團協商」為例"
+author: "陳逸儒 清華大學資訊系統與應用研究所博士班"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{以「黨團協商」為例}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r include=FALSE}
+assign("has_internet_via_proxy", TRUE, environment(curl::has_internet))
+```
+
+讀取 legisTaiwan 與 stringr,tidyverse 套件
+
+```{r}
+library(legisTaiwan)
+library(stringr)
+library(tidyverse)
+```
+
+以get_caucus_meetings()「黨團協商」為例
+
+格式：get_caucus_meetings(start_date = NULL, end_date = NULL, verbose = TRUE)
+
+首先，須先知道該會期之期間(請參見：<https://npl.ly.gov.tw/do/www/appDate?blockId=2&titleName=%E5%B1%86%E6%9C%83%E6%9C%9F%E5%B0%8D%E7%85%A7%E8%A1%A8>)
+
+
+設定好指定時間區間後即可看到變數名稱
+
+```{r}
+#第10屆第6會期
+get_caucus_meetings(start_date = "111/09/23", end_date = "112/01/19")
+```
+
+可建立指定區間的資料變數(info)（第10屆第6會期）
+
+```{r}
+info10_6 <- get_caucus_meetings(start_date = "111/09/23", end_date = "112/01/19")
+meetings10_6 <- info10_6$data
+```
+
+請注意：
+
+API提供參數「只有」：卷(comYear)、期(comVolume)、冊別(comBookId)、屆別(term)、會期(sessionPeriod)、會次(sessionTimes)、臨時會會次(meetingTimes)、會議起始日期(民國年)(meetingDateS)、會議結束日期(民國年)(meetingDateE)、檔案類型(fileType)，檔案類型可為json、xml、csv、txt、xls。
+
+雖然API沒有提供，但是接著還是可以開始搜尋議案內容（subject）
+
+```{r}
+meetings10_6 %>% 
+  count(subject) 
+
+```
+
+創建一個新的條目， 找出第十屆第六會期中包含「原住民」字眼之黨團協商議案
+
+```{r}
+Q10_aborigines <- meetings10_6[str_detect(meetings10_6[["subject"]], "原住民", negate = FALSE),]
+
+```
+
+接著列出來
+
+```{r}
+Q10_aborigines %>% 
+  count(subject) 
+```

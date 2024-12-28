@@ -59,7 +59,7 @@ Further checks are required as the user manual seems to be inconsistent with the
 \examples{
 \dontrun{
 ## Query bill records by a date range in the Taiwan ROC calendar format
-get_bills(start_date = 1060120, end_date = 1070310, verbose = FALSE)
+get_bills(start_date = 1060120, end_date = 1070310, verbose = TRUE)
 
 ## Query bill records by a date range and a specific legislator
 get_bills(start_date = 1060120, end_date = 1070310,  proposer = "孔文吉")

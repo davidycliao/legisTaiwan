@@ -1,0 +1,40 @@
+---
+title: "以「立委質詢」為例"
+author: "李宜展 東海大學政治系"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{以「立委質詢」為例}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+```{r include=FALSE}
+assign("has_internet_via_proxy", TRUE, environment(curl::has_internet))
+library(legisTaiwan)
+```
+
+## Using `get_parlquestions()` as an Example to Parliarmentary Questions'.
+
+```{r}
+library(legisTaiwan)
+```
+
+
+```{r}
+pa_term10 <- get_parlquestions(term = 10, verbose = TRUE)
+```
+
+```{r}
+pa_term10$data
+```s
+
+
+

@@ -1,0 +1,89 @@
+---
+title: "The Records of the Bills"
+author: ""
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{The Records of the Bills}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r include=FALSE}
+assign("has_internet_via_proxy", TRUE, environment(curl::has_internet))
+```
+
+
+## An Example of the Records of the Bills
+
+First, we'll import legisTaiwan, and then we'll retrieve data from January 20th of the Republic of China year 106 to March 10th of the Republic of China year 111.
+```{r}
+library(legisTaiwan)
+```
+
+
+```{r}
+billdata <- get_bills(start_date = 1030120, 
+                      end_date = 1110310, 
+                      verbose = TRUE)
+```
+
+The get_bills function returns a list that contains query_time, retrieved_number, meeting_unit, start_date_ad (A.D) , end_date_ad (A.D), start_date, end_date, url, variable_names, manual_info, and data.
+```{r}
+billdata$data
+
+
+```
+
+
+```{r}
+full_term <- get_bills_2(term = 11)
+full_term
+```
+
+```{r}
+# 安裝套件
+install.packages("pdftools")
+library(pdftools)
+
+# 讀取 PDF
+pdf_text <- pdf_text("https://ppg.ly.gov.tw/ppg/download/agenda1/02/pdf/11/01/02/LCEWA01_110102_00017.pdf")
+
+
+# 文本清理
+library(stringr)
+library(dplyr)
+
+clean_text <- pdf_text %>%
+  str_replace_all("\n", " ") %>%  # 移除換行
+  str_replace_all("\\s+", " ") %>%  # 移除多餘空白
+  str_trim()  # 移除前後空白
+
+# 斷詞（如果需要）
+library(jiebaR)
+cutter <- worker()
+words <- segment(clean_text, cutter)
+
+library(httr)
+library(pdftools)
+
+# 下載 PDF
+response <- GET(url)
+writeBin(content(response, "raw"), temp_file)
+pdf_text <- pdf_text(temp_file)
+# 處理編碼問題（如果有需要）
+pdf_text <- iconv(pdf_text, "UTF-8", "UTF-8")
+
+# 如果要分頁處理，可以用以下方式：
+for(i in seq_along(pdf_text)) {
+  cat("=== 第", i, "頁 ===\n")
+  cat(pdf_text[i])
+}
+```
+

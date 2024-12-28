@@ -1,0 +1,31 @@
+
+# For get_variable_info function
+test_that("get_variable_info works correctly", {
+  result <- get_variable_info("get_bills")
+
+  # Check if the function returns a list
+  expect_true(is.list(result))
+
+  # Check if the list contains specific elements
+  expect_true("page_info" %in% names(result))
+  expect_true("reference_url" %in% names(result))
+
+  # Check if passing an invalid parameter value results in an error
+  expect_error(get_variable_info("invalid_function_name"), "Use correct function names below in character format.")
+})
+
+# For review_session_info function
+test_that("review_session_info works correctly", {
+  result <- review_session_info(7)
+
+  # Check if the function returns a tibble
+  expect_true(is(result, "tbl_df"))
+
+  # Check if the tibble contains specific column names (this depends on the actual column names)
+  expect_true("屆期會期" %in% colnames(result)) # Replace 'ColumnName1' with actual column name
+
+  # Check if passing an invalid term value results in an error
+  expect_error(review_session_info(12), "use correct `term`.")
+})
+
+
