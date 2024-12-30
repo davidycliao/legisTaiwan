@@ -104,7 +104,7 @@
                         <h4 data-toc-skip class="author"></h4>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/davidycliao/legisTaiwan/blob/master/vignettes/get_bills.Rmd" class="external-link"><code>vignettes/get_bills.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/davidycliao/legisTaiwan/blob/legisTaiwan_0.1.7/vignettes/get_bills.Rmd" class="external-link"><code>vignettes/get_bills.Rmd</code></a></small>
       <div class="d-none name"><code>get_bills.Rmd</code></div>
     </div>
 
@@ -163,7 +163,7 @@ metadata and the actual bill data:</p>
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">billdata</span>,  give.attr <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="co">#&gt; List of 12</span></span>
 <span><span class="co">#&gt;  $ title           : chr "the records of bill sponsor and co-sponsor"</span></span>
-<span><span class="co">#&gt;  $ query_time      : POSIXct[1:1], format: "2024-12-28 03:11:31"</span></span>
+<span><span class="co">#&gt;  $ query_time      : POSIXct[1:1], format: "2024-12-30 21:54:18"</span></span>
 <span><span class="co">#&gt;  $ retrieved_number: int 12519</span></span>
 <span><span class="co">#&gt;  $ proposer        : NULL</span></span>
 <span><span class="co">#&gt;  $ start_date_ad   : Date[1:1], format: "2014-01-20"</span></span>
@@ -269,7 +269,7 @@ calendar</li>
 <span><span class="co">#&gt;  Retrieved URL: </span></span>
 <span><span class="co">#&gt;  https://data.ly.gov.tw/odw/ID20Action.action?term=11&amp;sessionPeriod=&amp;sessionTimes=&amp;meetingTimes=&amp;billName=&amp;billOrg=&amp;billProposer=&amp;billCosignatory=&amp;fileType=json </span></span>
 <span><span class="co">#&gt;  Retrieved Term:  11 </span></span>
-<span><span class="co">#&gt;  Total Bills: 2880</span></span>
+<span><span class="co">#&gt;  Total Bills: 2908</span></span>
 <span><span class="co">#&gt;  Total Unique Proposers: 115</span></span>
 <span><span class="co">#&gt; ===================================</span></span>
 <span><span class="va">full_term</span></span>
@@ -277,16 +277,16 @@ calendar</li>
 <span><span class="co">#&gt; [1] "The records of the questions answered by the executives"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $query_time</span></span>
-<span><span class="co">#&gt; [1] "2024-12-28 03:11:37 UTC"</span></span>
+<span><span class="co">#&gt; [1] "2024-12-30 21:54:26 UTC"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $retrieved_number</span></span>
-<span><span class="co">#&gt; [1] 2880</span></span>
+<span><span class="co">#&gt; [1] 2908</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $budget_bills</span></span>
 <span><span class="co">#&gt; [1] 18</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $budget_percentage</span></span>
-<span><span class="co">#&gt; [1] 0.625</span></span>
+<span><span class="co">#&gt; [1] 0.6189821</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $retrieved_term</span></span>
 <span><span class="co">#&gt; [1] "11"</span></span>
@@ -305,7 +305,7 @@ calendar</li>
 <span><span class="co">#&gt; [1] "https://data.ly.gov.tw/getds.action?id=2"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $data</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2,880 × 13</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2,908 × 13</span></span></span>
 <span><span class="co">#&gt;    term  sessionPeriod sessionTimes meetingTimes billNo   billName billOrg</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 11    01            01           <span style="color: #949494;">""</span>           2021100… 「立法委員互選… 本院委員羅智…</span></span>
@@ -318,7 +318,7 @@ calendar</li>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 11    01            01           <span style="color: #949494;">""</span>           2021100… 「立法院職權行… 本院台灣民眾…</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 11    01            01           <span style="color: #949494;">""</span>           2021100… 「貪污治罪條例… 本院台灣民眾…</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 11    01            01           <span style="color: #949494;">""</span>           2021100… 「立法委員互選… 本院台灣民眾…</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 2,870 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 2,898 more rows</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 6 more variables: billProposer &lt;chr&gt;, billCosignatory &lt;chr&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   billStatus &lt;chr&gt;, pdfUrl &lt;chr&gt;, docUrl &lt;chr&gt;, selectTerm &lt;chr&gt;</span></span></span></code></pre></div>
 <div class="text-justify">
