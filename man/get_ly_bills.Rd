@@ -34,7 +34,8 @@ get_ly_bills(
 \itemize{
 \item "法律案" (Law Bill)
 \item "中央政府總預算案" (Central Government Budget Bill)
-\item "預(決) 算決議案、定期報告" (Budget/Final Account Resolution and Regular Report)
+\item "預(決) 算決議案" (Budget/Final Account Resolution)
+\item "定期報告" (Regular Report)
 \item "行政命令(層級)" (Administrative Order)
 \item "院內單位來文" (Internal Document)
 }}

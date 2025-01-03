@@ -12,7 +12,8 @@
 #' @param bill_type string. Type of bill:
 #'   - "法律案" (Law Bill)
 #'   - "中央政府總預算案" (Central Government Budget Bill)
-#'   - "預(決) 算決議案、定期報告" (Budget/Final Account Resolution and Regular Report)
+#'   - "預(決) 算決議案" (Budget/Final Account Resolution)
+#'   - "定期報告" (Regular Report)
 #'   - "行政命令(層級)" (Administrative Order)
 #'   - "院內單位來文" (Internal Document)
 #' @param current_status string. Current bill status, e.g., "排入院會"
