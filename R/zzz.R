@@ -24,19 +24,19 @@
     reset
   )
 
-  # Creating the first message
-  message1 <- paste0(dark_green, "legis", reset, rainbow_taiwan)
-
-  # Second message
+  # Creating the messages
+  base_message1 <- paste0(dark_green, "legis", reset, rainbow_taiwan, " v0.2.1")
   message2 <- "## An R package connecting to the Taiwan Legislative API. ##"
 
-  # Calculate the required number of spaces to align the two lines
-  num_spaces <- nchar(message2, type = "bytes") - nchar(message1, type = "bytes") - 6  # -6 to account for the four hashes and two spaces
-  num_spaces <- max(0, num_spaces)
+  # Calculate padding to align message1 with message2
+  message2_width <- nchar(message2)
+  base_message1_width <- nchar(base_message1) - (6 * 9)  # Subtract length of color codes (9 codes * 6 characters)
+  padding_needed <- message2_width - base_message1_width - 1  # -4 for the "## " and " ##"
 
-  message1 <- paste0("## ", message1, rep(" ", num_spaces), "                                            ##")
+  # Create aligned message1
+  message1 <- paste0("## ", base_message1, paste(rep(" ", padding_needed), collapse = ""), " ##")
 
+  # Display messages
   packageStartupMessage(message1)
   packageStartupMessage(message2)
 }
-
