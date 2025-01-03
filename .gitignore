@@ -8,3 +8,4 @@
 ^codecov\.yml$
 ^.*\.utf8\.R$
 test.Rmd
+.Rproj.user

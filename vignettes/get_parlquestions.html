@@ -350,7 +350,6 @@ access parliamentary questions and executive responses from Taiwan’s
 Legislative Yuan. The package provides convenient functions to fetch
 publicly available data.</p>
 </div>
-</div>
 <div id="loading-the-package" class="section level3">
 <h3>Loading the Package</h3>
 <p>First, install and load the legisTaiwan package:</p>
@@ -391,7 +390,7 @@ parliamentary questions from legislators:</p>
 <span id="cb2-27"><a href="#cb2-27" tabindex="-1"></a><span class="fu">str</span>(pa_term10)</span>
 <span id="cb2-28"><a href="#cb2-28" tabindex="-1"></a><span class="co">#&gt; List of 8</span></span>
 <span id="cb2-29"><a href="#cb2-29" tabindex="-1"></a><span class="co">#&gt;  $ title           : chr &quot;Parliamentary Questions Records&quot;</span></span>
-<span id="cb2-30"><a href="#cb2-30" tabindex="-1"></a><span class="co">#&gt;  $ query_time      : POSIXct[1:1], format: &quot;2024-12-28 02:42:40&quot;</span></span>
+<span id="cb2-30"><a href="#cb2-30" tabindex="-1"></a><span class="co">#&gt;  $ query_time      : POSIXct[1:1], format: &quot;2024-12-30 21:37:29&quot;</span></span>
 <span id="cb2-31"><a href="#cb2-31" tabindex="-1"></a><span class="co">#&gt;  $ retrieved_number: int 105</span></span>
 <span id="cb2-32"><a href="#cb2-32" tabindex="-1"></a><span class="co">#&gt;  $ retrieved_term  : chr &quot;11&quot;</span></span>
 <span id="cb2-33"><a href="#cb2-33" tabindex="-1"></a><span class="co">#&gt;  $ url             : chr &quot;https://data.ly.gov.tw/odw/ID6Action.action?term=11&amp;sessionPeriod=&amp;sessionTimes=&amp;item=&amp;fileType=json&quot;</span></span>
@@ -423,59 +422,13 @@ information</li>
 <li><code>item</code>: Question items</li>
 </ul></li>
 </ul>
-<!-- ```{r} -->
-<!-- library(jiebaR) -->
-<!-- pacman::p_load(tidyverse, readxl, lubridate, data.table,       -->
-<!--                parallel, future, furrr, future.apply,         # Parallel Computing -->
-<!--                doParallel, foreach, doFuture, cowplot,        # Computing & Plot -->
-<!--                ggplot2, ggpubr, ggrepel, ggraph,              # Visualization  -->
-<!--                igraph, ggforce, ggridges, ggthemes,            -->
-<!--                geomtextpath, Cairo, lattice, showtext,         -->
-<!--                fixest, marginaleffects, zoo, gt,              # Stats & Tables -->
-<!--                quanteda, quanteda.textplots, jiebaR,          # Text Analysis  -->
-<!--                udpipe, textrank, quanteda.textstats,          # NLP Tools -->
-<!--                colorspace)                                    # Color -->
-<!-- # parallel -->
-<!-- # CHINESE TOKENIZATION  -->
-<!-- pa_term10$data$item -->
-<!-- segment_text <- function(i) {jiebaR::segment(code = i,  -->
-<!--                                             jiebar = jiebaR::worker())} -->
-<!-- cl <- makeCluster(detectCores()-1) -->
-<!-- clusterExport(cl, varlist = ls(), envir = globalenv()) -->
-<!-- press.seg <- parLapply(cl, pa_term10$data$item , segment_text, chunk.size = 6 ) -->
-<!-- stopCluster(cl) -->
-<!-- batch_size <- 20  # 每批處理500筆 -->
-<!-- # 檢查檔案權限 -->
-<!-- stopwords_path <- file.path("data", "stopwords.txt") -->
-<!-- file.info(stopwords_path) -->
-<!-- file.info(userdict_path) -->
-<!-- # 5. 分批處理 -->
-<!-- n_batches <- ceiling(nrow(merged_seg_dt) / batch_size) -->
-<!-- result_list <- vector("list", n_batches) -->
-<!-- for(i in 1:n_batches) { -->
-<!--   # 計算批次的開始和結束索引 -->
-<!--   start_idx <- (i-1) * batch_size + 1 -->
-<!--   end_idx <- min(i * batch_size, nrow(merged_seg_dt)) -->
-<!--   # 處理當前批次 -->
-<!--   cat(sprintf("Processing batch %d/%d...\n", i, n_batches)) -->
-<!--   batch_dt <- merged_seg_dt[start_idx:end_idx] -->
-<!--   result_list[[i]] <- process_batch(batch_dt) -->
-<!--   # 強制進行垃圾回收 -->
-<!--   gc() -->
-<!-- } -->
-<!-- result_dt <- rbindlist(result_list) -->
-<!-- cat("\n基本統計：\n") -->
-<!-- cat("總處理文本數：", nrow(result_dt), "\n") -->
-<!-- cat("成功分詞數量：", sum(sapply(result_dt$segmented_text, length) > 0), "\n") -->
-<!-- # 8. 顯示各屆次統計 -->
-<!-- cat("\n各屆次的文本數量：\n") -->
-<!-- print(table(result_dt$term)) -->
-<!-- ``` -->
 </div>
 <div id="retrieving-executive-responses" class="section level3">
 <h3>Retrieving Executive Responses</h3>
+<div class="text-justify">
 <p>Use the get_executive_response() function to fetch responses from the
 Executive Yuan:</p>
+</div>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co"># Fetch executive responses from the 10th term, 2nd session</span></span>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>exec_response <span class="ot">&lt;-</span> <span class="fu">get_executive_response</span>(<span class="at">term =</span> <span class="dv">10</span>, <span class="at">session_period =</span> <span class="dv">2</span>, <span class="at">verbose =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#&gt; </span></span>

@@ -6,14 +6,20 @@ home:
   links:
   - text: Discussion
     href: https://github.com/davidycliao/legisTaiwan/discussions
-  - text: legisCrawler 爬台灣立法委員問政專輯的爬蟲小幫手️🕸️
-    href: https://davidycliao.github.io/legisCrawler/
+  - text: 立法院 API
+    href: https://ly.govapi.tw
+  - text: law-diff 提案法律對照比
+    href: https://openfunltd.github.io/law-diff/?keyword=&term=11&sessionPeriod=&proposer=
+  - text: law-diff 提案法律對照比
+    href: https://openfunltd.github.io/law-diff/?keyword=&term=11&sessionPeriod=&proposer=
+  - text: DATALY 立院統合資料網
+    href: https://dataly.openfun.app
+  - text: Citizen Congress Watch ️公共監督國會聯盟
+    href: https://ccw.org.tw/assess/session/45
+  - text: g0v 國會松
+    href: https://g0v.hackmd.io/@SA7CD7VRSp6Fcqw9CaElcQ/SJ93ZW5XR/%2FY6A2Ox-YRDS6ixtYw1BuoA%3Fview
   - text: "The Centre for Artificial Intelligence in Government (CAIG)"
     href: https://www.birmingham.ac.uk/research/centres-institutes/centre-for-artificial-intelligence-in-government
-  - text: "ParlSpeech: Legislative Speeches in the Key Parliamentary Democracies"
-    href: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/L4OAKN
-  - text: "ParlEE: Sentence-level Speeches of Six EU Legislative Chambers"
-    href: https://pureportal.strath.ac.uk/en/datasets/parlee-plenary-speeches-v2-data-set-annotated-full-text-of-151-mi
 
 reference:
 - title: API Functions

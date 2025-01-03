@@ -342,6 +342,8 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <div id="fetching-caucus-meeting-data" class="section level2">
 <h2>Fetching Caucus Meeting Data</h2>
+<div id="retrive-data" class="section level3">
+<h3>Retrive Data</h3>
 <p>First, load the package:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(legisTaiwan)</span></code></pre></div>
 <p>Now, let’s retrieve caucus meeting records. Note the special date
@@ -356,9 +358,19 @@ format required:</p>
 <li>Dates must be in ROC calendar format</li>
 <li>Format required: “YYY/MM/DD” (with slashes)</li>
 <li>This differs from the format used in get_bills()</li>
-<li>Format standardization is planned for version 0.2+</li>
 </ul>
-<p>View the retrieved data:</p>
+</div>
+<div id="view-the-retrieved-data" class="section level3">
+<h3>View the Retrieved data:</h3>
+<p>The returned data includes comprehensive information about caucus
+meetings, such as:</p>
+<ul>
+<li>Meeting dates and times</li>
+<li>Participating party caucuses</li>
+<li>Meeting agendas and topics</li>
+<li>Attendance records</li>
+<li>Meeting outcomes and decisions</li>
+</ul>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>caucus_df<span class="sc">$</span>data</span>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="co">#&gt; # A tibble: 43 × 15</span></span>
 <span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#&gt;    comYear comVolume comBookId term  sessionPeriod sessionTimes meetingTimes</span></span>
@@ -377,20 +389,15 @@ format required:</p>
 <span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a><span class="co">#&gt; # ℹ 8 more variables: meetingDate &lt;chr&gt;, meetingName &lt;chr&gt;, subject &lt;chr&gt;,</span></span>
 <span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a><span class="co">#&gt; #   pageStart &lt;chr&gt;, pageEnd &lt;chr&gt;, docUrl &lt;chr&gt;, htmlUrl &lt;chr&gt;,</span></span>
 <span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a><span class="co">#&gt; #   selectTerm &lt;chr&gt;</span></span></code></pre></div>
-<p>The returned data includes comprehensive information about caucus
-meetings, such as:</p>
-<ul>
-<li>Meeting dates and times</li>
-<li>Participating party caucuses</li>
-<li>Meeting agendas and topics</li>
-<li>Attendance records</li>
-<li>Meeting outcomes and decisions</li>
-</ul>
+</div>
+<div id="access-original-legislative-documents" class="section level3">
+<h3>Access Original Legislative Documents</h3>
 <div class="text-justify">
 <p>The <code>docUrl</code> field provides direct access to the original
 caucus meeting minutes and documentation. This URL links to the official
 Legislative Yuan’s repository where researchers and the public can view
 detailed records of caucus deliberations.</p>
+</div>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>caucus_df<span class="sc">$</span>data[<span class="fu">c</span>(<span class="st">&quot;subject&quot;</span>, <span class="st">&quot;docUrl&quot;</span>)]</span>
 <span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co">#&gt; # A tibble: 43 × 2</span></span>
 <span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">#&gt;    subject                                                                docUrl</span></span>
