@@ -25,7 +25,6 @@
 #' @importFrom httr GET content status_code
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr select mutate arrange desc
-#'
 #' @export
 get_tly_stat <- function() {
   # Check and install required packages
@@ -35,6 +34,7 @@ get_tly_stat <- function() {
 
   # Send GET request to the API
   response <- httr::GET("https://v2.ly.govapi.tw/stat")
+
 
   # Check if the request was successful
   if (httr::status_code(response) != 200) {
