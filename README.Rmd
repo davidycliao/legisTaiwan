@@ -1,5 +1,6 @@
 ---
 output: github_document
+always_allow_html: true
 ---
 
 
@@ -64,29 +65,49 @@ library(legisTaiwan)
 ```
 
 
-### Summary Descriptive of Current Bills 法案提案統計
+### Summary Descriptive of Taiwan Legilative Yuan API
+
 ```{r include=FALSE}
 library(legisTaiwan)
+
 ```
+
+```{r include=FALSE}
+stats <- get_tly_stat()
+```
+
+__Legislative Bills Statistics__
 
 ```{r}
-page_info <- get_variable_info("get_bills_2")$page_info
-print(page_info)
+analyze_bills(stats)
+
 ```
 
-### Summary Descriptive of Parliamentary Questions 委員質詢事項
+__Legislative Meeting Statistics__
 
 ```{r}
-page_info <- get_variable_info("get_parlquestions")$page_info
-print(page_info)
+analyze_meetings(stats)
 ```
+
+__Legislative Video (IVOD) Statistics__
+
+```{r}
+analyze_ivod(stats)
+```
+
+
+<!-- ```{r include=FALSE} -->
+<!-- create_interactive_plot(stats) -->
+<!-- ``` -->
 
 
 <br>
 
-### Notice:
+### Important Notice: API Migration
 
-<!-- <div style="text-align: justify"> -->
+
+
+<div style="text-align: justify; font-size: 1.1rem; line-height: 1.6; color: #333; max-width: 800px; margin: 1rem auto; padding: 0 1rem; font-family: 'Helvetica Neue', Arial, sans-serif;">
 
 <!-- `legisTaiwan` requires a stable internet connection to retrieve data -->
 <!-- from the API. While most functions can fetch data spanning a long -->
@@ -97,18 +118,12 @@ print(page_info)
 <!-- process with appropriate handlers to track the progress of file input, -->
 <!-- ensuring the completeness of the requested data. -->
 
-<!-- </div> -->
+The Legislative Yuan API has transitioned from `https://ly.govapi.tw` to `https://v2.ly.govapi.tw`. 
 
-<div style="text-align: justify; font-size: 1.1rem; line-height: 1.6; color: #333; max-width: 800px; margin: 1rem auto; padding: 0 1rem; font-family: 'Helvetica Neue', Arial, sans-serif;">
+While we are maintaining support for functions that use the legacy API, please note that the old API endpoint will eventually be deprecated. We recommend users to gradually transition to the newer API versions as they become available.
 
-`legisTaiwan` requires a stable internet connection to retrieve data
-from the API. While most functions can fetch data spanning a long
-period, they tend to be bandwidth-intensive due to the size of the
-datasets. If you plan to download data over an extended period, I
-recommend using `get_variable_info()` first to verify the current file
-sizes on the API. Also, consider writing a batch retrieval
-process with appropriate handlers to track the progress of file input,
-ensuring the completeness of the requested data.</div>
+
+</div>
 
 <br>
  

@@ -23,57 +23,12 @@
 #'       \item{filters_used}{List of filters applied to the query}
 #'     }
 #'   }
-#'   \item{ivods}{A data frame containing:
-#'     \itemize{
-#'       \item{id}{IVOD record ID}
-#'       \item{url}{URL to view video on IVOD website}
-#'       \item{video_url}{Direct streaming URL for the video}
-#'       \item{meeting_time}{Original meeting date and time}
-#'       \item{meeting_name}{Name of the legislative meeting}
-#'       \item{type}{Type of video record}
-#'       \item{date}{Meeting date in YYYY-MM-DD format}
-#'       \item{start_time}{Video start timestamp}
-#'       \item{end_time}{Video end timestamp}
-#'       \item{duration}{Video duration in seconds}
-#'       \item{video_length}{Formatted video length (HH:MM:SS)}
-#'       \item{meet_id}{Meeting reference ID}
-#'       \item{meet_type}{Type of legislative meeting}
-#'       \item{term}{Legislative term number}
-#'       \item{session_period}{Session period number}
-#'     }
-#'   }
-#' }
-#'
-#' @examples
-#' \dontrun{
-#' # Get videos from term 9, session 1
-#' videos <- get_ly_ivod(
-#'   term = 9,
-#'   session_period = 1,
-#'   limit = 5
-#' )
-#'
-#' # Get videos with pagination
-#' page2_videos <- get_ly_ivod(
-#'   term = 9,
-#'   session_period = 1,
-#'   page = 2,
-#'   limit = 20
-#' )
-#'
-#' # View results
-#' print(paste("Total videos available:", videos$metadata$total))
-#' print(paste("Videos per page:", videos$metadata$per_page))
-#' print("Sample video details:")
-#' print(videos$ivods[1, c("meeting_name", "date", "video_length")])
+#'   \item{ivods}{A data frame containing IVOD records}
 #' }
 #'
 #' @importFrom httr GET content status_code
 #' @importFrom jsonlite fromJSON
 #' @importFrom utils txtProgressBar setTxtProgressBar
-#'
-#' @seealso
-#' \url{https://ly.govapi.tw/} for API documentation
 #'
 #' @export
 #' @encoding UTF-8
@@ -84,8 +39,12 @@ get_ly_ivod <- function(
     session_period = NULL,
     show_progress = TRUE
 ) {
-  if (!require("httr")) install.packages("httr")
-  if (!require("jsonlite")) install.packages("jsonlite")
+  # Initialize progress
+  if(show_progress) {
+    cat(sprintf("\nFetching IVOD data...\n"))
+    pb <- txtProgressBar(min = 0, max = 100, style = 3)
+    setTxtProgressBar(pb, 20)
+  }
 
   # Base URL
   base_url <- "https://ly.govapi.tw/ivod"
@@ -101,8 +60,9 @@ get_ly_ivod <- function(
   # Remove NULL values
   query_params <- query_params[!sapply(query_params, is.null)]
 
-  if (show_progress) {
-    cat("Fetching IVOD data...\n")
+  # Update progress - API call
+  if(show_progress) {
+    setTxtProgressBar(pb, 40)
   }
 
   # Send GET request
@@ -113,7 +73,13 @@ get_ly_ivod <- function(
 
   # Check response status
   if (httr::status_code(response) != 200) {
+    if(show_progress) close(pb)
     stop("API request failed with status code: ", httr::status_code(response))
+  }
+
+  # Update progress - parsing
+  if(show_progress) {
+    setTxtProgressBar(pb, 60)
   }
 
   # Parse response
@@ -129,11 +95,12 @@ get_ly_ivod <- function(
     filters_used = query_params
   )
 
-  if (show_progress) {
-    cat(sprintf("Found %d records\n", length(data$ivods)))
+  # Update progress - data processing
+  if(show_progress) {
+    setTxtProgressBar(pb, 80)
   }
 
-  # Create dataframe from the flattened data directly
+  # Create dataframe from the flattened data
   if (length(data$ivods) > 0) {
     ivods_df <- data.frame(
       id = data$ivods[["id"]],
@@ -153,10 +120,6 @@ get_ly_ivod <- function(
       session_period = data$ivods[["meet.sessionPeriod"]],
       stringsAsFactors = FALSE
     )
-
-    if (show_progress) {
-      cat("Data processing complete!\n")
-    }
   } else {
     # Empty dataframe
     ivods_df <- data.frame(
@@ -177,6 +140,58 @@ get_ly_ivod <- function(
       session_period = integer(),
       stringsAsFactors = FALSE
     )
+  }
+
+  # Update progress - complete
+  if(show_progress) {
+    setTxtProgressBar(pb, 100)
+    close(pb)
+
+    # Print summary
+    cat("\n\n")
+    cat("====== Retrieved Information ======\n")
+    cat("-----------------------------------\n")
+    cat(sprintf("Total IVOD Records: %d\n", metadata$total))
+    cat(sprintf("Page: %d of %d\n", metadata$current_page, metadata$total_page))
+    cat(sprintf("Records per page: %d\n", metadata$per_page))
+
+    if(nrow(ivods_df) > 0) {
+      # Add video type distribution
+      type_counts <- table(ivods_df$type)
+      cat("\nVideo Type Distribution:\n")
+      for(type_name in names(type_counts)) {
+        if(!is.na(type_name)) {
+          cat(sprintf(" %s: %d\n", type_name, type_counts[type_name]))
+        }
+      }
+
+      # Add meeting type distribution
+      meet_type_counts <- table(ivods_df$meet_type)
+      cat("\nMeeting Type Distribution:\n")
+      for(type_name in names(meet_type_counts)) {
+        if(!is.na(type_name)) {
+          cat(sprintf(" %s: %d\n", type_name, meet_type_counts[type_name]))
+        }
+      }
+
+      # Add term distribution if available
+      if(any(!is.na(ivods_df$term))) {
+        term_counts <- table(ivods_df$term)
+        cat("\nTerm Distribution:\n")
+        for(t in sort(as.numeric(names(term_counts)))) {
+          cat(sprintf(" Term %d: %d\n", t, term_counts[as.character(t)]))
+        }
+      }
+
+      # Add video duration statistics
+      if(any(!is.na(ivods_df$duration))) {
+        cat("\nVideo Duration Statistics:\n")
+        cat(sprintf(" Average: %.1f minutes\n", mean(ivods_df$duration, na.rm = TRUE) / 60))
+        cat(sprintf(" Min: %.1f minutes\n", min(ivods_df$duration, na.rm = TRUE) / 60))
+        cat(sprintf(" Max: %.1f minutes\n", max(ivods_df$duration, na.rm = TRUE) / 60))
+      }
+    }
+    cat("===================================\n")
   }
 
   return(list(

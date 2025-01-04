@@ -1,3 +1,81 @@
+#' Get Legislative Yuan Legislators by Term
+#'
+#' @title Fetch Legislators List for a Specific Term
+#'
+#' @description
+#' Retrieves a paginated list of legislators for a specific Legislative Yuan term.
+#' The function provides detailed information about legislators including their names,
+#' parties, and represented areas. It also includes metadata about the total number
+#' of legislators and pagination information.
+#'
+#' @param term required integer. Legislative term number (e.g., 9)
+#' @param page integer. Page number for pagination (default: 1)
+#' @param limit integer. Number of records per page (default: 20)
+#' @param show_progress logical. Whether to display progress bar and summary statistics (default: TRUE)
+#'
+#' @return A list with two components:
+#' \describe{
+#'   \item{metadata}{A list containing:
+#'     \itemize{
+#'       \item{total}{Total number of legislators}
+#'       \item{total_page}{Total number of pages}
+#'       \item{current_page}{Current page number}
+#'       \item{per_page}{Number of records per page}
+#'     }
+#'   }
+#'   \item{legislators}{A data frame containing legislator information:
+#'     \itemize{
+#'       \item{term}{Legislative term}
+#'       \item{name}{Legislator's name}
+#'       \item{party}{Political party affiliation}
+#'       \item{areaName}{Represented area (if available)}
+#'       \item{Additional columns as provided by the API}
+#'     }
+#'   }
+#' }
+#'
+#' @details
+#' The function includes a progress bar and detailed summary statistics when
+#' show_progress is TRUE. The summary includes:
+#' \itemize{
+#'   \item Total number of legislators
+#'   \item Current page and total pages
+#'   \item Records per page
+#'   \item Party distribution
+#'   \item Area distribution (if available)
+#' }
+#'
+#' @examples
+#' \dontrun{
+#' # Get first page of legislators for term 9
+#' result <- get_ly_legislators_by_term(term = 9)
+#'
+#' # Get second page with 30 records per page
+#' result <- get_ly_legislators_by_term(
+#'   term = 9,
+#'   page = 2,
+#'   limit = 30
+#' )
+#'
+#' # Access the results
+#' metadata <- result$metadata
+#' legislators_df <- result$legislators
+#'
+#' # Display total number of legislators
+#' cat("Total legislators:", metadata$total, "\n")
+#'
+#' # Show first few rows of legislator data
+#' head(legislators_df)
+#' }
+#'
+#' @seealso
+#' \code{\link{get_ly_legislator_detail}} for getting detailed information about a specific legislator
+#'
+#' @importFrom httr GET content status_code
+#' @importFrom jsonlite fromJSON
+#' @importFrom utils setTxtProgressBar txtProgressBar
+#'
+#' @export
 get_ly_legislators_by_term <- function(
     term,
     page = 1,
@@ -11,11 +89,6 @@ get_ly_legislators_by_term <- function(
   if (!is.numeric(term)) {
     stop("term must be numeric")
   }
-
-  if (!require("httr")) install.packages("httr")
-  if (!require("jsonlite")) install.packages("jsonlite")
-  if (!require("utils")) install.packages("utils")
-
   # Initialize progress
   if(show_progress) {
     cat(sprintf("\nFetching legislators data for term %d...\n", term))

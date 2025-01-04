@@ -20,27 +20,7 @@ get_ly_committee_meets(
 )
 }
 \arguments{
-\item{committee_id}{integer. Required. The ID of the committee:
-\itemize{
-\item 15: Internal Administration Committee (內政委員會)
-\item 16: Foreign and Overseas Chinese Affairs Committee (外交及僑務委員會)
-\item 17: Science and Technology Committee (科技及資訊委員會)
-\item 18: National Defense Committee (國防委員會)
-\item 19: Economics Committee (經濟委員會)
-\item 20: Finance Committee (財政委員會)
-\item 21: Budget and Final Accounts Committee (預算及決算委員會)
-\item 22: Education and Culture Committee (教育及文化委員會)
-\item 23: Transportation Committee (交通委員會)
-\item 24: Judiciary Committee (司法委員會)
-\item 25: Organic Laws and Statutes Committee (法制委員會)
-\item 26: Social Welfare and Environmental Hygiene Committee (社會福利及衛生環境委員會)
-\item 27: Procedure Committee (程序委員會)
-\item 28: Discipline Committee (紀律委員會)
-\item 29: Constitutional Amendment Committee (修憲委員會)
-\item 30: Expenditure Examination Committee (經費稽核委員會)
-\item 35: Foreign and National Defense Committee (外交及國防委員會)
-\item 36: Judiciary and Organic Laws and Statutes Committee (司法及法制委員會)
-}}
+\item{committee_id}{integer. Required. The ID of the committee}
 
 \item{page}{integer. Page number for pagination (default: 1)}
 
@@ -69,12 +49,4 @@ A list containing metadata and meetings data frame
 }
 \description{
 Retrieves and processes committee meeting information from the Legislative Yuan API.
-}
-\examples{
-# Get meetings for Internal Administration Committee
-result <- get_ly_committee_meets(committee_id = 15)
-
-# Get meetings for Education and Culture Committee
-result <- get_ly_committee_meets(committee_id = 22)
-
 }

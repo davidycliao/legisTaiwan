@@ -1,4 +1,18 @@
 
+# `legisTaiwan` 0.2.1
+
+## Major Changes
+
+- Updated API endpoint from ly.govapi.tw to v2.ly.govapi.tw
+- Maintained backward compatibility with legacy API functions
+- Enhanced documentation for better clarity
+
+## API Migration Notice
+
+The Legislative Yuan API is transitioning from https://ly.govapi.tw to https://v2.ly.govapi.tw. While functions using the legacy API will continue to work for now, we recommend starting to migrate your code to use the new API endpoint.
+
+------
+
 # `legisTaiwan` 0.1.7
 
 * Enhanced user experience by implementing progress bars for time-intensive operations. Progress bars are now displayed when verbose = TRUE.

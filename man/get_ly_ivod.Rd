@@ -36,25 +36,7 @@ A list containing:
 \item{filters_used}{List of filters applied to the query}
 }
 }
-\item{ivods}{A data frame containing:
-\itemize{
-\item{id}{IVOD record ID}
-\item{url}{URL to view video on IVOD website}
-\item{video_url}{Direct streaming URL for the video}
-\item{meeting_time}{Original meeting date and time}
-\item{meeting_name}{Name of the legislative meeting}
-\item{type}{Type of video record}
-\item{date}{Meeting date in YYYY-MM-DD format}
-\item{start_time}{Video start timestamp}
-\item{end_time}{Video end timestamp}
-\item{duration}{Video duration in seconds}
-\item{video_length}{Formatted video length (HH:MM:SS)}
-\item{meet_id}{Meeting reference ID}
-\item{meet_type}{Type of legislative meeting}
-\item{term}{Legislative term number}
-\item{session_period}{Session period number}
-}
-}
+\item{ivods}{A data frame containing IVOD records}
 }
 }
 \description{
@@ -63,32 +45,4 @@ Returns video records sorted by date in descending order.
 }
 \details{
 Get Legislative Yuan IVOD Records
-}
-\examples{
-\dontrun{
-# Get videos from term 9, session 1
-videos <- get_ly_ivod(
-  term = 9,
-  session_period = 1,
-  limit = 5
-)
-
-# Get videos with pagination
-page2_videos <- get_ly_ivod(
-  term = 9,
-  session_period = 1,
-  page = 2,
-  limit = 20
-)
-
-# View results
-print(paste("Total videos available:", videos$metadata$total))
-print(paste("Videos per page:", videos$metadata$per_page))
-print("Sample video details:")
-print(videos$ivods[1, c("meeting_name", "date", "video_length")])
-}
-
-}
-\seealso{
-\url{https://ly.govapi.tw/} for API documentation
 }

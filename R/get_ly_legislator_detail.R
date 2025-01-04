@@ -62,9 +62,6 @@ get_ly_legislator_detail <- function(
   if (!is.numeric(term)) stop("term must be numeric")
   if (!is.character(name)) stop("name must be character")
 
-  if (!require("httr")) install.packages("httr")
-  if (!require("jsonlite")) install.packages("jsonlite")
-
   # Base URL with path parameters
   base_url <- sprintf("https://ly.govapi.tw/legislator/%d/%s", term, name)
 

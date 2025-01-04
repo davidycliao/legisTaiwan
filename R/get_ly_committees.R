@@ -3,25 +3,7 @@
 #' @description
 #' Retrieves and processes committee meeting information from the Legislative Yuan API.
 #'
-#' @param committee_id integer. Required. The ID of the committee:
-#'   - 15: Internal Administration Committee (內政委員會)
-#'   - 16: Foreign and Overseas Chinese Affairs Committee (外交及僑務委員會)
-#'   - 17: Science and Technology Committee (科技及資訊委員會)
-#'   - 18: National Defense Committee (國防委員會)
-#'   - 19: Economics Committee (經濟委員會)
-#'   - 20: Finance Committee (財政委員會)
-#'   - 21: Budget and Final Accounts Committee (預算及決算委員會)
-#'   - 22: Education and Culture Committee (教育及文化委員會)
-#'   - 23: Transportation Committee (交通委員會)
-#'   - 24: Judiciary Committee (司法委員會)
-#'   - 25: Organic Laws and Statutes Committee (法制委員會)
-#'   - 26: Social Welfare and Environmental Hygiene Committee (社會福利及衛生環境委員會)
-#'   - 27: Procedure Committee (程序委員會)
-#'   - 28: Discipline Committee (紀律委員會)
-#'   - 29: Constitutional Amendment Committee (修憲委員會)
-#'   - 30: Expenditure Examination Committee (經費稽核委員會)
-#'   - 35: Foreign and National Defense Committee (外交及國防委員會)
-#'   - 36: Judiciary and Organic Laws and Statutes Committee (司法及法制委員會)
+#' @param committee_id integer. Required. The ID of the committee
 #' @param page integer. Page number for pagination (default: 1)
 #' @param per_page integer. Number of items per page (default: 20)
 #' @param term integer. Legislative term number
@@ -36,19 +18,11 @@
 #'
 #' @return A list containing metadata and meetings data frame
 #'
-#' @examples
-#' # Get meetings for Internal Administration Committee
-#' result <- get_ly_committee_meets(committee_id = 15)
-#'
-#' # Get meetings for Education and Culture Committee
-#' result <- get_ly_committee_meets(committee_id = 22)
-#'
 #' @importFrom httr GET content status_code
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr bind_rows
 #' @importFrom utils txtProgressBar setTxtProgressBar
 #' @export
-
 get_ly_committee_meets <- function(
     committee_id,
     page = 1,
@@ -67,11 +41,11 @@ get_ly_committee_meets <- function(
   if (missing(committee_id)) stop("committee_id is required")
   if (!is.numeric(committee_id)) stop("committee_id must be numeric")
 
-  # Required packages
-  for (pkg in c("httr", "jsonlite", "dplyr")) {
-    if (!requireNamespace(pkg, quietly = TRUE)) {
-      install.packages(pkg)
-    }
+  # Initialize progress
+  if(show_progress) {
+    cat(sprintf("\nFetching meetings data for committee ID %d...\n", committee_id))
+    pb <- txtProgressBar(min = 0, max = 100, style = 3)
+    setTxtProgressBar(pb, 20)
   }
 
   # API request
@@ -91,19 +65,27 @@ get_ly_committee_meets <- function(
   )
   query_params <- query_params[!sapply(query_params, is.null)]
 
-  if (show_progress) {
-    cat(sprintf("Fetching meetings for committee ID %d...\n", committee_id))
+  # Update progress - API call
+  if(show_progress) {
+    setTxtProgressBar(pb, 40)
   }
 
   # Make API request with error handling
   response <- tryCatch({
     httr::GET(base_url, query = query_params, httr::timeout(60))
   }, error = function(e) {
+    if(show_progress) close(pb)
     stop(sprintf("API request failed: %s", e$message))
   })
 
   if (httr::status_code(response) != 200) {
+    if(show_progress) close(pb)
     stop(sprintf("API request failed with status code: %d", httr::status_code(response)))
+  }
+
+  # Update progress - parsing
+  if(show_progress) {
+    setTxtProgressBar(pb, 60)
   }
 
   content <- httr::content(response, "text", encoding = "UTF-8")
@@ -111,16 +93,12 @@ get_ly_committee_meets <- function(
 
   # Process meetings
   if (length(data$meets) > 0) {
-    if (show_progress) {
-      pb <- utils::txtProgressBar(min = 0, max = length(data$meets), style = 3)
+    # Update progress - data processing
+    if(show_progress) {
+      setTxtProgressBar(pb, 80)
     }
 
-    # Process each meeting
-    meetings_list <- lapply(seq_along(data$meets), function(i) {
-      meet <- data$meets[[i]]
-
-      if (show_progress) utils::setTxtProgressBar(pb, i)
-
+    meetings_list <- lapply(data$meets, function(meet) {
       # Extract and process meeting participants
       legislators <- c()
 
@@ -166,11 +144,6 @@ get_ly_committee_meets <- function(
       )
     })
 
-    if (show_progress) {
-      close(pb)
-      cat("\nProcessing complete!\n")
-    }
-
     meetings_df <- dplyr::bind_rows(meetings_list)
 
   } else {
@@ -190,6 +163,7 @@ get_ly_committee_meets <- function(
     )
   }
 
+  # Process metadata
   metadata <- list(
     total = data$total,
     total_page = data$total_page,
@@ -198,6 +172,52 @@ get_ly_committee_meets <- function(
     filters = data$filter,
     timestamp = Sys.time()
   )
+
+  # Update progress - complete
+  if(show_progress) {
+    setTxtProgressBar(pb, 100)
+    close(pb)
+
+    # Print summary
+    cat("\n\n")
+    cat("====== Retrieved Information ======\n")
+    cat("-----------------------------------\n")
+    cat(sprintf("Total Meetings: %d\n", metadata$total))
+    cat(sprintf("Page: %d of %d\n", metadata$current_page, metadata$total_page))
+    cat(sprintf("Records per page: %d\n", metadata$per_page))
+
+    if(nrow(meetings_df) > 0) {
+      # Add meeting type distribution
+      type_counts <- table(meetings_df$會議種類)
+      cat("\nMeeting Type Distribution:\n")
+      for(type_name in names(type_counts)) {
+        if(!is.na(type_name)) {
+          cat(sprintf(" %s: %d\n", type_name, type_counts[type_name]))
+        }
+      }
+
+      # Add session distribution
+      if(any(!is.na(meetings_df$會期))) {
+        session_counts <- table(meetings_df$會期)
+        cat("\nSession Distribution:\n")
+        for(session in sort(as.numeric(names(session_counts)))) {
+          cat(sprintf(" Session %d: %d\n", session, session_counts[as.character(session)]))
+        }
+      }
+
+      # Add location distribution if available
+      if(any(!is.na(meetings_df$地點))) {
+        location_counts <- table(meetings_df$地點)
+        cat("\nLocation Distribution:\n")
+        for(location in names(location_counts)) {
+          if(!is.na(location)) {
+            cat(sprintf(" %s: %d\n", location, location_counts[location]))
+          }
+        }
+      }
+    }
+    cat("===================================\n")
+  }
 
   return(list(
     metadata = metadata,

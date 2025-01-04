@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>User Manual • legisTaiwan</title>
+<title>Manual • legisTaiwan</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
@@ -18,7 +18,7 @@
 <link href="../deps/Source_Code_Pro-0.4.9/font.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="User Manual">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Manual">
 <!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-X85ED8P5EW"></script><script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -35,7 +35,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">legisTaiwan</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.7</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -100,7 +100,7 @@
 
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="../logo.png" class="logo" alt=""><h1>User Manual</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>Manual</h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/davidycliao/legisTaiwan/blob/HEAD/vignettes/manual.Rmd" class="external-link"><code>vignettes/manual.Rmd</code></a></small>
@@ -110,17 +110,105 @@
     
     
 <div style="text-align: justify">
-<p>Parliamentary activities such as debates and written parliamentary
-questions, play a significant role in most parliamentary democracies.
-For example, the floor debate functions as a major platform for Members
-of Parliament (MPs) to uncover information and discussion regarding
-government policy, proposed new laws and topical issues of the day.</p>
+<p>The Legislative Yuan API is transitioning from
+<code>https://ly.govapi.tw</code> to
+<code>https://v2.ly.govapi.tw</code>.</p>
+<p>While we are maintaining support for functions that use the legacy
+API, please note that the old API endpoint will eventually be
+deprecated. We recommend users to gradually transition to the newer API
+versions as they become available.</p>
+<p><strong>Current Status:</strong></p>
+<ul>
+<li>Legacy API (<code>ly.govapi.tw</code>) - Still functional but will
+not receive updates</li>
+<li>New API (<code>v2.ly.govapi.tw</code>) - Current active development
+and maintenance</li>
+</ul>
 </div>
 <p><br></p>
 <hr>
-<div class="section level2">
-<h2 id="interpellation-and-debates">Interpellation and Debates<a class="anchor" aria-label="anchor" href="#interpellation-and-debates"></a>
-</h2>
+<div class="section level3">
+<h3 id="statistical-information">Statistical Information<a class="anchor" aria-label="anchor" href="#statistical-information"></a>
+</h3>
+<ul>
+<li>
+<a href=""><code>get_tly_stat()</code></a>: Fetch and Parse
+Legislative Yuan Statistics</li>
+</ul>
+<p><br></p>
+<hr>
+</div>
+<div class="section level3">
+<h3 id="legislators">Legislators<a class="anchor" aria-label="anchor" href="#legislators"></a>
+</h3>
+<ul>
+<li>
+<a href=""><code>get_ly_legislator_detail()</code></a>: Retrieve
+Complete Historical Records of Legislators</li>
+<li>
+<a href=""><code>get_ly_legislators_by_term()</code></a>: Get
+Legislators by Legislative Term</li>
+<li>
+<a href=""><code>get_ly_legislator_cosign_bills()</code></a>:
+Retrieve Legislator’s Co-sponsored Bills</li>
+<li>
+<a href=""><code>get_ly_legislator_bills()</code></a>: Get Bills
+Proposed by Legislator</li>
+</ul>
+<p><br></p>
+<hr>
+</div>
+<div class="section level3">
+<h3 id="bill">Bill<a class="anchor" aria-label="anchor" href="#bill"></a>
+</h3>
+<ul>
+<li>
+<a href=""><code>get_ly_bills()</code></a>: Fetch and Parse
+Legislative Yuan Bills</li>
+</ul>
+<p><br></p>
+<hr>
+</div>
+<div class="section level3">
+<h3 id="committees">Committees<a class="anchor" aria-label="anchor" href="#committees"></a>
+</h3>
+<ul>
+<li><p><a href=""><code>get_ly_committee_meets()</code></a>: Fetch
+Legislative Yuan Committee Meetings</p></li>
+<li><p><a href=""><code>get_ly_committees_type()</code></a>: Fetch and
+Parse Legislative Yuan Committee Details, Jurisdiction and
+Codes</p></li>
+</ul>
+<p><br></p>
+<hr>
+</div>
+<div class="section level3">
+<h3 id="interpellation">Interpellation<a class="anchor" aria-label="anchor" href="#interpellation"></a>
+</h3>
+<ul>
+<li>
+<a href=""><code>get_ly_interpellations()</code></a>: Get
+Legislative Yuan Interpellation Records</li>
+</ul>
+<p><br></p>
+<hr>
+</div>
+<div class="section level3">
+<h3 id="ivod">IVOD<a class="anchor" aria-label="anchor" href="#ivod"></a>
+</h3>
+<ul>
+<li>
+<a href=""><code>get_ly_ivod()</code></a>: Get Legislative Yuan IVOD
+Records</li>
+</ul>
+<p><br></p>
+<hr>
+</div>
+<div class="section level3">
+<h3 id="old-api-endpoint">Old API Endpoint<a class="anchor" aria-label="anchor" href="#old-api-endpoint"></a>
+</h3>
+<p>We will provide comprehensive guides and documentation to help you
+migrate to the new API endpoints.</p>
 <ul>
 <li><p><a href="https://davidycliao.github.io/legisTaiwan/reference/get_parlquestions.html"><code>get_parlquestions()</code></a>:
 parliamentary questions asked by the legislators
@@ -139,14 +227,6 @@ public debates 提供公報之國是論壇資訊，並包含書面意見自
 <li><p><a href="https://davidycliao.github.io/legisTaiwan/reference/get_speech_video.html"><code>get_speech_video()</code></a>:
 full video information of meetings and committees
 提供立法院院會及委員會之委員發言片段相關影片資訊 (自第9屆)</p></li>
-</ul>
-<p><br></p>
-<hr>
-</div>
-<div class="section level2">
-<h2 id="bill-and-budget">Bill and Budget<a class="anchor" aria-label="anchor" href="#bill-and-budget"></a>
-</h2>
-<ul>
 <li><p><a href="https://davidycliao.github.io/legisTaiwan/reference/get_committee_record.html"><code>get_committee_record()</code></a>:
 the records of reviewed items in the committees
 提供委員會會議審查之議案項目 (自第8屆)</p></li>
@@ -159,14 +239,6 @@ the records of legislators and the government bill proposals
 legislation and information passed on the third reading
 提供公報院會紀錄之三讀通過議案資訊。(自第8屆第1會期起) <strong>coming
 soon</strong></p></li>
-</ul>
-<p><br></p>
-<hr>
-</div>
-<div class="section level2">
-<h2 id="miscellaneous">Miscellaneous<a class="anchor" aria-label="anchor" href="#miscellaneous"></a>
-</h2>
-<ul>
 <li><p><a href="https://davidycliao.github.io/legisTaiwan/reference/get_variable_info.html"><code>get_variable_info()</code></a>:
 the API’s endpoint user manuals 使用說明文件</p></li>
 <li><p><a href="https://davidycliao.github.io/legisTaiwan/reference/review_session_info.html"><code>review_session_info()</code></a>:
@@ -176,10 +248,6 @@ the session period and year in formatted in Minguo (ROC) calendar.
 legislator demographics 提供委員基本資料</p></li>
 </ul>
 <p><br><br></p>
-<p><a href="https://github.com/davidycliao/legisTaiwan/discussions" class="external-link">+
-<strong>Further Check Required</strong>: the user manual seems to be
-inconsistent with actual data. Please check them out in the discussion
-參數設定後與資料取得不一致，待確認。</a></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>

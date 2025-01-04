@@ -1,2 +1,0 @@
-"0","page_info <- get_variable_info(""get_bills_2"")$page_info"
-"0","print(page_info)"

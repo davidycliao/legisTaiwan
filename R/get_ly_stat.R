@@ -25,11 +25,12 @@
 #' @importFrom httr GET content status_code
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr select mutate arrange desc
+#' @importFrom magrittr %>%
+#' @importFrom rlang .data
 #' @export
 get_tly_stat <- function() {
   # Send GET request to the API
   response <- httr::GET("https://v2.ly.govapi.tw/stat")
-
 
   # Check if the request was successful
   if (httr::status_code(response) != 200) {
@@ -48,15 +49,15 @@ get_tly_stat <- function() {
     total = data$bill$total,
     max_update_time = as.POSIXct(data$bill$max_mtime/1000, origin="1970-01-01"),
     terms = data$bill$terms %>%
-      select(term, count) %>%
-      arrange(desc(term))
+      dplyr::select(.data$term, .data$count) %>%
+      dplyr::arrange(dplyr::desc(.data$term))
   )
 
   # 2. Legislator statistics
   result$legislator <- list(
     total = data$legislator$total,
     terms = data$legislator$terms %>%
-      arrange(desc(term))
+      dplyr::arrange(dplyr::desc(.data$term))
   )
 
   # 3. Gazette statistics
@@ -65,21 +66,27 @@ get_tly_stat <- function() {
     agenda_total = data$gazette$agenda_total,
     last_meeting = as.POSIXct(data$gazette$max_meeting_date/1000, origin="1970-01-01"),
     yearly_stats = data$gazette$comYears %>%
-      mutate(
-        meeting_date = as.POSIXct(max_meeting_date/1000, origin="1970-01-01")
+      dplyr::mutate(
+        meeting_date = as.POSIXct(.data$max_meeting_date/1000, origin="1970-01-01")
       ) %>%
-      select(year, count, agenda_count, meeting_date)
+      dplyr::select(.data$year, .data$count, .data$agenda_count, .data$meeting_date)
   )
 
   # 4. Meeting statistics
   result$meet <- list(
     total = data$meet$total,
     terms = data$meet$terms %>%
-      mutate(
-        max_meeting_date = as.POSIXct(max_meeting_date/1000, origin="1970-01-01")
+      dplyr::mutate(
+        max_meeting_date = as.POSIXct(.data$max_meeting_date/1000, origin="1970-01-01")
       ) %>%
-      select(term, count, max_meeting_date, meetdata_count, 議事錄_count) %>%
-      arrange(desc(term))
+      dplyr::select(
+        .data$term,
+        .data$count,
+        .data$max_meeting_date,
+        .data$meetdata_count,
+        .data$議事錄_count
+      ) %>%
+      dplyr::arrange(dplyr::desc(.data$term))
   )
 
   # 5. IVOD (video) statistics
@@ -90,12 +97,17 @@ get_tly_stat <- function() {
       end = as.POSIXct(data$ivod$max_meeting_date/1000, origin="1970-01-01")
     ),
     terms = data$ivod$terms %>%
-      mutate(
-        start_date = as.POSIXct(min_meeting_date/1000, origin="1970-01-01"),
-        end_date = as.POSIXct(max_meeting_date/1000, origin="1970-01-01")
+      dplyr::mutate(
+        start_date = as.POSIXct(.data$min_meeting_date/1000, origin="1970-01-01"),
+        end_date = as.POSIXct(.data$max_meeting_date/1000, origin="1970-01-01")
       ) %>%
-      select(term, count, start_date, end_date) %>%
-      arrange(desc(term))
+      dplyr::select(
+        .data$term,
+        .data$count,
+        .data$start_date,
+        .data$end_date
+      ) %>%
+      dplyr::arrange(dplyr::desc(.data$term))
   )
 
   return(result)

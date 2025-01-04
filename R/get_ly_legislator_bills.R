@@ -1,6 +1,5 @@
-#' Get Legislator Information by Term and Name
+#' Get Bill by legislator
 #'
-#' @title Fetch Detailed Legislator Information
 #'
 #' @description
 #' Retrieves comprehensive information for a specific legislator from the Legislative Yuan API.
@@ -8,71 +7,81 @@
 #'
 #' @param term integer. Required. The legislative term number (e.g., 9)
 #' @param name string. Required. The legislator's name in Chinese (e.g., "王金平")
+#' @param page integer. Page number for pagination (default: 1)
+#' @param limit integer. Number of records per page (default: 20)
 #' @param show_progress logical. Whether to display progress information (default: TRUE)
 #'
-#' @return A list containing legislator's detailed information:
+#' @return A list containing two components:
 #' \describe{
-#'   \item{term}{Legislative term number}
-#'   \item{name}{Legislator's name in Chinese}
-#'   \item{ename}{Legislator's name in English romanization}
-#'   \item{sex}{Gender}
-#'   \item{party}{Political party affiliation}
-#'   \item{partyGroup}{Legislative caucus/party group}
-#'   \item{areaName}{Electoral district or constituency}
-#'   \item{committee}{List of committee assignments by legislative session}
-#'   \item{onboardDate}{Date when took office}
-#'   \item{degree}{List of educational qualifications}
-#'   \item{experience}{List of relevant work experience}
-#'   \item{picUrl}{URL to legislator's official photo}
-#'   \item{leaveFlag}{Indicates if legislator has left office ("是"/"否")}
-#'   \item{leaveDate}{Date of leaving office (if applicable)}
-#'   \item{leaveReason}{Reason for leaving office (if applicable)}
-#'   \item{bioId}{Unique biography identifier}
+#'   \item{metadata}{A list containing:
+#'     \itemize{
+#'       \item{total}{Total number of bills}
+#'       \item{total_page}{Total number of pages}
+#'       \item{current_page}{Current page number}
+#'       \item{per_page}{Number of records per page}
+#'     }
+#'   }
+#'   \item{bills}{A data frame containing:
+#'     \itemize{
+#'       \item{billNo}{Bill number}
+#'       \item{議案名稱}{Bill name}
+#'       \item{提案單位}{Proposing unit/legislator}
+#'       \item{議案狀態}{Bill status}
+#'       \item{議案類別}{Bill type}
+#'       \item{提案來源}{Bill source}
+#'       \item{meet_id}{Meeting ID}
+#'       \item{會期}{Session number}
+#'       \item{字號}{Reference number}
+#'       \item{提案編號}{Proposal number}
+#'       \item{屆期}{Legislative term}
+#'       \item{mtime}{Last modified time}
+#'     }
+#'   }
 #' }
 #'
 #' @section API Details:
 #' The function accesses the Legislative Yuan's open data API. The API endpoint
-#' format is: \code{https://ly.govapi.tw/legislator/{term}/{name}}
+#' format is: \code{https://ly.govapi.tw/legislator/{term}/{name}/propose_bill}
 #'
 #' @section Data Usage:
 #' The returned data can be used for:
 #' \itemize{
-#'   \item Legislative research and analysis
-#'   \item Tracking committee assignments
-#'   \item Analyzing political party affiliations
-#'   \item Monitoring legislative turnover
+#'   \item Analyzing legislator's bill proposal patterns
+#'   \item Tracking bill status and progress
+#'   \item Studying legislative priorities
+#'   \item Conducting policy research
 #' }
 #'
 #' @examples
 #' \dontrun{
-#' # Get details for a specific legislator
-#' legislator <- get_ly_legislator_bills(
+#' # Get bills for a specific legislator
+#' bills <- get_ly_legislator_bills(
 #'   term = 9,
-#'   name = "王金平"
+#'   name = "王金平",
+#'   limit = 10
 #' )
 #'
-#' # Display basic information
+#' # Get second page of bills
+#' bills_page2 <- get_ly_legislator_bills(
+#'   term = 9,
+#'   name = "王金平",
+#'   page = 2,
+#'   limit = 20
+#' )
+#'
+#' # Display summary statistics
 #' cat(sprintf(
-#'   "Legislator: %s (%s)\nParty: %s\nDistrict: %s\nCommittees: %s\n",
-#'   legislator$name,
-#'   legislator$ename,
-#'   legislator$party,
-#'   legislator$areaName,
-#'   paste(legislator$committee[1:2], collapse = "\n")
+#'   "Total Bills: %d\nCurrent Page: %d\nBills per page: %d\n",
+#'   bills$metadata$total,
+#'   bills$metadata$current_page,
+#'   bills$metadata$per_page
 #' ))
-#'
-#' # Check committee assignments
-#' print(legislator$committee)
-#'
-#' # Display educational background
-#' print(legislator$degree)
 #' }
 #'
 #' @seealso
 #' \itemize{
-#'   \item \url{https://ly.govapi.tw/} for API documentation
 #'   \item \code{\link{get_ly_legislators_by_term}} for listing all legislators in a term
-#'   \item \code{\link{get_ly_legislator_bills}} for legislator's proposed bills
+#'   \item \code{\link{get_ly_legislator_detail}} for detailed legislator information
 #' }
 #'
 #' @importFrom httr GET content status_code
@@ -93,11 +102,6 @@ get_ly_legislator_bills <- function(
   if(missing(name)) stop("name parameter is required")
   if(!is.numeric(term)) stop("term must be numeric")
   if(!is.character(name)) stop("name must be character")
-
-  if (!require("httr")) install.packages("httr")
-  if (!require("jsonlite")) install.packages("jsonlite")
-  if (!require("utils")) install.packages("utils")
-
   # Initialize progress
   if(show_progress) {
     cat(sprintf("\nFetching bills proposed by %s (term %d)...\n", name, term))

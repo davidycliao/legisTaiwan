@@ -72,10 +72,6 @@ get_ly_legislator_cosign_bills <- function(
   if(!is.numeric(term)) stop("term must be numeric")
   if(!is.character(name)) stop("name must be character")
 
-  if (!require("httr")) install.packages("httr")
-  if (!require("jsonlite")) install.packages("jsonlite")
-  if (!require("utils")) install.packages("utils")
-
   # Initialize progress
   if(show_progress) {
     cat(sprintf("\nFetching cosigned bills by %s (term %d)...\n", name, term))

@@ -1,13 +1,13 @@
 Package: legisTaiwan
 Type: Package
 Title: An Interface to Access Taiwan Legislative API in R 
-Version: 0.1.7
+Version: 0.2.1
 Authors@R: c(person("Yen-Chieh", "Liao", email = "davidycliao@gmail.com", role = c("aut", "cre")),
              person("Li", "Tang", email = "li.tang@reading.ac.uk", role = c("ctb", "aut")),
              person("Taiwan Legislative Yuan 立法院", role =  c("cph", "fnd")),
              person("Taiwan National Science and Technology Council", role = "ctb"),
              person("Taiwan Science & Technology Policy Research and Information Center NARLabs", role = "ctb"))
-Description: The pacakge is designed to make it quickly and easy to access Taiwan 
+Description: The package is designed to make it quickly and easy to access Taiwan 
              Legislative Yuan API for downloading real-time data legislative and 
              historical archives.
 Maintainer: Yen-Chieh Liao <davidycliao@gmail.com>
@@ -25,7 +25,12 @@ Imports:
     withr,
     httr,
     utils,
-    readr
+    readr,
+    dplyr,
+    magrittr,
+    plotly,
+    ggplot2,
+    rlang
 Suggests: 
   knitr,
   rmarkdown,
@@ -47,4 +52,5 @@ Config/default/Rcheck/ignore-ascii: TRUE
 Config/default/Rcheck/ascii: FALSE
 Config/default/Rcheck/incoming: FALSE
 NeedsCompilation: no
+Config/rextendr/rextendr.rchk.force: false
 AS-CRAN: FALSE

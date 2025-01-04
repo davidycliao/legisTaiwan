@@ -24,17 +24,7 @@ get_ly_committees_type(
 \item "國會改革前舊委員會名稱" (Former Committee Names before Reform)
 }}
 
-\item{code}{integer. Committee code number, e.g.:
-\itemize{
-\item 15: Internal Administration Committee (內政委員會)
-\item 19: Economics Committee (經濟委員會)
-\item 20: Finance Committee (財政委員會)
-\item 22: Education and Culture Committee (教育及文化委員會)
-\item 23: Transportation Committee (交通委員會)
-\item 26: Social Welfare and Environmental Hygiene Committee (社會福利及衛生環境委員會)
-\item 35: Foreign and National Defense Committee (外交及國防委員會)
-\item 36: Judiciary and Organic Laws and Statutes Committee (司法及法制委員會)
-}}
+\item{code}{integer. Committee code number}
 
 \item{show_progress}{logical. Whether to display progress bar (default: TRUE)}
 }
@@ -52,16 +42,4 @@ including their jurisdictions, responsibilities and assigned codes.
 \details{
 This function fetches comprehensive committee information from the Legislative Yuan API,
 providing committee codes, names, duties, jurisdictions and organizational structure.
-}
-\examples{
-# Get all standing committees
-committees <- get_ly_committees(
-  type = "常設委員會"
-)
-
-# Get specific committee by code
-committee <- get_ly_committees(
-  code = 15  # Internal Administration Committee
-)
-
 }
