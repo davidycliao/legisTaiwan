@@ -38,6 +38,15 @@ reference:
   - get_variable_info
   - review_session_info
   - legis_keywords
+  - get_ly_bills
+  - get_ly_committee_meets
+  - get_ly_committees_type
+  - get_ly_interpellations
+  - get_ly_ivod
+  - get_ly_legislator_bills
+  - get_ly_legislator_cosign_bills
+  - get_ly_legislators_by_term
+
 
 authors:
   Yen-Chieh Liao:
