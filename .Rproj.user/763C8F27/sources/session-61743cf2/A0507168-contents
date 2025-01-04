@@ -6,11 +6,4 @@
 ^pkgdown$
 ^\.github$
 ^codecov\.yml$
-^\.Rcheck$
 ^.*\.utf8\.R$
-^README\.Rmd$
-^.*\.Rproj$
-^\.Rproj\.user$
-^README\.Rmd$
-^cran-comments\.md$
-^\.github$
