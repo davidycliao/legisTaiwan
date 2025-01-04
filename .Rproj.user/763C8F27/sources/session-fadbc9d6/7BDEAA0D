@@ -1,0 +1,26 @@
+{
+    "id": "7BDEAA0D",
+    "path": "~/Dropbox/My Packages/legisTaiwan/.github/workflows/R-CMD-check.yaml",
+    "project_path": ".github/workflows/R-CMD-check.yaml",
+    "type": "yaml",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1735335486554.0,
+    "source_on_save": false,
+    "relative_order": 3,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "97,0",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1735335496,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1735335496201,
+    "read_only": false,
+    "read_only_alternatives": []
+}
