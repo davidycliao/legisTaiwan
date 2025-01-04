@@ -29,7 +29,7 @@ Presents the information in a formatted text output."><meta property="og:image" 
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-quick-start" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fa-rocket"></span> Quick Start</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-quick-start"><li><a class="dropdown-item" href="../articles/quickstart.html#get-started-with-using-remotes">Quick Start Guide</a></li>
-    <li><a class="dropdown-item" href="../articles/quickstart.html#quickstart.html#how-to-contribute">How to Contribute</a></li>
+    <li><a class="dropdown-item" href="../articles/quickstart.html#manual.html">Manual</a></li>
   </ul></li>
 <li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-reference" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fa-file-code-o"></span> Reference</button>
@@ -79,31 +79,121 @@ Presents the information in a formatted text output.</p>
 
 
 <dl><dt id="arg-stats">stats<a class="anchor" aria-label="anchor" href="#arg-stats"></a></dt>
-<dd><p>A list containing Legislative Yuan statistics with the following structure:</p><ul><li><p>legislator</p><ul><li><p>total - Total historical number of legislators</p></li>
-<li><p>terms - Data frame of legislator counts by term</p></li>
-</ul></li>
-<li><p>gazette</p><ul><li><p>total - Total number of gazettes</p></li>
-<li><p>agenda_total - Total number of agendas</p></li>
-<li><p>last_meeting - Date of the last meeting</p></li>
-</ul></li>
-<li><p>ivod</p><ul><li><p>total - Total number of video records</p></li>
-<li><p>date_range - List containing start and end dates of video archives</p></li>
-</ul></li>
-</ul></dd>
+<dd><p>A list containing Legislative Yuan statistics with the following structure:</p><dl><dt>legislator</dt>
+<dd><p>A list containing legislator information:</p><dl><dt>total</dt>
+<dd><p>Total historical number of legislators</p></dd>
+
+<dt>terms</dt>
+<dd><p>Data frame of legislator counts by term</p></dd>
+
+
+</dl></dd>
+
+<dt>gazette</dt>
+<dd><p>A list containing gazette information:</p><dl><dt>total</dt>
+<dd><p>Total number of gazettes</p></dd>
+
+<dt>agenda_total</dt>
+<dd><p>Total number of agendas</p></dd>
+
+<dt>last_meeting</dt>
+<dd><p>Date of the last meeting</p></dd>
+
+
+</dl></dd>
+
+<dt>ivod</dt>
+<dd><p>A list containing video information:</p><dl><dt>total</dt>
+<dd><p>Total number of video records</p></dd>
+
+<dt>date_range</dt>
+<dd><p>List containing start and end dates of video archives</p></dd>
+
+
+</dl></dd>
+
+
+</dl></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>Prints a formatted report to the console containing:</p><ul><li><p>Legislator statistics and historical counts</p></li>
-<li><p>Gazette information including total counts and latest meeting</p></li>
-<li><p>Video archive statistics with time period coverage</p></li>
-</ul></div>
+    <p>A formatted report containing the following sections:</p><dl><dt>Bill Statistics</dt>
+<dd>
+<dl><dt>Total Bills</dt>
+<dd><p>Total number of bills</p></dd>
+
+<dt>Last Update</dt>
+<dd><p>Most recent bill update date</p></dd>
+
+
+</dl></dd>
+
+<dt>Legislator Statistics</dt>
+<dd>
+<dl><dt>Total Count</dt>
+<dd><p>Historical total of legislators</p></dd>
+
+<dt>Term Distribution</dt>
+<dd><p>Legislator counts by term</p></dd>
+
+
+</dl></dd>
+
+<dt>Gazette Statistics</dt>
+<dd>
+<dl><dt>Total Counts</dt>
+<dd><p>Numbers of gazettes and agendas</p></dd>
+
+<dt>Latest Activity</dt>
+<dd><p>Most recent meeting date</p></dd>
+
+
+</dl></dd>
+
+<dt>Video Statistics</dt>
+<dd>
+<dl><dt>Total Videos</dt>
+<dd><p>Number of video records</p></dd>
+
+<dt>Coverage Period</dt>
+<dd><p>Time span of video archives</p></dd>
+
+
+</dl></dd>
+
+
+</dl></div>
+    <div class="section level2">
+    <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
+    <div class="dont-index">
+<dl><dt>analyze_bills</dt>
+<dd><p>For detailed bill analysis</p></dd>
+
+<dt>analyze_meetings</dt>
+<dd><p>For meeting statistics analysis</p></dd>
+
+<dt>analyze_ivod</dt>
+<dd><p>For video records analysis</p></dd>
+
+
+</dl></div>
+    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span><span class="co"># Generate full statistics report</span></span></span>
 <span class="r-in"><span><span class="va">stats</span> <span class="op">&lt;-</span> <span class="fu">get_ly_stat</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu">generate_summary_report</span><span class="op">(</span><span class="va">stats</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">generate_report</span><span class="op">(</span><span class="va">stats</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># View specific sections</span></span></span>
+<span class="r-in"><span><span class="va">stats</span> <span class="op">&lt;-</span> <span class="fu">get_ly_stat</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="st">"\nBill Statistics:\n"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"Total Bills: %d\n"</span>, <span class="va">stats</span><span class="op">$</span><span class="va">bill</span><span class="op">$</span><span class="va">total</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="st">"\nLegislator Statistics:\n"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"Total Legislators: %d\n"</span>, <span class="va">stats</span><span class="op">$</span><span class="va">legislator</span><span class="op">$</span><span class="va">total</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

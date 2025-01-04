@@ -27,7 +27,7 @@ and bills per day, by joining bill and meeting statistics across terms."><meta p
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-quick-start" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fa-rocket"></span> Quick Start</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-quick-start"><li><a class="dropdown-item" href="../articles/quickstart.html#get-started-with-using-remotes">Quick Start Guide</a></li>
-    <li><a class="dropdown-item" href="../articles/quickstart.html#quickstart.html#how-to-contribute">How to Contribute</a></li>
+    <li><a class="dropdown-item" href="../articles/quickstart.html#manual.html">Manual</a></li>
   </ul></li>
 <li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-reference" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fa-file-code-o"></span> Reference</button>
@@ -76,31 +76,67 @@ and bills per day, by joining bill and meeting statistics across terms.</p>
 
 
 <dl><dt id="arg-stats">stats<a class="anchor" aria-label="anchor" href="#arg-stats"></a></dt>
-<dd><p>A list containing Legislative Yuan statistics with the following structure:</p><ul><li><p>bill$terms - Data frame with columns:</p><ul><li><p>term - Legislative term number</p></li>
-<li><p>count - Number of bills in that term</p></li>
-</ul></li>
-<li><p>meet$terms - Data frame with columns:</p><ul><li><p>term - Legislative term number</p></li>
-<li><p>count - Number of meetings in that term</p></li>
-<li><p>max_meeting_date - Last meeting date of the term</p></li>
-</ul></li>
-</ul></dd>
+<dd><p>A list containing Legislative Yuan statistics with the following structure:</p><dl><dt>bill$terms</dt>
+<dd><p>Data frame containing bill information:</p><dl><dt>term</dt>
+<dd><p>Legislative term number</p></dd>
+
+<dt>count</dt>
+<dd><p>Number of bills in that term</p></dd>
+
+
+</dl></dd>
+
+<dt>meet$terms</dt>
+<dd><p>Data frame containing meeting information:</p><dl><dt>term</dt>
+<dd><p>Legislative term number</p></dd>
+
+<dt>count</dt>
+<dd><p>Number of meetings in that term</p></dd>
+
+<dt>max_meeting_date</dt>
+<dd><p>Last meeting date of the term</p></dd>
+
+
+</dl></dd>
+
+
+</dl></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A data frame containing the following columns:</p><ul><li><p>term - Legislative term number</p></li>
-<li><p>bills - Total number of bills in term</p></li>
-<li><p>meetings - Total number of meetings in term</p></li>
-<li><p>bills_per_meeting - Average number of bills per meeting</p></li>
-<li><p>bills_per_day - Average number of bills per day</p></li>
-</ul></div>
+    <p>A data frame containing the following columns:</p><dl><dt>term</dt>
+<dd><p>Legislative term number</p></dd>
+
+<dt>bills</dt>
+<dd><p>Total number of bills in term</p></dd>
+
+<dt>meetings</dt>
+<dd><p>Total number of meetings in term</p></dd>
+
+<dt>bills_per_meeting</dt>
+<dd><p>Average number of bills per meeting</p></dd>
+
+<dt>bills_per_day</dt>
+<dd><p>Average number of bills per day</p></dd>
+
+
+</dl></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span><span class="co"># Get statistics and calculate trends</span></span></span>
 <span class="r-in"><span><span class="va">stats</span> <span class="op">&lt;-</span> <span class="fu">get_ly_stat</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">trends</span> <span class="op">&lt;-</span> <span class="fu">calculate_bill_trends</span><span class="op">(</span><span class="va">stats</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">trends</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># View trend analysis</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="st">"Bill processing trends:"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">trends</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Analyze specific metrics</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="st">"Average bills per meeting by term:"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">trends</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"term"</span>, <span class="st">"bills_per_meeting"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

@@ -29,7 +29,7 @@ between total meetings and available meeting minutes."><meta property="og:image"
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-quick-start" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fa-rocket"></span> Quick Start</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-quick-start"><li><a class="dropdown-item" href="../articles/quickstart.html#get-started-with-using-remotes">Quick Start Guide</a></li>
-    <li><a class="dropdown-item" href="../articles/quickstart.html#quickstart.html#how-to-contribute">How to Contribute</a></li>
+    <li><a class="dropdown-item" href="../articles/quickstart.html#manual.html">Manual</a></li>
   </ul></li>
 <li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-reference" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fa-file-code-o"></span> Reference</button>
@@ -79,32 +79,72 @@ between total meetings and available meeting minutes.</p>
 
 
 <dl><dt id="arg-stats">stats<a class="anchor" aria-label="anchor" href="#arg-stats"></a></dt>
-<dd><p>A list containing Legislative Yuan statistics with the following structure:</p><ul><li><p>meet</p><ul><li><p>total - Total number of meetings</p></li>
-<li><p>terms - Data frame with columns:</p><ul><li><p>term - Legislative term number</p></li>
-<li><p>count - Number of meetings in that term</p></li>
-<li><p>max_meeting_date - Last meeting date of the term</p></li>
-<li><p>meetdata_count - Number of meetings with data</p></li>
-<li><p>議事錄_count - Number of meetings with minutes</p></li>
-</ul></li>
-</ul></li>
-</ul></dd>
+<dd><p>A list containing Legislative Yuan statistics with the following structure:</p><dl><dt>meet</dt>
+<dd><p>A list containing:</p><dl><dt>total</dt>
+<dd><p>Total number of meetings</p></dd>
+
+<dt>terms</dt>
+<dd><p>Data frame with columns:</p><dl><dt>term</dt>
+<dd><p>Legislative term number</p></dd>
+
+<dt>count</dt>
+<dd><p>Number of meetings in that term</p></dd>
+
+<dt>max_meeting_date</dt>
+<dd><p>Last meeting date of the term</p></dd>
+
+<dt>meetdata_count</dt>
+<dd><p>Number of meetings with data</p></dd>
+
+<dt>議事錄_count</dt>
+<dd><p>Number of meetings with minutes</p></dd>
+
+
+</dl></dd>
+
+
+</dl></dd>
+
+
+</dl></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A list containing:</p><ul><li><p>plot - A ggplot object showing meeting statistics comparison</p></li>
-<li><p>summary - A data frame with meeting statistics including:</p><ul><li><p>term</p></li>
-<li><p>count</p></li>
-<li><p>minutes_ratio - Percentage of meetings with minutes</p></li>
-<li><p>last_meeting_date - Formatted date of last meeting</p></li>
-</ul></li>
-</ul></div>
+    <p>A list containing:</p><dl><dt>plot</dt>
+<dd><p>A ggplot object showing meeting statistics comparison</p></dd>
+
+<dt>summary</dt>
+<dd><p>A data frame with meeting statistics including:</p><dl><dt>term</dt>
+<dd><p>Term number</p></dd>
+
+<dt>count</dt>
+<dd><p>Total meetings</p></dd>
+
+<dt>minutes_ratio</dt>
+<dd><p>Percentage of meetings with minutes</p></dd>
+
+<dt>last_meeting_date</dt>
+<dd><p>Formatted date of last meeting</p></dd>
+
+
+</dl></dd>
+
+
+</dl></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span><span class="co"># Get statistics and analyze meetings</span></span></span>
 <span class="r-in"><span><span class="va">stats</span> <span class="op">&lt;-</span> <span class="fu">get_ly_stat</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu">analyze_meetings</span><span class="op">(</span><span class="va">stats</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">meeting_analysis</span> <span class="op">&lt;-</span> <span class="fu">analyze_meetings</span><span class="op">(</span><span class="va">stats</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># View the plot</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">meeting_analysis</span><span class="op">$</span><span class="va">plot</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># View meeting statistics</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">meeting_analysis</span><span class="op">$</span><span class="va">summary</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

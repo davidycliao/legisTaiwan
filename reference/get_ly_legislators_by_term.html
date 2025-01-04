@@ -31,7 +31,7 @@ of legislators and pagination information."><meta property="og:image" content="h
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-quick-start" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fa-rocket"></span> Quick Start</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-quick-start"><li><a class="dropdown-item" href="../articles/quickstart.html#get-started-with-using-remotes">Quick Start Guide</a></li>
-    <li><a class="dropdown-item" href="../articles/quickstart.html#quickstart.html#how-to-contribute">How to Contribute</a></li>
+    <li><a class="dropdown-item" href="../articles/quickstart.html#manual.html">Manual</a></li>
   </ul></li>
 <li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-reference" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fa-file-code-o"></span> Reference</button>
@@ -100,19 +100,39 @@ of legislators and pagination information.</p>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A list with two components:</p><dl><dt>metadata</dt>
-<dd><p>A list containing:</p><ul><li><p>totalTotal number of legislators</p></li>
-<li><p>total_pageTotal number of pages</p></li>
-<li><p>current_pageCurrent page number</p></li>
-<li><p>per_pageNumber of records per page</p></li>
-</ul></dd>
+<dd><p>A list containing:</p><dl><dt>total</dt>
+<dd><p>Total number of legislators</p></dd>
+
+<dt>total_page</dt>
+<dd><p>Total number of pages</p></dd>
+
+<dt>current_page</dt>
+<dd><p>Current page number</p></dd>
+
+<dt>per_page</dt>
+<dd><p>Number of records per page</p></dd>
+
+
+</dl></dd>
 
 <dt>legislators</dt>
-<dd><p>A data frame containing legislator information:</p><ul><li><p>termLegislative term</p></li>
-<li><p>nameLegislator's name</p></li>
-<li><p>partyPolitical party affiliation</p></li>
-<li><p>areaNameRepresented area (if available)</p></li>
-<li><p>Additional columns as provided by the API</p></li>
-</ul></dd>
+<dd><p>A data frame containing legislator information:</p><dl><dt>term</dt>
+<dd><p>Legislative term</p></dd>
+
+<dt>name</dt>
+<dd><p>Legislator's name</p></dd>
+
+<dt>party</dt>
+<dd><p>Political party affiliation</p></dd>
+
+<dt>areaName</dt>
+<dd><p>Represented area (if available)</p></dd>
+
+<dt>columns</dt>
+<dd><p>Additional columns as provided by the API</p></dd>
+
+
+</dl></dd>
 
 
 </dl></div>
@@ -120,15 +140,28 @@ of legislators and pagination information.</p>
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Get Legislative Yuan Legislators by Term</p>
 <p>The function includes a progress bar and detailed summary statistics when
-show_progress is TRUE. The summary includes:</p><ul><li><p>Total number of legislators</p></li>
-<li><p>Current page and total pages</p></li>
-<li><p>Records per page</p></li>
-<li><p>Party distribution</p></li>
-<li><p>Area distribution (if available)</p></li>
-</ul></div>
+show_progress is TRUE. The summary includes:</p><dl><dt>Total Statistics</dt>
+<dd><p>Total number of legislators</p></dd>
+
+<dt>Pagination</dt>
+<dd><p>Current page and total pages</p></dd>
+
+<dt>Page Size</dt>
+<dd><p>Records per page</p></dd>
+
+<dt>Distribution</dt>
+<dd><p>Party and area distribution (if available)</p></dd>
+
+
+</dl></div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="get_ly_legislator_detail.html">get_ly_legislator_detail</a></code> for getting detailed information about a specific legislator</p></div>
+    <div class="dont-index">
+<dl><dt>get_ly_legislator_detail</dt>
+<dd><p><code><a href="get_ly_legislator_detail.html">get_ly_legislator_detail</a></code> for getting detailed information about a specific legislator</p></dd>
+
+
+</dl></div>
     </div>
 
     <div class="section level2">
