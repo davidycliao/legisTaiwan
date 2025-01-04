@@ -16,8 +16,8 @@
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Source_Sans_Pro-0.4.9/font.css" rel="stylesheet">
 <link href="../deps/Source_Code_Pro-0.4.9/font.css" rel="stylesheet">
-<link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
-<link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Quick Start">
 <!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-X85ED8P5EW"></script><script>
   window.dataLayer = window.dataLayer || [];
@@ -35,7 +35,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">legisTaiwan</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.7</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,35 +44,18 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item"><a class="nav-link" href="../index.html"><span class="fa fa-home"></span></a></li>
+<li class="nav-item"><a class="nav-link" href="../index.html" aria-label="Home"><span class="fa fa-home"></span></a></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-quick-start" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fa-rocket"></span> Quick Start</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-quick-start">
-<li><a class="dropdown-item" href="../articles/quickstart.html#get-started-with-using-remotes">Quick Start Guide</a></li>
-    <li><a class="dropdown-item" href="../articles/quickstart.html#quickstart.html#how-to-contribute">How to Contribute</a></li>
-  </ul>
-</li>
-<li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-manual" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fa-project-diagram"></span> Manual</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-manual">
-<li><a class="dropdown-item" href="../articles/manual.html#interpellation-and-debates">Interpellation and Debates</a></li>
-    <li><a class="dropdown-item" href="../articles/manual.html#bill-and-budget">Bill and Budget</a></li>
-    <li><a class="dropdown-item" href="../articles/manual.html#miscellaneous">Miscellaneous</a></li>
+<li><a class="dropdown-item" href="../articles/quickstart.html#get-started-with-using-remotes">Get Started</a></li>
+    <li><a class="dropdown-item" href="../articles/quickstart.html#taiwan-legislative-yuan-api-v2.html">Legislative Yuan API (v2)</a></li>
   </ul>
 </li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-reference" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fa-file-code-o"></span> Reference</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-reference">
 <li><a class="dropdown-item" href="../reference/index.html">Function Reference</a></li>
-  </ul>
-</li>
-<li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-tutorial" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fa-file-code-o"></span> Tutorial</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-tutorial">
-<li><a class="dropdown-item" href="../articles/get_bills.html">Records of the Bills</a></li>
-    <li><a class="dropdown-item" href="../articles/get_legislators.html">Demographic Data</a></li>
-    <li><a class="dropdown-item" href="../articles/get_parlquestions.html">Parliarmentary Questions</a></li>
-    <li><a class="dropdown-item" href="../articles/Party%20Caucus%20Negotiation.html">Party Caucus Negotiation</a></li>
   </ul>
 </li>
 <li class="nav-item dropdown">
@@ -103,7 +86,7 @@
       <img src="../logo.png" class="logo" alt=""><h1>Quick Start</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/davidycliao/legisTaiwan/blob/master/vignettes/quickstart.Rmd" class="external-link"><code>vignettes/quickstart.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/davidycliao/legisTaiwan/blob/HEAD/vignettes/quickstart.Rmd" class="external-link"><code>vignettes/quickstart.Rmd</code></a></small>
       <div class="d-none name"><code>quickstart.Rmd</code></div>
     </div>
 
@@ -127,10 +110,140 @@ public policies.</p>
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://davidycliao.github.io/legisTaiwan/">legisTaiwan</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; Error in get(paste0(generic, ".", class), envir = get_method_env()) : </span></span>
 <span><span class="co">#&gt;   object 'type_sum.accel' not found</span></span>
-<span><span class="co">#&gt; ## <span style="color: #005F00;">legis</span><span style="color: #BB0000;">T</span><span style="color: #FFAF00;">a</span><span style="color: #BBBB00;">i</span><span style="color: #00BB00;">w</span><span style="color: #0000BB;">a</span><span style="color: #5F0087;">n</span>                                            ##</span></span>
+<span><span class="co">#&gt; Warning: replacing previous import 'ggplot2::last_plot' by</span></span>
+<span><span class="co">#&gt; 'plotly::last_plot' when loading 'legisTaiwan'</span></span>
+<span><span class="co">#&gt; ## <span style="color: #005F00;">legis</span><span style="color: #BB0000;">T</span><span style="color: #FFAF00;">a</span><span style="color: #BBBB00;">i</span><span style="color: #00BB00;">w</span><span style="color: #0000BB;">a</span><span style="color: #5F0087;">n</span> v0.2.1                                     ##</span></span>
 <span><span class="co">#&gt; ## An R package connecting to the Taiwan Legislative API. ##</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="taiwan-legislative-yuan-api-v2">Taiwan Legislative Yuan API (v2)<a class="anchor" aria-label="anchor" href="#taiwan-legislative-yuan-api-v2"></a>
+</h2>
+<div style="text-align: justify">
+<p>The Legislative Yuan API is transitioning from
+<code>https://ly.govapi.tw</code> to
+<code>https://v2.ly.govapi.tw</code>.</p>
+<p>While we are maintaining support for functions that use the legacy
+API, please note that the old API endpoint will eventually be
+deprecated. We recommend users to gradually transition to the newer API
+versions as they become available.</p>
+<p><strong>Current Status:</strong></p>
+<ul>
+<li>Legacy API (<code>ly.govapi.tw</code>) - Still functional but will
+not receive updates</li>
+<li>New API (<code>v2.ly.govapi.tw</code>) - Current active development
+and maintenance</li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="statistical-information">Statistical Information<a class="anchor" aria-label="anchor" href="#statistical-information"></a>
+</h3>
+<ul>
+<li>
+<a href=""><code>get_tly_stat()</code></a>: Fetch and Parse
+Legislative Yuan Statistics</li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="legislators">Legislators<a class="anchor" aria-label="anchor" href="#legislators"></a>
+</h3>
+<ul>
+<li>
+<a href=""><code>get_ly_legislator_detail()</code></a>: Retrieve
+Complete Historical Records of Legislators</li>
+<li>
+<a href=""><code>get_ly_legislators_by_term()</code></a>: Get
+Legislators by Legislative Term</li>
+<li>
+<a href=""><code>get_ly_legislator_cosign_bills()</code></a>:
+Retrieve Legislator’s Co-sponsored Bills</li>
+<li>
+<a href=""><code>get_ly_legislator_bills()</code></a>: Get Bills
+Proposed by Legislator</li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="bill">Bill<a class="anchor" aria-label="anchor" href="#bill"></a>
+</h3>
+<ul>
+<li>
+<a href=""><code>get_ly_bills()</code></a>: Fetch and Parse
+Legislative Yuan Bills</li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="committees">Committees<a class="anchor" aria-label="anchor" href="#committees"></a>
+</h3>
+<ul>
+<li><p><a href=""><code>get_ly_committee_meets()</code></a>: Fetch
+Legislative Yuan Committee Meetings</p></li>
+<li><p><a href=""><code>get_ly_committees_type()</code></a>: Fetch and
+Parse Legislative Yuan Committee Details, Jurisdiction and
+Codes</p></li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="interpellation">Interpellation<a class="anchor" aria-label="anchor" href="#interpellation"></a>
+</h3>
+<ul>
+<li>
+<a href=""><code>get_ly_interpellations()</code></a>: Get
+Legislative Yuan Interpellation Records</li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="ivod">IVOD<a class="anchor" aria-label="anchor" href="#ivod"></a>
+</h3>
+<ul>
+<li>
+<a href=""><code>get_ly_ivod()</code></a>: Get Legislative Yuan IVOD
+Records</li>
+</ul>
 <p><br></p>
-<hr>
+</div>
+</div>
+<div class="section level2">
+<h2 id="taiwan-legislative-yuan-api-v1">Taiwan Legislative Yuan API (v1)<a class="anchor" aria-label="anchor" href="#taiwan-legislative-yuan-api-v1"></a>
+</h2>
+<p>We will provide comprehensive guides and documentation to help you
+migrate to the new API endpoints.</p>
+<ul>
+<li><p><a href="https://davidycliao.github.io/legisTaiwan/reference/get_parlquestions.html"><code>get_parlquestions()</code></a>:
+parliamentary questions asked by the legislators
+提供議事日程本院委員之質詢事項資訊 (自第8屆)</p></li>
+<li><p><a href="https://davidycliao.github.io/legisTaiwan/reference/get_bills.html"><code>get_meetings()</code></a>:
+spoken meeting records 委員發言</p></li>
+<li><p><a href="https://davidycliao.github.io/legisTaiwan/reference/get_caucus_meetings.html"><code>get_caucus_meetings()</code></a>:
+the meeting records of cross-caucus session 提供公報之黨團協商資訊
+(自第8屆)</p></li>
+<li><p><a href="https://davidycliao.github.io/legisTaiwan/reference/get_executive_response.html"><code>get_executive_response()</code></a>:
+questions answered by the executives提供公報質詢事項行政院答復資訊
+(自第8屆)</p></li>
+<li><p><a href="https://davidycliao.github.io/legisTaiwan/reference/get_public_debates.html"><code>get_public_debates()</code></a>:
+public debates 提供公報之國是論壇資訊，並包含書面意見自
+(自第8屆)</p></li>
+<li><p><a href="https://davidycliao.github.io/legisTaiwan/reference/get_speech_video.html"><code>get_speech_video()</code></a>:
+full video information of meetings and committees
+提供立法院院會及委員會之委員發言片段相關影片資訊 (自第9屆)</p></li>
+<li><p><a href="https://davidycliao.github.io/legisTaiwan/reference/get_committee_record.html"><code>get_committee_record()</code></a>:
+the records of reviewed items in the committees
+提供委員會會議審查之議案項目 (自第8屆)</p></li>
+<li><p><a href="https://davidycliao.github.io/legisTaiwan/reference/get_bills.html"><code>get_bills()</code></a>:
+the records of the bills 法律提案 (能取得最早日不詳，待檢查)</p></li>
+<li><p><a href="https://davidycliao.github.io/legisTaiwan/reference/get_bills_2.html"><code>get_bills_2()</code></a>:
+the records of legislators and the government bill proposals
+提供委員及政府之議案提案資訊 (自第8屆)</p></li>
+<li><p><a href="https://data.ly.gov.tw/getds.action?id=48" class="external-link"><code>passed_legislation()</code></a>:
+legislation and information passed on the third reading
+提供公報院會紀錄之三讀通過議案資訊。(自第8屆第1會期起) <strong>coming
+soon</strong></p></li>
+<li><p><a href="https://davidycliao.github.io/legisTaiwan/reference/get_variable_info.html"><code>get_variable_info()</code></a>:
+the API’s endpoint user manuals 使用說明文件</p></li>
+<li><p><a href="https://davidycliao.github.io/legisTaiwan/reference/review_session_info.html"><code>review_session_info()</code></a>:
+the session period and year in formatted in Minguo (ROC) calendar.
+屆期年對照表</p></li>
+<li><p><a href="https://davidycliao.github.io/legisTaiwan/reference/get_legislators.html"><code>get_legislators()</code></a>:
+legislator demographics 提供委員基本資料</p></li>
+</ul>
 <p><br></p>
 </div>
 <div class="section level2">
