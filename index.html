@@ -16,11 +16,11 @@
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/Source_Sans_Pro-0.4.9/font.css" rel="stylesheet">
 <link href="deps/Source_Code_Pro-0.4.9/font.css" rel="stylesheet">
-<link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
-<link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
+<link href="deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
+<link href="deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Accessing Real-time and Archives of Taiwan Legislative Data in R">
-<meta name="description" content="The pacakge is designed to make it quickly and easy to access Taiwan Legislative Yuan API for downloading real-time data legislative and historical archives.">
-<meta property="og:description" content="The pacakge is designed to make it quickly and easy to access Taiwan Legislative Yuan API for downloading real-time data legislative and historical archives.">
+<meta name="description" content="The package is designed to make it quickly and easy to access Taiwan Legislative Yuan API for downloading real-time data legislative and historical archives.">
+<meta property="og:description" content="The package is designed to make it quickly and easy to access Taiwan Legislative Yuan API for downloading real-time data legislative and historical archives.">
 <meta property="og:image" content="https://davidycliao.github.io/legisTaiwan/logo.png">
 <!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-X85ED8P5EW"></script><script>
   window.dataLayer = window.dataLayer || [];
@@ -38,7 +38,7 @@
 
     <a class="navbar-brand me-2" href="index.html">legisTaiwan</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.7</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,20 +47,12 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="active nav-item"><a class="nav-link" href="index.html"><span class="fa fa-home"></span></a></li>
+<li class="active nav-item"><a class="nav-link" href="index.html" aria-label="Home"><span class="fa fa-home"></span></a></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-quick-start" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fa-rocket"></span> Quick Start</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-quick-start">
 <li><a class="dropdown-item" href="articles/quickstart.html#get-started-with-using-remotes">Quick Start Guide</a></li>
     <li><a class="dropdown-item" href="articles/quickstart.html#quickstart.html#how-to-contribute">How to Contribute</a></li>
-  </ul>
-</li>
-<li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-manual" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fa-project-diagram"></span> Manual</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-manual">
-<li><a class="dropdown-item" href="articles/manual.html#interpellation-and-debates">Interpellation and Debates</a></li>
-    <li><a class="dropdown-item" href="articles/manual.html#bill-and-budget">Bill and Budget</a></li>
-    <li><a class="dropdown-item" href="articles/manual.html#miscellaneous">Miscellaneous</a></li>
   </ul>
 </li>
 <li class="nav-item dropdown">
@@ -75,7 +67,7 @@
 <li><a class="dropdown-item" href="articles/get_bills.html">Records of the Bills</a></li>
     <li><a class="dropdown-item" href="articles/get_legislators.html">Demographic Data</a></li>
     <li><a class="dropdown-item" href="articles/get_parlquestions.html">Parliarmentary Questions</a></li>
-    <li><a class="dropdown-item" href="articles/Party%20Caucus%20Negotiation.html">Party Caucus Negotiation</a></li>
+    <li><a class="dropdown-item" href="articles/get_caucus_meetings.html">Party Caucus Negotiation</a></li>
   </ul>
 </li>
 <li class="nav-item dropdown">
@@ -103,10 +95,14 @@
 </h2>
 <!-- badges: start -->
 
-<div style="text-align: justify">
-<p><code>legisTaiwan</code> is designed to streamline access to real-time archives of Taiwan’s legislative data, drawing inspiration from the UK’s TheyWorkForYou API. By providing straightforward access to the Taiwan Legislative Yuan API in R, this package not only aims to enhance legislative accountability and public transparency but also serves as a powerful tool for academic research. Scholars can easily retrieve and analyze legislative data including voting records, parliamentary questions, and bill proposals, facilitating quantitative research and empirical analysis. As the package interfaces directly with Legislative Yuan API endpoints, a stable internet connection is required. Users are welcome to contact <a href="https://davidycliao.github.io" class="external-link">the author</a> for any API implementation assistance.</p>
-<p><code>legisTaiwan</code> 套件旨在簡化台灣立法院資料的即時存取，其設計理念來自於英國的 TheyWorkForYou API。透過在 R 環境中提供直接連接立法院開放資料 API 的便捷管道，本套件不僅致力於提升立法問責制和公共透明度，更為學術研究者提供了系統化分析立法數據的工具。研究人員可以輕鬆獲取並分析立法委員的表決紀錄、問政質詢、法案提案等資料，有助於量化研究和實證分析。由於套件需要直接與立法院 API 介接，使用時請確保網路連線穩定。如有任何 API 使用上的問題，歡迎與套件<a href="https://davidycliao.github.io" class="external-link">作者</a>聯繫。</p>
+<!-- <div style="text-align: justify"> -->
+<!-- `legisTaiwan` is designed to streamline access to real-time archives of Taiwan's legislative data, drawing inspiration from the UK's TheyWorkForYou API. By providing straightforward access to the Taiwan Legislative Yuan API in R, this package not only aims to enhance legislative accountability and public transparency but also serves as a powerful tool for academic research. Scholars can easily retrieve and analyze legislative data including voting records, parliamentary questions, and bill proposals, facilitating quantitative research and empirical analysis. As the package interfaces directly with Legislative Yuan API endpoints, a stable internet connection is required. Users are welcome to contact [the author](https://davidycliao.github.io) for any API implementation assistance. -->
+<!-- </div> -->
+<div style="text-align: justify; font-size: 1.1rem; line-height: 1.6; color: #333; max-width: 800px; margin: 1rem auto; padding: 0 1rem; font-family: 'Helvetica Neue', Arial, sans-serif;">
+<p><code>legisTaiwan</code> is designed to streamline access to real-time archives of Taiwan’s legislative data, drawing inspiration from the UK’s TheyWorkForYou API. By providing straightforward access to the Taiwan Legislative Yuan API in R, this package not only aims to enhance legislative accountability and public transparency but also serves as a powerful tool for academic research. Scholars can easily retrieve and analyze legislative data including voting records, parliamentary questions, and bill proposals, facilitating quantitative research and empirical analysis. As the package interfaces directly with Legislative Yuan API endpoints, a stable internet connection is required. Users are welcome to contact <a href="https://davidycliao.github.io" style="color: #3498db; text-decoration: none; border-bottom: 1px solid #3498db;" class="external-link">the author</a> for any API implementation assistance.</p>
 </div>
+<div style="text-align: justify; font-size: 0.95rem; line-height: 1.6; color: #333; max-width: 800px; margin: 1rem auto; padding: 0 1rem; font-family: 'Helvetica Neue', Arial, sans-serif;">
+<p><code>legisTaiwan</code> 套件旨在簡化台灣立法院資料的即時存取，其設計理念來自於英國的 TheyWorkForYou API。透過在 R 環境中提供直接連接立法院開放資料 API 的便捷管道，本套件不僅致力於提升立法問責制和公共透明度，更為學術研究者提供了系統化分析立法數據的工具。研究人員可以輕鬆獲取並分析立法委員的表決紀錄、問政質詢、法案提案等資料，有助於量化研究和實證分析。由於套件需要直接與立法院 API 介接，使用時請確保網路連線穩定。如有任何 API 使用上的問題，歡迎與套件<a href="https://davidycliao.github.io" style="color: #3498db; text-decoration: none; border-bottom: 1px solid #3498db;" class="external-link">作者</a>聯繫。</p>
 </div>
 <p><br></p>
 <div class="section level3">
@@ -120,76 +116,103 @@
 <span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co">#&gt; ## An R package connecting to the Taiwan Legislative API. ##</span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="summary-descriptive-of-current-bills-法案提案統計">Summary Descriptive of Current Bills (法案提案統計)<a class="anchor" aria-label="anchor" href="#summary-descriptive-of-current-bills-%E6%B3%95%E6%A1%88%E6%8F%90%E6%A1%88%E7%B5%B1%E8%A8%88"></a>
+<h3 id="summary-descriptive-of-taiwan-legilative-yuan-api">Summary Descriptive of Taiwan Legilative Yuan API<a class="anchor" aria-label="anchor" href="#summary-descriptive-of-taiwan-legilative-yuan-api"></a>
 </h3>
+<p><strong>Legislative Bills Statistics</strong></p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">page_info</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_variable_info.html">get_variable_info</a></span><span class="op">(</span><span class="st">"get_bills_2"</span><span class="op">)</span><span class="op">$</span><span class="va">page_info</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">page_info</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 12 × 2</span></span>
-<span><span class="co">#&gt;    `資料集名稱：議案提案` 資料集描述                                            </span></span>
-<span><span class="co">#&gt;    &lt;chr&gt;                  &lt;chr&gt;                                                 </span></span>
-<span><span class="co">#&gt;  1 資料目錄               "議事類"                                              </span></span>
-<span><span class="co">#&gt;  2 資料集說明             "提供委員及政府之議案提案資訊。(自第8屆第1會期起)"    </span></span>
-<span><span class="co">#&gt;  3 資料提供者             "議事暨公報資訊網"                                    </span></span>
-<span><span class="co">#&gt;  4 欄位說明               "term：屆別,sessionPeriod：會期,sessionTimes：會次,meetingTime…</span></span>
-<span><span class="co">#&gt;  5 資料集預覽             "HTML預覽&lt;aclass=\"btn_yellow\"href='/openDatasetJson.a…</span></span>
-<span><span class="co">#&gt;  6 資料集使用             "使用方式及列表"                                      </span></span>
-<span><span class="co">#&gt;  7 API說明                "API提供參數分別為屆別(term)、會期(sessionPeriod)、會次(sessionTimes…</span></span>
-<span><span class="co">#&gt;  8 連結說明               "https://data.ly.gov.tw/odw/ID20Action.action?term=10…</span></span>
-<span><span class="co">#&gt;  9 更新頻率               "每日04時15分"                                        </span></span>
-<span><span class="co">#&gt; 10 資料筆數               "30766"                                               </span></span>
-<span><span class="co">#&gt; 11 建立時間               "2014-09-03WedSep0310:38:36CST2014"                   </span></span>
-<span><span class="co">#&gt; 12 更新時間               "2024-12-28SatDec2804:21:21CST2024"</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="summary-descriptive-of-parliamentary-questions-委員質詢事項">Summary Descriptive of Parliamentary Questions (委員質詢事項)<a class="anchor" aria-label="anchor" href="#summary-descriptive-of-parliamentary-questions-%E5%A7%94%E5%93%A1%E8%B3%AA%E8%A9%A2%E4%BA%8B%E9%A0%85"></a>
-</h3>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/analyze_bills.html">analyze_bills</a></span><span class="op">(</span><span class="va">stats</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; === Bill Statistics Summary ===</span></span>
+<span><span class="co">#&gt; Total Bills: 131762</span></span>
+<span><span class="co">#&gt; Last Updated: 2025-01-04 13:18:45</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; First Five Terms Bill Count:</span></span>
+<span><span class="co">#&gt;   term count percentage cumulative</span></span>
+<span><span class="co">#&gt; 1   11  8270       6.28       8270</span></span>
+<span><span class="co">#&gt; 2   10 43018      32.65      51288</span></span>
+<span><span class="co">#&gt; 3    9 30792      23.37      82080</span></span>
+<span><span class="co">#&gt; 4    8 26284      19.95     108364</span></span>
+<span><span class="co">#&gt; 5    7 15726      11.94     124090</span></span></code></pre></div>
+<p><strong>Legislative Meeting Statistics</strong></p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">page_info</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_variable_info.html">get_variable_info</a></span><span class="op">(</span><span class="st">"get_parlquestions"</span><span class="op">)</span><span class="op">$</span><span class="va">page_info</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">page_info</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 12 × 2</span></span>
-<span><span class="co">#&gt;    `資料集名稱：質詢事項(本院委員質詢部分)` 資料集描述                          </span></span>
-<span><span class="co">#&gt;    &lt;chr&gt;                                    &lt;chr&gt;                               </span></span>
-<span><span class="co">#&gt;  1 資料目錄                                 "質詢類"                            </span></span>
-<span><span class="co">#&gt;  2 資料集說明                               "提供議事日程本院委員之質詢事項資訊。(自第10屆第1會期起)"……</span></span>
-<span><span class="co">#&gt;  3 資料提供者                               "議事暨公報資訊網"                  </span></span>
-<span><span class="co">#&gt;  4 欄位說明                                 "term：屆別,sessionPeriod：會期,sessionTi…</span></span>
-<span><span class="co">#&gt;  5 資料集預覽                               "HTML預覽&lt;aclass=\"btn_yellow\"href='…</span></span>
-<span><span class="co">#&gt;  6 資料集使用                               "使用方式及列表"                    </span></span>
-<span><span class="co">#&gt;  7 API說明                                  "API提供參數分別為屆別(term)、會期(sessionPerio…</span></span>
-<span><span class="co">#&gt;  8 連結說明                                 "https://data.ly.gov.tw/odw/ID6Acti…</span></span>
-<span><span class="co">#&gt;  9 更新頻率                                 "每日01時55分"                      </span></span>
-<span><span class="co">#&gt; 10 資料筆數                                 "1689"                              </span></span>
-<span><span class="co">#&gt; 11 建立時間                                 "2014-08-18MonAug1806:00:00CST2014" </span></span>
-<span><span class="co">#&gt; 12 更新時間                                 "2024-12-28SatDec2801:56:53CST2024"</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/analyze_meetings.html">analyze_meetings</a></span><span class="op">(</span><span class="va">stats</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; === Meeting Statistics Summary ===</span></span>
+<span><span class="co">#&gt; Total Meetings: 7111</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Meeting Records Statistics by Term:</span></span>
+<span><span class="co">#&gt;   term count    max_meeting_date meetdata_count 議事錄_count minutes_ratio</span></span>
+<span><span class="co">#&gt; 1   11   635 2025-01-09 00:00:00            610          417         65.67</span></span>
+<span><span class="co">#&gt; 2   10  2267 2024-05-17 01:00:00           2146         1602         70.67</span></span>
+<span><span class="co">#&gt; 3    9  2390 2020-01-22 00:00:00           2237         1614         67.53</span></span>
+<span><span class="co">#&gt; 4    8  1818 2015-12-18 00:00:00           1434         1468         80.75</span></span>
+<span><span class="co">#&gt; 5    6     1                &lt;NA&gt;              0            1        100.00</span></span>
+<span><span class="co">#&gt;   last_meeting_date</span></span>
+<span><span class="co">#&gt; 1        2025-01-09</span></span>
+<span><span class="co">#&gt; 2        2024-05-17</span></span>
+<span><span class="co">#&gt; 3        2020-01-22</span></span>
+<span><span class="co">#&gt; 4        2015-12-18</span></span>
+<span><span class="co">#&gt; 5              &lt;NA&gt;</span></span></code></pre></div>
+<p><strong>Legislative Video (IVOD) Statistics</strong></p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/analyze_ivod.html">analyze_ivod</a></span><span class="op">(</span><span class="va">stats</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; === Video Statistics Summary ===</span></span>
+<span><span class="co">#&gt; Total Videos: 88986</span></span>
+<span><span class="co">#&gt; Data Period: 2005-03-14 to 2025-01-03</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Video Statistics by Term:</span></span>
+<span><span class="co">#&gt;   term count          start_date            end_date start_date_fmt</span></span>
+<span><span class="co">#&gt; 1   11  9961 2024-02-05 07:00:00 2025-01-03 01:00:00     2024-02-05</span></span>
+<span><span class="co">#&gt; 2   10 33852 2020-02-14 06:00:00 2024-01-09 01:00:00     2020-02-14</span></span>
+<span><span class="co">#&gt; 3    9 34167 2016-02-19 01:00:00 2020-01-20 01:00:00     2016-02-19</span></span>
+<span><span class="co">#&gt; 4    8  9608 2012-02-24 01:00:00 2015-12-18 01:00:00     2012-02-24</span></span>
+<span><span class="co">#&gt; 5    7  1364 2008-02-29 01:00:00 2011-12-14 01:00:00     2008-02-29</span></span>
+<span><span class="co">#&gt;   end_date_fmt period_days avg_daily_videos</span></span>
+<span><span class="co">#&gt; 1   2025-01-03     332.750            29.94</span></span>
+<span><span class="co">#&gt; 2   2024-01-09    1424.792            23.76</span></span>
+<span><span class="co">#&gt; 3   2020-01-20    1431.000            23.88</span></span>
+<span><span class="co">#&gt; 4   2015-12-18    1393.000             6.90</span></span>
+<span><span class="co">#&gt; 5   2011-12-14    1384.000             0.99</span></span></code></pre></div>
+<!-- ```{r include=FALSE} -->
+<!-- create_interactive_plot(stats) -->
+<!-- ``` -->
 <p><br></p>
 </div>
 <div class="section level3">
-<h3 id="notice">Notice:<a class="anchor" aria-label="anchor" href="#notice"></a>
+<h3 id="important-notice-api-migration">Important Notice: API Migration<a class="anchor" aria-label="anchor" href="#important-notice-api-migration"></a>
 </h3>
-<div style="text-align: justify">
-<p><code>legisTaiwan</code> requires a stable internet connection to retrieve data from the API. While most functions can fetch data spanning a long period, they tend to be bandwidth-intensive due to the size of the datasets. If you plan to download data over an extended period, I recommend using <code><a href="reference/get_variable_info.html">get_variable_info()</a></code> first to verify the current file sizes on the API. Also, consider writing a batch retrieval process with appropriate handlers to track the progress of file input, ensuring the completeness of the requested data.</p>
+<div style="text-align: justify; font-size: 1.1rem; line-height: 1.6; color: #333; max-width: 800px; margin: 1rem auto; padding: 0 1rem; font-family: 'Helvetica Neue', Arial, sans-serif;">
+<!-- `legisTaiwan` requires a stable internet connection to retrieve data -->
+<!-- from the API. While most functions can fetch data spanning a long -->
+<!-- period, they tend to be bandwidth-intensive due to the size of the -->
+<!-- datasets. If you plan to download data over an extended period, I -->
+<!-- recommend using `get_variable_info()` first to verify the current file -->
+<!-- sizes on the API. Also, consider writing a batch retrieval -->
+<!-- process with appropriate handlers to track the progress of file input, -->
+<!-- ensuring the completeness of the requested data. -->
+<p>The Legislative Yuan API has transitioned from <code>https://ly.govapi.tw</code> to <code>https://v2.ly.govapi.tw</code>.</p>
+<p>While we are maintaining support for functions that use the legacy API, please note that the old API endpoint will eventually be deprecated. We recommend users to gradually transition to the newer API versions as they become available.</p>
 </div>
 <p><br></p>
-</div>
-<div class="section level3">
-<h3 id="acknowledgments">Acknowledgments<a class="anchor" aria-label="anchor" href="#acknowledgments"></a>
-</h3>
-<div style="text-align: justify">
-<p>This package supported the author’s doctoral dissertation <em>“Electoral Reform, Distributive Politics, and Parties in the Taiwanese Congress”</em> at the University of Essex. The PhD project was made possible through the generous funding of the 2022 Taiwan Ministry of Science and Technology (MOST) TOP Grant and a full PhD fellowship from the Ministry of Education (2018-2021), Taiwan. The author extends sincere gratitude to the Legislative Yuan API Center for their technical assistance and commitment to data transparency.</p>
+<!-- ### Acknowledgments -->
+<!-- <div style="text-align: justify"> -->
+<!-- This package supported the author's doctoral dissertation *"Electoral Reform, Distributive Politics, and Parties in the Taiwanese Congress"* at the University of Essex. The PhD project was made possible through the generous funding of the 2022 Taiwan Ministry of Science and Technology (MOST) TOP Grant and a full PhD fellowship from the Ministry of Education (2018-2021), Taiwan. The author extends sincere gratitude to the Legislative Yuan API Center for their technical assistance and commitment to data transparency. -->
+<!-- </div> -->
 </div>
 </div>
-
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
 <li><a href="https://github.com/davidycliao/legisTaiwan/" class="external-link">Browse source code</a></li>
 <li><a href="https://github.com/davidycliao/legisTaiwan/issues" class="external-link">Report a bug</a></li>
 <li><a href="https://github.com/davidycliao/legisTaiwan/discussions" class="external-link">Discussion</a></li>
-<li><a href="https://davidycliao.github.io/legisCrawler/" class="external-link">legisCrawler 爬台灣立法委員問政專輯的爬蟲小幫手️🕸️</a></li>
+<li><a href="https://ly.govapi.tw" class="external-link">立法院 API</a></li>
+<li><a href="https://openfunltd.github.io/law-diff/?keyword=&amp;term=11&amp;sessionPeriod=&amp;proposer=" class="external-link">law-diff 提案法律對照比</a></li>
+<li><a href="https://dataly.openfun.app" class="external-link">DATALY 立院統合資料網</a></li>
+<li><a href="https://ccw.org.tw/assess/session/45" class="external-link">Taiwan Citizen Congress Watch</a></li>
+<li><a href="https://g0v.hackmd.io/@SA7CD7VRSp6Fcqw9CaElcQ/SJ93ZW5XR/%2FY6A2Ox-YRDS6ixtYw1BuoA%3Fview" class="external-link">g0v 國會松</a></li>
 <li><a href="https://www.birmingham.ac.uk/research/centres-institutes/centre-for-artificial-intelligence-in-government" class="external-link">The Centre for Artificial Intelligence in Government (CAIG)</a></li>
-<li><a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/L4OAKN" class="external-link">ParlSpeech: Legislative Speeches in the Key Parliamentary Democracies</a></li>
-<li><a href="https://pureportal.strath.ac.uk/en/datasets/parlee-plenary-speeches-v2-data-set-annotated-full-text-of-151-mi" class="external-link">ParlEE: Sentence-level Speeches of Six EU Legislative Chambers</a></li>
 </ul>
 </div>
 

@@ -1,14 +1,10 @@
-pandoc: 3.1.11
+pandoc: '3.3'
 pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
-  get_bills: get_bills.html
-  get_caucus_meetings: get_caucus_meetings.html
-  get_legislators: get_legislators.html
-  get_parlquestions: get_parlquestions.html
   manual: manual.html
   quickstart: quickstart.html
-last_built: 2024-12-30T21:53Z
+last_built: 2025-01-04T16:39Z
 urls:
   reference: https://davidycliao.github.io/legisTaiwan/reference
   article: https://davidycliao.github.io/legisTaiwan/articles
