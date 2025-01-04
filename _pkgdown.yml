@@ -50,7 +50,6 @@ reference:
   - analyze_ivod
   - analyze_meetings
   - calculate_bill_trends
-  - create_interactive_plot
   - generate_report
 
 
@@ -85,10 +84,10 @@ navbar:
   - icon: fa-rocket
     text: Quick Start
     menu:
-    - text: "Quick Start Guide"
+    - text: "Get Started"
       href: articles/quickstart.html#get-started-with-using-remotes
-    - text: "Manual"
-      href: articles/quickstart.html#manual.html
+    - text: "Legislative Yuan API (v2)"
+      href: articles/quickstart.html#taiwan-legislative-yuan-api-v2.html
 
   # - icon: fa-project-diagram
   #   text: Manual
@@ -106,17 +105,17 @@ navbar:
     - text: "Function Reference"
       href: reference/index.html
 
-  - icon: fa-file-code-o
-    text: Tutorial
-    menu:
-    - text: "Records of the Bills"
-      href: articles/get_bills.html
-    - text: "Demographic Data"
-      href: articles/get_legislators.html
-    - text: "Parliarmentary Questions"
-      href: articles/get_parlquestions.html
-    - text: "Party Caucus Negotiation"
-      href: articles/get_caucus_meetings.html
+  # - icon: fa-file-code-o
+  #   text: Tutorial
+  #   menu:
+  #   - text: "Records of the Bills"
+  #     href: articles/get_bills.html
+  #   - text: "Demographic Data"
+  #     href: articles/get_legislators.html
+  #   - text: "Parliarmentary Questions"
+  #     href: articles/get_parlquestions.html
+  #   - text: "Party Caucus Negotiation"
+  #     href: articles/get_caucus_meetings.html
 
   - icon: fa-newspaper-o
     text: News

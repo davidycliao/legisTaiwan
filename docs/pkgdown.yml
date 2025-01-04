@@ -2,9 +2,8 @@ pandoc: '3.3'
 pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
-  manual: manual.html
   quickstart: quickstart.html
-last_built: 2025-01-04T22:09Z
+last_built: 2025-01-04T23:18Z
 urls:
   reference: https://davidycliao.github.io/legisTaiwan/reference
   article: https://davidycliao.github.io/legisTaiwan/articles

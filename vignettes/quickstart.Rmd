@@ -53,10 +53,7 @@ While we are maintaining support for functions that use the legacy API, please n
 - Legacy API (`ly.govapi.tw`) - Still functional but will not receive updates
 - New API (`v2.ly.govapi.tw`) - Current active development and maintenance
 
-
 </div>
-
-<br> 
 
 ###  Statistical Information
 

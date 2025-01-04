@@ -452,11 +452,12 @@ generate_report <- function(stats) {
 calculate_bill_trends <- function(stats) {
   bill_trends <- stats$bill$terms %>%
     dplyr::left_join(stats$meet$terms, by = "term") %>%
+    dplyr::arrange(.data$term) %>%  # 確保按 term 排序
     dplyr::mutate(
       bills_per_meeting = round(.data$count.x / .data$count.y, 2),
       bills_per_day = round(.data$count.x / as.numeric(
         difftime(.data$max_meeting_date,
-                 dplyr::lag(.data$max_meeting_date),
+                 dplyr::lag(.data$max_meeting_date, default = .data$max_meeting_date[1]),
                  units = "days")), 2)
     ) %>%
     dplyr::select(
@@ -477,86 +478,4 @@ calculate_bill_trends <- function(stats) {
   print(bill_trends)
 
   return(bill_trends)
-}
-
-
-#' Create Interactive Plot of Legislative Bill Trends
-#'
-#' @description
-#' Creates an interactive plotly visualization showing the trend of bill counts
-#' across different legislative terms. The plot includes hover information
-#' and interactive features.
-#'
-#' @param stats A list containing Legislative Yuan statistics with the following structure:
-#' \describe{
-#'   \item{bill$terms}{A data frame containing:
-#'     \describe{
-#'       \item{term}{Legislative term number}
-#'       \item{count}{Number of bills in that term}
-#'     }
-#'   }
-#' }
-#'
-#' @return A plotly object with the following features:
-#' \describe{
-#'   \item{Plot Type}{Interactive line plot with markers}
-#'   \item{Hover Info}{Dynamic text showing term and bill count}
-#'   \item{Layout}{
-#'     \describe{
-#'       \item{Title}{Bill count trends chart}
-#'       \item{X-axis}{Term labels}
-#'       \item{Y-axis}{Bill count scale}
-#'     }
-#'   }
-#' }
-#'
-#' @import plotly
-#' @importFrom plotly plot_ly layout %>%
-#' @importFrom rlang .data
-#'
-#' @examples
-#' \dontrun{
-#' # Create basic interactive plot
-#' stats <- get_ly_stat()
-#' p <- create_interactive_plot(stats)
-#' p  # Display the plot
-#'
-#' # Create plot with custom title
-#' p <- create_interactive_plot(stats) %>%
-#'   layout(title = "Legislative Bill Trends Analysis")
-#' p
-#' }
-#'
-#' @seealso
-#' \describe{
-#'   \item{analyze_bills}{For detailed bill statistics analysis}
-#'   \item{calculate_bill_trends}{For trend metrics calculation}
-#' }
-#'
-#' @export
-create_interactive_plot <- function(stats) {
-  bill_data <- stats$bill$terms
-
-  p <- plotly::plot_ly(
-    data = bill_data,
-    x = ~.data$term,
-    y = ~.data$count,
-    type = "scatter",
-    mode = "lines+markers",
-    text = ~paste("Term:", .data$term, "<br>Bills:", .data$count),
-    hoverinfo = "text"
-  ) %>%
-    plotly::layout(
-      title = "Bill Count Trends by Term",
-      xaxis = list(
-        title = "Term",
-        tickmode = "linear"
-      ),
-      yaxis = list(
-        title = "Number of Bills",
-        rangemode = "tozero"
-      )
-    )
-
-  return(p)
 }

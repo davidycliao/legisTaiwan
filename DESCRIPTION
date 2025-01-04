@@ -29,8 +29,7 @@ Imports:
     dplyr,
     magrittr,
     ggplot2,
-    rlang,
-    plotly
+    rlang
 Suggests: 
   knitr,
   rmarkdown,
