@@ -102,7 +102,8 @@ get_ly_committee_meets <- function(
 
     meetings_list <- lapply(data$meets, function(meet) {
       # Extract and process meeting participants
-      legislators <- c()
+      legislators <- character(0)
+
 
       # From 發言紀錄
       if (!is.null(meet$發言紀錄)) {
