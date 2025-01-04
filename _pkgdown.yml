@@ -87,9 +87,8 @@ navbar:
     menu:
     - text: "Quick Start Guide"
       href: articles/quickstart.html#get-started-with-using-remotes
-    - text: "How to Contribute"
-      href: articles/quickstart.html#quickstart.html#how-to-contribute
-
+    - text: "Manual"
+      href: articles/quickstart.html#manual.html
 
   # - icon: fa-project-diagram
   #   text: Manual

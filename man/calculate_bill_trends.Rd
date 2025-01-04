@@ -8,28 +8,30 @@ calculate_bill_trends(stats)
 }
 \arguments{
 \item{stats}{A list containing Legislative Yuan statistics with the following structure:
-\itemize{
-\item bill$terms - Data frame with columns:
-\itemize{
-\item term - Legislative term number
-\item count - Number of bills in that term
+\describe{
+\item{bill$terms}{Data frame containing bill information:
+\describe{
+\item{term}{Legislative term number}
+\item{count}{Number of bills in that term}
 }
-\item meet$terms - Data frame with columns:
-\itemize{
-\item term - Legislative term number
-\item count - Number of meetings in that term
-\item max_meeting_date - Last meeting date of the term
+}
+\item{meet$terms}{Data frame containing meeting information:
+\describe{
+\item{term}{Legislative term number}
+\item{count}{Number of meetings in that term}
+\item{max_meeting_date}{Last meeting date of the term}
+}
 }
 }}
 }
 \value{
 A data frame containing the following columns:
-\itemize{
-\item term - Legislative term number
-\item bills - Total number of bills in term
-\item meetings - Total number of meetings in term
-\item bills_per_meeting - Average number of bills per meeting
-\item bills_per_day - Average number of bills per day
+\describe{
+\item{term}{Legislative term number}
+\item{bills}{Total number of bills in term}
+\item{meetings}{Total number of meetings in term}
+\item{bills_per_meeting}{Average number of bills per meeting}
+\item{bills_per_day}{Average number of bills per day}
 }
 }
 \description{
@@ -38,9 +40,17 @@ and bills per day, by joining bill and meeting statistics across terms.
 }
 \examples{
 \dontrun{
+# Get statistics and calculate trends
 stats <- get_ly_stat()
 trends <- calculate_bill_trends(stats)
-head(trends)
+
+# View trend analysis
+print("Bill processing trends:")
+print(trends)
+
+# Analyze specific metrics
+print("Average bills per meeting by term:")
+print(trends[c("term", "bills_per_meeting")])
 }
 
 }

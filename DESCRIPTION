@@ -28,13 +28,12 @@ Imports:
     readr,
     dplyr,
     magrittr,
-    plotly,
     ggplot2,
-    rlang
+    rlang,
+    plotly
 Suggests: 
   knitr,
   rmarkdown,
-  ggplot2,
   remotes,
   tidyverse,
   testthat (>= 3.0.0)

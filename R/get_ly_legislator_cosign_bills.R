@@ -11,18 +11,18 @@
 #' @param limit integer. Number of records per page (default: 20)
 #' @param show_progress logical. Whether to display progress info (default: TRUE)
 #'
-#' @return A list containing:
+#' @return A list containing two components:
 #' \describe{
-#'   \item{metadata}{A list containing:
-#'     \itemize{
+#'   \item{metadata}{A list containing pagination information:
+#'     \describe{
 #'       \item{total}{Total number of cosigned bills}
 #'       \item{total_page}{Total number of pages}
 #'       \item{current_page}{Current page number}
 #'       \item{per_page}{Number of records per page}
 #'     }
 #'   }
-#'   \item{bills}{A data frame containing:
-#'     \itemize{
+#'   \item{bills}{A data frame containing bill information:
+#'     \describe{
 #'       \item{billNo}{Bill number}
 #'       \item{議案名稱}{Bill name}
 #'       \item{提案單位}{Proposing unit/legislator}
@@ -52,12 +52,26 @@
 #' print(paste("Total cosigned bills:", bills$metadata$total))
 #' print("Latest cosigned bill:")
 #' print(bills$bills[1, c("議案名稱", "議案狀態")])
+#'
+#' # Get second page of results
+#' bills_page2 <- get_ly_legislator_cosign_bills(
+#'   term = 9,
+#'   name = "王金平",
+#'   page = 2,
+#'   limit = 20
+#' )
+#' }
+#'
+#' @seealso
+#' \describe{
+#'   \item{get_ly_legislator_bills}{\code{\link{get_ly_legislator_bills}} for retrieving bills proposed by a legislator}
+#'   \item{get_ly_legislator_detail}{\code{\link{get_ly_legislator_detail}} for legislator's detailed information}
 #' }
 #'
 #' @importFrom httr GET content status_code
 #' @importFrom jsonlite fromJSON
 #' @importFrom utils txtProgressBar setTxtProgressBar
-#'
+#' @encoding UTF-8
 #' @export
 get_ly_legislator_cosign_bills <- function(
     term,

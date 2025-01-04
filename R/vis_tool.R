@@ -6,59 +6,69 @@
 #' provides summary statistics.
 #'
 #' @param stats A list containing Legislative Yuan statistics with the following structure:
-#'   \itemize{
-#'     \item bill
-#'     \itemize{
-#'       \item total - Total number of bills
-#'       \item max_update_time - Last update timestamp
-#'       \item terms - Data frame with columns:
-#'         \itemize{
-#'           \item term - Legislative term number
-#'           \item count - Number of bills in that term
+#' \describe{
+#'   \item{bill}{A list containing:
+#'     \describe{
+#'       \item{total}{Total number of bills}
+#'       \item{max_update_time}{Last update timestamp}
+#'       \item{terms}{Data frame with columns:
+#'         \describe{
+#'           \item{term}{Legislative term number}
+#'           \item{count}{Number of bills in that term}
 #'         }
+#'       }
 #'     }
 #'   }
+#' }
 #'
 #' @return A list containing:
-#'   \itemize{
-#'     \item plot - A ggplot object showing bill count trends
-#'     \item summary - A data frame with bill statistics including:
-#'       \itemize{
-#'         \item term
-#'         \item count
-#'         \item percentage
-#'         \item cumulative
-#'       }
+#' \describe{
+#'   \item{plot}{A ggplot object showing bill count trends}
+#'   \item{summary}{A data frame with bill statistics including:
+#'     \describe{
+#'       \item{term}{Term number}
+#'       \item{count}{Bill count}
+#'       \item{percentage}{Percentage of total}
+#'       \item{cumulative}{Cumulative count}
+#'     }
 #'   }
+#' }
 #'
 #' @import ggplot2
-#' @importFrom dplyr mutate
+#' @importFrom dplyr mutate %>%
+#' @importFrom rlang .data
 #'
 #' @examples
 #' \dontrun{
 #' stats <- get_ly_stat()
-#' analyze_bills(stats)
+#' bill_analysis <- analyze_bills(stats)
+#'
+#' # View the plot
+#' print(bill_analysis$plot)
+#'
+#' # View the summary statistics
+#' print(bill_analysis$summary)
 #' }
 #'
 #' @export
 analyze_bills <- function(stats) {
   # Calculate bill counts and percentages by term
   bill_stats <- stats$bill$terms %>%
-    mutate(
-      percentage = round(count / sum(count) * 100, 2),
-      cumulative = cumsum(count)
+    dplyr::mutate(
+      percentage = round(.data$count / sum(.data$count) * 100, 2),
+      cumulative = cumsum(.data$count)
     )
 
   # Create bill count trend plot
-  ggplot(bill_stats, aes(x = term, y = count)) +
-    geom_line(color = "blue") +
-    geom_point(color = "red") +
-    labs(
+  p <- ggplot2::ggplot(bill_stats, ggplot2::aes(x = .data$term, y = .data$count)) +
+    ggplot2::geom_line(color = "blue") +
+    ggplot2::geom_point(color = "red") +
+    ggplot2::labs(
       title = "Bill Count Trends by Legislative Term",
       x = "Term",
       y = "Number of Bills"
     ) +
-    theme_minimal()
+    ggplot2::theme_minimal()
 
   # Output statistical summary
   cat("\n=== Bill Statistics Summary ===\n")
@@ -66,9 +76,13 @@ analyze_bills <- function(stats) {
   cat(sprintf("Last Updated: %s\n", format(stats$bill$max_update_time)))
   cat("\nFirst Five Terms Bill Count:\n")
   print(head(bill_stats, 5))
+
+  # Return both the plot and statistics
+  return(list(
+    plot = p,
+    summary = bill_stats
+  ))
 }
-
-
 #' Analyze Legislative Meeting Statistics
 #'
 #' @description
@@ -77,67 +91,94 @@ analyze_bills <- function(stats) {
 #' between total meetings and available meeting minutes.
 #'
 #' @param stats A list containing Legislative Yuan statistics with the following structure:
-#'   \itemize{
-#'     \item meet
-#'     \itemize{
-#'       \item total - Total number of meetings
-#'       \item terms - Data frame with columns:
-#'         \itemize{
-#'           \item term - Legislative term number
-#'           \item count - Number of meetings in that term
-#'           \item max_meeting_date - Last meeting date of the term
-#'           \item meetdata_count - Number of meetings with data
-#'           \item 議事錄_count - Number of meetings with minutes
+#' \describe{
+#'   \item{meet}{A list containing:
+#'     \describe{
+#'       \item{total}{Total number of meetings}
+#'       \item{terms}{Data frame with columns:
+#'         \describe{
+#'           \item{term}{Legislative term number}
+#'           \item{count}{Number of meetings in that term}
+#'           \item{max_meeting_date}{Last meeting date of the term}
+#'           \item{meetdata_count}{Number of meetings with data}
+#'           \item{議事錄_count}{Number of meetings with minutes}
 #'         }
+#'       }
 #'     }
 #'   }
+#' }
 #'
 #' @return A list containing:
-#'   \itemize{
-#'     \item plot - A ggplot object showing meeting statistics comparison
-#'     \item summary - A data frame with meeting statistics including:
-#'       \itemize{
-#'         \item term
-#'         \item count
-#'         \item minutes_ratio - Percentage of meetings with minutes
-#'         \item last_meeting_date - Formatted date of last meeting
-#'       }
+#' \describe{
+#'   \item{plot}{A ggplot object showing meeting statistics comparison}
+#'   \item{summary}{A data frame with meeting statistics including:
+#'     \describe{
+#'       \item{term}{Term number}
+#'       \item{count}{Total meetings}
+#'       \item{minutes_ratio}{Percentage of meetings with minutes}
+#'       \item{last_meeting_date}{Formatted date of last meeting}
+#'     }
 #'   }
+#' }
 #'
 #' @import ggplot2
-#' @importFrom dplyr mutate
+#' @importFrom dplyr mutate %>%
+#' @importFrom rlang .data
 #'
 #' @examples
 #' \dontrun{
+#' # Get statistics and analyze meetings
 #' stats <- get_ly_stat()
-#' analyze_meetings(stats)
+#' meeting_analysis <- analyze_meetings(stats)
+#'
+#' # View the plot
+#' print(meeting_analysis$plot)
+#'
+#' # View meeting statistics
+#' print(meeting_analysis$summary)
 #' }
 #'
 #' @export
 analyze_meetings <- function(stats) {
   # Process meeting data
   meeting_stats <- stats$meet$terms %>%
-    mutate(
-      minutes_ratio = round(議事錄_count / count * 100, 2),
-      last_meeting_date = format(max_meeting_date, "%Y-%m-%d")
+    dplyr::mutate(
+      minutes_ratio = round(.data$議事錄_count / .data$count * 100, 2),
+      last_meeting_date = format(.data$max_meeting_date, "%Y-%m-%d")
     )
 
   # Create meeting records completeness analysis plot
-  ggplot(meeting_stats, aes(x = term)) +
-    geom_bar(aes(y = count), stat = "identity", fill = "blue", alpha = 0.5) +
-    geom_bar(aes(y = 議事錄_count), stat = "identity", fill = "red", alpha = 0.5) +
-    labs(
+  p <- ggplot2::ggplot(meeting_stats, ggplot2::aes(x = .data$term)) +
+    ggplot2::geom_bar(
+      ggplot2::aes(y = .data$count),
+      stat = "identity",
+      fill = "blue",
+      alpha = 0.5
+    ) +
+    ggplot2::geom_bar(
+      ggplot2::aes(y = .data$議事錄_count),
+      stat = "identity",
+      fill = "red",
+      alpha = 0.5
+    ) +
+    ggplot2::labs(
       title = "Meeting Records Completeness by Term",
       x = "Term",
       y = "Count"
     ) +
-    theme_minimal()
+    ggplot2::theme_minimal()
 
   # Output statistical summary
   cat("\n=== Meeting Statistics Summary ===\n")
   cat(sprintf("Total Meetings: %d\n", stats$meet$total))
   cat("\nMeeting Records Statistics by Term:\n")
   print(head(meeting_stats, 5))
+
+  # Return both the plot and statistics
+  return(list(
+    plot = p,
+    summary = meeting_stats
+  ))
 }
 
 
@@ -149,68 +190,80 @@ analyze_meetings <- function(stats) {
 #' and time period coverage.
 #'
 #' @param stats A list containing Legislative Yuan statistics with the following structure:
-#'   \itemize{
-#'     \item ivod
-#'     \itemize{
-#'       \item total - Total number of video records
-#'       \item date_range
-#'         \itemize{
-#'           \item start - Start date of video archive
-#'           \item end - End date of video archive
+#' \describe{
+#'   \item{ivod}{A list containing:
+#'     \describe{
+#'       \item{total}{Total number of video records}
+#'       \item{date_range}{A list containing:
+#'         \describe{
+#'           \item{start}{Start date of video archive}
+#'           \item{end}{End date of video archive}
 #'         }
-#'       \item terms - Data frame with columns:
-#'         \itemize{
-#'           \item term - Legislative term number
-#'           \item count - Number of videos in that term
-#'           \item start_date - Start date of term
-#'           \item end_date - End date of term
+#'       }
+#'       \item{terms}{Data frame with columns:
+#'         \describe{
+#'           \item{term}{Legislative term number}
+#'           \item{count}{Number of videos in that term}
+#'           \item{start_date}{Start date of term}
+#'           \item{end_date}{End date of term}
 #'         }
+#'       }
 #'     }
 #'   }
+#' }
 #'
 #' @return A list containing:
-#'   \itemize{
-#'     \item plot - A ggplot object showing video count distribution by term
-#'     \item summary - A data frame with video statistics including:
-#'       \itemize{
-#'         \item term
-#'         \item count
-#'         \item start_date_fmt
-#'         \item end_date_fmt
-#'         \item period_days
-#'         \item avg_daily_videos
-#'       }
+#' \describe{
+#'   \item{plot}{A ggplot object showing video count distribution by term}
+#'   \item{summary}{A data frame with video statistics including:
+#'     \describe{
+#'       \item{term}{Term number}
+#'       \item{count}{Video count}
+#'       \item{start_date_fmt}{Formatted start date}
+#'       \item{end_date_fmt}{Formatted end date}
+#'       \item{period_days}{Duration in days}
+#'       \item{avg_daily_videos}{Average videos per day}
+#'     }
 #'   }
+#' }
 #'
 #' @import ggplot2
-#' @importFrom dplyr mutate
+#' @importFrom dplyr mutate %>%
+#' @importFrom rlang .data
 #'
 #' @examples
 #' \dontrun{
+#' # Get statistics and analyze videos
 #' stats <- get_ly_stat()
-#' analyze_ivod(stats)
+#' video_analysis <- analyze_ivod(stats)
+#'
+#' # View the plot
+#' print(video_analysis$plot)
+#'
+#' # View video statistics
+#' print(video_analysis$summary)
 #' }
 #'
 #' @export
 analyze_ivod <- function(stats) {
   # Process video data
   ivod_stats <- stats$ivod$terms %>%
-    mutate(
-      start_date_fmt = format(start_date, "%Y-%m-%d"),
-      end_date_fmt = format(end_date, "%Y-%m-%d"),
-      period_days = as.numeric(difftime(end_date, start_date, units = "days")),
-      avg_daily_videos = round(count / period_days, 2)
+    dplyr::mutate(
+      start_date_fmt = format(.data$start_date, "%Y-%m-%d"),
+      end_date_fmt = format(.data$end_date, "%Y-%m-%d"),
+      period_days = as.numeric(difftime(.data$end_date, .data$start_date, units = "days")),
+      avg_daily_videos = round(.data$count / .data$period_days, 2)
     )
 
   # Create video count distribution plot
-  ggplot(ivod_stats, aes(x = term, y = count)) +
-    geom_bar(stat = "identity", fill = "darkgreen") +
-    labs(
+  p <- ggplot2::ggplot(ivod_stats, ggplot2::aes(x = .data$term, y = .data$count)) +
+    ggplot2::geom_bar(stat = "identity", fill = "darkgreen") +
+    ggplot2::labs(
       title = "Video Records Count by Term",
       x = "Term",
       y = "Number of Videos"
     ) +
-    theme_minimal()
+    ggplot2::theme_minimal()
 
   # Output statistical summary
   cat("\n=== Video Statistics Summary ===\n")
@@ -220,9 +273,13 @@ analyze_ivod <- function(stats) {
               format(stats$ivod$date_range$end, "%Y-%m-%d")))
   cat("\nVideo Statistics by Term:\n")
   print(head(ivod_stats, 5))
+
+  # Return both the plot and statistics
+  return(list(
+    plot = p,
+    summary = ivod_stats
+  ))
 }
-
-
 #' Generate Legislative Yuan Summary Statistics Report
 #'
 #' @description
@@ -231,36 +288,76 @@ analyze_ivod <- function(stats) {
 #' Presents the information in a formatted text output.
 #'
 #' @param stats A list containing Legislative Yuan statistics with the following structure:
-#'   \itemize{
-#'     \item legislator
-#'     \itemize{
-#'       \item total - Total historical number of legislators
-#'       \item terms - Data frame of legislator counts by term
-#'     }
-#'     \item gazette
-#'     \itemize{
-#'       \item total - Total number of gazettes
-#'       \item agenda_total - Total number of agendas
-#'       \item last_meeting - Date of the last meeting
-#'     }
-#'     \item ivod
-#'     \itemize{
-#'       \item total - Total number of video records
-#'       \item date_range - List containing start and end dates of video archives
+#' \describe{
+#'   \item{legislator}{A list containing legislator information:
+#'     \describe{
+#'       \item{total}{Total historical number of legislators}
+#'       \item{terms}{Data frame of legislator counts by term}
 #'     }
 #'   }
+#'   \item{gazette}{A list containing gazette information:
+#'     \describe{
+#'       \item{total}{Total number of gazettes}
+#'       \item{agenda_total}{Total number of agendas}
+#'       \item{last_meeting}{Date of the last meeting}
+#'     }
+#'   }
+#'   \item{ivod}{A list containing video information:
+#'     \describe{
+#'       \item{total}{Total number of video records}
+#'       \item{date_range}{List containing start and end dates of video archives}
+#'     }
+#'   }
+#' }
 #'
-#' @return Prints a formatted report to the console containing:
-#'   \itemize{
-#'     \item Legislator statistics and historical counts
-#'     \item Gazette information including total counts and latest meeting
-#'     \item Video archive statistics with time period coverage
+#' @return A formatted report containing the following sections:
+#' \describe{
+#'   \item{Bill Statistics}{
+#'     \describe{
+#'       \item{Total Bills}{Total number of bills}
+#'       \item{Last Update}{Most recent bill update date}
+#'     }
 #'   }
+#'   \item{Legislator Statistics}{
+#'     \describe{
+#'       \item{Total Count}{Historical total of legislators}
+#'       \item{Term Distribution}{Legislator counts by term}
+#'     }
+#'   }
+#'   \item{Gazette Statistics}{
+#'     \describe{
+#'       \item{Total Counts}{Numbers of gazettes and agendas}
+#'       \item{Latest Activity}{Most recent meeting date}
+#'     }
+#'   }
+#'   \item{Video Statistics}{
+#'     \describe{
+#'       \item{Total Videos}{Number of video records}
+#'       \item{Coverage Period}{Time span of video archives}
+#'     }
+#'   }
+#' }
 #'
 #' @examples
 #' \dontrun{
+#' # Generate full statistics report
 #' stats <- get_ly_stat()
-#' generate_summary_report(stats)
+#' generate_report(stats)
+#'
+#' # View specific sections
+#' stats <- get_ly_stat()
+#' cat("\nBill Statistics:\n")
+#' cat(sprintf("Total Bills: %d\n", stats$bill$total))
+#'
+#' cat("\nLegislator Statistics:\n")
+#' cat(sprintf("Total Legislators: %d\n", stats$legislator$total))
+#' }
+#'
+#' @seealso
+#' \describe{
+#'   \item{analyze_bills}{For detailed bill analysis}
+#'   \item{analyze_meetings}{For meeting statistics analysis}
+#'   \item{analyze_ivod}{For video records analysis}
 #' }
 #'
 #' @export
@@ -287,7 +384,8 @@ generate_report <- function(stats) {
   cat("\n------------------------------------------")
   cat(sprintf("\nTotal Gazettes: %d", stats$gazette$total))
   cat(sprintf("\nTotal Agendas: %d", stats$gazette$agenda_total))
-  cat(sprintf("\nLast Meeting Date: %s", format(stats$gazette$last_meeting, "%Y-%m-%d")))
+  cat(sprintf("\nLast Meeting Date: %s",
+              format(stats$gazette$last_meeting, "%Y-%m-%d")))
 
   # 4. Video statistics
   cat("\n\nIV. Video Statistics")
@@ -300,7 +398,6 @@ generate_report <- function(stats) {
   cat("\n\n==========================================\n")
 }
 
-
 #' Calculate Legislative Bill Trends and Metrics
 #'
 #' @description
@@ -308,54 +405,77 @@ generate_report <- function(stats) {
 #' and bills per day, by joining bill and meeting statistics across terms.
 #'
 #' @param stats A list containing Legislative Yuan statistics with the following structure:
-#'   \itemize{
-#'     \item bill$terms - Data frame with columns:
-#'       \itemize{
-#'         \item term - Legislative term number
-#'         \item count - Number of bills in that term
-#'       }
-#'     \item meet$terms - Data frame with columns:
-#'       \itemize{
-#'         \item term - Legislative term number
-#'         \item count - Number of meetings in that term
-#'         \item max_meeting_date - Last meeting date of the term
-#'       }
+#' \describe{
+#'   \item{bill$terms}{Data frame containing bill information:
+#'     \describe{
+#'       \item{term}{Legislative term number}
+#'       \item{count}{Number of bills in that term}
+#'     }
 #'   }
+#'   \item{meet$terms}{Data frame containing meeting information:
+#'     \describe{
+#'       \item{term}{Legislative term number}
+#'       \item{count}{Number of meetings in that term}
+#'       \item{max_meeting_date}{Last meeting date of the term}
+#'     }
+#'   }
+#' }
 #'
 #' @return A data frame containing the following columns:
-#'   \itemize{
-#'     \item term - Legislative term number
-#'     \item bills - Total number of bills in term
-#'     \item meetings - Total number of meetings in term
-#'     \item bills_per_meeting - Average number of bills per meeting
-#'     \item bills_per_day - Average number of bills per day
-#'   }
+#' \describe{
+#'   \item{term}{Legislative term number}
+#'   \item{bills}{Total number of bills in term}
+#'   \item{meetings}{Total number of meetings in term}
+#'   \item{bills_per_meeting}{Average number of bills per meeting}
+#'   \item{bills_per_day}{Average number of bills per day}
+#' }
 #'
-#' @importFrom dplyr left_join mutate select rename lag
+#' @importFrom dplyr left_join mutate select rename lag %>%
+#' @importFrom rlang .data
 #'
 #' @examples
 #' \dontrun{
+#' # Get statistics and calculate trends
 #' stats <- get_ly_stat()
 #' trends <- calculate_bill_trends(stats)
-#' head(trends)
+#'
+#' # View trend analysis
+#' print("Bill processing trends:")
+#' print(trends)
+#'
+#' # Analyze specific metrics
+#' print("Average bills per meeting by term:")
+#' print(trends[c("term", "bills_per_meeting")])
 #' }
 #'
 #' @export
 calculate_bill_trends <- function(stats) {
   bill_trends <- stats$bill$terms %>%
-    left_join(stats$meet$terms, by = "term") %>%
-    mutate(
-      bills_per_meeting = round(count.x / count.y, 2),
-      bills_per_day = round(count.x / as.numeric(difftime(max_meeting_date,
-                                                          lag(max_meeting_date), units = "days")), 2)
+    dplyr::left_join(stats$meet$terms, by = "term") %>%
+    dplyr::mutate(
+      bills_per_meeting = round(.data$count.x / .data$count.y, 2),
+      bills_per_day = round(.data$count.x / as.numeric(
+        difftime(.data$max_meeting_date,
+                 dplyr::lag(.data$max_meeting_date),
+                 units = "days")), 2)
     ) %>%
-    select(term, count.x, count.y, bills_per_meeting, bills_per_day) %>%
-    rename(
-      bills = count.x,
-      meetings = count.y
+    dplyr::select(
+      .data$term,
+      .data$count.x,
+      .data$count.y,
+      .data$bills_per_meeting,
+      .data$bills_per_day
+    ) %>%
+    dplyr::rename(
+      bills = .data$count.x,
+      meetings = .data$count.y
     )
 
+  # Print results for immediate feedback
+  print("Bill Processing Trends Analysis:")
+  print("--------------------------------")
   print(bill_trends)
+
   return(bill_trends)
 }
 
@@ -368,40 +488,75 @@ calculate_bill_trends <- function(stats) {
 #' and interactive features.
 #'
 #' @param stats A list containing Legislative Yuan statistics with the following structure:
-#'   \itemize{
-#'     \item bill$terms - Data frame with columns:
-#'       \itemize{
-#'         \item term - Legislative term number
-#'         \item count - Number of bills in that term
-#'       }
+#' \describe{
+#'   \item{bill$terms}{A data frame containing:
+#'     \describe{
+#'       \item{term}{Legislative term number}
+#'       \item{count}{Number of bills in that term}
+#'     }
 #'   }
+#' }
 #'
-#' @return A plotly object containing:
-#'   \itemize{
-#'     \item An interactive line plot with markers
-#'     \item Hover text showing term number and bill count
-#'     \item Formatted axes and title
+#' @return A plotly object with the following features:
+#' \describe{
+#'   \item{Plot Type}{Interactive line plot with markers}
+#'   \item{Hover Info}{Dynamic text showing term and bill count}
+#'   \item{Layout}{
+#'     \describe{
+#'       \item{Title}{Bill count trends chart}
+#'       \item{X-axis}{Term labels}
+#'       \item{Y-axis}{Bill count scale}
+#'     }
 #'   }
+#' }
 #'
 #' @import plotly
-#' @importFrom plotly plot_ly layout
+#' @importFrom plotly plot_ly layout %>%
+#' @importFrom rlang .data
+#'
 #' @examples
 #' \dontrun{
+#' # Create basic interactive plot
 #' stats <- get_ly_stat()
 #' p <- create_interactive_plot(stats)
 #' p  # Display the plot
+#'
+#' # Create plot with custom title
+#' p <- create_interactive_plot(stats) %>%
+#'   layout(title = "Legislative Bill Trends Analysis")
+#' p
+#' }
+#'
+#' @seealso
+#' \describe{
+#'   \item{analyze_bills}{For detailed bill statistics analysis}
+#'   \item{calculate_bill_trends}{For trend metrics calculation}
 #' }
 #'
 #' @export
 create_interactive_plot <- function(stats) {
   bill_data <- stats$bill$terms
 
-  p <- plot_ly(bill_data, x = ~term, y = ~count, type = "scatter", mode = "lines+markers",
-               text = ~paste("Term:", term, "<br>Bills:", count),
-               hoverinfo = "text") %>%
-    layout(title = "Bill Count Trends by Term",
-           xaxis = list(title = "Term"),
-           yaxis = list(title = "Number of Bills"))
+  p <- plotly::plot_ly(
+    data = bill_data,
+    x = ~.data$term,
+    y = ~.data$count,
+    type = "scatter",
+    mode = "lines+markers",
+    text = ~paste("Term:", .data$term, "<br>Bills:", .data$count),
+    hoverinfo = "text"
+  ) %>%
+    plotly::layout(
+      title = "Bill Count Trends by Term",
+      xaxis = list(
+        title = "Term",
+        tickmode = "linear"
+      ),
+      yaxis = list(
+        title = "Number of Bills",
+        rangemode = "tozero"
+      )
+    )
 
   return(p)
 }

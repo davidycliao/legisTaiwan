@@ -49,7 +49,7 @@
 #'
 #' @importFrom httr GET content status_code
 #' @importFrom jsonlite fromJSON
-#'
+#' @encoding UTF-8
 #' @export
 get_ly_legislator_detail <- function(
     term,

@@ -14,5 +14,3 @@
 ^\.Rproj\.user$
 ^README\.Rmd$
 ^cran-comments\.md$
-^\.github$
-^\.test.Rmd

@@ -21,16 +21,16 @@ get_ly_legislator_bills(term, name, page = 1, limit = 20, show_progress = TRUE)
 \value{
 A list containing two components:
 \describe{
-\item{metadata}{A list containing:
-\itemize{
+\item{metadata}{A list containing pagination information:
+\describe{
 \item{total}{Total number of bills}
 \item{total_page}{Total number of pages}
 \item{current_page}{Current page number}
 \item{per_page}{Number of records per page}
 }
 }
-\item{bills}{A data frame containing:
-\itemize{
+\item{bills}{A data frame containing bill information:
+\describe{
 \item{billNo}{Bill number}
 \item{議案名稱}{Bill name}
 \item{提案單位}{Proposing unit/legislator}
@@ -60,11 +60,11 @@ format is: \code{https://ly.govapi.tw/legislator/{term}/{name}/propose_bill}
 \section{Data Usage}{
 
 The returned data can be used for:
-\itemize{
-\item Analyzing legislator's bill proposal patterns
-\item Tracking bill status and progress
-\item Studying legislative priorities
-\item Conducting policy research
+\describe{
+\item{Analysis}{Analyzing legislator's bill proposal patterns}
+\item{Tracking}{Tracking bill status and progress}
+\item{Research}{Studying legislative priorities}
+\item{Policy}{Conducting policy research}
 }
 }
 
@@ -96,8 +96,8 @@ cat(sprintf(
 
 }
 \seealso{
-\itemize{
-\item \code{\link{get_ly_legislators_by_term}} for listing all legislators in a term
-\item \code{\link{get_ly_legislator_detail}} for detailed legislator information
+\describe{
+\item{get_ly_legislators_by_term}{\code{\link{get_ly_legislators_by_term}} for listing all legislators in a term}
+\item{get_ly_legislator_detail}{\code{\link{get_ly_legislator_detail}} for detailed legislator information}
 }
 }

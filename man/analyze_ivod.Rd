@@ -8,37 +8,41 @@ analyze_ivod(stats)
 }
 \arguments{
 \item{stats}{A list containing Legislative Yuan statistics with the following structure:
-\itemize{
-\item ivod
-\itemize{
-\item total - Total number of video records
-\item date_range
-\itemize{
-\item start - Start date of video archive
-\item end - End date of video archive
+\describe{
+\item{ivod}{A list containing:
+\describe{
+\item{total}{Total number of video records}
+\item{date_range}{A list containing:
+\describe{
+\item{start}{Start date of video archive}
+\item{end}{End date of video archive}
 }
-\item terms - Data frame with columns:
-\itemize{
-\item term - Legislative term number
-\item count - Number of videos in that term
-\item start_date - Start date of term
-\item end_date - End date of term
+}
+\item{terms}{Data frame with columns:
+\describe{
+\item{term}{Legislative term number}
+\item{count}{Number of videos in that term}
+\item{start_date}{Start date of term}
+\item{end_date}{End date of term}
+}
+}
 }
 }
 }}
 }
 \value{
 A list containing:
-\itemize{
-\item plot - A ggplot object showing video count distribution by term
-\item summary - A data frame with video statistics including:
-\itemize{
-\item term
-\item count
-\item start_date_fmt
-\item end_date_fmt
-\item period_days
-\item avg_daily_videos
+\describe{
+\item{plot}{A ggplot object showing video count distribution by term}
+\item{summary}{A data frame with video statistics including:
+\describe{
+\item{term}{Term number}
+\item{count}{Video count}
+\item{start_date_fmt}{Formatted start date}
+\item{end_date_fmt}{Formatted end date}
+\item{period_days}{Duration in days}
+\item{avg_daily_videos}{Average videos per day}
+}
 }
 }
 }
@@ -49,8 +53,15 @@ and time period coverage.
 }
 \examples{
 \dontrun{
+# Get statistics and analyze videos
 stats <- get_ly_stat()
-analyze_ivod(stats)
+video_analysis <- analyze_ivod(stats)
+
+# View the plot
+print(video_analysis$plot)
+
+# View video statistics
+print(video_analysis$summary)
 }
 
 }

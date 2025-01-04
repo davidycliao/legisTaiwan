@@ -8,20 +8,27 @@ create_interactive_plot(stats)
 }
 \arguments{
 \item{stats}{A list containing Legislative Yuan statistics with the following structure:
-\itemize{
-\item bill$terms - Data frame with columns:
-\itemize{
-\item term - Legislative term number
-\item count - Number of bills in that term
+\describe{
+\item{bill$terms}{A data frame containing:
+\describe{
+\item{term}{Legislative term number}
+\item{count}{Number of bills in that term}
+}
 }
 }}
 }
 \value{
-A plotly object containing:
-\itemize{
-\item An interactive line plot with markers
-\item Hover text showing term number and bill count
-\item Formatted axes and title
+A plotly object with the following features:
+\describe{
+\item{Plot Type}{Interactive line plot with markers}
+\item{Hover Info}{Dynamic text showing term and bill count}
+\item{Layout}{
+\describe{
+\item{Title}{Bill count trends chart}
+\item{X-axis}{Term labels}
+\item{Y-axis}{Bill count scale}
+}
+}
 }
 }
 \description{
@@ -31,9 +38,21 @@ and interactive features.
 }
 \examples{
 \dontrun{
+# Create basic interactive plot
 stats <- get_ly_stat()
 p <- create_interactive_plot(stats)
 p  # Display the plot
+
+# Create plot with custom title
+p <- create_interactive_plot(stats) \%>\%
+  layout(title = "Legislative Bill Trends Analysis")
+p
 }
 
+}
+\seealso{
+\describe{
+\item{analyze_bills}{For detailed bill statistics analysis}
+\item{calculate_bill_trends}{For trend metrics calculation}
+}
 }

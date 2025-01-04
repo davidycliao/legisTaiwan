@@ -1,4 +1,5 @@
-#' Fetch Legislative Yuan Committee Meetings
+#' @encoding UTF-8
+#' @title Fetch Legislative Yuan Committee Meetings
 #'
 #' @description
 #' Retrieves and processes committee meeting information from the Legislative Yuan API.
@@ -22,6 +23,7 @@
 #' @importFrom jsonlite fromJSON
 #' @importFrom dplyr bind_rows
 #' @importFrom utils txtProgressBar setTxtProgressBar
+#' @encoding UTF-8
 #' @export
 get_ly_committee_meets <- function(
     committee_id,

@@ -18,29 +18,29 @@ get_ly_interpellations(
 )
 }
 \arguments{
-\item{page}{integer. Page number for pagination (default: 1)}
+\item{page}{An integer specifying the page number (default: 1)}
 
-\item{limit}{integer. Number of items per page (default: 20)}
+\item{limit}{An integer specifying the number of records per page (default: 20)}
 
-\item{legislator}{string. Legislator name}
+\item{legislator}{A string specifying the legislator's name}
 
-\item{term}{integer. Legislative term, e.g., 9}
+\item{term}{An integer specifying the legislative term number}
 
-\item{session_period}{integer. Session period, e.g., 2}
+\item{session_period}{An integer specifying the session period}
 
-\item{session_times}{integer. Session times}
+\item{session_times}{An integer specifying the session times}
 
-\item{meet_id}{string. Meeting ID, e.g., "院會-9-2-1"}
+\item{meet_id}{A string specifying the meeting ID (e.g., "院會-9-2-1")}
 
-\item{query}{string. Search query for reason or content}
+\item{query}{A string to search in interpellation reasons or content}
 
-\item{show_progress}{logical. Whether to display progress bar (default: TRUE)}
+\item{show_progress}{A logical value indicating whether to show progress bar (default: TRUE)}
 }
 \value{
 A list with two components:
 \describe{
-\item{metadata}{A list containing:
-\itemize{
+\item{metadata}{A list containing pagination and filter information:
+\describe{
 \item{total}{Total number of records found}
 \item{total_page}{Total number of pages}
 \item{current_page}{Current page number}
@@ -48,8 +48,8 @@ A list with two components:
 \item{filters_used}{List of filters applied}
 }
 }
-\item{interpellations}{A data frame containing:
-\itemize{
+\item{interpellations}{A data frame containing interpellation records:
+\describe{
 \item{id}{Interpellation ID}
 \item{printed_at}{Date when printed}
 \item{reason}{Interpellation reason}
@@ -63,30 +63,11 @@ A list with two components:
 }
 }
 }
-
-A list containing:
-\itemize{
-\item metadata - List of total count, total pages and pagination info
-\item interpellations - Data frame of interpellation records including:
-- id: Interpellation ID
-- printed_at: Print date
-- reason: Interpellation reason
-- description: Detailed content
-- legislators: List of legislators involved
-- meet_id: Meeting ID
-- term: Legislative term
-- sessionPeriod: Session period
-- sessionTimes: Session times
-}
 }
 \description{
 Fetches and parses interpellation records from the Legislative Yuan API.
 Supports filtering by legislator, term, session and keyword search.
 Returns structured data including metadata and detailed interpellation records.
-
-Retrieves interpellation records from the Legislative Yuan API.
-The function supports filtering by legislator, term, session and other attributes.
-Returns structured data of interpellations including reason, description and metadata.
 }
 \examples{
 \dontrun{
@@ -114,23 +95,6 @@ search_results <- get_ly_interpellations(
 print(paste("Total records:", search_results$metadata$total))
 head(search_results$interpellations)
 }
-
-# Get interpellations by legislator
-results <- get_ly_interpellations(
-  legislator = "趙天麟"
-)
-
-# Get interpellations for specific term and session
-results <- get_ly_interpellations(
-  term = 9,
-  session_period = 2,
-  session_times = 1
-)
-
-# Search interpellations by content
-results <- get_ly_interpellations(
-  query = "氫能"
-)
 
 }
 \seealso{

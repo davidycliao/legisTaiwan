@@ -1,5 +1,3 @@
-
-#' @encoding UTF-8
 #' @title Get Legislative Yuan Interpellation Records
 #'
 #' @description
@@ -19,8 +17,8 @@
 #'
 #' @return A list with two components:
 #' \describe{
-#'   \item{metadata}{A list containing:
-#'     \itemize{
+#'   \item{metadata}{A list containing pagination and filter information:
+#'     \describe{
 #'       \item{total}{Total number of records found}
 #'       \item{total_page}{Total number of pages}
 #'       \item{current_page}{Current page number}
@@ -28,8 +26,8 @@
 #'       \item{filters_used}{List of filters applied}
 #'     }
 #'   }
-#'   \item{interpellations}{A data frame containing:
-#'     \itemize{
+#'   \item{interpellations}{A data frame containing interpellation records:
+#'     \describe{
 #'       \item{id}{Interpellation ID}
 #'       \item{printed_at}{Date when printed}
 #'       \item{reason}{Interpellation reason}
@@ -78,63 +76,7 @@
 #' @seealso
 #' \url{https://ly.govapi.tw/} for API documentation
 #'
-#' @export
 #' @encoding UTF-8
-# Get by legislator
-#' Fetch Legislative Yuan Interpellations
-#'
-#' @description
-#' Retrieves interpellation records from the Legislative Yuan API.
-#' The function supports filtering by legislator, term, session and other attributes.
-#' Returns structured data of interpellations including reason, description and metadata.
-#'
-#' @param page integer. Page number for pagination (default: 1)
-#' @param limit integer. Number of items per page (default: 20)
-#' @param legislator string. Legislator name
-#' @param term integer. Legislative term, e.g., 9
-#' @param session_period integer. Session period, e.g., 2
-#' @param session_times integer. Session times
-#' @param meet_id string. Meeting ID, e.g., "院會-9-2-1"
-#' @param query string. Search query for reason or content
-#' @param show_progress logical. Whether to display progress bar (default: TRUE)
-#'
-#' @return A list containing:
-#' \itemize{
-#'   \item metadata - List of total count, total pages and pagination info
-#'   \item interpellations - Data frame of interpellation records including:
-#'     - id: Interpellation ID
-#'     - printed_at: Print date
-#'     - reason: Interpellation reason
-#'     - description: Detailed content
-#'     - legislators: List of legislators involved
-#'     - meet_id: Meeting ID
-#'     - term: Legislative term
-#'     - sessionPeriod: Session period
-#'     - sessionTimes: Session times
-#' }
-#'
-#' @examples
-#' # Get interpellations by legislator
-#' results <- get_ly_interpellations(
-#'   legislator = "趙天麟"
-#' )
-#'
-#' # Get interpellations for specific term and session
-#' results <- get_ly_interpellations(
-#'   term = 9,
-#'   session_period = 2,
-#'   session_times = 1
-#' )
-#'
-#' # Search interpellations by content
-#' results <- get_ly_interpellations(
-#'   query = "氫能"
-#' )
-#'
-#' @importFrom httr GET content status_code
-#' @importFrom jsonlite fromJSON
-#' @importFrom utils txtProgressBar setTxtProgressBar
-#'
 #' @export
 get_ly_interpellations <- function(
     page = 1,

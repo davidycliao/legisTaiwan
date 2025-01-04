@@ -1,4 +1,4 @@
-#' Fetch and Parse Legislative Yuan Bills
+#' @title Fetch and Parse Legislative Yuan Bills
 #'
 #' @description
 #' Retrieves bill information from the Legislative Yuan API with comprehensive filter options.
@@ -57,7 +57,7 @@
 #' @importFrom httr GET content status_code
 #' @importFrom jsonlite fromJSON
 #' @importFrom utils txtProgressBar setTxtProgressBar
-#'
+#' @encoding UTF-8
 #' @export
 get_ly_bills <- function(
     page = 1,

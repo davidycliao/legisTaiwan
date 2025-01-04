@@ -8,31 +8,34 @@ analyze_meetings(stats)
 }
 \arguments{
 \item{stats}{A list containing Legislative Yuan statistics with the following structure:
-\itemize{
-\item meet
-\itemize{
-\item total - Total number of meetings
-\item terms - Data frame with columns:
-\itemize{
-\item term - Legislative term number
-\item count - Number of meetings in that term
-\item max_meeting_date - Last meeting date of the term
-\item meetdata_count - Number of meetings with data
-\item 議事錄_count - Number of meetings with minutes
+\describe{
+\item{meet}{A list containing:
+\describe{
+\item{total}{Total number of meetings}
+\item{terms}{Data frame with columns:
+\describe{
+\item{term}{Legislative term number}
+\item{count}{Number of meetings in that term}
+\item{max_meeting_date}{Last meeting date of the term}
+\item{meetdata_count}{Number of meetings with data}
+\item{議事錄_count}{Number of meetings with minutes}
+}
+}
 }
 }
 }}
 }
 \value{
 A list containing:
-\itemize{
-\item plot - A ggplot object showing meeting statistics comparison
-\item summary - A data frame with meeting statistics including:
-\itemize{
-\item term
-\item count
-\item minutes_ratio - Percentage of meetings with minutes
-\item last_meeting_date - Formatted date of last meeting
+\describe{
+\item{plot}{A ggplot object showing meeting statistics comparison}
+\item{summary}{A data frame with meeting statistics including:
+\describe{
+\item{term}{Term number}
+\item{count}{Total meetings}
+\item{minutes_ratio}{Percentage of meetings with minutes}
+\item{last_meeting_date}{Formatted date of last meeting}
+}
 }
 }
 }
@@ -43,8 +46,15 @@ between total meetings and available meeting minutes.
 }
 \examples{
 \dontrun{
+# Get statistics and analyze meetings
 stats <- get_ly_stat()
-analyze_meetings(stats)
+meeting_analysis <- analyze_meetings(stats)
+
+# View the plot
+print(meeting_analysis$plot)
+
+# View meeting statistics
+print(meeting_analysis$summary)
 }
 
 }

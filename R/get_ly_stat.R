@@ -1,4 +1,4 @@
-#' Fetch and Parse Legislative Yuan Statistics
+#' @title Fetch and Parse Legislative Yuan Statistics
 #'
 #' @description
 #' Retrieves statistical data from the Legislative Yuan API and parses it into a structured format.
@@ -27,6 +27,7 @@
 #' @importFrom dplyr select mutate arrange desc
 #' @importFrom magrittr %>%
 #' @importFrom rlang .data
+#' @encoding UTF-8
 #' @export
 get_tly_stat <- function() {
   # Send GET request to the API

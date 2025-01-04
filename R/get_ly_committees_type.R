@@ -1,4 +1,4 @@
-#' Fetch and Parse Legislative Yuan Committee Details, Jurisdiction and Codes
+#' @title Fetch and Parse Legislative Yuan Committee Details, Jurisdiction and Codes
 #'
 #' @description
 #' Retrieves detailed information about Legislative Yuan committees,
@@ -26,7 +26,7 @@
 #' @importFrom httr GET content status_code
 #' @importFrom jsonlite fromJSON
 #' @importFrom utils txtProgressBar setTxtProgressBar
-#'
+#' @encoding UTF-8
 #' @export
 get_ly_committees_type <- function(
     page = 1,

@@ -8,31 +8,55 @@ generate_report(stats)
 }
 \arguments{
 \item{stats}{A list containing Legislative Yuan statistics with the following structure:
-\itemize{
-\item legislator
-\itemize{
-\item total - Total historical number of legislators
-\item terms - Data frame of legislator counts by term
+\describe{
+\item{legislator}{A list containing legislator information:
+\describe{
+\item{total}{Total historical number of legislators}
+\item{terms}{Data frame of legislator counts by term}
 }
-\item gazette
-\itemize{
-\item total - Total number of gazettes
-\item agenda_total - Total number of agendas
-\item last_meeting - Date of the last meeting
 }
-\item ivod
-\itemize{
-\item total - Total number of video records
-\item date_range - List containing start and end dates of video archives
+\item{gazette}{A list containing gazette information:
+\describe{
+\item{total}{Total number of gazettes}
+\item{agenda_total}{Total number of agendas}
+\item{last_meeting}{Date of the last meeting}
+}
+}
+\item{ivod}{A list containing video information:
+\describe{
+\item{total}{Total number of video records}
+\item{date_range}{List containing start and end dates of video archives}
+}
 }
 }}
 }
 \value{
-Prints a formatted report to the console containing:
-\itemize{
-\item Legislator statistics and historical counts
-\item Gazette information including total counts and latest meeting
-\item Video archive statistics with time period coverage
+A formatted report containing the following sections:
+\describe{
+\item{Bill Statistics}{
+\describe{
+\item{Total Bills}{Total number of bills}
+\item{Last Update}{Most recent bill update date}
+}
+}
+\item{Legislator Statistics}{
+\describe{
+\item{Total Count}{Historical total of legislators}
+\item{Term Distribution}{Legislator counts by term}
+}
+}
+\item{Gazette Statistics}{
+\describe{
+\item{Total Counts}{Numbers of gazettes and agendas}
+\item{Latest Activity}{Most recent meeting date}
+}
+}
+\item{Video Statistics}{
+\describe{
+\item{Total Videos}{Number of video records}
+\item{Coverage Period}{Time span of video archives}
+}
+}
 }
 }
 \description{
@@ -42,8 +66,24 @@ Presents the information in a formatted text output.
 }
 \examples{
 \dontrun{
+# Generate full statistics report
 stats <- get_ly_stat()
-generate_summary_report(stats)
+generate_report(stats)
+
+# View specific sections
+stats <- get_ly_stat()
+cat("\nBill Statistics:\n")
+cat(sprintf("Total Bills: \%d\n", stats$bill$total))
+
+cat("\nLegislator Statistics:\n")
+cat(sprintf("Total Legislators: \%d\n", stats$legislator$total))
 }
 
+}
+\seealso{
+\describe{
+\item{analyze_bills}{For detailed bill analysis}
+\item{analyze_meetings}{For meeting statistics analysis}
+\item{analyze_ivod}{For video records analysis}
+}
 }

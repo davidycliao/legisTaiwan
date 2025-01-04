@@ -16,7 +16,7 @@
 #' @return A list with two components:
 #' \describe{
 #'   \item{metadata}{A list containing:
-#'     \itemize{
+#'     \describe{
 #'       \item{total}{Total number of legislators}
 #'       \item{total_page}{Total number of pages}
 #'       \item{current_page}{Current page number}
@@ -24,12 +24,12 @@
 #'     }
 #'   }
 #'   \item{legislators}{A data frame containing legislator information:
-#'     \itemize{
+#'     \describe{
 #'       \item{term}{Legislative term}
 #'       \item{name}{Legislator's name}
 #'       \item{party}{Political party affiliation}
 #'       \item{areaName}{Represented area (if available)}
-#'       \item{Additional columns as provided by the API}
+#'       \item{columns}{Additional columns as provided by the API}
 #'     }
 #'   }
 #' }
@@ -37,12 +37,11 @@
 #' @details
 #' The function includes a progress bar and detailed summary statistics when
 #' show_progress is TRUE. The summary includes:
-#' \itemize{
-#'   \item Total number of legislators
-#'   \item Current page and total pages
-#'   \item Records per page
-#'   \item Party distribution
-#'   \item Area distribution (if available)
+#' \describe{
+#'   \item{Total Statistics}{Total number of legislators}
+#'   \item{Pagination}{Current page and total pages}
+#'   \item{Page Size}{Records per page}
+#'   \item{Distribution}{Party and area distribution (if available)}
 #' }
 #'
 #' @examples
@@ -69,12 +68,14 @@
 #' }
 #'
 #' @seealso
-#' \code{\link{get_ly_legislator_detail}} for getting detailed information about a specific legislator
+#' \describe{
+#'   \item{get_ly_legislator_detail}{\code{\link{get_ly_legislator_detail}} for getting detailed information about a specific legislator}
+#' }
 #'
 #' @importFrom httr GET content status_code
 #' @importFrom jsonlite fromJSON
 #' @importFrom utils setTxtProgressBar txtProgressBar
-#'
+#' @encoding UTF-8
 #' @export
 get_ly_legislators_by_term <- function(
     term,

@@ -8,29 +8,32 @@ analyze_bills(stats)
 }
 \arguments{
 \item{stats}{A list containing Legislative Yuan statistics with the following structure:
-\itemize{
-\item bill
-\itemize{
-\item total - Total number of bills
-\item max_update_time - Last update timestamp
-\item terms - Data frame with columns:
-\itemize{
-\item term - Legislative term number
-\item count - Number of bills in that term
+\describe{
+\item{bill}{A list containing:
+\describe{
+\item{total}{Total number of bills}
+\item{max_update_time}{Last update timestamp}
+\item{terms}{Data frame with columns:
+\describe{
+\item{term}{Legislative term number}
+\item{count}{Number of bills in that term}
+}
+}
 }
 }
 }}
 }
 \value{
 A list containing:
-\itemize{
-\item plot - A ggplot object showing bill count trends
-\item summary - A data frame with bill statistics including:
-\itemize{
-\item term
-\item count
-\item percentage
-\item cumulative
+\describe{
+\item{plot}{A ggplot object showing bill count trends}
+\item{summary}{A data frame with bill statistics including:
+\describe{
+\item{term}{Term number}
+\item{count}{Bill count}
+\item{percentage}{Percentage of total}
+\item{cumulative}{Cumulative count}
+}
 }
 }
 }
@@ -42,7 +45,13 @@ provides summary statistics.
 \examples{
 \dontrun{
 stats <- get_ly_stat()
-analyze_bills(stats)
+bill_analysis <- analyze_bills(stats)
+
+# View the plot
+print(bill_analysis$plot)
+
+# View the summary statistics
+print(bill_analysis$summary)
 }
 
 }

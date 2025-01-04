@@ -118,9 +118,7 @@ analyze_ivod(stats)
 <!-- process with appropriate handlers to track the progress of file input, -->
 <!-- ensuring the completeness of the requested data. -->
 
-The Legislative Yuan API has transitioned from `https://ly.govapi.tw` to `https://v2.ly.govapi.tw`. 
-
-While we are maintaining support for functions that use the legacy API, please note that the old API endpoint will eventually be deprecated. We recommend users to gradually transition to the newer API versions as they become available.
+The Legislative Yuan API has transitioned from `https://ly.govapi.tw` to `https://v2.ly.govapi.tw`.  While we are maintaining support for functions that use the legacy API, please note that the old API endpoint will eventually be deprecated. We recommend users to gradually transition to the newer API versions as they become available.
 
 
 </div>
