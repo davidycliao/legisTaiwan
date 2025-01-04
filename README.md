@@ -71,7 +71,7 @@ analyze_bills(stats)
 #> 
 #> === Bill Statistics Summary ===
 #> Total Bills: 131762
-#> Last Updated: 2025-01-04 13:18:45
+#> Last Updated: 2025-01-04 19:18:56
 #> 
 #> First Five Terms Bill Count:
 #>   term count percentage cumulative
@@ -158,12 +158,10 @@ analyze_ivod(stats)
 <!-- ensuring the completeness of the requested data. -->
 
 The Legislative Yuan API has transitioned from `https://ly.govapi.tw` to
-`https://v2.ly.govapi.tw`.
-
-While we are maintaining support for functions that use the legacy API,
-please note that the old API endpoint will eventually be deprecated. We
-recommend users to gradually transition to the newer API versions as
-they become available.
+`https://v2.ly.govapi.tw`. While we are maintaining support for
+functions that use the legacy API, please note that the old API endpoint
+will eventually be deprecated. We recommend users to gradually
+transition to the newer API versions as they become available.
 
 </div>
 

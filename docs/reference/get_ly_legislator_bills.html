@@ -27,7 +27,7 @@ This includes personal details, committee assignments, educational background, a
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-quick-start" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fa-rocket"></span> Quick Start</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-quick-start"><li><a class="dropdown-item" href="../articles/quickstart.html#get-started-with-using-remotes">Quick Start Guide</a></li>
-    <li><a class="dropdown-item" href="../articles/quickstart.html#quickstart.html#how-to-contribute">How to Contribute</a></li>
+    <li><a class="dropdown-item" href="../articles/quickstart.html#manual.html">Manual</a></li>
   </ul></li>
 <li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-reference" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fa-file-code-o"></span> Reference</button>
@@ -98,26 +98,60 @@ This includes personal details, committee assignments, educational background, a
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A list containing two components:</p><dl><dt>metadata</dt>
-<dd><p>A list containing:</p><ul><li><p>totalTotal number of bills</p></li>
-<li><p>total_pageTotal number of pages</p></li>
-<li><p>current_pageCurrent page number</p></li>
-<li><p>per_pageNumber of records per page</p></li>
-</ul></dd>
+<dd><p>A list containing pagination information:</p><dl><dt>total</dt>
+<dd><p>Total number of bills</p></dd>
+
+<dt>total_page</dt>
+<dd><p>Total number of pages</p></dd>
+
+<dt>current_page</dt>
+<dd><p>Current page number</p></dd>
+
+<dt>per_page</dt>
+<dd><p>Number of records per page</p></dd>
+
+
+</dl></dd>
 
 <dt>bills</dt>
-<dd><p>A data frame containing:</p><ul><li><p>billNoBill number</p></li>
-<li><p>議案名稱Bill name</p></li>
-<li><p>提案單位Proposing unit/legislator</p></li>
-<li><p>議案狀態Bill status</p></li>
-<li><p>議案類別Bill type</p></li>
-<li><p>提案來源Bill source</p></li>
-<li><p>meet_idMeeting ID</p></li>
-<li><p>會期Session number</p></li>
-<li><p>字號Reference number</p></li>
-<li><p>提案編號Proposal number</p></li>
-<li><p>屆期Legislative term</p></li>
-<li><p>mtimeLast modified time</p></li>
-</ul></dd>
+<dd><p>A data frame containing bill information:</p><dl><dt>billNo</dt>
+<dd><p>Bill number</p></dd>
+
+<dt>議案名稱</dt>
+<dd><p>Bill name</p></dd>
+
+<dt>提案單位</dt>
+<dd><p>Proposing unit/legislator</p></dd>
+
+<dt>議案狀態</dt>
+<dd><p>Bill status</p></dd>
+
+<dt>議案類別</dt>
+<dd><p>Bill type</p></dd>
+
+<dt>提案來源</dt>
+<dd><p>Bill source</p></dd>
+
+<dt>meet_id</dt>
+<dd><p>Meeting ID</p></dd>
+
+<dt>會期</dt>
+<dd><p>Session number</p></dd>
+
+<dt>字號</dt>
+<dd><p>Reference number</p></dd>
+
+<dt>提案編號</dt>
+<dd><p>Proposal number</p></dd>
+
+<dt>屆期</dt>
+<dd><p>Legislative term</p></dd>
+
+<dt>mtime</dt>
+<dd><p>Last modified time</p></dd>
+
+
+</dl></dd>
 
 
 </dl></div>
@@ -132,17 +166,31 @@ format is: <code>https://ly.govapi.tw/legislator/{term}/{name}/propose_bill</cod
     <h2 id="data-usage">Data Usage<a class="anchor" aria-label="anchor" href="#data-usage"></a></h2>
 
 
-<p>The returned data can be used for:</p><ul><li><p>Analyzing legislator's bill proposal patterns</p></li>
-<li><p>Tracking bill status and progress</p></li>
-<li><p>Studying legislative priorities</p></li>
-<li><p>Conducting policy research</p></li>
-</ul></div>
+<p>The returned data can be used for:</p><dl><dt>Analysis</dt>
+<dd><p>Analyzing legislator's bill proposal patterns</p></dd>
+
+<dt>Tracking</dt>
+<dd><p>Tracking bill status and progress</p></dd>
+
+<dt>Research</dt>
+<dd><p>Studying legislative priorities</p></dd>
+
+<dt>Policy</dt>
+<dd><p>Conducting policy research</p></dd>
+
+
+</dl></div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index">
-<ul><li><p><code><a href="get_ly_legislators_by_term.html">get_ly_legislators_by_term</a></code> for listing all legislators in a term</p></li>
-<li><p><code><a href="get_ly_legislator_detail.html">get_ly_legislator_detail</a></code> for detailed legislator information</p></li>
-</ul></div>
+<dl><dt>get_ly_legislators_by_term</dt>
+<dd><p><code><a href="get_ly_legislators_by_term.html">get_ly_legislators_by_term</a></code> for listing all legislators in a term</p></dd>
+
+<dt>get_ly_legislator_detail</dt>
+<dd><p><code><a href="get_ly_legislator_detail.html">get_ly_legislator_detail</a></code> for detailed legislator information</p></dd>
+
+
+</dl></div>
     </div>
 
     <div class="section level2">
