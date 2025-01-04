@@ -27,11 +27,6 @@
 #' @importFrom dplyr select mutate arrange desc
 #' @export
 get_tly_stat <- function() {
-  # Check and install required packages
-  if (!require("httr")) install.packages("httr")
-  if (!require("jsonlite")) install.packages("jsonlite")
-  if (!require("dplyr")) install.packages("dplyr")
-
   # Send GET request to the API
   response <- httr::GET("https://v2.ly.govapi.tw/stat")
 

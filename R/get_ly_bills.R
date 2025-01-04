@@ -75,12 +75,6 @@ get_ly_bills <- function(
     meeting_code = NULL,   # Meeting code
     show_progress = TRUE   # Show progress bar
 ) {
-  # Check and install required packages
-  required_packages <- c("httr", "jsonlite", "dplyr", "utils")
-  invisible(lapply(required_packages, function(pkg) {
-    if (!require(pkg, character.only = TRUE)) install.packages(pkg)
-  }))
-
   # Construct API base URL
   base_url <- "https://v2.ly.govapi.tw/bills"
 

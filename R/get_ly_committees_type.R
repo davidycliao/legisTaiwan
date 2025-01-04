@@ -139,6 +139,3 @@ get_ly_committees_type <- function(
     committees = committees_df
   ))
 }
-
-
-econ_committee$committees[c("名稱", "代號")]
