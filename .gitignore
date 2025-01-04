@@ -7,3 +7,4 @@
 ^\.github$
 ^codecov\.yml$
 ^.*\.utf8\.R$
+.Rproj.user
