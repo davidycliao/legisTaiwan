@@ -8,8 +8,13 @@ Authors@R: c(person("Yen-Chieh", "Liao", email = "davidycliao@gmail.com", role =
              person("Taiwan National Science and Technology Council", role = "ctb"),
              person("Taiwan Science & Technology Policy Research and Information Center NARLabs", role = "ctb"))
 Description: The package is designed to make it quickly and easy to access Taiwan 
-             Legislative Yuan API for downloading real-time data legislative and 
-             historical archives.
+    Legislative Yuan API for downloading real-time data, legislative records and 
+    historical archives. Features include access to committee meetings, 
+    interpellations, bills, legislator information, parliamentary questions, 
+    and executive responses. The API provides comprehensive coverage of 
+    legislative activities including voting records, meeting minutes, and 
+    policy discussions, enabling users to analyze Taiwan's legislative 
+    processes and parliamentary operations efficiently.
 Maintainer: Yen-Chieh Liao <davidycliao@gmail.com>
 Depends: R (>= 3.4.0)
 License: GPL-3 + file LICENSE
@@ -24,8 +29,6 @@ Imports:
     rvest,
     withr,
     httr,
-    pillar,
-    vctrs,
     utils,
     readr,
     dplyr,

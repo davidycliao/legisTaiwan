@@ -2,11 +2,11 @@
 % Please edit documentation in R/zzz.R
 \name{.onAttach}
 \alias{.onAttach}
-\title{On package attach, display a startup message}
+\title{Package startup message}
 \usage{
 .onAttach(...)
 }
 \description{
-On package attach, display a startup message
+Package startup message
 }
 \keyword{internal}
