@@ -1,0 +1,9 @@
+^\.github$
+^.*\.Rproj$
+^\.Rproj\.user$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$
+^codecov\.yml$
+^.*\.utf8\.R$
