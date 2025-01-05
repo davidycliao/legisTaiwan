@@ -3,8 +3,30 @@
 #'
 #' @description
 #' Retrieves and processes committee meeting information from the Legislative Yuan API.
+#' This function allows you to fetch detailed information about committee meetings
+#' including attendance, bills discussed, and meeting details.
 #'
-#' @param committee_id integer. Required. The ID of the committee
+#' @param committee_id integer. Required. The ID of the committee. Available values:
+#'   \itemize{
+#'     \item 15: 內政委員會 (Interior Committee)
+#'     \item 16: 外交及僑務委員會 (Foreign and Overseas Chinese Affairs Committee)
+#'     \item 17: 科技及資訊委員會 (Science and Technology Committee)
+#'     \item 18: 國防委員會 (Defense Committee)
+#'     \item 19: 經濟委員會 (Economics Committee)
+#'     \item 20: 財政委員會 (Finance Committee)
+#'     \item 21: 預算及決算委員會 (Budget Committee)
+#'     \item 22: 教育及文化委員會 (Education and Culture Committee)
+#'     \item 23: 交通委員會 (Transportation Committee)
+#'     \item 24: 司法委員會 (Judiciary Committee)
+#'     \item 25: 法制委員會 (Legal Affairs Committee)
+#'     \item 26: 社會福利及衛生環境委員會 (Social Welfare and Environmental Hygiene Committee)
+#'     \item 27: 程序委員會 (Procedure Committee)
+#'     \item 28: 紀律委員會 (Discipline Committee)
+#'     \item 29: 修憲委員會 (Constitutional Amendment Committee)
+#'     \item 30: 經費稽核委員會 (Expenditure Review Committee)
+#'     \item 35: 外交及國防委員會 (Foreign Affairs and Defense Committee)
+#'     \item 36: 司法及法制委員會 (Judiciary and Legal Affairs Committee)
+#'   }
 #' @param page integer. Page number for pagination (default: 1)
 #' @param per_page integer. Number of items per page (default: 20)
 #' @param term integer. Legislative term number
@@ -17,7 +39,26 @@
 #' @param bill_id string. Bill ID
 #' @param show_progress logical. Whether to display progress bar (default: TRUE)
 #'
-#' @return A list containing metadata and meetings data frame
+#' @return A list containing two elements:
+#'   \itemize{
+#'     \item metadata: List containing pagination information and request status
+#'     \item data: Data frame containing meeting information with columns including
+#'           meeting date, type, attending members, and discussed bills
+#'   }
+#'
+#' @examples
+#' \dontrun{
+#' # Fetch meetings from the Interior Committee
+#' meetings <- fetch_ly_meetings(committee_id = 15)
+#'
+#' # Fetch meetings with specific filters
+#' meetings <- fetch_ly_meetings(
+#'   committee_id = 16,
+#'   term = 10,
+#'   session = 1,
+#'   date = "2024-01-01"
+#' )
+#' }
 #'
 #' @importFrom httr GET content status_code
 #' @importFrom jsonlite fromJSON

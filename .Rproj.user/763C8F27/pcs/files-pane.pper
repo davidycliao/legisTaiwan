@@ -2,12 +2,12 @@
     "sortOrder": [
         {
             "columnIndex": 4,
-            "ascending": false
+            "ascending": true
         },
         {
             "columnIndex": 2,
             "ascending": true
         }
     ],
-    "path": "~/Dropbox/My Packages/legisTaiwan/vignettes"
+    "path": "~/Dropbox/My Packages/legisTaiwan/tests/testthat"
 }

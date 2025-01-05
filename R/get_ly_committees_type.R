@@ -3,10 +3,40 @@
 #' @description
 #' Retrieves detailed information about Legislative Yuan committees,
 #' including their jurisdictions, responsibilities and assigned codes.
+#' This function provides comprehensive access to committee structural data
+#' and organizational details of Taiwan's Legislative Yuan.
 #'
 #' @details
 #' This function fetches comprehensive committee information from the Legislative Yuan API,
 #' providing committee codes, names, duties, jurisdictions and organizational structure.
+#' The committees are categorized into three main types:
+#' \itemize{
+#'   \item Standing Committees (常設委員會): Permanent committees handling specific policy areas
+#'   \item Special Committees (特種委員會): Committees formed for specific purposes or tasks
+#'   \item Former Committee Names (國會改革前舊委員會名稱): Historical committee designations
+#' }
+#'
+#' Committee codes and their corresponding names:
+#' \itemize{
+#'   \item 15: 內政委員會 (Interior Affairs Committee)
+#'   \item 16: 外交及僑務委員會 (Foreign and Overseas Chinese Affairs Committee)
+#'   \item 17: 科技及資訊委員會 (Science and Technology Committee)
+#'   \item 18: 國防委員會 (National Defense Committee)
+#'   \item 19: 經濟委員會 (Economic Affairs Committee)
+#'   \item 20: 財政委員會 (Finance Committee)
+#'   \item 21: 預算及決算委員會 (Budget and Final Accounts Committee)
+#'   \item 22: 教育及文化委員會 (Education and Culture Committee)
+#'   \item 23: 交通委員會 (Transportation Committee)
+#'   \item 24: 司法委員會 (Judiciary Committee)
+#'   \item 25: 法制委員會 (Legal Affairs Committee)
+#'   \item 26: 社會福利及衛生環境委員會 (Social Welfare and Environmental Hygiene Committee)
+#'   \item 27: 程序委員會 (Procedure Committee)
+#'   \item 28: 紀律委員會 (Discipline Committee)
+#'   \item 29: 修憲委員會 (Constitutional Amendment Committee)
+#'   \item 30: 經費稽核委員會 (Expenditure Review Committee)
+#'   \item 35: 外交及國防委員會 (Foreign Affairs and National Defense Committee)
+#'   \item 36: 司法及法制委員會 (Judiciary and Legal Affairs Committee)
+#' }
 #'
 #' @param page integer. Page number for pagination (default: 1)
 #' @param per_page integer. Number of items per page (default: 20)
@@ -19,8 +49,34 @@
 #'
 #' @return A list containing:
 #' \itemize{
-#'   \item metadata - List of pagination info and applied filters
-#'   \item committees - Data frame of committee details including code, name, duties and type
+#'   \item metadata - List of pagination info and applied filters, including:
+#'     \itemize{
+#'       \item total_records: Total number of committee records
+#'       \item current_page: Current page number
+#'       \item total_pages: Total number of pages
+#'       \item per_page: Number of records per page
+#'     }
+#'   \item committees - Data frame of committee details including:
+#'     \itemize{
+#'       \item code: Committee identification number
+#'       \item name: Committee name in Chinese
+#'       \item type: Category of committee
+#'       \item duties: Committee responsibilities and jurisdiction
+#'       \item term_start: Starting legislative term of the committee
+#'       \item term_end: Ending legislative term of the committee (if applicable)
+#'     }
+#' }
+#'
+#' @examples
+#' \dontrun{
+#' # Fetch all standing committees
+#' committees <- fetch_ly_committees(type = "常設委員會")
+#'
+#' # Get details for a specific committee by code
+#' interior_committee <- fetch_ly_committees(code = 15)
+#'
+#' # Fetch multiple pages of committee data
+#' all_committees <- fetch_ly_committees(page = 1, per_page = 50)
 #' }
 #'
 #' @importFrom httr GET content status_code
