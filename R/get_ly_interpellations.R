@@ -149,7 +149,7 @@ get_ly_interpellations <- function(
 
     interpellations_list <- vector("list", nrow(data$interpellations))
 
-    for(i in 1:nrow(data$interpellations)) {
+    for(i in seq_len(nrow(data$interpellations))) {
       if (show_progress) {
         setTxtProgressBar(pb, i)
       }
