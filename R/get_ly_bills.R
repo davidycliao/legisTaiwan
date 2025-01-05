@@ -208,8 +208,3 @@ get_ly_bills <- function(
     bills = bills_df
   ))
 }
-
-bills <- get_ly_bills(
-   bill_type = "行政命令(層級)",
-  show_progress = TRUE
-)

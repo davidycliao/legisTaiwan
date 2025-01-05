@@ -39,16 +39,17 @@ assign("has_internet_via_proxy", TRUE, environment(curl::has_internet))
 ```
 
 
+<br>
+
+
+------
+
 
 ## Taiwan Legislative Yuan API (v2)
 
 <div style="text-align: justify">
 
-The Legislative Yuan API is transitioning from `https://ly.govapi.tw` to `https://v2.ly.govapi.tw`. 
-
-While we are maintaining support for functions that use the legacy API, please note that the old API endpoint will eventually be deprecated. We recommend users to gradually transition to the newer API versions as they become available.
-
-**Current Status:**
+The Legislative Yuan API is transitioning from `https://ly.govapi.tw` to `https://v2.ly.govapi.tw`.  While we are maintaining support for functions that use the legacy API, please note that the old API endpoint will eventually be deprecated. We recommend users to gradually transition to the newer API versions as they become available.
 
 - Legacy API (`ly.govapi.tw`) - Still functional but will not receive updates
 - New API (`v2.ly.govapi.tw`) - Current active development and maintenance
@@ -86,6 +87,10 @@ While we are maintaining support for functions that use the legacy API, please n
 - [`get_ly_ivod()`](): Get Legislative Yuan IVOD Records
 
 <br> 
+
+
+------
+
 
 ## Taiwan Legislative Yuan API (v1)
 
