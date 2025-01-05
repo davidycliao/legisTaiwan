@@ -70,21 +70,21 @@ The Legislative Yuan API is transitioning from `https://ly.govapi.tw` to `https:
 
 ### Bill 
 
-- [`get_ly_bills()`](): Fetch and Parse Legislative Yuan Bills
+- [`get_ly_bills()`](#docs/reference/get_ly_bills.html): Fetch and Parse Legislative Yuan Bills
 
 ### Committees 
 
-- [`get_ly_committee_meets()`](): Fetch Legislative Yuan Committee Meetings
+- [`get_ly_committee_meets()`](#docs/reference/get_ly_committee_meets.html): Fetch Legislative Yuan Committee Meetings
 
-- [`get_ly_committees_type()`](): Fetch and Parse Legislative Yuan Committee Details, Jurisdiction and Codes
+- [`get_ly_committees_type()`](#docs/reference/get_ly_committees_type.html): Fetch and Parse Legislative Yuan Committee Details, Jurisdiction and Codes
 
 ### Interpellation
 
-- [`get_ly_interpellations()`](): Get Legislative Yuan Interpellation Records
+- [`get_ly_interpellations()`](#docs/reference/get_ly_interpellations.html): Get Legislative Yuan Interpellation Records
 
 ###  IVOD
 
-- [`get_ly_ivod()`](): Get Legislative Yuan IVOD Records
+- [`get_ly_ivod()`](#docs/reference/get_ly_ivod.html): Get Legislative Yuan IVOD Records
 
 <br> 
 

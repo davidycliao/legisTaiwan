@@ -24,6 +24,8 @@ Imports:
     rvest,
     withr,
     httr,
+    pillar,
+    vctrs,
     utils,
     readr,
     dplyr,

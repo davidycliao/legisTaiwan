@@ -1,3 +1,14 @@
+
+#' Register S3 methods and set up package
+#' @keywords internal
+.onLoad <- function(libname, pkgname) {
+  # 檢查並註冊 S3 方法
+  if (requireNamespace("vctrs", quietly = TRUE)) {
+    vctrs::s3_register("pillar::type_sum", "accel")
+  }
+}
+
+
 #' On package attach, display a startup message
 #'
 #' @keywords internal
@@ -39,4 +50,9 @@
   # Display messages
   packageStartupMessage(message1)
   packageStartupMessage(message2)
+}
+
+#' @export
+type_sum.accel <- function(x) {
+  "accel"
 }
