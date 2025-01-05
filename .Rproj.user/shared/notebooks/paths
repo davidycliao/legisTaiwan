@@ -32,7 +32,6 @@
 /Users/yenchiehliao/Dropbox/My Packages/legisTaiwan/inst/CONDUCT.md="89F7252D"
 /Users/yenchiehliao/Dropbox/My Packages/legisTaiwan/inst/README.Rmd="9CD5F4AC"
 /Users/yenchiehliao/Dropbox/My Packages/legisTaiwan/man/get_caucus_meetings.Rd="AA69F12D"
-/Users/yenchiehliao/Dropbox/My Packages/legisTaiwan/tests/test_get_ly_committee_meets.R="E2FD5A1A"
 /Users/yenchiehliao/Dropbox/My Packages/legisTaiwan/tests/testthat/get_ly_legislator_cosign_bills.R="C6AC0678"
 /Users/yenchiehliao/Dropbox/My Packages/legisTaiwan/tests/testthat/test_bills.R="2C532035"
 /Users/yenchiehliao/Dropbox/My Packages/legisTaiwan/tests/testthat/test_get_infos.R="DC03EE48"
@@ -43,5 +42,4 @@
 /Users/yenchiehliao/Dropbox/My Packages/legisTaiwan/tests/testthat/test_legislators.R="290647EE"
 /Users/yenchiehliao/Dropbox/My Packages/legisTaiwan/tests/testthat/test_meeting.R="35E091D2"
 /Users/yenchiehliao/Dropbox/My Packages/legisTaiwan/tests/testthat/test_parlquestions.R="A50FA83C"
-/Users/yenchiehliao/Dropbox/My Packages/legisTaiwan/tests/testthat/test_tget_ly_legislator_bills.R="F1D9F833"
 /Users/yenchiehliao/Dropbox/My Packages/legisTaiwan/vignettes/quickstart.Rmd="5E338CCA"
