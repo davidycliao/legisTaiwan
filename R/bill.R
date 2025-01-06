@@ -1,4 +1,6 @@
-#'The Records of the Bills: 法律提案
+#' @title The Records of the Bills: 法律提案
+#'
+#' @author David Liao (davidycliao@@gmail.com)
 #'
 #' @param start_date numeric. Must be formatted in the ROC Taiwan calendar, e.g., 1090101.
 #' @param end_date numeric. Must be formatted in the ROC Taiwan calendar, e.g., 1090102.
@@ -60,7 +62,7 @@
 #'
 #' @note To retrieve the user manual and more details about the data frame, use `get_variable_info("get_bills")`.
 #' Further checks are required as the user manual seems to be inconsistent with the actual data.
-#'
+#' @encoding UTF-8
 #' @seealso
 #' \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=153}
 get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
@@ -146,7 +148,6 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 }
 
 
-#' The Records of Legislation and the Executives Proposals: 委員及政府議案提案資訊
 #' @title The Records of Legislation and the Executives Proposals: 委員及政府議案提案資訊
 #'
 #' @author David Liao (davidycliao@@gmail.com)
@@ -210,7 +211,6 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 #' @note For more details about the dataframe's variables, use `get_variable_info("get_bills_2")`
 #' or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=20}.
 #' 議事類: 提供委員及政府之議案提案資訊 (從第8屆第1會期開始)。
-#'
 #' @seealso
 #' `get_variable_info("get_bills_2")`,`review_session_info()`
 #'
@@ -302,50 +302,6 @@ get_bills_2 <- function(term = 8, session_period = NULL, verbose = TRUE) {
         cat(sprintf(" Total Bills: %d\n", total_bills))
         cat(sprintf(" Total Unique Proposers: %d\n", unique_legislators))
         cat("===================================\n")
-      # if(isTRUE(verbose)) {
-      #   setTxtProgressBar(pb, 100)
-      #   close(pb)
-      #   cat("\n\n")  # Add newlines after progress bar
-      #   cat("====== Retrieved Information ======\n")
-      #   cat("-----------------------------------\n")
-      #   cat(" URL: \n", set_api_url, "\n")
-      #   cat(" Term: ", term, "\n")
-      #   if(!is.null(session_period)) {
-      #     cat(" Session Period: ", session_period, "\n")
-      #   }
-      #
-      #   # Overall Statistics
-      #   cat("\nOverall Statistics:\n")
-      #   cat("-----------------------------------\n")
-      #   cat(sprintf(" Total Bills: %d\n", total_bills))
-      #   cat(sprintf(" Budget Bills: %d (%.1f%%)\n", budget_bills, budget_percentage))
-      #
-      #   # Detailed Bill Type Distribution
-      #   if("billName" %in% colnames(df)) {
-      #     bill_types <- table(df$billName)
-      #     cat("\nBill Type Distribution:\n")
-      #     cat("-----------------------------------\n")
-      #     for(type in names(bill_types)) {
-      #       count <- bill_types[type]
-      #       percentage <- (count / total_bills) * 100
-      #       cat(sprintf(" %s: %d (%.1f%%)\n", type, count, percentage))
-      #     }
-      #   }
-      #
-      #   # Proposer Distribution
-      #   if("billOrg" %in% colnames(df)) {
-      #     cat("\nProposer Distribution:\n")
-      #     cat("-----------------------------------\n")
-      #     proposer_counts <- table(.clean_legislator_names(df$billOrg))
-      #     for(proposer in names(proposer_counts)) {
-      #       count <- proposer_counts[proposer]
-      #       percentage <- (count / total_bills) * 100
-      #       if(nchar(trimws(proposer)) > 0) {  # Only show non-empty proposers
-      #         cat(sprintf(" %s: %d (%.1f%%)\n", proposer, count, percentage))
-      #       }
-      #     }
-      #   }
-      #   cat("===================================\n")
 
       }
 

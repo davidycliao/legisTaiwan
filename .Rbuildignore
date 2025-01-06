@@ -9,8 +9,8 @@
 ^\.Rcheck$
 ^.*\.utf8\.R$
 ^README\.Rmd$
-^.*\.Rproj$
+^.*\.DS_Store$
+^.DS_Store$
 ^\.Rproj\.user$
 ^README\.Rmd$
 ^cran-comments\.md$
-^\.github$
