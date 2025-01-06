@@ -4,7 +4,7 @@ Title: An Interface to Access Taiwan Legislative API in R
 Version: 0.2.1
 Authors@R: c(person("Yen-Chieh", "Liao", email = "davidycliao@gmail.com", role = c("aut", "cre")),
              person("Li", "Tang", email = "li.tang@reading.ac.uk", role = c("ctb", "aut")),
-             person("Shaka Y.J.", "Li", email = "aeodr452@gmail.com", role = "ctb")
+             person("Shaka Y.J.", "Li", email = "aeodr452@gmail.com", role = "ctb"),
              person("Taiwan Legislative Yuan 立法院", role =  c("cph", "fnd")),
              person("Taiwan National Science and Technology Council", role = "ctb"),
              person("Taiwan Science & Technology Policy Research and Information Center NARLabs", role = "ctb"))
