@@ -1,12 +1,12 @@
-#' Check Each Function's Manual
+#' Check Each Function's Manual 檢查各函式說明文件
 #'
-#'@author David Liao (davidycliao@@gmail.com)
+#'@author Yen-Chieh Liao (davidycliao@@gmail.com)
 #'
 #'@description `get_variable_info` generate each API's endpoint manual returned
 #'from the website of Taiwan Legislative Yuan. The avalaible options is: `get_bills`,
 #'`get_bills_2`, `get_meetings`, `get_caucus_meetings`, `get_speech_video` ,
 #'`get_public_debates`, `get_parlquestions`, `get_executive_response` and
-#'`get_committee_record`.
+#'`get_committee_record`. 僅使用舊版 API 參數。
 #'
 #'@param param_ characters. Must be one of options below: \describe{
 #'      \item{get_bills}{get_bills: the records of the bills, see \url{https://data.ly.gov.tw/getds.action?id=6}}
@@ -30,78 +30,13 @@
 #'@importFrom rvest html_text2 read_html
 #'@importFrom tibble as_tibble
 #'
-#' @export
 #'
 #' @seealso `review_session_info()`.
 #'
 #' @examples
-#' \dontrun{
-#' get_variable_info("get_bills")
-#' }
-# get_variable_info <- function(param_) {
-#   check_internet()
-#   attempt::stop_if_all(website_availability(), isFALSE, msg = "the error from the API.")
-#   attempt::stop_if_all(param_, is.numeric, msg = "use string format only.")
-#   attempt::stop_if_all(param_, is.null, msg = "use correct funtion names.")
-#   attempt::stop_if(param_ , ~ length(.x) >1, msg = "only allowed to query one function.")
-#   if (param_ == "get_parlquestions") {
-#     url <- "https://data.ly.gov.tw/getds.action?id=6"
-#   }
-#   else if (param_ == "get_legislators") {
-#     url <- "https://data.ly.gov.tw/getds.action?id=16"
-#   }
-#   else if (param_ == "get_committee_record") {
-#     url <- "https://data.ly.gov.tw/getds.action?id=46"
-#   }
-#   else if (param_ == "get_executive_response") {
-#     url <- "https://data.ly.gov.tw/getds.action?id=2"
-#   }
-#   else if (param_ == "get_caucus_meetings") {
-#     url <- "https://data.ly.gov.tw/getds.action?id=8"
-#   }
-#   else if (param_ == "get_speech_video") {
-#     url <- "https://data.ly.gov.tw/getds.action?id=148"
-#   }
-#   else if (param_ == "get_bills_2") {
-#     url <- "https://data.ly.gov.tw/getds.action?id=20"
-#   }
-#   else if (param_ == "get_public_debates") {
-#     url <- "https://data.ly.gov.tw/getds.action?id=7"
-#   }
-#   else if (param_ %in% c("get_bills", "get_meetings")) {
-#     if (param_ == "get_meetings") {
-#       url <- "https://www.ly.gov.tw/Pages/List.aspx?nodeid=154"
-#       }
-#     else if (param_ == "get_bills") {
-#       url <- "https://www.ly.gov.tw/Pages/List.aspx?nodeid=153"
-#       }
-#     html_info <- rvest::html_text2(rvest::html_nodes(rvest::html_nodes(rvest::read_html(url), "*[id='form_Query']"), "div") )
-#     page_info <- list(page_info = strsplit(html_info[14], split = "\n")[[1]], reference_url = url)
-#     return(page_info)
-#   }
-#   else {
-#     stop("Use correct funtion names below in character format:
-#          get_bills: the records of the bills
-#          get_bills_2: the records of legislators and the government proposals
-#          get_meetings: the spoken meeting records
-#          get_caucus_meetings: the meeting records of cross-caucus session
-#          get_speech_video: the full video information of meetings and committees
-#          get_public_debates: the records of national public debates
-#          get_parlquestions: the records of parliamentary questions
-#          get_executive_response: the records of the questions answered by the executives")
-#     }
-#     html <- rvest::html_nodes(rvest::read_html(url), "*[id='content']")
-#     title <- gsub("[[:space:]]", "", rvest::html_text2(rvest::html_nodes(html, "h2")))
-#
-#     content <- gsub("[[:space:]]", "", rvest::html_text2(rvest::html_nodes(html, "span")))
-#     df <- data.frame(content[seq(1, length(content), 2 )],
-#                      content[seq(1, length(content) + 1, 2 ) -1])
-#     colnames(df) <- c(title[2], title[1])
-#     df <- tibble::as_tibble(df)
-#     page_info <- list(page_info = df, reference_url = url)
-#   return(page_info)
-# }
-
+#' check_caucus <- get_variable_info("get_caucus_meetings")
+#' check_caucus
+#' @export
 get_variable_info <- function(param_) {
   # Ensure internet and website availability
   check_internet()
@@ -167,7 +102,7 @@ get_variable_info <- function(param_) {
 }
 
 
-#' Check Session Periods in Each Year (Minguo Calendar)
+#' Check Session Periods in Each Year (Minguo Calendar) 檢查每年會期 (民國曆)
 #'
 #'@author David Liao (davidycliao@@gmail.com)
 #'
@@ -186,10 +121,8 @@ get_variable_info <- function(param_) {
 #' Regarding Minguo calendar, please see \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}.
 #'
 #' @examples
-#' \dontrun{
+#' # Show the session information for the 7th Legislative Yuan term periods in ROC calendar year
 #' review_session_info(7)
-#' }
-
 review_session_info <- function(term) {
   # Input validation
   if(missing(term)) {

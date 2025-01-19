@@ -1,4 +1,4 @@
-#' @title Fetch and Parse Legislative Yuan Committee Details, Jurisdiction and Codes
+#' @title Fetch and Parse Legislative Yuan Committee Details, Jurisdiction and Codes 取得立法院委員會類別及職權範圍代碼
 #'
 #' @description
 #' Retrieves detailed information about Legislative Yuan committees,

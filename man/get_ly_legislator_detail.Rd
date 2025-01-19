@@ -39,7 +39,7 @@ A list containing legislator details:
 Retrieves detailed information for a specific legislator by term and name from the Legislative Yuan API.
 }
 \details{
-Get Legislative Yuan Legislator Detail
+Get Legislative Yuan Legislator Detail 取得立法委員完整歷史資料
 }
 \examples{
 \dontrun{

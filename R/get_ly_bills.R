@@ -1,4 +1,4 @@
-#' @title Fetch and Parse Legislative Yuan Bills
+#' @title Fetch and Parse Legislative Yuan Bills 取得並解析立法院議案資料
 #'
 #' @description
 #' Retrieves bill information from the Legislative Yuan API with comprehensive filter options.

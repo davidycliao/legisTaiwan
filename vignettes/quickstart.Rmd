@@ -56,35 +56,31 @@ The Legislative Yuan API is transitioning from `https://ly.govapi.tw` to `https:
 
 </div>
 
-###  Statistical Information
+###  Statistical Information (統計資訊)
 
-- [`get_tly_stat()`](): Fetch and Parse Legislative Yuan Statistics
+- [`get_tly_stat()`](https://davidycliao.github.io/legisTaiwan/reference/get_tly_stat.html): Fetch and Parse Legislative Yuan Statistics 取得並解析立法院統計資料
+
+### Legislators (立委為單位)
+
+- [`get_ly_legislator_detail()`](https://davidycliao.github.io/legisTaiwan/reference/get_ly_legislator_detail.html): Retrieve Complete Historical Records of Legislators 取得立法委員完整歷史資料
+- [`get_ly_legislators_by_term()`](https://davidycliao.github.io/legisTaiwan/reference/get_ly_legislators_by_term.html): Get Legislators by Legislative Term 依屆期取得立法委員名單
+- [`get_ly_legislator_cosign_bills()`](https://davidycliao.github.io/legisTaiwan/reference/get_ly_legislator_cosign_bills.html): Retrieve Legislator's Co-sponsored Bills 取得立法委員連署法案
+- [`get_ly_legislator_bills()`](https://davidycliao.github.io/legisTaiwan/reference/get_ly_legislator_bills.html): Get Bills Proposed by Legislator 取得立法委員提案法案
 
 
-### Legislators 
+### Bill (議案資料)
 
-- [`get_ly_legislator_detail()`](): Retrieve Complete Historical Records of Legislators
-- [`get_ly_legislators_by_term()`](): Get Legislators by Legislative Term
-- [`get_ly_legislator_cosign_bills()`](): Retrieve Legislator's Co-sponsored Bills
-- [`get_ly_legislator_bills()`](): Get Bills Proposed by Legislator
+- [`get_ly_bills()`](https://davidycliao.github.io/legisTaiwan/reference/get_ly_bills.html): Fetch and Parse Legislative Yuan Bills 取得並解析立法院議案資料
 
-### Bill 
+### Committees (委員會資料)
+- [`get_ly_committee_meets()`](https://davidycliao.github.io/legisTaiwan/reference/get_ly_committee_meets.html): Fetch Legislative Yuan Committee Meetings 取得立法院委員會會議資料
+- [`get_ly_committees_type()`](https://davidycliao.github.io/legisTaiwan/reference/get_ly_committees_type.html): Fetch and Parse Legislative Yuan Committee Details, Jurisdiction and Codes 取得立法院委員會類別及職權範圍代碼 
 
-- [`get_ly_bills()`](#docs/reference/get_ly_bills.html): Fetch and Parse Legislative Yuan Bills
+### Interpellation (質詢資料)
+- [`get_ly_interpellations()`](https://davidycliao.github.io/legisTaiwan/reference/get_ly_interpellations.html): Get Legislative Yuan Interpellation Records 取得立法院質詢紀錄
 
-### Committees 
-
-- [`get_ly_committee_meets()`](#docs/reference/get_ly_committee_meets.html): Fetch Legislative Yuan Committee Meetings
-
-- [`get_ly_committees_type()`](#docs/reference/get_ly_committees_type.html): Fetch and Parse Legislative Yuan Committee Details, Jurisdiction and Codes
-
-### Interpellation
-
-- [`get_ly_interpellations()`](#docs/reference/get_ly_interpellations.html): Get Legislative Yuan Interpellation Records
-
-###  IVOD
-
-- [`get_ly_ivod()`](#docs/reference/get_ly_ivod.html): Get Legislative Yuan IVOD Records
+### 議事轉播系統 (IVOD)
+- [`get_ly_ivod()`](https://davidycliao.github.io/legisTaiwan/reference/get_ly_interpellations.html): Get Legislative Yuan IVOD Records  取得立法院議事轉播影片資料
 
 <br> 
 

@@ -1,5 +1,6 @@
-#' Get Bill by legislator
+#' Get Bill by legislator 取得立法委員提案資料
 #'
+#' @title Get Bill by legislator 取得立法委員提案資料
 #' @description
 #' Retrieves comprehensive information for a specific legislator from the Legislative Yuan API.
 #' This includes personal details, committee assignments, educational background, and work experience.

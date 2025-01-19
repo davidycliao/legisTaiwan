@@ -59,9 +59,21 @@
   </ul>
 </li>
 <li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-api-functions" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fa-code"></span> API Functions</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-api-functions">
+<li><a class="dropdown-item" href="../reference/index.html#api-v1-basic-data">API V1 - Basic Data</a></li>
+    <li><a class="dropdown-item" href="../reference/index.html#api-v1-parliamentary-activities">API V1 - Parliamentary Activities</a></li>
+    <li><a class="dropdown-item" href="../reference/index.html#api-v2-bills-and-committees">API V2 - Bills and Committees</a></li>
+    <li><a class="dropdown-item" href="../reference/index.html#api-v2-legislator-information">API V2 - Legislator Information</a></li>
+    <li><a class="dropdown-item" href="../reference/index.html#analysis-tools">Analysis Tools</a></li>
+    <li><a class="dropdown-item" href="../reference/index.html#utility-and-data">Utility and Data</a></li>
+  </ul>
+</li>
+<li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-news" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fa-newspaper-o"></span> News</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-news">
-<li><a class="dropdown-item" href="../news/index.html#legistaiwan-017-development-version">0.1.7</a></li>
+<li><a class="dropdown-item" href="../news/index.html#legistaiwan-021-development-version">0.2.1</a></li>
+    <li><a class="dropdown-item" href="../news/index.html#legistaiwan-017-development-version">0.1.7</a></li>
     <li><a class="dropdown-item" href="../news/index.html#legistaiwan-016-development-version">0.1.6</a></li>
     <li><a class="dropdown-item" href="../news/index.html#legistaiwan-014-development-version">0.1.4</a></li>
     <li><a class="dropdown-item" href="../news/index.html#legistaiwan-013-development-version">0.1.3</a></li>
@@ -133,68 +145,72 @@ and maintenance</li>
 </ul>
 </div>
 <div class="section level3">
-<h3 id="statistical-information">Statistical Information<a class="anchor" aria-label="anchor" href="#statistical-information"></a>
+<h3 id="statistical-information-統計資訊">Statistical Information (統計資訊)<a class="anchor" aria-label="anchor" href="#statistical-information-%E7%B5%B1%E8%A8%88%E8%B3%87%E8%A8%8A"></a>
 </h3>
 <ul>
 <li>
-<a href=""><code>get_tly_stat()</code></a>: Fetch and Parse
-Legislative Yuan Statistics</li>
+<a href="https://davidycliao.github.io/legisTaiwan/reference/get_tly_stat.html"><code>get_tly_stat()</code></a>:
+Fetch and Parse Legislative Yuan Statistics
+取得並解析立法院統計資料</li>
 </ul>
 </div>
 <div class="section level3">
-<h3 id="legislators">Legislators<a class="anchor" aria-label="anchor" href="#legislators"></a>
+<h3 id="legislators-立委為單位">Legislators (立委為單位)<a class="anchor" aria-label="anchor" href="#legislators-%E7%AB%8B%E5%A7%94%E7%82%BA%E5%96%AE%E4%BD%8D"></a>
 </h3>
 <ul>
 <li>
-<a href=""><code>get_ly_legislator_detail()</code></a>: Retrieve
-Complete Historical Records of Legislators</li>
+<a href="https://davidycliao.github.io/legisTaiwan/reference/get_ly_legislator_detail.html"><code>get_ly_legislator_detail()</code></a>:
+Retrieve Complete Historical Records of Legislators
+取得立法委員完整歷史資料</li>
 <li>
-<a href=""><code>get_ly_legislators_by_term()</code></a>: Get
-Legislators by Legislative Term</li>
+<a href="https://davidycliao.github.io/legisTaiwan/reference/get_ly_legislators_by_term.html"><code>get_ly_legislators_by_term()</code></a>:
+Get Legislators by Legislative Term 依屆期取得立法委員名單</li>
 <li>
-<a href=""><code>get_ly_legislator_cosign_bills()</code></a>:
-Retrieve Legislator’s Co-sponsored Bills</li>
+<a href="https://davidycliao.github.io/legisTaiwan/reference/get_ly_legislator_cosign_bills.html"><code>get_ly_legislator_cosign_bills()</code></a>:
+Retrieve Legislator’s Co-sponsored Bills 取得立法委員連署法案</li>
 <li>
-<a href=""><code>get_ly_legislator_bills()</code></a>: Get Bills
-Proposed by Legislator</li>
+<a href="https://davidycliao.github.io/legisTaiwan/reference/get_ly_legislator_bills.html"><code>get_ly_legislator_bills()</code></a>:
+Get Bills Proposed by Legislator 取得立法委員提案法案</li>
 </ul>
 </div>
 <div class="section level3">
-<h3 id="bill">Bill<a class="anchor" aria-label="anchor" href="#bill"></a>
+<h3 id="bill-議案資料">Bill (議案資料)<a class="anchor" aria-label="anchor" href="#bill-%E8%AD%B0%E6%A1%88%E8%B3%87%E6%96%99"></a>
 </h3>
 <ul>
 <li>
-<a href="#docs/reference/get_ly_bills.html"><code>get_ly_bills()</code></a>:
-Fetch and Parse Legislative Yuan Bills</li>
+<a href="https://davidycliao.github.io/legisTaiwan/reference/get_ly_bills.html"><code>get_ly_bills()</code></a>:
+Fetch and Parse Legislative Yuan Bills 取得並解析立法院議案資料</li>
 </ul>
 </div>
 <div class="section level3">
-<h3 id="committees">Committees<a class="anchor" aria-label="anchor" href="#committees"></a>
+<h3 id="committees-委員會資料">Committees (委員會資料)<a class="anchor" aria-label="anchor" href="#committees-%E5%A7%94%E5%93%A1%E6%9C%83%E8%B3%87%E6%96%99"></a>
 </h3>
 <ul>
-<li><p><a href="#docs/reference/get_ly_committee_meets.html"><code>get_ly_committee_meets()</code></a>:
-Fetch Legislative Yuan Committee Meetings</p></li>
-<li><p><a href="#docs/reference/get_ly_committees_type.html"><code>get_ly_committees_type()</code></a>:
+<li>
+<a href="https://davidycliao.github.io/legisTaiwan/reference/get_ly_committee_meets.html"><code>get_ly_committee_meets()</code></a>:
+Fetch Legislative Yuan Committee Meetings 取得立法院委員會會議資料</li>
+<li>
+<a href="https://davidycliao.github.io/legisTaiwan/reference/get_ly_committees_type.html"><code>get_ly_committees_type()</code></a>:
 Fetch and Parse Legislative Yuan Committee Details, Jurisdiction and
-Codes</p></li>
+Codes 取得立法院委員會類別及職權範圍代碼</li>
 </ul>
 </div>
 <div class="section level3">
-<h3 id="interpellation">Interpellation<a class="anchor" aria-label="anchor" href="#interpellation"></a>
+<h3 id="interpellation-質詢資料">Interpellation (質詢資料)<a class="anchor" aria-label="anchor" href="#interpellation-%E8%B3%AA%E8%A9%A2%E8%B3%87%E6%96%99"></a>
 </h3>
 <ul>
 <li>
-<a href="#docs/reference/get_ly_interpellations.html"><code>get_ly_interpellations()</code></a>:
-Get Legislative Yuan Interpellation Records</li>
+<a href="https://davidycliao.github.io/legisTaiwan/reference/get_ly_interpellations.html"><code>get_ly_interpellations()</code></a>:
+Get Legislative Yuan Interpellation Records 取得立法院質詢紀錄</li>
 </ul>
 </div>
 <div class="section level3">
-<h3 id="ivod">IVOD<a class="anchor" aria-label="anchor" href="#ivod"></a>
+<h3 id="議事轉播系統-ivod">議事轉播系統 (IVOD)<a class="anchor" aria-label="anchor" href="#%E8%AD%B0%E4%BA%8B%E8%BD%89%E6%92%AD%E7%B3%BB%E7%B5%B1-ivod"></a>
 </h3>
 <ul>
 <li>
-<a href="#docs/reference/get_ly_ivod.html"><code>get_ly_ivod()</code></a>:
-Get Legislative Yuan IVOD Records</li>
+<a href="https://davidycliao.github.io/legisTaiwan/reference/get_ly_interpellations.html"><code>get_ly_ivod()</code></a>:
+Get Legislative Yuan IVOD Records 取得立法院議事轉播影片資料</li>
 </ul>
 <p><br></p>
 <hr>

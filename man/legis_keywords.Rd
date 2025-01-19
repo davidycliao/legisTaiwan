@@ -28,7 +28,7 @@ These keywords are carefully selected to cover major policy domains including di
 management, social welfare, housing policy, and regional development.
 }
 \details{
-Taiwan Legislative Keywords for Text Analysis
+Taiwan Legislative Keywords for Text Analysis 常用立法關鍵字
 
 These keywords can be used with quanteda or other text analysis packages to analyze
 legislative documents. They are particularly useful for:

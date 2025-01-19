@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{get_ly_bills}
 \alias{get_ly_bills}
-\title{Fetch and Parse Legislative Yuan Bills}
+\title{Fetch and Parse Legislative Yuan Bills 取得並解析立法院議案資料}
 \usage{
 get_ly_bills(
   page = 1,

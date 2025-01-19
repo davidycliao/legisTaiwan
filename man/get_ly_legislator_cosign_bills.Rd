@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{get_ly_legislator_cosign_bills}
 \alias{get_ly_legislator_cosign_bills}
-\title{Fetch Bills Cosigned by a Legislator}
+\title{Fetch Bills Cosigned by a Legislator 取得立法委員連署法案}
 \usage{
 get_ly_legislator_cosign_bills(
   term,
@@ -57,7 +57,7 @@ A list containing two components:
 Retrieves bills that were cosigned by a specific legislator by term and name from the Legislative Yuan API.
 }
 \details{
-Get Legislator's Cosigned Bills
+Get Legislator's Cosigned Bills 取得立法委員連署法案
 }
 \examples{
 \dontrun{

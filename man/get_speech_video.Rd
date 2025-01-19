@@ -74,8 +74,6 @@ including speech segments, meeting details, and video URLs. Data is available in
 JSON and CSV formats from the 9th legislative term onwards.
 }
 \details{
-Video Information of Legislative Meetings and Committees
-
 The function retrieves video information from legislative meetings and committee
 sessions. Data is available from the 9th legislative term onwards (2016/民國105年).
 The date parameters must use the ROC calendar format with forward slashes.

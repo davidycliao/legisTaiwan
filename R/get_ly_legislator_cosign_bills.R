@@ -1,6 +1,6 @@
-#' Get Legislator's Cosigned Bills
+#' Get Legislator's Cosigned Bills 取得立法委員連署法案
 #'
-#' @title Fetch Bills Cosigned by a Legislator
+#' @title Fetch Bills Cosigned by a Legislator 取得立法委員連署法案
 #'
 #' @description
 #' Retrieves bills that were cosigned by a specific legislator by term and name from the Legislative Yuan API.

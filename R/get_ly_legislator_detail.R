@@ -1,4 +1,4 @@
-#' Get Legislative Yuan Legislator Detail
+#' Get Legislative Yuan Legislator Detail 取得立法委員完整歷史資料
 #'
 #' @title Fetch Legislator Detail Information
 #'

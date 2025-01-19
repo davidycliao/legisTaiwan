@@ -1,6 +1,6 @@
 #' Get Legislative Yuan Legislators by Term
 #'
-#' @title Fetch Legislators List for a Specific Term
+#' @title Fetch Legislators List for a Specific Term 依屆期取得立法委員名單
 #'
 #' @description
 #' Retrieves a paginated list of legislators for a specific Legislative Yuan term.

@@ -40,7 +40,8 @@ A list containing:
 }
 }
 \description{
-The Records of Parliamentary Questions 委員質詢事項資訊
+Provides access to the records of parliamentary questions through
+the Legislative Yuan's V1 API interface.
 }
 \details{
 \code{get_parlquestions} produces a list, which contains \code{title},
@@ -54,18 +55,13 @@ or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=6}.
 質詢類: 提供議事日程本院委員之質詢事項資訊(自第8屆第1會期起)。
 }
 \examples{
-## Query parliamentary questions by term.
-## 輸入「立委會期」下載立委質詢資料
-get_parlquestions(term = 10)
-
-## Query parliamentary questions by term and session period.
-## 輸入「立委屆期」與「會期」下載立委質詢資料
-get_parlquestions(term = 10, session_period = 2)
+term10 <- get_parlquestions(term = 10, session_period = 1)
+term10
 
 }
 \seealso{
 \code{get_variable_info("get_parlquestions")}
 }
 \author{
-David Liao (davidycliao@gmail.com)
+Yen-Chieh Liao (davidycliao@gmail.com)
 }

@@ -1,5 +1,5 @@
 #' @encoding UTF-8
-#' @title Fetch Legislative Yuan Committee Meetings
+#' @title Fetch Legislative Yuan Committee Meetings 取得立法院委員會會議資料
 #'
 #' @description
 #' Retrieves and processes committee meeting information from the Legislative Yuan API.

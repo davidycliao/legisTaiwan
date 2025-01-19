@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{get_ly_legislator_bills}
 \alias{get_ly_legislator_bills}
-\title{Get Bill by legislator}
+\title{Get Bill by legislator 取得立法委員提案資料}
 \usage{
 get_ly_legislator_bills(term, name, page = 1, limit = 20, show_progress = TRUE)
 }
@@ -50,6 +50,9 @@ A list containing two components:
 \description{
 Retrieves comprehensive information for a specific legislator from the Legislative Yuan API.
 This includes personal details, committee assignments, educational background, and work experience.
+}
+\details{
+Get Bill by legislator 取得立法委員提案資料
 }
 \section{API Details}{
 
