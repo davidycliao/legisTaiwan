@@ -123,6 +123,7 @@ get_variable_info <- function(param_) {
 #' @examples
 #' # Show the session information for the 7th Legislative Yuan term periods in ROC calendar year
 #' review_session_info(7)
+#' @export
 review_session_info <- function(term) {
   # Input validation
   if(missing(term)) {
