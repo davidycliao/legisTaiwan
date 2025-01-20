@@ -49,7 +49,8 @@ list, which contains: \describe{
 }
 }
 \description{
-The Meeting Records of Cross-caucus Session 黨團協商資訊
+Retrieves cross-caucus negotiation meeting records from the Legislative Yuan's
+V1 API.
 }
 \details{
 \code{get_caucus_meetings} produces a list, which contains \code{title}, \code{query_time},
@@ -74,5 +75,5 @@ get_caucus_meetings(start_date = "106/10/20", end_date = "107/03/10")
 \code{get_variable_info("get_caucus_meetings")}  Regarding Minguo calendar, please see \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}.
 }
 \author{
-David Liao (davidycliao@gmail.com)
+Yen-Chieh Liao (davidycliao@gmail.com)
 }

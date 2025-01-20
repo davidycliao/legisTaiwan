@@ -2,7 +2,7 @@
 % Please edit documentation in R/info.R
 \name{review_session_info}
 \alias{review_session_info}
-\title{Check Session Periods in Each Year (Minguo Calendar)}
+\title{Check Session Periods in Each Year (Minguo Calendar) 檢查每年會期 (民國曆)}
 \usage{
 review_session_info(term)
 }
@@ -13,16 +13,15 @@ review_session_info(term)
 dataframe
 }
 \description{
-Check Session Periods in Each Year (Minguo Calendar)
+Check Session Periods in Each Year (Minguo Calendar) 檢查每年會期 (民國曆)
 }
 \details{
 \code{review_session_info} produces a dataframe, displaying each session
 period in year formatted in Minguo (Taiwan) calendar.
 }
 \examples{
-\dontrun{
+# Show the session information for the 7th Legislative Yuan term periods in ROC calendar year
 review_session_info(7)
-}
 }
 \seealso{
 Regarding Minguo calendar, please see \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}.

@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{get_ly_committee_meets}
 \alias{get_ly_committee_meets}
-\title{Fetch Legislative Yuan Committee Meetings}
+\title{Fetch Legislative Yuan Committee Meetings 取得立法院委員會會議資料}
 \usage{
 get_ly_committee_meets(
   committee_id,

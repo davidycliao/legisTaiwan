@@ -1,6 +1,10 @@
 #' The Spoken Meeting Records 委員發言
 #'
-#'@author David Liao (davidycliao@@gmail.com)
+#' @author Yen-Chieh Liao (davidycliao@gmail.com)
+#'
+#' @description
+#' Provides access to legislators' spoken meeting records through
+#' the Legislative Yuan's V1 API interface.
 #'
 #'@param start_date numeric Must be formatted in Minguo (Taiwan) calendar, e.g. 1090101.
 #'
@@ -68,44 +72,6 @@
 #' Regarding Minguo calendar, please see \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}.
 #'
 #'@encoding UTF-8
-
-# get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL,
-#                          verbose = TRUE) {
-#   check_internet()
-#   api_check(start_date = check_date(start_date), end_date = check_date(end_date))
-#   set_api_url <- paste("https://www.ly.gov.tw/WebAPI/LegislativeSpeech.aspx?from=",
-#                        start_date, "&to=", end_date, "&meeting_unit=", meeting_unit, "&mode=json", sep = "")
-#   tryCatch(
-#     {
-#       with_options(list(timeout = max(1000, getOption("timeout"))),{json_df <- jsonlite::fromJSON(set_api_url)})
-#       df <- tibble::as_tibble(json_df)
-#       attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
-#       df["date_ad"] <- do.call("c", lapply(df$smeeting_date, transformed_date_meeting))
-#       if (isTRUE(verbose)) {
-#         cat(" Retrieved URL: \n", set_api_url, "\n")
-#         cat(" Retrieved via :", meeting_unit, "\n")
-#         cat(" Retrieved date between:", as.character(check_date(start_date)), "and", as.character(check_date(end_date)), "\n")
-#         cat(" Retrieved number:", nrow(df), "\n")
-#         }
-#       list_data <- list("title" = "the spoken meeting records",
-#                         "query_time" = Sys.time(),
-#                         "retrieved_number" = nrow(df),
-#                         "meeting_unit" = meeting_unit,
-#                         "start_date_ad" = check_date(start_date),
-#                         "end_date_ad" = check_date(end_date),
-#                         "start_date" = start_date,
-#                         "end_date" = end_date,
-#                         "url" = set_api_url,
-#                         "variable_names" = colnames(df),
-#                         "manual_info" = "https://www.ly.gov.tw/Pages/List.aspx?nodeid=154",
-#                         "data" = df)
-#       return(list_data)
-#     },
-#     error = function(error_message) {
-#       message(error_message)
-#     }
-#   )
-# }
 get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL,
                          verbose = TRUE) {
   check_internet()
@@ -210,7 +176,11 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
 
 #' The Meeting Records of Cross-caucus Session 黨團協商資訊
 #'
-#'@author David Liao (davidycliao@@gmail.com)
+#' @author Yen-Chieh Liao (davidycliao@gmail.com)
+#'
+#' @description
+#' Retrieves cross-caucus negotiation meeting records from the Legislative Yuan's
+#' V1 API.
 #'
 #'@param start_date character Must be formatted in Minguo (ROC) calendar with three
 #'forward slashes between year, month and day, e.g. "106/10/20".
@@ -363,8 +333,6 @@ get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
 }
 
 
-#' Video Information of Legislative Meetings and Committees
-#'
 #' @title The Video Information of Meetings and Committees 院會及委員會之委員發言片段相關影片資訊
 #'
 #' @description

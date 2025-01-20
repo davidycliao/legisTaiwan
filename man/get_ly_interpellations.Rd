@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{get_ly_interpellations}
 \alias{get_ly_interpellations}
-\title{Get Legislative Yuan Interpellation Records}
+\title{Get Legislative Yuan Interpellation Records 取得立法院質詢紀錄}
 \usage{
 get_ly_interpellations(
   page = 1,

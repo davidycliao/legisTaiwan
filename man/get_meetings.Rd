@@ -48,7 +48,8 @@ list, which contains: \describe{
 }
 }
 \description{
-The Spoken Meeting Records 委員發言
+Provides access to legislators' spoken meeting records through
+the Legislative Yuan's V1 API interface.
 }
 \details{
 \code{get_meetings} produces a list, which contains \code{title}, \code{query_time},
@@ -78,5 +79,5 @@ get_meetings(start_date = 1060120, end_date = 1070310, meeting_unit = "內政委
 Regarding Minguo calendar, please see \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}.
 }
 \author{
-David Liao (davidycliao@gmail.com)
+Yen-Chieh Liao (davidycliao@gmail.com)
 }

@@ -1,4 +1,4 @@
-#' @title Get Legislative Yuan Interpellation Records
+#' @title Get Legislative Yuan Interpellation Records 取得立法院質詢紀錄
 #'
 #' @description
 #' Fetches and parses interpellation records from the Legislative Yuan API.

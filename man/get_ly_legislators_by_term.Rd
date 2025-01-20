@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{get_ly_legislators_by_term}
 \alias{get_ly_legislators_by_term}
-\title{Fetch Legislators List for a Specific Term}
+\title{Fetch Legislators List for a Specific Term 依屆期取得立法委員名單}
 \usage{
 get_ly_legislators_by_term(term, page = 1, limit = 20, show_progress = TRUE)
 }

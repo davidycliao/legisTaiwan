@@ -11,6 +11,8 @@
 
 The Legislative Yuan API is transitioning from https://ly.govapi.tw to https://v2.ly.govapi.tw. While functions using the legacy API will continue to work for now, we recommend starting to migrate your code to use the new API endpoint.
 
+<br> 
+
 ------
 
 # `legisTaiwan` 0.1.7
@@ -25,7 +27,11 @@ The Legislative Yuan API is transitioning from https://ly.govapi.tw to https://v
 
 # `legisTaiwan` 0.1.6
 
-* Corrected spelling errors and standardized terminology across function documentation.
+Corrected spelling errors and standardized terminology across function documentation.
+
+<br> 
+
+------
 
 # `legisTaiwan` 0.1.4 (development version)
 

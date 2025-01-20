@@ -46,7 +46,8 @@ list contains: \describe{
 }
 }
 \description{
-The Records of Response to the Questions by the Executives 公報質詢事項行政院答復資訊
+Provides access to the records of parliamentary questions through
+the Legislative Yuan's V1 API interface.
 }
 \details{
 \strong{\code{get_executive_response}} produces a list, which contains \code{title},
@@ -62,12 +63,12 @@ or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=2}.
 \examples{
 ## query the Executives' answered response by term and the session period.
 ## 輸入「立委屆期」與「會期」下載「行政院答復」
-get_executive_response(term = 8, session_period = 1)
-
+term8 <- get_executive_response(term = 8, session_period = 1)
+term8
 }
 \seealso{
 \code{get_variable_info("get_executive_response")}, \code{review_session_info()}
 }
 \author{
-David Liao (davidycliao@gmail.com)
+Yen-Chieh Liao (davidycliao@gmail.com)
 }

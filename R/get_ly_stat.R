@@ -1,4 +1,4 @@
-#' @title Fetch and Parse Legislative Yuan Statistics
+#' @title Fetch and Parse Legislative Yuan Statistics 取得並解析立法院統計資料
 #'
 #' @description
 #' Retrieves statistical data from the Legislative Yuan API and parses it into a structured format.

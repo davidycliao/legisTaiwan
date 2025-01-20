@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{get_tly_stat}
 \alias{get_tly_stat}
-\title{Fetch and Parse Legislative Yuan Statistics}
+\title{Fetch and Parse Legislative Yuan Statistics 取得並解析立法院統計資料}
 \usage{
 get_tly_stat()
 }

@@ -20,38 +20,54 @@ home:
     href: https://www.birmingham.ac.uk/research/centres-institutes/centre-for-artificial-intelligence-in-government
 
 reference:
-- title: API Functions
-  desc: functions connect to Taiwan Legialtive Yuan API.
-- contents:
-  - get_parlquestions
+- title: "API V1 - Basic Data"
+  desc: "Basic data retrieval functions from old Legislative Yuan API"
+  contents:
+  - starts_with("get_bills")
   - get_meetings
+  - get_committee_record
+  - get_legislators
+
+- title: "API V1 - Parliamentary Activities"
+  desc: "Functions for parliamentary activities from old API"
+  contents:
+  - get_parlquestions
   - get_caucus_meetings
   - get_executive_response
   - get_public_debates
   - get_speech_video
-  - get_committee_record
-  - get_bills
-  - get_bills_2
-  - get_legislators
-  - get_variable_info
-  - review_session_info
-  - legis_keywords
+
+- title: "API V2 - Bills and Committees"
+  desc: "New API functions for bills and committee information"
+  contents:
   - get_ly_bills
   - get_ly_committee_meets
   - get_ly_committees_type
   - get_ly_interpellations
   - get_ly_ivod
+
+- title: "API V2 - Legislator Information"
+  desc: "New API functions for legislator-specific data"
+  contents:
   - get_ly_legislator_bills
   - get_ly_legislator_cosign_bills
   - get_ly_legislators_by_term
   - get_ly_legislator_detail
   - get_tly_stat
-  - analyze_bills
-  - analyze_ivod
-  - analyze_meetings
-  - calculate_bill_trends
-  - generate_report
 
+- title: "Analysis Tools"
+  desc: "Functions for data analysis and reporting"
+  contents:
+  - starts_with("analyze_")
+  - generate_report
+  - calculate_bill_trends
+
+- title: "Utility and Data"
+  desc: "Helper functions and datasets"
+  contents:
+  - get_variable_info
+  - review_session_info
+  - legis_keywords
 
 authors:
   Yen-Chieh Liao:
@@ -105,21 +121,35 @@ navbar:
     - text: "Function Reference"
       href: reference/index.html
 
-  # - icon: fa-file-code-o
-  #   text: Tutorial
-  #   menu:
-  #   - text: "Records of the Bills"
-  #     href: articles/get_bills.html
-  #   - text: "Demographic Data"
-  #     href: articles/get_legislators.html
-  #   - text: "Parliarmentary Questions"
-  #     href: articles/get_parlquestions.html
-  #   - text: "Party Caucus Negotiation"
-  #     href: articles/get_caucus_meetings.html
+
+
+  - icon: fa-code
+    text: API Functions
+    menu:
+    - text: "API V1 - Basic Data"
+      desc: "Basic data retrieval functions from old Legislative Yuan API"
+      href: reference/index.html#api-v1-basic-data
+    - text: "API V1 - Parliamentary Activities"
+      desc: "Functions for parliamentary activities from old API"
+      href: reference/index.html#api-v1-parliamentary-activities
+    - text: "API V2 - Bills and Committees"
+      desc: "New API functions for bills and committee information"
+      href: reference/index.html#api-v2-bills-and-committees
+    - text: "API V2 - Legislator Information"
+      desc: "New API functions for legislator-specific data"
+      href: reference/index.html#api-v2-legislator-information
+    - text: "Analysis Tools"
+      desc: "Functions for data analysis and reporting"
+      href: reference/index.html#analysis-tools
+    - text: "Utility and Data"
+      desc: "Helper functions and datasets"
+      href: reference/index.html#utility-and-data
 
   - icon: fa-newspaper-o
     text: News
     menu:
+    - text: "0.2.1"
+      href: news/index.html#legistaiwan-021-development-version
     - text: "0.1.7"
       href: news/index.html#legistaiwan-017-development-version
     - text: "0.1.6"

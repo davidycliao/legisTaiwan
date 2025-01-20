@@ -1,4 +1,4 @@
-#' Taiwan Legislative Keywords for Text Analysis
+#' Taiwan Legislative Keywords for Text Analysis 常用立法關鍵字
 #'
 #' @title Legislative Keywords for Text Analysis
 #' @description A dataset containing common keywords used in Taiwan's legislative text analysis.

@@ -38,9 +38,14 @@ list contains: \describe{
 }
 }
 \description{
-The Legislator' Demographic Information and Background 提供委員基本資料
+Provides access to legislators' basic demographic and background information through
+the Legislative Yuan's V1 API interface.
 }
 \details{
+This function retrieves comprehensive data about legislators including their
+personal information, political background, and demographic details. The data
+is available starting from the 2nd legislative term.
+
 \code{get_legislators} produces a list, which contains  \code{query_time},
 \code{queried_term}, \code{url}, \code{variable_names}, \code{manual_info} and \code{data}.
 }
@@ -55,10 +60,14 @@ or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=16}.
 ## 輸入「立委屆期」與「會期」下載「行政院答復」
 get_executive_response(term = 8, session_period = 1)
 
+# Get data for the 9th term
+legislators_data <- get_legislators(term = 9)
+legislators_data
+
 }
 \seealso{
 \code{get_variable_info("get_legislators")}, \code{review_session_info()}
 }
 \author{
-David Liao (davidycliao@gmail.com)
+Yen-Chieh Liao (davidycliao@gmail.com)
 }

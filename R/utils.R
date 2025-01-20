@@ -77,8 +77,6 @@ website_availability2 <- function(site = "https://npl.ly.gov.tw/do/www/appDate?s
   error = function(e) FALSE)
 }
 
-
-
 #' A Check for Internet Connectivity.
 #'
 #'@param x  The default value is `curl::has_internet()`, which activate the

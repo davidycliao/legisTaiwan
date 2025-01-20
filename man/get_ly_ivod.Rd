@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{get_ly_ivod}
 \alias{get_ly_ivod}
-\title{Fetch Legislative Yuan IVOD (Video) Records}
+\title{Fetch Legislative Yuan IVOD (Video) Records 取得立法院議事轉播影片資料}
 \usage{
 get_ly_ivod(
   page = 1,
@@ -54,6 +54,7 @@ A list containing two components:
 }
 }
 \description{
+從立法院開放資料平台擷取議事轉播系統(IVOD)的影片紀錄資料。
 Retrieves IVOD (Internet Video on Demand) records from the Legislative Yuan API.
 Returns video records sorted by date in descending order.
 }

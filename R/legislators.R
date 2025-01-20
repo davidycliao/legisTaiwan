@@ -1,6 +1,15 @@
 #' The Legislator' Demographic Information and Background 提供委員基本資料
 #'
-#'@author David Liao (davidycliao@@gmail.com)
+#'@author Yen-Chieh Liao (davidycliao@@gmail.com)
+#'
+#' @description
+#' Provides access to legislators' basic demographic and background information through
+#' the Legislative Yuan's V1 API interface.
+#'
+#' @details
+#' This function retrieves comprehensive data about legislators including their
+#' personal information, political background, and demographic details. The data
+#' is available starting from the 2nd legislative term.
 #'
 #'@param term numeric or NULL The data is available from the 2nd term.
 #'
@@ -50,7 +59,12 @@
 #' or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=16}.
 #' 提供委員基本資料，最早資料可追溯至第2屆。
 #'
-#'@seealso
+#' @examples
+#' # Get data for the 9th term
+#' legislators_data <- get_legislators(term = 9)
+#' legislators_data
+#'
+#' @seealso
 #'`get_variable_info("get_legislators")`, `review_session_info()`
 
 get_legislators <- function(term = NULL, verbose = TRUE) {

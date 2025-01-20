@@ -32,8 +32,18 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown-reference"><li><a class="dropdown-item" href="../reference/index.html">Function Reference</a></li>
   </ul></li>
 <li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-api-functions" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fa-code"></span> API Functions</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-api-functions"><li><a class="dropdown-item" href="../reference/index.html#api-v1-basic-data">API V1 - Basic Data</a></li>
+    <li><a class="dropdown-item" href="../reference/index.html#api-v1-parliamentary-activities">API V1 - Parliamentary Activities</a></li>
+    <li><a class="dropdown-item" href="../reference/index.html#api-v2-bills-and-committees">API V2 - Bills and Committees</a></li>
+    <li><a class="dropdown-item" href="../reference/index.html#api-v2-legislator-information">API V2 - Legislator Information</a></li>
+    <li><a class="dropdown-item" href="../reference/index.html#analysis-tools">Analysis Tools</a></li>
+    <li><a class="dropdown-item" href="../reference/index.html#utility-and-data">Utility and Data</a></li>
+  </ul></li>
+<li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-news" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><span class="fa fa-newspaper-o"></span> News</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-news"><li><a class="dropdown-item" href="../news/index.html#legistaiwan-017-development-version">0.1.7</a></li>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-news"><li><a class="dropdown-item" href="../news/index.html#legistaiwan-021-development-version">0.2.1</a></li>
+    <li><a class="dropdown-item" href="../news/index.html#legistaiwan-017-development-version">0.1.7</a></li>
     <li><a class="dropdown-item" href="../news/index.html#legistaiwan-016-development-version">0.1.6</a></li>
     <li><a class="dropdown-item" href="../news/index.html#legistaiwan-014-development-version">0.1.4</a></li>
     <li><a class="dropdown-item" href="../news/index.html#legistaiwan-013-development-version">0.1.3</a></li>
@@ -51,9 +61,50 @@
     </div>
 
     <div class="section level2">
-      <h2 id="api-functions">API Functions<a class="anchor" aria-label="anchor" href="#api-functions"></a></h2>
+      <h2 id="api-v-basic-data">API V1 - Basic Data<a class="anchor" aria-label="anchor" href="#api-v-basic-data"></a></h2>
 
-      <div class="section-desc"><p>functions connect to Taiwan Legialtive Yuan API.</p></div>
+      <div class="section-desc"><p>Basic data retrieval functions from old Legislative Yuan API</p></div>
+
+
+    </div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="get_bills.html">get_bills()</a></code>
+
+        </dt>
+        <dd>The Records of the Bills: 法律提案</dd>
+      </dl><dl><dt>
+
+          <code><a href="get_bills_2.html">get_bills_2()</a></code>
+
+        </dt>
+        <dd>The Records of Legislation and the Executives Proposals: 委員及政府議案提案資訊</dd>
+      </dl><dl><dt>
+
+          <code><a href="get_meetings.html">get_meetings()</a></code>
+
+        </dt>
+        <dd>The Spoken Meeting Records 委員發言</dd>
+      </dl><dl><dt>
+
+          <code><a href="get_committee_record.html">get_committee_record()</a></code>
+
+        </dt>
+        <dd>The Records of Reviewed Items in the Committees 委員會會議審查之議案項目</dd>
+      </dl><dl><dt>
+
+          <code><a href="get_legislators.html">get_legislators()</a></code>
+
+        </dt>
+        <dd>The Legislator' Demographic Information and Background 提供委員基本資料</dd>
+      </dl></div><div class="section level2">
+      <h2 id="api-v-parliamentary-activities">API V1 - Parliamentary Activities<a class="anchor" aria-label="anchor" href="#api-v-parliamentary-activities"></a></h2>
+
+      <div class="section-desc"><p>Functions for parliamentary activities from old API</p></div>
 
 
     </div><div class="section level2">
@@ -67,12 +118,6 @@
 
         </dt>
         <dd>The Records of Parliamentary Questions 委員質詢事項資訊</dd>
-      </dl><dl><dt>
-
-          <code><a href="get_meetings.html">get_meetings()</a></code>
-
-        </dt>
-        <dd>The Spoken Meeting Records 委員發言</dd>
       </dl><dl><dt>
 
           <code><a href="get_caucus_meetings.html">get_caucus_meetings()</a></code>
@@ -97,96 +142,76 @@
 
         </dt>
         <dd>The Video Information of Meetings and Committees 院會及委員會之委員發言片段相關影片資訊</dd>
-      </dl><dl><dt>
+      </dl></div><div class="section level2">
+      <h2 id="api-v-bills-and-committees">API V2 - Bills and Committees<a class="anchor" aria-label="anchor" href="#api-v-bills-and-committees"></a></h2>
 
-          <code><a href="get_committee_record.html">get_committee_record()</a></code>
+      <div class="section-desc"><p>New API functions for bills and committee information</p></div>
 
-        </dt>
-        <dd>The Records of Reviewed Items in the Committees 委員會會議審查之議案項目</dd>
-      </dl><dl><dt>
 
-          <code><a href="get_bills.html">get_bills()</a></code>
+    </div><div class="section level2">
 
-        </dt>
-        <dd>The Records of the Bills: 法律提案</dd>
-      </dl><dl><dt>
 
-          <code><a href="get_bills_2.html">get_bills_2()</a></code>
 
-        </dt>
-        <dd>The Records of Legislation and the Executives Proposals: 委員及政府議案提案資訊</dd>
-      </dl><dl><dt>
 
-          <code><a href="get_legislators.html">get_legislators()</a></code>
-
-        </dt>
-        <dd>The Legislator' Demographic Information and Background 提供委員基本資料</dd>
-      </dl><dl><dt>
-
-          <code><a href="get_variable_info.html">get_variable_info()</a></code>
-
-        </dt>
-        <dd>Check Each Function's Manual</dd>
-      </dl><dl><dt>
-
-          <code><a href="review_session_info.html">review_session_info()</a></code>
-
-        </dt>
-        <dd>Check Session Periods in Each Year (Minguo Calendar)</dd>
-      </dl><dl><dt>
-
-          <code><a href="legis_keywords.html">legis_keywords</a></code>
-
-        </dt>
-        <dd>Legislative Keywords for Text Analysis</dd>
-      </dl><dl><dt>
+      <dl><dt>
 
           <code><a href="get_ly_bills.html">get_ly_bills()</a></code>
 
         </dt>
-        <dd>Fetch and Parse Legislative Yuan Bills</dd>
+        <dd>Fetch and Parse Legislative Yuan Bills 取得並解析立法院議案資料</dd>
       </dl><dl><dt>
 
           <code><a href="get_ly_committee_meets.html">get_ly_committee_meets()</a></code>
 
         </dt>
-        <dd>Fetch Legislative Yuan Committee Meetings</dd>
+        <dd>Fetch Legislative Yuan Committee Meetings 取得立法院委員會會議資料</dd>
       </dl><dl><dt>
 
           <code><a href="get_ly_committees_type.html">get_ly_committees_type()</a></code>
 
         </dt>
-        <dd>Fetch and Parse Legislative Yuan Committee Details, Jurisdiction and Codes</dd>
+        <dd>Fetch and Parse Legislative Yuan Committee Details, Jurisdiction and Codes 取得立法院委員會類別及職權範圍代碼</dd>
       </dl><dl><dt>
 
           <code><a href="get_ly_interpellations.html">get_ly_interpellations()</a></code>
 
         </dt>
-        <dd>Get Legislative Yuan Interpellation Records</dd>
+        <dd>Get Legislative Yuan Interpellation Records 取得立法院質詢紀錄</dd>
       </dl><dl><dt>
 
           <code><a href="get_ly_ivod.html">get_ly_ivod()</a></code>
 
         </dt>
-        <dd>Fetch Legislative Yuan IVOD (Video) Records</dd>
-      </dl><dl><dt>
+        <dd>Fetch Legislative Yuan IVOD (Video) Records 取得立法院議事轉播影片資料</dd>
+      </dl></div><div class="section level2">
+      <h2 id="api-v-legislator-information">API V2 - Legislator Information<a class="anchor" aria-label="anchor" href="#api-v-legislator-information"></a></h2>
+
+      <div class="section-desc"><p>New API functions for legislator-specific data</p></div>
+
+
+    </div><div class="section level2">
+
+
+
+
+      <dl><dt>
 
           <code><a href="get_ly_legislator_bills.html">get_ly_legislator_bills()</a></code>
 
         </dt>
-        <dd>Get Bill by legislator</dd>
+        <dd>Get Bill by legislator 取得立法委員提案資料</dd>
       </dl><dl><dt>
 
           <code><a href="get_ly_legislator_cosign_bills.html">get_ly_legislator_cosign_bills()</a></code>
 
         </dt>
-        <dd>Fetch Bills Cosigned by a Legislator</dd>
+        <dd>Fetch Bills Cosigned by a Legislator 取得立法委員連署法案</dd>
       </dl><dl><dt>
 
           <code><a href="get_ly_legislators_by_term.html">get_ly_legislators_by_term()</a></code>
 
         </dt>
-        <dd>Fetch Legislators List for a Specific Term</dd>
+        <dd>Fetch Legislators List for a Specific Term 依屆期取得立法委員名單</dd>
       </dl><dl><dt>
 
           <code><a href="get_ly_legislator_detail.html">get_ly_legislator_detail()</a></code>
@@ -198,8 +223,19 @@
           <code><a href="get_tly_stat.html">get_tly_stat()</a></code>
 
         </dt>
-        <dd>Fetch and Parse Legislative Yuan Statistics</dd>
-      </dl><dl><dt>
+        <dd>Fetch and Parse Legislative Yuan Statistics 取得並解析立法院統計資料</dd>
+      </dl></div><div class="section level2">
+      <h2 id="analysis-tools">Analysis Tools<a class="anchor" aria-label="anchor" href="#analysis-tools"></a></h2>
+
+      <div class="section-desc"><p>Functions for data analysis and reporting</p></div>
+
+
+    </div><div class="section level2">
+
+
+
+
+      <dl><dt>
 
           <code><a href="analyze_bills.html">analyze_bills()</a></code>
 
@@ -219,18 +255,48 @@
         <dd>Analyze Legislative Meeting Statistics</dd>
       </dl><dl><dt>
 
-          <code><a href="calculate_bill_trends.html">calculate_bill_trends()</a></code>
-
-        </dt>
-        <dd>Calculate Legislative Bill Trends and Metrics</dd>
-      </dl><dl><dt>
-
           <code><a href="generate_report.html">generate_report()</a></code>
 
         </dt>
         <dd>Generate Legislative Yuan Summary Statistics Report</dd>
+      </dl><dl><dt>
+
+          <code><a href="calculate_bill_trends.html">calculate_bill_trends()</a></code>
+
+        </dt>
+        <dd>Calculate Legislative Bill Trends and Metrics</dd>
+      </dl></div><div class="section level2">
+      <h2 id="utility-and-data">Utility and Data<a class="anchor" aria-label="anchor" href="#utility-and-data"></a></h2>
+
+      <div class="section-desc"><p>Helper functions and datasets</p></div>
+
+
+    </div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="get_variable_info.html">get_variable_info()</a></code>
+
+        </dt>
+        <dd>Check Each Function's Manual 檢查各函式說明文件</dd>
+      </dl><dl><dt>
+
+          <code><a href="review_session_info.html">review_session_info()</a></code>
+
+        </dt>
+        <dd>Check Session Periods in Each Year (Minguo Calendar) 檢查每年會期 (民國曆)</dd>
+      </dl><dl><dt>
+
+          <code><a href="legis_keywords.html">legis_keywords</a></code>
+
+        </dt>
+        <dd>Legislative Keywords for Text Analysis</dd>
       </dl></div>
-  </main></div>
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
+    </nav></aside></div>
 
 
    </div>

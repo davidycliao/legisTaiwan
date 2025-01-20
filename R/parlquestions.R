@@ -1,6 +1,10 @@
 #' The Records of Parliamentary Questions 委員質詢事項資訊
 #'
-#' @author David Liao (davidycliao@@gmail.com)
+#' @author Yen-Chieh Liao (davidycliao@@gmail.com)
+#'
+#' @description
+#' Provides access to the records of parliamentary questions through
+#' the Legislative Yuan's V1 API interface.
 #'
 #' @param term numeric or NULL. The default is set to NULL. 參數必須為數值。
 #'
@@ -31,19 +35,15 @@
 #'       }
 #'     }
 #'   }
+#'
 #' @importFrom attempt stop_if_all
 #' @importFrom jsonlite fromJSON
 #' @importFrom withr with_options
 #' @export
 #'
 #' @examples
-#' ## Query parliamentary questions by term.
-#' ## 輸入「立委會期」下載立委質詢資料
-#' get_parlquestions(term = 10)
-#'
-#' ## Query parliamentary questions by term and session period.
-#' ## 輸入「立委屆期」與「會期」下載立委質詢資料
-#' get_parlquestions(term = 10, session_period = 2)
+#' term10 <- get_parlquestions(term = 10, session_period = 1)
+#' term10
 #'
 #' @details `get_parlquestions` produces a list, which contains `title`,
 #' `query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
@@ -169,20 +169,24 @@ get_parlquestions <- function(term = NULL, session_period = NULL, verbose = TRUE
 
 #'The Records of Response to the Questions by the Executives 公報質詢事項行政院答復資訊
 #'
-#'@author David Liao (davidycliao@@gmail.com)
+#' @author Yen-Chieh Liao (davidycliao@@gmail.com)
 #'
-#'@param term integer, numeric or NULL. The default is NULL. The data is only
+#' @description
+#' Provides access to the records of parliamentary questions through
+#' the Legislative Yuan's V1 API interface.
+#'
+#' @param term integer, numeric or NULL. The default is NULL. The data is only
 #'available from 8th term. 參數必須為數值。資料從自第8屆起，預設值為8。
 #'
-#'@param session_period integer, numeric or NULL. Available
+#' @param session_period integer, numeric or NULL. Available
 #'options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to NULL. 參數必須為數值。
 #'`review_session_info()` generates each session period  available option period
 #' in Minguo (Taiwan) calendar.
 #'
-#'@param verbose logical, indicates whether `get_executive_response` should
+#' @param verbose logical, indicates whether `get_executive_response` should
 #'print out detailed output when retrieving the data. The default is set to TRUE
 #'
-#'@return list contains: \describe{
+#' @return list contains: \describe{
 #'    \item{`title`}{the records of the questions answered by the executives}
 #'    \item{`query_time`}{the queried time}
 #'    \item{`retrieved_number`}{the total number of observations}
@@ -215,8 +219,8 @@ get_parlquestions <- function(term = NULL, session_period = NULL, verbose = TRUE
 #'@examples
 #' ## query the Executives' answered response by term and the session period.
 #' ## 輸入「立委屆期」與「會期」下載「行政院答復」
-#' get_executive_response(term = 8, session_period = 1)
-#'
+#' term8 <- get_executive_response(term = 8, session_period = 1)
+#' term8
 #'@details **`get_executive_response`** produces a list, which contains `title`,
 #'`query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
 #' `manual_info` and `data`. To retrieve the user manual and more information, please
