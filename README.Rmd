@@ -113,5 +113,13 @@ The Legislative Yuan API has transitioned from `https://ly.govapi.tw` to `https:
 
 </div>
 
-<br>
+
+
+### Support
+
+<div style="text-align: justify; font-size: 1.1rem; line-height: 1.6; color: #333; max-width: 800px; margin: 1rem auto; padding: 0 1rem; font-family: 'Helvetica Neue', Arial, sans-serif;">
+
+如果您覺得這個套件對您的研究有幫助，歡迎考慮小額捐款給[台灣公民監督國會聯盟](https://ccw.org.tw/donation)或[報導者](https://support.twreporter.org)，支持台灣獨立媒體的持續營運和國會監督工作。如果您對資料分析有任何問題，也歡迎與我聯繫討論。
+
+If you find `legisTaiwan` helpful for your research, you are welcome to consider making a small donation to [the Taiwan Congress Watch Foundation](https://ccw.org.tw/donation) or [The Reporter](https://support.twreporter.org) to support Taiwan's independent media operations and parliamentary oversight work. If you have any questions about data analysis, feel free to contact us for discussion.</div><br>
  
