@@ -60,7 +60,7 @@ the Legislative Yuan's V1 API interface."><meta property="og:image" content="htt
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>The Records of Parliamentary Questions 委員質詢事項資訊</h1>
-      <small class="dont-index">Source: <a href="https://github.com/davidycliao/legisTaiwan/blob/master/R/parlquestions.R" class="external-link"><code>R/parlquestions.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/davidycliao/legisTaiwan/blob/HEAD/R/parlquestions.R" class="external-link"><code>R/parlquestions.R</code></a></small>
       <div class="d-none name"><code>get_parlquestions.Rd</code></div>
     </div>
 
@@ -162,68 +162,10 @@ or visit the API manual at <a href="https://data.ly.gov.tw/getds.action?id=6" cl
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">term10</span> <span class="op">&lt;-</span> <span class="fu">get_parlquestions</span><span class="op">(</span>term <span class="op">=</span> <span class="fl">10</span>, session_period <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Input Format Information:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Term: Must be numeric (e.g., 8, 9, 10)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Session Period: Must be numeric (1-8)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Downloading parliamentary questions data...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   |                                                                        |                                                                |   0%  |                                                                        |=============                                                   |  20%  |                                                                        |==========================                                      |  40%  |                                                                        |======================================                          |  60%  |                                                                        |===================================================             |  80%  |                                                                        |================================================================| 100%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ====== Retrieved Information ======</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -----------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  URL: </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  https://data.ly.gov.tw/odw/ID6Action.action?term=10&amp;sessionPeriod=01&amp;sessionTimes=&amp;item=&amp;fileType=json </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Term:  10 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Session Period:  1 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Total Questions:  784 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Session Distribution:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Session 01: 784</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ===================================</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span><span class="va">term10</span> <span class="op">&lt;-</span> <span class="fu">get_parlquestions</span><span class="op">(</span>term <span class="op">=</span> <span class="fl">10</span>, session_period <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">term10</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $title</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Parliamentary Questions Records"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2025-01-20 20:13:14 UTC"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 784</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_term</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "10"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $url</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://data.ly.gov.tw/odw/ID6Action.action?term=10&amp;sessionPeriod=01&amp;sessionTimes=&amp;item=&amp;fileType=json"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $variable_names</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "term"          "sessionPeriod" "sessionTimes"  "item"         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [5] "selectTerm"   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $manual_info</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://data.ly.gov.tw/getds.action?id=6"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $data</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 784 × 5</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    term  sessionPeriod sessionTimes item                        selectTerm</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 10    01            01           乙、本院委員質詢部分        all       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 10    01            01           一、本院李委員德維，針就大陸武漢肺炎疫情持續擴散，雖… all       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 10    01            01           二、本院李委員德維，針就台灣邁向高齡化、少子化社會，… all       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 10    01            01           三、本院許委員淑華，鑑於新型冠狀肺炎疫情在中國大陸爆… all       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 10    01            01           四、本院許委員淑華，鑑於政府和民眾都為武漢肺炎肆虐而… all       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 10    01            01           五、本院許委員淑華，鑑於2020年被喻為亞洲之虎的越… all       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 10    01            01           六、本院許委員淑華，鑑於台灣地區呈現低所得和高房價的… all       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 10    01            01           七、本院許委員淑華，鑑於蔡英文總統連任成功後，還有很… all       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 10    01            01           八、本院許委員淑華，鑑於新型冠狀病毒疫情未來發展似不… all       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 10    01            01           九、本院許委員淑華，鑑於武漢肺炎疫情侵襲，不能沒有危… all       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 774 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

@@ -62,7 +62,7 @@ including attendance, bills discussed, and meeting details."><meta property="og:
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Fetch Legislative Yuan Committee Meetings 取得立法院委員會會議資料</h1>
-      <small class="dont-index">Source: <a href="https://github.com/davidycliao/legisTaiwan/blob/master/R/get_ly_committees.R" class="external-link"><code>R/get_ly_committees.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/davidycliao/legisTaiwan/blob/HEAD/R/get_ly_committees.R" class="external-link"><code>R/get_ly_committees.R</code></a></small>
       <div class="d-none name"><code>get_ly_committee_meets.Rd</code></div>
     </div>
 
@@ -171,10 +171,10 @@ meeting date, type, attending members, and discussed bills</p></li>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="co"># Fetch meetings from the Interior Committee</span></span></span>
-<span class="r-in"><span><span class="va">meetings</span> <span class="op">&lt;-</span> <span class="fu">fetch_ly_meetings</span><span class="op">(</span>committee_id <span class="op">=</span> <span class="fl">15</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">meetings</span> <span class="op">&lt;-</span> <span class="fu">get_ly_committee_meets</span><span class="op">(</span>committee_id <span class="op">=</span> <span class="fl">15</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Fetch meetings with specific filters</span></span></span>
-<span class="r-in"><span><span class="va">meetings</span> <span class="op">&lt;-</span> <span class="fu">fetch_ly_meetings</span><span class="op">(</span></span></span>
+<span class="r-in"><span><span class="va">meetings</span> <span class="op">&lt;-</span> <span class="fu">get_ly_committee_meets</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  committee_id <span class="op">=</span> <span class="fl">16</span>,</span></span>
 <span class="r-in"><span>  term <span class="op">=</span> <span class="fl">10</span>,</span></span>
 <span class="r-in"><span>  session <span class="op">=</span> <span class="fl">1</span>,</span></span>

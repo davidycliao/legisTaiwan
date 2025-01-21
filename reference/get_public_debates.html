@@ -58,7 +58,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>The Records of National Public Debates 國是論壇</h1>
-      <small class="dont-index">Source: <a href="https://github.com/davidycliao/legisTaiwan/blob/master/R/meeting.R" class="external-link"><code>R/meeting.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/davidycliao/legisTaiwan/blob/HEAD/R/meeting.R" class="external-link"><code>R/meeting.R</code></a></small>
       <div class="d-none name"><code>get_public_debates.Rd</code></div>
     </div>
 
@@ -179,50 +179,13 @@ use <code>get_variable_info("get_public_debates")</code> or visit the API manual
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Query public debates for term 10, session period 2</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span><span class="co"># Query public debates for term 10, session period 2</span></span></span>
 <span class="r-in"><span><span class="va">debates</span> <span class="op">&lt;-</span> <span class="fu">get_public_debates</span><span class="op">(</span>term <span class="op">=</span> <span class="fl">10</span>, session_period <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Input Format Information:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Term: Must be numeric (e.g., 8, 9, 10)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Session Period: Must be numeric (1-8)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Downloading public debates data...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   |                                                                        |                                                                |   0%  |                                                                        |=============                                                   |  20%  |                                                                        |==========================                                      |  40%  |                                                                        |======================================                          |  60%  |                                                                        |===================================================             |  80%  |                                                                        |================================================================| 100%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ====== Retrieved Information ======</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -----------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved URL: </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  https://data.ly.gov.tw/odw/ID7Action.action?term=10&amp;sessionPeriod=02&amp;sessionTimes=&amp;meetingTimes=&amp;legislatorName=&amp;speakType=&amp;fileType=json </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Term:  10 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Session Period:  2 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Total Records:  39 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Unique Legislators:  9 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ===================================</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Query without specifying session period</span></span></span>
 <span class="r-in"><span><span class="va">debates</span> <span class="op">&lt;-</span> <span class="fu">get_public_debates</span><span class="op">(</span>term <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Input Format Information:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Term: Must be numeric (e.g., 8, 9, 10)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Session Period: Must be numeric (1-8)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Downloading public debates data...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   |                                                                        |                                                                |   0%  |                                                                        |=============                                                   |  20%  |                                                                        |==========================                                      |  40%  |                                                                        |======================================                          |  60%  |                                                                        |===================================================             |  80%  |                                                                        |================================================================| 100%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ====== Retrieved Information ======</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -----------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Retrieved URL: </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  https://data.ly.gov.tw/odw/ID7Action.action?term=10&amp;sessionPeriod=&amp;sessionTimes=&amp;meetingTimes=&amp;legislatorName=&amp;speakType=&amp;fileType=json </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Term:  10 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Total Records:  555 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Unique Legislators:  30 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ===================================</span>
+<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
