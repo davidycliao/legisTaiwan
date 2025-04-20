@@ -102,10 +102,10 @@
 <!-- `legisTaiwan` is designed to streamline access to real-time archives of Taiwan's legislative data, drawing inspiration from the UK's TheyWorkForYou API. By providing straightforward access to the Taiwan Legislative Yuan API in R, this package not only aims to enhance legislative accountability and public transparency but also serves as a powerful tool for academic research. Scholars can easily retrieve and analyze legislative data including voting records, parliamentary questions, and bill proposals, facilitating quantitative research and empirical analysis. As the package interfaces directly with Legislative Yuan API endpoints, a stable internet connection is required. Users are welcome to contact [the author](https://davidycliao.github.io) for any API implementation assistance. -->
 <!-- </div> -->
 <div style="text-align: justify; font-size: 1.1rem; line-height: 1.6; color: #333; max-width: 800px; margin: 1rem auto; padding: 0 1rem; font-family: 'Helvetica Neue', Arial, sans-serif;">
-<p><code>legisTaiwan</code> is designed to streamline access to real-time archives of Taiwan’s legislative data, drawing inspiration from the UK’s TheyWorkForYou API. By providing straightforward access to the Taiwan Legislative Yuan API in R, this package not only aims to enhance legislative accountability and public transparency but also serves as a powerful tool for academic research. Scholars can easily retrieve and analyze legislative data including voting records, parliamentary questions, and bill proposals, facilitating quantitative research and empirical analysis. As the package interfaces directly with Legislative Yuan API endpoints, a stable internet connection is required. Users are welcome to contact <a href="https://davidycliao.github.io" style="color: #3498db; text-decoration: none; border-bottom: 1px solid #3498db;" class="external-link">the author</a> for any API implementation assistance.</p>
+<p><code>legisTaiwan</code> is designed to streamline access to real-time archives of Taiwan’s legislative data, drawing inspiration from the UK’s TheyWorkForYou API. As the package interfaces directly with Legislative Yuan API endpoints, a stable internet connection is required. Users are welcome to contact <a href="https://davidycliao.github.io" style="color: #3498db; text-decoration: none; border-bottom: 1px solid #3498db;" class="external-link">the author</a> for any API implementation assistance.</p>
 </div>
 <div style="text-align: justify; font-size: 0.95rem; line-height: 1.6; color: #333; max-width: 800px; margin: 1rem auto; padding: 0 1rem; font-family: 'Helvetica Neue', Arial, sans-serif;">
-<p><code>legisTaiwan</code> 套件旨在簡化台灣立法院資料的即時存取，其設計理念來自於英國的 <a href="https://www.theyworkforyou.com/api/" class="external-link"><code>TheyWorkForYou API</code></a>。透過在 R 環境中提供直接連接立法院開放資料 API 的便捷管道，本套件不僅致力於提升立法問責制和公共透明度，更為學術研究者提供了系統化分析立法數據的工具。研究人員可以輕鬆獲取並分析立法委員的表決紀錄、問政質詢、法案提案等資料，有助於量化研究和實證分析。由於套件需要直接與立法院 API 介接，使用時請確保網路連線穩定。如有任何 API 使用上的問題，歡迎與套件<a href="https://davidycliao.github.io" style="color: #3498db; text-decoration: none; border-bottom: 1px solid #3498db;" class="external-link">我們</a>聯繫。</p>
+<p><code>legisTaiwan</code> 套件旨在簡化台灣立法院資料的即時存取。透過在 R 環境中提供直接連接立法院開放資料 API 的便捷管道，本套件不僅致力於提升立法問責制和公共透明度，更為學術研究者提供了系統化分析立法數據的工具。研究人員可以輕鬆獲取並分析立法委員的表決紀錄、問政質詢、法案提案等資料，有助於國會研究與量化研究和實證分析。由於套件需要直接與由<a href="https://openfun.tw/#works" class="external-link">歐噴公司</a>開發開源的立法院 API 介接，使用時請確保網路連線穩定。如有任何 legisTaiwan R套件使用上的問題，歡迎open issue 在githut 上或<a href="https://davidycliao.github.io" style="color: #3498db; text-decoration: none; border-bottom: 1px solid #3498db;" class="external-link">我們</a>聯繫。</p>
 </div>
 <p><br></p>
 <div class="section level3">
@@ -117,112 +117,26 @@
 <div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">library</span>(legisTaiwan)</span>
 <span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="co">#&gt; ## legisTaiwan                                            ##</span></span>
 <span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co">#&gt; ## An R package connecting to the Taiwan Legislative API. ##</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="summary-descriptive-of-taiwan-legilative-yuan-api">Summary Descriptive of Taiwan Legilative Yuan API<a class="anchor" aria-label="anchor" href="#summary-descriptive-of-taiwan-legilative-yuan-api"></a>
-</h3>
-<p><strong>Legislative Bills Statistics</strong></p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/analyze_bills.html">analyze_bills</a></span><span class="op">(</span><span class="va">stats</span><span class="op">)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; === Bill Statistics Summary ===</span></span>
-<span><span class="co">#&gt; Total Bills: 132235</span></span>
-<span><span class="co">#&gt; Last Updated: 2025-01-21 19:20:01</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; First Five Terms Bill Count:</span></span>
-<span><span class="co">#&gt;   term count percentage cumulative</span></span>
-<span><span class="co">#&gt; 1   11  8651       6.54       8651</span></span>
-<span><span class="co">#&gt; 2   10 43029      32.54      51680</span></span>
-<span><span class="co">#&gt; 3    9 30806      23.30      82486</span></span>
-<span><span class="co">#&gt; 4    8 26293      19.88     108779</span></span>
-<span><span class="co">#&gt; 5    7 15775      11.93     124554</span></span>
-<span><span class="co">#&gt; $plot</span></span></code></pre></div>
-<p><img src="reference/figures/unnamed-chunk-4-1.png" width="100%"></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co">#&gt; $summary</span></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">#&gt;   term count percentage cumulative</span></span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">#&gt; 1   11  8651       6.54       8651</span></span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co">#&gt; 2   10 43029      32.54      51680</span></span>
-<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co">#&gt; 3    9 30806      23.30      82486</span></span>
-<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co">#&gt; 4    8 26293      19.88     108779</span></span>
-<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">#&gt; 5    7 15775      11.93     124554</span></span>
-<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">#&gt; 6    6  7622       5.76     132176</span></span>
-<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co">#&gt; 7    5    59       0.04     132235</span></span></code></pre></div>
-<p><strong>Legislative Meeting Statistics</strong></p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/analyze_meetings.html">analyze_meetings</a></span><span class="op">(</span><span class="va">stats</span><span class="op">)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; === Meeting Statistics Summary ===</span></span>
-<span><span class="co">#&gt; Total Meetings: 7128</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Meeting Records Statistics by Term:</span></span>
-<span><span class="co">#&gt;   term count    max_meeting_date meetdata_count 議事錄_count minutes_ratio</span></span>
-<span><span class="co">#&gt; 1   11   652 2025-02-13 00:00:00            627          447         68.56</span></span>
-<span><span class="co">#&gt; 2   10  2267 2024-05-17 01:00:00           2146         1603         70.71</span></span>
-<span><span class="co">#&gt; 3    9  2390 2020-01-22 00:00:00           2237         1645         68.83</span></span>
-<span><span class="co">#&gt; 4    8  1818 2015-12-18 00:00:00           1434         1480         81.41</span></span>
-<span><span class="co">#&gt; 5    6     1                &lt;NA&gt;              0            1        100.00</span></span>
-<span><span class="co">#&gt;   last_meeting_date</span></span>
-<span><span class="co">#&gt; 1        2025-02-13</span></span>
-<span><span class="co">#&gt; 2        2024-05-17</span></span>
-<span><span class="co">#&gt; 3        2020-01-22</span></span>
-<span><span class="co">#&gt; 4        2015-12-18</span></span>
-<span><span class="co">#&gt; 5              &lt;NA&gt;</span></span>
-<span><span class="co">#&gt; $plot</span></span></code></pre></div>
-<p><img src="reference/figures/unnamed-chunk-5-1.png" width="100%"></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="co">#&gt; $summary</span></span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="co">#&gt;   term count    max_meeting_date meetdata_count 議事錄_count minutes_ratio</span></span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="co">#&gt; 1   11   652 2025-02-13 00:00:00            627          447         68.56</span></span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="co">#&gt; 2   10  2267 2024-05-17 01:00:00           2146         1603         70.71</span></span>
-<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="co">#&gt; 3    9  2390 2020-01-22 00:00:00           2237         1645         68.83</span></span>
-<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="co">#&gt; 4    8  1818 2015-12-18 00:00:00           1434         1480         81.41</span></span>
-<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a><span class="co">#&gt; 5    6     1                &lt;NA&gt;              0            1        100.00</span></span>
-<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="co">#&gt;   last_meeting_date</span></span>
-<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a><span class="co">#&gt; 1        2025-02-13</span></span>
-<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a><span class="co">#&gt; 2        2024-05-17</span></span>
-<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a><span class="co">#&gt; 3        2020-01-22</span></span>
-<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a><span class="co">#&gt; 4        2015-12-18</span></span>
-<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a><span class="co">#&gt; 5              &lt;NA&gt;</span></span></code></pre></div>
-<p><strong>Legislative Video (IVOD) Statistics</strong></p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/analyze_ivod.html">analyze_ivod</a></span><span class="op">(</span><span class="va">stats</span><span class="op">)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; === Video Statistics Summary ===</span></span>
-<span><span class="co">#&gt; Total Videos: 89284</span></span>
-<span><span class="co">#&gt; Data Period: 2005-03-14 to 2025-01-20</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Video Statistics by Term:</span></span>
-<span><span class="co">#&gt;   term count          start_date            end_date start_date_fmt</span></span>
-<span><span class="co">#&gt; 1   11 10259 2024-02-05 07:00:00 2025-01-20 16:00:00     2024-02-05</span></span>
-<span><span class="co">#&gt; 2   10 33852 2020-02-14 06:00:00 2024-01-09 01:00:00     2020-02-14</span></span>
-<span><span class="co">#&gt; 3    9 34167 2016-02-19 01:00:00 2020-01-20 01:00:00     2016-02-19</span></span>
-<span><span class="co">#&gt; 4    8  9608 2012-02-24 01:00:00 2015-12-18 01:00:00     2012-02-24</span></span>
-<span><span class="co">#&gt; 5    7  1364 2008-02-29 01:00:00 2011-12-14 01:00:00     2008-02-29</span></span>
-<span><span class="co">#&gt;   end_date_fmt period_days avg_daily_videos</span></span>
-<span><span class="co">#&gt; 1   2025-01-20     350.375            29.28</span></span>
-<span><span class="co">#&gt; 2   2024-01-09    1424.792            23.76</span></span>
-<span><span class="co">#&gt; 3   2020-01-20    1431.000            23.88</span></span>
-<span><span class="co">#&gt; 4   2015-12-18    1393.000             6.90</span></span>
-<span><span class="co">#&gt; 5   2011-12-14    1384.000             0.99</span></span>
-<span><span class="co">#&gt; $plot</span></span></code></pre></div>
-<p><img src="reference/figures/unnamed-chunk-6-1.png" width="100%"></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="co">#&gt; $summary</span></span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="co">#&gt;   term count          start_date            end_date start_date_fmt</span></span>
-<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="co">#&gt; 1   11 10259 2024-02-05 07:00:00 2025-01-20 16:00:00     2024-02-05</span></span>
-<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a><span class="co">#&gt; 2   10 33852 2020-02-14 06:00:00 2024-01-09 01:00:00     2020-02-14</span></span>
-<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a><span class="co">#&gt; 3    9 34167 2016-02-19 01:00:00 2020-01-20 01:00:00     2016-02-19</span></span>
-<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a><span class="co">#&gt; 4    8  9608 2012-02-24 01:00:00 2015-12-18 01:00:00     2012-02-24</span></span>
-<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a><span class="co">#&gt; 5    7  1364 2008-02-29 01:00:00 2011-12-14 01:00:00     2008-02-29</span></span>
-<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a><span class="co">#&gt; 6    6    34 2005-03-23 01:00:00 2007-12-10 01:00:00     2005-03-23</span></span>
-<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a><span class="co">#&gt;   end_date_fmt period_days avg_daily_videos</span></span>
-<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a><span class="co">#&gt; 1   2025-01-20     350.375            29.28</span></span>
-<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a><span class="co">#&gt; 2   2024-01-09    1424.792            23.76</span></span>
-<span id="cb8-13"><a href="#cb8-13" tabindex="-1"></a><span class="co">#&gt; 3   2020-01-20    1431.000            23.88</span></span>
-<span id="cb8-14"><a href="#cb8-14" tabindex="-1"></a><span class="co">#&gt; 4   2015-12-18    1393.000             6.90</span></span>
-<span id="cb8-15"><a href="#cb8-15" tabindex="-1"></a><span class="co">#&gt; 5   2011-12-14    1384.000             0.99</span></span>
-<span id="cb8-16"><a href="#cb8-16" tabindex="-1"></a><span class="co">#&gt; 6   2007-12-10     992.000             0.03</span></span></code></pre></div>
+<!-- ### Summary Descriptive of Taiwan Legilative Yuan API -->
+<!-- ```{r include=FALSE} -->
+<!-- library(legisTaiwan) -->
+<!-- ``` -->
+<!-- ```{r include=FALSE} -->
+<!-- stats <- get_tly_stat() -->
+<!-- print(stats) -->
+<!-- ``` -->
+<!-- __Legislative Bills Statistics__ -->
+<!-- ```{r} -->
+<!-- analyze_bills(stats) -->
+<!-- ``` -->
+<!-- __Legislative Meeting Statistics__ -->
+<!-- ```{r} -->
+<!-- analyze_meetings(stats) -->
+<!-- ``` -->
+<!-- __Legislative Video (IVOD) Statistics__ -->
+<!-- ```{r} -->
+<!-- analyze_ivod(stats) -->
+<!-- ``` -->
 <!-- ```{r include=FALSE} -->
 <!-- create_interactive_plot(stats) -->
 <!-- ``` -->
@@ -251,7 +165,8 @@
 <li><a href="https://github.com/davidycliao/legisTaiwan/" class="external-link">Browse source code</a></li>
 <li><a href="https://github.com/davidycliao/legisTaiwan/issues" class="external-link">Report a bug</a></li>
 <li><a href="https://github.com/davidycliao/legisTaiwan/discussions" class="external-link">Discussion</a></li>
-<li><a href="https://ly.govapi.tw" class="external-link">立法院 API</a></li>
+<li><a href="https://ly.govapi.tw/v2/swagger" class="external-link">立法院 API v2</a></li>
+<li><a href="https://hackmd.io/@openfunltd/S1iLBqP21l/%2F%40openfunltd%2FHk39E9w2yg" class="external-link">立法院 API 使用指南</a></li>
 <li><a href="https://openfunltd.github.io/law-diff/?keyword=&amp;term=11&amp;sessionPeriod=&amp;proposer=" class="external-link">law-diff 提案法律對照比</a></li>
 <li><a href="https://dataly.openfun.app" class="external-link">DATALY 立院統合資料網</a></li>
 <li><a href="https://ccw.org.tw/assess/session/45" class="external-link">Taiwan Citizen Congress Watch</a></li>
