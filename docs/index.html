@@ -16,8 +16,8 @@
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/Source_Sans_Pro-0.4.9/font.css" rel="stylesheet">
 <link href="deps/Source_Code_Pro-0.4.9/font.css" rel="stylesheet">
-<link href="deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
-<link href="deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Accessing Real-time and Archives of Taiwan Legislative Data in R">
 <meta name="description" content="The package is designed to make it quickly and easy to access Taiwan Legislative Yuan API for downloading real-time data, legislative records and historical archives. Features include access to committee meetings, interpellations, bills, legislator information, parliamentary questions, and executive responses. The API provides comprehensive coverage of legislative activities including voting records, meeting minutes, and policy discussions, enabling users to analyze Taiwan's legislative processes and parliamentary operations efficiently.">
 <meta property="og:description" content="The package is designed to make it quickly and easy to access Taiwan Legislative Yuan API for downloading real-time data, legislative records and historical archives. Features include access to committee meetings, interpellations, bills, legislator information, parliamentary questions, and executive responses. The API provides comprehensive coverage of legislative activities including voting records, meeting minutes, and policy discussions, enabling users to analyze Taiwan's legislative processes and parliamentary operations efficiently.">
@@ -98,14 +98,11 @@
 </h2>
 <!-- badges: start -->
 
-<!-- <div style="text-align: justify"> -->
-<!-- `legisTaiwan` is designed to streamline access to real-time archives of Taiwan's legislative data, drawing inspiration from the UK's TheyWorkForYou API. By providing straightforward access to the Taiwan Legislative Yuan API in R, this package not only aims to enhance legislative accountability and public transparency but also serves as a powerful tool for academic research. Scholars can easily retrieve and analyze legislative data including voting records, parliamentary questions, and bill proposals, facilitating quantitative research and empirical analysis. As the package interfaces directly with Legislative Yuan API endpoints, a stable internet connection is required. Users are welcome to contact [the author](https://davidycliao.github.io) for any API implementation assistance. -->
-<!-- </div> -->
 <div style="text-align: justify; font-size: 1.1rem; line-height: 1.6; color: #333; max-width: 800px; margin: 1rem auto; padding: 0 1rem; font-family: 'Helvetica Neue', Arial, sans-serif;">
-<p><code>legisTaiwan</code> is designed to streamline access to real-time archives of Taiwan’s legislative data, drawing inspiration from the UK’s TheyWorkForYou API. By providing straightforward access to the Taiwan Legislative Yuan API in R, this package not only aims to enhance legislative accountability and public transparency but also serves as a powerful tool for academic research. Scholars can easily retrieve and analyze legislative data including voting records, parliamentary questions, and bill proposals, facilitating quantitative research and empirical analysis. As the package interfaces directly with Legislative Yuan API endpoints, a stable internet connection is required. Users are welcome to contact <a href="https://davidycliao.github.io" style="color: #3498db; text-decoration: none; border-bottom: 1px solid #3498db;" class="external-link">the author</a> for any API implementation assistance.</p>
+<p><code>legisTaiwan</code> is designed to streamline access to real-time archives of Taiwan’s legislative data, drawing inspiration from the UK’s TheyWorkForYou API. As the package interfaces directly with Legislative Yuan API endpoints, a stable internet connection is required. Users are welcome to contact <a href="https://davidycliao.github.io" style="color: #3498db; text-decoration: none; border-bottom: 1px solid #3498db;" class="external-link">the author</a> for any API implementation assistance.</p>
 </div>
 <div style="text-align: justify; font-size: 0.95rem; line-height: 1.6; color: #333; max-width: 800px; margin: 1rem auto; padding: 0 1rem; font-family: 'Helvetica Neue', Arial, sans-serif;">
-<p><code>legisTaiwan</code> 套件旨在簡化台灣立法院資料的即時存取，其設計理念來自於英國的 TheyWorkForYou API。透過在 R 環境中提供直接連接立法院開放資料 API 的便捷管道，本套件不僅致力於提升立法問責制和公共透明度，更為學術研究者提供了系統化分析立法數據的工具。研究人員可以輕鬆獲取並分析立法委員的表決紀錄、問政質詢、法案提案等資料，有助於量化研究和實證分析。由於套件需要直接與立法院 API 介接，使用時請確保網路連線穩定。如有任何 API 使用上的問題，歡迎與套件<a href="https://davidycliao.github.io" style="color: #3498db; text-decoration: none; border-bottom: 1px solid #3498db;" class="external-link">作者</a>聯繫。</p>
+<p><code>legisTaiwan</code> 套件旨在簡化台灣立法院資料的即時存取。透過在 R 環境中提供直接連接立法院開放資料 API 的便捷管道，本套件不僅致力於提升立法問責制和公共透明度，更為學術研究者提供了系統化分析立法數據的工具。研究人員可以輕鬆獲取並分析立法委員的表決紀錄、問政質詢、法案提案等資料，有助於國會研究與量化研究和實證分析。由於套件需要直接與由<a href="https://openfun.tw/#works" class="external-link">歐噴公司</a>開發開源的立法院 API 介接，使用時請確保網路連線穩定。如有任何 legisTaiwan R套件使用上的問題，歡迎open issue 在githut 上或<a href="https://davidycliao.github.io" style="color: #3498db; text-decoration: none; border-bottom: 1px solid #3498db;" class="external-link">我們</a>聯繫。</p>
 </div>
 <p><br></p>
 <div class="section level3">
@@ -117,90 +114,34 @@
 <div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">library</span>(legisTaiwan)</span>
 <span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="co">#&gt; ## legisTaiwan                                            ##</span></span>
 <span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co">#&gt; ## An R package connecting to the Taiwan Legislative API. ##</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="summary-descriptive-of-taiwan-legilative-yuan-api">Summary Descriptive of Taiwan Legilative Yuan API<a class="anchor" aria-label="anchor" href="#summary-descriptive-of-taiwan-legilative-yuan-api"></a>
-</h3>
-<p><strong>Legislative Bills Statistics</strong></p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/analyze_bills.html">analyze_bills</a></span><span class="op">(</span><span class="va">stats</span><span class="op">)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; === Bill Statistics Summary ===</span></span>
-<span><span class="co">#&gt; Total Bills: 131762</span></span>
-<span><span class="co">#&gt; Last Updated: 2025-01-04 22:18:58</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; First Five Terms Bill Count:</span></span>
-<span><span class="co">#&gt;   term count percentage cumulative</span></span>
-<span><span class="co">#&gt; 1   11  8270       6.28       8270</span></span>
-<span><span class="co">#&gt; 2   10 43018      32.65      51288</span></span>
-<span><span class="co">#&gt; 3    9 30792      23.37      82080</span></span>
-<span><span class="co">#&gt; 4    8 26284      19.95     108364</span></span>
-<span><span class="co">#&gt; 5    7 15726      11.94     124090</span></span></code></pre></div>
-<p><strong>Legislative Meeting Statistics</strong></p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/analyze_meetings.html">analyze_meetings</a></span><span class="op">(</span><span class="va">stats</span><span class="op">)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; === Meeting Statistics Summary ===</span></span>
-<span><span class="co">#&gt; Total Meetings: 7111</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Meeting Records Statistics by Term:</span></span>
-<span><span class="co">#&gt;   term count    max_meeting_date meetdata_count 議事錄_count minutes_ratio</span></span>
-<span><span class="co">#&gt; 1   11   635 2025-01-09 00:00:00            610          417         65.67</span></span>
-<span><span class="co">#&gt; 2   10  2267 2024-05-17 01:00:00           2146         1602         70.67</span></span>
-<span><span class="co">#&gt; 3    9  2390 2020-01-22 00:00:00           2237         1614         67.53</span></span>
-<span><span class="co">#&gt; 4    8  1818 2015-12-18 00:00:00           1434         1468         80.75</span></span>
-<span><span class="co">#&gt; 5    6     1                &lt;NA&gt;              0            1        100.00</span></span>
-<span><span class="co">#&gt;   last_meeting_date</span></span>
-<span><span class="co">#&gt; 1        2025-01-09</span></span>
-<span><span class="co">#&gt; 2        2024-05-17</span></span>
-<span><span class="co">#&gt; 3        2020-01-22</span></span>
-<span><span class="co">#&gt; 4        2015-12-18</span></span>
-<span><span class="co">#&gt; 5              &lt;NA&gt;</span></span></code></pre></div>
-<p><strong>Legislative Video (IVOD) Statistics</strong></p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/analyze_ivod.html">analyze_ivod</a></span><span class="op">(</span><span class="va">stats</span><span class="op">)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; === Video Statistics Summary ===</span></span>
-<span><span class="co">#&gt; Total Videos: 88986</span></span>
-<span><span class="co">#&gt; Data Period: 2005-03-14 to 2025-01-03</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Video Statistics by Term:</span></span>
-<span><span class="co">#&gt;   term count          start_date            end_date start_date_fmt</span></span>
-<span><span class="co">#&gt; 1   11  9961 2024-02-05 07:00:00 2025-01-03 01:00:00     2024-02-05</span></span>
-<span><span class="co">#&gt; 2   10 33852 2020-02-14 06:00:00 2024-01-09 01:00:00     2020-02-14</span></span>
-<span><span class="co">#&gt; 3    9 34167 2016-02-19 01:00:00 2020-01-20 01:00:00     2016-02-19</span></span>
-<span><span class="co">#&gt; 4    8  9608 2012-02-24 01:00:00 2015-12-18 01:00:00     2012-02-24</span></span>
-<span><span class="co">#&gt; 5    7  1364 2008-02-29 01:00:00 2011-12-14 01:00:00     2008-02-29</span></span>
-<span><span class="co">#&gt;   end_date_fmt period_days avg_daily_videos</span></span>
-<span><span class="co">#&gt; 1   2025-01-03     332.750            29.94</span></span>
-<span><span class="co">#&gt; 2   2024-01-09    1424.792            23.76</span></span>
-<span><span class="co">#&gt; 3   2020-01-20    1431.000            23.88</span></span>
-<span><span class="co">#&gt; 4   2015-12-18    1393.000             6.90</span></span>
-<span><span class="co">#&gt; 5   2011-12-14    1384.000             0.99</span></span></code></pre></div>
-<!-- ```{r include=FALSE} -->
-<!-- create_interactive_plot(stats) -->
-<!-- ``` -->
 <p><br></p>
 </div>
 <div class="section level3">
-<h3 id="important-notice-api-migration">Important Notice: API Migration<a class="anchor" aria-label="anchor" href="#important-notice-api-migration"></a>
+<h3 id="talks">Talks<a class="anchor" aria-label="anchor" href="#talks"></a>
+</h3>
+<ul>
+<li>28 April 2025 R-Ladies Taipei 讓分析台灣國會數據更透明 — <strong>legisTaiwan</strong> R 套件 <a href="https://github.com/davidycliao/r-ladies-tpe-legistaiwan?tab=readme-ov-file" class="external-link"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="GitHub"></a>
+</li>
+</ul>
+<p><br></p>
+</div>
+<div class="section level3">
+<h3 id="notice">Notice:<a class="anchor" aria-label="anchor" href="#notice"></a>
 </h3>
 <div style="text-align: justify; font-size: 1.1rem; line-height: 1.6; color: #333; max-width: 800px; margin: 1rem auto; padding: 0 1rem; font-family: 'Helvetica Neue', Arial, sans-serif;">
-<!-- `legisTaiwan` requires a stable internet connection to retrieve data -->
-<!-- from the API. While most functions can fetch data spanning a long -->
-<!-- period, they tend to be bandwidth-intensive due to the size of the -->
-<!-- datasets. If you plan to download data over an extended period, I -->
-<!-- recommend using `get_variable_info()` first to verify the current file -->
-<!-- sizes on the API. Also, consider writing a batch retrieval -->
-<!-- process with appropriate handlers to track the progress of file input, -->
-<!-- ensuring the completeness of the requested data. -->
-<p>The Legislative Yuan API has transitioned from <code>https://ly.govapi.tw</code> to <code>https://v2.ly.govapi.tw</code>. While we are maintaining support for functions that use the legacy API, please note that the old API endpoint will eventually be deprecated. We recommend users to gradually transition to the newer API versions as they become available.</p>
+<ul>
+<li>The Legislative Yuan API has transitioned from <code>https://ly.govapi.tw</code> to <code>https://v2.ly.govapi.tw</code>. While we are still supporting functions that use the legacy API, please note that according to official notice, the old API endpoint will not be maintained. We recommend users to gradually transition to <a href="">the newer functions</a> attached with API V2.</li>
+</ul>
+</div>
+</div>
+<div class="section level3">
+<h3 id="support">Support:<a class="anchor" aria-label="anchor" href="#support"></a>
+</h3>
+<div style="text-align: justify; font-size: 1.1rem; line-height: 1.6; color: #333; max-width: 800px; margin: 1rem auto; padding: 0 1rem; font-family: 'Helvetica Neue', Arial, sans-serif;">
+<p>如果您覺得這個套件對您的研究有幫助，歡迎考慮小額捐款給<a href="https://ocf.tw/p/g0vdathon/" class="external-link">過開放文化基金會（OCF）定期定額捐款支持 g0v 揪松團</a>、<a href="https://ccw.org.tw/donation" class="external-link">台灣公民監督國會聯盟</a>或<a href="https://support.twreporter.org" class="external-link">報導者</a>，支持台灣獨立媒體與數位公民組織的持續營運和國會監督工作。如果您對資料分析有任何問題，也歡迎與我們聯繫。</p>
+<p>If you find <code>legisTaiwan</code> helpful for your research, you are welcome to consider making a small donation to [Taiwan g0v hackathons]((<a href="https://ocf.tw/p/g0vdathon/" class="external-link uri">https://ocf.tw/p/g0vdathon/</a>), <a href="https://ccw.org.tw/donation" class="external-link">the Taiwan Congress Watch Foundation</a> , <a href="https://ccw.org.tw/donation" class="external-link">the Taiwan Congress Watch Foundation</a> or <a href="https://support.twreporter.org" class="external-link">The Reporter</a> support Taiwan’s independent media operations, g0v civic community, and parliamentary oversight work. If you have any questions about data analysis, feel free to contact us for discussion.</p>
 </div>
 <p><br></p>
-<!-- ### Acknowledgments -->
-<!-- <div style="text-align: justify"> -->
-<!-- This package supported the author's doctoral dissertation *"Electoral Reform, Distributive Politics, and Parties in the Taiwanese Congress"* at the University of Essex. The PhD project was made possible through the generous funding of the 2022 Taiwan Ministry of Science and Technology (MOST) TOP Grant and a full PhD fellowship from the Ministry of Education (2018-2021), Taiwan. The author extends sincere gratitude to the Legislative Yuan API Center for their technical assistance and commitment to data transparency. -->
-<!-- </div> -->
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
@@ -209,12 +150,13 @@
 <li><a href="https://github.com/davidycliao/legisTaiwan/" class="external-link">Browse source code</a></li>
 <li><a href="https://github.com/davidycliao/legisTaiwan/issues" class="external-link">Report a bug</a></li>
 <li><a href="https://github.com/davidycliao/legisTaiwan/discussions" class="external-link">Discussion</a></li>
-<li><a href="https://ly.govapi.tw" class="external-link">立法院 API</a></li>
+<li><a href="https://ly.govapi.tw/v2/swagger" class="external-link">立法院 API v2</a></li>
+<li><a href="https://hackmd.io/@openfunltd/S1iLBqP21l/%2F%40openfunltd%2FHk39E9w2yg" class="external-link">立法院 API 使用指南</a></li>
 <li><a href="https://openfunltd.github.io/law-diff/?keyword=&amp;term=11&amp;sessionPeriod=&amp;proposer=" class="external-link">law-diff 提案法律對照比</a></li>
 <li><a href="https://dataly.openfun.app" class="external-link">DATALY 立院統合資料網</a></li>
 <li><a href="https://ccw.org.tw/assess/session/45" class="external-link">Taiwan Citizen Congress Watch</a></li>
-<li><a href="https://g0v.hackmd.io/@SA7CD7VRSp6Fcqw9CaElcQ/SJ93ZW5XR/%2FY6A2Ox-YRDS6ixtYw1BuoA%3Fview" class="external-link">g0v 國會松</a></li>
-<li><a href="https://www.birmingham.ac.uk/research/centres-institutes/centre-for-artificial-intelligence-in-government" class="external-link">The Centre for Artificial Intelligence in Government (CAIG)</a></li>
+<li><a href="https://g0v.hackmd.io/@SA7CD7VRSp6Fcqw9CaElcQ/SJ93ZW5XR/https%3A%2F%2Fg0v.hackmd.io%2F%40hRQQwB1RRValc_Fu0Awrmw%2FSy8w_Vjklx" class="external-link">g0v 國會松</a></li>
+<li><a href="https://www.birmingham.ac.uk/research/centres-institutes/centre-for-artificial-intelligence-in-government" class="external-link">The Centre for Artificial Intelligence in Government (CAIG) @ University of Birmingham</a></li>
 </ul>
 </div>
 
@@ -243,6 +185,8 @@
 <li>
 <a href="https://sites.google.com/view/litang2020?pli=1" class="external-link">Li Tang</a> <br><small class="roles"> Contributor, author </small>  </li>
 <li>
+<a href="https://openfun.tw" class="external-link">OpenFun Ltd. 歐噴有限公司</a> <br><small class="roles"> Funder, contributor, copyright holder </small>  </li>
+<li>
 <a href="https://data.ly.gov.tw/catelog.action" class="external-link"><img src="https://raw.githack.com/davidycliao/legisTaiwan/v0.1.4/inst/figures/ly.jpeg" width="52"></a> <br><small class="roles"> Copyright holder, funder </small>  </li>
 <li><a href="authors.html">More about authors...</a></li>
 </ul>
@@ -257,7 +201,7 @@
    </div>
   <footer><div class="container">
   <div class="pkgdown-footer-left">
-  <p>Developed by <a href="https://davidycliao.github.io" class="external-link">Yen-Chieh Liao</a>, <a href="https://sites.google.com/view/litang2020?pli=1" class="external-link">Li Tang</a>, <a href="https://data.ly.gov.tw/catelog.action" class="external-link"><img src="https://raw.githack.com/davidycliao/legisTaiwan/v0.1.4/inst/figures/ly.jpeg" width="52"></a>.</p>
+  <p>Developed by <a href="https://davidycliao.github.io" class="external-link">Yen-Chieh Liao</a>, <a href="https://sites.google.com/view/litang2020?pli=1" class="external-link">Li Tang</a>, <a href="https://openfun.tw" class="external-link">OpenFun Ltd. 歐噴有限公司</a>, <a href="https://data.ly.gov.tw/catelog.action" class="external-link"><img src="https://raw.githack.com/davidycliao/legisTaiwan/v0.1.4/inst/figures/ly.jpeg" width="52"></a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">

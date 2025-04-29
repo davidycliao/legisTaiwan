@@ -61,10 +61,12 @@ or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=2}.
 質詢類: 提供公報質詢事項行政院答復資訊 (自第8屆第1會期起)。
 }
 \examples{
+\dontrun{
 ## query the Executives' answered response by term and the session period.
 ## 輸入「立委屆期」與「會期」下載「行政院答復」
 term8 <- get_executive_response(term = 8, session_period = 1)
 term8
+}
 }
 \seealso{
 \code{get_variable_info("get_executive_response")}, \code{review_session_info()}

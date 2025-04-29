@@ -42,8 +42,10 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' term10 <- get_parlquestions(term = 10, session_period = 1)
 #' term10
+#' }
 #'
 #' @details `get_parlquestions` produces a list, which contains `title`,
 #' `query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
@@ -217,10 +219,12 @@ get_parlquestions <- function(term = NULL, session_period = NULL, verbose = TRUE
 #'@export
 #'
 #'@examples
+#' \dontrun{
 #' ## query the Executives' answered response by term and the session period.
 #' ## 輸入「立委屆期」與「會期」下載「行政院答復」
 #' term8 <- get_executive_response(term = 8, session_period = 1)
 #' term8
+#' }
 #'@details **`get_executive_response`** produces a list, which contains `title`,
 #'`query_time`, `retrieved_number`, `retrieved_term`, `url`, `variable_names`,
 #' `manual_info` and `data`. To retrieve the user manual and more information, please

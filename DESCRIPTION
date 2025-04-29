@@ -4,6 +4,7 @@ Title: An Interface to Access Taiwan Legislative API in R
 Version: 0.2.1
 Authors@R: c(person("Yen-Chieh", "Liao", email = "davidycliao@gmail.com", role = c("aut", "cre")),
              person("Li", "Tang", email = "li.tang@reading.ac.uk", role = c("ctb", "aut")),
+             person("OpenFun Ltd.", "歐噴有限公司", email = "contact@openfun.tw", role = c("fnd", "ctb", "cph")),
              person("Shaka Y.J.", "Li", email = "aeodr452@gmail.com", role = "ctb"),
              person("Taiwan Legislative Yuan 立法院", role =  c("cph", "fnd")),
              person("Taiwan National Science and Technology Council", role = "ctb"),
@@ -20,6 +21,7 @@ Maintainer: Yen-Chieh Liao <davidycliao@gmail.com>
 Depends: R (>= 3.4.0)
 License: GPL-3 + file LICENSE
 Encoding: UTF-8
+Language: en-US
 LazyData: true
 Imports:
     jsonlite,

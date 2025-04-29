@@ -62,11 +62,13 @@ use \code{get_variable_info("get_public_debates")} or visit the API manual at
 自第8屆第1會期起，但實測資料從第10屆。
 }
 \examples{
+\dontrun{
 # Query public debates for term 10, session period 2
 debates <- get_public_debates(term = 10, session_period = 2)
 
 # Query without specifying session period
 debates <- get_public_debates(term = 10)
+}
 
 }
 \seealso{
