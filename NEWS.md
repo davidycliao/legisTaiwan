@@ -1,3 +1,26 @@
+# `legisTaiwan` 0.2.2
+
+
+## Major Changes
+
+__Fix SSL connection issues in review_session_info function and example errors__
+
+- Use system curl command to bypass SSL/TLS certificate validation problems
+- Improve regex handling of session data to fix "NAs introduced by coercion" warnings
+- Wrap example code in \dontrun{} to prevent network-related code from running during checks
+- Optimize cleaning of JavaScript code in date fields
+- Ensure results are correctly sorted by session number
+
+This fix resolves SSL connection issues with the Legislative Yuan website, making 
+review_session_info and get_variable_info functions work reliably.
+
+
+
+<br> 
+
+------
+
+
 
 # `legisTaiwan` 0.2.1
 
