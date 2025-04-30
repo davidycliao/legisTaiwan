@@ -52,7 +52,7 @@ remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
 
 <br>
 
-### Talks
+### Talks:
 
 - 28 April 2025 R-Ladies Taipei 讓分析台灣國會數據更透明 —
   **legisTaiwan** R 套件

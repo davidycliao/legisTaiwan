@@ -32,6 +32,7 @@ Imports:
     rvest,
     withr,
     httr,
+    xml2,
     utils,
     readr,
     dplyr,

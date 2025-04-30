@@ -71,7 +71,7 @@ library(legisTaiwan)
 <br>
 
 
-### Talks 
+### Talks:  
 
 - 28 April 2025 R-Ladies Taipei 讓分析台灣國會數據更透明 — __legisTaiwan__ R 套件 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/davidycliao/r-ladies-tpe-legistaiwan?tab=readme-ov-file)
 

@@ -200,68 +200,11 @@ or visit the API manual at <a href="https://data.ly.gov.tw/getds.action?id=8" cl
 <span class="r-in"><span><span class="co">## 需有「正斜線」做隔開。</span></span></span>
 <span class="r-in"><span><span class="fu">get_caucus_meetings</span><span class="op">(</span>start_date <span class="op">=</span> <span class="st">"106/10/20"</span>, end_date <span class="op">=</span> <span class="st">"107/03/10"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Downloading caucus meetings data...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   |                                                                     |                                                             |   0%  |                                                                     |============                                                 |  20%  |                                                                     |========================                                     |  40%  |                                                                     |=====================================                        |  60%  |                                                                     |=================================================            |  80%  |                                                                     |=============================================================| 100%</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   |                                                                     |                                                             |   0%  |                                                                     |============                                                 |  20%  |                                                                     |========================                                     |  40%  |                                                                     |=====================================                        |  60%</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>URL 'https://data.ly.gov.tw/odw/ID8Action.action?comYear=&amp;comVolume=&amp;comBookId=&amp;term=&amp;sessionPeriod=&amp;sessionTimes=&amp;meetingTimes=&amp;meetingDateS=106/10/20&amp;meetingDateE=107/03/10&amp;fileType=json': status was 'Failure when receiving data from the peer'</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ====== Retrieved Information ======</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -----------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  URL: </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  https://data.ly.gov.tw/odw/ID8Action.action?comYear=&amp;comVolume=&amp;comBookId=&amp;term=&amp;sessionPeriod=&amp;sessionTimes=&amp;meetingTimes=&amp;meetingDateS=106/10/20&amp;meetingDateE=107/03/10&amp;fileType=json </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Date Range:  2017-10-20  to  2018-03-10 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Total Meetings:  27 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ===================================</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $title</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "the meeting records of cross-caucus session"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2025-04-29 23:47:22 BST"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 27</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $start_date_ad</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2017-10-20"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $end_date_ad</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2018-03-10"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $start_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "106/10/20"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $end_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "107/03/10"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $url</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://data.ly.gov.tw/odw/ID8Action.action?comYear=&amp;comVolume=&amp;comBookId=&amp;term=&amp;sessionPeriod=&amp;sessionTimes=&amp;meetingTimes=&amp;meetingDateS=106/10/20&amp;meetingDateE=107/03/10&amp;fileType=json"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $variable_names</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "comYear"       "comVolume"     "comBookId"     "term"         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "sessionPeriod" "sessionTimes"  "meetingTimes"  "meetingDate"  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "meetingName"   "subject"       "pageStart"     "pageEnd"      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "docUrl"        "htmlUrl"       "selectTerm"   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $manual_info</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://data.ly.gov.tw/getds.action?id=8"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $data</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 27 × 15</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    comYear comVolume comBookId term  sessionPeriod sessionTimes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 103     43        <span style="color: #949494;">"</span>四<span style="color: #949494;">"</span>      08    05            12          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 103     43        <span style="color: #949494;">"</span>四<span style="color: #949494;">"</span>      08    05            12          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 106     103       <span style="color: #949494;">"</span>下<span style="color: #949494;">"</span>      null  null          null        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 106     108       <span style="color: #949494;">""</span>        09    04            10          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 106     108       <span style="color: #949494;">""</span>        09    04            10          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 106     113       <span style="color: #949494;">"</span>下<span style="color: #949494;">"</span>      null  null          null        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 106     113       <span style="color: #949494;">"</span>下<span style="color: #949494;">"</span>      null  null          null        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 106     116       <span style="color: #949494;">"</span>下<span style="color: #949494;">"</span>      09    04            12          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 106     87        <span style="color: #949494;">"</span>下<span style="color: #949494;">"</span>      09    04            06          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 106     87        <span style="color: #949494;">"</span>下<span style="color: #949494;">"</span>      09    04            null        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 17 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 9 more variables: meetingTimes &lt;chr&gt;, meetingDate &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   meetingName &lt;chr&gt;, subject &lt;chr&gt;, pageStart &lt;chr&gt;, pageEnd &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   docUrl &lt;chr&gt;, htmlUrl &lt;chr&gt;, selectTerm &lt;chr&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in open.connection(con, "rb"):</span> cannot open the connection to 'https://data.ly.gov.tw/odw/ID8Action.action?comYear=&amp;comVolume=&amp;comBookId=&amp;term=&amp;sessionPeriod=&amp;sessionTimes=&amp;meetingTimes=&amp;meetingDateS=106/10/20&amp;meetingDateE=107/03/10&amp;fileType=json'</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
@@ -272,7 +215,7 @@ or visit the API manual at <a href="https://data.ly.gov.tw/getds.action?id=8" cl
    </div>
   <footer><div class="container">
   <div class="pkgdown-footer-left">
-  <p>Developed by <a href="https://davidycliao.github.io" class="external-link">Yen-Chieh Liao</a>, <a href="https://sites.google.com/view/litang2020?pli=1" class="external-link">Li Tang</a>, <a href="https://openfun.tw" class="external-link">OpenFun Ltd. 歐噴有限公司</a>, <a href="https://data.ly.gov.tw/catelog.action" class="external-link"><img src="https://raw.githack.com/davidycliao/legisTaiwan/v0.1.4/inst/figures/ly.jpeg" width="52"></a>.</p>
+  <p>Developed by <a href="https://davidycliao.github.io" class="external-link">Yen-Chieh Liao</a>, <a href="https://sites.google.com/view/litang2020?pli=1" class="external-link">Li Tang</a>, <a href="https://openfun.tw" class="external-link"><img src="inst/figures/openfun.jpeg" width="52"></a>, <a href="https://data.ly.gov.tw/catelog.action" class="external-link"><img src="https://raw.githack.com/davidycliao/legisTaiwan/v0.1.4/inst/figures/ly.jpeg" width="52"></a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">
