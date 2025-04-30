@@ -72,6 +72,7 @@ Supports filtering by term, session, bill type, status, and other attributes.
 Returns both metadata and detailed bill information.
 }
 \examples{
+\dontrun{
 # Get law bills
 bills <- get_ly_bills(
   term = 11,
@@ -92,5 +93,5 @@ bills <- get_ly_bills(
   bill_type = "行政命令(層級)",
   show_progress = TRUE
 )
-
+}
 }

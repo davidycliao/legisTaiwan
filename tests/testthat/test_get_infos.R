@@ -13,7 +13,6 @@ expect_error(get_variable_info("x"),
 })
 
 
-
 # For get_variable_info function
 test_that("get_variable_info works correctly", {
   result <- get_variable_info("get_bills")
@@ -25,8 +24,6 @@ test_that("get_variable_info works correctly", {
   expect_true("page_info" %in% names(result))
   expect_true("reference_url" %in% names(result))
 
-  # Check if passing an invalid parameter value results in an error
-  expect_error(get_variable_info("invalid_function_name"), "Use correct function names below in character format.")
 })
 
 # For review_session_info function
@@ -40,5 +37,5 @@ test_that("review_session_info works correctly", {
   expect_true("屆期會期" %in% colnames(result)) # Replace 'ColumnName1' with actual column name
 
   # Check if passing an invalid term value results in an error
-  # expect_error(review_session_info(12), "use correct `term`.")
+  expect_error(review_session_info(12), "Please provide a term number between 1 and 11.")
 })

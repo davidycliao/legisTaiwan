@@ -9,3 +9,4 @@
 ^.*\.utf8\.R$
 test.Rmd
 .Rproj.user
+^.*\.Rcheck$

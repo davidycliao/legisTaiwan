@@ -33,6 +33,7 @@
 #' }
 #'
 #' @examples
+#' \dontrun{
 #' # Get law bills
 #' bills <- get_ly_bills(
 #'   term = 11,
@@ -53,7 +54,7 @@
 #'   bill_type = "行政命令(層級)",
 #'   show_progress = TRUE
 #' )
-#'
+#'}
 #' @importFrom httr GET content status_code
 #' @importFrom jsonlite fromJSON
 #' @importFrom utils txtProgressBar setTxtProgressBar

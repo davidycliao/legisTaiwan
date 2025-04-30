@@ -49,10 +49,10 @@
 #' @examples
 #' \dontrun{
 #' # Fetch meetings from the Interior Committee
-#' meetings <- fetch_ly_meetings(committee_id = 15)
+#' meetings <- get_ly_committee_meets(committee_id = 15)
 #'
 #' # Fetch meetings with specific filters
-#' meetings <- fetch_ly_meetings(
+#' meetings <- get_ly_committee_meets(
 #'   committee_id = 16,
 #'   term = 10,
 #'   session = 1,

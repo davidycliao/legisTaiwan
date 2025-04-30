@@ -60,9 +60,11 @@ or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=16}.
 ## 輸入「立委屆期」與「會期」下載「行政院答復」
 get_executive_response(term = 8, session_period = 1)
 
+\dontrun{
 # Get data for the 9th term
 legislators_data <- get_legislators(term = 9)
 legislators_data
+}
 
 }
 \seealso{

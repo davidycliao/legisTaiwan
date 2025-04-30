@@ -632,12 +632,14 @@ get_speech_video <- function(term = NULL,
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' # Query public debates for term 10, session period 2
 #' debates <- get_public_debates(term = 10, session_period = 2)
 #'
 #' # Query without specifying session period
 #' debates <- get_public_debates(term = 10)
-#'
+#' }
+#' 
 #' @details
 #' The function retrieves records from the National Public Debates (國是論壇),
 #' including both spoken and written opinions. While officially available from

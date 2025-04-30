@@ -6,8 +6,10 @@ home:
   links:
   - text: Discussion
     href: https://github.com/davidycliao/legisTaiwan/discussions
-  - text: 立法院 API
-    href: https://ly.govapi.tw
+  - text: 立法院 API v2
+    href: https://ly.govapi.tw/v2/swagger
+  - text: 立法院 API 使用指南
+    href: https://hackmd.io/@openfunltd/S1iLBqP21l/%2F%40openfunltd%2FHk39E9w2yg
   - text: law-diff 提案法律對照比
     href: https://openfunltd.github.io/law-diff/?keyword=&term=11&sessionPeriod=&proposer=
   - text: DATALY 立院統合資料網
@@ -15,8 +17,8 @@ home:
   - text: Taiwan Citizen Congress Watch
     href: https://ccw.org.tw/assess/session/45
   - text: g0v 國會松
-    href: https://g0v.hackmd.io/@SA7CD7VRSp6Fcqw9CaElcQ/SJ93ZW5XR/%2FY6A2Ox-YRDS6ixtYw1BuoA%3Fview
-  - text: "The Centre for Artificial Intelligence in Government (CAIG)"
+    href: https://g0v.hackmd.io/@SA7CD7VRSp6Fcqw9CaElcQ/SJ93ZW5XR/https%3A%2F%2Fg0v.hackmd.io%2F%40hRQQwB1RRValc_Fu0Awrmw%2FSy8w_Vjklx
+  - text: "The Centre for Artificial Intelligence in Government (CAIG) @ University of Birmingham"
     href: https://www.birmingham.ac.uk/research/centres-institutes/centre-for-artificial-intelligence-in-government
 
 reference:
@@ -75,10 +77,11 @@ authors:
   Li Tang:
     href: https://sites.google.com/view/litang2020?pli=1
   Taiwan Legislative Yuan 立法院:
-    href: "https://data.ly.gov.tw/catelog.action"
+    href: https://data.ly.gov.tw/catelog.action
     html: "<img src='https://raw.githack.com/davidycliao/legisTaiwan/v0.1.4/inst/figures/ly.jpeg' width=52>"
-
-
+  OpenFun Ltd. 歐噴有限公司:
+    href: https://openfun.tw
+    html: "<img src='inst/figures/openfun.jpeg' width=52>"
 template:
   package: tidytemplate
   bootstrap: 5
@@ -104,16 +107,6 @@ navbar:
       href: articles/quickstart.html#get-started-with-using-remotes
     - text: "Legislative Yuan API (v2)"
       href: articles/quickstart.html#taiwan-legislative-yuan-api-v2.html
-
-  # - icon: fa-project-diagram
-  #   text: Manual
-  #   menu:
-  #   - text: "Interpellation and Debates"
-  #     href: articles/manual.html#interpellation-and-debates
-  #   - text: "Bill and Budget"
-  #     href: articles/manual.html#bill-and-budget
-  #   - text: "Miscellaneous"
-  #     href: articles/manual.html#miscellaneous
 
   - icon: fa-file-code-o
     text: Reference

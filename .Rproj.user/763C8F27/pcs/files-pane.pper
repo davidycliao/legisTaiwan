@@ -1,13 +1,13 @@
 {
     "sortOrder": [
         {
-            "columnIndex": 4,
+            "columnIndex": 2,
             "ascending": true
         },
         {
-            "columnIndex": 2,
+            "columnIndex": 4,
             "ascending": true
         }
     ],
-    "path": "~/Dropbox/My Packages/legisTaiwan/man"
+    "path": "~/Dropbox/My Packages/legisTaiwan/R"
 }

@@ -34,8 +34,10 @@ from the website of Taiwan Legislative Yuan. The avalaible options is: \code{get
 \code{get_variable_info} produces a list, which contains \code{page_info} and \code{reference_url}.
 }
 \examples{
-check_caucus <- get_variable_info("get_caucus_meetings")
-check_caucus
+\dontrun{
+  # This example requires internet connection and is not run during package checks
+  check_caucus <- get_variable_info("get_caucus_meetings")
+}
 }
 \seealso{
 \code{review_session_info()}.

@@ -60,9 +60,11 @@
 #' 提供委員基本資料，最早資料可追溯至第2屆。
 #'
 #' @examples
+#' \dontrun{
 #' # Get data for the 9th term
 #' legislators_data <- get_legislators(term = 9)
 #' legislators_data
+#' }
 #'
 #' @seealso
 #'`get_variable_info("get_legislators")`, `review_session_info()`

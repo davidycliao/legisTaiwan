@@ -5,25 +5,41 @@
 \title{Check Session Periods in Each Year (Minguo Calendar) 檢查每年會期 (民國曆)}
 \usage{
 review_session_info(term)
+
+review_session_info(term)
 }
 \arguments{
-\item{term}{numeric}
+\item{term}{numeric The term number (1-11) of Legislative Yuan}
 }
 \value{
 dataframe
+
+A dataframe containing session information
 }
 \description{
-Check Session Periods in Each Year (Minguo Calendar) 檢查每年會期 (民國曆)
+Examines session periods in Taiwan Minguo calendar (檢查每年會期民國曆)
 }
 \details{
 \code{review_session_info} produces a dataframe, displaying each session
 period in year formatted in Minguo (Taiwan) calendar.
+
+Check Session Periods in Each Year (Minguo Calendar)
+
+The review_session_info function produces a dataframe, displaying each session
+period in year formatted in Minguo calendar. This implementation uses
+system curl command with --insecure option to bypass SSL/TLS issues.
 }
 \examples{
 # Show the session information for the 7th Legislative Yuan term periods in ROC calendar year
 review_session_info(7)
+\dontrun{
+# Show the session information for the 7th Legislative Yuan term periods in ROC calendar year
+review_session_info(7)
+}
 }
 \seealso{
+Regarding Minguo calendar, please see \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}.
+
 Regarding Minguo calendar, please see \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}.
 }
 \author{

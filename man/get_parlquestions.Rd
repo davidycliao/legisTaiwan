@@ -55,8 +55,10 @@ or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=6}.
 質詢類: 提供議事日程本院委員之質詢事項資訊(自第8屆第1會期起)。
 }
 \examples{
+\dontrun{
 term10 <- get_parlquestions(term = 10, session_period = 1)
 term10
+}
 
 }
 \seealso{
