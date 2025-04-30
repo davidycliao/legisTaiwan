@@ -77,8 +77,6 @@
 <p><strong>Fix SSL connection issues in review_session_info function and example errors</strong></p>
 <ul><li>Use system curl command to bypass SSL/TLS certificate validation problems</li>
 <li>Improve regex handling of session data to fix “NAs introduced by coercion” warnings</li>
-<li>Wrap example code in  to prevent network-related code from running during checks</li>
-<li>Optimize cleaning of JavaScript code in date fields</li>
 <li>Ensure results are correctly sorted by session number</li>
 </ul><p>This fix resolves SSL connection issues with the Legislative Yuan website, making review_session_info and get_variable_info functions work reliably.</p>
 <p><br></p>
