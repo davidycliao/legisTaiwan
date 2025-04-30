@@ -78,10 +78,10 @@ authors:
     href: https://sites.google.com/view/litang2020?pli=1
   Taiwan Legislative Yuan 立法院:
     href: https://data.ly.gov.tw/catelog.action
-    html: "<img src='https://raw.githack.com/davidycliao/legisTaiwan/v0.1.4/inst/figures/ly.jpeg' width=52>"
+    html: "<img src='https://raw.githack.com/davidycliao/legisTaiwan/master/inst/figures/ly.jpeg' width=52>"
   OpenFun Ltd. 歐噴有限公司:
     href: https://openfun.tw
-    html: "<img src='inst/figures/openfun.jpeg' width=52>"
+    html: "<img src='https://raw.githack.com/davidycliao/legisTaiwan/master/inst/figures/openfun.jpg' width=52>"
 template:
   package: tidytemplate
   bootstrap: 5
@@ -141,6 +141,8 @@ navbar:
   - icon: fa-newspaper-o
     text: News
     menu:
+    - text: "0.2.2"
+      href: news/index.html#legistaiwan-022-development-version
     - text: "0.2.1"
       href: news/index.html#legistaiwan-021-development-version
     - text: "0.1.7"
