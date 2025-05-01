@@ -58,6 +58,9 @@ remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
   **legisTaiwan** R 套件
   [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/davidycliao/r-ladies-tpe-legistaiwan?tab=readme-ov-file)
 
+- 11-14 Sep *Legislative Studies Session*, Annual Conference of American
+  Political Science Association, Vancouver, CA.
+
 <br>
 
 ### Notice:
@@ -77,8 +80,7 @@ remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
 
 <div style="text-align: justify; font-size: 1.1rem; line-height: 1.6; color: #333; max-width: 800px; margin: 1rem auto; padding: 0 1rem; font-family: 'Helvetica Neue', Arial, sans-serif;">
 
-如果您覺得這個套件對您的研究有幫助，歡迎考慮小額捐款給[過開放文化基金會（OCF）定期定額捐款支持
-g0v
+如果您覺得這個套件對您的研究有幫助，歡迎考慮藉由開放文化基金會（OCF）小額或定額捐款給[g0v
 揪松團](https://ocf.tw/p/g0vdathon/)、[台灣公民監督國會聯盟](https://ccw.org.tw/donation)或[報導者](https://support.twreporter.org)，支持台灣獨立媒體與數位公民組織的持續營運和國會監督工作。如果您對資料分析有任何問題，也歡迎與我們聯繫。
 
 If you find `legisTaiwan` helpful for your research, you are welcome to
