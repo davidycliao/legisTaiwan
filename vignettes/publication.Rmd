@@ -1,0 +1,42 @@
+---
+title: "Research and Publications"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Research and Publications}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+Here, we archive relevant publications and research documents using data from the legisTaiwan R package, Legislative Yuan API, or raw data from the Taiwan Legislative Yuan Library.
+
+## Rollcall Votes 記名投票
+
+**2024**. **Yen-Chieh Liao** Electoral Reform and Fragmented Polarization: New Evidence from Taiwan Legislative Roll Call. *Legislative Studies Quarterly* [DOI:https://doi.org/10.1111/lsq.12459](https://onlinelibrary.wiley.com/doi/full/10.1111/lsq.12459).
+
+**2025**. **Jinhyeok Jang and Nick Lin** Personal Votes, Electoral Competitiveness of Parties, and Legislative Representation in Taiwan under SNTV. *Japanese Journal of Political Science.* [DOI:https://doi.org/10.1017/S1468109918000397](https://www.cambridge.org/core/journals/japanese-journal-of-political-science/article/personal-votes-electoral-competitiveness-of-parties-and-legislative-representation-in-taiwan-under-sntv/95E0947409725917019E3F092308FE99)
+
+## Interpellations 院會（或委員會）質詢
+
+**2025**. **王奕婷** 〈台灣國會政黨如何論述中國議題？〉，《人文及社會科學集刊》 37 (*forthcoming*)。
+
+**2026**. **Yu-Ceng Liao, Yen-Chieh Liao and Yi-ting Wang** How Electoral Systems Shape Policy Attention Proximity: Evidence from Taiwan's Ministerial Interpellations. *unpublished working paper*$^*$
+
+## Written Questions 專案質詢
+
+**2025**. **Yen-Chieh Liao and Li Tang** Electoral Reform and Geographically-Targeted Oversight: Evidence from Taiwan Legislative Yuan. *unpublished working paper*$^*$
+
+**2026**. **廖育嶒** 〈選舉制度改革與立委的代表行為：第五屆與第七屆專案書面質詢的分析〉，《東吳政治學報》(*forthcoming*)。
+
+**2027**. **Yu-Ceng Liao** Party Leadership, Electoral Reform and Mandate-divide. *Japanese Journal of Political Science* 23(3): 209-230. [DOI:10.1017/S1468109922000111](https://www.cambridge.org/core/journals/japanese-journal-of-political-science/article/abs/party-leadership-electoral-reform-and-mandatedivide/A961E58E04359EC569D96A6608371E70).
+
+## Others
+
+**2025**. **Shaka Y.J. Li and Yen-Chieh Liao** legisTaiwan R Package: Data Analysis and Applications with Taiwan Legislative Yuan API, *unpublished working paper*$^*$
+
+$^*$ Latest draft available upon request from the authors

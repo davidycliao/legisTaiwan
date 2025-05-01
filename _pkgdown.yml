@@ -18,8 +18,11 @@ home:
     href: https://ccw.org.tw/assess/session/45
   - text: g0v 國會松
     href: https://g0v.hackmd.io/@SA7CD7VRSp6Fcqw9CaElcQ/SJ93ZW5XR/https%3A%2F%2Fg0v.hackmd.io%2F%40hRQQwB1RRValc_Fu0Awrmw%2FSy8w_Vjklx
+  - text: "東吳大學政治學系國會研究中心"
+    href: https://twcongress.weebly.com
   - text: "The Centre for Artificial Intelligence in Government (CAIG) @ University of Birmingham"
     href: https://www.birmingham.ac.uk/research/centres-institutes/centre-for-artificial-intelligence-in-government
+
 
 reference:
 - title: "API V1 - Basic Data"
@@ -81,7 +84,7 @@ authors:
     html: "<img src='https://raw.githack.com/davidycliao/legisTaiwan/master/inst/figures/ly.jpeg' width=52>"
   OpenFun Ltd. 歐噴有限公司:
     href: https://openfun.tw
-    html: "<img src='https://raw.githack.com/davidycliao/legisTaiwan/master/inst/figures/openfun.jpg' width=52>"
+    html: "<img src='https://raw.githack.com/davidycliao/legisTaiwan/master/inst/figures/openfun.jpg' width=50>"
 template:
   package: tidytemplate
   bootstrap: 5
@@ -107,6 +110,18 @@ navbar:
       href: articles/quickstart.html#get-started-with-using-remotes
     - text: "Legislative Yuan API (v2)"
       href: articles/quickstart.html#taiwan-legislative-yuan-api-v2.html
+
+  - icon: fa-search
+    text: Research
+    menu:
+    - text: "Rollcall Votes"
+      href: articles/publication.html#rollcall-votes-記名投票
+    - text: "Interpellation"
+      href: articles/publication.html#nterpellation-院會（或委員會）質詢.html
+    - text: "Written Question"
+      href: articles/publication.html#written-question-專案質詢.html
+    - text: "Others"
+      href: articles/others.html#others.html
 
   - icon: fa-file-code-o
     text: Reference
