@@ -52,14 +52,15 @@ remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
 
 <br>
 
-### Talks:
+### Talks & Presentations:
 
-- 28 April 2025 R-Ladies Taipei 讓分析台灣國會數據更透明 —
-  **legisTaiwan** R 套件
-  [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/davidycliao/r-ladies-tpe-legistaiwan?tab=readme-ov-file)
+- **28 Apr 2025:** <u>*R-Ladies Taipei*</u> 讓分析台灣國會數據更透明 —
+  `legisTaiwan` R 套件 (Shaka Y.J. Li and Yen-Chieh Liao)
+  [![GitHub](https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white)](https://github.com/davidycliao/r-ladies-tpe-legistaiwan?tab=readme-ov-file)
 
-- 11-14 Sep *Legislative Studies Session*, Annual Conference of American
-  Political Science Association, Vancouver, CA.
+- **11-14 Sept 2025:** <u>*Legislative Studies Session* </u>, Annual
+  Conference of American Political Science Association, Vancouver, CA.
+  (Shaka Y.J. Li )
 
 <br>
 
@@ -84,8 +85,8 @@ remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
 揪松團](https://ocf.tw/p/g0vdathon/)、[台灣公民監督國會聯盟](https://ccw.org.tw/donation)或[報導者](https://support.twreporter.org)，支持台灣獨立媒體與數位公民組織的持續營運和國會監督工作。如果您對資料分析有任何問題，也歡迎與我們聯繫。
 
 If you find `legisTaiwan` helpful for your research, you are welcome to
-consider making a small donation to \[Taiwan g0v
-hackathons\]((<https://ocf.tw/p/g0vdathon/>), [the Taiwan Congress Watch
+consider making a small donation to [Taiwan g0v
+hackathons](https://ocf.tw/p/g0vdathon/), [the Taiwan Congress Watch
 Foundation](https://ccw.org.tw/donation) , [the Taiwan Congress Watch
 Foundation](https://ccw.org.tw/donation) or [The
 Reporter](https://support.twreporter.org) support Taiwan’s independent
