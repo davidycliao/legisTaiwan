@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   publication: publication.html
   quickstart: quickstart.html
-last_built: 2025-09-24T09:37Z
+last_built: 2025-11-19T23:13Z
 urls:
   reference: https://davidycliao.github.io/legisTaiwan/reference
   article: https://davidycliao.github.io/legisTaiwan/articles
