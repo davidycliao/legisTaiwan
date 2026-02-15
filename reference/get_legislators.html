@@ -187,61 +187,14 @@ or visit the API manual at <a href="https://data.ly.gov.tw/getds.action?id=16" c
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Downloading executive response data...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   |                                                                     |                                                             |   0%  |                                                                     |============                                                 |  20%  |                                                                     |========================                                     |  40%  |                                                                     |=====================================                        |  60%  |                                                                     |=================================================            |  80%  |                                                                     |=============================================================| 100%</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   |                                                                     |                                                             |   0%  |                                                                     |============                                                 |  20%  |                                                                     |========================                                     |  40%  |                                                                     |=====================================                        |  60%</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>URL 'https://data.ly.gov.tw/odw/ID2Action.action?term=08&amp;sessionPeriod=01&amp;sessionTimes=&amp;item=&amp;fileType=json': status was 'Failure when receiving data from the peer'</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ====== Retrieved Information ======</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -----------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  URL: </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  https://data.ly.gov.tw/odw/ID2Action.action?term=08&amp;sessionPeriod=01&amp;sessionTimes=&amp;item=&amp;fileType=json </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Term:  08 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Session Period:  1 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Total Responses:  1065 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error occurred while fetching data:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Error: Error in readBin(structure(4L, class = c("url", "connection"), conn_id = &lt;pointer: 0x1755&gt;), : cannot read from connection</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Session Distribution:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Session 01: 1065</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ===================================</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $title</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Executive Response Records"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $query_time</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2025-11-21 14:45:38 GMT"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_number</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1065</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $retrieved_term</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "08"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $url</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://data.ly.gov.tw/odw/ID2Action.action?term=08&amp;sessionPeriod=01&amp;sessionTimes=&amp;item=&amp;fileType=json"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $variable_names</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "term"          "sessionPeriod" "sessionTimes"  "meetingTimes" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "eyNumber"      "lyNumber"      "subject"       "content"      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "docUrl"        "selectTerm"   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $manual_info</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://data.ly.gov.tw/getds.action?id=2"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $data</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1,065 × 10</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    term  sessionPeriod sessionTimes meetingTimes eyNumber      lyNumber</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 08    01            01           null         （行政院函　中華民國10… （立法院函　編…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 08    01            01           null         （行政院函　中華民國10… （立法院函　編…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 08    01            01           null         （行政院函　中華民國10… （立法院函　編…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 08    01            01           null         （行政院函　中華民國10… （立法院函　編…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 08    01            01           null         （行政院函　中華民國10… （立法院函　編…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 08    01            01           null         （行政院函　中華民國10… （立法院函　編…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 08    01            01           null         （行政院函　中華民國10… （立法院函　編…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 08    01            01           null         （行政院函　中華民國10… （立法院函　編…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 08    01            01           null         （行政院函　中華民國10… （立法院函　編…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 08    01            01           null         （行政院函　中華民國10… （立法院函　編…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 1,055 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 4 more variables: subject &lt;chr&gt;, content &lt;chr&gt;, docUrl &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   selectTerm &lt;chr&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in readBin(structure(4L, class = c("url", "connection"), conn_id = &lt;pointer: 0x1755&gt;),     raw(0), 32768L):</span> cannot read from connection</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="co"># Get data for the 9th term</span></span></span>
