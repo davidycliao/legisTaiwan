@@ -6,11 +6,10 @@
 coverage](https://github.com/davidycliao/legisTaiwan/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/davidycliao/legisTaiwan/actions/workflows/test-coverage.yaml)
 [![pkgdown](https://github.com/davidycliao/legisTaiwan/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/davidycliao/legisTaiwan/actions/workflows/pkgdown.yaml)
 [![CodeFactor](https://www.codefactor.io/repository/github/davidycliao/legistaiwan/badge)](https://www.codefactor.io/repository/github/davidycliao/legistaiwan)
-
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14788364.svg)](https://doi.org/10.5281/zenodo.14788364)
 
-`legisTaiwan` is designed to streamline access to real-time archives of
-Taiwan’s legislative data, drawing inspiration from the UK’s
+`legisTaiwan` 🇹🇼 is designed to streamline access to real-time archives
+of Taiwan’s legislative data, drawing inspiration from the UK’s
 TheyWorkForYou API. As the package interfaces directly with Legislative
 Yuan API endpoints, a stable internet connection is required. Users are
 welcome to contact [the author](https://davidycliao.github.io) for any
@@ -28,6 +27,7 @@ R套件使用上的問題，歡迎open issue 在githut
 ### Get Started with Using [`remotes`](https://github.com/r-lib/remotes):
 
 ``` r
+
 install.packages("remotes")
 remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
 ```
@@ -42,12 +42,12 @@ library(legisTaiwan)
 
 ### Talks & Presentations:
 
-- **28 Apr 2025:** **R-Ladies Taipei** 讓分析台灣國會數據更透明 —
+- **28 Apr 2025:** R-Ladies Taipei 讓分析台灣國會數據更透明 —
   `legisTaiwan` R 套件 (Shaka Y.J. Li and Yen-Chieh Liao)
   [![GitHub](https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white)](https://github.com/davidycliao/r-ladies-tpe-legistaiwan?tab=readme-ov-file)
 
-- **11-14 Sept 2025:** [**Legislative Studies
-  Session**](https://apsa2025-apsa.ipostersessions.com/Default.aspx?s=79-0E-DC-EC-7E-79-06-7C-45-40-EE-55-33-CD-B9-0D)
+- **11-14 Sept 2025:** [Legislative Studies
+  Session](https://apsa2025-apsa.ipostersessions.com/Default.aspx?s=79-0E-DC-EC-7E-79-06-7C-45-40-EE-55-33-CD-B9-0D)
   , Annual Conference of American Political Science Association,
   Vancouver, CA. (Shaka Y.J. Li )
 
