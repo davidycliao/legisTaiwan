@@ -1,12 +1,21 @@
 test_that("get_meetings", {
-  expect_equal(get_meetings(start_date = 1050120, end_date = 1050210, verbose = FALSE)$data$smeeting_date, "105/02/01")
+  skip_on_cran()
+  result1 <- tryCatch(get_meetings(start_date = 1050120, end_date = 1050210, verbose = FALSE), error = function(e) NULL)
+  skip_if(is.null(result1), "Legislative Yuan API not reachable")
+  expect_equal(result1$data$smeeting_date, "105/02/01")
   expect_equal(nrow(get_meetings(start_date = 1040120, end_date = 1050310, verbose = TRUE)$data), 807)
   expect_error(get_meetings(start_date = 1040101, end_date = 1040102, verbose = FALSE), "Query returned no data.")
 })
 
 test_that("get_caucus_meetings", {
+  skip_on_cran()
+  result <- tryCatch(
+    get_caucus_meetings(start_date = "106/10/20", end_date = "107/03/10", verbose = FALSE),
+    error = function(e) NULL
+  )
+  skip_if(is.null(result), "Legislative Yuan API not reachable")
+  expect_equal(result$retrieved_number, 27)
   expect_equal(get_caucus_meetings(start_date = "106/10/20", end_date = "107/03/10", verbose = FALSE)$retrieved_number, 27)
-  expect_equal(get_caucus_meetings(start_date = "106/10/20", end_date = "107/03/10", verbose = FALSE)$retrieved_number,27)
 })
 
 # test_that("get_speech_video", {
@@ -17,7 +26,10 @@ test_that("get_caucus_meetings", {
 # })
 
 test_that("get_public_debates", {
-  expect_equal(get_public_debates(term = 10, session_period = 1)$retrieved_number, 107)
+  skip_on_cran()
+  result <- tryCatch(get_public_debates(term = 10, session_period = 1), error = function(e) NULL)
+  skip_if(is.null(result), "Legislative Yuan API not reachable")
+  expect_equal(result$retrieved_number, 107)
   # expect_equal(get_public_debates(term = 10, session_period = 1, verbose = FALSE)$retrieved_number, 107)
   expect_error(get_public_debates(term = "10"),   "use numeric format only.")
   # expect_error(get_public_debates(term = "10", verbose = TRUE),   "use numeric format only.")

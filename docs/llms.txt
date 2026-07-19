@@ -173,8 +173,7 @@ Helper functions and datasets
 - [`get_variable_info()`](https://davidycliao.github.io/legisTaiwan/reference/get_variable_info.md)
   : Check Each Function's Manual 檢查各函式說明文件
 - [`review_session_info()`](https://davidycliao.github.io/legisTaiwan/reference/review_session_info.md)
-  : Check Session Periods in Each Year (Minguo Calendar) 檢查每年會期
-  (民國曆)
+  : Check Session Periods in Each Year
 - [`legis_keywords`](https://davidycliao.github.io/legisTaiwan/reference/legis_keywords.md)
   : Legislative Keywords for Text Analysis
 

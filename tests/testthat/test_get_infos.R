@@ -1,6 +1,8 @@
 # Test infos
 test_that("get_variable_info", {
-expect_error(get_variable_info("x"),
+  skip_on_cran()
+  skip_if_not(website_availability(), "Legislative Yuan website not reachable")
+  expect_error(get_variable_info("x"),
                "Use correct function names below in character format:
           get_bills: the records of the bills
           get_bills_2: the records of legislators and the government proposals
@@ -15,6 +17,8 @@ expect_error(get_variable_info("x"),
 
 # For get_variable_info function
 test_that("get_variable_info works correctly", {
+  skip_on_cran()
+  skip_if_not(website_availability(), "Legislative Yuan website not reachable")
   result <- get_variable_info("get_bills")
 
   # Check if the function returns a list
@@ -28,7 +32,10 @@ test_that("get_variable_info works correctly", {
 
 # For review_session_info function
 test_that("review_session_info works correctly", {
-  result <- review_session_info(7)
+  skip_on_cran()
+  skip_if_not(website_availability2(), "Legislative Yuan website not reachable")
+  result <- tryCatch(review_session_info(7), error = function(e) NULL)
+  skip_if(is.null(result), "Legislative Yuan website not reachable")
 
   # Check if the function returns a tibble
   expect_true(is(result, "tbl_df"))

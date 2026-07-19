@@ -41,7 +41,7 @@
 #'
 #' @author davidycliao
 #'
-#' @importFrom igraph graph_from_adjacency_matrix degree betweenness eigen_centrality induced_subgraph get.edgelist vcount ecount edge_density cluster_louvain V "V<-" E membership
+#' @importFrom igraph graph_from_adjacency_matrix degree betweenness eigen_centrality induced_subgraph as_edgelist vcount ecount edge_density cluster_louvain V "V<-" E membership
 #'
 #' @export
 
@@ -208,7 +208,7 @@ bill_to_network <- function(df, top_n = 20, use_all = FALSE, verbose = TRUE) {
   V(selected_graph)$importance <- nodes_df$importance[match(V(selected_graph)$name, nodes_df$name)]
 
   # 獲取選定立委間的連結
-  selected_edges <- get.edgelist(selected_graph)
+  selected_edges <- as_edgelist(selected_graph)
   selected_weights <- E(selected_graph)$weight
 
   if (length(selected_weights) > 0) {
