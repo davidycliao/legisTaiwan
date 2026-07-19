@@ -2,7 +2,7 @@
 title: "Research"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Research and Publications}
+  %\VignetteIndexEntry{Research}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

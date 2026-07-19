@@ -9,11 +9,13 @@ digitized textual and video records for a research project and analyze
 public policies.
 
 ``` r
+
 install.packages("remotes")
 remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
 ```
 
 ``` r
+
 library(legisTaiwan)
 #> ## legisTaiwan v0.2.2                                     ##
 #> ## An R package connecting to the Taiwan Legislative API. ##

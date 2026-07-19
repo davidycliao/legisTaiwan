@@ -9,13 +9,12 @@
 coverage](https://github.com/davidycliao/legisTaiwan/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/davidycliao/legisTaiwan/actions/workflows/test-coverage.yaml)
 [![pkgdown](https://github.com/davidycliao/legisTaiwan/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/davidycliao/legisTaiwan/actions/workflows/pkgdown.yaml)
 [![CodeFactor](https://www.codefactor.io/repository/github/davidycliao/legistaiwan/badge)](https://www.codefactor.io/repository/github/davidycliao/legistaiwan)
-
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14788364.svg)](https://doi.org/10.5281/zenodo.14788364)
 
 <div style="text-align: justify; font-size: 1.1rem; line-height: 1.6; color: #333; max-width: 800px; margin: 1rem auto; padding: 0 1rem; font-family: 'Helvetica Neue', Arial, sans-serif;">
 
-`legisTaiwan` is designed to streamline access to real-time archives of
-Taiwan’s legislative data, drawing inspiration from the UK’s
+`legisTaiwan` 🇹🇼 is designed to streamline access to real-time archives
+of Taiwan’s legislative data, drawing inspiration from the UK’s
 TheyWorkForYou API. As the package interfaces directly with Legislative
 Yuan API endpoints, a stable internet connection is required. Users are
 welcome to contact

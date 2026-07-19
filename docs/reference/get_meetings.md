@@ -173,7 +173,7 @@ get_meetings(start_date = "1050120", end_date = "1050210")
 #> [1] "Meeting Records"
 #> 
 #> $query_time
-#> [1] "2026-07-20 01:49:50 CST"
+#> [1] "2026-07-20 02:09:05 CST"
 #> 
 #> $retrieved_number
 #> [1] 1
@@ -251,7 +251,7 @@ get_meetings(start_date = 1060120, end_date = 1070310, meeting_unit = "內政委
 #> [1] "Meeting Records"
 #> 
 #> $query_time
-#> [1] "2026-07-20 01:49:50 CST"
+#> [1] "2026-07-20 02:09:05 CST"
 #> 
 #> $retrieved_number
 #> [1] 104

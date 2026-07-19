@@ -12,6 +12,7 @@ publicly available data.
 First, install and load the legisTaiwan package:
 
 ``` r
+
 library(legisTaiwan)
 ```
 
@@ -22,6 +23,7 @@ Use the
 function to retrieve parliamentary questions from legislators:
 
 ``` r
+
 # Fetch questions from the 11th term
 pa_term10 <- get_parlquestions(term = 11, verbose = TRUE)
 #> 
@@ -88,6 +90,7 @@ Use the get_executive_response() function to fetch responses from the
 Executive Yuan:
 
 ``` r
+
 # Fetch executive responses from the 10th term, 2nd session
 exec_response <- get_executive_response(term = 10, session_period = 2, verbose = TRUE)
 #> 
