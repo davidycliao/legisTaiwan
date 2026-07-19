@@ -22,6 +22,8 @@ home:
     href: https://twcongress.weebly.com
   - text: "The Centre for Artificial Intelligence in Government (CAIG) @ University of Birmingham"
     href: https://www.birmingham.ac.uk/research/centres-institutes/centre-for-artificial-intelligence-in-government
+  - text: "GIND@NTU 臺大國發"
+    href: https://www.nd.ntu.edu.tw
 
 
 reference:
@@ -66,6 +68,7 @@ reference:
   - starts_with("analyze_")
   - generate_report
   - calculate_bill_trends
+  - bill_to_network
 
 - title: "Utility and Data"
   desc: "Helper functions and datasets"
@@ -81,10 +84,10 @@ authors:
     href: https://sites.google.com/view/litang2020?pli=1
   Taiwan Legislative Yuan 立法院:
     href: https://data.ly.gov.tw/catelog.action
-    html: "<img src='https://raw.githack.com/davidycliao/legisTaiwan/master/inst/figures/ly.jpeg' width=52>"
+    html: "<img src='https://raw.githack.com/davidycliao/legisTaiwan/master/inst/figures/ly.jpeg' width=52 alt='Taiwan Legislative Yuan logo'>"
   OpenFun Ltd. 歐噴有限公司:
     href: https://openfun.tw
-    html: "<img src='https://raw.githack.com/davidycliao/legisTaiwan/master/inst/figures/openfun.jpg' width=50>"
+    html: "<img src='https://raw.githack.com/davidycliao/legisTaiwan/master/inst/figures/openfun.jpg' width=50 alt='OpenFun Ltd. logo'>"
 template:
   package: tidytemplate
   bootstrap: 5
@@ -123,11 +126,11 @@ navbar:
     - text: "Others"
       href: articles/others.html#others.html
 
-  - icon: fa-file-code-o
-    text: Reference
-    menu:
-    - text: "Function Reference"
-      href: reference/index.html
+  # - icon: fa-file-code-o
+  #   text: Reference
+  #   menu:
+  #   - text: "Function Reference"
+  #     href: reference/index.html
 
 
 
