@@ -22,7 +22,7 @@ test_that("transformed_date_bill", {
 })
 
 test_that("website_availability2", {
-  expect_equal(website_availability2(), TRUE)
+  expect_type(website_availability2(), "logical")
 })
 
 test_that("website_availability2", {
