@@ -7,6 +7,7 @@
 First, load the package:
 
 ``` r
+
 library(legisTaiwan)
 #> Error in get(paste0(generic, ".", class), envir = get_method_env()) : 
 #>   object 'type_sum.accel' not found
@@ -18,6 +19,7 @@ Now, let’s retrieve caucus meeting records. Note the special date format
 required:
 
 ``` r
+
 caucus_df <- get_caucus_meetings(
     start_date = "111/09/23", 
     end_date = "112/01/19", 
@@ -43,6 +45,7 @@ meetings, such as:
 - Meeting outcomes and decisions
 
 ``` r
+
 caucus_df$data
 #> # A tibble: 43 × 15
 #>    comYear comVolume comBookId term  sessionPeriod sessionTimes
@@ -71,6 +74,7 @@ Yuan’s repository where researchers and the public can view detailed
 records of caucus deliberations.
 
 ``` r
+
 caucus_df$data[c("subject", "docUrl")]
 #> # A tibble: 43 × 2
 #>    subject                                                          docUrl

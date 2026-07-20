@@ -7,6 +7,7 @@ Taiwan’s legislator data from the official parliamentary database.
 Here’s a step-by-step demonstration:
 
 ``` r
+
 library(legisTaiwan)
 #> Error in get(paste0(generic, ".", class), envir = get_method_env()) : 
 #>   object 'type_sum.accel' not found
@@ -18,6 +19,7 @@ First, we load the legisTaiwan package which contains tools for
 accessing Taiwan’s legislative data.
 
 ``` r
+
 info <- get_legislators(verbose = FALSE)
 #> 
 #> Term is not defined...
@@ -30,6 +32,7 @@ fetching. This makes the function run quietly without displaying
 download progress.
 
 ``` r
+
 info$data
 #> # A tibble: 1,649 × 15
 #>    term  name  ename sex   party partyGroup areaName committee onboardDate
