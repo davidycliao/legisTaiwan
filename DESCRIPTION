@@ -19,7 +19,7 @@ Description: Provides quick and easy access to Taiwan's Legislative Yuan API
     parliamentary operations efficiently.
 Maintainer: Yen-Chieh Liao <davidycliao@gmail.com>
 Depends: R (>= 3.4.0)
-License: GPL-3 + file LICENSE
+License: MIT + file LICENSE
 Encoding: UTF-8
 Language: en-US
 LazyData: true

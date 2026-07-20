@@ -18,3 +18,4 @@
 ^\.claude$
 ^CRAN-SUBMISSION$
 ^\.codefactor\.yml$
+^LICENSE\.md$
