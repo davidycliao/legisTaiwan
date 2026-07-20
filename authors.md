@@ -22,7 +22,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/davidycliao/legisTaiwan/blob/HEAD/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/davidycliao/legisTaiwan/blob/master/DESCRIPTION)
 
 Liao Y, Tang L (2026). *legisTaiwan: An Interface to Access Taiwan
 Legislative API in R*. R package version 0.2.2,
