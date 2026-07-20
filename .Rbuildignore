@@ -16,3 +16,4 @@
 ^cran-comments\.md$
 ^\.claude$
 ^CRAN-SUBMISSION$
+^\.codefactor\.yml$
