@@ -1,4 +1,4 @@
-#' The Legislator' Demographic Information and Background 提供委員基本資料
+#' The Legislator' Demographic Information and Background
 #'
 #'@author Yen-Chieh Liao (davidycliao@@gmail.com)
 #'
@@ -23,19 +23,19 @@
 #'      \item{`variable_names`}{the variables of the tibble dataframe}
 #'      \item{`manual_info`}{the official manual from \url{https://data.ly.gov.tw/getds.action?id=16}, or use legisTaiwan::get_variable_info("get_legislators")}
 #'      \item{`data`}{a tibble dataframe, whose variables include:
-#'      \describe{\item{`term`}{屆別}
-#'                \item{`name`}{委員姓名}
-#'                \item{`ename`}{委員姓名}
-#'                \item{`sex`}{性別}
-#'                \item{`party`}{黨籍}
-#'                \item{`partyGroup`}{黨團}
-#'                \item{`committee`}{委員會}
-#'                \item{`onboardDate`}{到職日(西元年)}
-#'                \item{`degree`}{學歷}
-#'                \item{`experience`}{經歷}
-#'                \item{`picPath`}{照片位址}
-#'                \item{`leaveFlag`}{離職日期(西元年)}
-#'                \item{`leaveReason`}{離職原因}
+#'      \describe{\item{`term`}{Term number}
+#'                \item{`name`}{Legislator's name (Chinese)}
+#'                \item{`ename`}{Legislator's name (English)}
+#'                \item{`sex`}{Gender}
+#'                \item{`party`}{Political party affiliation}
+#'                \item{`partyGroup`}{Party group/caucus}
+#'                \item{`committee`}{Committee assignment}
+#'                \item{`onboardDate`}{Onboard date (Gregorian year)}
+#'                \item{`degree`}{Education background}
+#'                \item{`experience`}{Work experience}
+#'                \item{`picPath`}{Photo URL/path}
+#'                \item{`leaveFlag`}{Leave date (Gregorian year)}
+#'                \item{`leaveReason`}{Reason for leaving}
 #'                }
 #'              }
 #'      }
@@ -46,18 +46,14 @@
 #'
 #'@export
 #'
-#'@examples
-#' ## query the Executives' answered response by term and the session period.
-#' ## 輸入「立委屆期」與「會期」下載「行政院答復」
-#'get_executive_response(term = 8, session_period = 1)
-#'
 #'@details `get_legislators` produces a list, which contains  `query_time`,
 #'`queried_term`, `url`, `variable_names`, `manual_info` and `data`.
 #'
 #'@note To retrieve the user manual and more information about variable of the data
 #' frame, please use `get_variable_info("get_legislators")`
 #' or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=16}.
-#' 提供委員基本資料，最早資料可追溯至第2屆。
+#' Provides legislators' basic information; the earliest available data goes
+#' back to the 2nd term.
 #'
 #' @examples
 #' \dontrun{

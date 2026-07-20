@@ -1,4 +1,4 @@
-# The Video Information of Meetings and Committees 院會及委員會之委員發言片段相關影片資訊
+# The Video Information of Meetings and Committees
 
 Retrieves video records and information of legislative meetings and
 committee sessions, including speech segments, meeting details, and
@@ -103,71 +103,71 @@ A list containing:
 
   `term`
 
-  :   屆別
+  :   Term number
 
   `sessionPeriod`
 
-  :   會期
+  :   Session period
 
   `meetingDate`
 
-  :   會議日期(西元年)
+  :   Meeting date (Gregorian year)
 
   `meetingTime`
 
-  :   會議時間
+  :   Meeting time
 
   `meetingTypeName`
 
-  :   主辦單位
+  :   Organizing unit
 
   `meetingName`
 
-  :   會議名稱
+  :   Meeting name
 
   `meetingContent`
 
-  :   會議事由
+  :   Meeting subject
 
   `legislatorName`
 
-  :   委員姓名
+  :   Legislator's name
 
   `areaName`
 
-  :   選區名稱
+  :   Represented area
 
   `speechStartTime`
 
-  :   委員發言時間起
+  :   Speech start time
 
   `speechEndTime`
 
-  :   委員發言時間迄
+  :   Speech end time
 
   `speechRecordUrl`
 
-  :   發言紀錄網址
+  :   Speech record URL
 
   `videoLength`
 
-  :   影片長度
+  :   Video length
 
   `videoUrl`
 
-  :   影片網址
+  :   Video URL
 
   `selectTerm`
 
-  :   屆別期別篩選條件
+  :   Term/session filtering criteria
 
 ## Details
 
 The function retrieves video information from legislative meetings and
 committee sessions. Data is available from the 9th legislative term
-onwards (2016/民國105年). The date parameters must use the ROC calendar
-format with forward slashes. Data can be retrieved in either JSON or CSV
-format.
+onwards (2016, Minguo year 105). The date parameters must use the ROC
+calendar format with forward slashes. Data can be retrieved in either
+JSON or CSV format.
 
 ## Note
 
@@ -175,8 +175,9 @@ For more details about the data variables and API information, use
 `get_variable_info("get_speech_video")` or visit:
 <https://data.ly.gov.tw/getds.action?id=148>
 
-會議類:提供立法院院會及委員會之委員發言片段相關影片資訊
-(自第9屆第1會期起)。
+Category: Provides video records of legislators' speech segments from
+plenary sessions and committee meetings (available from the 9th term,
+1st session, onwards).
 
 ## See also
 

@@ -1,27 +1,37 @@
 ## R CMD check results
 
-0 errors | 1 warning | 1 note
+0 errors | 1 warning | 3 notes
 
 * checking code files for non-ASCII characters ... WARNING
 
-  This package interfaces with the Taiwan Legislative Yuan API and
-  necessarily contains Traditional Chinese strings that are integral to
-  the package's purpose: column names and category labels returned
-  verbatim by the Legislative Yuan's own API/website (e.g. `屆期會期`,
-  `代號`, `名稱`, `職掌`, `類別`), and regular-expression separators used
-  to split Chinese-language legislator name lists (e.g. `；`, `，`).
-  These strings must remain as literal Traditional Chinese to correctly
-  match the live data; rewriting them as \uXXXX escapes or removing them
-  would not change the check result (the file would still contain
-  non-ASCII bytes in Chinese-language roxygen documentation) and risks
-  breaking the exact-match logic. `Encoding: UTF-8` is declared in
-  DESCRIPTION.
+  All roxygen-generated documentation (titles, descriptions, parameter
+  docs, examples) is now pure ASCII, so this warning no longer affects
+  the PDF/HTML reference manual. The remaining non-ASCII bytes are inside
+  a handful of R function *bodies* (not documentation): regular-expression
+  separators used to split Chinese-language legislator name lists (e.g.
+  `；`, `，`), a few `gsub()` patterns that strip Chinese honorific prefixes
+  from names, and default/example values that must match category labels
+  returned verbatim by the Legislative Yuan's own API (e.g. `屆期會期`,
+  `代號`, `名稱`, `職掌`, `類別`). These strings must remain literal
+  Traditional Chinese to correctly match the live data; rewriting them as
+  \uXXXX escapes is not effective inside R code comments/strings for this
+  purpose without changing behavior, and removing them would break the
+  matching logic. `Encoding: UTF-8` is declared in DESCRIPTION.
 
 * checking for future file timestamps ... NOTE
 
   `unable to verify current time` — this is an artifact of the local
   check environment (no NTP time-sync available) and does not occur on
   CRAN's check machines.
+
+* checking HTML version of manual ... NOTE
+
+  The reported issues (`<main> is not recognized!`, `<table> lacks
+  "summary" attribute`, etc.) come from R's own Rd-to-HTML renderer and
+  the local HTML tidy library version; they appear identically on every
+  single Rd page in this package (and are commonly reported as a
+  known/environment-dependent artifact unrelated to package content).
+  The PDF version of the manual builds without any errors.
 
 ## Test environment notes
 

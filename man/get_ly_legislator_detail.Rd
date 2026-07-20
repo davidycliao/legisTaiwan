@@ -10,7 +10,7 @@ get_ly_legislator_detail(term, name, show_progress = TRUE)
 \arguments{
 \item{term}{required integer. Legislative term number (e.g. 9)}
 
-\item{name}{required string. Legislator name (e.g. "王金平")}
+\item{name}{required string. Legislator name as used by the API, in Chinese (e.g. the legislator romanized as "Wang Jin-pyng")}
 
 \item{show_progress}{logical. Whether to display progress info (default: TRUE)}
 }
@@ -39,14 +39,14 @@ A list containing legislator details:
 Retrieves detailed information for a specific legislator by term and name from the Legislative Yuan API.
 }
 \details{
-Get Legislative Yuan Legislator Detail 取得立法委員完整歷史資料
+Get Legislative Yuan Legislator Detail
 }
 \examples{
 \dontrun{
 # Get legislator detail
 detail <- get_ly_legislator_detail(
   term = 9,
-  name = "王金平"
+  name = "Wang Jin-pyng"  # a legislator's Chinese name goes here
 )
 
 # Print basic info

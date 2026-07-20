@@ -1,4 +1,4 @@
-# The Legislator' Demographic Information and Background 提供委員基本資料
+# The Legislator' Demographic Information and Background
 
 Provides access to legislators' basic demographic and background
 information through the Legislative Yuan's V1 API interface.
@@ -51,51 +51,51 @@ list contains:
 
   `name`
 
-  :   委員姓名
+  :   Legislator's name (Chinese)
 
   `ename`
 
-  :   委員姓名
+  :   Legislator's name (English)
 
   `sex`
 
-  :   性別
+  :   Gender
 
   `party`
 
-  :   黨籍
+  :   Political party affiliation
 
   `partyGroup`
 
-  :   黨團
+  :   Party group/caucus
 
   `committee`
 
-  :   委員會
+  :   Committee assignment
 
   `onboardDate`
 
-  :   到職日(西元年)
+  :   Onboard date (Gregorian year)
 
   `degree`
 
-  :   學歷
+  :   Education background
 
   `experience`
 
-  :   經歷
+  :   Work experience
 
   `picPath`
 
-  :   照片位址
+  :   Photo URL/path
 
   `leaveFlag`
 
-  :   離職日期(西元年)
+  :   Leave date (Gregorian year)
 
   `leaveReason`
 
-  :   離職原因
+  :   Reason for leaving
 
 ## Details
 
@@ -110,8 +110,9 @@ details. The data is available starting from the 2nd legislative term.
 
 To retrieve the user manual and more information about variable of the
 data frame, please use `get_variable_info("get_legislators")` or visit
-the API manual at <https://data.ly.gov.tw/getds.action?id=16>.
-提供委員基本資料，最早資料可追溯至第2屆。
+the API manual at <https://data.ly.gov.tw/getds.action?id=16>. Provides
+legislators' basic information; the earliest available data goes back to
+the 2nd term.
 
 ## See also
 
@@ -125,34 +126,6 @@ Yen-Chieh Liao (davidycliao@gmail.com)
 ## Examples
 
 ``` r
-## query the Executives' answered response by term and the session period.
-## 輸入「立委屆期」與「會期」下載「行政院答復」
-get_executive_response(term = 8, session_period = 1)
-#> 
-#> Input Format Information:
-#> ------------------------
-#> Term: Must be numeric (e.g., 8, 9, 10, 11)
-#> Session Period: Must be numeric (1-8)
-#> ------------------------
-#> 
-#> Downloading executive response data...
-#> 
-  |                                                                   
-  |                                                             |   0%
-  |                                                                   
-  |============                                                 |  20%
-  |                                                                   
-  |========================                                     |  40%
-  |                                                                   
-  |=====================================                        |  60%
-#> Warning: URL 'https://data.ly.gov.tw/odw/ID2Action.action?term=08&sessionPeriod=01&sessionTimes=&item=&fileType=json': status was 'SSL connect error'
-#> 
-#> 
-#> Error occurred while fetching data:
-#> Error: Error in open.connection(con, "rb"): cannot open the connection to 'https://data.ly.gov.tw/odw/ID2Action.action?term=08&sessionPeriod=01&sessionTimes=&item=&fileType=json'
-#> 
-#> Error in open.connection(con, "rb"): cannot open the connection to 'https://data.ly.gov.tw/odw/ID2Action.action?term=08&sessionPeriod=01&sessionTimes=&item=&fileType=json'
-
 if (FALSE) { # \dontrun{
 # Get data for the 9th term
 legislators_data <- get_legislators(term = 9)

@@ -1,6 +1,6 @@
-# The Records of the Bills: 法律提案
+# The Records of the Bills
 
-The Records of the Bills: 法律提案
+The Records of the Bills
 
 ## Usage
 
@@ -139,9 +139,9 @@ if (FALSE) { # \dontrun{
 get_bills(start_date = 1060120, end_date = 1070310, verbose = TRUE)
 
 ## Query bill records by a date range and a specific legislator
-get_bills(start_date = 1060120, end_date = 1070310,  proposer = "孔文吉")
+get_bills(start_date = 1060120, end_date = 1070310,  proposer = "Kung Wen-chi")
 
 ## Query bill records by a date range and multiple legislators
-get_bills(start_date = 1060120, end_date = 1060510,  proposer = "孔文吉&鄭天財")
+get_bills(start_date = 1060120, end_date = 1060510,  proposer = "Kung Wen-chi&Cheng Tien-tsai")
 } # }
 ```

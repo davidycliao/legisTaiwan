@@ -3,17 +3,16 @@
 \encoding{UTF-8}
 \name{get_bills_2}
 \alias{get_bills_2}
-\title{The Records of Legislation and the Executives Proposals: 委員及政府議案提案資訊}
+\title{The Records of Legislation and the Executives Proposals}
 \usage{
 get_bills_2(term = 8, session_period = NULL, verbose = TRUE)
 }
 \arguments{
 \item{term}{A numeric or NULL value. Data is available from the 8th term onwards.
-Default is set to 8. 參數必須為數值。資料從第8屆開始，預設值為8。}
+Default is set to 8.}
 
 \item{session_period}{An integer, numeric, or NULL. Valid options for the session are:
 1, 2, 3, 4, 5, 6, 7, and 8. Default is set to NULL.
-參數必須為數值。
 \code{review_session_info()} provides available session periods based on the Minguo (Taiwan) calendar.}
 
 \item{verbose}{Default value is TRUE. Displays details of the retrieved data, including the number, URL, and computing time.}
@@ -29,16 +28,16 @@ A list containing:
 \item{\code{manual_info}}{Official manual: \url{https://data.ly.gov.tw/getds.action?id=20} or use \code{get_variable_info("get_bills_2")}}
 \item{\code{data}}{A tibble dataframe with variables such as:
 \describe{
-\item{\code{term}}{屆別}
-\item{\code{sessionPeriod}}{會期}
-\item{\code{sessionTimes}}{會次}
-\item{\code{meetingTimes}}{臨時會會次}
-\item{\code{billNo}}{議案編號}
-\item{\code{billName}}{提案名稱}
-\item{\code{billOrg}}{提案單位/委員}
-\item{\code{billProposer}}{主提案人}
-\item{\code{billCosignatory}}{連署提案}
-\item{\code{billStatus}}{議案狀態}
+\item{\code{term}}{Legislative term number}
+\item{\code{sessionPeriod}}{Session period}
+\item{\code{sessionTimes}}{Session times}
+\item{\code{meetingTimes}}{Extraordinary session times}
+\item{\code{billNo}}{Bill number}
+\item{\code{billName}}{Bill title}
+\item{\code{billOrg}}{Proposing unit/legislator}
+\item{\code{billProposer}}{Primary proposer}
+\item{\code{billCosignatory}}{Co-signed proposal}
+\item{\code{billStatus}}{Bill status}
 \item{\code{pdfUrl}}{PDF download link for related documents}
 \item{\code{docUrl}}{DOC download link for related documents}
 \item{\code{selectTerm}}{Filtering criteria based on term}
@@ -46,7 +45,7 @@ A list containing:
 }
 }
 \description{
-The Records of Legislation and the Executives Proposals: 委員及政府議案提案資訊
+The Records of Legislation and the Executives Proposals
 }
 \details{
 The \code{get_bills_2} function produces a list, which includes \code{query_time},
@@ -56,12 +55,12 @@ For the user manual and more information about the dataframe, use \code{get_vari
 \note{
 For more details about the dataframe's variables, use \code{get_variable_info("get_bills_2")}
 or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=20}.
-議事類: 提供委員及政府之議案提案資訊 (從第8屆第1會期開始)。
+Category: Provides bill-proposal records for legislators and the executive
+(available from the 8th term, 1st session, onwards).
 }
 \examples{
 \dontrun{
 ## Query the executives' responses by term and session period.
-## 輸入「立委屆期」與「會期」以下載「質詢事項 (行政院答復部分)」
 get_bills_2(term = 8, session_period = 1)
 }
 

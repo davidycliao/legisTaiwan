@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{get_caucus_meetings}
 \alias{get_caucus_meetings}
-\title{The Meeting Records of Cross-caucus Session 黨團協商資訊}
+\title{The Meeting Records of Cross-caucus Session}
 \usage{
 get_caucus_meetings(start_date = NULL, end_date = NULL, verbose = TRUE)
 }
@@ -30,20 +30,20 @@ list, which contains: \describe{
 \item{\code{variable_names}}{the variables of the tibble dataframe}
 \item{\code{manual_info}}{the official manual, \url{https://data.ly.gov.tw/getds.action?id=8}; or use get_variable_info("get_caucus_meetings")}
 \item{\code{data}}{a tibble dataframe, whose variables include:
-\describe{\item{\code{comYear}}{卷}
-\item{\code{comVolume}}{期}
-\item{\code{comBookId}}{冊別}
-\item{\code{term}}{屆別}
-\item{\code{sessionPeriod}}{會期}
-\item{\code{meetingTimes}}{臨時會會次}
-\item{\code{meetingDate}}{會議日期(民國年)}
-\item{\code{meetingName}}{會議名稱}
-\item{\code{subject}}{案由}
-\item{\code{pageStart}}{起始頁}
-\item{\code{pageEnd}}{結束頁}
-\item{\code{docUrl}}{檔案下載位置}
-\item{\code{htmlUrl}}{html網址}
-\item{\code{selectTerm}}{屆別期別篩選條件}
+\describe{\item{\code{comYear}}{Volume}
+\item{\code{comVolume}}{Issue}
+\item{\code{comBookId}}{Book ID}
+\item{\code{term}}{Term number}
+\item{\code{sessionPeriod}}{Session period}
+\item{\code{meetingTimes}}{Extraordinary session times}
+\item{\code{meetingDate}}{Meeting date (Minguo calendar)}
+\item{\code{meetingName}}{Meeting name}
+\item{\code{subject}}{Subject}
+\item{\code{pageStart}}{Starting page}
+\item{\code{pageEnd}}{Ending page}
+\item{\code{docUrl}}{File download location}
+\item{\code{htmlUrl}}{HTML URL}
+\item{\code{selectTerm}}{Term/session filtering criteria}
 }
 }
 }
@@ -61,13 +61,12 @@ V1 API.
 To retrieve the user manual and more information about variable of the data
 frame, please use \code{get_variable_info("get_caucus_meetings")}
 or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=8}.
-議事類:提供公報之黨團協商資訊 (自第8屆第1會期起)
+Category: Provides cross-caucus negotiation records from the gazette
+(available from the 8th term, 1st session, onwards)
 }
 \examples{
 ## query the meeting records of cross-caucus session using a period of
 ## the dates in Taiwan ROC calender format with forward slash (/).
-## 輸入「中華民國民年」下載「黨團協商」，輸入時間請依照該格式 "106/10/20"，
-## 需有「正斜線」做隔開。
 get_caucus_meetings(start_date = "106/10/20", end_date = "107/03/10")
 
 }

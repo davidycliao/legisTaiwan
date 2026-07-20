@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{get_speech_video}
 \alias{get_speech_video}
-\title{The Video Information of Meetings and Committees 院會及委員會之委員發言片段相關影片資訊}
+\title{The Video Information of Meetings and Committees}
 \usage{
 get_speech_video(
   term = NULL,
@@ -49,21 +49,21 @@ A list containing:
 \item{\code{manual_info}}{official manual URL}
 \item{\code{data}}{a tibble dataframe containing:
 \describe{
-\item{\code{term}}{屆別}
-\item{\code{sessionPeriod}}{會期}
-\item{\code{meetingDate}}{會議日期(西元年)}
-\item{\code{meetingTime}}{會議時間}
-\item{\code{meetingTypeName}}{主辦單位}
-\item{\code{meetingName}}{會議名稱}
-\item{\code{meetingContent}}{會議事由}
-\item{\code{legislatorName}}{委員姓名}
-\item{\code{areaName}}{選區名稱}
-\item{\code{speechStartTime}}{委員發言時間起}
-\item{\code{speechEndTime}}{委員發言時間迄}
-\item{\code{speechRecordUrl}}{發言紀錄網址}
-\item{\code{videoLength}}{影片長度}
-\item{\code{videoUrl}}{影片網址}
-\item{\code{selectTerm}}{屆別期別篩選條件}
+\item{\code{term}}{Term number}
+\item{\code{sessionPeriod}}{Session period}
+\item{\code{meetingDate}}{Meeting date (Gregorian year)}
+\item{\code{meetingTime}}{Meeting time}
+\item{\code{meetingTypeName}}{Organizing unit}
+\item{\code{meetingName}}{Meeting name}
+\item{\code{meetingContent}}{Meeting subject}
+\item{\code{legislatorName}}{Legislator's name}
+\item{\code{areaName}}{Represented area}
+\item{\code{speechStartTime}}{Speech start time}
+\item{\code{speechEndTime}}{Speech end time}
+\item{\code{speechRecordUrl}}{Speech record URL}
+\item{\code{videoLength}}{Video length}
+\item{\code{videoUrl}}{Video URL}
+\item{\code{selectTerm}}{Term/session filtering criteria}
 }
 }
 }
@@ -75,7 +75,7 @@ JSON and CSV formats from the 9th legislative term onwards.
 }
 \details{
 The function retrieves video information from legislative meetings and committee
-sessions. Data is available from the 9th legislative term onwards (2016/民國105年).
+sessions. Data is available from the 9th legislative term onwards (2016, Minguo year 105).
 The date parameters must use the ROC calendar format with forward slashes.
 Data can be retrieved in either JSON or CSV format.
 }
@@ -84,7 +84,9 @@ For more details about the data variables and API information,
 use \code{get_variable_info("get_speech_video")} or visit:
 \url{https://data.ly.gov.tw/getds.action?id=148}
 
-會議類:提供立法院院會及委員會之委員發言片段相關影片資訊 (自第9屆第1會期起)。
+Category: Provides video records of legislators' speech segments from
+plenary sessions and committee meetings (available from the 9th term,
+1st session, onwards).
 }
 \examples{
 \dontrun{

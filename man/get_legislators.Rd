@@ -2,7 +2,7 @@
 % Please edit documentation in R/legislators.R
 \name{get_legislators}
 \alias{get_legislators}
-\title{The Legislator' Demographic Information and Background 提供委員基本資料}
+\title{The Legislator' Demographic Information and Background}
 \usage{
 get_legislators(term = NULL, verbose = TRUE)
 }
@@ -20,19 +20,19 @@ list contains: \describe{
 \item{\code{variable_names}}{the variables of the tibble dataframe}
 \item{\code{manual_info}}{the official manual from \url{https://data.ly.gov.tw/getds.action?id=16}, or use legisTaiwan::get_variable_info("get_legislators")}
 \item{\code{data}}{a tibble dataframe, whose variables include:
-\describe{\item{\code{term}}{屆別}
-\item{\code{name}}{委員姓名}
-\item{\code{ename}}{委員姓名}
-\item{\code{sex}}{性別}
-\item{\code{party}}{黨籍}
-\item{\code{partyGroup}}{黨團}
-\item{\code{committee}}{委員會}
-\item{\code{onboardDate}}{到職日(西元年)}
-\item{\code{degree}}{學歷}
-\item{\code{experience}}{經歷}
-\item{\code{picPath}}{照片位址}
-\item{\code{leaveFlag}}{離職日期(西元年)}
-\item{\code{leaveReason}}{離職原因}
+\describe{\item{\code{term}}{Term number}
+\item{\code{name}}{Legislator's name (Chinese)}
+\item{\code{ename}}{Legislator's name (English)}
+\item{\code{sex}}{Gender}
+\item{\code{party}}{Political party affiliation}
+\item{\code{partyGroup}}{Party group/caucus}
+\item{\code{committee}}{Committee assignment}
+\item{\code{onboardDate}}{Onboard date (Gregorian year)}
+\item{\code{degree}}{Education background}
+\item{\code{experience}}{Work experience}
+\item{\code{picPath}}{Photo URL/path}
+\item{\code{leaveFlag}}{Leave date (Gregorian year)}
+\item{\code{leaveReason}}{Reason for leaving}
 }
 }
 }
@@ -53,13 +53,10 @@ is available starting from the 2nd legislative term.
 To retrieve the user manual and more information about variable of the data
 frame, please use \code{get_variable_info("get_legislators")}
 or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=16}.
-提供委員基本資料，最早資料可追溯至第2屆。
+Provides legislators' basic information; the earliest available data goes
+back to the 2nd term.
 }
 \examples{
-## query the Executives' answered response by term and the session period.
-## 輸入「立委屆期」與「會期」下載「行政院答復」
-get_executive_response(term = 8, session_period = 1)
-
 \dontrun{
 # Get data for the 9th term
 legislators_data <- get_legislators(term = 9)

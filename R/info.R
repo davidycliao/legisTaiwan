@@ -1,4 +1,4 @@
-#' Check Each Function's Manual 檢查各函式說明文件
+#' Check Each Function's Manual
 #'
 #'@author Yen-Chieh Liao (davidycliao@@gmail.com)
 #'
@@ -6,7 +6,7 @@
 #'from the website of Taiwan Legislative Yuan. The avalaible options is: `get_bills`,
 #'`get_bills_2`, `get_meetings`, `get_caucus_meetings`, `get_speech_video` ,
 #'`get_public_debates`, `get_parlquestions`, `get_executive_response` and
-#'`get_committee_record`. 僅使用舊版 API 參數。
+#'`get_committee_record`. Only supports legacy API parameters.
 #'
 #'@param param_ characters. Must be one of options below: \describe{
 #'      \item{get_bills}{get_bills: the records of the bills, see \url{https://data.ly.gov.tw/getds.action?id=6}}
@@ -107,7 +107,7 @@ get_variable_info <- function(param_) {
 #' Check Session Periods in Each Year (Minguo Calendar)
 #'
 #' @title Check Session Periods in Each Year
-#' @description Examines session periods in Taiwan Minguo calendar (檢查每年會期民國曆)
+#' @description Examines session periods in the Taiwan Minguo calendar
 #'
 #' @author David Liao (davidycliao@@gmail.com)
 #'

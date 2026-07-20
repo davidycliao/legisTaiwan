@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{get_public_debates}
 \alias{get_public_debates}
-\title{The Records of National Public Debates 國是論壇}
+\title{The Records of National Public Debates}
 \usage{
 get_public_debates(term = NULL, session_period = NULL, verbose = TRUE)
 }
@@ -30,26 +30,26 @@ A list containing:
 \item{\code{manual_info}}{official manual URL or use get_variable_info("get_public_debates")}
 \item{\code{data}}{a tibble dataframe containing:
 \describe{
-\item{\code{term}}{屆別}
-\item{\code{sessionPeriod}}{會期}
-\item{\code{sessionTimes}}{會次}
-\item{\code{meetingTimes}}{臨時會會次}
-\item{\code{dateTimeDesc}}{日期時間說明}
-\item{\code{meetingRoom}}{會議地點}
-\item{\code{chairman}}{主持人}
-\item{\code{legislatorName}}{委員姓名}
-\item{\code{speakType}}{發言類型(paper:書面發言,speak:發言)}
-\item{\code{content}}{內容}
-\item{\code{selectTerm}}{屆別期別篩選條件}
+\item{\code{term}}{Term number}
+\item{\code{sessionPeriod}}{Session period}
+\item{\code{sessionTimes}}{Session times}
+\item{\code{meetingTimes}}{Extraordinary session times}
+\item{\code{dateTimeDesc}}{Date/time description}
+\item{\code{meetingRoom}}{Meeting room}
+\item{\code{chairman}}{Chairperson}
+\item{\code{legislatorName}}{Legislator's name}
+\item{\code{speakType}}{Speech type (paper: written statement, speak: spoken)}
+\item{\code{content}}{Content}
+\item{\code{selectTerm}}{Term/session filtering criteria}
 }
 }
 }
 }
 \description{
-The Records of National Public Debates 國是論壇
+The Records of National Public Debates
 }
 \details{
-The function retrieves records from the National Public Debates (國是論壇),
+The function retrieves records from the National Public Debates,
 including both spoken and written opinions. While officially available from
 the 8th legislative term, testing indicates data is only available from
 the 10th term onwards.
@@ -58,8 +58,9 @@ the 10th term onwards.
 For more details about the data variables and API information,
 use \code{get_variable_info("get_public_debates")} or visit the API manual at
 \url{https://data.ly.gov.tw/getds.action?id=7}.
-議事類: 提供公報之國是論壇資訊，並包含書面意見。
-自第8屆第1會期起，但實測資料從第10屆。
+Category: Provides National Public Debate records from the gazette,
+including written opinions. Officially available from the 8th term, 1st
+session, onwards, but testing shows data only starts from the 10th term.
 }
 \examples{
 \dontrun{

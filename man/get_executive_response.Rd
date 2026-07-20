@@ -3,16 +3,16 @@
 \encoding{UTF-8}
 \name{get_executive_response}
 \alias{get_executive_response}
-\title{The Records of Response to the Questions by the Executives 公報質詢事項行政院答復資訊}
+\title{The Records of Response to the Questions by the Executives}
 \usage{
 get_executive_response(term = NULL, session_period = NULL, verbose = TRUE)
 }
 \arguments{
 \item{term}{integer, numeric or NULL. The default is NULL. The data is only
-available from 8th term. 參數必須為數值。資料從自第8屆起，預設值為8。}
+available from 8th term.}
 
 \item{session_period}{integer, numeric or NULL. Available
-options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to NULL. 參數必須為數值。
+options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to NULL.
 \code{review_session_info()} generates each session period  available option period
 in Minguo (Taiwan) calendar.}
 
@@ -29,18 +29,18 @@ list contains: \describe{
 \item{\code{variable_names}}{the variables of the tibble dataframe}
 \item{\code{manual_info}}{the offical manual}
 \item{\code{data}}{a tibble dataframe, whose variables include:
-\describe{\item{\code{term}}{屆別}
-\item{\code{sessionPeriod}}{會期}
-\item{\code{sessionTimes}}{會次}
-\item{\code{meetingTimes}}{臨時會會次}
-\item{\code{eyNumber}}{行政院函公文編號}
-\item{\code{lyNumber}}{立法院函編號}
-\item{\code{subject}}{案由}
-\item{\code{content}}{內容}
-\item{\code{docUrl}}{案由}
-\item{\code{item}}{檔案下載位置}
-\item{\code{item}}{檔案下載位置}
-\item{\code{selectTerm}}{屆別期別篩選條件}
+\describe{\item{\code{term}}{Term number}
+\item{\code{sessionPeriod}}{Session period}
+\item{\code{sessionTimes}}{Session times}
+\item{\code{meetingTimes}}{Extraordinary session times}
+\item{\code{eyNumber}}{Executive Yuan document reference number}
+\item{\code{lyNumber}}{Legislative Yuan document reference number}
+\item{\code{subject}}{Subject}
+\item{\code{content}}{Content}
+\item{\code{docUrl}}{Subject}
+\item{\code{item}}{File download location}
+\item{\code{item}}{File download location}
+\item{\code{selectTerm}}{Term/session filtering criteria}
 }
 }
 }
@@ -58,12 +58,12 @@ use \code{get_variable_info("get_executive_response")}.
 #'@note To retrieve the user manual and more information about variable of the data
 frame, please use \code{get_variable_info("get_executive_response")}
 or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=2}.
-質詢類: 提供公報質詢事項行政院答復資訊 (自第8屆第1會期起)。
+Category: Provides records of the Executive Yuan's responses to legislators'
+questions in the gazette (available from the 8th term, 1st session, onwards).
 }
 \examples{
 \dontrun{
 ## query the Executives' answered response by term and the session period.
-## 輸入「立委屆期」與「會期」下載「行政院答復」
 term8 <- get_executive_response(term = 8, session_period = 1)
 term8
 }

@@ -1,4 +1,4 @@
-# Fetch and Parse Legislative Yuan Bills 取得並解析立法院議案資料
+# Fetch and Parse Legislative Yuan Bills
 
 Retrieves bill information from the Legislative Yuan API with
 comprehensive filter options. Supports filtering by term, session, bill
@@ -46,27 +46,30 @@ get_ly_bills(
 
 - bill_type:
 
-  string. Type of bill:
+  string. Type of bill. The API expects the Chinese-language category
+  name, e.g.:
 
-  - "法律案" (Law Bill)
+  - Law Bill
 
-  - "中央政府總預算案" (Central Government Budget Bill)
+  - Central Government Budget Bill
 
-  - "預(決) 算決議案" (Budget/Final Account Resolution)
+  - Budget/Final Account Resolution
 
-  - "定期報告" (Regular Report)
+  - Regular Report
 
-  - "行政命令(層級)" (Administrative Order)
+  - Administrative Order
 
-  - "院內單位來文" (Internal Document)
+  - Internal Document
 
 - current_status:
 
-  string. Current bill status, e.g., "排入院會"
+  string. Current bill status, in Chinese (e.g., "scheduled for plenary
+  session")
 
 - process_status:
 
-  string. Status in process flow, e.g., "排入院會 (交內政委員會)"
+  string. Status in process flow, in Chinese (e.g., "scheduled for
+  plenary session, referred to the Interior Committee")
 
 - proposer:
 
@@ -78,7 +81,7 @@ get_ly_bills(
 
 - source:
 
-  string. Source of bill, e.g., "委員提案"
+  string. Source of bill, in Chinese (e.g., "legislator proposal")
 
 - bill_id:
 
@@ -90,7 +93,8 @@ get_ly_bills(
 
 - meeting_code:
 
-  string. Meeting code, e.g., "院會-11-2-3"
+  string. Meeting code, e.g., a plenary-session meeting in term 11,
+  session 2, session-times 3
 
 - show_progress:
 
@@ -111,21 +115,21 @@ if (FALSE) { # \dontrun{
 # Get law bills
 bills <- get_ly_bills(
   term = 11,
-  bill_type = "法律案",
+  bill_type = "Law Bill",  # pass the Chinese-language category name here
   show_progress = TRUE
 )
 
 # Get budget bills
 bills <- get_ly_bills(
   term = 11,
-  bill_type = "中央政府總預算案",
+  bill_type = "Central Government Budget Bill",  # in Chinese
   show_progress = TRUE
 )
 
 # Get administrative orders
 bills <- get_ly_bills(
   term = 11,
-  bill_type = "行政命令(層級)",
+  bill_type = "Administrative Order",  # in Chinese
   show_progress = TRUE
 )
 } # }

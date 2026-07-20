@@ -1,4 +1,4 @@
-#' @title The Records of the Bills: 法律提案
+#' @title The Records of the Bills
 #'
 #' @author David Liao (davidycliao@@gmail.com)
 #'
@@ -50,10 +50,10 @@
 #' get_bills(start_date = 1060120, end_date = 1070310, verbose = TRUE)
 #'
 #' ## Query bill records by a date range and a specific legislator
-#' get_bills(start_date = 1060120, end_date = 1070310,  proposer = "孔文吉")
+#' get_bills(start_date = 1060120, end_date = 1070310,  proposer = "Kung Wen-chi")
 #'
 #' ## Query bill records by a date range and multiple legislators
-#' get_bills(start_date = 1060120, end_date = 1060510,  proposer = "孔文吉&鄭天財")
+#' get_bills(start_date = 1060120, end_date = 1060510,  proposer = "Kung Wen-chi&Cheng Tien-tsai")
 #' }
 #'
 #' @details The `get_bills` function returns a list that contains `query_time`,
@@ -148,16 +148,15 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 }
 
 
-#' @title The Records of Legislation and the Executives Proposals: 委員及政府議案提案資訊
+#' @title The Records of Legislation and the Executives Proposals
 #'
 #' @author David Liao (davidycliao@@gmail.com)
 #'
 #' @param term A numeric or NULL value. Data is available from the 8th term onwards.
-#' Default is set to 8. 參數必須為數值。資料從第8屆開始，預設值為8。
+#' Default is set to 8.
 #'
 #' @param session_period An integer, numeric, or NULL. Valid options for the session are:
 #' 1, 2, 3, 4, 5, 6, 7, and 8. Default is set to NULL.
-#' 參數必須為數值。
 #' `review_session_info()` provides available session periods based on the Minguo (Taiwan) calendar.
 #'
 #' @param verbose Default value is TRUE. Displays details of the retrieved data, including the number, URL, and computing time.
@@ -172,16 +171,16 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 #'      \item{`manual_info`}{Official manual: \url{https://data.ly.gov.tw/getds.action?id=20} or use `get_variable_info("get_bills_2")`}
 #'      \item{`data`}{A tibble dataframe with variables such as:
 #'      \describe{
-#'                \item{`term`}{屆別}
-#'                \item{`sessionPeriod`}{會期}
-#'                \item{`sessionTimes`}{會次}
-#'                \item{`meetingTimes`}{臨時會會次}
-#'                \item{`billNo`}{議案編號}
-#'                \item{`billName`}{提案名稱}
-#'                \item{`billOrg`}{提案單位/委員}
-#'                \item{`billProposer`}{主提案人}
-#'                \item{`billCosignatory`}{連署提案}
-#'                \item{`billStatus`}{議案狀態}
+#'                \item{`term`}{Legislative term number}
+#'                \item{`sessionPeriod`}{Session period}
+#'                \item{`sessionTimes`}{Session times}
+#'                \item{`meetingTimes`}{Extraordinary session times}
+#'                \item{`billNo`}{Bill number}
+#'                \item{`billName`}{Bill title}
+#'                \item{`billOrg`}{Proposing unit/legislator}
+#'                \item{`billProposer`}{Primary proposer}
+#'                \item{`billCosignatory`}{Co-signed proposal}
+#'                \item{`billStatus`}{Bill status}
 #'                \item{`pdfUrl`}{PDF download link for related documents}
 #'                \item{`docUrl`}{DOC download link for related documents}
 #'                \item{`selectTerm`}{Filtering criteria based on term}
@@ -200,7 +199,6 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 #' @examples
 #' \dontrun{
 #' ## Query the executives' responses by term and session period.
-#' ## 輸入「立委屆期」與「會期」以下載「質詢事項 (行政院答復部分)」
 #' get_bills_2(term = 8, session_period = 1)
 #' }
 #'
@@ -210,7 +208,8 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 #'
 #' @note For more details about the dataframe's variables, use `get_variable_info("get_bills_2")`
 #' or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=20}.
-#' 議事類: 提供委員及政府之議案提案資訊 (從第8屆第1會期開始)。
+#' Category: Provides bill-proposal records for legislators and the executive
+#' (available from the 8th term, 1st session, onwards).
 #' @seealso
 #' `get_variable_info("get_bills_2")`,`review_session_info()`
 #'

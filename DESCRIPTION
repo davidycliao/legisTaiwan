@@ -4,19 +4,19 @@ Title: An Interface to Access Taiwan Legislative API in R
 Version: 0.2.2
 Authors@R: c(person("Yen-Chieh", "Liao", email = "davidycliao@gmail.com", role = c("aut", "cre")),
              person("Li", "Tang", email = "li.tang@reading.ac.uk", role = c("ctb", "aut")),
-             person("OpenFun Ltd.", "歐噴有限公司", email = "contact@openfun.tw", role = c("fnd", "ctb", "cph")),
+             person("OpenFun Ltd.", email = "contact@openfun.tw", role = c("fnd", "ctb", "cph")),
              person("Shaka Y.J.", "Li", email = "aeodr452@gmail.com", role = "ctb"),
-             person("Taiwan Legislative Yuan 立法院", role =  c("cph", "fnd")),
+             person("Taiwan Legislative Yuan", role =  c("cph", "fnd")),
              person("Taiwan National Science and Technology Council", role = "ctb"),
              person("Taiwan Science & Technology Policy Research and Information Center NARLabs", role = "ctb"))
-Description: The package is designed to make it quickly and easy to access Taiwan 
-    Legislative Yuan API for downloading real-time data, legislative records and 
-    historical archives. Features include access to committee meetings, 
-    interpellations, bills, legislator information, parliamentary questions, 
-    and executive responses. The API provides comprehensive coverage of 
-    legislative activities including voting records, meeting minutes, and 
-    policy discussions, enabling users to analyze Taiwan's legislative 
-    processes and parliamentary operations efficiently.
+Description: Provides quick and easy access to Taiwan's Legislative Yuan API
+    for downloading real-time data, legislative records and historical
+    archives. Features include access to committee meetings, interpellations,
+    bills, legislator information, parliamentary questions, and executive
+    responses. The API provides comprehensive coverage of legislative
+    activities including voting records, meeting minutes, and policy
+    discussions, enabling users to analyze Taiwan's legislative processes and
+    parliamentary operations efficiently.
 Maintainer: Yen-Chieh Liao <davidycliao@gmail.com>
 Depends: R (>= 3.4.0)
 License: GPL-3 + file LICENSE
@@ -61,4 +61,3 @@ Config/default/Rcheck/ascii: FALSE
 Config/default/Rcheck/incoming: FALSE
 NeedsCompilation: no
 Config/rextendr/rextendr.rchk.force: false
-AS-CRAN: FALSE
