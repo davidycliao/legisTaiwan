@@ -17,7 +17,7 @@ remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
 ``` r
 
 library(legisTaiwan)
-#> ## legisTaiwan v0.2.2                                     ##
+#> ## legisTaiwan v0.2.1                                     ##
 #> ## An R package connecting to the Taiwan Legislative API. ##
 ```
 

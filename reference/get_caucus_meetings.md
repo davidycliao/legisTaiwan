@@ -158,7 +158,15 @@ Yen-Chieh Liao (davidycliao@gmail.com)
 ## the dates in Taiwan ROC calender format with forward slash (/).
 get_caucus_meetings(start_date = "106/10/20", end_date = "107/03/10")
 #> Downloading caucus meetings data...
-#>   |                                                                     |                                                             |   0%  |                                                                     |============                                                 |  20%  |                                                                     |========================                                     |  40%  |                                                                     |=====================================                        |  60%
+#> 
+  |                                                                   
+  |                                                             |   0%
+  |                                                                   
+  |============                                                 |  20%
+  |                                                                   
+  |========================                                     |  40%
+  |                                                                   
+  |=====================================                        |  60%
 #> Warning: URL 'https://data.ly.gov.tw/odw/ID8Action.action?comYear=&comVolume=&comBookId=&term=&sessionPeriod=&sessionTimes=&meetingTimes=&meetingDateS=106/10/20&meetingDateE=107/03/10&fileType=json': status was 'SSL connect error'
 #> 
 #> 
