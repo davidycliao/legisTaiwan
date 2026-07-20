@@ -9,6 +9,7 @@
 ^\.Rcheck$
 ^.*\.utf8\.R$
 ^README\.Rmd$
+^README\.html$
 ^.*\.DS_Store$
 ^.DS_Store$
 ^\.Rproj\.user$
@@ -16,3 +17,4 @@
 ^cran-comments\.md$
 ^\.claude$
 ^CRAN-SUBMISSION$
+^\.codefactor\.yml$

@@ -86,21 +86,21 @@ get_bills <- function(start_date = NULL, end_date = NULL, proposer = NULL,
 
   tryCatch(
     {
-      # 更新進度條到 30%
+      # update progress bar to 30%
       if(isTRUE(verbose)) setTxtProgressBar(pb, 30)
 
       with_options(list(timeout = max(1000, getOption("timeout"))),{
         json_df <- jsonlite::fromJSON(set_api_url)
       })
 
-      # 更新進度條到 60%
+      # update progress bar to 60%
       if(isTRUE(verbose)) setTxtProgressBar(pb, 60)
 
       df <- tibble::as_tibble(json_df)
       attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "The query is unavailable.")
       df["date_ad"] <- do.call("c", lapply(df$date, transformed_date_bill))
 
-      # 更新進度條到 90%
+      # update progress bar to 90%
       if(isTRUE(verbose)) setTxtProgressBar(pb, 90)
 
       if(isTRUE(verbose)) {
@@ -278,7 +278,7 @@ get_bills_2 <- function(term = 8, session_period = NULL, verbose = TRUE) {
 
       # Calculate summary statistics
       total_bills <- nrow(df)
-      budget_bills <- if("billName" %in% colnames(df)) sum(grepl("預算", df$billName)) else 0
+      budget_bills <- if("billName" %in% colnames(df)) sum(grepl("\u9810\u7b97", df$billName)) else 0
       budget_percentage <- if(total_bills > 0) (budget_bills / total_bills) * 100 else 0
 
       # Update progress bar to 100%

@@ -1,22 +1,13 @@
 ## R CMD check results
 
-0 errors | 1 warning | 3 notes
+0 errors | 0 warnings | 2 notes
 
-* checking code files for non-ASCII characters ... WARNING
-
-  All roxygen-generated documentation (titles, descriptions, parameter
-  docs, examples) is now pure ASCII, so this warning no longer affects
-  the PDF/HTML reference manual. The remaining non-ASCII bytes are inside
-  a handful of R function *bodies* (not documentation): regular-expression
-  separators used to split Chinese-language legislator name lists (e.g.
-  `；`, `，`), a few `gsub()` patterns that strip Chinese honorific prefixes
-  from names, and default/example values that must match category labels
-  returned verbatim by the Legislative Yuan's own API (e.g. `屆期會期`,
-  `代號`, `名稱`, `職掌`, `類別`). These strings must remain literal
-  Traditional Chinese to correctly match the live data; rewriting them as
-  \uXXXX escapes is not effective inside R code comments/strings for this
-  purpose without changing behavior, and removing them would break the
-  matching logic. `Encoding: UTF-8` is declared in DESCRIPTION.
+All R source files are now pure ASCII: functionally load-bearing
+Chinese content (regex separators for splitting legislator name lists,
+column/category names that must match the Legislative Yuan API's own
+Traditional Chinese labels verbatim, honorific-stripping patterns) is
+expressed as \uXXXX escapes rather than literal characters, so it is
+byte-for-byte identical at runtime with no behavior change.
 
 * checking for future file timestamps ... NOTE
 

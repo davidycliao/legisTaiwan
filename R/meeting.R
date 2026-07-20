@@ -77,12 +77,12 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
                          verbose = TRUE) {
   check_internet()
 
-  # 先檢查必要參數
+  # check required parameters first
   if(is.null(start_date) || is.null(end_date)) {
     message("\nBoth start_date and end_date must be provided.\n")
   }
 
-  # 初始化進度顯示
+  # initialize progress display
   if(isTRUE(verbose)) {
     cat("\nInput Format Information:\n")
     cat("------------------------\n")
@@ -249,13 +249,13 @@ get_meetings <- function(start_date = NULL, end_date = NULL, meeting_unit = NULL
 #'@encoding UTF-8
 get_caucus_meetings <- function(start_date = NULL, end_date = NULL,
                                 verbose = TRUE) {
-  # 檢查日期格式
+  # check date format
   date_format_check <- function(date) {
     if (!is.null(date) && !grepl("^\\d{3}/\\d{2}/\\d{2}$", date)) {
       stop(paste("Invalid date format:", date, "\n",
                  "Please use the format 'YYY/MM/DD' (ROC calendar),\n",
                  "For example: '106/10/20'\n",
-                 "Where YYY is the ROC year (民國年)"))
+                 "Where YYY is the ROC (Minguo) calendar year"))
     }
   }
 

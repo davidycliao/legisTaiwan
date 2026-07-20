@@ -77,7 +77,7 @@ library(legisTaiwan)
 
 <div style="text-align: justify; font-size: 1.1rem; line-height: 1.6; color: #333; max-width: 800px; margin: 1rem auto; padding: 0 1rem; font-family: 'Helvetica Neue', Arial, sans-serif;">
 
-- The Legislative Yuan API has transitioned from `https://ly.govapi.tw` to `https://v2.ly.govapi.tw`. While we are still supporting functions that use the legacy API, please note that according to official notice, the old API endpoint will not be maintained. We recommend users to gradually transition to [the newer functions]() attached with API V2.
+- The Legislative Yuan API has transitioned from `https://ly.govapi.tw` to `https://v2.ly.govapi.tw`. While we are still supporting functions that use the legacy API, please note that according to official notice, the old API endpoint will not be maintained. We recommend users to gradually transition to [the newer functions](https://davidycliao.github.io/legisTaiwan/reference/index.html#api-v2-bills-and-committees) attached with API V2.
 
 
 </div>

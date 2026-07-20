@@ -212,14 +212,14 @@ review_session_info <- function(term) {
 
     # Clean JavaScript code from date field
     # The date field often contains unwanted JavaScript that needs to be removed
-    col_index <- which(colnames(df) == "會議起迄日")
+    col_index <- which(colnames(df) == "\u6703\u8b70\u8d77\u8fc4\u65e5")
     if (length(col_index) > 0) {
       df[, col_index] <- gsub("~if\\(.*\\).*", "~", df[, col_index])
     }
 
     # Sort by session number to ensure proper ordering
     # This section prevents "NAs introduced by coercion" warnings
-    col_index <- which(colnames(df) == "屆期會期")
+    col_index <- which(colnames(df) == "\u5c46\u671f\u6703\u671f")
     if (length(col_index) > 0) {
       # More robust method to extract and sort by session numbers
       session_titles <- df[, col_index]
@@ -228,10 +228,10 @@ review_session_info <- function(term) {
       session_numbers <- suppressWarnings({
         sapply(session_titles, function(title) {
           # Extract the main session number (not including special sessions)
-          match <- regexpr("第([0-9]+)會期", title)
+          match <- regexpr("\u7b2c([0-9]+)\u6703\u671f", title)
           if (match > 0) {
-            start_pos <- match + 1  # Skip the "第" character
-            end_pos <- start_pos + attr(match, "match.length") - 3  # Exclude "會期"
+            start_pos <- match + 1  # Skip the ordinal-marker character
+            end_pos <- start_pos + attr(match, "match.length") - 3  # Exclude the session-period suffix
             as.numeric(substr(title, start_pos, end_pos))
           } else {
             NA_real_  # Return NA for titles that don't match the pattern
@@ -241,7 +241,7 @@ review_session_info <- function(term) {
 
       # Create a sorting index that handles both regular and special sessions
       # First by main session number, then by whether it's a special session
-      is_special_session <- grepl("臨時會", session_titles)
+      is_special_session <- grepl("\u81e8\u6642\u6703", session_titles)
 
       if (any(!is.na(session_numbers))) {
         sort_index <- order(is.na(session_numbers),  # NAs last

@@ -63,12 +63,12 @@
 get_parlquestions <- function(term = NULL, session_period = NULL, verbose = TRUE) {
   check_internet()
 
-  # 先檢查 term 並顯示訊息
+  # check term first and display a message
   if (is.null(term)) {
     message("\nTerm is not defined...\nRequesting full data from the API. Please ensure stable connectivity.\n")
   }
 
-  # 初始化進度顯示
+  # initialize progress display
   if(isTRUE(verbose)) {
     cat("\nInput Format Information:\n")
     cat("------------------------\n")
@@ -82,7 +82,7 @@ get_parlquestions <- function(term = NULL, session_period = NULL, verbose = TRUE
   # Update progress bar to 20%
   if(isTRUE(verbose)) setTxtProgressBar(pb, 20)
 
-  # 建構 API URL
+  # construct the API URL
   if (is.null(term)) {
     set_api_url <- paste("https://data.ly.gov.tw/odw/ID6Action.action?term=", term,
                          "&sessionPeriod=",
@@ -146,7 +146,7 @@ get_parlquestions <- function(term = NULL, session_period = NULL, verbose = TRUE
         cat("===================================\n")
       }
 
-      # 回傳結果
+      # return the result
       list_data <- list(
         "title" = "Parliamentary Questions Records",
         "query_time" = Sys.time(),
@@ -244,12 +244,12 @@ get_parlquestions <- function(term = NULL, session_period = NULL, verbose = TRUE
 get_executive_response <- function(term = NULL, session_period = NULL, verbose = TRUE) {
   check_internet()
 
-  # 先檢查 term 並顯示訊息
+  # check term first and display a message
   if (is.null(term)) {
     message("\nTerm is not defined...\nRequesting full data from the API. Please ensure stable connectivity.\n")
   }
 
-  # 初始化進度顯示
+  # initialize progress display
   if(isTRUE(verbose)) {
     cat("\nInput Format Information:\n")
     cat("------------------------\n")
@@ -263,7 +263,7 @@ get_executive_response <- function(term = NULL, session_period = NULL, verbose =
   # Update progress bar to 20%
   if(isTRUE(verbose)) setTxtProgressBar(pb, 20)
 
-  # 建構 API URL
+  # construct the API URL
   if (is.null(term)) {
     set_api_url <- paste("https://data.ly.gov.tw/odw/ID2Action.action?term=",
                          term, "&sessionPeriod=",
@@ -327,7 +327,7 @@ get_executive_response <- function(term = NULL, session_period = NULL, verbose =
         cat("===================================\n")
       }
 
-      # 回傳結果
+      # return the result
       list_data <- list(
         "title" = "Executive Response Records",
         "query_time" = Sys.time(),

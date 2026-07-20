@@ -60,8 +60,8 @@ library(legisTaiwan)
   that use the legacy API, please note that according to official
   notice, the old API endpoint will not be maintained. We recommend
   users to gradually transition to [the newer
-  functions](https://davidycliao.github.io/legisTaiwan/) attached with
-  API V2.
+  functions](https://davidycliao.github.io/legisTaiwan/reference/index.html#api-v2-bills-and-committees)
+  attached with API V2.
 
 ### Support:
 

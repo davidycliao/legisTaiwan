@@ -143,7 +143,7 @@ analyze_meetings <- function(stats) {
   # Process meeting data
   meeting_stats <- stats$meet$terms %>%
     dplyr::mutate(
-      minutes_ratio = round(.data$議事錄_count / .data$count * 100, 2),
+      minutes_ratio = round(.data[["\u8b70\u4e8b\u9304_count"]] / .data$count * 100, 2),
       last_meeting_date = format(.data$max_meeting_date, "%Y-%m-%d")
     )
 
@@ -156,7 +156,7 @@ analyze_meetings <- function(stats) {
       alpha = 0.5
     ) +
     ggplot2::geom_bar(
-      ggplot2::aes(y = .data$議事錄_count),
+      ggplot2::aes(y = .data[["\u8b70\u4e8b\u9304_count"]]),
       stat = "identity",
       fill = "red",
       alpha = 0.5
@@ -452,7 +452,7 @@ generate_report <- function(stats) {
 calculate_bill_trends <- function(stats) {
   bill_trends <- stats$bill$terms %>%
     dplyr::left_join(stats$meet$terms, by = "term") %>%
-    dplyr::arrange(.data$term) %>%  # 確保按 term 排序
+    dplyr::arrange(.data$term) %>%  # ensure sorted by term
     dplyr::mutate(
       bills_per_meeting = round(.data$count.x / .data$count.y, 2),
       bills_per_day = round(.data$count.x / as.numeric(

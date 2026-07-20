@@ -146,32 +146,32 @@ get_ly_legislator_cosign_bills <- function(
   if (length(data$bills) > 0) {
     bills_df <- data.frame(
       billNo = data$bills[["billNo"]],
-      議案名稱 = data$bills[["議案名稱"]],
-      提案單位 = data$bills[["提案單位/提案委員"]],
-      議案狀態 = data$bills[["議案狀態"]],
-      議案類別 = data$bills[["議案類別"]],
-      提案來源 = data$bills[["提案來源"]],
+      "\u8b70\u6848\u540d\u7a31" = data$bills[["\u8b70\u6848\u540d\u7a31"]],
+      "\u63d0\u6848\u55ae\u4f4d" = data$bills[["\u63d0\u6848\u55ae\u4f4d/\u63d0\u6848\u59d4\u54e1"]],
+      "\u8b70\u6848\u72c0\u614b" = data$bills[["\u8b70\u6848\u72c0\u614b"]],
+      "\u8b70\u6848\u985e\u5225" = data$bills[["\u8b70\u6848\u985e\u5225"]],
+      "\u63d0\u6848\u4f86\u6e90" = data$bills[["\u63d0\u6848\u4f86\u6e90"]],
       meet_id = data$bills[["meet_id"]],
-      會期 = data$bills[["會期"]],
-      字號 = data$bills[["字號"]],
-      提案編號 = data$bills[["提案編號"]],
-      屆期 = data$bills[["屆期"]],
+      "\u6703\u671f" = data$bills[["\u6703\u671f"]],
+      "\u5b57\u865f" = data$bills[["\u5b57\u865f"]],
+      "\u63d0\u6848\u7de8\u865f" = data$bills[["\u63d0\u6848\u7de8\u865f"]],
+      "\u5c46\u671f" = data$bills[["\u5c46\u671f"]],
       mtime = data$bills[["mtime"]],
       stringsAsFactors = FALSE
     )
   } else {
     bills_df <- data.frame(
       billNo = character(),
-      議案名稱 = character(),
-      提案單位 = character(),
-      議案狀態 = character(),
-      議案類別 = character(),
-      提案來源 = character(),
+      "\u8b70\u6848\u540d\u7a31" = character(),
+      "\u63d0\u6848\u55ae\u4f4d" = character(),
+      "\u8b70\u6848\u72c0\u614b" = character(),
+      "\u8b70\u6848\u985e\u5225" = character(),
+      "\u63d0\u6848\u4f86\u6e90" = character(),
       meet_id = character(),
-      會期 = integer(),
-      字號 = character(),
-      提案編號 = character(),
-      屆期 = integer(),
+      "\u6703\u671f" = integer(),
+      "\u5b57\u865f" = character(),
+      "\u63d0\u6848\u7de8\u865f" = character(),
+      "\u5c46\u671f" = integer(),
       mtime = character(),
       stringsAsFactors = FALSE
     )
@@ -192,14 +192,14 @@ get_ly_legislator_cosign_bills <- function(
 
     if(nrow(bills_df) > 0) {
       # Add bill type distribution
-      bill_types <- table(bills_df$議案類別)
+      bill_types <- table(bills_df[["\u8b70\u6848\u985e\u5225"]])
       cat("\nBill Type Distribution:\n")
       for(type in names(bill_types)) {
         cat(sprintf(" %s: %d\n", type, bill_types[type]))
       }
 
       # Add status distribution
-      bill_status <- table(bills_df$議案狀態)
+      bill_status <- table(bills_df[["\u8b70\u6848\u72c0\u614b"]])
       cat("\nBill Status Distribution:\n")
       for(status in names(bill_status)) {
         cat(sprintf(" %s: %d\n", status, bill_status[status]))
