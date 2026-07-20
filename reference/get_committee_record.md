@@ -121,9 +121,17 @@ get_committee_record(term = 10, session_period = 1)
 #> ------------------------
 #> 
 #> Downloading committee records data...
-#>   |                                                                     |                                                             |   0%  |                                                                     |============                                                 |  20%  |                                                                     |========================                                     |  40%  |                                                                     |=====================================                        |  60%
-#> Warning: URL 'https://data.ly.gov.tw/odw/ID46Action.action?term=10&sessionPeriod=01&sessionTimes=01&meetingTimes=&fileType=json': status was 'SSL connect error'
 #> 
+  |                                                                   
+  |                                                             |   0%
+  |                                                                   
+  |============                                                 |  20%
+  |                                                                   
+  |========================                                     |  40%
+  |                                                                   
+  |=====================================                        |  60%
+  |                                                                   
+  |=================================================            |  80%
 #> 
-#> Error in open.connection(con, "rb"): cannot open the connection to 'https://data.ly.gov.tw/odw/ID46Action.action?term=10&sessionPeriod=01&sessionTimes=01&meetingTimes=&fileType=json'
+#> Error: The query is unavailable.
 ```

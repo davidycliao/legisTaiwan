@@ -158,9 +158,78 @@ Yen-Chieh Liao (davidycliao@gmail.com)
 ## the dates in Taiwan ROC calender format with forward slash (/).
 get_caucus_meetings(start_date = "106/10/20", end_date = "107/03/10")
 #> Downloading caucus meetings data...
-#>   |                                                                     |                                                             |   0%  |                                                                     |============                                                 |  20%  |                                                                     |========================                                     |  40%  |                                                                     |=====================================                        |  60%
-#> Warning: URL 'https://data.ly.gov.tw/odw/ID8Action.action?comYear=&comVolume=&comBookId=&term=&sessionPeriod=&sessionTimes=&meetingTimes=&meetingDateS=106/10/20&meetingDateE=107/03/10&fileType=json': status was 'SSL connect error'
+#> 
+  |                                                                   
+  |                                                             |   0%
+  |                                                                   
+  |============                                                 |  20%
+  |                                                                   
+  |========================                                     |  40%
+  |                                                                   
+  |=====================================                        |  60%
+  |                                                                   
+  |=================================================            |  80%
+  |                                                                   
+  |=============================================================| 100%
 #> 
 #> 
-#> Error in open.connection(con, "rb"): cannot open the connection to 'https://data.ly.gov.tw/odw/ID8Action.action?comYear=&comVolume=&comBookId=&term=&sessionPeriod=&sessionTimes=&meetingTimes=&meetingDateS=106/10/20&meetingDateE=107/03/10&fileType=json'
+#> ====== Retrieved Information ======
+#> -----------------------------------
+#>  URL: 
+#>  https://data.ly.gov.tw/odw/ID8Action.action?comYear=&comVolume=&comBookId=&term=&sessionPeriod=&sessionTimes=&meetingTimes=&meetingDateS=106/10/20&meetingDateE=107/03/10&fileType=json 
+#>  Date Range:  2017-10-20  to  2018-03-10 
+#>  Total Meetings:  27 
+#> ===================================
+#> $title
+#> [1] "the meeting records of cross-caucus session"
+#> 
+#> $query_time
+#> [1] "2026-07-21 06:51:35 CST"
+#> 
+#> $retrieved_number
+#> [1] 27
+#> 
+#> $start_date_ad
+#> [1] "2017-10-20"
+#> 
+#> $end_date_ad
+#> [1] "2018-03-10"
+#> 
+#> $start_date
+#> [1] "106/10/20"
+#> 
+#> $end_date
+#> [1] "107/03/10"
+#> 
+#> $url
+#> [1] "https://data.ly.gov.tw/odw/ID8Action.action?comYear=&comVolume=&comBookId=&term=&sessionPeriod=&sessionTimes=&meetingTimes=&meetingDateS=106/10/20&meetingDateE=107/03/10&fileType=json"
+#> 
+#> $variable_names
+#>  [1] "comYear"       "comVolume"     "comBookId"     "term"         
+#>  [5] "sessionPeriod" "sessionTimes"  "meetingTimes"  "meetingDate"  
+#>  [9] "meetingName"   "subject"       "pageStart"     "pageEnd"      
+#> [13] "docUrl"        "htmlUrl"       "selectTerm"   
+#> 
+#> $manual_info
+#> [1] "https://data.ly.gov.tw/getds.action?id=8"
+#> 
+#> $data
+#> # A tibble: 27 × 15
+#>    comYear comVolume comBookId term  sessionPeriod sessionTimes
+#>    <chr>   <chr>     <chr>     <chr> <chr>         <chr>       
+#>  1 103     43        "四"      08    05            12          
+#>  2 103     43        "四"      08    05            12          
+#>  3 106     103       "下"      null  null          null        
+#>  4 106     108       ""        09    04            10          
+#>  5 106     108       ""        09    04            10          
+#>  6 106     113       "下"      null  null          null        
+#>  7 106     113       "下"      null  null          null        
+#>  8 106     116       "下"      09    04            12          
+#>  9 106     87        "下"      09    04            06          
+#> 10 106     87        "下"      09    04            null        
+#> # ℹ 17 more rows
+#> # ℹ 9 more variables: meetingTimes <chr>, meetingDate <chr>,
+#> #   meetingName <chr>, subject <chr>, pageStart <chr>, pageEnd <chr>,
+#> #   docUrl <chr>, htmlUrl <chr>, selectTerm <chr>
+#> 
 ```

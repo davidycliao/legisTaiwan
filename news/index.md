@@ -4,6 +4,54 @@
 
 ### Major Changes
 
+**CRAN submission readiness: license, encoding, and dead-code fixes**
+
+- **License corrected to MIT.** `DESCRIPTION` incorrectly declared
+  `GPL-3 + file LICENSE`, but the `LICENSE` file used the MIT license
+  stub format (flagged by CRAN reviewer Uwe Ligges). Switched to
+  `MIT + file LICENSE` and added `LICENSE.md` with the full license
+  text.
+- **Removed all non-ASCII characters from package documentation and
+  code**, resolving a CRAN `WARNING` and a PDF-manual build failure.
+  Chinese characters in `Authors@R` and roxygen documentation broke
+  LaTeX rendering of the PDF reference manual entirely (no CJK font
+  support in CRAN’s build environment); all documentation was translated
+  to English. Remaining Chinese that is functionally required to match
+  the Legislative Yuan API’s own column/category names, or to split
+  Chinese-language legislator name lists, is now expressed as `\uXXXX`
+  escapes — byte-for-byte identical at runtime, with no behavior change.
+- **[`bill_to_network()`](https://davidycliao.github.io/legisTaiwan/reference/bill_to_network.md)**:
+  new function to convert bill proposer/cosigner data into an `igraph`
+  network object (centrality measures, community detection). Added the
+  missing `igraph` dependency to `DESCRIPTION` and fixed several
+  `@importFrom` omissions (`V`, `V<-`, `E`, `membership`) that caused
+  runtime errors; switched off the now-deprecated
+  [`igraph::get.edgelist()`](https://r.igraph.org/reference/get.edgelist.html).
+- **Removed dead code**:
+  [`review_session_info()`](https://davidycliao.github.io/legisTaiwan/reference/review_session_info.md)
+  and
+  [`get_committee_record()`](https://davidycliao.github.io/legisTaiwan/reference/get_committee_record.md)
+  each had an orphaned, unused duplicate function/doc block left over
+  from a previous refactor; the duplicate documentation for
+  [`review_session_info()`](https://davidycliao.github.io/legisTaiwan/reference/review_session_info.md)
+  was silently merged into the Rd file ahead of its `\dontrun{}` guard,
+  causing an unguarded live API call during every `R CMD check`.
+  [`get_legislators()`](https://davidycliao.github.io/legisTaiwan/reference/get_legislators.md)’s
+  docs also had a stray, unrelated
+  [`get_executive_response()`](https://davidycliao.github.io/legisTaiwan/reference/get_executive_response.md)
+  example call sitting outside `\dontrun{}`.
+- **Tests are now CRAN-safe**: all tests that call the live Legislative
+  Yuan API are guarded with `skip_on_cran()` and gracefully skip
+  (instead of failing) when the API is unreachable or returns an
+  unexpected error, so a transient outage of the upstream government
+  website can no longer fail automated checks.
+- Misc.: fixed a broken `README` link left as `[the newer functions]()`,
+  updated the `codecov.io` badge link to `app.codecov.io`, removed a
+  stale `inst/README.Rmd`/`.md` duplicate from v0.1.6 that CRAN’s URL
+  checker was scanning instead of the current README, and excluded
+  generated/local files (`.codefactor.yml`, `README.html`) from the
+  built package via `.Rbuildignore`.
+
 **Fix SSL connection issues in review_session_info function and example
 errors**
 
