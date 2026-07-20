@@ -1,6 +1,6 @@
 test_that("get_legislators", {
   skip_on_cran()
-  result <- tryCatch(get_legislators(term = 2), error = function(e) NULL)
+  result <- suppressWarnings(tryCatch(get_legislators(term = 2), error = function(e) NULL))
   skip_if(is.null(result), "Legislative Yuan API not reachable")
 
   expect_equal(nrow(result$data), 165)

@@ -1,7 +1,7 @@
 test_that("get_ly_committees_type basic functionality", {
   skip_on_cran()
   # 測試基本呼叫
-  result <- tryCatch(get_ly_committees_type(show_progress = FALSE), error = function(e) NULL)
+  result <- suppressWarnings(tryCatch(get_ly_committees_type(show_progress = FALSE), error = function(e) NULL))
   skip_if(is.null(result), "Legislative Yuan API not reachable")
 
   # 檢查回傳值結構
@@ -15,7 +15,7 @@ test_that("get_ly_committees_type basic functionality", {
 test_that("get_ly_committees_type handles parameters correctly", {
   skip_on_cran()
   # 測試特定參數
-  result <- tryCatch(
+  result <- suppressWarnings(tryCatch(
     get_ly_committees_type(
       page = 1,
       per_page = 10,
@@ -23,7 +23,7 @@ test_that("get_ly_committees_type handles parameters correctly", {
       show_progress = FALSE
     ),
     error = function(e) NULL
-  )
+  ))
   skip_if(is.null(result), "Legislative Yuan API not reachable")
 
   # 檢查分頁設定
