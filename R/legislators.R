@@ -68,12 +68,12 @@
 get_legislators <- function(term = NULL, verbose = TRUE) {
   check_internet()
 
-  # 先檢查 term 並顯示訊息
+  # check term first and display a message
   if (is.null(term)) {
     message("\nTerm is not defined...\nRequesting full data from the API. Please ensure stable connectivity.\n")
   }
 
-  # 初始化進度顯示
+  # initialize progress display
   if(isTRUE(verbose)) {
     cat("\nInput Format Information:\n")
     cat("------------------------\n")
@@ -86,7 +86,7 @@ get_legislators <- function(term = NULL, verbose = TRUE) {
   # Update progress bar to 20%
   if(isTRUE(verbose)) setTxtProgressBar(pb, 20)
 
-  # 建構 API URL
+  # construct the API URL
   if (is.null(term)) {
     set_api_url <- paste("https://data.ly.gov.tw/odw/ID16Action.action?name=&sex=&party=&partyGroup=&areaName=&term=",
                          term, "=&fileType=json", sep = "")
@@ -106,7 +106,7 @@ get_legislators <- function(term = NULL, verbose = TRUE) {
                          term, "=&fileType=json", sep = "")
   }
 
-  # 取得資料
+  # fetch data
   tryCatch(
     {
       # Update progress bar to 60%
@@ -122,7 +122,7 @@ get_legislators <- function(term = NULL, verbose = TRUE) {
       df <- tibble::as_tibble(json_df$dataList)
       attempt::stop_if_all(nrow(df) == 0, isTRUE, msg = "Query returned no data.")
 
-      # 計算統計資訊
+      # compute summary statistics
       term <- paste(sort(as.numeric(unique(df$term))), collapse = " ", sep = ",")
       party_counts <- table(df$party)
 
@@ -146,7 +146,7 @@ get_legislators <- function(term = NULL, verbose = TRUE) {
         cat("===================================\n")
       }
 
-      # 回傳結果
+      # return the result
       list_data <- list(
         "title" = "Legislator's Demographic Information",
         "query_time" = Sys.time(),

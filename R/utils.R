@@ -2,13 +2,13 @@
 #' @encoding UTF-8
 #' @keywords internal
 .clean_names <- function(x) {
-  names <- gsub("本院委員", "", x)
-  names <- gsub("委員", "", names)
-  names <- gsub("等\\s*\\d+\\s*人", "", names)
-  names <- gsub("等\\d+人", "", names)
-  names <- gsub("等", "", names)
+  names <- gsub("\u672c\u9662\u59d4\u54e1", "", x)
+  names <- gsub("\u59d4\u54e1", "", names)
+  names <- gsub("\u7b49\\s*\\d+\\s*\u4eba", "", names)
+  names <- gsub("\u7b49\\d+\u4eba", "", names)
+  names <- gsub("\u7b49", "", names)
   names <- gsub("\\s+", "", names)
-  names <- gsub("本院", "", names)
+  names <- gsub("\u672c\u9662", "", names)
   names <- trimws(names)
 
   return(names)

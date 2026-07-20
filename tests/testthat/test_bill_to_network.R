@@ -7,7 +7,7 @@ sample_bills <- data.frame(
 test_that("bill_to_network errors when required columns are missing", {
   bad_df <- data.frame(billTitle = c("a", "b"), stringsAsFactors = FALSE)
   expect_error(bill_to_network(bad_df),
-               "資料框架必須至少包含 'billProposer' 或 'billCosignatory' 欄位")
+               "The data frame must contain at least one of the 'billProposer' or 'billCosignatory' columns")
 })
 
 test_that("bill_to_network returns the expected structure", {

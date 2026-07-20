@@ -85,7 +85,7 @@ get_tly_stat <- function() {
         .data$count,
         .data$max_meeting_date,
         .data$meetdata_count,
-        .data$議事錄_count
+        .data[["\u8b70\u4e8b\u9304_count"]]
       ) %>%
       dplyr::arrange(dplyr::desc(.data$term))
   )

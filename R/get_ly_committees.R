@@ -97,14 +97,14 @@ get_ly_committee_meets <- function(
   query_params <- list(
     page = page,
     per_page = per_page,
-    屆 = term,
-    會期 = session,
-    會議代碼 = meeting_code,
-    會議種類 = meeting_type,
-    "會議資料.出席委員" = attending_member,
-    日期 = date,
-    "會議資料.會議編號" = meeting_number,
-    "議事網資料.關係文書.議案.議案編號" = bill_id
+    "\u5c46" = term,
+    "\u6703\u671f" = session,
+    "\u6703\u8b70\u4ee3\u78bc" = meeting_code,
+    "\u6703\u8b70\u7a2e\u985e" = meeting_type,
+    "\u6703\u8b70\u8cc7\u6599.\u51fa\u5e2d\u59d4\u54e1" = attending_member,
+    "\u65e5\u671f" = date,
+    "\u6703\u8b70\u8cc7\u6599.\u6703\u8b70\u7de8\u865f" = meeting_number,
+    "\u8b70\u4e8b\u7db2\u8cc7\u6599.\u95dc\u4fc2\u6587\u66f8.\u8b70\u6848.\u8b70\u6848\u7de8\u865f" = bill_id
   )
   query_params <- query_params[!sapply(query_params, is.null)]
 
@@ -146,16 +146,16 @@ get_ly_committee_meets <- function(
       legislators <- character(0)
 
 
-      # From 發言紀錄
-      if (!is.null(meet$發言紀錄)) {
+      # From speech records
+      if (!is.null(meet[["\u767c\u8a00\u7d00\u9304"]])) {
         legislators <- c(legislators, unique(unlist(
-          lapply(meet$發言紀錄, function(x) x$legislatorNameList)
+          lapply(meet[["\u767c\u8a00\u7d00\u9304"]], function(x) x$legislatorNameList)
         )))
       }
 
-      # From 議事錄
-      if (!is.null(meet$議事錄) && !is.null(meet$議事錄$出席委員)) {
-        legislators <- c(legislators, meet$議事錄$出席委員)
+      # From meeting minutes
+      if (!is.null(meet[["\u8b70\u4e8b\u9304"]]) && !is.null(meet[["\u8b70\u4e8b\u9304"]][["\u51fa\u5e2d\u59d4\u54e1"]])) {
+        legislators <- c(legislators, meet[["\u8b70\u4e8b\u9304"]][["\u51fa\u5e2d\u59d4\u54e1"]])
       }
 
       legislators <- unique(legislators[!is.na(legislators)])
@@ -163,27 +163,27 @@ get_ly_committee_meets <- function(
 
       # Extract meeting content
       content <- NA_character_
-      if (!is.null(meet$發言紀錄) && length(meet$發言紀錄) > 0 && !is.null(meet$發言紀錄[[1]]$meetingContent)) {
-        content <- meet$發言紀錄[[1]]$meetingContent
-      } else if (!is.null(meet$會議資料) && length(meet$會議資料) > 0 && !is.null(meet$會議資料[[1]]$會議事由)) {
-        content <- meet$會議資料[[1]]$會議事由
+      if (!is.null(meet[["\u767c\u8a00\u7d00\u9304"]]) && length(meet[["\u767c\u8a00\u7d00\u9304"]]) > 0 && !is.null(meet[["\u767c\u8a00\u7d00\u9304"]][[1]]$meetingContent)) {
+        content <- meet[["\u767c\u8a00\u7d00\u9304"]][[1]]$meetingContent
+      } else if (!is.null(meet[["\u6703\u8b70\u8cc7\u6599"]]) && length(meet[["\u6703\u8b70\u8cc7\u6599"]]) > 0 && !is.null(meet[["\u6703\u8b70\u8cc7\u6599"]][[1]][["\u6703\u8b70\u4e8b\u7531"]])) {
+        content <- meet[["\u6703\u8b70\u8cc7\u6599"]][[1]][["\u6703\u8b70\u4e8b\u7531"]]
       }
 
       # Create data frame row
       data.frame(
-        會議名稱 = if (!is.null(meet$name)) meet$name else NA_character_,
-        會議代碼 = if (!is.null(meet$會議代碼)) meet$會議代碼 else NA_character_,
-        會議種類 = if (!is.null(meet$會議種類)) meet$會議種類 else NA_character_,
-        屆期 = as.integer(if (!is.null(meet$屆)) meet$屆 else NA),
-        會期 = as.integer(if (!is.null(meet$會期)) meet$會期 else NA),
-        會次 = as.integer(if (!is.null(meet$會次)) meet$會次 else NA),
-        地點 = if (!is.null(meet$會議資料) && length(meet$會議資料) > 0)
-          meet$會議資料[[1]]$會議地點 else NA_character_,
-        召委 = if (!is.null(meet$會議資料) && length(meet$會議資料) > 0)
-          meet$會議資料[[1]]$委員會召集委員 else NA_character_,
-        出席委員 = attending_str,
-        會議日期 = if (length(meet$日期) > 0) paste(meet$日期, collapse = ", ") else NA_character_,
-        會議內容 = content,
+        "\u6703\u8b70\u540d\u7a31" = if (!is.null(meet$name)) meet$name else NA_character_,
+        "\u6703\u8b70\u4ee3\u78bc" = if (!is.null(meet[["\u6703\u8b70\u4ee3\u78bc"]])) meet[["\u6703\u8b70\u4ee3\u78bc"]] else NA_character_,
+        "\u6703\u8b70\u7a2e\u985e" = if (!is.null(meet[["\u6703\u8b70\u7a2e\u985e"]])) meet[["\u6703\u8b70\u7a2e\u985e"]] else NA_character_,
+        "\u5c46\u671f" = as.integer(if (!is.null(meet[["\u5c46"]])) meet[["\u5c46"]] else NA),
+        "\u6703\u671f" = as.integer(if (!is.null(meet[["\u6703\u671f"]])) meet[["\u6703\u671f"]] else NA),
+        "\u6703\u6b21" = as.integer(if (!is.null(meet[["\u6703\u6b21"]])) meet[["\u6703\u6b21"]] else NA),
+        "\u5730\u9ede" = if (!is.null(meet[["\u6703\u8b70\u8cc7\u6599"]]) && length(meet[["\u6703\u8b70\u8cc7\u6599"]]) > 0)
+          meet[["\u6703\u8b70\u8cc7\u6599"]][[1]][["\u6703\u8b70\u5730\u9ede"]] else NA_character_,
+        "\u53ec\u59d4" = if (!is.null(meet[["\u6703\u8b70\u8cc7\u6599"]]) && length(meet[["\u6703\u8b70\u8cc7\u6599"]]) > 0)
+          meet[["\u6703\u8b70\u8cc7\u6599"]][[1]][["\u59d4\u54e1\u6703\u53ec\u96c6\u59d4\u54e1"]] else NA_character_,
+        "\u51fa\u5e2d\u59d4\u54e1" = attending_str,
+        "\u6703\u8b70\u65e5\u671f" = if (length(meet[["\u65e5\u671f"]]) > 0) paste(meet[["\u65e5\u671f"]], collapse = ", ") else NA_character_,
+        "\u6703\u8b70\u5167\u5bb9" = content,
         stringsAsFactors = FALSE
       )
     })
@@ -192,17 +192,17 @@ get_ly_committee_meets <- function(
 
   } else {
     meetings_df <- data.frame(
-      會議名稱 = character(),
-      會議代碼 = character(),
-      會議種類 = character(),
-      屆期 = integer(),
-      會期 = integer(),
-      會次 = integer(),
-      地點 = character(),
-      召委 = character(),
-      出席委員 = character(),
-      會議日期 = character(),
-      會議內容 = character(),
+      "\u6703\u8b70\u540d\u7a31" = character(),
+      "\u6703\u8b70\u4ee3\u78bc" = character(),
+      "\u6703\u8b70\u7a2e\u985e" = character(),
+      "\u5c46\u671f" = integer(),
+      "\u6703\u671f" = integer(),
+      "\u6703\u6b21" = integer(),
+      "\u5730\u9ede" = character(),
+      "\u53ec\u59d4" = character(),
+      "\u51fa\u5e2d\u59d4\u54e1" = character(),
+      "\u6703\u8b70\u65e5\u671f" = character(),
+      "\u6703\u8b70\u5167\u5bb9" = character(),
       stringsAsFactors = FALSE
     )
   }
@@ -232,7 +232,7 @@ get_ly_committee_meets <- function(
 
     if(nrow(meetings_df) > 0) {
       # Add meeting type distribution
-      type_counts <- table(meetings_df$會議種類)
+      type_counts <- table(meetings_df[["\u6703\u8b70\u7a2e\u985e"]])
       cat("\nMeeting Type Distribution:\n")
       for(type_name in names(type_counts)) {
         if(!is.na(type_name)) {
@@ -241,8 +241,8 @@ get_ly_committee_meets <- function(
       }
 
       # Add session distribution
-      if(any(!is.na(meetings_df$會期))) {
-        session_counts <- table(meetings_df$會期)
+      if(any(!is.na(meetings_df[["\u6703\u671f"]]))) {
+        session_counts <- table(meetings_df[["\u6703\u671f"]])
         cat("\nSession Distribution:\n")
         for(session in sort(as.numeric(names(session_counts)))) {
           cat(sprintf(" Session %d: %d\n", session, session_counts[as.character(session)]))
@@ -250,8 +250,8 @@ get_ly_committee_meets <- function(
       }
 
       # Add location distribution if available
-      if(any(!is.na(meetings_df$地點))) {
-        location_counts <- table(meetings_df$地點)
+      if(any(!is.na(meetings_df[["\u5730\u9ede"]]))) {
+        location_counts <- table(meetings_df[["\u5730\u9ede"]])
         cat("\nLocation Distribution:\n")
         for(location in names(location_counts)) {
           if(!is.na(location)) {

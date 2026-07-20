@@ -108,8 +108,8 @@ get_ly_committees_type <- function(
   query_params <- list(
     page = page,
     per_page = per_page,
-    委員會類別 = type,
-    委員會代號 = code
+    "\u59d4\u54e1\u6703\u985e\u5225" = type,
+    "\u59d4\u54e1\u6703\u4ee3\u865f" = code
   )
 
   # Remove NULL values
@@ -159,19 +159,19 @@ get_ly_committees_type <- function(
   if (length(data$committees) > 0) {
     committees_df <- do.call(rbind, lapply(data$committees, function(committee) {
       data.frame(
-        代號 = committee$委員會代號,
-        名稱 = committee$委員會名稱,
-        職掌 = committee$委員會職掌,
-        類別 = committee$`委員會類別:str`,
+        "\u4ee3\u865f" = committee[["\u59d4\u54e1\u6703\u4ee3\u865f"]],
+        "\u540d\u7a31" = committee[["\u59d4\u54e1\u6703\u540d\u7a31"]],
+        "\u8077\u638c" = committee[["\u59d4\u54e1\u6703\u8077\u638c"]],
+        "\u985e\u5225" = committee[["\u59d4\u54e1\u6703\u985e\u5225:str"]],
         stringsAsFactors = FALSE
       )
     }))
   } else {
     committees_df <- data.frame(
-      代號 = integer(),
-      名稱 = character(),
-      職掌 = character(),
-      類別 = character(),
+      "\u4ee3\u865f" = integer(),
+      "\u540d\u7a31" = character(),
+      "\u8077\u638c" = character(),
+      "\u985e\u5225" = character(),
       stringsAsFactors = FALSE
     )
   }
@@ -191,7 +191,7 @@ get_ly_committees_type <- function(
 
     if(nrow(committees_df) > 0) {
       # Add type distribution
-      type_counts <- table(committees_df$類別)
+      type_counts <- table(committees_df[["\u985e\u5225"]])
       cat("\nCommittee Type Distribution:\n")
       for(type_name in names(type_counts)) {
         cat(sprintf(" %s: %d\n", type_name, type_counts[type_name]))
@@ -199,10 +199,10 @@ get_ly_committees_type <- function(
 
       # Add code distribution
       if(nrow(committees_df) > 0) {
-        code_counts <- table(committees_df$代號)
+        code_counts <- table(committees_df[["\u4ee3\u865f"]])
         cat("\nCommittee Code Distribution:\n")
         for(code in sort(as.numeric(names(code_counts)))) {
-          committee_name <- committees_df$名稱[committees_df$代號 == code][1]
+          committee_name <- committees_df[["\u540d\u7a31"]][committees_df[["\u4ee3\u865f"]] == code][1]
           cat(sprintf(" %d (%s): %d\n", code, committee_name, code_counts[as.character(code)]))
         }
       }

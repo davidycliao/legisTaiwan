@@ -87,17 +87,17 @@ get_ly_bills <- function(
   query_params <- list(
     page = page,
     per_page = per_page,
-    屆 = term,
-    會期 = session,
-    議案類別 = bill_type,
-    議案狀態 = current_status,
-    "議案流程.狀態" = process_status,
-    提案人 = proposer,
-    連署人 = cosigner,
-    提案來源 = source,
-    議案編號 = bill_id,
-    法律編號 = law_id,
-    會議代碼 = meeting_code
+    "\u5c46" = term,
+    "\u6703\u671f" = session,
+    "\u8b70\u6848\u985e\u5225" = bill_type,
+    "\u8b70\u6848\u72c0\u614b" = current_status,
+    "\u8b70\u6848\u6d41\u7a0b.\u72c0\u614b" = process_status,
+    "\u63d0\u6848\u4eba" = proposer,
+    "\u9023\u7f72\u4eba" = cosigner,
+    "\u63d0\u6848\u4f86\u6e90" = source,
+    "\u8b70\u6848\u7de8\u865f" = bill_id,
+    "\u6cd5\u5f8b\u7de8\u865f" = law_id,
+    "\u6703\u8b70\u4ee3\u78bc" = meeting_code
   )
 
   # Remove NULL parameters
@@ -160,16 +160,16 @@ get_ly_bills <- function(
 
       # Extract bill fields with NULL handling
       data.frame(
-        議案編號 = ifelse(is.null(bill$議案編號), NA_character_, bill$議案編號),
-        議案名稱 = ifelse(is.null(bill$議案名稱), NA_character_, bill$議案名稱),
-        議案狀態 = ifelse(is.null(bill$議案狀態), NA_character_, bill$議案狀態),
-        議案類別 = ifelse(is.null(bill$議案類別), NA_character_, bill$議案類別),
-        提案來源 = ifelse(is.null(bill$提案來源), NA_character_, bill$提案來源),
-        會期 = ifelse(is.null(bill$會期), NA_integer_, as.integer(bill$會期)),
-        屆 = ifelse(is.null(bill$屆), NA_integer_, as.integer(bill$屆)),
-        最新進度日期 = ifelse(is.null(bill$最新進度日期), NA_character_, bill$最新進度日期),
-        提案人 = if (!is.null(bill$提案人)) paste(unlist(bill$提案人), collapse = ", ") else NA_character_,
-        提案單位 = ifelse(is.null(bill$`提案單位/提案委員`), NA_character_, bill$`提案單位/提案委員`),
+        "\u8b70\u6848\u7de8\u865f" = ifelse(is.null(bill[["\u8b70\u6848\u7de8\u865f"]]), NA_character_, bill[["\u8b70\u6848\u7de8\u865f"]]),
+        "\u8b70\u6848\u540d\u7a31" = ifelse(is.null(bill[["\u8b70\u6848\u540d\u7a31"]]), NA_character_, bill[["\u8b70\u6848\u540d\u7a31"]]),
+        "\u8b70\u6848\u72c0\u614b" = ifelse(is.null(bill[["\u8b70\u6848\u72c0\u614b"]]), NA_character_, bill[["\u8b70\u6848\u72c0\u614b"]]),
+        "\u8b70\u6848\u985e\u5225" = ifelse(is.null(bill[["\u8b70\u6848\u985e\u5225"]]), NA_character_, bill[["\u8b70\u6848\u985e\u5225"]]),
+        "\u63d0\u6848\u4f86\u6e90" = ifelse(is.null(bill[["\u63d0\u6848\u4f86\u6e90"]]), NA_character_, bill[["\u63d0\u6848\u4f86\u6e90"]]),
+        "\u6703\u671f" = ifelse(is.null(bill[["\u6703\u671f"]]), NA_integer_, as.integer(bill[["\u6703\u671f"]])),
+        "\u5c46" = ifelse(is.null(bill[["\u5c46"]]), NA_integer_, as.integer(bill[["\u5c46"]])),
+        "\u6700\u65b0\u9032\u5ea6\u65e5\u671f" = ifelse(is.null(bill[["\u6700\u65b0\u9032\u5ea6\u65e5\u671f"]]), NA_character_, bill[["\u6700\u65b0\u9032\u5ea6\u65e5\u671f"]]),
+        "\u63d0\u6848\u4eba" = if (!is.null(bill[["\u63d0\u6848\u4eba"]])) paste(unlist(bill[["\u63d0\u6848\u4eba"]]), collapse = ", ") else NA_character_,
+        "\u63d0\u6848\u55ae\u4f4d" = ifelse(is.null(bill[["\u63d0\u6848\u55ae\u4f4d/\u63d0\u6848\u59d4\u54e1"]]), NA_character_, bill[["\u63d0\u6848\u55ae\u4f4d/\u63d0\u6848\u59d4\u54e1"]]),
         url = ifelse(is.null(bill$url), NA_character_, bill$url),
         stringsAsFactors = FALSE
       )
@@ -187,16 +187,16 @@ get_ly_bills <- function(
   } else {
     # Create empty dataframe with correct structure if no bills found
     bills_df <- data.frame(
-      議案編號 = character(),
-      議案名稱 = character(),
-      議案狀態 = character(),
-      議案類別 = character(),
-      提案來源 = character(),
-      會期 = integer(),
-      屆 = integer(),
-      最新進度日期 = character(),
-      提案人 = character(),
-      提案單位 = character(),
+      "\u8b70\u6848\u7de8\u865f" = character(),
+      "\u8b70\u6848\u540d\u7a31" = character(),
+      "\u8b70\u6848\u72c0\u614b" = character(),
+      "\u8b70\u6848\u985e\u5225" = character(),
+      "\u63d0\u6848\u4f86\u6e90" = character(),
+      "\u6703\u671f" = integer(),
+      "\u5c46" = integer(),
+      "\u6700\u65b0\u9032\u5ea6\u65e5\u671f" = character(),
+      "\u63d0\u6848\u4eba" = character(),
+      "\u63d0\u6848\u55ae\u4f4d" = character(),
       url = character(),
       stringsAsFactors = FALSE
     )

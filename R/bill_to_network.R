@@ -47,40 +47,40 @@
 
 
 bill_to_network <- function(df, top_n = 20, use_all = FALSE, verbose = TRUE) {
-  # 檢查資料框架
+  # check the data frame
   has_proposer <- "billProposer" %in% colnames(df)
   has_cosignatory <- "billCosignatory" %in% colnames(df)
 
   if (!has_proposer && !has_cosignatory) {
-    stop("資料框架必須至少包含 'billProposer' 或 'billCosignatory' 欄位")
+    stop("The data frame must contain at least one of the 'billProposer' or 'billCosignatory' columns")
   }
 
-  # 定義訊息顯示函數
+  # define the message display function
   show_msg <- function(msg) {
     if (verbose) {
       cat(msg)
     }
   }
 
-  # 提取所有立委名稱
+  # extract all legislator names
   all_legislators <- c()
 
-  # 從提案人欄位提取
+  # extract from the proposer column
   if (has_proposer) {
     for (i in 1:nrow(df)) {
       if (!is.na(df$billProposer[i]) && df$billProposer[i] != "") {
-        proposers <- unlist(strsplit(as.character(df$billProposer[i]), ";|；|,|，| ; | ， "))
+        proposers <- unlist(strsplit(as.character(df$billProposer[i]), ";|\uff1b|,|\uff0c| ; | \uff0c "))
         proposers <- trimws(proposers)
         all_legislators <- c(all_legislators, proposers)
       }
     }
   }
 
-  # 從連署人欄位提取
+  # extract from the cosignatory column
   if (has_cosignatory) {
     for (i in 1:nrow(df)) {
       if (!is.na(df$billCosignatory[i]) && df$billCosignatory[i] != "") {
-        cosigners <- unlist(strsplit(as.character(df$billCosignatory[i]), ";|；|,|，| ; | ， "))
+        cosigners <- unlist(strsplit(as.character(df$billCosignatory[i]), ";|\uff1b|,|\uff0c| ; | \uff0c "))
         cosigners <- trimws(cosigners)
         all_legislators <- c(all_legislators, cosigners)
       }
@@ -90,41 +90,41 @@ bill_to_network <- function(df, top_n = 20, use_all = FALSE, verbose = TRUE) {
   unique_legislators <- unique(all_legislators[all_legislators != ""])
   n_legislators <- length(unique_legislators)
 
-  show_msg(sprintf("找到以下立委(共 %d 位):\n", n_legislators))
+  show_msg(sprintf("Found the following legislators (%d total):\n", n_legislators))
 
-  # 創建節點資料框
+  # create the node data frame
   nodes_df <- data.frame(
     id = 0:(n_legislators - 1),
     name = unique_legislators,
     stringsAsFactors = FALSE
   )
 
-  # 創建法案-立委矩陣
+  # create the bill-legislator matrix
   bill_matrix <- matrix(0, nrow = nrow(df), ncol = n_legislators)
   colnames(bill_matrix) <- unique_legislators
 
-  # 填充法案-立委矩陣
+  # fill the bill-legislator matrix
   for (i in 1:nrow(df)) {
     all_participants <- c()
 
-    # 添加提案人
+    # add proposers
     if (has_proposer && !is.na(df$billProposer[i]) && df$billProposer[i] != "") {
-      proposers <- unlist(strsplit(as.character(df$billProposer[i]), ";|；|,|，| ; | ， "))
+      proposers <- unlist(strsplit(as.character(df$billProposer[i]), ";|\uff1b|,|\uff0c| ; | \uff0c "))
       proposers <- trimws(proposers)
       all_participants <- c(all_participants, proposers)
     }
 
-    # 添加連署人
+    # add cosigners
     if (has_cosignatory && !is.na(df$billCosignatory[i]) && df$billCosignatory[i] != "") {
-      cosigners <- unlist(strsplit(as.character(df$billCosignatory[i]), ";|；|,|，| ; | ， "))
+      cosigners <- unlist(strsplit(as.character(df$billCosignatory[i]), ";|\uff1b|,|\uff0c| ; | \uff0c "))
       cosigners <- trimws(cosigners)
       all_participants <- c(all_participants, cosigners)
     }
 
-    # 去除空值
+    # remove empty values
     all_participants <- all_participants[all_participants != ""]
 
-    # 在矩陣中標記參與者
+    # mark participants in the matrix
     for (participant in all_participants) {
       if (participant %in% unique_legislators) {
         bill_matrix[i, participant] <- 1
@@ -132,74 +132,74 @@ bill_to_network <- function(df, top_n = 20, use_all = FALSE, verbose = TRUE) {
     }
   }
 
-  # 計算共同參與矩陣
+  # calculate the co-occurrence matrix
   cooc_matrix <- matrix(0, nrow = n_legislators, ncol = n_legislators)
   rownames(cooc_matrix) <- unique_legislators
   colnames(cooc_matrix) <- unique_legislators
 
-  # 遍歷每對立委，計算共同參與次數
-  show_msg("計算立委間的共同參與關係...\n")
+  # iterate over every pair of legislators, counting co-participation
+  show_msg("Computing co-participation relationships among legislators...\n")
   for (i in 1:(n_legislators-1)) {
     leg_i <- unique_legislators[i]
 
     for (j in (i+1):n_legislators) {
       leg_j <- unique_legislators[j]
 
-      # 計算共同參與的法案數量
+      # count the number of bills co-participated in
       cooc_count <- sum(bill_matrix[, leg_i] & bill_matrix[, leg_j])
 
       if (cooc_count > 0) {
         cooc_matrix[leg_i, leg_j] <- cooc_count
-        cooc_matrix[leg_j, leg_i] <- cooc_count  # 對稱矩陣
+        cooc_matrix[leg_j, leg_i] <- cooc_count  # symmetric matrix
       }
     }
   }
 
-  # 計算每位立委的連結數和參與度
-  connections <- rowSums(cooc_matrix > 0)  # 連結立委數
-  total_cooc <- rowSums(cooc_matrix)       # 總連署次數
+  # compute each legislator's connection count and participation degree
+  connections <- rowSums(cooc_matrix > 0)  # number of connected legislators
+  total_cooc <- rowSums(cooc_matrix)       # total co-signing count
   nodes_df$connections <- connections
   nodes_df$total_cooc <- total_cooc
 
-  # 創建完整的igraph物件 (使用鄰接矩陣更安全)
+  # create the full igraph object (using the adjacency matrix is safer)
   full_graph <- graph_from_adjacency_matrix(cooc_matrix,
                                             mode = "undirected",
                                             weighted = TRUE)
 
-  # 計算中心性度量
-  show_msg("計算中心性度量...\n")
+  # compute centrality measures
+  show_msg("Computing centrality measures...\n")
   degree_cent <- degree(full_graph, normalized = TRUE)
   betweenness_cent <- betweenness(full_graph, normalized = TRUE)
   eigenvector_cent <- eigen_centrality(full_graph)$vector
 
-  # 添加中心性度量到節點資料框
+  # add centrality measures to the node data frame
   nodes_df$degree_cent <- degree_cent[match(nodes_df$name, names(degree_cent))]
   nodes_df$betweenness_cent <- betweenness_cent[match(nodes_df$name, names(betweenness_cent))]
   nodes_df$eigenvector_cent <- eigenvector_cent[match(nodes_df$name, names(eigenvector_cent))]
 
-  # 計算綜合指標 (可調整權重)
+  # compute the composite importance score (weights can be adjusted)
   nodes_df$importance <- nodes_df$degree_cent * 0.4 +
     nodes_df$betweenness_cent * 0.3 +
     nodes_df$eigenvector_cent * 0.3
 
-  # 決定要使用哪個圖形和節點資料
+  # decide which graph and node data to use
   if (use_all) {
-    # 使用所有立委的完整圖形
+    # use the complete graph of all legislators
     selected_graph <- full_graph
     selected_nodes <- nodes_df
-    show_msg("使用所有立委進行分析...\n")
+    show_msg("Using all legislators for analysis...\n")
   } else {
-    # 選擇Top N的立委
-    show_msg(sprintf("選擇前 %d 名重要立委...\n", top_n))
+    # select the top N legislators
+    show_msg(sprintf("Selecting the top %d most important legislators...\n", top_n))
     top_legislators <- nodes_df[order(nodes_df$importance, decreasing = TRUE), ][1:min(top_n, nrow(nodes_df)), ]
 
-    # 創建子圖 - 直接從完整圖形中選取子集
+    # create a subgraph - select the subset directly from the full graph
     top_names <- top_legislators$name
     selected_graph <- induced_subgraph(full_graph, which(V(full_graph)$name %in% top_names))
     selected_nodes <- top_legislators
   }
 
-  # 添加節點屬性到選定的圖形
+  # add node attributes to the selected graph
   V(selected_graph)$connections <- connections[match(V(selected_graph)$name, unique_legislators)]
   V(selected_graph)$total_cooc <- total_cooc[match(V(selected_graph)$name, unique_legislators)]
   V(selected_graph)$degree_cent <- degree_cent[match(V(selected_graph)$name, names(degree_cent))]
@@ -207,7 +207,7 @@ bill_to_network <- function(df, top_n = 20, use_all = FALSE, verbose = TRUE) {
   V(selected_graph)$eigenvector_cent <- eigenvector_cent[match(V(selected_graph)$name, names(eigenvector_cent))]
   V(selected_graph)$importance <- nodes_df$importance[match(V(selected_graph)$name, nodes_df$name)]
 
-  # 獲取選定立委間的連結
+  # get the connections among the selected legislators
   selected_edges <- as_edgelist(selected_graph)
   selected_weights <- E(selected_graph)$weight
 
@@ -227,7 +227,7 @@ bill_to_network <- function(df, top_n = 20, use_all = FALSE, verbose = TRUE) {
     )
   }
 
-  # 轉換為NetworkD3格式的連結
+  # convert to NetworkD3-format links
   if (nrow(selected_edges_df) > 0) {
     d3_links <- data.frame(
       source = match(selected_edges_df$from, selected_nodes$name) - 1,
@@ -244,59 +244,59 @@ bill_to_network <- function(df, top_n = 20, use_all = FALSE, verbose = TRUE) {
     )
   }
 
-  # 返回結果
+  # return the result
   result <- list(
-    nodes = selected_nodes,           # 選定立委節點
-    links = d3_links,                 # 選定立委間的連結 (D3格式)
-    named_links = selected_edges_df,  # 選定立委間的連結 (命名格式)
-    cooc_matrix = cooc_matrix,        # 完整共現矩陣
-    full_graph = full_graph,          # 完整網絡圖
-    igraph = selected_graph,          # 選定立委網絡圖
-    all_nodes = nodes_df              # 所有立委的完整節點資料
+    nodes = selected_nodes,           # selected legislator nodes
+    links = d3_links,                 # connections among selected legislators (D3 format)
+    named_links = selected_edges_df,  # connections among selected legislators (named format)
+    cooc_matrix = cooc_matrix,        # full co-occurrence matrix
+    full_graph = full_graph,          # full network graph
+    igraph = selected_graph,          # selected legislators' network graph
+    all_nodes = nodes_df              # complete node data for all legislators
   )
 
-  # 打印基本網絡統計
+  # print basic network statistics
   if (verbose) {
-    cat("\n基本網絡統計：\n")
-    cat("全部立委數量：", nrow(nodes_df), "\n")
+    cat("\nBasic network statistics:\n")
+    cat("Total number of legislators:", nrow(nodes_df), "\n")
 
     if (use_all) {
-      cat("使用所有立委，共", vcount(selected_graph), "位\n")
+      cat("Using all legislators, total", vcount(selected_graph), "\n")
     } else {
-      cat("所選Top", top_n, "立委數量：", vcount(selected_graph), "\n")
+      cat("Selected top", top_n, "legislator count:", vcount(selected_graph), "\n")
     }
 
-    cat("連結數量：", ecount(selected_graph), "\n")
+    cat("Number of connections:", ecount(selected_graph), "\n")
 
     if (ecount(selected_graph) > 0) {
-      cat("網絡密度：", edge_density(selected_graph), "\n")
+      cat("Network density:", edge_density(selected_graph), "\n")
 
-      # 顯示立委排名（如果是Top N模式）
+      # show legislator ranking (if in top-N mode)
       if (!use_all) {
-        cat("\nTop", top_n, "重要立委排名：\n")
+        cat("\nTop", top_n, "important legislators ranking:\n")
         for (i in 1:nrow(selected_nodes)) {
           leg <- selected_nodes[i, ]
           cat(i, ". ", leg$name,
-              " (度中心性: ", round(leg$degree_cent, 4),
-              ", 中介中心性: ", round(leg$betweenness_cent, 4),
-              ", 連結數: ", leg$connections, ")\n", sep="")
+              " (degree centrality: ", round(leg$degree_cent, 4),
+              ", betweenness centrality: ", round(leg$betweenness_cent, 4),
+              ", connections: ", leg$connections, ")\n", sep="")
         }
       }
 
-      # 社群檢測
+      # community detection
       if (vcount(selected_graph) > 2 && ecount(selected_graph) > 0) {
         communities <- cluster_louvain(selected_graph)
-        cat("\n社群檢測結果：\n")
-        cat("社群數量：", length(unique(membership(communities))), "\n")
+        cat("\nCommunity detection results:\n")
+        cat("Number of communities:", length(unique(membership(communities))), "\n")
 
-        # 列出每個社群的成員 (可能需要限制輸出數量)
+        # list the members of each community (may need to limit output size)
         comm_ids <- unique(membership(communities))
         for (i in comm_ids) {
           members <- V(selected_graph)$name[membership(communities) == i]
           if (length(members) > 10) {
-            cat("社群", i, "：", paste(members[1:10], collapse = ", "), "... (共", length(members), "人)\n")
+            cat("Community", i, ":", paste(members[1:10], collapse = ", "), "... (", length(members), "total)\n")
           } else {
-            cat("社群", i, "：", paste(members, collapse = ", "), "\n")
+            cat("Community", i, ":", paste(members, collapse = ", "), "\n")
           }
         }
       }
