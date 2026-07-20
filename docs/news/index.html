@@ -70,7 +70,19 @@
 <code>legisTaiwan</code> 0.2.2<a class="anchor" aria-label="anchor" href="#legistaiwan-022"></a></h2>
 <div class="section level3">
 <h3 id="major-changes-0-2-2">Major Changes<a class="anchor" aria-label="anchor" href="#major-changes-0-2-2"></a></h3>
-<p><strong>Fix SSL connection issues in review_session_info function and example errors</strong></p>
+<p><strong>CRAN submission readiness: license, encoding, and dead-code fixes</strong></p>
+<ul><li>
+<strong>License corrected to MIT.</strong> <code>DESCRIPTION</code> incorrectly declared <code>GPL-3 + file LICENSE</code>, but the <code>LICENSE</code> file used the MIT license stub format (flagged by CRAN reviewer Uwe Ligges). Switched to <code>MIT + file LICENSE</code> and added <code>LICENSE.md</code> with the full license text.</li>
+<li>
+<strong>Removed all non-ASCII characters from package documentation and code</strong>, resolving a CRAN <code>WARNING</code> and a PDF-manual build failure. Chinese characters in <code>Authors@R</code> and roxygen documentation broke LaTeX rendering of the PDF reference manual entirely (no CJK font support in CRAN’s build environment); all documentation was translated to English. Remaining Chinese that is functionally required to match the Legislative Yuan API’s own column/category names, or to split Chinese-language legislator name lists, is now expressed as <code>\uXXXX</code> escapes — byte-for-byte identical at runtime, with no behavior change.</li>
+<li>
+<strong><code><a href="../reference/bill_to_network.html">bill_to_network()</a></code></strong>: new function to convert bill proposer/cosigner data into an <code>igraph</code> network object (centrality measures, community detection). Added the missing <code>igraph</code> dependency to <code>DESCRIPTION</code> and fixed several <code>@importFrom</code> omissions (<code>V</code>, <code>V&lt;-</code>, <code>E</code>, <code>membership</code>) that caused runtime errors; switched off the now-deprecated <code><a href="https://r.igraph.org/reference/get.edgelist.html" class="external-link">igraph::get.edgelist()</a></code>.</li>
+<li>
+<strong>Removed dead code</strong>: <code><a href="../reference/review_session_info.html">review_session_info()</a></code> and <code><a href="../reference/get_committee_record.html">get_committee_record()</a></code> each had an orphaned, unused duplicate function/doc block left over from a previous refactor; the duplicate documentation for <code><a href="../reference/review_session_info.html">review_session_info()</a></code> was silently merged into the Rd file ahead of its <code>\dontrun{}</code> guard, causing an unguarded live API call during every <code>R CMD check</code>. <code><a href="../reference/get_legislators.html">get_legislators()</a></code>’s docs also had a stray, unrelated <code><a href="../reference/get_executive_response.html">get_executive_response()</a></code> example call sitting outside <code>\dontrun{}</code>.</li>
+<li>
+<strong>Tests are now CRAN-safe</strong>: all tests that call the live Legislative Yuan API are guarded with <code>skip_on_cran()</code> and gracefully skip (instead of failing) when the API is unreachable or returns an unexpected error, so a transient outage of the upstream government website can no longer fail automated checks.</li>
+<li>Misc.: fixed a broken <code>README</code> link left as <code>[the newer functions]()</code>, updated the <code>codecov.io</code> badge link to <code>app.codecov.io</code>, removed a stale <code>inst/README.Rmd</code>/<code>.md</code> duplicate from v0.1.6 that CRAN’s URL checker was scanning instead of the current README, and excluded generated/local files (<code>.codefactor.yml</code>, <code>README.html</code>) from the built package via <code>.Rbuildignore</code>.</li>
+</ul><p><strong>Fix SSL connection issues in review_session_info function and example errors</strong></p>
 <ul><li>Use system curl command to bypass SSL/TLS certificate validation problems</li>
 <li>Improve regex handling of session data to fix “NAs introduced by coercion” warnings</li>
 <li>Ensure results are correctly sorted by session number</li>
