@@ -34,7 +34,7 @@ test_that("get_variable_info works correctly", {
 test_that("review_session_info works correctly", {
   skip_on_cran()
   skip_if_not(website_availability2(), "Legislative Yuan website not reachable")
-  result <- tryCatch(review_session_info(7), error = function(e) NULL)
+  result <- suppressWarnings(tryCatch(review_session_info(7), error = function(e) NULL))
   skip_if(is.null(result), "Legislative Yuan website not reachable")
 
   # Check if the function returns a tibble

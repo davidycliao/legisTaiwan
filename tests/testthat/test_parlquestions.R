@@ -3,7 +3,7 @@ test_that("get_parlquestions", {
   # expect_equal(get_parlquestions(term = 8, session_period = 1, verbose = FALSE)$title, "the records of parliarmentary questions")
   # expect_equal(get_parlquestions(term = 8, session_period = 1, verbose = TRUE)$retrieved_number, 957)
   expect_error(get_parlquestions(term = "9", verbose = FALSE),  "Please use numeric format only.")
-  result <- tryCatch(get_parlquestions(NULL), error = function(e) NULL)
+  result <- suppressWarnings(tryCatch(get_parlquestions(NULL), error = function(e) NULL))
   skip_if(is.null(result), "Legislative Yuan API not reachable")
   expect_equal(result$url, "https://data.ly.gov.tw/odw/ID6Action.action?term=&sessionPeriod=&sessionTimes=&item=&fileType=json")
   expect_error(get_parlquestions(c(8,9)))
@@ -14,7 +14,7 @@ test_that("get_executive_response", {
   skip_on_cran()
   # checked 23 Jan 2023
   # checked 16 Sep 2023
-  result <- tryCatch(get_executive_response(term = 8, session_period = 1, verbose = FALSE), error = function(e) NULL)
+  result <- suppressWarnings(tryCatch(get_executive_response(term = 8, session_period = 1, verbose = FALSE), error = function(e) NULL))
   skip_if(is.null(result), "Legislative Yuan API not reachable")
   expect_equal(result$retrieved_number, 1065)
   expect_equal(get_executive_response(term = 8, session_period = 1, verbose = TRUE)$retrieved_number,
