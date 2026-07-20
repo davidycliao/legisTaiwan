@@ -14,3 +14,5 @@
 ^\.Rproj\.user$
 ^README\.Rmd$
 ^cran-comments\.md$
+^\.claude$
+^CRAN-SUBMISSION$

@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{get_ly_committees_type}
 \alias{get_ly_committees_type}
-\title{Fetch and Parse Legislative Yuan Committee Details, Jurisdiction and Codes 取得立法院委員會類別及職權範圍代碼}
+\title{Fetch and Parse Legislative Yuan Committee Details, Jurisdiction and Codes}
 \usage{
 get_ly_committees_type(
   page = 1,
@@ -18,11 +18,12 @@ get_ly_committees_type(
 
 \item{per_page}{integer. Number of items per page (default: 20)}
 
-\item{type}{string. Committee type:
+\item{type}{string. Committee type. The API expects the Chinese-language
+category name, e.g.:
 \itemize{
-\item "常設委員會" (Standing Committee)
-\item "特種委員會" (Special Committee)
-\item "國會改革前舊委員會名稱" (Former Committee Names before Reform)
+\item Standing Committee
+\item Special Committee
+\item Former Committee Names before Reform
 }}
 
 \item{code}{integer. Committee code number}
@@ -61,37 +62,38 @@ This function fetches comprehensive committee information from the Legislative Y
 providing committee codes, names, duties, jurisdictions and organizational structure.
 The committees are categorized into three main types:
 \itemize{
-\item Standing Committees (常設委員會): Permanent committees handling specific policy areas
-\item Special Committees (特種委員會): Committees formed for specific purposes or tasks
-\item Former Committee Names (國會改革前舊委員會名稱): Historical committee designations
+\item Standing Committees: Permanent committees handling specific policy areas
+\item Special Committees: Committees formed for specific purposes or tasks
+\item Former Committee Names: Historical committee designations (used before
+Congressional reform)
 }
 
 Committee codes and their corresponding names:
 \itemize{
-\item 15: 內政委員會 (Interior Affairs Committee)
-\item 16: 外交及僑務委員會 (Foreign and Overseas Chinese Affairs Committee)
-\item 17: 科技及資訊委員會 (Science and Technology Committee)
-\item 18: 國防委員會 (National Defense Committee)
-\item 19: 經濟委員會 (Economic Affairs Committee)
-\item 20: 財政委員會 (Finance Committee)
-\item 21: 預算及決算委員會 (Budget and Final Accounts Committee)
-\item 22: 教育及文化委員會 (Education and Culture Committee)
-\item 23: 交通委員會 (Transportation Committee)
-\item 24: 司法委員會 (Judiciary Committee)
-\item 25: 法制委員會 (Legal Affairs Committee)
-\item 26: 社會福利及衛生環境委員會 (Social Welfare and Environmental Hygiene Committee)
-\item 27: 程序委員會 (Procedure Committee)
-\item 28: 紀律委員會 (Discipline Committee)
-\item 29: 修憲委員會 (Constitutional Amendment Committee)
-\item 30: 經費稽核委員會 (Expenditure Review Committee)
-\item 35: 外交及國防委員會 (Foreign Affairs and National Defense Committee)
-\item 36: 司法及法制委員會 (Judiciary and Legal Affairs Committee)
+\item 15: Interior Affairs Committee
+\item 16: Foreign and Overseas Chinese Affairs Committee
+\item 17: Science and Technology Committee
+\item 18: National Defense Committee
+\item 19: Economic Affairs Committee
+\item 20: Finance Committee
+\item 21: Budget and Final Accounts Committee
+\item 22: Education and Culture Committee
+\item 23: Transportation Committee
+\item 24: Judiciary Committee
+\item 25: Legal Affairs Committee
+\item 26: Social Welfare and Environmental Hygiene Committee
+\item 27: Procedure Committee
+\item 28: Discipline Committee
+\item 29: Constitutional Amendment Committee
+\item 30: Expenditure Review Committee
+\item 35: Foreign Affairs and National Defense Committee
+\item 36: Judiciary and Legal Affairs Committee
 }
 }
 \examples{
 \dontrun{
 # Fetch all standing committees
-committees <- fetch_ly_committees(type = "常設委員會")
+committees <- fetch_ly_committees(type = "Standing Committee")  # in Chinese
 
 # Get details for a specific committee by code
 interior_committee <- fetch_ly_committees(code = 15)

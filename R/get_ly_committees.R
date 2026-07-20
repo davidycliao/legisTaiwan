@@ -1,5 +1,5 @@
 #' @encoding UTF-8
-#' @title Fetch Legislative Yuan Committee Meetings 取得立法院委員會會議資料
+#' @title Fetch Legislative Yuan Committee Meetings
 #'
 #' @description
 #' Retrieves and processes committee meeting information from the Legislative Yuan API.
@@ -8,24 +8,24 @@
 #'
 #' @param committee_id integer. Required. The ID of the committee. Available values:
 #'   \itemize{
-#'     \item 15: 內政委員會 (Interior Committee)
-#'     \item 16: 外交及僑務委員會 (Foreign and Overseas Chinese Affairs Committee)
-#'     \item 17: 科技及資訊委員會 (Science and Technology Committee)
-#'     \item 18: 國防委員會 (Defense Committee)
-#'     \item 19: 經濟委員會 (Economics Committee)
-#'     \item 20: 財政委員會 (Finance Committee)
-#'     \item 21: 預算及決算委員會 (Budget Committee)
-#'     \item 22: 教育及文化委員會 (Education and Culture Committee)
-#'     \item 23: 交通委員會 (Transportation Committee)
-#'     \item 24: 司法委員會 (Judiciary Committee)
-#'     \item 25: 法制委員會 (Legal Affairs Committee)
-#'     \item 26: 社會福利及衛生環境委員會 (Social Welfare and Environmental Hygiene Committee)
-#'     \item 27: 程序委員會 (Procedure Committee)
-#'     \item 28: 紀律委員會 (Discipline Committee)
-#'     \item 29: 修憲委員會 (Constitutional Amendment Committee)
-#'     \item 30: 經費稽核委員會 (Expenditure Review Committee)
-#'     \item 35: 外交及國防委員會 (Foreign Affairs and Defense Committee)
-#'     \item 36: 司法及法制委員會 (Judiciary and Legal Affairs Committee)
+#'     \item 15: Interior Committee
+#'     \item 16: Foreign and Overseas Chinese Affairs Committee
+#'     \item 17: Science and Technology Committee
+#'     \item 18: Defense Committee
+#'     \item 19: Economics Committee
+#'     \item 20: Finance Committee
+#'     \item 21: Budget Committee
+#'     \item 22: Education and Culture Committee
+#'     \item 23: Transportation Committee
+#'     \item 24: Judiciary Committee
+#'     \item 25: Legal Affairs Committee
+#'     \item 26: Social Welfare and Environmental Hygiene Committee
+#'     \item 27: Procedure Committee
+#'     \item 28: Discipline Committee
+#'     \item 29: Constitutional Amendment Committee
+#'     \item 30: Expenditure Review Committee
+#'     \item 35: Foreign Affairs and Defense Committee
+#'     \item 36: Judiciary and Legal Affairs Committee
 #'   }
 #' @param page integer. Page number for pagination (default: 1)
 #' @param per_page integer. Number of items per page (default: 20)

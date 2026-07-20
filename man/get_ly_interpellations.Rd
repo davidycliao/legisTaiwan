@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{get_ly_interpellations}
 \alias{get_ly_interpellations}
-\title{Get Legislative Yuan Interpellation Records 取得立法院質詢紀錄}
+\title{Get Legislative Yuan Interpellation Records}
 \usage{
 get_ly_interpellations(
   page = 1,
@@ -30,7 +30,9 @@ get_ly_interpellations(
 
 \item{session_times}{An integer specifying the session times}
 
-\item{meet_id}{A string specifying the meeting ID (e.g., "院會-9-2-1")}
+\item{meet_id}{A string specifying the meeting ID, using the API's own
+meeting-type label (in Chinese) combined with term-session-times numbers
+(e.g., a plenary-session meeting in term 9, session 2, session-times 1)}
 
 \item{query}{A string to search in interpellation reasons or content}
 
@@ -73,7 +75,7 @@ Returns structured data including metadata and detailed interpellation records.
 \dontrun{
 # Get interpellations by legislator
 zhao_records <- get_ly_interpellations(
-  legislator = "趙天麟",
+  legislator = "Chao Tien-lin",  # a legislator's Chinese name goes here
   limit = 5
 )
 
@@ -86,7 +88,7 @@ session_records <- get_ly_interpellations(
 
 # Search interpellations by keyword
 search_results <- get_ly_interpellations(
-  query = "氫能",
+  query = "hydrogen energy",  # a Chinese-language keyword goes here
   page = 1,
   limit = 20
 )

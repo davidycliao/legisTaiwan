@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{get_bills}
 \alias{get_bills}
-\title{The Records of the Bills: 法律提案}
+\title{The Records of the Bills}
 \usage{
 get_bills(start_date = NULL, end_date = NULL, proposer = NULL, verbose = TRUE)
 }
@@ -46,7 +46,7 @@ A list, which contains:
 }
 }
 \description{
-The Records of the Bills: 法律提案
+The Records of the Bills
 }
 \details{
 The \code{get_bills} function returns a list that contains \code{query_time},
@@ -63,10 +63,10 @@ Further checks are required as the user manual seems to be inconsistent with the
 get_bills(start_date = 1060120, end_date = 1070310, verbose = TRUE)
 
 ## Query bill records by a date range and a specific legislator
-get_bills(start_date = 1060120, end_date = 1070310,  proposer = "孔文吉")
+get_bills(start_date = 1060120, end_date = 1070310,  proposer = "Kung Wen-chi")
 
 ## Query bill records by a date range and multiple legislators
-get_bills(start_date = 1060120, end_date = 1060510,  proposer = "孔文吉&鄭天財")
+get_bills(start_date = 1060120, end_date = 1060510,  proposer = "Kung Wen-chi&Cheng Tien-tsai")
 }
 
 }

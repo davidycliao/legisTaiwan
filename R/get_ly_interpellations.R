@@ -1,4 +1,4 @@
-#' @title Get Legislative Yuan Interpellation Records 取得立法院質詢紀錄
+#' @title Get Legislative Yuan Interpellation Records
 #'
 #' @description
 #' Fetches and parses interpellation records from the Legislative Yuan API.
@@ -11,7 +11,9 @@
 #' @param term An integer specifying the legislative term number
 #' @param session_period An integer specifying the session period
 #' @param session_times An integer specifying the session times
-#' @param meet_id A string specifying the meeting ID (e.g., "院會-9-2-1")
+#' @param meet_id A string specifying the meeting ID, using the API's own
+#'   meeting-type label (in Chinese) combined with term-session-times numbers
+#'   (e.g., a plenary-session meeting in term 9, session 2, session-times 1)
 #' @param query A string to search in interpellation reasons or content
 #' @param show_progress A logical value indicating whether to show progress bar (default: TRUE)
 #'
@@ -46,7 +48,7 @@
 #' \dontrun{
 #' # Get interpellations by legislator
 #' zhao_records <- get_ly_interpellations(
-#'   legislator = "趙天麟",
+#'   legislator = "Chao Tien-lin",  # a legislator's Chinese name goes here
 #'   limit = 5
 #' )
 #'
@@ -59,7 +61,7 @@
 #'
 #' # Search interpellations by keyword
 #' search_results <- get_ly_interpellations(
-#'   query = "氫能",
+#'   query = "hydrogen energy",  # a Chinese-language keyword goes here
 #'   page = 1,
 #'   limit = 20
 #' )

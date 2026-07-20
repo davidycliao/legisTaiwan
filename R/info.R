@@ -1,4 +1,4 @@
-#' Check Each Function's Manual 檢查各函式說明文件
+#' Check Each Function's Manual
 #'
 #'@author Yen-Chieh Liao (davidycliao@@gmail.com)
 #'
@@ -6,7 +6,7 @@
 #'from the website of Taiwan Legislative Yuan. The avalaible options is: `get_bills`,
 #'`get_bills_2`, `get_meetings`, `get_caucus_meetings`, `get_speech_video` ,
 #'`get_public_debates`, `get_parlquestions`, `get_executive_response` and
-#'`get_committee_record`. 僅使用舊版 API 參數。
+#'`get_committee_record`. Only supports legacy API parameters.
 #'
 #'@param param_ characters. Must be one of options below: \describe{
 #'      \item{get_bills}{get_bills: the records of the bills, see \url{https://data.ly.gov.tw/getds.action?id=6}}
@@ -104,91 +104,10 @@ get_variable_info <- function(param_) {
 }
 
 
-#' Check Session Periods in Each Year (Minguo Calendar) 檢查每年會期 (民國曆)
-#'
-#'@author David Liao (davidycliao@@gmail.com)
-#'
-#'@details `review_session_info` produces a dataframe, displaying each session
-#'period in year formatted in Minguo (Taiwan) calendar.
-#'
-#'@param term numeric
-#'
-#'@return dataframe
-#'
-#'@importFrom attempt stop_if_all
-#'@importFrom rvest html_text2 read_html
-#'@importFrom tibble as_tibble
-#'
-#' @seealso
-#' Regarding Minguo calendar, please see \url{https://en.wikipedia.org/wiki/Republic_of_China_calendar}.
-#'
-#' @examples
-#' # Show the session information for the 7th Legislative Yuan term periods in ROC calendar year
-#' review_session_info(7)
-#' @export
-review_session_info <- function(term) {
-  # Input validation
-  if(missing(term)) {
-    stop("Term parameter is required")
-  }
-
-  attempt::stop_if_not(website_availability2(),
-                       msg = "API connection error. Please check your internet connection.")
-
-  attempt::stop_if(term, is.null,
-                   msg = "Term cannot be NULL. Please provide a valid term number (1-11).")
-
-  attempt::stop_if_not(term %in% 1:11,
-                       msg = paste("Invalid term:", term,
-                                   "\nPlease provide a term number between 1 and 11."))
-
-  # Construct URL
-  url <- sprintf("https://npl.ly.gov.tw/do/www/appDate?status=0&expire=%02d&startYear=0",
-                 as.numeric(term))
-  tryCatch({
-    # Parse HTML
-    html_ <- rvest::html_nodes(rvest::read_html(url),
-                               "*[class='section_wrapper']")
-
-    # Extract titles
-    title <- stringr::str_split_1(
-      rvest::html_text2(
-        rvest::html_nodes(html_, "[class='tt_titlebar2']")
-      ),
-      "\t\r"
-    )[1:2]
-
-    # Extract rows
-    odd_rows <- rvest::html_text2(
-      rvest::html_nodes(html_, "[class='tt_listrow_odd']")
-    )
-    even_rows <- rvest::html_text2(
-      rvest::html_nodes(html_, "[class='tt_listrow_even']")
-    )
-
-    # Process data
-    data <- lapply(
-      lapply(c(odd_rows, even_rows),
-             function(x) stringr::str_split_1(x, "\r\r")),
-      function(x) gsub("[[:space:]]", "", x)
-    )
-
-    # Create dataframe
-    df <- do.call(rbind, data)
-    colnames(df) <- title
-
-    return(tibble::as_tibble(df))
-  },
-  error = function(e) {
-    stop(paste("Error retrieving session information:", e$message))
-  })
-}
-
-
 #' Check Session Periods in Each Year (Minguo Calendar)
 #'
 #' @title Check Session Periods in Each Year
-#' @description Examines session periods in Taiwan Minguo calendar (檢查每年會期民國曆)
+#' @description Examines session periods in the Taiwan Minguo calendar
 #'
 #' @author David Liao (davidycliao@@gmail.com)
 #'

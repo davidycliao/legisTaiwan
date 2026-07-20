@@ -3,14 +3,15 @@
 \encoding{UTF-8}
 \name{get_ly_legislator_bills}
 \alias{get_ly_legislator_bills}
-\title{Get Bill by legislator 取得立法委員提案資料}
+\title{Get Bill by legislator}
 \usage{
 get_ly_legislator_bills(term, name, page = 1, limit = 20, show_progress = TRUE)
 }
 \arguments{
 \item{term}{integer. Required. The legislative term number (e.g., 9)}
 
-\item{name}{string. Required. The legislator's name in Chinese (e.g., "王金平")}
+\item{name}{string. Required. The legislator's name in Chinese (e.g., the
+legislator romanized as "Wang Jin-pyng")}
 
 \item{page}{integer. Page number for pagination (default: 1)}
 
@@ -32,16 +33,16 @@ A list containing two components:
 \item{bills}{A data frame containing bill information:
 \describe{
 \item{billNo}{Bill number}
-\item{議案名稱}{Bill name}
-\item{提案單位}{Proposing unit/legislator}
-\item{議案狀態}{Bill status}
-\item{議案類別}{Bill type}
-\item{提案來源}{Bill source}
+\item{billName}{Bill name (raw column name is a Chinese label)}
+\item{billOrg}{Proposing unit/legislator (raw column name is a Chinese label)}
+\item{billStatus}{Bill status (raw column name is a Chinese label)}
+\item{billType}{Bill type (raw column name is a Chinese label)}
+\item{billSource}{Bill source (raw column name is a Chinese label)}
 \item{meet_id}{Meeting ID}
-\item{會期}{Session number}
-\item{字號}{Reference number}
-\item{提案編號}{Proposal number}
-\item{屆期}{Legislative term}
+\item{session}{Session number (raw column name is a Chinese label)}
+\item{referenceNo}{Reference number (raw column name is a Chinese label)}
+\item{proposalNo}{Proposal number (raw column name is a Chinese label)}
+\item{term}{Legislative term (raw column name is a Chinese label)}
 \item{mtime}{Last modified time}
 }
 }
@@ -52,7 +53,7 @@ Retrieves comprehensive information for a specific legislator from the Legislati
 This includes personal details, committee assignments, educational background, and work experience.
 }
 \details{
-Get Bill by legislator 取得立法委員提案資料
+Get Bill by legislator
 }
 \section{API Details}{
 
@@ -76,14 +77,14 @@ The returned data can be used for:
 # Get bills for a specific legislator
 bills <- get_ly_legislator_bills(
   term = 9,
-  name = "王金平",
+  name = "Wang Jin-pyng",  # a legislator's Chinese name goes here
   limit = 10
 )
 
 # Get second page of bills
 bills_page2 <- get_ly_legislator_bills(
   term = 9,
-  name = "王金平",
+  name = "Wang Jin-pyng",  # a legislator's Chinese name goes here
   page = 2,
   limit = 20
 )

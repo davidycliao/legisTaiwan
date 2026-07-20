@@ -2,7 +2,7 @@
 % Please edit documentation in R/info.R
 \name{get_variable_info}
 \alias{get_variable_info}
-\title{Check Each Function's Manual 檢查各函式說明文件}
+\title{Check Each Function's Manual}
 \usage{
 get_variable_info(param_)
 }
@@ -28,7 +28,7 @@ list \describe{
 from the website of Taiwan Legislative Yuan. The avalaible options is: \code{get_bills},
 \code{get_bills_2}, \code{get_meetings}, \code{get_caucus_meetings}, \code{get_speech_video} ,
 \code{get_public_debates}, \code{get_parlquestions}, \code{get_executive_response} and
-\code{get_committee_record}. 僅使用舊版 API 參數。
+\code{get_committee_record}. Only supports legacy API parameters.
 }
 \details{
 \code{get_variable_info} produces a list, which contains \code{page_info} and \code{reference_url}.

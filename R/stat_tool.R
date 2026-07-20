@@ -101,7 +101,7 @@ analyze_bills <- function(stats) {
 #'           \item{count}{Number of meetings in that term}
 #'           \item{max_meeting_date}{Last meeting date of the term}
 #'           \item{meetdata_count}{Number of meetings with data}
-#'           \item{議事錄_count}{Number of meetings with minutes}
+#'           \item{minutes_count}{Number of meetings with minutes (the API's raw column name is a Traditional Chinese label)}
 #'         }
 #'       }
 #'     }

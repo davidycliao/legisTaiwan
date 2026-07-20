@@ -1,4 +1,4 @@
-#' Get Legislative Yuan Legislator Detail 取得立法委員完整歷史資料
+#' Get Legislative Yuan Legislator Detail
 #'
 #' @title Fetch Legislator Detail Information
 #'
@@ -6,7 +6,7 @@
 #' Retrieves detailed information for a specific legislator by term and name from the Legislative Yuan API.
 #'
 #' @param term required integer. Legislative term number (e.g. 9)
-#' @param name required string. Legislator name (e.g. "王金平")
+#' @param name required string. Legislator name as used by the API, in Chinese (e.g. the legislator romanized as "Wang Jin-pyng")
 #' @param show_progress logical. Whether to display progress info (default: TRUE)
 #'
 #' @return A list containing legislator details:
@@ -34,7 +34,7 @@
 #' # Get legislator detail
 #' detail <- get_ly_legislator_detail(
 #'   term = 9,
-#'   name = "王金平"
+#'   name = "Wang Jin-pyng"  # a legislator's Chinese name goes here
 #' )
 #'
 #' # Print basic info

@@ -10,3 +10,7 @@
 test.Rmd
 .Rproj.user
 ^.*\.Rcheck$
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata

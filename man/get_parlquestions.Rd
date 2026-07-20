@@ -3,15 +3,15 @@
 \encoding{UTF-8}
 \name{get_parlquestions}
 \alias{get_parlquestions}
-\title{The Records of Parliamentary Questions 委員質詢事項資訊}
+\title{The Records of Parliamentary Questions}
 \usage{
 get_parlquestions(term = NULL, session_period = NULL, verbose = TRUE)
 }
 \arguments{
-\item{term}{numeric or NULL. The default is set to NULL. 參數必須為數值。}
+\item{term}{numeric or NULL. The default is set to NULL.}
 
 \item{session_period}{integer, numeric or NULL. Available
-options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to 8 參數必須為數值。
+options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to 8
 \code{review_session_info()} generates each session period available option period
 in Minguo (Taiwan) calendar.}
 
@@ -30,11 +30,11 @@ A list containing:
 \item{\code{manual_info}}{the offical manual from \url{https://data.ly.gov.tw/getds.action?id=6}, or use get_variable_info("get_parlquestions")}
 \item{\code{data}}{a tibble dataframe, whose variables include:
 \describe{
-\item{\code{term}}{屆別}
-\item{\code{sessionPeriod}}{會期}
-\item{\code{sessionTimes}}{會次}
-\item{\code{item}}{項目}
-\item{\code{selectTerm}}{屆別期別篩選條件}
+\item{\code{term}}{Term number}
+\item{\code{sessionPeriod}}{Session period}
+\item{\code{sessionTimes}}{Session times}
+\item{\code{item}}{Item}
+\item{\code{selectTerm}}{Term/session filtering criteria}
 }
 }
 }
@@ -52,7 +52,8 @@ the Legislative Yuan's V1 API interface.
 To retrieve the user manual and more information about variable of the data
 frame, please use \code{get_variable_info("get_parlquestions")}
 or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=6}.
-質詢類: 提供議事日程本院委員之質詢事項資訊(自第8屆第1會期起)。
+Category: Provides records of legislators' questions from the meeting agenda
+(available from the 8th term, 1st session, onwards).
 }
 \examples{
 \dontrun{
