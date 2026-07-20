@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{get_meetings}
 \alias{get_meetings}
-\title{The Spoken Meeting Records 委員發言}
+\title{The Spoken Meeting Records}
 \usage{
 get_meetings(
   start_date = NULL,
@@ -36,13 +36,13 @@ list, which contains: \describe{
 \item{\code{variable_names}}{the variables of the tibble dataframe}
 \item{\code{manual_info}}{the offical manual, \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}; or use get_variable_info("get_meetings")}
 \item{\code{data}}{a tibble dataframe, whose variables include:
-\describe{\item{\code{smeeting_date}}{會議日期}
-\item{\code{meeting_status}}{會議狀態}
-\item{\code{meeting_name}}{會議名稱}
-\item{\code{meeting_content}}{會議事由}
-\item{\code{speechers}}{委員發言名單}
-\item{\code{meeting_unit}}{主辦單位}
-\item{\code{date_ad}}{西元年}
+\describe{\item{\code{smeeting_date}}{Meeting date}
+\item{\code{meeting_status}}{Meeting status}
+\item{\code{meeting_name}}{Meeting name}
+\item{\code{meeting_content}}{Meeting subject}
+\item{\code{speechers}}{List of speaking legislators}
+\item{\code{meeting_unit}}{Organizing unit}
+\item{\code{date_ad}}{Gregorian year}
 }
 }
 }
@@ -60,17 +60,18 @@ the Legislative Yuan's V1 API interface.
 To retrieve the user manual and more information about variable of the data
 frame, please use \code{get_variable_info("get_meetings")} or visit
 the API manual at \url{https://www.ly.gov.tw/Pages/List.aspx?nodeid=154}.
-資料似乎不一致，待確認。委員發言（取得最早時間不詳，待檢查。）
+The data appears inconsistent and needs verification; the earliest available
+date for spoken meeting records is unclear and needs checking.
 }
 \examples{
+\dontrun{
 ## query meeting records by a period of the dates in Minguo (Taiwan) calendar
-## 輸入「中華民國民年」下載「委員發言」
 get_meetings(start_date = "1050120", end_date = "1050210")
 
 ## query meeting records by a period of the dates in Minguo (Taiwan) calendar format
-## and a meeting
-## 輸入「中華民國民年」與「審查會議或委員會名稱」下載會議審查資訊
-get_meetings(start_date = 1060120, end_date = 1070310, meeting_unit = "內政委員會")
+## and a meeting; meeting_unit is a Chinese committee name, e.g. "Interior Committee"
+get_meetings(start_date = 1060120, end_date = 1070310, meeting_unit = "Interior Committee")
+}
 
 }
 \seealso{

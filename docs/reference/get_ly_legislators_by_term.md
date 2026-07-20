@@ -1,4 +1,4 @@
-# Fetch Legislators List for a Specific Term 依屆期取得立法委員名單
+# Fetch Legislators List for a Specific Term
 
 Retrieves a paginated list of legislators for a specific Legislative
 Yuan term. The function provides detailed information about legislators

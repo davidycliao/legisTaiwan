@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{get_ly_bills}
 \alias{get_ly_bills}
-\title{Fetch and Parse Legislative Yuan Bills 取得並解析立法院議案資料}
+\title{Fetch and Parse Legislative Yuan Bills}
 \usage{
 get_ly_bills(
   page = 1,
@@ -31,31 +31,35 @@ get_ly_bills(
 
 \item{session}{integer. Legislative session period, e.g., 2}
 
-\item{bill_type}{string. Type of bill:
+\item{bill_type}{string. Type of bill. The API expects the Chinese-language
+category name, e.g.:
 \itemize{
-\item "法律案" (Law Bill)
-\item "中央政府總預算案" (Central Government Budget Bill)
-\item "預(決) 算決議案" (Budget/Final Account Resolution)
-\item "定期報告" (Regular Report)
-\item "行政命令(層級)" (Administrative Order)
-\item "院內單位來文" (Internal Document)
+\item Law Bill
+\item Central Government Budget Bill
+\item Budget/Final Account Resolution
+\item Regular Report
+\item Administrative Order
+\item Internal Document
 }}
 
-\item{current_status}{string. Current bill status, e.g., "排入院會"}
+\item{current_status}{string. Current bill status, in Chinese (e.g., "scheduled
+for plenary session")}
 
-\item{process_status}{string. Status in process flow, e.g., "排入院會 (交內政委員會)"}
+\item{process_status}{string. Status in process flow, in Chinese (e.g.,
+"scheduled for plenary session, referred to the Interior Committee")}
 
 \item{proposer}{string. Bill proposer name}
 
 \item{cosigner}{string. Bill cosigner name}
 
-\item{source}{string. Source of bill, e.g., "委員提案"}
+\item{source}{string. Source of bill, in Chinese (e.g., "legislator proposal")}
 
 \item{bill_id}{string. Bill ID number}
 
 \item{law_id}{string. Related law ID number}
 
-\item{meeting_code}{string. Meeting code, e.g., "院會-11-2-3"}
+\item{meeting_code}{string. Meeting code, e.g., a plenary-session meeting in
+term 11, session 2, session-times 3}
 
 \item{show_progress}{logical. Whether to display progress bar (default: TRUE)}
 }
@@ -76,21 +80,21 @@ Returns both metadata and detailed bill information.
 # Get law bills
 bills <- get_ly_bills(
   term = 11,
-  bill_type = "法律案",
+  bill_type = "Law Bill",  # pass the Chinese-language category name here
   show_progress = TRUE
 )
 
 # Get budget bills
 bills <- get_ly_bills(
   term = 11,
-  bill_type = "中央政府總預算案",
+  bill_type = "Central Government Budget Bill",  # in Chinese
   show_progress = TRUE
 )
 
 # Get administrative orders
 bills <- get_ly_bills(
   term = 11,
-  bill_type = "行政命令(層級)",
+  bill_type = "Administrative Order",  # in Chinese
   show_progress = TRUE
 )
 }

@@ -1,6 +1,6 @@
 ## Real-time and Archives of Taiwan Legislative Data in R ![legisTaiwan logo](reference/figures/logo.png)
 
-[![codecov](https://codecov.io/gh/davidycliao/legisTaiwan/branch/master/graph/badge.svg?token=HVVTCOE90D)](https://codecov.io/gh/davidycliao/legisTaiwan)
+[![codecov](https://codecov.io/gh/davidycliao/legisTaiwan/branch/master/graph/badge.svg?token=HVVTCOE90D)](https://app.codecov.io/gh/davidycliao/legisTaiwan)
 [![R-CMD-check](https://github.com/davidycliao/legisTaiwan/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/davidycliao/legisTaiwan/actions/workflows/R-CMD-check.yaml)
 [![Test
 coverage](https://github.com/davidycliao/legisTaiwan/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/davidycliao/legisTaiwan/actions/workflows/test-coverage.yaml)
@@ -27,7 +27,6 @@ R套件使用上的問題，歡迎open issue 在githut
 ### Get Started with Using [`remotes`](https://github.com/r-lib/remotes):
 
 ``` r
-
 install.packages("remotes")
 remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
 ```
@@ -42,12 +41,12 @@ library(legisTaiwan)
 
 ### Talks & Presentations:
 
-- **28 Apr 2025:** R-Ladies Taipei 讓分析台灣國會數據更透明 —
+- **28 Apr 2025:** **R-Ladies Taipei** 讓分析台灣國會數據更透明 —
   `legisTaiwan` R 套件 (Shaka Y.J. Li and Yen-Chieh Liao)
   [![GitHub](https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white)](https://github.com/davidycliao/r-ladies-tpe-legistaiwan?tab=readme-ov-file)
 
-- **11-14 Sept 2025:** [Legislative Studies
-  Session](https://apsa2025-apsa.ipostersessions.com/Default.aspx?s=79-0E-DC-EC-7E-79-06-7C-45-40-EE-55-33-CD-B9-0D)
+- **11-14 Sept 2025:** [**Legislative Studies
+  Session**](https://apsa2025-apsa.ipostersessions.com/Default.aspx?s=79-0E-DC-EC-7E-79-06-7C-45-40-EE-55-33-CD-B9-0D)
   , Annual Conference of American Political Science Association,
   Vancouver, CA. (Shaka Y.J. Li )
 
@@ -87,67 +86,61 @@ for discussion.
 Basic data retrieval functions from old Legislative Yuan API
 
 - [`get_bills()`](https://davidycliao.github.io/legisTaiwan/reference/get_bills.md)
-  : The Records of the Bills: 法律提案
+  : The Records of the Bills
 - [`get_bills_2()`](https://davidycliao.github.io/legisTaiwan/reference/get_bills_2.md)
-  : The Records of Legislation and the Executives Proposals:
-  委員及政府議案提案資訊
+  : The Records of Legislation and the Executives Proposals
 - [`get_meetings()`](https://davidycliao.github.io/legisTaiwan/reference/get_meetings.md)
-  : The Spoken Meeting Records 委員發言
+  : The Spoken Meeting Records
 - [`get_committee_record()`](https://davidycliao.github.io/legisTaiwan/reference/get_committee_record.md)
   : The Records of Reviewed Items in the Committees
-  委員會會議審查之議案項目
 - [`get_legislators()`](https://davidycliao.github.io/legisTaiwan/reference/get_legislators.md)
   : The Legislator' Demographic Information and Background
-  提供委員基本資料
 
 ## API V1 - Parliamentary Activities
 
 Functions for parliamentary activities from old API
 
 - [`get_parlquestions()`](https://davidycliao.github.io/legisTaiwan/reference/get_parlquestions.md)
-  : The Records of Parliamentary Questions 委員質詢事項資訊
+  : The Records of Parliamentary Questions
 - [`get_caucus_meetings()`](https://davidycliao.github.io/legisTaiwan/reference/get_caucus_meetings.md)
-  : The Meeting Records of Cross-caucus Session 黨團協商資訊
+  : The Meeting Records of Cross-caucus Session
 - [`get_executive_response()`](https://davidycliao.github.io/legisTaiwan/reference/get_executive_response.md)
   : The Records of Response to the Questions by the Executives
-  公報質詢事項行政院答復資訊
 - [`get_public_debates()`](https://davidycliao.github.io/legisTaiwan/reference/get_public_debates.md)
-  : The Records of National Public Debates 國是論壇
+  : The Records of National Public Debates
 - [`get_speech_video()`](https://davidycliao.github.io/legisTaiwan/reference/get_speech_video.md)
   : The Video Information of Meetings and Committees
-  院會及委員會之委員發言片段相關影片資訊
 
 ## API V2 - Bills and Committees
 
 New API functions for bills and committee information
 
 - [`get_ly_bills()`](https://davidycliao.github.io/legisTaiwan/reference/get_ly_bills.md)
-  : Fetch and Parse Legislative Yuan Bills 取得並解析立法院議案資料
+  : Fetch and Parse Legislative Yuan Bills
 - [`get_ly_committee_meets()`](https://davidycliao.github.io/legisTaiwan/reference/get_ly_committee_meets.md)
-  : Fetch Legislative Yuan Committee Meetings 取得立法院委員會會議資料
+  : Fetch Legislative Yuan Committee Meetings
 - [`get_ly_committees_type()`](https://davidycliao.github.io/legisTaiwan/reference/get_ly_committees_type.md)
   : Fetch and Parse Legislative Yuan Committee Details, Jurisdiction and
-  Codes 取得立法院委員會類別及職權範圍代碼
+  Codes
 - [`get_ly_interpellations()`](https://davidycliao.github.io/legisTaiwan/reference/get_ly_interpellations.md)
-  : Get Legislative Yuan Interpellation Records 取得立法院質詢紀錄
+  : Get Legislative Yuan Interpellation Records
 - [`get_ly_ivod()`](https://davidycliao.github.io/legisTaiwan/reference/get_ly_ivod.md)
   : Fetch Legislative Yuan IVOD (Video) Records
-  取得立法院議事轉播影片資料
 
 ## API V2 - Legislator Information
 
 New API functions for legislator-specific data
 
 - [`get_ly_legislator_bills()`](https://davidycliao.github.io/legisTaiwan/reference/get_ly_legislator_bills.md)
-  : Get Bill by legislator 取得立法委員提案資料
+  : Get Bill by legislator
 - [`get_ly_legislator_cosign_bills()`](https://davidycliao.github.io/legisTaiwan/reference/get_ly_legislator_cosign_bills.md)
-  : Fetch Bills Cosigned by a Legislator 取得立法委員連署法案
+  : Fetch Bills Cosigned by a Legislator
 - [`get_ly_legislators_by_term()`](https://davidycliao.github.io/legisTaiwan/reference/get_ly_legislators_by_term.md)
-  : Fetch Legislators List for a Specific Term 依屆期取得立法委員名單
+  : Fetch Legislators List for a Specific Term
 - [`get_ly_legislator_detail()`](https://davidycliao.github.io/legisTaiwan/reference/get_ly_legislator_detail.md)
   : Fetch Legislator Detail Information
 - [`get_tly_stat()`](https://davidycliao.github.io/legisTaiwan/reference/get_tly_stat.md)
-  : Fetch and Parse Legislative Yuan Statistics 取得並解析立法院統計資料
+  : Fetch and Parse Legislative Yuan Statistics
 
 ## Analysis Tools
 
@@ -171,7 +164,7 @@ Functions for data analysis and reporting
 Helper functions and datasets
 
 - [`get_variable_info()`](https://davidycliao.github.io/legisTaiwan/reference/get_variable_info.md)
-  : Check Each Function's Manual 檢查各函式說明文件
+  : Check Each Function's Manual
 - [`review_session_info()`](https://davidycliao.github.io/legisTaiwan/reference/review_session_info.md)
   : Check Session Periods in Each Year
 - [`legis_keywords`](https://davidycliao.github.io/legisTaiwan/reference/legis_keywords.md)

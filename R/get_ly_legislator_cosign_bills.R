@@ -1,12 +1,13 @@
-#' Get Legislator's Cosigned Bills 取得立法委員連署法案
+#' Get Legislator's Cosigned Bills
 #'
-#' @title Fetch Bills Cosigned by a Legislator 取得立法委員連署法案
+#' @title Fetch Bills Cosigned by a Legislator
 #'
 #' @description
 #' Retrieves bills that were cosigned by a specific legislator by term and name from the Legislative Yuan API.
 #'
 #' @param term required integer. Legislative term number (e.g. 9)
-#' @param name required string. Legislator name (e.g. "王金平")
+#' @param name required string. Legislator name in Chinese (e.g. the legislator
+#'   romanized as "Wang Jin-pyng")
 #' @param page integer. Page number for pagination (default: 1)
 #' @param limit integer. Number of records per page (default: 20)
 #' @param show_progress logical. Whether to display progress info (default: TRUE)
@@ -24,16 +25,16 @@
 #'   \item{bills}{A data frame containing bill information:
 #'     \describe{
 #'       \item{billNo}{Bill number}
-#'       \item{議案名稱}{Bill name}
-#'       \item{提案單位}{Proposing unit/legislator}
-#'       \item{議案狀態}{Bill status}
-#'       \item{議案類別}{Bill type}
-#'       \item{提案來源}{Source}
+#'       \item{billName}{Bill name (raw column name is a Chinese label)}
+#'       \item{billOrg}{Proposing unit/legislator (raw column name is a Chinese label)}
+#'       \item{billStatus}{Bill status (raw column name is a Chinese label)}
+#'       \item{billType}{Bill type (raw column name is a Chinese label)}
+#'       \item{billSource}{Source (raw column name is a Chinese label)}
 #'       \item{meet_id}{Meeting ID}
-#'       \item{會期}{Session period}
-#'       \item{字號}{Case number}
-#'       \item{提案編號}{Proposal number}
-#'       \item{屆期}{Term}
+#'       \item{session}{Session period (raw column name is a Chinese label)}
+#'       \item{caseNo}{Case number (raw column name is a Chinese label)}
+#'       \item{proposalNo}{Proposal number (raw column name is a Chinese label)}
+#'       \item{term}{Term (raw column name is a Chinese label)}
 #'       \item{mtime}{Last modified time}
 #'     }
 #'   }
@@ -44,19 +45,19 @@
 #' # Get cosigned bills
 #' bills <- get_ly_legislator_cosign_bills(
 #'   term = 9,
-#'   name = "王金平",
+#'   name = "Wang Jin-pyng",  # a legislator's Chinese name goes here
 #'   limit = 5
 #' )
 #'
 #' # Print results
 #' print(paste("Total cosigned bills:", bills$metadata$total))
 #' print("Latest cosigned bill:")
-#' print(bills$bills[1, c("議案名稱", "議案狀態")])
+#' print(bills$bills[1, c("billName", "billStatus")])  # actual columns are named in Chinese
 #'
 #' # Get second page of results
 #' bills_page2 <- get_ly_legislator_cosign_bills(
 #'   term = 9,
-#'   name = "王金平",
+#'   name = "Wang Jin-pyng",  # a legislator's Chinese name goes here
 #'   page = 2,
 #'   limit = 20
 #' )

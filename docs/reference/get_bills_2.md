@@ -1,7 +1,6 @@
-# The Records of Legislation and the Executives Proposals: 委員及政府議案提案資訊
+# The Records of Legislation and the Executives Proposals
 
-The Records of Legislation and the Executives Proposals:
-委員及政府議案提案資訊
+The Records of Legislation and the Executives Proposals
 
 ## Usage
 
@@ -14,12 +13,12 @@ get_bills_2(term = 8, session_period = NULL, verbose = TRUE)
 - term:
 
   A numeric or NULL value. Data is available from the 8th term onwards.
-  Default is set to 8. 參數必須為數值。資料從第8屆開始，預設值為8。
+  Default is set to 8.
 
 - session_period:
 
   An integer, numeric, or NULL. Valid options for the session are: 1, 2,
-  3, 4, 5, 6, 7, and 8. Default is set to NULL. 參數必須為數值。
+  3, 4, 5, 6, 7, and 8. Default is set to NULL.
   [`review_session_info()`](https://davidycliao.github.io/legisTaiwan/reference/review_session_info.md)
   provides available session periods based on the Minguo (Taiwan)
   calendar.
@@ -68,43 +67,43 @@ A list containing:
 
   `term`
 
-  :   屆別
+  :   Legislative term number
 
   `sessionPeriod`
 
-  :   會期
+  :   Session period
 
   `sessionTimes`
 
-  :   會次
+  :   Session times
 
   `meetingTimes`
 
-  :   臨時會會次
+  :   Extraordinary session times
 
   `billNo`
 
-  :   議案編號
+  :   Bill number
 
   `billName`
 
-  :   提案名稱
+  :   Bill title
 
   `billOrg`
 
-  :   提案單位/委員
+  :   Proposing unit/legislator
 
   `billProposer`
 
-  :   主提案人
+  :   Primary proposer
 
   `billCosignatory`
 
-  :   連署提案
+  :   Co-signed proposal
 
   `billStatus`
 
-  :   議案狀態
+  :   Bill status
 
   `pdfUrl`
 
@@ -129,8 +128,9 @@ about the dataframe, use `get_variable_info("get_bills_2")`.
 
 For more details about the dataframe's variables, use
 `get_variable_info("get_bills_2")` or visit the API manual at
-<https://data.ly.gov.tw/getds.action?id=20>. 議事類:
-提供委員及政府之議案提案資訊 (從第8屆第1會期開始)。
+<https://data.ly.gov.tw/getds.action?id=20>. Category: Provides
+bill-proposal records for legislators and the executive (available from
+the 8th term, 1st session, onwards).
 
 ## See also
 
@@ -145,7 +145,6 @@ David Liao (davidycliao@gmail.com)
 ``` r
 if (FALSE) { # \dontrun{
 ## Query the executives' responses by term and session period.
-## 輸入「立委屆期」與「會期」以下載「質詢事項 (行政院答復部分)」
 get_bills_2(term = 8, session_period = 1)
 } # }
 ```

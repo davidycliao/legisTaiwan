@@ -1,4 +1,4 @@
-# The Records of Response to the Questions by the Executives 公報質詢事項行政院答復資訊
+# The Records of Response to the Questions by the Executives
 
 Provides access to the records of parliamentary questions through the
 Legislative Yuan's V1 API interface.
@@ -14,12 +14,12 @@ get_executive_response(term = NULL, session_period = NULL, verbose = TRUE)
 - term:
 
   integer, numeric or NULL. The default is NULL. The data is only
-  available from 8th term. 參數必須為數值。資料從自第8屆起，預設值為8。
+  available from 8th term.
 
 - session_period:
 
   integer, numeric or NULL. Available options for the session is: 1, 2,
-  3, 4, 5, 6, 7, and 8. The default is set to NULL. 參數必須為數值。
+  3, 4, 5, 6, 7, and 8. The default is set to NULL.
   [`review_session_info()`](https://davidycliao.github.io/legisTaiwan/reference/review_session_info.md)
   generates each session period available option period in Minguo
   (Taiwan) calendar.
@@ -67,47 +67,47 @@ list contains:
 
   `sessionPeriod`
 
-  :   會期
+  :   Session period
 
   `sessionTimes`
 
-  :   會次
+  :   Session times
 
   `meetingTimes`
 
-  :   臨時會會次
+  :   Extraordinary session times
 
   `eyNumber`
 
-  :   行政院函公文編號
+  :   Executive Yuan document reference number
 
   `lyNumber`
 
-  :   立法院函編號
+  :   Legislative Yuan document reference number
 
   `subject`
 
-  :   案由
+  :   Subject
 
   `content`
 
-  :   內容
+  :   Content
 
   `docUrl`
 
-  :   案由
+  :   Subject
 
   `item`
 
-  :   檔案下載位置
+  :   File download location
 
   `item`
 
-  :   檔案下載位置
+  :   File download location
 
   `selectTerm`
 
-  :   屆別期別篩選條件
+  :   Term/session filtering criteria
 
 ## Details
 
@@ -120,8 +120,9 @@ and more information, please use
 \#'@note To retrieve the user manual and more information about variable
 of the data frame, please use
 `get_variable_info("get_executive_response")` or visit the API manual at
-<https://data.ly.gov.tw/getds.action?id=2>. 質詢類:
-提供公報質詢事項行政院答復資訊 (自第8屆第1會期起)。
+<https://data.ly.gov.tw/getds.action?id=2>. Category: Provides records
+of the Executive Yuan's responses to legislators' questions in the
+gazette (available from the 8th term, 1st session, onwards).
 
 ## See also
 
@@ -137,7 +138,6 @@ Yen-Chieh Liao (davidycliao@gmail.com)
 ``` r
 if (FALSE) { # \dontrun{
 ## query the Executives' answered response by term and the session period.
-## 輸入「立委屆期」與「會期」下載「行政院答復」
 term8 <- get_executive_response(term = 8, session_period = 1)
 term8
 } # }

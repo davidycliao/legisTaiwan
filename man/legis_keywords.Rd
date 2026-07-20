@@ -5,13 +5,19 @@
 \alias{legis_keywords}
 \title{Legislative Keywords for Text Analysis}
 \format{
-A character vector containing 10 keywords:
+A character vector containing 10 keywords, all in Traditional Chinese
+(the language of the source legislative documents), grouped here by policy
+domain for reference:
 \describe{
-\item{災害管理}{八二三砲戰, 九二一大地震, 地震}
-\item{社會福利}{托育, 日間托老, 長照}
-\item{住宅政策}{眷村改建, 遷村}
-\item{區域發展}{偏鄉}
-\item{金融政策}{金融卡}
+\item{disaster management}{3 keywords, e.g. terms for the "823 Artillery
+Bombardment", the "921 earthquake", and "earthquake" in general}
+\item{social welfare}{3 keywords, e.g. terms for "childcare", "adult day
+care", and "long-term care"}
+\item{housing policy}{2 keywords, e.g. terms for "military dependents'
+village redevelopment" and "village relocation"}
+\item{regional development}{1 keyword, e.g. the term for "remote/rural
+areas"}
+\item{financial policy}{1 keyword, e.g. the term for "bank/ATM card"}
 }
 }
 \source{
@@ -28,7 +34,7 @@ These keywords are carefully selected to cover major policy domains including di
 management, social welfare, housing policy, and regional development.
 }
 \details{
-Taiwan Legislative Keywords for Text Analysis 常用立法關鍵字
+Taiwan Legislative Keywords for Text Analysis
 
 These keywords can be used with quanteda or other text analysis packages to analyze
 legislative documents. They are particularly useful for:

@@ -1,4 +1,4 @@
-# Get Bill by legislator 取得立法委員提案資料
+# Get Bill by legislator
 
 Retrieves comprehensive information for a specific legislator from the
 Legislative Yuan API. This includes personal details, committee
@@ -18,7 +18,8 @@ get_ly_legislator_bills(term, name, page = 1, limit = 20, show_progress = TRUE)
 
 - name:
 
-  string. Required. The legislator's name in Chinese (e.g., "王金平")
+  string. Required. The legislator's name in Chinese (e.g., the
+  legislator romanized as "Wang Jin-pyng")
 
 - page:
 
@@ -64,45 +65,45 @@ A list containing two components:
 
   :   Bill number
 
-  議案名稱
+  billName
 
-  :   Bill name
+  :   Bill name (raw column name is a Chinese label)
 
-  提案單位
+  billOrg
 
-  :   Proposing unit/legislator
+  :   Proposing unit/legislator (raw column name is a Chinese label)
 
-  議案狀態
+  billStatus
 
-  :   Bill status
+  :   Bill status (raw column name is a Chinese label)
 
-  議案類別
+  billType
 
-  :   Bill type
+  :   Bill type (raw column name is a Chinese label)
 
-  提案來源
+  billSource
 
-  :   Bill source
+  :   Bill source (raw column name is a Chinese label)
 
   meet_id
 
   :   Meeting ID
 
-  會期
+  session
 
-  :   Session number
+  :   Session number (raw column name is a Chinese label)
 
-  字號
+  referenceNo
 
-  :   Reference number
+  :   Reference number (raw column name is a Chinese label)
 
-  提案編號
+  proposalNo
 
-  :   Proposal number
+  :   Proposal number (raw column name is a Chinese label)
 
-  屆期
+  term
 
-  :   Legislative term
+  :   Legislative term (raw column name is a Chinese label)
 
   mtime
 
@@ -110,7 +111,7 @@ A list containing two components:
 
 ## Details
 
-Get Bill by legislator 取得立法委員提案資料
+Get Bill by legislator
 
 ## API Details
 
@@ -157,14 +158,14 @@ if (FALSE) { # \dontrun{
 # Get bills for a specific legislator
 bills <- get_ly_legislator_bills(
   term = 9,
-  name = "王金平",
+  name = "Wang Jin-pyng",  # a legislator's Chinese name goes here
   limit = 10
 )
 
 # Get second page of bills
 bills_page2 <- get_ly_legislator_bills(
   term = 9,
-  name = "王金平",
+  name = "Wang Jin-pyng",  # a legislator's Chinese name goes here
   page = 2,
   limit = 20
 )

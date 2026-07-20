@@ -13,7 +13,7 @@ review_session_info(term)
 A dataframe containing session information
 }
 \description{
-Examines session periods in Taiwan Minguo calendar (檢查每年會期民國曆)
+Examines session periods in the Taiwan Minguo calendar
 }
 \details{
 Check Session Periods in Each Year (Minguo Calendar)

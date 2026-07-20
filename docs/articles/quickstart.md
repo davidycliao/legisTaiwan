@@ -9,13 +9,11 @@ digitized textual and video records for a research project and analyze
 public policies.
 
 ``` r
-
 install.packages("remotes")
 remotes::install_github("davidycliao/legisTaiwan", force = TRUE)
 ```
 
 ``` r
-
 library(legisTaiwan)
 #> ## legisTaiwan v0.2.2                                     ##
 #> ## An R package connecting to the Taiwan Legislative API. ##
@@ -141,7 +139,7 @@ migrate to the new API endpoints.
 Contributions in the form of comments, code suggestions, and tutorial
 examples are very welcome. Please note that the `LeigsTaiwan` is
 released with the [Contributor Code of
-Conduct](https://github.com/davidycliao/legisTaiwan/blob/master/CONDUCT.md).
+Conduct](https://github.com/davidycliao/legisTaiwan/blob/master/inst/CONDUCT.md).
 By contributing to this project, you agree to abide by its terms.
 
   

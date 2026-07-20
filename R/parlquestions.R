@@ -1,4 +1,4 @@
-#' The Records of Parliamentary Questions 委員質詢事項資訊
+#' The Records of Parliamentary Questions
 #'
 #' @author Yen-Chieh Liao (davidycliao@@gmail.com)
 #'
@@ -6,10 +6,10 @@
 #' Provides access to the records of parliamentary questions through
 #' the Legislative Yuan's V1 API interface.
 #'
-#' @param term numeric or NULL. The default is set to NULL. 參數必須為數值。
+#' @param term numeric or NULL. The default is set to NULL.
 #'
 #' @param session_period integer, numeric or NULL. Available
-#' options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to 8 參數必須為數值。
+#' options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to 8
 #' `review_session_info()` generates each session period available option period
 #' in Minguo (Taiwan) calendar.
 #'
@@ -27,11 +27,11 @@
 #'     \item{`manual_info`}{the offical manual from \url{https://data.ly.gov.tw/getds.action?id=6}, or use get_variable_info("get_parlquestions")}
 #'     \item{`data`}{a tibble dataframe, whose variables include:
 #'       \describe{
-#'         \item{`term`}{屆別}
-#'         \item{`sessionPeriod`}{會期}
-#'         \item{`sessionTimes`}{會次}
-#'         \item{`item`}{項目}
-#'         \item{`selectTerm`}{屆別期別篩選條件}
+#'         \item{`term`}{Term number}
+#'         \item{`sessionPeriod`}{Session period}
+#'         \item{`sessionTimes`}{Session times}
+#'         \item{`item`}{Item}
+#'         \item{`selectTerm`}{Term/session filtering criteria}
 #'       }
 #'     }
 #'   }
@@ -54,7 +54,8 @@
 #' @note To retrieve the user manual and more information about variable of the data
 #' frame, please use `get_variable_info("get_parlquestions")`
 #' or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=6}.
-#' 質詢類: 提供議事日程本院委員之質詢事項資訊(自第8屆第1會期起)。
+#' Category: Provides records of legislators' questions from the meeting agenda
+#' (available from the 8th term, 1st session, onwards).
 #'
 #' @seealso `get_variable_info("get_parlquestions")`
 #'
@@ -169,7 +170,7 @@ get_parlquestions <- function(term = NULL, session_period = NULL, verbose = TRUE
   )
 }
 
-#'The Records of Response to the Questions by the Executives 公報質詢事項行政院答復資訊
+#'The Records of Response to the Questions by the Executives
 #'
 #' @author Yen-Chieh Liao (davidycliao@@gmail.com)
 #'
@@ -178,10 +179,10 @@ get_parlquestions <- function(term = NULL, session_period = NULL, verbose = TRUE
 #' the Legislative Yuan's V1 API interface.
 #'
 #' @param term integer, numeric or NULL. The default is NULL. The data is only
-#'available from 8th term. 參數必須為數值。資料從自第8屆起，預設值為8。
+#'available from 8th term.
 #'
 #' @param session_period integer, numeric or NULL. Available
-#'options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to NULL. 參數必須為數值。
+#'options for the session is: 1, 2, 3, 4, 5, 6, 7, and 8. The default is set to NULL.
 #'`review_session_info()` generates each session period  available option period
 #' in Minguo (Taiwan) calendar.
 #'
@@ -197,18 +198,18 @@ get_parlquestions <- function(term = NULL, session_period = NULL, verbose = TRUE
 #'    \item{`variable_names`}{the variables of the tibble dataframe}
 #'    \item{`manual_info`}{the offical manual}
 #'    \item{`data`}{a tibble dataframe, whose variables include:
-#'      \describe{\item{`term`}{屆別}
-#'                \item{`sessionPeriod`}{會期}
-#'                \item{`sessionTimes`}{會次}
-#'                \item{`meetingTimes`}{臨時會會次}
-#'                \item{`eyNumber`}{行政院函公文編號}
-#'                \item{`lyNumber`}{立法院函編號}
-#'                \item{`subject`}{案由}
-#'                \item{`content`}{內容}
-#'                \item{`docUrl`}{案由}
-#'                \item{`item`}{檔案下載位置}
-#'                \item{`item`}{檔案下載位置}
-#'                \item{`selectTerm`}{屆別期別篩選條件}
+#'      \describe{\item{`term`}{Term number}
+#'                \item{`sessionPeriod`}{Session period}
+#'                \item{`sessionTimes`}{Session times}
+#'                \item{`meetingTimes`}{Extraordinary session times}
+#'                \item{`eyNumber`}{Executive Yuan document reference number}
+#'                \item{`lyNumber`}{Legislative Yuan document reference number}
+#'                \item{`subject`}{Subject}
+#'                \item{`content`}{Content}
+#'                \item{`docUrl`}{Subject}
+#'                \item{`item`}{File download location}
+#'                \item{`item`}{File download location}
+#'                \item{`selectTerm`}{Term/session filtering criteria}
 #'                }
 #'              }
 #'      }
@@ -221,7 +222,6 @@ get_parlquestions <- function(term = NULL, session_period = NULL, verbose = TRUE
 #'@examples
 #' \dontrun{
 #' ## query the Executives' answered response by term and the session period.
-#' ## 輸入「立委屆期」與「會期」下載「行政院答復」
 #' term8 <- get_executive_response(term = 8, session_period = 1)
 #' term8
 #' }
@@ -234,7 +234,8 @@ get_parlquestions <- function(term = NULL, session_period = NULL, verbose = TRUE
 #'#'@note To retrieve the user manual and more information about variable of the data
 #' frame, please use `get_variable_info("get_executive_response")`
 #' or visit the API manual at \url{https://data.ly.gov.tw/getds.action?id=2}.
-#' 質詢類: 提供公報質詢事項行政院答復資訊 (自第8屆第1會期起)。
+#' Category: Provides records of the Executive Yuan's responses to legislators'
+#' questions in the gazette (available from the 8th term, 1st session, onwards).
 #'
 #'@seealso
 #'`get_variable_info("get_executive_response")`, `review_session_info()`

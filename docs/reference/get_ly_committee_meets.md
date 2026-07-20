@@ -1,4 +1,4 @@
-# Fetch Legislative Yuan Committee Meetings 取得立法院委員會會議資料
+# Fetch Legislative Yuan Committee Meetings
 
 Retrieves and processes committee meeting information from the
 Legislative Yuan API. This function allows you to fetch detailed
@@ -30,43 +30,41 @@ get_ly_committee_meets(
 
   integer. Required. The ID of the committee. Available values:
 
-  - 15: 內政委員會 (Interior Committee)
+  - 15: Interior Committee
 
-  - 16: 外交及僑務委員會 (Foreign and Overseas Chinese Affairs
-    Committee)
+  - 16: Foreign and Overseas Chinese Affairs Committee
 
-  - 17: 科技及資訊委員會 (Science and Technology Committee)
+  - 17: Science and Technology Committee
 
-  - 18: 國防委員會 (Defense Committee)
+  - 18: Defense Committee
 
-  - 19: 經濟委員會 (Economics Committee)
+  - 19: Economics Committee
 
-  - 20: 財政委員會 (Finance Committee)
+  - 20: Finance Committee
 
-  - 21: 預算及決算委員會 (Budget Committee)
+  - 21: Budget Committee
 
-  - 22: 教育及文化委員會 (Education and Culture Committee)
+  - 22: Education and Culture Committee
 
-  - 23: 交通委員會 (Transportation Committee)
+  - 23: Transportation Committee
 
-  - 24: 司法委員會 (Judiciary Committee)
+  - 24: Judiciary Committee
 
-  - 25: 法制委員會 (Legal Affairs Committee)
+  - 25: Legal Affairs Committee
 
-  - 26: 社會福利及衛生環境委員會 (Social Welfare and Environmental
-    Hygiene Committee)
+  - 26: Social Welfare and Environmental Hygiene Committee
 
-  - 27: 程序委員會 (Procedure Committee)
+  - 27: Procedure Committee
 
-  - 28: 紀律委員會 (Discipline Committee)
+  - 28: Discipline Committee
 
-  - 29: 修憲委員會 (Constitutional Amendment Committee)
+  - 29: Constitutional Amendment Committee
 
-  - 30: 經費稽核委員會 (Expenditure Review Committee)
+  - 30: Expenditure Review Committee
 
-  - 35: 外交及國防委員會 (Foreign Affairs and Defense Committee)
+  - 35: Foreign Affairs and Defense Committee
 
-  - 36: 司法及法制委員會 (Judiciary and Legal Affairs Committee)
+  - 36: Judiciary and Legal Affairs Committee
 
 - page:
 

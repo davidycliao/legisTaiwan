@@ -84,7 +84,7 @@
 
 
 <dt id="arg-name">name<a class="anchor" aria-label="anchor" href="#arg-name"></a></dt>
-<dd><p>required string. Legislator name (e.g. "王金平")</p></dd>
+<dd><p>required string. Legislator name as used by the API, in Chinese (e.g. the legislator romanized as "Wang Jin-pyng")</p></dd>
 
 
 <dt id="arg-show-progress">show_progress<a class="anchor" aria-label="anchor" href="#arg-show-progress"></a></dt>
@@ -145,7 +145,7 @@
 </dl></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>Get Legislative Yuan Legislator Detail 取得立法委員完整歷史資料</p>
+    <p>Get Legislative Yuan Legislator Detail</p>
     </div>
 
     <div class="section level2">
@@ -154,7 +154,7 @@
 <span class="r-in"><span><span class="co"># Get legislator detail</span></span></span>
 <span class="r-in"><span><span class="va">detail</span> <span class="op">&lt;-</span> <span class="fu">get_ly_legislator_detail</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  term <span class="op">=</span> <span class="fl">9</span>,</span></span>
-<span class="r-in"><span>  name <span class="op">=</span> <span class="st">"王金平"</span></span></span>
+<span class="r-in"><span>  name <span class="op">=</span> <span class="st">"Wang Jin-pyng"</span>  <span class="co"># a legislator's Chinese name goes here</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Print basic info</span></span></span>
@@ -176,7 +176,7 @@
    </div>
   <footer><div class="container">
   <div class="pkgdown-footer-left">
-  <p>Developed by <a href="https://davidycliao.github.io" class="external-link">Yen-Chieh Liao</a>, <a href="https://sites.google.com/view/litang2020?pli=1" class="external-link">Li Tang</a>, <a href="https://openfun.tw" class="external-link"><img src="https://raw.githack.com/davidycliao/legisTaiwan/master/inst/figures/openfun.jpg" width="50" alt="OpenFun Ltd. logo"></a>, <a href="https://data.ly.gov.tw/catelog.action" class="external-link"><img src="https://raw.githack.com/davidycliao/legisTaiwan/master/inst/figures/ly.jpeg" width="52" alt="Taiwan Legislative Yuan logo"></a>.</p>
+  <p>Developed by <a href="https://davidycliao.github.io" class="external-link">Yen-Chieh Liao</a>, <a href="https://sites.google.com/view/litang2020?pli=1" class="external-link">Li Tang</a>, OpenFun Ltd., Taiwan Legislative Yuan.</p>
 </div>
 
 <div class="pkgdown-footer-right">

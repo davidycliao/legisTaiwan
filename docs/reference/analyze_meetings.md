@@ -46,9 +46,10 @@ analyze_meetings(stats)
 
           :   Number of meetings with data
 
-          議事錄_count
+          minutes_count
 
-          :   Number of meetings with minutes
+          :   Number of meetings with minutes (the API's raw column name
+              is a Traditional Chinese label)
 
 ## Value
 

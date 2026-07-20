@@ -8,7 +8,6 @@ explore two different methods of retrieving bill data using specific
 date ranges and legislative terms.
 
 ``` r
-
 library(legisTaiwan)
 #> Error in get(paste0(generic, ".", class), envir = get_method_env()) : 
 #>   object 'type_sum.accel' not found
@@ -23,7 +22,6 @@ dates use the Republic of China (ROC) calendar system:
 - End date: 111/03/10 (ROC calendar)
 
 ``` r
-
 billdata <- get_bills(start_date = 1030120,end_date = 1110310, verbose = TRUE)
 #> 
 #> Input Format Information:
@@ -51,7 +49,6 @@ The get_bills() function returns a comprehensive list containing the
 metadata and the actual bill data:
 
 ``` r
-
 str(billdata,  give.attr = FALSE)
 #> List of 12
 #>  $ title           : chr "the records of bill sponsor and co-sponsor"
@@ -92,7 +89,6 @@ str(billdata,  give.attr = FALSE)
 `billdata$data` returns tibble table containing relevent information.
 
 ``` r
-
 billdata$data
 #> # A tibble: 12,519 × 9
 #>    date    term  sessionPeriod sessionTimes billName          billProposer
@@ -126,7 +122,6 @@ Alternatively, you can fetch bills by legislative term using
 [`get_bills_2()`](https://davidycliao.github.io/legisTaiwan/reference/get_bills_2.md):
 
 ``` r
-
 full_term <- get_bills_2(term = 11)
 #> 
 #> Input Format Information:

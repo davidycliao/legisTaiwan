@@ -1,6 +1,6 @@
-# The Records of National Public Debates 國是論壇
+# The Records of National Public Debates
 
-The Records of National Public Debates 國是論壇
+The Records of National Public Debates
 
 ## Usage
 
@@ -65,62 +65,63 @@ A list containing:
 
   `term`
 
-  :   屆別
+  :   Term number
 
   `sessionPeriod`
 
-  :   會期
+  :   Session period
 
   `sessionTimes`
 
-  :   會次
+  :   Session times
 
   `meetingTimes`
 
-  :   臨時會會次
+  :   Extraordinary session times
 
   `dateTimeDesc`
 
-  :   日期時間說明
+  :   Date/time description
 
   `meetingRoom`
 
-  :   會議地點
+  :   Meeting room
 
   `chairman`
 
-  :   主持人
+  :   Chairperson
 
   `legislatorName`
 
-  :   委員姓名
+  :   Legislator's name
 
   `speakType`
 
-  :   發言類型(paper:書面發言,speak:發言)
+  :   Speech type (paper: written statement, speak: spoken)
 
   `content`
 
-  :   內容
+  :   Content
 
   `selectTerm`
 
-  :   屆別期別篩選條件
+  :   Term/session filtering criteria
 
 ## Details
 
-The function retrieves records from the National Public Debates
-(國是論壇), including both spoken and written opinions. While officially
-available from the 8th legislative term, testing indicates data is only
-available from the 10th term onwards.
+The function retrieves records from the National Public Debates,
+including both spoken and written opinions. While officially available
+from the 8th legislative term, testing indicates data is only available
+from the 10th term onwards.
 
 ## Note
 
 For more details about the data variables and API information, use
 `get_variable_info("get_public_debates")` or visit the API manual at
-<https://data.ly.gov.tw/getds.action?id=7>. 議事類:
-提供公報之國是論壇資訊，並包含書面意見。
-自第8屆第1會期起，但實測資料從第10屆。
+<https://data.ly.gov.tw/getds.action?id=7>. Category: Provides National
+Public Debate records from the gazette, including written opinions.
+Officially available from the 8th term, 1st session, onwards, but
+testing shows data only starts from the 10th term.
 
 ## See also
 

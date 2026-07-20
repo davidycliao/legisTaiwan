@@ -17,7 +17,8 @@ get_ly_legislator_detail(term, name, show_progress = TRUE)
 
 - name:
 
-  required string. Legislator name (e.g. "王金平")
+  required string. Legislator name as used by the API, in Chinese (e.g.
+  the legislator romanized as "Wang Jin-pyng")
 
 - show_progress:
 
@@ -93,7 +94,7 @@ A list containing legislator details:
 
 ## Details
 
-Get Legislative Yuan Legislator Detail 取得立法委員完整歷史資料
+Get Legislative Yuan Legislator Detail
 
 ## Examples
 
@@ -102,7 +103,7 @@ if (FALSE) { # \dontrun{
 # Get legislator detail
 detail <- get_ly_legislator_detail(
   term = 9,
-  name = "王金平"
+  name = "Wang Jin-pyng"  # a legislator's Chinese name goes here
 )
 
 # Print basic info
