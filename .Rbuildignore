@@ -9,6 +9,7 @@
 ^\.Rcheck$
 ^.*\.utf8\.R$
 ^README\.Rmd$
+^README\.html$
 ^.*\.DS_Store$
 ^.DS_Store$
 ^\.Rproj\.user$
