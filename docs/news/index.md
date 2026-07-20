@@ -78,12 +78,12 @@ documentation.
 - [`get_public_debates()`](https://davidycliao.github.io/legisTaiwan/reference/get_public_debates.md)
   manual information is inconsistent with actual data.
 
-- \~~Two API endpoints,`質詢事項(本院委員質詢部分)` ~~and `國是論壇`,
-  are~~ is temporarily down. Therefore, the data retrieved by
+- Two API endpoints,`質詢事項(本院委員質詢部分)` ~~and `國是論壇`, are~~
+  is temporarily down. Therefore, the data retrieved by
   [`get_parlquestions()`](https://davidycliao.github.io/legisTaiwan/reference/get_parlquestions.md)
   ~~and
   [`get_public_debates()`](https://davidycliao.github.io/legisTaiwan/reference/get_public_debates.md)~~
-  may not be correct. \[*UPDATE: Feb 5 2023*\]\~~
+  may not be correct. \[*UPDATE: Feb 5 2023*\]
 
 - [`get_public_debates()`](https://davidycliao.github.io/legisTaiwan/reference/get_public_debates.md)
   is on. \[*UPDATE: Feb 7 2023*\]
