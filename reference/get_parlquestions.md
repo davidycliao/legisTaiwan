@@ -1,4 +1,4 @@
-# The Records of Parliamentary Questions 委員質詢事項資訊
+# The Records of Parliamentary Questions
 
 Provides access to the records of parliamentary questions through the
 Legislative Yuan's V1 API interface.
@@ -13,12 +13,12 @@ get_parlquestions(term = NULL, session_period = NULL, verbose = TRUE)
 
 - term:
 
-  numeric or NULL. The default is set to NULL. 參數必須為數值。
+  numeric or NULL. The default is set to NULL.
 
 - session_period:
 
   integer, numeric or NULL. Available options for the session is: 1, 2,
-  3, 4, 5, 6, 7, and 8. The default is set to 8 參數必須為數值。
+  3, 4, 5, 6, 7, and 8. The default is set to 8
   [`review_session_info()`](https://davidycliao.github.io/legisTaiwan/reference/review_session_info.md)
   generates each session period available option period in Minguo
   (Taiwan) calendar.
@@ -67,23 +67,23 @@ A list containing:
 
   `term`
 
-  :   屆別
+  :   Term number
 
   `sessionPeriod`
 
-  :   會期
+  :   Session period
 
   `sessionTimes`
 
-  :   會次
+  :   Session times
 
   `item`
 
-  :   項目
+  :   Item
 
   `selectTerm`
 
-  :   屆別期別篩選條件
+  :   Term/session filtering criteria
 
 ## Details
 
@@ -95,8 +95,9 @@ A list containing:
 
 To retrieve the user manual and more information about variable of the
 data frame, please use `get_variable_info("get_parlquestions")` or visit
-the API manual at <https://data.ly.gov.tw/getds.action?id=6>. 質詢類:
-提供議事日程本院委員之質詢事項資訊(自第8屆第1會期起)。
+the API manual at <https://data.ly.gov.tw/getds.action?id=6>. Category:
+Provides records of legislators' questions from the meeting agenda
+(available from the 8th term, 1st session, onwards).
 
 ## See also
 

@@ -1,4 +1,4 @@
-# Fetch Bills Cosigned by a Legislator 取得立法委員連署法案
+# Fetch Bills Cosigned by a Legislator
 
 Retrieves bills that were cosigned by a specific legislator by term and
 name from the Legislative Yuan API.
@@ -23,7 +23,8 @@ get_ly_legislator_cosign_bills(
 
 - name:
 
-  required string. Legislator name (e.g. "王金平")
+  required string. Legislator name in Chinese (e.g. the legislator
+  romanized as "Wang Jin-pyng")
 
 - page:
 
@@ -69,45 +70,45 @@ A list containing two components:
 
   :   Bill number
 
-  議案名稱
+  billName
 
-  :   Bill name
+  :   Bill name (raw column name is a Chinese label)
 
-  提案單位
+  billOrg
 
-  :   Proposing unit/legislator
+  :   Proposing unit/legislator (raw column name is a Chinese label)
 
-  議案狀態
+  billStatus
 
-  :   Bill status
+  :   Bill status (raw column name is a Chinese label)
 
-  議案類別
+  billType
 
-  :   Bill type
+  :   Bill type (raw column name is a Chinese label)
 
-  提案來源
+  billSource
 
-  :   Source
+  :   Source (raw column name is a Chinese label)
 
   meet_id
 
   :   Meeting ID
 
-  會期
+  session
 
-  :   Session period
+  :   Session period (raw column name is a Chinese label)
 
-  字號
+  caseNo
 
-  :   Case number
+  :   Case number (raw column name is a Chinese label)
 
-  提案編號
+  proposalNo
 
-  :   Proposal number
+  :   Proposal number (raw column name is a Chinese label)
 
-  屆期
+  term
 
-  :   Term
+  :   Term (raw column name is a Chinese label)
 
   mtime
 
@@ -115,7 +116,7 @@ A list containing two components:
 
 ## Details
 
-Get Legislator's Cosigned Bills 取得立法委員連署法案
+Get Legislator's Cosigned Bills
 
 ## See also
 
@@ -136,19 +137,19 @@ if (FALSE) { # \dontrun{
 # Get cosigned bills
 bills <- get_ly_legislator_cosign_bills(
   term = 9,
-  name = "王金平",
+  name = "Wang Jin-pyng",  # a legislator's Chinese name goes here
   limit = 5
 )
 
 # Print results
 print(paste("Total cosigned bills:", bills$metadata$total))
 print("Latest cosigned bill:")
-print(bills$bills[1, c("議案名稱", "議案狀態")])
+print(bills$bills[1, c("billName", "billStatus")])  # actual columns are named in Chinese
 
 # Get second page of results
 bills_page2 <- get_ly_legislator_cosign_bills(
   term = 9,
-  name = "王金平",
+  name = "Wang Jin-pyng",  # a legislator's Chinese name goes here
   page = 2,
   limit = 20
 )

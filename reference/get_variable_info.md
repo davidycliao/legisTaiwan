@@ -1,11 +1,11 @@
-# Check Each Function's Manual 檢查各函式說明文件
+# Check Each Function's Manual
 
 `get_variable_info` generate each API's endpoint manual returned from
 the website of Taiwan Legislative Yuan. The avalaible options is:
 `get_bills`, `get_bills_2`, `get_meetings`, `get_caucus_meetings`,
 `get_speech_video` , `get_public_debates`, `get_parlquestions`,
-`get_executive_response` and `get_committee_record`. 僅使用舊版 API
-參數。
+`get_executive_response` and `get_committee_record`. Only supports
+legacy API parameters.
 
 ## Usage
 

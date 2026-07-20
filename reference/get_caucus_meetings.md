@@ -1,4 +1,4 @@
-# The Meeting Records of Cross-caucus Session 黨團協商資訊
+# The Meeting Records of Cross-caucus Session
 
 Retrieves cross-caucus negotiation meeting records from the Legislative
 Yuan's V1 API.
@@ -77,55 +77,55 @@ list, which contains:
 
   `comVolume`
 
-  :   期
+  :   Issue
 
   `comBookId`
 
-  :   冊別
+  :   Book ID
 
   `term`
 
-  :   屆別
+  :   Term number
 
   `sessionPeriod`
 
-  :   會期
+  :   Session period
 
   `meetingTimes`
 
-  :   臨時會會次
+  :   Extraordinary session times
 
   `meetingDate`
 
-  :   會議日期(民國年)
+  :   Meeting date (Minguo calendar)
 
   `meetingName`
 
-  :   會議名稱
+  :   Meeting name
 
   `subject`
 
-  :   案由
+  :   Subject
 
   `pageStart`
 
-  :   起始頁
+  :   Starting page
 
   `pageEnd`
 
-  :   結束頁
+  :   Ending page
 
   `docUrl`
 
-  :   檔案下載位置
+  :   File download location
 
   `htmlUrl`
 
-  :   html網址
+  :   HTML URL
 
   `selectTerm`
 
-  :   屆別期別篩選條件
+  :   Term/session filtering criteria
 
 ## Details
 
@@ -139,7 +139,8 @@ list, which contains:
 To retrieve the user manual and more information about variable of the
 data frame, please use `get_variable_info("get_caucus_meetings")` or
 visit the API manual at <https://data.ly.gov.tw/getds.action?id=8>.
-議事類:提供公報之黨團協商資訊 (自第8屆第1會期起)
+Category: Provides cross-caucus negotiation records from the gazette
+(available from the 8th term, 1st session, onwards)
 
 ## See also
 
@@ -155,8 +156,6 @@ Yen-Chieh Liao (davidycliao@gmail.com)
 ``` r
 ## query the meeting records of cross-caucus session using a period of
 ## the dates in Taiwan ROC calender format with forward slash (/).
-## 輸入「中華民國民年」下載「黨團協商」，輸入時間請依照該格式 "106/10/20"，
-## 需有「正斜線」做隔開。
 get_caucus_meetings(start_date = "106/10/20", end_date = "107/03/10")
 #> Downloading caucus meetings data...
 #> 
