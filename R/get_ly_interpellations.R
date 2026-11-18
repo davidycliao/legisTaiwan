@@ -10,11 +10,14 @@
 #' @param legislator A string specifying the legislator's name
 #' @param term An integer specifying the legislative term number
 #' @param session_period An integer specifying the session period
-#' @param session_times An integer specifying the session times
+#' @param session_times An integer specifying the session times (meeting number).
+#'   The API has no direct filter for this, so it requires \code{term} and
+#'   \code{session_period} and is converted to a plenary \code{meet_id}
 #' @param meet_id A string specifying the meeting ID, using the API's own
 #'   meeting-type label (in Chinese) combined with term-session-times numbers
 #'   (e.g., a plenary-session meeting in term 9, session 2, session-times 1)
-#' @param query A string to search in interpellation reasons or content
+#' @param query A string for full-text search. Wrap it in double quotes
+#'   (e.g. \code{'"keyword"'}) for an exact phrase match
 #' @param show_progress A logical value indicating whether to show progress bar (default: TRUE)
 #'
 #' @return A list with two components:
@@ -73,10 +76,9 @@
 #'
 #' @importFrom httr GET content status_code
 #' @importFrom jsonlite fromJSON
-#' @importFrom utils txtProgressBar setTxtProgressBar
 #'
 #' @seealso
-#' \url{https://ly.govapi.tw/} for API documentation
+#' \url{https://v2.ly.govapi.tw/swagger} for API documentation
 #'
 #' @encoding UTF-8
 #' @export
@@ -91,116 +93,82 @@ get_ly_interpellations <- function(
     query = NULL,
     show_progress = TRUE
 ) {
-  # Base URL
-  base_url <- "https://ly.govapi.tw/interpellation"
+  base_url <- "https://v2.ly.govapi.tw/interpellations"
 
-  # Query parameters
+  # API v2 has no session-times filter; interpellations are plenary-only,
+  # so term + period + times maps to a plenary meeting code.
+  if (!is.null(session_times) && is.null(meet_id)) {
+    if (is.null(term) || is.null(session_period)) {
+      stop("`session_times` requires both `term` and `session_period`.")
+    }
+    meet_id <- sprintf("\u9662\u6703-%d-%d-%d", as.integer(term),
+                       as.integer(session_period), as.integer(session_times))
+  }
+
   query_params <- list(
     page = page,
     limit = limit,
-    term = term,
-    sessionPeriod = session_period,
-    sessionTimes = session_times,
-    legislator = legislator,
-    meet_id = meet_id,
+    "\u8cea\u8a62\u59d4\u54e1" = legislator,  # 質詢委員
+    "\u5c46" = term,  # 屆
+    "\u6703\u671f" = session_period,  # 會期
+    "\u6703\u8b70\u4ee3\u78bc" = meet_id,  # 會議代碼
     q = query
   )
-
-  # Remove NULL values
-  query_params <- query_params[!sapply(query_params, is.null)]
+  query_params <- query_params[!vapply(query_params, is.null, logical(1))]
 
   if (show_progress) {
     cat("Fetching interpellation data...\n")
   }
 
-  # Send GET request
-  response <- httr::GET(
-    base_url,
-    query = query_params
-  )
+  response <- httr::GET(base_url, query = query_params)
+  content <- httr::content(response, "text", encoding = "UTF-8")
+  data <- tryCatch(jsonlite::fromJSON(content, simplifyVector = FALSE),
+                   error = function(e) NULL)
 
-  # Check response status
-  if (httr::status_code(response) != 200) {
-    stop("API request failed with status code: ", httr::status_code(response))
+  if (httr::status_code(response) != 200 || is.null(data) || isTRUE(data$error)) {
+    stop("API request failed with status code: ", httr::status_code(response),
+         if (!is.null(data$message)) paste0(" (", data$message, ")"))
   }
 
-  # Parse response
-  content <- httr::content(response, "text", encoding = "UTF-8")
-  data <- jsonlite::fromJSON(content, simplifyDataFrame = TRUE, flatten = TRUE)
-
-  # Extract metadata
   metadata <- list(
-    total = data$total$value,
+    total = data$total,
     total_page = data$total_page,
     current_page = data$page,
     per_page = data$limit,
     filters_used = query_params
   )
 
-  # Process interpellations
-  if (length(data$interpellations) > 0) {
-    if (show_progress) {
-      cat("Processing", nrow(data$interpellations), "records...\n")
-      pb <- txtProgressBar(min = 0, max = nrow(data$interpellations), style = 3)
-    }
-
-    # Create dataframe with progress bar
-    fields <- c("id", "printed_at", "reason", "description", "meet_id",
-                "term", "sessionPeriod", "sessionTimes", "ppg_url",
-                "page_start", "page_end")
-
-    interpellations_list <- vector("list", nrow(data$interpellations))
-
-    for(i in seq_len(nrow(data$interpellations))) {
-      if (show_progress) {
-        setTxtProgressBar(pb, i)
-      }
-
-      # Extract record
-      record <- data$interpellations[i,]
-
-      # Create row data
-      row_data <- c(
-        sapply(fields, function(f) ifelse(is.null(record[[f]]), NA, record[[f]])),
-        legislators = paste(unlist(record$legislators), collapse = ", ")
-      )
-
-      interpellations_list[[i]] <- row_data
-    }
-
-    if (show_progress) {
-      close(pb)
-      cat("\nProcessing complete!\n")
-    }
-
-    # Convert list to dataframe
-    interpellations_df <- do.call(rbind.data.frame,
-                                  lapply(interpellations_list,
-                                         function(x) as.data.frame(t(x),
-                                                                   stringsAsFactors = FALSE)))
-    names(interpellations_df) <- c(fields, "legislators")
-
-  } else {
-    # Empty dataframe with correct structure
-    interpellations_df <- data.frame(
-      id = character(),
-      printed_at = character(),
-      reason = character(),
-      description = character(),
-      legislators = character(),
-      meet_id = character(),
-      term = integer(),
-      sessionPeriod = integer(),
-      sessionTimes = integer(),
-      ppg_url = character(),
-      page_start = integer(),
-      page_end = integer(),
-      stringsAsFactors = FALSE
-    )
+  records <- data$interpellations
+  field <- function(name, cast = as.character) {
+    cast(vapply(records, function(r) {
+      v <- r[[name]]
+      if (is.null(v)) NA_character_ else as.character(v)
+    }, character(1)))
   }
 
-  return(list(
+  interpellations_df <- data.frame(
+    id = field("\u8cea\u8a62\u7de8\u865f"),
+    printed_at = field("\u520a\u767b\u65e5\u671f"),
+    reason = field("\u4e8b\u7531"),
+    description = field("\u8aaa\u660e"),
+    legislators = vapply(records, function(r)
+      paste(unlist(r[["\u8cea\u8a62\u59d4\u54e1"]]), collapse = ", "), character(1)),
+    meet_id = field("\u6703\u8b70\u4ee3\u78bc"),
+    term = field("\u5c46", as.integer),
+    sessionPeriod = field("\u6703\u671f", as.integer),
+    sessionTimes = field("\u6703\u6b21", as.integer),
+    ppg_url = field("source_page"),
+    page_start = field("\u8cea\u8a62\u8d77\u59cb\u9801", as.integer),
+    page_end = field("\u8cea\u8a62\u7d50\u675f\u9801", as.integer),
+    stringsAsFactors = FALSE
+  )
+
+  if (show_progress) {
+    cat("Retrieved", nrow(interpellations_df), "of", metadata$total, "records.\n")
+  }
+
+  list(
     metadata = metadata,
     interpellations = interpellations_df
-  ))
+  )
 }
