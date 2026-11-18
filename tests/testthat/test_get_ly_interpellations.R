@@ -81,3 +81,17 @@ test_that("get_ly_interpellations handles errors", {
   empty_results <- get_ly_interpellations(legislator = "不存在的立委")
   expect_equal(nrow(empty_results$interpellations), 0)
 })
+
+# Test term/session filters (session_times maps to a plenary meet_id)
+test_that("get_ly_interpellations filters by term and session", {
+  results <- get_ly_interpellations(
+    term = 9, session_period = 2, session_times = 1, limit = 5,
+    show_progress = FALSE
+  )
+  expect_gt(nrow(results$interpellations), 0)
+  expect_true(all(results$interpellations$term == 9))
+  expect_true(all(results$interpellations$sessionPeriod == 2))
+  expect_true(all(results$interpellations$sessionTimes == 1))
+
+  expect_error(get_ly_interpellations(session_times = 1))
+})

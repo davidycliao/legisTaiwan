@@ -28,13 +28,16 @@ get_ly_interpellations(
 
 \item{session_period}{An integer specifying the session period}
 
-\item{session_times}{An integer specifying the session times}
+\item{session_times}{An integer specifying the session times (meeting number).
+The API has no direct filter for this, so it requires \code{term} and
+\code{session_period} and is converted to a plenary \code{meet_id}}
 
 \item{meet_id}{A string specifying the meeting ID, using the API's own
 meeting-type label (in Chinese) combined with term-session-times numbers
 (e.g., a plenary-session meeting in term 9, session 2, session-times 1)}
 
-\item{query}{A string to search in interpellation reasons or content}
+\item{query}{A string for full-text search. Wrap it in double quotes
+(e.g. \code{'"keyword"'}) for an exact phrase match}
 
 \item{show_progress}{A logical value indicating whether to show progress bar (default: TRUE)}
 }
@@ -100,5 +103,5 @@ head(search_results$interpellations)
 
 }
 \seealso{
-\url{https://ly.govapi.tw/} for API documentation
+\url{https://v2.ly.govapi.tw/swagger} for API documentation
 }
